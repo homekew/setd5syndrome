@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Syndrome — A Guide for the Newly Diagnosed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #faf7f2;
+    --cream2:    #f2ede4;
+    --navy:      #1a2744;
+    --deep:      #2a627a;
+    --teal:      #2a7a6a;
+    --amber:     #c9893a;
+    --amber-lt:  #fdf4e7;
+    --rose:      #b05a5a;
+    --rose-lt:   #fdf0ef;
+    --sage:      #4e7c5f;
+    --sage-lt:   #edf5ef;
+    --blue:      #5a80a8;
+    --blue-lt:   #e8eff7;
+    --text:      #2c2c2c;
+    --muted:     #6b6b6b;
+    --border:    #e0d9cf;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── HEADER ── */
+  .site-header { background: #2a627a; color: #fff; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 52px 32px 44px; }
+  .header-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
+  }
+  .header-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5vw, 40px); font-weight: 400;
+    line-height: 1.18; color: #fff; margin-bottom: 16px;
+  }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-subtitle { font-size: 15.5px; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-meta {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15);
+  }
+  .meta-chip {
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+    border-radius: 20px; padding: 4px 14px; font-size: 12px; color: rgba(255,255,255,.8);
+  }
+
+  /* ── TABS ── */
+  .tab-nav {
+    background: var(--navy);
+    display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,.55); font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500; padding: 14px 18px;
+    white-space: nowrap; border-bottom: 3px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,.85); }
+  .tab-btn.active { color: #fff; border-bottom-color: #a8cfc8; }
+
+  /* ── LAYOUT ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .page-body { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  /* ── SECTION ── */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .section-label::before { content: ''; display: block; width: 18px; height: 2px; background: var(--amber); }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(21px, 3.5vw, 28px); font-weight: 400;
+    color: var(--navy); margin-bottom: 20px; line-height: 1.25;
+  }
+  .section-divider { border: none; border-top: 2px solid var(--border); margin: 44px 0 40px; }
+
+  /* ── PROSE ── */
+  .prose { font-size: 15px; line-height: 1.78; margin-bottom: 18px; }
+  .prose + .prose { margin-top: 0; }
+
+  /* ── STAT STRIP ── */
+  .stat-strip { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+  .stat-box {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 18px 20px; flex: 1; min-width: 130px; text-align: center;
+  }
+  .stat-number { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* ── INFO CALLOUT ── */
+  .info-callout {
+    background: var(--blue-lt); border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .info-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 6px;
+  }
+  .info-callout p { font-size: 14px; line-height: 1.68; color: var(--text); }
+
+  .teal-callout {
+    background: #eef7f5; border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .teal-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
+  }
+  .teal-callout p { font-size: 14px; line-height: 1.68; color: var(--text); }
+
+  .amber-callout {
+    background: var(--amber-lt); border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .amber-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
+  }
+  .amber-callout p { font-size: 14px; line-height: 1.68; color: var(--text); }
+
+  /* ── FEATURE CARDS ── */
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+  @media (max-width: 580px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; border-top: 3px solid var(--teal);
+  }
+  .feature-card.amber-top { border-top-color: var(--amber); }
+  .feature-card.rose-top  { border-top-color: var(--rose); }
+  .feature-card.sage-top  { border-top-color: var(--sage); }
+  .feature-card.blue-top  { border-top-color: var(--blue); }
+  .feature-card h4 {
+    font-family: 'DM Serif Display', serif; font-size: 16px;
+    color: var(--navy); margin-bottom: 10px;
+  }
+  .feature-card ul { list-style: none; padding: 0; }
+  .feature-card ul li {
+    font-size: 13.5px; padding: 3px 0 3px 18px;
+    position: relative; color: var(--text); line-height: 1.55;
+  }
+  .feature-card ul li::before {
+    content: '·'; position: absolute; left: 5px;
+    font-size: 20px; line-height: 1; color: var(--teal); top: 2px;
+  }
+  .feature-card.amber-top ul li::before { color: var(--amber); }
+  .feature-card.rose-top  ul li::before { color: var(--rose); }
+  .feature-card.sage-top  ul li::before { color: var(--sage); }
+  .feature-card.blue-top  ul li::before { color: var(--blue); }
+
+  /* ── STEPS ── */
+  .steps-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .step-item {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px 20px 70px; position: relative;
+  }
+  .step-number {
+    position: absolute; left: 20px; top: 20px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-family: 'DM Serif Display', serif; font-size: 17px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-item h4 {
+    font-family: 'DM Serif Display', serif; font-size: 16px;
+    color: var(--navy); margin-bottom: 6px;
+  }
+  .step-item p { font-size: 14px; line-height: 1.65; color: var(--text); }
+
+  /* ── QUESTION LIST ── */
+  .question-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .question-list li {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px 12px 44px; font-size: 14px; line-height: 1.6;
+    position: relative; color: var(--text);
+  }
+  .question-list li::before {
+    content: '?'; position: absolute; left: 14px; top: 12px;
+    width: 22px; height: 22px; border-radius: 50%; background: var(--teal);
+    color: #fff; font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 22px; text-align: center;
+  }
+
+  /* ── RESOURCE LIST ── */
+  .resource-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .resource-item {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; display: flex; align-items: flex-start; gap: 14px;
+  }
+  .resource-icon {
+    width: 36px; height: 36px; flex-shrink: 0; background: var(--cream2);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .resource-info { flex: 1; }
+  .resource-name { font-weight: 600; font-size: 14.5px; color: var(--navy); margin-bottom: 3px; }
+  .resource-name a { color: var(--teal); text-decoration: none; }
+  .resource-name a:hover { text-decoration: underline; }
+  .resource-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* ── SPECIALIST GRID ── */
+  .specialist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+  @media (max-width: 560px) { .specialist-grid { grid-template-columns: 1fr; } }
+  .specialist-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .specialist-card h5 { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .specialist-card p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy); color: rgba(255,255,255,.65);
+    padding: 32px; text-align: center; font-size: 13px; line-height: 1.65;
+  }
+  .site-footer .footer-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: #fff; margin-bottom: 8px; }
+  .site-footer a { color: rgba(255,255,255,.8); }
+  .site-footer p + p { margin-top: 8px; }
+
+  @media (max-width: 600px) {
+    .page-body { padding: 36px 18px 60px; }
+    .header-inner { padding: 40px 18px 32px; }
+  }
+</style>
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    document.querySelector('[data-tab="' + id + '"]').classList.add('active');
+  }
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-eyebrow">SETD5 Syndrome</p>
+    <p style="font-size:12.5px;color:#f5a623;font-style:italic;margin-bottom:12px;">⚠ DRAFT — This guide is a work in progress and new information is being added as research and community knowledge grows. Please always verify information with your medical team.</p>
+    <h1 class="header-title">A Guide for the <em>Newly Diagnosed</em></h1>
+    <p class="header-subtitle">For parents, caregivers, and adults who have just received an SETD5 diagnosis — what it means, what to expect, and where to start.</p>
+    <div class="header-meta">
+      <span class="meta-chip">For parents &amp; families</span>
+      <span class="meta-chip">For adults with SETD5</span>
+      <span class="meta-chip">Plain language</span>
+    </div>
+  </div>
+</header>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="tab-what" onclick="showTab('tab-what')">What Is SETD5?</button>
+    <button class="tab-btn" data-tab="tab-symptoms" onclick="showTab('tab-symptoms')">Symptoms &amp; Features</button>
+    <button class="tab-btn" data-tab="tab-nextsteps" onclick="showTab('tab-nextsteps')">Next Steps</button>
+    <button class="tab-btn" data-tab="tab-resources" onclick="showTab('tab-resources')">Resources &amp; Support</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 1: WHAT IS SETD5 -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-what" class="tab-panel active">
+<div class="page-body">
+
+  <p class="section-label">The basics</p>
+  <h2 class="section-title">What Is SETD5 Syndrome?</h2>
+
+  <p class="prose">SETD5 Syndrome — also called SETD5 haploinsufficiency or MRD23 — is a rare genetic condition caused by a change (variant) in the <strong>SETD5 gene</strong>, located on chromosome 3. This gene plays a key role in regulating how other genes are switched on and off during brain development. When one copy of SETD5 doesn't function correctly, it affects how the brain develops, which can lead to intellectual disability, developmental delays, and other features.</p>
+
+  <p class="prose">The condition was first described in medical literature in 2014. Many families and researchers use the name "SETD5 Syndrome."</p>
+
+  <div class="stat-strip">
+    <div class="stat-box"><div class="stat-number">&lt;1,000</div><div class="stat-label">estimated U.S. cases</div></div>
+    <div class="stat-box"><div class="stat-number">2014</div><div class="stat-label">year first described</div></div>
+    <div class="stat-box"><div class="stat-number">75+</div><div class="stat-label">individuals described in medical literature</div></div>
+    <div class="stat-box"><div class="stat-number">Chr. 3</div><div class="stat-label">gene location (3p25.3)</div></div>
+  </div>
+
+  <hr class="section-divider">
+
+  <p class="section-label">How it happens</p>
+  <h2 class="section-title">What Caused This?</h2>
+
+  <p class="prose">In the vast majority of cases, SETD5 mutations occur <strong>de novo</strong> — meaning they arise spontaneously and are not passed down from either parent. It is a random change in a single gene that occurred very early in development. Inherited cases exist but are uncommon.</p>
+
+  <div class="teal-callout">
+    <span class="callout-label">Inheritance</span>
+    <p>Because most cases are de novo, parents typically do not carry the variant themselves. Genetic counseling can clarify your family's specific situation and help answer questions about recurrence risk for future pregnancies.</p>
+  </div>
+
+  <p class="prose">SETD5 works by adding chemical "tags" to histones — the proteins that DNA wraps around. These tags help regulate which genes are active. When SETD5 doesn't function properly in one copy, the balance of gene expression during brain development is disrupted. This is called <strong>haploinsufficiency</strong> — one working copy of the gene isn't enough to carry out its full function.</p>
+
+  <hr class="section-divider">
+
+  <p class="section-label">Diagnosis</p>
+  <h2 class="section-title">How Is It Diagnosed?</h2>
+
+  <p class="prose">SETD5 Syndrome is diagnosed through genetic testing. Many families receive the diagnosis after years of searching for answers — a process sometimes called a "diagnostic odyssey." If you are newly diagnosed, know that the testing has now given you a specific answer, which opens the door to targeted support and appropriate specialists.</p>
+
+  <div class="feature-grid" style="grid-template-columns: 1fr 1fr; margin-bottom:0;">
+    <div class="feature-card blue-top">
+      <h4>Common testing methods</h4>
+      <ul>
+        <li>Whole exome sequencing (WES)</li>
+        <li>Chromosomal microarray (detects 3p25 deletions)</li>
+        <li>Neurodevelopmental gene panel</li>
+        <li>Trio sequencing (child + both parents)</li>
+      </ul>
+    </div>
+    <div class="feature-card sage-top">
+      <h4>What the result means</h4>
+      <ul>
+        <li>A pathogenic or likely pathogenic variant in SETD5</li>
+        <li>May be a point mutation or a larger deletion of the region</li>
+        <li>De novo in most cases (new, not inherited)</li>
+        <li>Can be confirmed with parental testing</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 2: SYMPTOMS & FEATURES -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-symptoms" class="tab-panel">
+<div class="page-body">
+
+  <p class="section-label">What to know</p>
+  <h2 class="section-title">Symptoms &amp; Features</h2>
+
+  <p class="prose">SETD5 Syndrome affects each person differently. Some individuals have many of the features listed below; others have only a few. Severity varies widely — even among people with the same type of SETD5 variant. No single feature is present in 100% of individuals.</p>
+
+  <div class="amber-callout">
+    <span class="callout-label">Important note</span>
+    <p>This list describes features that have been reported across individuals with SETD5. It is not a prediction of what your child or you will experience. Bring any specific questions to your medical team.</p>
+  </div>
+
+  <p class="section-label">Core features</p>
+  <h2 class="section-title">Neurodevelopmental &amp; Behavioral</h2>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h4>Learning &amp; Cognition</h4>
+      <ul>
+        <li>Intellectual disability (mild to moderate in most; some borderline or near-typical)</li>
+        <li>Global developmental delay</li>
+        <li>Difficulties with reading, writing, and numeracy</li>
+        <li>"Spiky" cognitive profile — strengths in some areas alongside challenges in others</li>
+        <li>Working memory and short-term memory difficulties</li>
+        <li>Long-term memory may be relatively stronger</li>
+      </ul>
+    </div>
+    <div class="feature-card amber-top">
+      <h4>Speech &amp; Language</h4>
+      <ul>
+        <li>Speech and language delay (nearly universal)</li>
+        <li>Expressive language typically more affected than receptive</li>
+        <li>Some individuals are minimally verbal or nonverbal</li>
+        <li>Speech dysfluency (not a true stammer, but may sound similar)</li>
+        <li>Articulation and pronunciation difficulties</li>
+        <li>Benefits from AAC (augmentative and alternative communication)</li>
+      </ul>
+    </div>
+    <div class="feature-card rose-top">
+      <h4>Behavior &amp; Emotional Regulation</h4>
+      <ul>
+        <li>ADHD features — inattention, hyperactivity, impulsivity</li>
+        <li>Anxiety and difficulty with transitions or change</li>
+        <li>Behavioral rigidity; preference for routine</li>
+        <li>Aggression or behavioral outbursts in some</li>
+        <li>Autism spectrum disorder features (diagnosed in ~24% of reported cases)</li>
+        <li>Repetitive movements or behaviors</li>
+        <li>Obsessive compulsive behaviors in some</li>
+        <li>Sensory sensitivities are common in those with ASD features</li>
+      </ul>
+    </div>
+    <div class="feature-card sage-top">
+      <h4>Social &amp; Adaptive</h4>
+      <ul>
+        <li>Social understanding and communication challenges</li>
+        <li>Difficulty with awareness of danger or personal safety</li>
+        <li>Limited independence with daily living skills in some</li>
+        <li>Emotional intelligence may be a relative strength</li>
+        <li>Many individuals are described as affectionate and sociable</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <p class="section-label">Physical features</p>
+  <h2 class="section-title">Neurological, Physical &amp; Growth Features</h2>
+
+  <div class="feature-grid">
+    <div class="feature-card blue-top">
+      <h4>Neurological &amp; Motor</h4>
+      <ul>
+        <li>Low muscle tone (hypotonia) — in ~39% of reported cases</li>
+        <li>Gait abnormalities, including tip-toe walking (~36%)</li>
+        <li>Coordination difficulties and clumsiness</li>
+        <li>Epilepsy or seizures (in approximately 14% of cases)</li>
+        <li>EEG abnormalities in some without clinical seizures</li>
+        <li>Motor development delays (gross and fine motor)</li>
+        <li>Sleep disturbances common</li>
+      </ul>
+    </div>
+    <div class="feature-card">
+      <h4>Craniofacial &amp; Physical Features</h4>
+      <ul>
+        <li>Triangular-shaped face</li>
+        <li>Head size varies — some children have a small head (microcephaly); head circumference should be monitored</li>
+        <li>Prominent eyebrows that meet or nearly meet (synophrys)</li>
+        <li>Widely spaced eyes (hypertelorism)</li>
+        <li>Strabismus (crossed or misaligned eyes)</li>
+        <li>Low-set or unusual ears</li>
+        <li>Nose with a wide base and tip</li>
+        <li>Long and smooth philtrum (groove between nose and upper lip)</li>
+        <li>Thin upper lip</li>
+        <li>High-arched palate</li>
+        <li>Teeth anomalies in some</li>
+        <li>Extra fingers or toes (polydactyly) — reported in approximately 1 in 4 children</li>
+        <li>Features are typically mild and may be subtle</li>
+      </ul>
+    </div>
+    <div class="feature-card amber-top">
+      <h4>Feeding &amp; Growth</h4>
+      <ul>
+        <li>Feeding difficulties in infancy (sucking, swallowing weakly)</li>
+        <li>Failure to thrive in some infants</li>
+        <li>Gastroesophageal reflux in some; surgery occasionally needed</li>
+        <li>Chewing difficulties common in older children</li>
+        <li>Low blood sugar (hypoglycemia) in some — should be monitored</li>
+        <li>Short stature; many remain small through childhood</li>
+        <li>Reduced bone mineral density (first described 2021)</li>
+      </ul>
+    </div>
+    <div class="feature-card rose-top">
+      <h4>Other Medical Features</h4>
+      <ul>
+        <li>Congenital heart defects in approximately 1 in 3 — often an atrioventricular septal defect (AVSD); many do well after surgery</li>
+        <li>Eye and vision anomalies common — including strabismus, nystagmus (involuntary eye movements), long- or short-sightedness, and ptosis (drooping eyelid)</li>
+        <li>Hearing impairment (temporary or permanent) in some — can affect speech and language development</li>
+        <li>Cryptorchidism (undescended testes) and/or hypospadias in some males</li>
+        <li>Inguinal hernia in some</li>
+        <li>Musculoskeletal issues including scoliosis and joint laxity</li>
+        <li>Fragile bones reported in a small number</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-callout">
+    <span class="callout-label">Variability</span>
+    <p>Not every person with SETD5 will have all — or even most — of these features. Some individuals have relatively mild presentations; others face more significant challenges. The research literature is still growing, and our understanding of the full range of the condition continues to expand.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 3: NEXT STEPS -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-nextsteps" class="tab-panel">
+<div class="page-body">
+
+  <p class="section-label">Getting started</p>
+  <h2 class="section-title">What to Do After a Diagnosis</h2>
+
+  <p class="prose">Receiving a diagnosis can feel overwhelming. It can also feel like a relief — finally having a name for what you or your child has been experiencing. There is no single "right" path forward, but there are some clear first steps that can help you access the right support.</p>
+
+  <div class="steps-list">
+    <div class="step-item">
+      <div class="step-number">1</div>
+      <h4>Request a genetics consultation</h4>
+      <p>If you haven't already met with a medical geneticist or genetic counselor, this should be a priority. They can explain exactly what the variant means for your specific situation, clarify inheritance and recurrence risk, and help coordinate specialist referrals.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">2</div>
+      <h4>Connect with a developmental pediatrician</h4>
+      <p>A developmental pediatrician can oversee your child's medical care, coordinate between specialists, and help identify what therapies and early interventions are most appropriate. For adults, a neurologist or adult geneticist may serve a similar coordinating role.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">3</div>
+      <h4>Access early intervention or school-based services</h4>
+      <p>Children under age 3 may qualify for early intervention services through their state. School-age children may qualify for an IEP (Individualized Education Program) or 504 Plan. These services — including speech, occupational, and physical therapy — can make a significant difference and are provided at no cost through the public school system.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">4</div>
+      <h4>Ask about specialist referrals</h4>
+      <p>At your first appointments, ask specifically which specialists your child should be referred to. Given the range of systems SETD5 can affect, referrals to a <strong>neurologist</strong>, <strong>cardiologist</strong>, <strong>ophthalmologist</strong>, and <strong>audiologist</strong> are commonly recommended — even when no obvious symptoms are present in those areas. See the <em>Specialists to Consider</em> section below for a full list of specialists and what each one addresses.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">5</div>
+      <h4>Enroll in a patient registry</h4>
+      <p>Joining a research registry connects you with scientists studying SETD5 and may give you access to research studies. It also helps build the evidence base that will benefit future families. Simons Searchlight is the primary registry for SETD5.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">6</div>
+      <h4>Connect with the community</h4>
+      <p>Other families living with SETD5 are one of your most valuable resources. Online communities can offer practical advice, emotional support, and the perspective of people who understand what you're going through firsthand.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <p class="section-label">Your care team</p>
+  <h2 class="section-title">Specialists to Consider</h2>
+
+  <div class="specialist-grid">
+    <div class="specialist-card">
+      <h5>Medical Geneticist / Genetic Counselor</h5>
+      <p>Explains the variant, inheritance, and recurrence risk. Often the first specialist after diagnosis.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Developmental Pediatrician</h5>
+      <p>Oversees overall developmental care and coordinates specialists for children.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Neurologist</h5>
+      <p>Evaluates and manages seizures, EEG findings, and neurological features. Recommended for all individuals. Ask your neurologist about screening for <strong>Moyamoya disease</strong> — a rare condition affecting blood flow to the brain that has been reported in association with SETD5, and warrants discussion even if no symptoms are present.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Speech-Language Pathologist</h5>
+      <p>Addresses speech, language, communication, and swallowing/feeding difficulties.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Occupational Therapist</h5>
+      <p>Supports fine motor skills, daily living activities, and sensory processing.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Physical Therapist</h5>
+      <p>Addresses gross motor delays, low muscle tone, gait, and musculoskeletal issues.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Psychologist / Behavioral Therapist</h5>
+      <p>Supports behavior, anxiety, ASD features, and adaptive functioning.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Ophthalmologist</h5>
+      <p>Evaluates strabismus and vision. Recommended early, especially if eye misalignment is present.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Audiologist</h5>
+      <p>Tests hearing — important given that hearing difficulties have been reported in some individuals.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Cardiologist</h5>
+      <p>Evaluates for congenital heart defects if any cardiac concerns are present.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Orthopedics</h5>
+      <p>Manages scoliosis, joint laxity, and other musculoskeletal issues if present.</p>
+    </div>
+    <div class="specialist-card">
+      <h5>Endocrinologist / Bone Specialist</h5>
+      <p>Relevant if short stature or reduced bone density is a concern — first documented in SETD5 in 2021.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <p class="section-label">Appointments</p>
+  <h2 class="section-title">Questions to Ask Your Doctor</h2>
+
+  <ul class="question-list">
+    <li>What type of SETD5 variant does my child/I have — a point mutation or a deletion? Does the type affect prognosis?</li>
+    <li>Is this de novo, or is there any chance it was inherited from one of the parents?</li>
+    <li>What is the recurrence risk for future pregnancies?</li>
+    <li>What specialists should we see first, given the features we're observing?</li>
+    <li>Should we do an EEG or cardiac evaluation, even if no seizures or heart symptoms are present?</li>
+    <li>Are there any clinical trials or research studies our family could participate in?</li>
+    <li>What should we be monitoring as our child grows — milestones, bone density, vision, hearing?</li>
+    <li>What does this diagnosis mean for school services and IEP eligibility?</li>
+    <li>Is there a patient registry we should join?</li>
+  </ul>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- TAB 4: RESOURCES & SUPPORT -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-resources" class="tab-panel">
+<div class="page-body">
+
+  <p class="section-label">Where to turn</p>
+  <h2 class="section-title">Resources &amp; Support</h2>
+
+  <p class="prose">Living with a rare condition is easier when you're connected — to other families, to researchers, and to the broader rare disease community. These resources are a starting point.</p>
+
+  <p class="section-label" style="margin-top:8px;">Research &amp; Registries</p>
+  <ul class="resource-list">
+    <li class="resource-item">
+      <div class="resource-icon">🔬</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://simonssearchlight.org/research/what-we-study/setd5/" target="_blank">Simons Searchlight — SETD5</a></div>
+        <div class="resource-desc">The primary patient registry for SETD5. Enrolling in Searchlight connects you with researchers and may give you access to studies. Free to join; open to families worldwide.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">🧬</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://rarediseases.info.nih.gov/diseases/17673/intellectual-disability-facial-dysmorphism-syndrome-due-to-setd5-haploinsufficiency" target="_blank">NIH GARD — SETD5 Haploinsufficiency</a></div>
+        <div class="resource-desc">The National Institutes of Health Genetic and Rare Diseases Information Center. Provides a plain-language overview, diagnosis information, and links to clinical resources.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">📋</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://omim.org/entry/615761" target="_blank">OMIM #615761</a></div>
+        <div class="resource-desc">The authoritative database entry for MRD23 / SETD5 Haploinsufficiency. Detailed and technical; useful for sharing with medical providers.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">🔍</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://clinvarminer.genetics.utah.edu/variants-by-gene/SETD5" target="_blank">ClinVar — SETD5 Variants</a></div>
+        <div class="resource-desc">A database of reported SETD5 genetic variants and their clinical significance. Helpful for understanding your specific variant in context.</div>
+      </div>
+    </li>
+  </ul>
+
+  <p class="section-label">Rare disease organizations</p>
+  <ul class="resource-list">
+    <li class="resource-item">
+      <div class="resource-icon">🌐</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://rarediseases.org/" target="_blank">NORD — National Organization for Rare Disorders</a></div>
+        <div class="resource-desc">Provides advocacy, assistance programs, and disease information. Has a rare disease database and connects families to resources and patient assistance programs.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">🤝</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://globalgenes.org/" target="_blank">Global Genes</a></div>
+        <div class="resource-desc">A rare disease advocacy organization offering community support, toolkits for navigating a diagnosis, and connection to the broader rare disease community.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">🧩</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://www.rarediseaseadvisors.org/" target="_blank">Rare Disease Advisors</a></div>
+        <div class="resource-desc">Helps families navigate the rare disease landscape, find specialists, and understand research and clinical trial options.</div>
+      </div>
+    </li>
+  </ul>
+
+  <p class="section-label">Community &amp; Family Support</p>
+  <ul class="resource-list">
+    <li class="resource-item">
+      <div class="resource-icon">👨‍👩‍👧</div>
+      <div class="resource-info">
+        <div class="resource-name">SETD5 Family Facebook Group</div>
+        <div class="resource-desc">A private group for families living with SETD5. Search "SETD5" on Facebook to find active family communities. A valuable source of peer support and practical advice from families who understand.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">📚</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://www.arcus-rare.org/" target="_blank">Arcus Rare</a></div>
+        <div class="resource-desc">Resources and community for families navigating rare genetic conditions, including support navigating school services, insurance, and daily life.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">💬</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://www.inspire.com/" target="_blank">Inspire — Rare Disease Community</a></div>
+        <div class="resource-desc">An online health community where patients and caregivers connect across thousands of rare and chronic conditions.</div>
+      </div>
+    </li>
+  </ul>
+
+  <p class="section-label">For navigating education &amp; services</p>
+  <ul class="resource-list">
+    <li class="resource-item">
+      <div class="resource-icon">🏫</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://www.parentcenterhub.org/" target="_blank">Parent Training and Information Center (PTI) — OSEP</a></div>
+        <div class="resource-desc">Federally funded centers in every state that help families understand special education rights, IEPs, and how to advocate for their child in school.</div>
+      </div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-icon">⚖️</div>
+      <div class="resource-info">
+        <div class="resource-name"><a href="https://www.understood.org/" target="_blank">Understood.org</a></div>
+        <div class="resource-desc">Plain-language resources on learning and thinking differences, IEPs, 504 plans, and advocating for children in educational settings.</div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="teal-callout" style="margin-top:16px;">
+    <span class="callout-label">A note on information</span>
+    <p>Because SETD5 Syndrome is rare, you may encounter medical providers who are unfamiliar with it. The resources above — especially the OMIM entry and NIH GARD page — can be shared directly with your care team. Simons Searchlight can also connect you with researchers who specialize in SETD5.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">SETD5 Syndrome</div>
+  <p>This guide is for informational purposes only and does not constitute medical advice.<br>
+  Always work with your child's medical team for diagnosis, treatment, and care decisions.</p>
+  <p style="margin-top:10px;"><a href="index.html">← Back to all guides</a></p>
+</footer>
+
+</body>
+</html>
