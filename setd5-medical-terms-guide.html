@@ -274,7 +274,6 @@
     <button class="tag-btn active" data-filter="all">All</button>
     <button class="tag-btn" data-filter="behavior">Behavior</button>
     <button class="tag-btn" data-filter="genetics">Genetics</button>
-    <button class="tag-btn" data-filter="heart">Heart</button>
     <button class="tag-btn" data-filter="neuro">Neurology</button>
     <button class="tag-btn" data-filter="physical">Physical</button>
     <button class="tag-btn" data-filter="testing">Testing</button>
@@ -1258,7 +1257,9 @@
       btn.classList.add('active');
       // Show / hide individual term cards
       cards.forEach(function(card){
-        card.classList.toggle('tag-hidden', f !== 'all' && card.dataset.tagFilter !== f);
+        var t = card.dataset.tagFilter;
+        var match = f === 'all' || t === f || (f === 'physical' && t === 'heart');
+        card.classList.toggle('tag-hidden', !match);
       });
       // Hide whole letter groups that have no visible cards
       groups.forEach(function(g){
