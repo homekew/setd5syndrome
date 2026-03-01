@@ -341,26 +341,25 @@
     <hr class="form-divider">
 
     <!-- ABOUT THE PERSON WITH SETD5 -->
-    <div class="form-section-title">About the Person with SETD5 Syndrome</div>
+    <div class="form-section-title" id="setd5-section-title">About the Person with SETD5 Syndrome</div>
 
-    <div class="form-group">
-      <label for="setd5_name">First name of the person with SETD5 Syndrome <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
-      <span class="label-hint">Your own name if you have SETD5 Syndrome, or your child's first name</span>
+    <div class="form-group" id="setd5-name-group">
+      <label for="setd5_name" id="setd5-name-label">First name of the person with SETD5 Syndrome <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <input type="text" id="setd5_name" name="setd5_name" placeholder="e.g. Jamie">
     </div>
 
     <div class="form-group">
-      <label for="age_now">Current age <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <label for="age_now" id="age-now-label">Current age <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <input type="text" id="age_now" name="age_now" placeholder="e.g. 7, 14, 32">
     </div>
 
     <div class="form-group">
-      <label for="age_diagnosis">Age at diagnosis <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <label for="age_diagnosis" id="age-diagnosis-label">Age at diagnosis <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <input type="text" id="age_diagnosis" name="age_diagnosis" placeholder="e.g. 3, 18 months, 25">
     </div>
 
     <div class="form-group">
-      <label for="how_diagnosed">How were they diagnosed? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <label for="how_diagnosed" id="how-diagnosed-label">How were they diagnosed? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <span class="label-hint">e.g. whole exome sequencing, gene panel, chromosomal microarray</span>
       <input type="text" id="how_diagnosed" name="how_diagnosed" placeholder="e.g. Whole Exome Sequencing (WES)">
     </div>
@@ -454,5 +453,46 @@
   <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a;">♥</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
 </footer>
 
+<script>
+  const roleSelect = document.getElementById('role');
+
+  const text = {
+    self: {
+      sectionTitle: 'About You',
+      nameLabel:    null, // hide — already captured above
+      ageNow:       'Your current age',
+      ageDiagnosis: 'Your age at diagnosis',
+      howDiagnosed: 'How were you diagnosed?',
+    },
+    other: {
+      sectionTitle: 'About the Person with SETD5 Syndrome',
+      nameLabel:    'Their first name',
+      ageNow:       'Their current age',
+      ageDiagnosis: 'Their age at diagnosis',
+      howDiagnosed: 'How were they diagnosed?',
+    }
+  };
+
+  function updateForm() {
+    const isSelf = roleSelect.value === 'Adult with SETD5 Syndrome';
+    const t = isSelf ? text.self : text.other;
+    const opt = ' <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span>';
+
+    document.getElementById('setd5-section-title').textContent = t.sectionTitle;
+
+    // Hide name field for self (we already have their name)
+    const nameGroup = document.getElementById('setd5-name-group');
+    nameGroup.style.display = isSelf ? 'none' : '';
+    if (!isSelf) {
+      document.getElementById('setd5-name-label').innerHTML = t.nameLabel + opt;
+    }
+
+    document.getElementById('age-now-label').innerHTML       = t.ageNow + opt;
+    document.getElementById('age-diagnosis-label').innerHTML = t.ageDiagnosis + opt;
+    document.getElementById('how-diagnosed-label').innerHTML = t.howDiagnosed + opt;
+  }
+
+  roleSelect.addEventListener('change', updateForm);
+</script>
 </body>
 </html>
