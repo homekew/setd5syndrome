@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Story — SETD5 Syndrome</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://setd5syndrome.live/family-stories.html">
+<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:title" content="Share Your Story — SETD5 Syndrome">
+<meta property="og:description" content="Share your family's experience with SETD5 Syndrome. Your story can help another family feel less alone.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Share Your Story — SETD5 Syndrome">
+<meta name="twitter:description" content="Share your family's experience with SETD5 Syndrome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #faf7f2;
+    --cream2:    #f2ede4;
+    --navy:      #1a2744;
+    --deep:      #2a627a;
+    --teal:      #2a7a6a;
+    --amber:     #c9893a;
+    --amber-lt:  #fdf4e7;
+    --sage:      #4e7c5f;
+    --sage-lt:   #edf5ef;
+    --text:      #2c2c2c;
+    --muted:     #6b6b6b;
+    --border:    #e0d9cf;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16.5px;
+  }
+
+  /* ── HEADER ── */
+  .site-header { background: #2a627a; color: #fff; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; }
+  .header-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
+  }
+  .header-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.85rem, 4.2vw, 2.8rem); font-weight: 400;
+    line-height: 1.18; color: #fff; margin-bottom: 16px;
+  }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-subtitle { font-size: 15.5px; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* ── INTRO ── */
+  .intro-box {
+    background: #eef7f5;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 40px;
+    font-size: 14.5px;
+    line-height: 1.72;
+    color: var(--text);
+  }
+  .intro-box strong { color: var(--navy); }
+
+  /* ── FORM ── */
+  .form-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 36px 40px;
+    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
+  }
+
+  .form-group {
+    margin-bottom: 28px;
+  }
+
+  .form-group:last-of-type {
+    margin-bottom: 0;
+  }
+
+  label {
+    display: block;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .label-hint {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 3px;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text);
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    appearance: none;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(42,122,106,0.12);
+    background: #fff;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.65;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  .required-star {
+    color: var(--amber);
+    margin-left: 3px;
+  }
+
+  /* ── DIVIDER ── */
+  .form-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  .form-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .form-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CONSENT ── */
+  .consent-group {
+    background: var(--sage-lt);
+    border: 1px solid #b8d9c8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+
+  .checkbox-label {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--teal);
+    cursor: pointer;
+  }
+
+  /* ── SUBMIT ── */
+  .submit-btn {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 36px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    width: 100%;
+  }
+  .submit-btn:hover {
+    background: var(--deep);
+    transform: translateY(-1px);
+  }
+
+  .privacy-note {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  /* ── LINKS ── */
+  a {
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(42,122,106,0.3);
+  }
+  a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.65);
+    padding: 32px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .site-footer a { color: rgba(255,255,255,.8); border-bottom: none; }
+  .site-footer p + p { margin-top: 8px; }
+
+  @media (max-width: 600px) {
+    .container { padding: 36px 18px 60px; }
+    .header-inner { padding: 16px 18px 20px; }
+    .form-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-eyebrow"><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none;border-bottom:none;">← SETD5 Syndrome Research &amp; Resources</a></p>
+    <h1 class="header-title">Share Your <em>Story</em></h1>
+    <p class="header-subtitle">Your family's experience can help another family feel less alone. We'd love to hear from you.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>You don't have to write a lot.</strong> Answer as many or as few prompts as you'd like. There are no wrong answers — just your experience, in your own words. Submissions are reviewed before being shared.
+  </div>
+
+  <form class="form-card" action="FORMSPREE_ENDPOINT_HERE" method="POST">
+
+    <!-- Hidden field for subject line -->
+    <input type="hidden" name="_subject" value="New Family Story Submission — SETD5 Syndrome">
+
+    <!-- ABOUT YOU -->
+    <div class="form-section-title">About You</div>
+
+    <div class="form-group">
+      <label for="name">Your first name <span class="required-star">*</span></label>
+      <input type="text" id="name" name="name" placeholder="e.g. Kate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="role">Your role <span class="required-star">*</span></label>
+      <select id="role" name="role" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="Parent or guardian">Parent or guardian</option>
+        <option value="Adult with SETD5 Syndrome">Adult with SETD5 Syndrome</option>
+        <option value="Caregiver">Caregiver</option>
+        <option value="Sibling">Sibling</option>
+        <option value="Other family member">Other family member</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="location">Where are you located? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <span class="label-hint">Country or region — helps us understand how global our community is</span>
+      <input type="text" id="location" name="location" placeholder="e.g. United States, UK, Australia">
+    </div>
+
+    <hr class="form-divider">
+
+    <!-- YOUR STORY -->
+    <div class="form-section-title">Your Story</div>
+
+    <div class="form-group">
+      <label for="diagnosis_journey">How did you arrive at the SETD5 Syndrome diagnosis? <span class="required-star">*</span></label>
+      <span class="label-hint">How old were you or your child? How long did it take? What testing was done?</span>
+      <textarea id="diagnosis_journey" name="diagnosis_journey" placeholder="Share as much or as little as you'd like..." required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="wish_known">What do you wish someone had told you right after diagnosis?</label>
+      <span class="label-hint">Advice, reassurance, practical tips — anything you wish you'd heard early on</span>
+      <textarea id="wish_known" name="wish_known" placeholder="Share as much or as little as you'd like..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="life_taught">What has life with SETD5 Syndrome taught you?</label>
+      <span class="label-hint">About your child, yourself, your family, or the world</span>
+      <textarea id="life_taught" name="life_taught" placeholder="Share as much or as little as you'd like..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="advice">What would you say to a family who just received this diagnosis?</label>
+      <textarea id="advice" name="advice" placeholder="Share as much or as little as you'd like..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="joy">What brings you joy or hope? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <textarea id="joy" name="joy" placeholder="Something about your child, a moment, a milestone, anything..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="anything_else">Anything else you'd like to share? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <textarea id="anything_else" name="anything_else" placeholder="Open space for anything we didn't ask..."></textarea>
+    </div>
+
+    <hr class="form-divider">
+
+    <!-- CONTACT -->
+    <div class="form-section-title">Optional Contact</div>
+
+    <div class="form-group">
+      <label for="email">Your email address <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <span class="label-hint">Only if you'd like us to follow up or let you know if your story is shared</span>
+      <input type="email" id="email" name="email" placeholder="you@example.com">
+    </div>
+
+    <hr class="form-divider">
+
+    <!-- CONSENT -->
+    <div class="consent-group">
+      <label class="checkbox-label">
+        <input type="checkbox" name="consent" required>
+        <span>I give permission for this story to be shared on the SETD5 Syndrome website. I understand it will be reviewed before publishing, and my last name will not be used. <span class="required-star">*</span></span>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Your Story</button>
+    <p class="privacy-note">Your submission is private until reviewed. We'll never share your contact information.</p>
+
+  </form>
+
+  <p style="margin-top:2rem;font-size:0.85rem;color:var(--muted);">
+    <a href="family-toolkit.html" style="color:var(--muted);border-bottom-color:rgba(107,107,107,0.3);">← Back to Family Toolkit</a>
+  </p>
+
+</div>
+
+<footer class="site-footer">
+  <p style="margin-bottom:8px;">For informational purposes only. Content was researched with the help of Claude AI. Always verify with your care team.</p>
+  <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a;">♥</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
+</footer>
+
+</body>
+</html>
