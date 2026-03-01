@@ -194,14 +194,16 @@
 
   a:hover { color: var(--amber); border-bottom-color: var(--amber); }
 
-  footer {
-    background: var(--deep);
-    color: rgba(255,255,255,.6);
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.7);
+    padding: 32px;
     text-align: center;
-    padding: 1.5rem;
-    font-size: 0.85rem;
-    font-style: italic;
+    font-size: 13px;
+    line-height: 1.65;
   }
+  .site-footer a { color: rgba(255,255,255,.8); }
+  .site-footer p + p { margin-top: 8px; }
 
   @media (max-width: 600px) {
     .section { padding: 1.25rem; }
@@ -559,11 +561,10 @@ Sincerely,
 </div>
 </div>
 
-<footer>
-  This guide is for informational purposes only and was compiled by the SETD5 Syndrome community with the assistance of AI research tools. Programs change — always verify details directly with the provider or agency. Last reviewed February 2026.
-
-<p style="margin-top:10px; font-style:italic;"><em>This report is Claude AI-aggregated. AI can make mistakes, so please confirm key details before making any decisions.</em></p>
-  <p style="margin-top:18px;"><a href="index.html" style="display:inline-block; background:#fff; color:#1a3a5c; font-weight:600; padding:10px 22px; border-radius:6px; text-decoration:none; font-size:15px;">← Back to Main Page</a></p>
+<footer class="site-footer">
+  <p>This guide is for informational purposes only and was compiled by the SETD5 Syndrome community with the assistance of AI research tools. Programs change — always verify details directly with the provider or agency. Last reviewed February 2026.</p>
+  <p style="margin-top:10px; font-style:italic;"><em>This report is Claude AI-aggregated. AI can make mistakes, so please confirm key details before making any decisions.</em></p>
+  <p style="margin-top:18px;"><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:10px 22px; border-radius:6px; text-decoration:none; font-size:15px;">← Back to Main Page</a></p>
 </footer>
 
 <script>
