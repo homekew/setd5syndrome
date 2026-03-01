@@ -48,10 +48,10 @@
 
   /* ── HEADER ── */
   .site-header { background: #2a627a; color: #fff; }
-  .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 18px; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 18px; text-align: center; }
   .header-eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
-    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
+    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px; text-align: left;
   }
   .header-title {
     font-family: 'Lora', serif;
@@ -59,9 +59,9 @@
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
-  .header-subtitle { font-size: 15.5px; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-subtitle { font-size: 15.5px; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; margin: 0 auto; }
   .header-meta {
-    display: flex; flex-wrap: wrap; gap: 12px;
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
     margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15);
   }
   .meta-chip {
@@ -76,7 +76,7 @@
     scrollbar-width: none;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
-  .tab-nav-inner { display: flex; padding-left: max(32px, calc((100% - 860px) / 2 + 32px)); padding-right: 16px; overflow-x: auto; }
+  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
   .tab-btn {
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,.55); font-family: 'Poppins', sans-serif;
