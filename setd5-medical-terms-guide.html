@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SETD5 Medical Terms — Plain Language Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#faf7f2;
+    --navy:#1a2744;
+    --deep:#2a627a;
+    --teal:#2a7a6a;
+    --amber:#c9893a;
+    --amber-lt:#fdf4e7;
+    --rose:#b05a5a;
+    --rose-lt:#fdf0ef;
+    --sage:#4e7c5f;
+    --sage-lt:#edf5ef;
+    --blue:#5a80a8;
+    --blue-lt:#e8eff7;
+    --text:#2c2c2c;
+    --muted:#6b6b6b;
+    --border:#e0d9cf;
+    --white:#ffffff;
+  }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  body{
+    background:var(--cream);
+    color:var(--text);
+    font-family:'DM Sans', sans-serif;
+    font-weight:400;
+    line-height:1.7;
+    font-size:16px;
+  }
+  /* Header */
+  .site-header{ background:var(--deep); color:#fff; }
+  .header-inner{ max-width:860px; margin:0 auto; padding:52px 32px 44px; }
+  .header-eyebrow{
+    font-size:11px; font-weight:600; letter-spacing:.14em;
+    text-transform:uppercase; color:rgba(255,255,255,.55); margin-bottom:14px;
+  }
+  .header-title{
+    font-family:'DM Serif Display', serif;
+    font-size:clamp(26px, 5vw, 40px);
+    font-weight:400; line-height:1.18; color:#fff; margin-bottom:16px;
+  }
+  .header-title em{ font-style:italic; color:#a8cfc8; }
+  .header-subtitle{
+    font-size:15.5px; color:rgba(255,255,255,.75);
+    max-width:680px; line-height:1.6;
+  }
+  .header-meta{
+    display:flex; flex-wrap:wrap; gap:12px;
+    margin-top:28px; padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.18);
+  }
+  .meta-chip{
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:20px; padding:4px 14px;
+    font-size:12px; color:rgba(255,255,255,.85);
+  }
+  /* Alpha index bar */
+  .alpha-bar{
+    background:var(--navy);
+    position:sticky; top:0; z-index:100;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .alpha-bar-inner{
+    max-width:860px; margin:0 auto; padding:0 24px;
+    display:flex; flex-wrap:wrap; gap:2px; align-items:center;
+  }
+  .alpha-link{
+    color:rgba(255,255,255,.55); font-size:13px; font-weight:500;
+    padding:10px 8px; text-decoration:none; line-height:1;
+    transition:color .15s;
+  }
+  .alpha-link:hover{ color:#fff; }
+  .alpha-link.has-entries{ color:rgba(255,255,255,.85); }
+  /* Layout */
+  .page-body{ max-width:860px; margin:0 auto; padding:48px 32px 80px; }
+  /* Prose */
+  .prose{ font-size:15px; line-height:1.78; margin-bottom:18px; }
+  /* Callout */
+  .teal-callout{
+    background:#eef7f5; border-left:4px solid var(--teal);
+    border-radius:0 8px 8px 0; padding:18px 22px; margin-bottom:40px;
+  }
+  .teal-callout .callout-label{
+    font-size:10px; font-weight:600; letter-spacing:.11em;
+    text-transform:uppercase; color:var(--teal); display:block; margin-bottom:6px;
+  }
+  .teal-callout p{ font-size:14px; line-height:1.68; color:var(--text); }
+  /* Letter group */
+  .letter-group{ margin-bottom:12px; }
+  .letter-heading{
+    font-family:'DM Serif Display', serif;
+    font-size:26px; color:var(--navy);
+    padding:6px 0 10px;
+    border-bottom:2px solid var(--border);
+    margin-bottom:14px;
+    scroll-margin-top:52px;
+  }
+  /* Term cards */
+  .term-list{ display:flex; flex-direction:column; gap:12px; margin-bottom:40px; }
+  .term-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px 20px 16px 20px;
+    border-left:4px solid var(--teal);
+  }
+  .term-card.c-navy   { border-left-color:var(--navy); }
+  .term-card.c-blue   { border-left-color:var(--blue); }
+  .term-card.c-amber  { border-left-color:var(--amber); }
+  .term-card.c-rose   { border-left-color:var(--rose); }
+  .term-card.c-sage   { border-left-color:var(--sage); }
+  .term-head{
+    display:flex; flex-wrap:wrap; align-items:baseline;
+    gap:8px; margin-bottom:7px;
+  }
+  .term-name{
+    font-family:'DM Serif Display', serif;
+    font-size:17px; color:var(--navy); line-height:1.2;
+  }
+  .term-alt{
+    font-size:12px; color:var(--muted);
+    font-style:italic; line-height:1.3;
+  }
+  .term-tag{
+    font-size:10px; font-weight:600; letter-spacing:.09em;
+    text-transform:uppercase; border-radius:20px;
+    padding:3px 10px; margin-left:auto;
+    white-space:nowrap; flex-shrink:0;
+  }
+  .tag-genetics { background:#e8eff7; color:var(--blue); }
+  .tag-neuro    { background:var(--sage-lt); color:var(--sage); }
+  .tag-physical { background:var(--rose-lt); color:var(--rose); }
+  .tag-behavior { background:#fdf0f8; color:#8a3a6a; }
+  .tag-therapy  { background:var(--amber-lt); color:#8a5a1a; }
+  .tag-testing  { background:#eef7f5; color:var(--teal); }
+  .tag-heart    { background:var(--rose-lt); color:var(--rose); }
+  .term-plain{
+    font-size:14.5px; line-height:1.7; color:var(--text);
+  }
+  .term-setd5{
+    margin-top:9px;
+    font-size:13px; line-height:1.65; color:var(--muted);
+    padding-top:9px; border-top:1px solid var(--border);
+  }
+  .term-setd5 strong{ color:var(--teal); font-weight:600; }
+  /* Footer */
+  .site-footer{
+    background:var(--navy); color:rgba(255,255,255,.7);
+    padding:32px; text-align:center; font-size:13px; line-height:1.65;
+  }
+  .site-footer .footer-brand{
+    font-family:'DM Serif Display', serif; font-size:16px; color:#fff; margin-bottom:8px;
+  }
+  @media (max-width:600px){
+    .page-body{ padding:36px 18px 60px; }
+    .header-inner{ padding:40px 18px 32px; }
+    .term-tag{ display:none; }
+    .alpha-link{ padding:10px 5px; font-size:12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-eyebrow">SETD5 Syndrome</p>
+    <h1 class="header-title">Medical Terms in <em>Plain Language</em></h1>
+    <p class="header-subtitle">
+      A glossary of medical, genetic, and service-related terms that may appear in SETD5-related reports, appointments, and research.
+      This document provides definitions and general context. It is not medical advice.
+    </p>
+    <div class="header-meta">
+      <span class="meta-chip">Plain-language glossary</span>
+      <span class="meta-chip">Alphabetical</span>
+      <span class="meta-chip">SETD5 context when relevant</span>
+    </div>
+  </div>
+</header>
+
+<nav class="alpha-bar" aria-label="Jump to letter">
+  <div class="alpha-bar-inner">
+    <a class="alpha-link has-entries" href="#letter-num">#</a>
+    <a class="alpha-link has-entries" href="#letter-A">A</a>
+    <a class="alpha-link has-entries" href="#letter-B">B</a>
+    <a class="alpha-link has-entries" href="#letter-C">C</a>
+    <a class="alpha-link has-entries" href="#letter-D">D</a>
+    <a class="alpha-link has-entries" href="#letter-E">E</a>
+    <a class="alpha-link has-entries" href="#letter-F">F</a>
+    <a class="alpha-link has-entries" href="#letter-G">G</a>
+    <a class="alpha-link has-entries" href="#letter-H">H</a>
+    <a class="alpha-link has-entries" href="#letter-I">I</a>
+    <a class="alpha-link has-entries" href="#letter-J">J</a>
+    <a class="alpha-link has-entries" href="#letter-K">K</a>
+    <a class="alpha-link has-entries" href="#letter-L">L</a>
+    <a class="alpha-link has-entries" href="#letter-M">M</a>
+    <a class="alpha-link has-entries" href="#letter-N">N</a>
+    <a class="alpha-link has-entries" href="#letter-O">O</a>
+    <a class="alpha-link has-entries" href="#letter-P">P</a>
+    <a class="alpha-link" href="#letter-Q">Q</a>
+    <a class="alpha-link has-entries" href="#letter-R">R</a>
+    <a class="alpha-link has-entries" href="#letter-S">S</a>
+    <a class="alpha-link has-entries" href="#letter-T">T</a>
+    <a class="alpha-link has-entries" href="#letter-U">U</a>
+    <a class="alpha-link has-entries" href="#letter-V">V</a>
+    <a class="alpha-link has-entries" href="#letter-W">W</a>
+    <a class="alpha-link" href="#letter-X">X</a>
+    <a class="alpha-link" href="#letter-Y">Y</a>
+    <a class="alpha-link" href="#letter-Z">Z</a>
+  </div>
+</nav>
+
+<div class="page-body">
+
+  <p class="prose">Each entry includes a plain-language definition and, where relevant, a brief note on how the term applies in SETD5-related contexts. Terminology and testing methods can vary by laboratory and country. For questions about a specific report or symptom, consult a qualified healthcare professional.</p>
+
+  <!-- # -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-num">#</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-504">
+        <div class="term-head">
+          <span class="term-name">504 Plan</span>
+          <span class="term-alt">Section 504 accommodation plan</span>
+          <span class="term-tag tag-therapy">Education</span>
+        </div>
+        <p class="term-plain">A plan under Section 504 of the Rehabilitation Act providing accommodations to support access to education for a student with a disability. A 504 plan typically addresses accommodations rather than specialized instruction.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-3p253">
+        <div class="term-head">
+          <span class="term-name">3p25.3 Deletion Syndrome</span>
+          <span class="term-alt">chromosome 3p25.3 microdeletion</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A chromosomal condition caused by a deletion of genetic material at position 25.3 on the short arm (p) of chromosome 3. This region includes the SETD5 gene, and reduced SETD5 dosage (haploinsufficiency) is considered a key contributor to the associated features.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> The 3p25.3 deletion syndrome and SETD5 single-gene variants can produce overlapping features. Whether a person receives one diagnosis or the other may depend on which genetic test was performed first.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- A -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-A">A</h2>
+    <div class="term-list">
+
+      <div class="term-card c-rose" id="term-aac">
+        <div class="term-head">
+          <span class="term-name">AAC</span>
+          <span class="term-alt">Augmentative and Alternative Communication</span>
+          <span class="term-tag tag-therapy">Communication</span>
+        </div>
+        <p class="term-plain">Communication methods that supplement or replace spoken language. AAC includes high-tech tools (speech-generating devices, tablet apps), low-tech tools (picture boards), and manual systems (sign language, gestures).</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-acmg">
+        <div class="term-head">
+          <span class="term-name">ACMG</span>
+          <span class="term-alt">American College of Medical Genetics and Genomics</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A professional organization that publishes widely used guidelines for classifying genetic variants. The five-tier system (benign, likely benign, uncertain significance, likely pathogenic, pathogenic) is the standard framework used by most clinical genetics laboratories in the US when reporting results.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Variant classifications in GeneDx and similar reports follow ACMG/AMP standards. The SETD5 variant c.1673_1674del is classified as pathogenic under these guidelines.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-adhd">
+        <div class="term-head">
+          <span class="term-name">ADHD</span>
+          <span class="term-alt">Attention-Deficit/Hyperactivity Disorder</span>
+          <span class="term-tag tag-behavior">Behavior</span>
+        </div>
+        <p class="term-plain">A neurodevelopmental diagnosis involving persistent patterns of inattention and/or hyperactivity-impulsivity that interfere with functioning or development. Presentations are commonly categorized as predominantly inattentive, predominantly hyperactive-impulsive, or combined.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> ADHD diagnoses and attention/hyperactivity-related traits have been reported in some individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-avsd">
+        <div class="term-head">
+          <span class="term-name">Atrioventricular Septal Defect (AVSD)</span>
+          <span class="term-alt">also: AV canal defect</span>
+          <span class="term-tag tag-heart">Heart</span>
+        </div>
+        <p class="term-plain">A congenital heart defect involving a combined opening between chambers and abnormal development of atrioventricular valves. Severity varies and management may include surgical repair depending on anatomy and symptoms.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-asd">
+        <div class="term-head">
+          <span class="term-name">Autism Spectrum Disorder (ASD)</span>
+          <span class="term-alt">also: autism</span>
+          <span class="term-tag tag-behavior">Behavior</span>
+        </div>
+        <p class="term-plain">A neurodevelopmental diagnosis characterized by differences in social communication and interaction, along with restricted or repetitive patterns of behavior, interests, or activities. Diagnosis is based on developmental history and behavioral assessment.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> ASD diagnoses and ASD-related traits have been reported in some individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-autosomal-dominant">
+        <div class="term-head">
+          <span class="term-name">Autosomal Dominant</span>
+          <span class="term-alt">mode of inheritance; inheritance pattern</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">An inheritance pattern in which having one altered copy of a gene (out of the usual two) is sufficient to cause a condition. "Autosomal" means the gene is located on one of the 22 non-sex chromosomes. A person with an autosomal dominant condition has a 50% chance of passing the variant to each child.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5-related neurodevelopmental disorder follows autosomal dominant inheritance. However, most reported cases arise de novo (new mutation) rather than being inherited from a parent.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-B">B</h2>
+    <div class="term-list">
+
+      <div class="term-card c-rose" id="term-brachydactyly">
+        <div class="term-head">
+          <span class="term-name">Brachydactyly</span>
+          <span class="term-alt">from Greek: "short fingers/toes"</span>
+          <span class="term-tag tag-physical">Physical</span>
+        </div>
+        <p class="term-plain">Abnormally short fingers or toes caused by shortening of the bones in the digits. It can occur as an isolated finding or as part of a broader syndrome involving skeletal anomalies.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Brachydactyly has been noted among the skeletal anomalies reported in some individuals with SETD5 variants, and may appear in the clinical indication section of a genetic testing report.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-C">C</h2>
+    <div class="term-list">
+
+      <div class="term-card c-blue" id="term-microarray">
+        <div class="term-head">
+          <span class="term-name">Chromosomal Microarray (CMA)</span>
+          <span class="term-alt">also: array CGH; SNP array</span>
+          <span class="term-tag tag-testing">Testing</span>
+        </div>
+        <p class="term-plain">A test designed to detect extra or missing chromosomal material (duplications and deletions). CMA generally does not detect most single-base variants.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> CMA may detect deletions that include SETD5; sequence-level variants are typically identified by WES or genome sequencing.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-chromosome">
+        <div class="term-head">
+          <span class="term-name">Chromosome</span>
+          <span class="term-alt">e.g., 3p25.3</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A DNA-containing structure in cells that carries genes. Humans typically have 46 chromosomes (23 pairs). Each chromosome has a short arm ("p") and a long arm ("q").</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5 is located on chromosome 3, region 3p25.3.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-congenital-heart">
+        <div class="term-head">
+          <span class="term-name">Congenital Heart Defect</span>
+          <span class="term-alt">also: CHD</span>
+          <span class="term-tag tag-heart">Heart</span>
+        </div>
+        <p class="term-plain">A structural difference in the heart present at birth. Congenital heart defects range from mild to complex and may be detected prenatally or after birth.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Congenital heart defects have been reported in some individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-cnv">
+        <div class="term-head">
+          <span class="term-name">Copy Number Variant (CNV)</span>
+          <span class="term-alt">also: chromosomal deletion; chromosomal duplication</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+          <span class="term-tag tag-testing">Testing</span>
+        </div>
+        <p class="term-plain">A type of genetic variant in which a segment of DNA is deleted (fewer copies than expected) or duplicated (extra copies) compared to the typical two. CNVs can range in size from a few genes to large chromosomal regions. Most whole exome sequencing reports include CNV analysis alongside single-nucleotide variant analysis.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5 haploinsufficiency can result from either a CNV (deletion of the SETD5 region on chromosome 3p25.3) or a point mutation/frameshift in the gene itself. The type of variant affects how it is described in a lab report.</p>
+      </div>
+
+      <div class="term-card c-sage" id="term-cryptorchidism">
+        <div class="term-head">
+          <span class="term-name">Cryptorchidism</span>
+          <span class="term-alt">undescended testes</span>
+          <span class="term-tag tag-physical">Urogenital</span>
+        </div>
+        <p class="term-plain">One or both testes have not descended into the scrotum by birth or early infancy. Management is determined by pediatric urology and may include surgery.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- D -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-D">D</h2>
+    <div class="term-list">
+
+      <div class="term-card c-amber" id="term-de-novo">
+        <div class="term-head">
+          <span class="term-name">De Novo</span>
+          <span class="term-alt">Latin: "from new"</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A variant that is present in a child but not detected in either parent's tested sample (often blood or saliva). De novo variants typically arise during egg or sperm formation or early embryonic development. Parental testing (trio sequencing) is the standard way to confirm de novo status — though a negative parental result does not completely eliminate recurrence risk, due to the possibility of germline mosaicism.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Many SETD5 variants reported in the literature are de novo. When a lab report states "both parents tested negative for the variant," this confirms de novo status while noting that germline mosaicism cannot be fully excluded.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-deletion">
+        <div class="term-head">
+          <span class="term-name">Deletion</span>
+          <span class="term-alt">small or large loss of DNA</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">Loss of a segment of DNA. A deletion may involve a small number of DNA bases within a gene or a larger chromosomal region that includes multiple genes.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Some individuals have sequence-level variants in SETD5, while others have chromosomal deletions that include SETD5 and may include additional genes.</p>
+      </div>
+
+      <div class="term-card c-sage" id="term-diagnostic-odyssey">
+        <div class="term-head">
+          <span class="term-name">Diagnostic Odyssey</span>
+          <span class="term-tag tag-therapy">Experience term</span>
+        </div>
+        <p class="term-plain">A term used in rare disease contexts to describe a prolonged process of seeking a diagnosis, often involving multiple evaluations and tests over time.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- E -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-E">E</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-early-intervention">
+        <div class="term-head">
+          <span class="term-name">Early Intervention (EI)</span>
+          <span class="term-tag tag-therapy">Services</span>
+        </div>
+        <p class="term-plain">Services provided under Part C of IDEA for infants and toddlers (birth to age 3) with developmental delays or disabilities. Services and eligibility criteria are state-administered in the U.S. and can include therapy and developmental supports.</p>
+      </div>
+
+      <div class="term-card c-blue" id="term-eeg">
+        <div class="term-head">
+          <span class="term-name">EEG</span>
+          <span class="term-alt">Electroencephalogram</span>
+          <span class="term-tag tag-testing">Testing</span>
+        </div>
+        <p class="term-plain">A non-invasive test that records electrical activity of the brain using sensors placed on the scalp. EEG findings can support evaluation of seizures and other neurological concerns.</p>
+      </div>
+
+      <div class="term-card" id="term-epilepsy">
+        <div class="term-head">
+          <span class="term-name">Epilepsy</span>
+          <span class="term-alt">also: seizure disorder</span>
+          <span class="term-tag tag-neuro">Neurology</span>
+        </div>
+        <p class="term-plain">A neurological condition defined by recurrent unprovoked seizures. Seizures can vary in presentation, including convulsive events, brief lapses in awareness, involuntary movements, or sensory symptoms.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Seizures and epilepsy have been reported in some individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-epigenetics">
+        <div class="term-head">
+          <span class="term-name">Epigenetics</span>
+          <span class="term-alt">gene regulation without changing DNA sequence</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">Molecular processes that influence gene activity without altering the underlying DNA sequence. Examples include chemical modifications of DNA and histones and changes to chromatin structure.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5 is associated with pathways involved in chromatin regulation and gene expression.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-expressive-receptive">
+        <div class="term-head">
+          <span class="term-name">Expressive vs. Receptive Language</span>
+          <span class="term-tag tag-neuro">Speech &amp; Language</span>
+        </div>
+        <p class="term-plain"><strong>Expressive language</strong> refers to communicating thoughts or needs (spoken words, sign, writing, or device-based communication). <strong>Receptive language</strong> refers to understanding language (following directions, comprehending speech, processing meaning). These skills can develop at different rates within the same person.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Differences between expressive and receptive language have been described in SETD5-related clinical profiles.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- F -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-F">F</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-fape">
+        <div class="term-head">
+          <span class="term-name">FAPE</span>
+          <span class="term-alt">Free Appropriate Public Education</span>
+          <span class="term-tag tag-therapy">Education</span>
+        </div>
+        <p class="term-plain">A legal right under IDEA requiring public schools to provide eligible students with disabilities special education and related services at no cost, designed to meet the student's unique needs.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-failure-to-thrive">
+        <div class="term-head">
+          <span class="term-name">Failure to Thrive</span>
+          <span class="term-alt">also: faltering growth</span>
+          <span class="term-tag tag-physical">Growth</span>
+        </div>
+        <p class="term-plain">A descriptive term for inadequate weight gain or growth pattern compared with expected trajectories. It is not a single diagnosis; evaluation focuses on identifying underlying causes such as feeding difficulty, medical conditions, or nutritional issues.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-frameshift">
+        <div class="term-head">
+          <span class="term-name">Frameshift Variant</span>
+          <span class="term-alt">also: frameshift mutation; insertion/deletion frameshift</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A mutation caused by inserting or deleting a small number of DNA letters, shifting the "reading frame" — the way a cell interprets genetic code. This almost always disrupts the downstream protein sequence, typically resulting in a truncated, non-functional protein or triggering nonsense-mediated decay (the cell's mechanism for destroying faulty messages).</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> The variant c.1673_1674del p.(T558Kfs*3) identified in this report is a frameshift caused by a 2-letter deletion in exon 14 of SETD5, predicted to result in protein truncation or nonsense-mediated decay — consistent with loss-of-function haploinsufficiency.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- G -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-G">G</h2>
+    <div class="term-list">
+
+      <div class="term-card" id="term-gerd">
+        <div class="term-head">
+          <span class="term-name">Gastroesophageal Reflux</span>
+          <span class="term-alt">also: GER; GERD</span>
+          <span class="term-tag tag-physical">GI</span>
+        </div>
+        <p class="term-plain">Backflow of stomach contents into the esophagus. Reflux can be physiologic in infancy; GERD is typically used when reflux is associated with symptoms or complications such as feeding difficulty or poor growth.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-gene">
+        <div class="term-head">
+          <span class="term-name">Gene</span>
+          <span class="term-alt">plural: genes</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A segment of DNA that contains information used to make a functional product, commonly a protein. Humans typically have two copies of most genes, one inherited from each parent.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-genetic-counselor">
+        <div class="term-head">
+          <span class="term-name">Genetic Counselor</span>
+          <span class="term-tag tag-genetics">Specialist</span>
+        </div>
+        <p class="term-plain">A healthcare professional trained to explain genetic test results, discuss inheritance and recurrence risk, and support decision-making related to genetic conditions.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-germline-mosaicism">
+        <div class="term-head">
+          <span class="term-name">Germline Mosaicism</span>
+          <span class="term-alt">also: gonadal mosaicism</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A situation where a genetic variant is present in a subset of a parent's egg or sperm cells but may be absent (or present at very low levels) in blood or saliva. This can affect recurrence risk even when parental blood testing is negative.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Germline mosaicism is one reason recurrence risk may be described as low rather than zero in some de novo cases.</p>
+      </div>
+
+      <div class="term-card" id="term-developmental-delay">
+        <div class="term-head">
+          <span class="term-name">Global Developmental Delay</span>
+          <span class="term-alt">also: GDD</span>
+          <span class="term-tag tag-neuro">Development</span>
+        </div>
+        <p class="term-plain">A descriptive term used when a child (typically under age five) shows significant delay in two or more developmental domains such as motor, language, cognitive, social, or daily living skills.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Global developmental delay is reported in many individuals diagnosed with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-blue" id="term-gnomad">
+        <div class="term-head">
+          <span class="term-name">gnomAD</span>
+          <span class="term-alt">Genome Aggregation Database</span>
+          <span class="term-tag tag-testing">Testing</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A large public database that aggregates DNA sequencing data from hundreds of thousands of people across diverse ancestries. Clinical labs check gnomAD to determine how frequently a variant appears in the general population — variants that are absent or very rare in gnomAD are more likely to be disease-causing.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> The SETD5 variant c.1673_1674del was not observed at significant frequency in gnomAD, which is one piece of evidence supporting its pathogenic classification.</p>
+      </div>
+
+      <div class="term-card" id="term-motor-milestones">
+        <div class="term-head">
+          <span class="term-name">Gross Motor / Fine Motor</span>
+          <span class="term-tag tag-neuro">Development</span>
+        </div>
+        <p class="term-plain"><strong>Gross motor</strong> refers to large-muscle movements (sitting, walking, running). <strong>Fine motor</strong> refers to small-muscle movements (grasping objects, drawing, handwriting, using utensils).</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- H -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-H">H</h2>
+    <div class="term-list">
+
+      <div class="term-card c-navy" id="term-haploinsufficiency">
+        <div class="term-head">
+          <span class="term-name">Haploinsufficiency</span>
+          <span class="term-alt">mechanism term</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A genetic mechanism in which a single functional copy of a gene does not produce enough gene product for typical function, so reduced dosage can contribute to a condition.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5-related conditions are commonly described as resulting from loss of function consistent with haploinsufficiency. The 3p25.3 deletion and SETD5 point/frameshift variants both reduce functional SETD5 protein through this mechanism.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-heterozygous">
+        <div class="term-head">
+          <span class="term-name">Heterozygous</span>
+          <span class="term-alt">opposite: homozygous</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">Having one copy of a gene variant and one unaffected copy. In autosomal dominant conditions, a single heterozygous variant is typically sufficient to cause the condition. Lab reports list "zygosity" to indicate whether one or both gene copies carry the variant.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5 pathogenic variants are reported as heterozygous, meaning one of the two SETD5 copies carries the change. This is consistent with the autosomal dominant pattern of SETD5-related disorder.</p>
+      </div>
+
+      <div class="term-card" id="term-high-arched-palate">
+        <div class="term-head">
+          <span class="term-name">High-Arched Palate</span>
+          <span class="term-alt">arched roof of mouth</span>
+          <span class="term-tag tag-physical">Mouth</span>
+        </div>
+        <p class="term-plain">A palate (roof of the mouth) that is narrower and more steeply arched than typical. It can be associated with feeding, dental, or speech considerations in some individuals.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-histones">
+        <div class="term-head">
+          <span class="term-name">Histones</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">Proteins around which DNA is wrapped to form chromatin. Chemical modifications to histones can influence how accessible DNA is for gene expression.</p>
+      </div>
+
+      <div class="term-card" id="term-hypertelorism">
+        <div class="term-head">
+          <span class="term-name">Hypertelorism</span>
+          <span class="term-alt">widely spaced eyes</span>
+          <span class="term-tag tag-physical">Facial feature</span>
+        </div>
+        <p class="term-plain">An increased distance between the eyes, measured using standard clinical landmarks. The term is descriptive and can be present in many conditions.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-hypoglycemia">
+        <div class="term-head">
+          <span class="term-name">Hypoglycemia</span>
+          <span class="term-alt">low blood sugar</span>
+          <span class="term-tag tag-physical">Metabolism</span>
+        </div>
+        <p class="term-plain">Blood glucose level below expected range. Symptoms can vary by age and severity and can include irritability, sweating, shakiness, lethargy, or seizures in severe cases. Evaluation and management depend on clinical context.</p>
+      </div>
+
+      <div class="term-card" id="term-hypotonia">
+        <div class="term-head">
+          <span class="term-name">Hypotonia</span>
+          <span class="term-alt">also: low muscle tone</span>
+          <span class="term-tag tag-neuro">Neurology</span>
+        </div>
+        <p class="term-plain">Reduced muscle tone, meaning decreased resistance to passive movement when muscles are at rest. Hypotonia can affect posture and motor development and may be associated with feeding or speech-motor difficulties.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Hypotonia has been reported in some individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-sage" id="term-hypospadias">
+        <div class="term-head">
+          <span class="term-name">Hypospadias</span>
+          <span class="term-tag tag-physical">Urogenital</span>
+        </div>
+        <p class="term-plain">A condition where the urethral opening is located on the underside of the penis rather than at the tip. Severity varies. Management may include surgical repair depending on anatomy and function.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- I -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-I">I</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-iep">
+        <div class="term-head">
+          <span class="term-name">IEP</span>
+          <span class="term-alt">Individualized Education Program</span>
+          <span class="term-tag tag-therapy">Education</span>
+        </div>
+        <p class="term-plain">A written plan under the Individuals with Disabilities Education Act (IDEA) for an eligible student, describing special education services, goals, and accommodations. The IEP is developed and reviewed by a team that includes parents/guardians and school staff.</p>
+      </div>
+
+      <div class="term-card" id="term-inguinal-hernia">
+        <div class="term-head">
+          <span class="term-name">Inguinal Hernia</span>
+          <span class="term-tag tag-physical">GI</span>
+        </div>
+        <p class="term-plain">Protrusion of tissue (often intestine) through a weak area in the lower abdominal wall into the groin. In children, inguinal hernias are commonly treated surgically.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-intellectual-disability">
+        <div class="term-head">
+          <span class="term-name">Intellectual Disability</span>
+          <span class="term-alt">also: ID</span>
+          <span class="term-tag tag-neuro">Development</span>
+        </div>
+        <p class="term-plain">A diagnosis characterized by limitations in intellectual functioning (such as reasoning, learning, and problem-solving) and adaptive behavior (everyday practical and social skills), with onset during the developmental period. Severity levels are commonly described as mild, moderate, severe, or profound based on functional assessment.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Intellectual disability has been reported in individuals with SETD5-related conditions, with variability in severity.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- J -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-J">J</h2>
+    <div class="term-list">
+
+      <div class="term-card" id="term-joint-laxity">
+        <div class="term-head">
+          <span class="term-name">Joint Laxity</span>
+          <span class="term-alt">also: hypermobility</span>
+          <span class="term-tag tag-physical">Musculoskeletal</span>
+        </div>
+        <p class="term-plain">Increased joint range of motion due to connective tissue characteristics. Joint laxity can be associated with sprains, joint pain, fatigue with activity, or fine motor challenges in some individuals.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- K -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-K">K</h2>
+    <div class="term-list">
+
+      <div class="term-card c-rose" id="term-kbg-syndrome">
+        <div class="term-head">
+          <span class="term-name">KBG Syndrome</span>
+          <span class="term-alt">caused by ANKRD11 variants</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A rare genetic condition caused by variants in the ANKRD11 gene, characterized by intellectual disability, short stature, distinctive facial features (including widely spaced teeth and broad eyebrows), behavioral differences, and skeletal anomalies. Named using the initials of the first three families described.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> The dysmorphic facial features seen in some individuals with SETD5 variants have been noted in the medical literature to resemble those of KBG syndrome. Clinicians may reference this overlap when describing physical findings or considering differential diagnoses.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- L -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-L">L</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-lre">
+        <div class="term-head">
+          <span class="term-name">Least Restrictive Environment (LRE)</span>
+          <span class="term-tag tag-therapy">Education</span>
+        </div>
+        <p class="term-plain">A requirement under IDEA that students with disabilities are educated with nondisabled peers to the maximum extent appropriate, with placement determined by the IEP team based on the student's needs.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-lof">
+        <div class="term-head">
+          <span class="term-name">Loss-of-Function Variant</span>
+          <span class="term-alt">also: LoF; predicted loss of function (pLoF)</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A type of genetic variant — including nonsense, frameshift, or splice site changes — that significantly reduces or eliminates normal gene function. Loss-of-function variants are common disease mechanisms in autosomal dominant conditions where one working copy of the gene is insufficient.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Loss of function is the established mechanism for SETD5-related disorder. The frameshift variant c.1673_1674del is described as a loss-of-function variant because it is predicted to result in protein truncation or nonsense-mediated decay.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- M -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-M">M</h2>
+    <div class="term-list">
+
+      <div class="term-card c-amber" id="term-microcephaly">
+        <div class="term-head">
+          <span class="term-name">Microcephaly</span>
+          <span class="term-alt">small head circumference</span>
+          <span class="term-tag tag-physical">Head</span>
+        </div>
+        <p class="term-plain">Head circumference significantly below average for age and sex, typically defined as more than two standard deviations below the mean. Microcephaly can be present at birth or develop over time.</p>
+      </div>
+
+      <div class="term-card c-blue" id="term-moyamoya">
+        <div class="term-head">
+          <span class="term-name">Moyamoya Disease</span>
+          <span class="term-tag tag-neuro">Neurology</span>
+        </div>
+        <p class="term-plain">A rare cerebrovascular disorder involving progressive narrowing of certain brain arteries and development of small collateral vessels visible on imaging. It can be associated with ischemic events or hemorrhage and is evaluated by specialists.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Moyamoya has been reported in association with SETD5 in a limited number of cases.</p>
+      </div>
+
+      <div class="term-card c-sage" id="term-mrd23">
+        <div class="term-head">
+          <span class="term-name">MRD23</span>
+          <span class="term-alt">OMIM designation: Mental Retardation, Autosomal Dominant 23</span>
+          <span class="term-tag tag-genetics">Database label</span>
+        </div>
+        <p class="term-plain">A historical OMIM designation used in some databases for the condition associated with SETD5 loss of function. OMIM terminology may not reflect current clinical language.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- N -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-N">N</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-nmd">
+        <div class="term-head">
+          <span class="term-name">Nonsense-Mediated Decay (NMD)</span>
+          <span class="term-alt">cellular mRNA quality control</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A normal cellular process that detects and destroys messenger RNA (mRNA) molecules containing premature "stop" signals. When a frameshift or nonsense mutation creates an early stop codon, NMD often degrades the faulty mRNA before a harmful, truncated protein can be made — effectively silencing the altered gene copy.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Frameshift variants in SETD5 are predicted to result in either a truncated protein or NMD, both of which reduce functional SETD5 protein. This is why these variants are described as loss-of-function and consistent with haploinsufficiency.</p>
+      </div>
+
+      <div class="term-card c-blue" id="term-nystagmus">
+        <div class="term-head">
+          <span class="term-name">Nystagmus</span>
+          <span class="term-alt">involuntary eye movements</span>
+          <span class="term-tag tag-physical">Eyes</span>
+        </div>
+        <p class="term-plain">Repetitive involuntary movements of the eyes (horizontal, vertical, or rotary). Nystagmus can affect vision and is evaluated by ophthalmology and, when indicated, neurology.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- O -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-O">O</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-ot">
+        <div class="term-head">
+          <span class="term-name">Occupational Therapy (OT)</span>
+          <span class="term-alt">occupational therapist</span>
+          <span class="term-tag tag-therapy">Therapy</span>
+        </div>
+        <p class="term-plain">Clinical services focused on functional participation in daily activities. In pediatrics, OT may address fine motor skills, self-care tasks, play skills, sensory processing supports, handwriting, and adaptive strategies.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- P -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-P">P</h2>
+    <div class="term-list">
+
+      <div class="term-card c-navy" id="term-pathogenic">
+        <div class="term-head">
+          <span class="term-name">Pathogenic / Likely Pathogenic Variant</span>
+          <span class="term-alt">classification categories used by clinical laboratories</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A classification indicating that evidence supports a variant as disease-causing (pathogenic) or strongly suggests it is disease-causing (likely pathogenic). Laboratories commonly use a five-tier system: benign, likely benign, uncertain significance (VUS), likely pathogenic, and pathogenic.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5-related diagnoses are commonly associated with pathogenic or likely pathogenic variants.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-patient-registry">
+        <div class="term-head">
+          <span class="term-name">Patient Registry</span>
+          <span class="term-alt">research registry</span>
+          <span class="term-tag tag-therapy">Research</span>
+        </div>
+        <p class="term-plain">A structured database that collects information about individuals with a condition for research purposes (for example, medical history, symptoms, genetics, and outcomes). Registries are typically voluntary and governed by research protocols.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Simons Searchlight is a registry that includes SETD5.</p>
+      </div>
+
+      <div class="term-card c-blue" id="term-phenotype">
+        <div class="term-head">
+          <span class="term-name">Phenotype</span>
+          <span class="term-alt">opposite: genotype</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+          <span class="term-tag tag-neuro">Development</span>
+        </div>
+        <p class="term-plain">The observable characteristics of an individual — including physical features, medical conditions, behaviors, and developmental profile — resulting from the interaction of genes and environment. Genetic testing reports describe the individual's phenotype to guide interpretation of variants.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> The phenotype associated with SETD5 variants is variable and may include intellectual disability, autism, ADHD, dysmorphic features, congenital heart defects, and skeletal anomalies. The clinical indication section of a genetic report summarizes the phenotype that prompted testing.</p>
+      </div>
+
+      <div class="term-card" id="term-philtrum">
+        <div class="term-head">
+          <span class="term-name">Philtrum</span>
+          <span class="term-alt">the groove between the nose and upper lip</span>
+          <span class="term-tag tag-physical">Facial feature</span>
+        </div>
+        <p class="term-plain">The vertical groove between the nose and upper lip. Clinical notes may describe the philtrum as long or smooth based on appearance.</p>
+      </div>
+
+      <div class="term-card c-sage" id="term-pt">
+        <div class="term-head">
+          <span class="term-name">Physical Therapy (PT)</span>
+          <span class="term-alt">physical therapist</span>
+          <span class="term-tag tag-therapy">Therapy</span>
+        </div>
+        <p class="term-plain">Clinical services focused on movement, strength, balance, coordination, flexibility, and functional mobility. PT may address gross motor skills and gait patterns.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-polydactyly">
+        <div class="term-head">
+          <span class="term-name">Polydactyly</span>
+          <span class="term-alt">extra fingers or toes</span>
+          <span class="term-tag tag-physical">Limbs</span>
+        </div>
+        <p class="term-plain">Presence of an additional finger or toe. The extra digit can range from a small soft-tissue appendage to a fully formed digit. Polydactyly may be preaxial (thumb/big-toe side) or postaxial (pinky-toe side).</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Polydactyly has been reported in some individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-proband">
+        <div class="term-head">
+          <span class="term-name">Proband</span>
+          <span class="term-alt">also: index case</span>
+          <span class="term-tag tag-testing">Testing</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">The family member whose symptoms prompted genetic testing and from whom the analysis begins. Genetic reports are written from the proband's perspective, and parental samples are tested separately to determine whether a variant is inherited or de novo.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> In trio sequencing, the child is the proband. When a report states that the proband's mother and father do not carry the variant, this confirms it arose de novo in the proband.</p>
+      </div>
+
+      <div class="term-card" id="term-ptosis">
+        <div class="term-head">
+          <span class="term-name">Ptosis</span>
+          <span class="term-alt">drooping eyelid</span>
+          <span class="term-tag tag-physical">Eyes</span>
+        </div>
+        <p class="term-plain">Drooping of the upper eyelid. In some cases, ptosis can affect vision development and may be treated medically or surgically.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- R -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-R">R</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-recurrence-risk">
+        <div class="term-head">
+          <span class="term-name">Recurrence Risk</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">The probability that a genetic condition will occur again in a future pregnancy. Recurrence risk depends on inheritance pattern, parental testing results, and other factors assessed by genetics professionals.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Recurrence risk is assessed case-by-case, often considering whether the variant is de novo and the possibility of mosaicism.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-bone-density">
+        <div class="term-head">
+          <span class="term-name">Reduced Bone Mineral Density</span>
+          <span class="term-alt">also: osteopenia (clinical term)</span>
+          <span class="term-tag tag-physical">Bone health</span>
+        </div>
+        <p class="term-plain">Bone density below expected levels for age. Reduced bone mineral density can increase risk of fracture and may be evaluated using imaging such as a DEXA scan when clinically indicated.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Reduced bone mineral density has been reported in some individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-retroauricular-pits">
+        <div class="term-head">
+          <span class="term-name">Retroauricular Pits</span>
+          <span class="term-alt">also: preauricular/retroauricular sinuses or dimples</span>
+          <span class="term-tag tag-physical">Physical</span>
+        </div>
+        <p class="term-plain">Small indentations or pits in the skin located behind or near the ear, formed during fetal development when ear tissue fuses. They are usually harmless but can occasionally be associated with a syndrome or, in some cases, with hearing differences.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Retroauricular pits have been noted in the literature as a less commonly reported physical feature in some individuals with SETD5 variants.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- S -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-S">S</h2>
+    <div class="term-list">
+
+      <div class="term-card c-amber" id="term-scoliosis">
+        <div class="term-head">
+          <span class="term-name">Scoliosis</span>
+          <span class="term-tag tag-physical">Musculoskeletal</span>
+        </div>
+        <p class="term-plain">A lateral curvature of the spine. Management can include monitoring, bracing, physical therapy, or surgery depending on severity and progression.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-setd5">
+        <div class="term-head">
+          <span class="term-name">SETD5</span>
+          <span class="term-alt">also: SETD5 gene; SET domain-containing protein 5</span>
+          <span class="term-tag tag-genetics">Gene</span>
+        </div>
+        <p class="term-plain">A gene that provides instructions for making the SETD5 protein, a member of the SET methyltransferase family. The protein plays a role in regulating gene expression through histone modification, and is particularly important during brain development. Haploinsufficiency of SETD5 — having only one functional copy — is the primary disease mechanism.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> SETD5-related neurodevelopmental disorder is caused by pathogenic or likely pathogenic variants that reduce normal SETD5 protein function. Both single-gene variants (such as frameshift or nonsense mutations) and chromosomal deletions of the 3p25.3 region can result in haploinsufficiency.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-sensory">
+        <div class="term-head">
+          <span class="term-name">Sensory Processing Differences</span>
+          <span class="term-alt">also: sensory sensitivities; sensory seeking</span>
+          <span class="term-tag tag-behavior">Behavior</span>
+        </div>
+        <p class="term-plain">Differences in how the nervous system detects, interprets, and responds to sensory input such as sound, touch, texture, light, or movement. Individuals may be over-responsive, under-responsive, or seek specific sensations.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-point-mutation">
+        <div class="term-head">
+          <span class="term-name">Single Nucleotide Variant (SNV)</span>
+          <span class="term-alt">sometimes referred to as a "point mutation"</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A change affecting a single DNA base (A, C, G, or T) at a specific position. Depending on location and effect, an SNV can be benign or can alter gene function.</p>
+      </div>
+
+      <div class="term-card c-amber" id="term-dysfluency">
+        <div class="term-head">
+          <span class="term-name">Speech Dysfluency</span>
+          <span class="term-alt">also: dysfluent speech</span>
+          <span class="term-tag tag-neuro">Speech &amp; Language</span>
+        </div>
+        <p class="term-plain">Disruptions in the flow of speech such as repetitions, prolongations, or pauses. Dysfluency can have multiple causes and is evaluated by speech-language pathologists.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Dysfluency has been described in some speech-language profiles reported for individuals with SETD5-related conditions.</p>
+      </div>
+
+      <div class="term-card c-navy" id="term-slp">
+        <div class="term-head">
+          <span class="term-name">Speech-Language Pathology (SLP)</span>
+          <span class="term-alt">speech therapy; speech-language pathologist</span>
+          <span class="term-tag tag-therapy">Therapy</span>
+        </div>
+        <p class="term-plain">Clinical services addressing communication and language. Depending on clinical needs, SLP can include speech sound production, vocabulary, sentence development, pragmatic language, comprehension, and in some settings feeding and swallowing evaluation.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Speech and language differences have been reported in SETD5-related conditions, and SLP services may be included in care plans when indicated.</p>
+      </div>
+
+      <div class="term-card c-blue" id="term-strabismus">
+        <div class="term-head">
+          <span class="term-name">Strabismus</span>
+          <span class="term-alt">misalignment of the eyes</span>
+          <span class="term-tag tag-physical">Eyes</span>
+        </div>
+        <p class="term-plain">A condition where the eyes do not align in the same direction at the same time. Types include inward turning (esotropia) or outward turning (exotropia). Management may include glasses, patching, medications, or surgery depending on cause and severity.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-syndactyly">
+        <div class="term-head">
+          <span class="term-name">Syndactyly</span>
+          <span class="term-alt">from Greek: "together fingers"</span>
+          <span class="term-tag tag-physical">Physical</span>
+        </div>
+        <p class="term-plain">A condition in which two or more fingers or toes are joined together by skin or bone. It ranges from mild webbing to complete fusion and may involve the hands, feet, or both. Some forms are isolated; others occur as part of a broader syndrome.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Foot anomalies including syndactyly have been reported as a less common feature in some individuals with SETD5 variants.</p>
+      </div>
+
+      <div class="term-card" id="term-synophrys">
+        <div class="term-head">
+          <span class="term-name">Synophrys</span>
+          <span class="term-alt">confluent eyebrows</span>
+          <span class="term-tag tag-physical">Facial feature</span>
+        </div>
+        <p class="term-plain">Eyebrows that meet in the middle or nearly meet across the bridge of the nose.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- T -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-T">T</h2>
+    <div class="term-list">
+
+      <div class="term-card" id="term-triangular-face">
+        <div class="term-head">
+          <span class="term-name">Triangular Face</span>
+          <span class="term-tag tag-physical">Facial feature</span>
+        </div>
+        <p class="term-plain">A descriptive term for a facial shape that is broader at the forehead/temples and narrower at the chin.</p>
+      </div>
+
+      <div class="term-card c-blue" id="term-trio">
+        <div class="term-head">
+          <span class="term-name">Trio Sequencing</span>
+          <span class="term-alt">child plus both parents</span>
+          <span class="term-tag tag-testing">Testing</span>
+        </div>
+        <p class="term-plain">Sequencing performed on the child and both parents, analyzed together. Trio analysis can help determine whether a variant is inherited or de novo and can improve interpretation.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- U -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-U">U</h2>
+    <div class="term-list">
+
+      <div class="term-card c-sage" id="term-spiky-profile">
+        <div class="term-head">
+          <span class="term-name">Uneven Cognitive Profile</span>
+          <span class="term-alt">sometimes described as a "spiky profile"</span>
+          <span class="term-tag tag-neuro">Cognition</span>
+        </div>
+        <p class="term-plain">A pattern where performance differs across cognitive domains (for example, stronger skills in one area and weaker skills in another) on standardized assessment.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Uneven cognitive profiles have been described in clinical reports and family-reported histories for SETD5-related conditions.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- V -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-V">V</h2>
+    <div class="term-list">
+
+      <div class="term-card c-navy" id="term-variant">
+        <div class="term-head">
+          <span class="term-name">Variant</span>
+          <span class="term-alt">also: genetic variant; sequence variant; sometimes called "mutation"</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A difference in DNA sequence compared with a reference sequence. Variants can be benign, uncertain, or disease-causing depending on available evidence.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Diagnosis is typically based on identifying a pathogenic or likely pathogenic variant affecting SETD5 function.</p>
+      </div>
+
+      <div class="term-card c-sage" id="term-vus">
+        <div class="term-head">
+          <span class="term-name">Variant of Uncertain Significance (VUS)</span>
+          <span class="term-alt">classification category</span>
+          <span class="term-tag tag-genetics">Genetics</span>
+        </div>
+        <p class="term-plain">A classification indicating that current evidence is insufficient to determine whether a variant is disease-causing or benign. VUS classifications can change over time as additional evidence becomes available.</p>
+      </div>
+
+      <div class="term-card c-rose" id="term-vertebral-anomalies">
+        <div class="term-head">
+          <span class="term-name">Vertebral Anomalies</span>
+          <span class="term-alt">also: spinal anomalies; vertebral segmentation defects</span>
+          <span class="term-tag tag-physical">Physical</span>
+        </div>
+        <p class="term-plain">Structural differences in the bones of the spine (vertebrae), which may include variations in shape, number, size, or fusion. Depending on location and severity, vertebral anomalies may be asymptomatic or may affect posture, movement, and spinal cord function.</p>
+        <p class="term-setd5"><strong>In SETD5:</strong> Vertebral anomalies have been reported as a less commonly described physical feature in some individuals with SETD5 variants.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- W -->
+  <div class="letter-group">
+    <h2 class="letter-heading" id="letter-W">W</h2>
+    <div class="term-list">
+
+      <div class="term-card c-blue" id="term-wes">
+        <div class="term-head">
+          <span class="term-name">Whole Exome Sequencing (WES)</span>
+          <span class="term-alt">also: exome sequencing</span>
+          <span class="term-tag tag-testing">Testing</span>
+        </div>
+        <p class="term-plain">A genetic test that sequences most protein-coding regions of genes (exons). WES can identify many sequence variants, including missense, nonsense, frameshift, and small insertions/deletions. Reports typically include quality metrics such as mean depth of coverage (how many times each region was sequenced) and the percentage of the target covered at adequate depth. Most labs also perform CNV analysis on the same data to detect deletions and duplications of three or more exons.</p>
+      </div>
+
+      <div class="term-card" id="term-working-memory">
+        <div class="term-head">
+          <span class="term-name">Working Memory</span>
+          <span class="term-tag tag-neuro">Cognition</span>
+        </div>
+        <p class="term-plain">The ability to hold and manipulate information over short periods, such as following multi-step instructions or performing mental arithmetic.</p>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<footer class="site-footer">
+  <p class="footer-brand">SETD5 Family Guides</p>
+  <p>This glossary provides general definitions for informational purposes. It does not provide medical advice or individualized clinical guidance. For questions about a specific report or symptom, consult a qualified healthcare professional.</p>
+
+<p style="margin-top:10px; font-style:italic;"><em>This report is Claude AI-aggregated. AI can make mistakes, so please confirm key details before making any decisions.</em></p>
+</footer>
+
+
+</body>
+</html>

@@ -93,6 +93,8 @@
   /* ── OVERVIEW GRID ── */
   .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
   @media (max-width: 580px) { .overview-grid { grid-template-columns: 1fr; } }
+  .overview-grid .overview-box:nth-child(5):last-child,
+  .overview-grid .overview-box:nth-child(5):nth-last-child(2) { grid-column: span 1; }
   .overview-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
   .overview-box h4 { font-family: 'DM Serif Display', serif; font-size: 15.5px; color: var(--navy); margin-bottom: 8px; }
   .overview-box ul { list-style: none; padding: 0; }
@@ -387,31 +389,61 @@
 
   <div class="overview-grid">
     <div class="overview-box">
-      <h4>Common features</h4>
+      <h4>Neurodevelopmental features</h4>
       <ul>
-        <li>Intellectual disability or developmental delay (~75%)</li>
+        <li>Intellectual disability or global developmental delay (~75%)</li>
         <li>Borderline intellectual functioning (~21%)</li>
         <li>Normal IQ in rare cases (~3.6%)</li>
-        <li>Speech and language delay (nearly universal)</li>
-        <li>Autism spectrum disorder (~24%)</li>
-        <li>Low muscle tone / hypotonia (~39%)</li>
-        <li>Gait abnormalities, including tip-toe walking (~36%)</li>
-        <li>Epilepsy (~14%)</li>
+        <li>Speech and language delay (nearly universal; expressive > receptive)</li>
+        <li>Minimally verbal or nonverbal in some individuals</li>
+        <li>Autism spectrum disorder (~24%; rates vary across cohorts)</li>
+        <li>ADHD symptoms (inattention, hyperactivity, impulsivity)</li>
+        <li>Anxiety, behavioral rigidity, difficulty with transitions</li>
+        <li>Aggression or behavioral outbursts in some</li>
         <li>Hyperkinetic or repetitive movements (~21%)</li>
+        <li>Learning difficulties across academic domains</li>
       </ul>
     </div>
     <div class="overview-box">
-      <h4>Other documented features</h4>
+      <h4>Neurological &amp; motor features</h4>
       <ul>
-        <li>Distinctive facial features</li>
-        <li>Short stature</li>
-        <li>Bone fragility (first described 2021)</li>
-        <li>ADHD and behavioral challenges</li>
+        <li>Hypotonia / low muscle tone (~39%)</li>
+        <li>Gait abnormalities, including tip-toe walking (~36%)</li>
+        <li>Epilepsy (~14%; rates vary across cohorts)</li>
+        <li>EEG abnormalities in some without clinical seizures</li>
+        <li>Multiple seizure types documented</li>
         <li>Sleep disturbances</li>
-        <li>Congenital heart defects (some cases)</li>
-        <li>Feeding difficulties in infancy</li>
-        <li>Brain structural differences (2025 data)</li>
-        <li>Musculoskeletal problems (2025 data)</li>
+        <li>Coordination difficulties / clumsiness</li>
+        <li>Motor development delay (gross and fine motor)</li>
+        <li>Brain structural differences on MRI (2025 data)</li>
+      </ul>
+    </div>
+    <div class="overview-box">
+      <h4>Craniofacial &amp; physical features</h4>
+      <ul>
+        <li>Macrocephaly (larger than average head circumference)</li>
+        <li>Broad or prominent forehead</li>
+        <li>Hypertelorism (widely spaced eyes)</li>
+        <li>Strabismus (crossed or misaligned eyes)</li>
+        <li>Low-set or posteriorly rotated ears</li>
+        <li>Broad or prominent nasal bridge</li>
+        <li>Short or smooth philtrum</li>
+        <li>High-arched palate</li>
+        <li>Dysmorphic features are typically mild and may be subtle</li>
+      </ul>
+    </div>
+    <div class="overview-box">
+      <h4>Growth, systemic &amp; other features</h4>
+      <ul>
+        <li>Short stature</li>
+        <li>Feeding difficulties in infancy; failure to thrive in some</li>
+        <li>Bone fragility — reduced bone mineral density, vertebral fractures (first described 2021)</li>
+        <li>Musculoskeletal problems including scoliosis and joint laxity (2025 data)</li>
+        <li>Congenital heart defects (some cases; types vary)</li>
+        <li>Cryptorchidism (undescended testes) in some males</li>
+        <li>Urogenital anomalies in some cases</li>
+        <li>Possible retinal involvement during development (2023 animal data)</li>
+        <li>Immune/inflammatory pathway involvement (early-stage 2026 research)</li>
       </ul>
     </div>
     <div class="overview-box">
@@ -435,7 +467,7 @@
     </div>
   </div>
 
-  <p style="font-size:13.5px;color:var(--muted);margin-bottom:0;font-style:italic;">Source data for percentages above: De Falco et al. (2024), <em>European Journal of Paediatric Neurology</em>, multicenter study of 28 patients. <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="color:var(--teal)">PubMed</a></p>
+  <p style="font-size:13.5px;color:var(--muted);margin-bottom:0;font-style:italic;">Percentage data: De Falco et al. (2024), <em>European Journal of Paediatric Neurology</em>, multicenter study of 28 patients — currently the largest published cohort. <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="color:var(--teal)">PubMed</a>. Rates may differ across cohorts due to small overall case numbers in the literature. Additional phenotype data drawn from Kuechler et al. (2015), Callahan et al. (2025), and published case reports.</p>
 
   <hr class="section-divider">
 
@@ -1093,8 +1125,9 @@
   <p class="footer-brand">SETD5 Research: 2020 to Present</p>
   <p>This report is for informational purposes only and is not a substitute for medical advice. Consult your child's medical team before making any care decisions.</p>
   <p><a href="https://www.simonssearchlight.org/research/what-we-study/setd5/">Simons Searchlight SETD5</a> · <a href="https://rarediseases.info.nih.gov/diseases/17673/intellectual-disability-facial-dysmorphism-syndrome-due-to-setd5-haploinsufficiency">NIH GARD</a> · <a href="https://rarechromo.org/media/information/Chromosome%20%203/SETD5%20QFN%202023.pdf">RareChromo Family Guide</a></p>
-  <p style="margin-top:12px;font-style:italic;opacity:.7;">This report is Claude AI-aggregated. AI can make mistakes, so please confirm key details before making any decisions.</p>
+  <p style="margin-top:10px; font-style:italic;"><em>This report is Claude AI-aggregated. AI can make mistakes, so please confirm key details before making any decisions.</em></p>
 </footer>
+
 
 </body>
 </html>
