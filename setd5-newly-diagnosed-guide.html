@@ -76,7 +76,7 @@
     scrollbar-width: none;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
-  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 32px; }
+  .tab-nav-inner { display: flex; padding-left: max(32px, calc((100% - 860px) / 2 + 32px)); padding-right: 16px; overflow-x: auto; }
   .tab-btn {
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,.55); font-family: 'Poppins', sans-serif;
