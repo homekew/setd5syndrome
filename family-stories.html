@@ -243,6 +243,26 @@
     font-style: italic;
   }
 
+  /* ── FILE UPLOAD ── */
+  .file-upload-label {
+    display: block;
+    background: var(--cream);
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .file-upload-label:hover {
+    border-color: var(--teal);
+    background: #f0faf8;
+    color: var(--teal);
+  }
+  input[type="file"] { display: none; }
+
   /* ── LINKS ── */
   a {
     color: var(--teal);
@@ -286,7 +306,7 @@
     <strong>You don't have to write a lot.</strong> Answer as many or as few prompts as you'd like. There are no wrong answers — just your experience, in your own words. Submissions are reviewed before being shared.
   </div>
 
-  <form class="form-card" action="https://formspree.io/f/xreavjqd" method="POST">
+  <form class="form-card" action="https://formspree.io/f/xreavjqd" method="POST" enctype="multipart/form-data">
 
     <!-- Hidden field for subject line -->
     <input type="hidden" name="_subject" value="New Family Story Submission — SETD5 Syndrome">
@@ -392,6 +412,20 @@
       <label for="email">Your email address <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <span class="label-hint">Only if you'd like us to follow up or let you know if your story is shared</span>
       <input type="email" id="email" name="email" placeholder="you@example.com">
+    </div>
+
+    <hr class="form-divider">
+
+    <!-- PHOTO -->
+    <div class="form-section-title">Photo</div>
+
+    <div class="form-group">
+      <label for="photo">Add a photo <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <span class="label-hint">A photo of your family, your child, or anything meaningful to you. JPG or PNG, max 5MB.</span>
+      <label class="file-upload-label" for="photo" id="photo-label">
+        Click to choose a photo
+        <input type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp" onchange="document.getElementById('photo-label').textContent = this.files[0] ? this.files[0].name : 'Click to choose a photo'">
+      </label>
     </div>
 
     <hr class="form-divider">
