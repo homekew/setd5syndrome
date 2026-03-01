@@ -71,10 +71,11 @@
     border-radius:20px; padding:4px 14px;
     font-size:12px; color:rgba(255,255,255,.8);
   }
+  /* Sticky nav wrapper */
+  .sticky-nav{ position:sticky; top:0; z-index:100; }
   /* Alpha index bar */
   .alpha-bar{
     background:var(--navy);
-    position:sticky; top:0; z-index:100;
     border-bottom:1px solid rgba(255,255,255,.1);
   }
   .alpha-bar-inner{
@@ -88,6 +89,46 @@
   }
   .alpha-link:hover{ color:#fff; }
   .alpha-link.has-entries{ color:rgba(255,255,255,.85); }
+  /* Tag filter bar */
+  .tag-bar{
+    background:var(--cream);
+    border-bottom:1px solid var(--border);
+  }
+  .tag-bar-inner{
+    max-width:860px; margin:0 auto; padding:9px 24px;
+    display:flex; flex-wrap:wrap; gap:7px; align-items:center;
+  }
+  .tag-filter-label{
+    font-size:11px; font-weight:600; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--muted);
+    margin-right:2px; white-space:nowrap; flex-shrink:0;
+  }
+  .tag-btn{
+    font-family:'Poppins', sans-serif;
+    font-size:11px; font-weight:600; letter-spacing:.08em;
+    text-transform:uppercase; border-radius:20px;
+    padding:4px 12px; border:1.5px solid transparent;
+    background:transparent; cursor:pointer; line-height:1.5;
+    transition:background .15s, color .15s, border-color .15s, opacity .15s;
+  }
+  .tag-btn:hover{ opacity:.8; }
+  .tag-btn[data-filter="all"]{ color:var(--navy); border-color:var(--navy); }
+  .tag-btn[data-filter="all"].active{ background:var(--navy); color:#fff; }
+  .tag-btn[data-filter="genetics"]{ color:var(--blue); border-color:var(--blue); }
+  .tag-btn[data-filter="genetics"].active{ background:var(--blue); color:#fff; }
+  .tag-btn[data-filter="neuro"]{ color:var(--sage); border-color:var(--sage); }
+  .tag-btn[data-filter="neuro"].active{ background:var(--sage); color:#fff; }
+  .tag-btn[data-filter="physical"]{ color:var(--rose); border-color:var(--rose); }
+  .tag-btn[data-filter="physical"].active{ background:var(--rose); color:#fff; }
+  .tag-btn[data-filter="behavior"]{ color:#8a3a6a; border-color:#8a3a6a; }
+  .tag-btn[data-filter="behavior"].active{ background:#8a3a6a; color:#fff; }
+  .tag-btn[data-filter="therapy"]{ color:#8a5a1a; border-color:var(--amber); }
+  .tag-btn[data-filter="therapy"].active{ background:var(--amber); color:#fff; }
+  .tag-btn[data-filter="testing"]{ color:var(--teal); border-color:var(--teal); }
+  .tag-btn[data-filter="testing"].active{ background:var(--teal); color:#fff; }
+  .tag-btn[data-filter="heart"]{ color:#9b2335; border-color:#9b2335; }
+  .tag-btn[data-filter="heart"].active{ background:#9b2335; color:#fff; }
+  .tag-hidden{ display:none !important; }
   /* Layout */
   .page-body{ max-width:860px; margin:0 auto; padding:48px 32px 80px; }
   /* Prose */
@@ -110,7 +151,7 @@
     padding:6px 0 10px;
     border-bottom:2px solid var(--border);
     margin-bottom:14px;
-    scroll-margin-top:52px;
+    scroll-margin-top:90px;
   }
   /* Term cards */
   .term-list{ display:flex; flex-direction:column; gap:12px; margin-bottom:40px; }
@@ -195,6 +236,7 @@
 </header>
 
 
+<div class="sticky-nav">
 <nav class="alpha-bar" aria-label="Jump to letter">
   <div class="alpha-bar-inner">
     <a class="alpha-link has-entries" href="#letter-num">#</a>
@@ -226,6 +268,20 @@
     <a class="alpha-link" href="#letter-Z">Z</a>
   </div>
 </nav>
+<div class="tag-bar" aria-label="Filter by category">
+  <div class="tag-bar-inner">
+    <span class="tag-filter-label">Filter:</span>
+    <button class="tag-btn active" data-filter="all">All</button>
+    <button class="tag-btn" data-filter="genetics">Genetics</button>
+    <button class="tag-btn" data-filter="neuro">Neurology</button>
+    <button class="tag-btn" data-filter="physical">Physical</button>
+    <button class="tag-btn" data-filter="behavior">Behavior</button>
+    <button class="tag-btn" data-filter="therapy">Therapy &amp; Services</button>
+    <button class="tag-btn" data-filter="testing">Testing</button>
+    <button class="tag-btn" data-filter="heart">Heart</button>
+  </div>
+</div>
+</div>
 
 <div class="page-body">
 
@@ -1177,6 +1233,42 @@
   </div>
 
 </div><!-- /page-body -->
+
+<!-- TAG FILTER -->
+<script>
+(function(){
+  var btns  = document.querySelectorAll('.tag-btn');
+  var cards = document.querySelectorAll('.term-card');
+  var groups = document.querySelectorAll('.letter-group');
+
+  // Read the tag-* class off each card's tag pill and store it as a data attribute
+  cards.forEach(function(card){
+    var tagEl = card.querySelector('.term-tag');
+    if(tagEl){
+      var cls = Array.from(tagEl.classList).find(function(c){ return c.startsWith('tag-'); });
+      if(cls) card.dataset.tagFilter = cls.replace('tag-','');
+    }
+  });
+
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-filter');
+      // Swap active class
+      btns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      // Show / hide individual term cards
+      cards.forEach(function(card){
+        card.classList.toggle('tag-hidden', f !== 'all' && card.dataset.tagFilter !== f);
+      });
+      // Hide whole letter groups that have no visible cards
+      groups.forEach(function(g){
+        var any = g.querySelectorAll('.term-card:not(.tag-hidden)').length > 0;
+        g.classList.toggle('tag-hidden', !any);
+      });
+    });
+  });
+})();
+</script>
 
 <!-- BACK TO TOP -->
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">↑</button>
