@@ -264,6 +264,21 @@
 </script>
 </head>
 <body>
+<!-- Google Translate Widget -->
+<div style="text-align:right;padding:5px 16px 4px;background:rgba(0,0,0,0.18);">
+  <div id="google_translate_element" style="display:inline-block;font-size:11px;"></div>
+</div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 <!-- HEADER -->
 <header class="site-header">
@@ -731,16 +746,5 @@
 
 
 </body>
-<!-- Google Translate Widget -->
-<div id="google_translate_element" style="position:fixed;top:16px;right:16px;z-index:9999;background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 10px;box-shadow:0 2px 8px rgba(0,0,0,0.12);font-size:13px;"></div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </html>
