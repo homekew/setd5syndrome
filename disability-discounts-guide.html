@@ -230,24 +230,15 @@
 </style>
 </head>
 <body>
-<!-- Google Translate Widget -->
-<div style="position:fixed;top:10px;right:12px;z-index:99999;background:rgba(26,39,68,0.92);padding:5px 10px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.25);">
-  <div id="google_translate_element"></div>
-</div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 
 
 
 <header class="site-header">
+  <div style="position:absolute;top:8px;right:12px;z-index:100;transform:scale(0.78);transform-origin:top right;opacity:0.85;">
+    <div id="google_translate_element"></div>
+  </div>
   <div class="header-inner">
     <p class="header-eyebrow"><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none;">← SETD5 Syndrome Research &amp; Resources</a></p>
     <h1 class="header-title">Disability Discounts Guide</h1>
@@ -615,6 +606,15 @@ Sincerely,
   }
 </script>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

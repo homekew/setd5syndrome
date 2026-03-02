@@ -350,24 +350,15 @@
 </style>
 </head>
 <body>
-<!-- Google Translate Widget -->
-<div style="position:fixed;top:10px;right:12px;z-index:99999;background:rgba(26,39,68,0.92);padding:5px 10px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.25);">
-  <div id="google_translate_element"></div>
-</div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 
 
 
 <header class="site-header">
+  <div style="position:absolute;top:8px;right:12px;z-index:100;transform:scale(0.78);transform-origin:top right;opacity:0.85;">
+    <div id="google_translate_element"></div>
+  </div>
   <div class="header-inner">
     <p class="header-eyebrow">
       <a href="index.html">← SETD5 Syndrome Research &amp; Resources</a>
@@ -425,6 +416,15 @@ function googleTranslateElementInit() {
   <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
 </footer>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
