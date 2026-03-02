@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Site — Style Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:wght@300;400&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #fefdf9;
+    color: #2c2c2c;
+    line-height: 1.6;
+  }
+
+  /* PAGE HEADER */
+  .sg-header {
+    background: #1a2744;
+    color: #fff;
+    padding: 40px 48px;
+    border-bottom: 6px solid #2a7a6a;
+  }
+  .sg-header h1 {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 4px;
+  }
+  .sg-header p { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+  /* LAYOUT */
+  .sg-body { max-width: 1000px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  /* SECTION */
+  .sg-section { margin-bottom: 64px; }
+  .sg-section-title {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: #6b6b6b;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0d9cf;
+    margin-bottom: 24px;
+  }
+
+  /* COLOR SWATCHES */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+  }
+  .swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .swatch-color { height: 64px; }
+  .swatch-info { background: #fff; padding: 10px 12px; }
+  .swatch-name { font-size: 12px; font-weight: 600; color: #1a2744; margin-bottom: 2px; }
+  .swatch-hex { font-size: 11px; font-family: monospace; color: #6b6b6b; }
+  .swatch-var { font-size: 10px; color: #a8cfc8; margin-top: 3px; font-family: monospace; }
+
+  /* DIVIDER */
+  .sg-divider {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #a8cfc8;
+    margin: 28px 0 14px;
+  }
+
+  /* TYPE TABLE */
+  .type-table { width: 100%; border-collapse: collapse; }
+  .type-table th {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px;
+    color: #6b6b6b; padding: 8px 14px; text-align: left;
+    border-bottom: 1px solid #e0d9cf; background: #fdf9f4;
+  }
+  .type-table td {
+    padding: 12px 14px; border-bottom: 1px solid #f0ece6;
+    vertical-align: middle;
+  }
+  .type-table tr:last-child td { border-bottom: none; }
+  .mono { font-family: monospace; font-size: 12px; color: #2a627a; }
+
+  /* SPECIMEN CARDS */
+  .specimen-grid { display: grid; gap: 12px; }
+  .specimen {
+    border: 1px solid #e0d9cf;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .specimen-label {
+    background: #fdf9f4;
+    border-bottom: 1px solid #e0d9cf;
+    padding: 8px 16px;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #6b6b6b;
+  }
+  .specimen-body { padding: 20px 24px; background: #fff; }
+
+  /* RGBA GRID */
+  .rgba-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .rgba-card {
+    border: 1px solid #e0d9cf;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .rgba-preview {
+    background: #1a2744;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 10px;
+  }
+  .rgba-dot { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+  .rgba-label { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .rgba-info { padding: 8px 12px; background: #fff; }
+  .rgba-value { font-size: 11px; font-family: monospace; color: #2c2c2c; }
+  .rgba-desc { font-size: 10.5px; color: #6b6b6b; margin-top: 2px; }
+
+  /* UTILITY ROW */
+  .util-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .util-card {
+    border: 1px solid #e0d9cf;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fff;
+  }
+  .util-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #a8cfc8; margin-bottom: 6px; }
+  .util-value { font-size: 12px; font-family: monospace; color: #2c2c2c; }
+
+  /* TAG */
+  .tag {
+    display: inline-block;
+    background: #fdf4e7;
+    color: #8a5a1a;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<div class="sg-header">
+  <h1>SETD5 Site — Style Guide</h1>
+  <p>All design tokens and typographic styles used across setd5syndrome.live</p>
+</div>
+
+<div class="sg-body">
+
+  <!-- ── 1. CSS VARIABLES ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">CSS Variables — Core Palette</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#1a2744"></div><div class="swatch-info"><div class="swatch-name">Navy</div><div class="swatch-hex">#1a2744</div><div class="swatch-var">--navy</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#2a7a6a"></div><div class="swatch-info"><div class="swatch-name">Teal</div><div class="swatch-hex">#2a7a6a</div><div class="swatch-var">--teal</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#2a627a"></div><div class="swatch-info"><div class="swatch-name">Deep Blue</div><div class="swatch-hex">#2a627a</div><div class="swatch-var">--deep</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#c9893a"></div><div class="swatch-info"><div class="swatch-name">Amber</div><div class="swatch-hex">#c9893a</div><div class="swatch-var">--amber</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#4e7c5f"></div><div class="swatch-info"><div class="swatch-name">Sage</div><div class="swatch-hex">#4e7c5f</div><div class="swatch-var">--sage</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#b05a5a"></div><div class="swatch-info"><div class="swatch-name">Rose</div><div class="swatch-hex">#b05a5a</div><div class="swatch-var">--rose</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#5a80a8"></div><div class="swatch-info"><div class="swatch-name">Steel Blue</div><div class="swatch-hex">#5a80a8</div><div class="swatch-var">--blue</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#2c2c2c"></div><div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex">#2c2c2c</div><div class="swatch-var">--ink / --text</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#6b6b6b"></div><div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-hex">#6b6b6b</div><div class="swatch-var">--muted</div></div></div>
+    </div>
+
+    <div class="sg-divider">Background Tints</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#fefdf9;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Page BG</div><div class="swatch-hex">#fefdf9</div><div class="swatch-var">--bg</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#faf7f2;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#faf7f2</div><div class="swatch-var">--cream</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f2ede4;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Cream 2</div><div class="swatch-hex">#f2ede4</div><div class="swatch-var">--cream2</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#fdf4e7;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Amber Light</div><div class="swatch-hex">#fdf4e7</div><div class="swatch-var">--amber-lt</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#edf5ef;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Sage Light</div><div class="swatch-hex">#edf5ef</div><div class="swatch-var">--sage-lt</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#fdf0ef;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Rose Light</div><div class="swatch-hex">#fdf0ef</div><div class="swatch-var">--rose-lt</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#e8eff7;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Blue Light</div><div class="swatch-hex">#e8eff7</div><div class="swatch-var">--blue-lt</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#ede9f8;border-bottom:1px solid #e0d9cf"></div><div class="swatch-info"><div class="swatch-name">Purple Light</div><div class="swatch-hex">#ede9f8</div><div class="swatch-var">--purple-lt</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#e0d9cf;border-bottom:1px solid #ccc"></div><div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#e0d9cf</div><div class="swatch-var">--border</div></div></div>
+    </div>
+
+    <div class="sg-divider">Accent / One-off Colors</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#a8cfc8"></div><div class="swatch-info"><div class="swatch-name">Soft Teal</div><div class="swatch-hex">#a8cfc8</div><div class="swatch-var">header accent</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8b1a1a"></div><div class="swatch-info"><div class="swatch-name">Dark Red</div><div class="swatch-hex">#8b1a1a</div><div class="swatch-var">♥ heart</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8a5a1a"></div><div class="swatch-info"><div class="swatch-name">Dark Amber</div><div class="swatch-hex">#8a5a1a</div><div class="swatch-var">text on amber-lt</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#b8d9c8"></div><div class="swatch-info"><div class="swatch-name">Pale Teal</div><div class="swatch-hex">#b8d9c8</div><div class="swatch-var">banner accent</div></div></div>
+    </div>
+  </div>
+
+  <!-- ── 2. WHITE TRANSPARENCIES ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">White Transparencies (shown on Navy)</div>
+    <div class="rgba-grid">
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.88)"></div><span class="rgba-label">0.88</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.88)</div><div class="rgba-desc">Header subtitle</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.8)"></div><span class="rgba-label">0.80</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.8)</div><div class="rgba-desc">Nav links</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.72)"></div><span class="rgba-label">0.72</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.72)</div><div class="rgba-desc">Secondary nav text</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.65)"></div><span class="rgba-label">0.65</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.65)</div><div class="rgba-desc">Dimmed text</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.5)"></div><span class="rgba-label">0.50</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.5)</div><div class="rgba-desc">Inactive tab items</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.45)"></div><span class="rgba-label">0.45</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.45)</div><div class="rgba-desc">Eyebrow labels</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.4)"></div><span class="rgba-label">0.40</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.4)</div><div class="rgba-desc">Footer text</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.2)"></div><span class="rgba-label">0.20</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.2)</div><div class="rgba-desc">Subtle dividers</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.15)"></div><span class="rgba-label">0.15</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.15)</div><div class="rgba-desc">Faint borders</div></div></div>
+      <div class="rgba-card"><div class="rgba-preview"><div class="rgba-dot" style="background:rgba(255,255,255,0.1)"></div><span class="rgba-label">0.10</span></div><div class="rgba-info"><div class="rgba-value">rgba(255,255,255,0.1)</div><div class="rgba-desc">Hairline borders</div></div></div>
+    </div>
+  </div>
+
+  <!-- ── 3. TYPEFACES ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">Typefaces</div>
+    <div class="specimen-grid">
+
+      <div class="specimen">
+        <div class="specimen-label">Playfair Display — Site headers & page titles <span class="tag">Primary heading font</span></div>
+        <div class="specimen-body">
+          <div style="font-family:'Playfair Display',serif;font-weight:400;font-size:2rem;color:#1a2744;line-height:1.08;letter-spacing:-0.02em;margin-bottom:10px;">SETD5 Syndrome Research &amp; Resources</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:#1a2744;margin-bottom:6px;">Section Heading — Weight 700</div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#2a7a6a;">Subheading in teal — Weight 700</div>
+        </div>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen-label">Source Serif 4 — Index body text & footer <span class="tag">Index page</span></div>
+        <div class="specimen-body">
+          <div style="font-family:'Source Serif 4',serif;font-weight:300;font-size:1rem;color:#2c2c2c;margin-bottom:8px;">Weight 300 — Curated information for families, caregivers, and researchers navigating a SETD5 Syndrome diagnosis.</div>
+          <div style="font-family:'Source Serif 4',serif;font-weight:400;font-size:1rem;color:#2c2c2c;margin-bottom:8px;">Weight 400 — Curated information for families, caregivers, and researchers navigating a SETD5 Syndrome diagnosis.</div>
+          <div style="font-family:'Source Serif 4',serif;font-weight:400;font-size:0.82rem;color:rgba(0,0,0,0.4);">Weight 400 · 0.82rem — Footer text style</div>
+        </div>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen-label">DM Serif Display — Subpage header subtitles <span class="tag">Subpages</span></div>
+        <div class="specimen-body">
+          <div style="font-family:'DM Serif Display',serif;font-weight:400;font-size:1.1rem;color:#2c2c2c;margin-bottom:8px;">Weight 400 — For parents, caregivers, and adults who have just received an SETD5 diagnosis.</div>
+          <div style="font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;color:#2a7a6a;">Italic — used for subtitle emphasis</div>
+        </div>
+      </div>
+
+      <div class="specimen">
+        <div class="specimen-label">DM Sans — UI, body text, tabs, buttons <span class="tag">Subpages</span></div>
+        <div class="specimen-body">
+          <div style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:15px;color:#2c2c2c;margin-bottom:6px;">Weight 300 — Light body text</div>
+          <div style="font-family:'DM Sans',sans-serif;font-weight:400;font-size:15px;color:#2c2c2c;margin-bottom:6px;">Weight 400 — Regular body text and content</div>
+          <div style="font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;color:#2c2c2c;margin-bottom:6px;">Weight 500 — Navigation tabs and labels</div>
+          <div style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;color:#2c2c2c;">Weight 600 — Buttons, chips, category tags</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── 4. FONT SIZES ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">Font Sizes</div>
+    <table class="type-table">
+      <thead><tr><th>Value</th><th>Approx Size</th><th>Used For</th><th>Live Preview</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">clamp(1.85rem, 4.2vw, 2.8rem)</td><td class="mono">~30–45px</td><td>Site header h1</td><td><span style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(1.85rem,4.2vw,2.8rem);line-height:1;color:#1a2744;">SETD5</span></td></tr>
+        <tr><td class="mono">clamp(1.6rem, 3vw, 2.1rem)</td><td class="mono">~26–34px</td><td>Page title strip</td><td><span style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);color:#1a2744;">Page Title</span></td></tr>
+        <tr><td class="mono">clamp(27px, 5vw, 42px)</td><td class="mono">27–42px</td><td>Subpage h1 titles</td><td><span style="font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(27px,5vw,42px);color:#1a2744;">Guide Title</span></td></tr>
+        <tr><td class="mono">2rem</td><td class="mono">~32px</td><td>Mobile h1 fallback</td><td><span style="font-family:'Playfair Display',serif;font-weight:400;font-size:2rem;color:#1a2744;">Heading</span></td></tr>
+        <tr><td class="mono">1.25rem</td><td class="mono">~20px</td><td>Card titles</td><td><span style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;color:#1a2744;">Card Title</span></td></tr>
+        <tr><td class="mono">1.05rem</td><td class="mono">~17px</td><td>Header subtitle</td><td><span style="font-size:1.05rem;color:#2c2c2c;">Header subtitle text</span></td></tr>
+        <tr><td class="mono">18px / 17.5px</td><td class="mono">18px</td><td>Large section headings</td><td><span style="font-size:18px;font-weight:700;color:#1a2744;">Section Heading</span></td></tr>
+        <tr><td class="mono">16px</td><td class="mono">16px</td><td>Base body text</td><td><span style="font-size:16px;color:#2c2c2c;">Base body text</span></td></tr>
+        <tr><td class="mono">15px / 15.5px</td><td class="mono">15px</td><td>Body / callout text</td><td><span style="font-size:15px;color:#2c2c2c;">Callout body text</span></td></tr>
+        <tr><td class="mono">14.5px</td><td class="mono">14.5px</td><td>Footer attribution</td><td><span style="font-size:14.5px;color:#2c2c2c;">Made with ♥ by a parent</span></td></tr>
+        <tr><td class="mono">14px / 13.5px</td><td class="mono">14px</td><td>Secondary body, nav</td><td><span style="font-size:14px;color:#2c2c2c;">Secondary body text</span></td></tr>
+        <tr><td class="mono">13px / 12.5px</td><td class="mono">13px</td><td>Labels, small UI</td><td><span style="font-size:13px;color:#6b6b6b;">Small label text</span></td></tr>
+        <tr><td class="mono">0.82rem</td><td class="mono">~13px</td><td>Footer disclaimer</td><td><span style="font-size:0.82rem;font-family:'Source Serif 4',serif;color:rgba(0,0,0,0.5);">For informational purposes only.</span></td></tr>
+        <tr><td class="mono">12px / 11.5px</td><td class="mono">12px</td><td>Back button, chips</td><td><span style="font-size:12px;font-weight:600;color:#1a2744;">← Back to Main Page</span></td></tr>
+        <tr><td class="mono">0.75rem / 0.72rem</td><td class="mono">~12px</td><td>Eyebrow labels</td><td><span style="font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;color:#6b6b6b;">SETD5 SYNDROME</span></td></tr>
+        <tr><td class="mono">11px / 10px</td><td class="mono">10–11px</td><td>Badges, tags, meta</td><td><span style="font-size:10.5px;background:#fdf4e7;color:#8a5a1a;padding:2px 6px;border-radius:3px;font-weight:600;">US-focused</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 5. FONT WEIGHTS ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">Font Weights</div>
+    <div class="util-grid">
+      <div class="util-card"><div class="util-label">Weight</div><div style="font-weight:300;font-size:16px;color:#2c2c2c;">300 — Light</div><div class="util-value">font-weight: 300</div></div>
+      <div class="util-card"><div class="util-label">Weight</div><div style="font-weight:400;font-size:16px;color:#2c2c2c;">400 — Regular</div><div class="util-value">font-weight: 400</div></div>
+      <div class="util-card"><div class="util-label">Weight</div><div style="font-weight:500;font-size:16px;color:#2c2c2c;">500 — Medium</div><div class="util-value">font-weight: 500</div></div>
+      <div class="util-card"><div class="util-label">Weight</div><div style="font-weight:600;font-size:16px;color:#2c2c2c;">600 — Semibold</div><div class="util-value">font-weight: 600</div></div>
+      <div class="util-card"><div class="util-label">Weight</div><div style="font-weight:700;font-size:16px;color:#2c2c2c;">700 — Bold</div><div class="util-value">font-weight: 700</div></div>
+      <div class="util-card"><div class="util-label">Weight</div><div style="font-weight:400;font-size:16px;color:#2c2c2c;">900 — Black</div><div class="util-value">font-weight: 900</div></div>
+    </div>
+  </div>
+
+  <!-- ── 6. LINE HEIGHTS ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">Line Heights & Letter Spacing</div>
+    <div class="util-grid">
+      <div class="util-card"><div class="util-label">Line Height</div><div class="util-value">1.08 — Tight headings</div></div>
+      <div class="util-card"><div class="util-label">Line Height</div><div class="util-value">1.18 — Subpage h1</div></div>
+      <div class="util-card"><div class="util-label">Line Height</div><div class="util-value">1.25 – 1.3 — Cards</div></div>
+      <div class="util-card"><div class="util-label">Line Height</div><div class="util-value">1.6 – 1.65 — Body</div></div>
+      <div class="util-card"><div class="util-label">Line Height</div><div class="util-value">1.7 – 1.8 — Long-form</div></div>
+      <div class="util-card"><div class="util-label">Letter Spacing</div><div class="util-value">-0.02em — H1 headings</div></div>
+      <div class="util-card"><div class="util-label">Letter Spacing</div><div class="util-value">0.06–0.1em — Card links</div></div>
+      <div class="util-card"><div class="util-label">Letter Spacing</div><div class="util-value">0.16–0.18em — Eyebrows</div></div>
+    </div>
+  </div>
+
+  <!-- ── 7. BORDER RADIUS ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">Border Radius</div>
+    <div class="util-grid">
+      <div class="util-card"><div class="util-label">Radius</div><div style="background:#e0d9cf;height:20px;border-radius:2px;margin-bottom:6px;"></div><div class="util-value">2px — Rules, bars</div></div>
+      <div class="util-card"><div class="util-label">Radius</div><div style="background:#e0d9cf;height:20px;border-radius:4px;margin-bottom:6px;"></div><div class="util-value">4px — Small chips</div></div>
+      <div class="util-card"><div class="util-label">Radius</div><div style="background:#e0d9cf;height:20px;border-radius:6px;margin-bottom:6px;"></div><div class="util-value">6px — Buttons, tags</div></div>
+      <div class="util-card"><div class="util-label">Radius</div><div style="background:#e0d9cf;height:20px;border-radius:8px;margin-bottom:6px;"></div><div class="util-value">8px — Callouts</div></div>
+      <div class="util-card"><div class="util-label">Radius</div><div style="background:#e0d9cf;height:20px;border-radius:10px;margin-bottom:6px;"></div><div class="util-value">10px — Cards</div></div>
+      <div class="util-card"><div class="util-label">Radius</div><div style="background:#e0d9cf;height:20px;border-radius:20px;margin-bottom:6px;"></div><div class="util-value">20px — Pill badges</div></div>
+      <div class="util-card"><div class="util-label">Radius</div><div style="background:#e0d9cf;height:20px;border-radius:50%;width:20px;margin-bottom:6px;"></div><div class="util-value">50% — Circle icons</div></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
