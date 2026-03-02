@@ -394,12 +394,6 @@
     </div>
 
     <div class="form-group">
-      <label for="life_taught">What has life with SETD5 Syndrome taught you?</label>
-      <span class="label-hint" id="life-taught-hint">About your child, yourself, your family, or the world</span>
-      <textarea id="life_taught" name="life_taught" placeholder="Share as much or as little as you'd like..."></textarea>
-    </div>
-
-    <div class="form-group">
       <label for="joy">What brings you joy or hope? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <span class="label-hint" id="joy-hint">Something about your child, a moment, a milestone, anything...</span>
       <textarea id="joy" name="joy" placeholder="Something about your child, a moment, a milestone, anything..."></textarea>
@@ -465,7 +459,6 @@
       ageNow:         'Your current age',
       ageDiagnosis:   'Your age at diagnosis',
       howDiagnosed:   'How were you diagnosed?',
-      lifeTaughtHint: 'About yourself, your relationships, or the world',
       joyHint:        'A moment, a milestone, a person, anything...',
     },
     other: {
@@ -474,7 +467,6 @@
       ageNow:         'Their current age',
       ageDiagnosis:   'Their age at diagnosis',
       howDiagnosed:   'How were they diagnosed?',
-      lifeTaughtHint: 'About your child, yourself, your family, or the world',
       joyHint:        'Something about your child, a moment, a milestone, anything...',
     }
   };
@@ -495,7 +487,6 @@
     document.getElementById('age-now-label').innerHTML       = t.ageNow + opt;
     document.getElementById('age-diagnosis-label').innerHTML = t.ageDiagnosis + opt;
     document.getElementById('how-diagnosed-label').innerHTML = t.howDiagnosed + opt;
-    document.getElementById('life-taught-hint').textContent  = t.lifeTaughtHint;
     document.getElementById('joy-hint').textContent          = t.joyHint;
   }
 
@@ -521,9 +512,12 @@
 
       if (response.ok) {
         form.style.display = 'none';
-        document.querySelector('.intro-box').style.display = 'none';
-        document.getElementById('back-link').style.display = 'none';
+        const introBox = document.querySelector('.intro-box');
+        if (introBox) introBox.style.display = 'none';
+        const backLink = document.getElementById('back-link');
+        if (backLink) backLink.style.display = 'none';
         document.getElementById('thank-you').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         btn.disabled = false;
         btn.textContent = 'Submit Your Story';
