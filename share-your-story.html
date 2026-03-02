@@ -417,10 +417,10 @@
     <div class="form-group">
       <label for="photo">Add a photo <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <span class="label-hint">A photo of your family, your child, or anything meaningful to you. JPG or PNG, max 5MB.</span>
-      <label class="file-upload-label" for="photo" id="photo-label">
-        Click to choose a photo
-        <input type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp" onchange="document.getElementById('photo-label').textContent = this.files[0] ? this.files[0].name : 'Click to choose a photo'">
+      <label class="file-upload-label" for="photo">
+        <span id="photo-label-text">Click to choose a photo</span>
       </label>
+      <input type="file" id="photo" name="photo" accept="image/jpeg,image/png,image/webp" onchange="document.getElementById('photo-label-text').textContent = this.files[0] ? this.files[0].name : 'Click to choose a photo'">
     </div>
 
     <hr class="form-divider">
