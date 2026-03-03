@@ -73,7 +73,7 @@
     font-size:12px; color:rgba(255,255,255,.8);
   }
   /* Sticky nav wrapper */
-  .sticky-nav{ position:sticky; top:0; z-index:100; }
+  .sticky-nav{ position:sticky; top:0; z-index:100; transition: top 0.3s ease; }
   /* Alpha index bar */
   .alpha-bar{
     background:var(--navy);
@@ -1314,9 +1314,20 @@
 <script>
 (function() {
   var header = document.querySelector('.site-header') || document.querySelector('header');
+  var stickyNav = document.querySelector('.sticky-nav');
   if (!header) return;
+
+  function updateNav() {
+    if (stickyNav) stickyNav.style.top = header.offsetHeight + 'px';
+  }
+
+  // Set initial position once layout is ready
+  window.addEventListener('load', updateNav);
+  updateNav();
+
   window.addEventListener('scroll', function() {
     header.classList[window.scrollY > 60 ? 'add' : 'remove']('compact');
+    updateNav();
   }, { passive: true });
 })();
 </script>
