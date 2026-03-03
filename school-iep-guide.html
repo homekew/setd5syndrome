@@ -59,7 +59,7 @@
     z-index: 0;
   }
 
-  .header-inner { max-width: 860px; margin: 0 auto; padding: 18px 32px 16px; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 14px 32px 12px; }
   .header-eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
@@ -67,7 +67,7 @@
   .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
   .header-title {
     font-family: 'Lora', serif;
-    font-size: clamp(1.85rem, 4.2vw, 2.8rem); font-weight: 400;
+    font-size: clamp(1.65rem, 4.0vw, 2.6rem); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
@@ -282,26 +282,10 @@
 
   @media (max-width: 600px) {
     .page-body { padding: 36px 18px 60px; }
-    .header-inner { padding: 12px 18px 10px; }
+    .header-inner { padding: 10px 18px 8px; }
     .compare-table { font-size: 13px; }
     .compare-table td, .compare-table th { padding: 9px 10px; }
   }
-
-  /* ── COMPACT STICKY HEADER ── */
-  .site-header.compact { box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
-  .compact .header-inner { padding: 12px 32px 10px; }
-  .header-eyebrow {
-    transition: opacity 0.2s ease, max-height 0.3s ease;
-    max-height: 80px; overflow: hidden;
-  }
-  .compact .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .header-title { transition: font-size 0.3s ease, margin-bottom 0.3s ease; }
-  .compact .header-title { font-size: 1.15rem; margin-bottom: 0; }
-  .header-subtitle {
-    transition: opacity 0.2s ease, max-height 0.3s ease;
-    max-height: 150px; overflow: hidden;
-  }
-  .compact .header-subtitle { opacity: 0; max-height: 0; margin-top: 0; }
 </style>
 <script>
   function showTab(id) {
@@ -784,15 +768,6 @@
   <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
 </footer>
 
-<script>
-(function() {
-  var header = document.querySelector('.site-header') || document.querySelector('header');
-  if (!header) return;
-  window.addEventListener('scroll', function() {
-    header.classList[window.scrollY > 60 ? 'add' : 'remove']('compact');
-  }, { passive: true });
-})();
-</script>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
