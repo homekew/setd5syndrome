@@ -240,6 +240,22 @@
     .section { padding: 18px; }
     h2 { font-size: 18px; }
   }
+
+  /* ── COMPACT STICKY HEADER ── */
+  .site-header.compact { box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+  .compact .header-inner { padding: 12px 32px 10px; }
+  .header-eyebrow {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 80px; overflow: hidden;
+  }
+  .compact .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .header-title { transition: font-size 0.3s ease, margin-bottom 0.3s ease; }
+  .compact .header-title { font-size: 1.15rem; margin-bottom: 0; }
+  .header-subtitle {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 150px; overflow: hidden;
+  }
+  .compact .header-subtitle { opacity: 0; max-height: 0; margin-top: 0; }
 </style>
 </head>
 <body>
@@ -620,11 +636,18 @@ Sincerely,
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var header = document.querySelector('.site-header');
+(function() {
+  var header = document.querySelector('.site-header') || document.querySelector('header');
   var bar = document.querySelector('.sticky-nav') || document.querySelector('.tab-nav');
-  if (header && bar) bar.style.top = header.offsetHeight + 'px';
-});
+  if (!header) return;
+  function updateBar() { if (bar) bar.style.top = header.offsetHeight + 'px'; }
+  window.addEventListener('load', updateBar);
+  updateBar();
+  window.addEventListener('scroll', function() {
+    header.classList[window.scrollY > 60 ? 'add' : 'remove']('compact');
+    updateBar();
+  }, { passive: true });
+})();
 </script>
 <script type="text/javascript">
 function googleTranslateElementInit() {
