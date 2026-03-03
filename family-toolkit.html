@@ -99,6 +99,7 @@
     transition: color 0.15s;
   }
   .header-eyebrow a:hover { color: #a8cfc8; }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
   .header-eyebrow .sep { margin: 0 8px; opacity: 0.35; }
   .header-title {
     font-family: 'Lora', serif;
@@ -377,6 +378,24 @@
     main { padding: 2rem 1.25rem 4rem; }
     .card-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── COMPACT STICKY HEADER ── */
+  .site-header { transition: box-shadow 0.3s ease; }
+  .site-header.compact { box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+  .header-inner { transition: padding 0.3s ease; }
+  .compact .header-inner { padding: 12px 32px 10px; }
+  .header-eyebrow {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 40px; overflow: hidden;
+  }
+  .compact .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .header-title { transition: font-size 0.3s ease, margin-bottom 0.3s ease; }
+  .compact .header-title { font-size: 1.15rem; margin-bottom: 0; }
+  .header-subtitle {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 60px; overflow: hidden;
+  }
+  .compact .header-subtitle { opacity: 0; max-height: 0; margin-top: 0; }
 </style>
 </head>
 <body>

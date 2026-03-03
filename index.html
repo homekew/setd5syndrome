@@ -269,6 +269,27 @@
     h1 { font-size: 2rem; }
     .card-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── COMPACT STICKY HEADER ── */
+  header { transition: box-shadow 0.3s ease, padding 0.3s ease; }
+  header.compact { box-shadow: 0 2px 12px rgba(0,0,0,0.25); padding: 10px 2rem; }
+  h1 { transition: font-size 0.3s ease; }
+  header.compact h1 { font-size: 1.2rem; }
+  .site-label {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 30px; overflow: hidden;
+  }
+  header.compact .site-label { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .header-rule {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 20px; overflow: hidden;
+  }
+  header.compact .header-rule { opacity: 0; max-height: 0; margin: 0; }
+  .header-sub {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 60px; overflow: hidden;
+  }
+  header.compact .header-sub { opacity: 0; max-height: 0; margin: 0; }
 </style>
 </head>
 <body>
@@ -327,6 +348,15 @@
 </footer>
 
 
+<script>
+(function() {
+  var header = document.querySelector('.site-header') || document.querySelector('header');
+  if (!header) return;
+  window.addEventListener('scroll', function() {
+    header.classList[window.scrollY > 60 ? 'add' : 'remove']('compact');
+  }, { passive: true });
+})();
+</script>
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
