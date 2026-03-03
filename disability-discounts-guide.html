@@ -47,7 +47,18 @@
   }
 
   /* ── HEADER ── */
-  .site-header { background: #2a627a; color: #fff; position: sticky; top: 0; z-index: 1000;}
+  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000;}
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .header-inner { max-width: 860px; margin: 0 auto; padding: 38px 32px 36px; }
   .header-eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
