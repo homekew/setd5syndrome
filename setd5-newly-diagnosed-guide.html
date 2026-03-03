@@ -75,6 +75,7 @@
     background: var(--navy);
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    position: sticky; top: 0; z-index: 100; transition: top 0.3s ease;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
@@ -759,9 +760,19 @@
 <script>
 (function() {
   var header = document.querySelector('.site-header') || document.querySelector('header');
+  var tabNav = document.querySelector('.tab-nav');
   if (!header) return;
+
+  function updateTabNav() {
+    if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
+  }
+
+  window.addEventListener('load', updateTabNav);
+  updateTabNav();
+
   window.addEventListener('scroll', function() {
     header.classList[window.scrollY > 60 ? 'add' : 'remove']('compact');
+    updateTabNav();
   }, { passive: true });
 })();
 </script>
