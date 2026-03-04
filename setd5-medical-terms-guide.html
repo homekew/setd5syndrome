@@ -158,6 +158,7 @@
   .tag-opt.active{ font-weight:600; color:var(--navy); background:var(--cream2); }
   .tag-hidden{ display:none !important; }
   .search-hidden{ display:none !important; }
+  mark.search-hl{ background:#fff176; color:inherit; border-radius:2px; padding:0 1px; }
   /* Layout */
   .page-body{ max-width:860px; margin:0 auto; padding:48px 32px 80px; }
   /* Prose */
@@ -1416,29 +1417,68 @@
 <!-- SEARCH -->
 <script>
 (function(){
-  var input    = document.getElementById('term-search');
-  var clearBtn = document.getElementById('search-clear');
+  var input     = document.getElementById('term-search');
+  var clearBtn  = document.getElementById('search-clear');
   var noResults = document.getElementById('search-no-results');
-  var cards    = document.querySelectorAll('.term-card');
-  var groups   = document.querySelectorAll('.letter-group');
-  var prose    = document.querySelector('.page-body > .prose');
+  var cards     = document.querySelectorAll('.term-card');
+  var groups    = document.querySelectorAll('.letter-group');
+  var prose     = document.querySelector('.page-body > .prose');
+
+  // Save original HTML for each card so we can restore it after clearing
+  var origHTML = [];
+  cards.forEach(function(card, i) { origHTML[i] = card.innerHTML; });
+
+  // Escape special regex characters in query
+  function escapeRe(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Wrap all matches in a card's innerHTML with <mark>
+  function highlightCard(card, i, re) {
+    // Restore first to avoid nested marks
+    card.innerHTML = origHTML[i];
+    if (!re) return;
+    // Walk text nodes only, skip script/style
+    var walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node) {
+      var val = node.nodeValue;
+      if (!re.test(val)) return;
+      re.lastIndex = 0;
+      var span = document.createElement('span');
+      span.innerHTML = val.replace(re, '<mark class="search-hl">$&</mark>');
+      node.parentNode.replaceChild(span, node);
+    });
+  }
 
   function applySearch(q) {
-    q = q.trim().toLowerCase();
-    clearBtn.style.display = q ? 'block' : 'none';
+    var trimmed = q.trim();
+    clearBtn.style.display = trimmed ? 'block' : 'none';
+    var re = trimmed ? new RegExp(escapeRe(trimmed), 'gi') : null;
     var any = false;
-    cards.forEach(function(card) {
+
+    cards.forEach(function(card, i) {
       var text = card.textContent.toLowerCase();
-      var match = !q || text.indexOf(q) !== -1;
+      var match = !trimmed || text.indexOf(trimmed.toLowerCase()) !== -1;
       card.classList.toggle('search-hidden', !match);
-      if (match) any = true;
+      if (match) {
+        highlightCard(card, i, re);
+        any = true;
+      } else {
+        // Restore HTML for hidden cards
+        card.innerHTML = origHTML[i];
+      }
     });
+
     groups.forEach(function(g) {
       var visible = g.querySelectorAll('.term-card:not(.search-hidden):not(.tag-hidden)').length > 0;
       g.classList.toggle('search-hidden', !visible);
     });
-    if (prose) prose.style.display = q ? 'none' : '';
-    noResults.style.display = (q && !any) ? 'block' : 'none';
+
+    if (prose) prose.style.display = trimmed ? 'none' : '';
+    noResults.style.display = (trimmed && !any) ? 'block' : 'none';
   }
 
   input.addEventListener('input', function() { applySearch(this.value); });
