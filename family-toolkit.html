@@ -51,6 +51,15 @@
     color: #fff;
     position: sticky; top: 0; z-index: 1000;
   }
+  /* ── HEADER COLLAPSE ── */
+  .header-inner { transition: padding 0.25s; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
   .site-header::before {
     content: '';
     position: absolute;
@@ -419,6 +428,15 @@
   <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
   <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
 </footer>
+
+<script>
+(function(){
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('collapsed', window.scrollY > 60);
+  });
+})();
+</script>
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
