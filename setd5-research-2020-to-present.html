@@ -82,14 +82,11 @@
   }
 
   /* ── INTRO ── */
-  .intro-bar { background: #2a627a; color: #fff; padding: 22px 0; position: sticky; top: 0; z-index: 999; transition: padding 0.3s ease; }
-  .intro-bar.collapsed { padding: 12px 0; }
+  .intro-bar { background: #2a627a; color: #fff; padding: 22px 0; }
   .intro-bar-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; font-size: 14.5px; line-height: 1.65; }
-  .intro-bar.collapsed .intro-description { display: none; }
-  .intro-bar.collapsed .search-results { display: none; }
 
   /* ── SEARCH ── */
-  .search-container { margin-top: 16px; display: flex; gap: 8px; }
+  .search-container { margin-top: 16px; display: flex; gap: 8px; position: sticky; bottom: 0; background: #2a627a; padding: 12px 32px; margin-left: -32px; margin-right: -32px; margin-bottom: -22px; z-index: 998; }
   .search-input {
     flex: 1;
     max-width: 300px;
@@ -1321,19 +1318,6 @@
     searchResults.textContent = '';
     performSearch();
     searchInput.focus();
-  });
-</script>
-
-<script>
-  var introBar = document.getElementById('intro-bar');
-  var collapseThreshold = 300;
-
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > collapseThreshold) {
-      introBar.classList.add('collapsed');
-    } else {
-      introBar.classList.remove('collapsed');
-    }
   });
 </script>
 
