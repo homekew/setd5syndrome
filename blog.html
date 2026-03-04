@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Blog — Perspectives from Families</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://setd5syndrome.live/blog.html">
+<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:title" content="SETD5 Blog — Perspectives from Families">
+<meta property="og:description" content="Personal writings and perspectives from families, caregivers, and advocates navigating life with SETD5 Syndrome.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SETD5 Blog — Perspectives from Families">
+<meta name="twitter:description" content="Personal writings and perspectives from families, caregivers, and advocates navigating life with SETD5 Syndrome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #faf7f2;
+    --ink:      #2c2c2c;
+    --navy:     #1a2744;
+    --deep:     #2a627a;
+    --teal:     #2a7a6a;
+    --amber:    #c9893a;
+    --amber-lt: #fdf4e7;
+    --sage:     #4e7c5f;
+    --sage-lt:  #edf5ef;
+    --rose:     #b05a5a;
+    --rose-lt:  #fdf0ef;
+    --purple:   #5a4e8a;
+    --purple-lt:#f0eef8;
+    --border:   #e0d9cf;
+    --muted:    #6b6b6b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16.5px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    border-bottom: 6px solid var(--amber);
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 22px 32px 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+  }
+  .header-eyebrow a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .header-eyebrow a:hover { color: #a8cfc8; }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .header-eyebrow .sep { margin: 0 8px; opacity: 0.35; }
+  .header-title {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 4.3vw, 2.8rem);
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .header-title em { font-style: italic; color: #f0c98a; }
+  .header-subtitle {
+    font-size: 15.5px;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    line-height: 1.65;
+    font-style: normal;
+  }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    width: 100%;
+  }
+
+  /* ── POST LIST ── */
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .post-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem 2rem 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+  }
+  .post-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--amber);
+    border-radius: 10px 10px 0 0;
+  }
+  .post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(26,39,68,0.12);
+    border-color: var(--amber);
+  }
+
+  .post-meta {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 0.65rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .post-meta .author {
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .post-meta .sep { opacity: 0.4; }
+
+  .post-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 0.7rem;
+  }
+  .post-excerpt {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 1.1rem;
+  }
+  .post-read-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--amber);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 0.02em;
+  }
+  .post-read-link::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+  .post-card:hover .post-read-link::after {
+    transform: translateX(4px);
+  }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
+  }
+  .empty-state-icon {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.5;
+  }
+  .empty-state h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+  }
+  .empty-state p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── CONTRIBUTE CALLOUT ── */
+  .contribute-callout {
+    background: var(--amber-lt);
+    border: 1px solid rgba(201,137,58,0.25);
+    border-left: 4px solid var(--amber);
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 2.5rem;
+  }
+  .contribute-callout h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .contribute-callout p {
+    font-size: 0.93rem;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .contribute-callout a {
+    color: var(--amber);
+    font-weight: 500;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 600px) {
+    .header-inner { padding: 14px 18px 18px; }
+    main { padding: 2rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div style="position:fixed;top:8px;right:12px;z-index:99999;transform:scale(0.78);transform-origin:top right;opacity:0.85;min-width:130px;min-height:24px;">
+    <div id="google_translate_element"></div>
+  </div>
+  <div class="header-inner">
+    <p class="header-eyebrow">
+      <a href="index.html">← SETD5 Syndrome Research &amp; Resources</a>
+      <span class="sep">/</span>
+      <a href="family-toolkit.html">Family Toolkit</a>
+    </p>
+    <h1 class="header-title">SETD5 <em>Community Blog</em></h1>
+    <p class="header-subtitle">Personal writings and perspectives from families, caregivers, and advocates navigating life with SETD5 Syndrome.</p>
+  </div>
+</header>
+
+<main>
+
+  <p class="section-label">Posts</p>
+
+  <div class="post-list">
+
+    <!-- EMPTY STATE — remove this block and replace with post cards as posts are added -->
+    <div class="empty-state">
+      <span class="empty-state-icon">✏️</span>
+      <h3>First post coming soon</h3>
+      <p>This space is for honest, personal writing about life with SETD5 Syndrome — the hard days, the breakthroughs, and everything in between. Check back soon.</p>
+    </div>
+
+    <!--
+    TEMPLATE — copy and paste this block to add a new post:
+
+    <a href="blog-post-XX.html" class="post-card">
+      <div class="post-meta">
+        <span class="author">Author Name</span>
+        <span class="sep">·</span>
+        <span>Month Year</span>
+      </div>
+      <h2 class="post-title">Post Title Goes Here</h2>
+      <p class="post-excerpt">A 2–3 sentence excerpt or summary of the post that gives readers a sense of what it's about.</p>
+      <span class="post-read-link">Read post</span>
+    </a>
+    -->
+
+  </div>
+
+  <div class="contribute-callout">
+    <h3>Share your story</h3>
+    <p>This blog is open to families, caregivers, and individuals living with SETD5 Syndrome. If you have something you'd like to share — an experience, a reflection, advice for newly diagnosed families — reach out via the <a href="suggest-a-resource.html">suggestions page</a> or through the <a href="https://www.simonssearchlight.org/research/what-we-study/setd5/" target="_blank">Simons Searchlight SETD5 community</a>.</p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p style="margin-bottom:8px;">For informational purposes only. Some data was aggregated with the help of Claude AI. Always verify with your care team.</p>
+  <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.55); text-decoration:none;">Sources &amp; References</a></p>
+  <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
+  <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px;">&larr; Back to Main Page</a></p>
+</footer>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
