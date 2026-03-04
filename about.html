@@ -16,7 +16,7 @@
 <meta name="description" content="About the SETD5 Syndrome resource site: created by a parent for families and communities navigating diagnosis.">
 <link rel="canonical" href="https://setd5syndrome.live/about.html">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -38,15 +38,36 @@
 
   body {
     background: linear-gradient(135deg, #f5f1ed 0%, #faf7f2 100%);
+    background-attachment: fixed;
     color: var(--ink);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
+    font-family: 'Caveat', cursive;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.8;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(200,180,160,0.02) 0px, transparent 1px, transparent 2px, rgba(200,180,160,0.02) 3px),
+      repeating-linear-gradient(90deg, rgba(200,180,160,0.02) 0px, transparent 1px, transparent 2px, rgba(200,180,160,0.02) 3px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header, main, footer {
+    position: relative;
+    z-index: 1;
   }
 
   /* HEADER */
@@ -166,12 +187,15 @@
 
   /* LETTER CONTAINER */
   .letter-container {
-    background: #fff;
+    background: linear-gradient(135deg, #fffbf8 0%, #fef9f5 100%);
     max-width: 700px;
     margin: 0 auto;
     padding: 3.5rem 3rem;
-    box-shadow: 0 10px 40px rgba(26,39,68,0.1), inset 0 0 0 1px rgba(224,217,207,0.3);
-    border-radius: 2px;
+    box-shadow:
+      0 15px 50px rgba(26,39,68,0.15),
+      inset 0 0 0 1px rgba(200,180,160,0.2),
+      inset 0 0 100px rgba(200,180,160,0.05);
+    border-radius: 1px;
     position: relative;
   }
 
@@ -181,45 +205,71 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(180,160,140,0.01) 0px, transparent 1px, transparent 2px, rgba(180,160,140,0.01) 3px),
+      repeating-linear-gradient(90deg, rgba(180,160,140,0.01) 0px, transparent 1px, transparent 2px, rgba(180,160,140,0.01) 3px);
+    border-radius: 1px;
+    pointer-events: none;
+  }
+
+  .letter-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
     background: linear-gradient(to bottom, var(--navy), transparent);
-    border-radius: 2px 2px 0 0;
-    opacity: 0.05;
+    border-radius: 1px 1px 0 0;
+    opacity: 0.04;
+    pointer-events: none;
   }
 
   .letter-header {
     text-align: center;
     margin-bottom: 2.5rem;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     padding-bottom: 1.5rem;
     border-bottom: 2px solid var(--border);
   }
 
   .letter-header h1 {
-    font-family: 'Lora', serif;
-    font-size: 1.8rem;
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    font-weight: 700;
     color: var(--navy);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .letter-header p {
-    font-size: 0.9rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: var(--muted);
     margin: 0;
   }
 
   .letter-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    font-family: 'Caveat', cursive;
+  }
+
+  .letter-content p {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    font-weight: 500;
   }
 
   .letter-content h2 {
-    font-family: 'Lora', serif;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    font-family: 'Caveat', cursive;
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
     color: var(--navy);
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
   }
 
   .letter-content h2:first-of-type {
@@ -230,13 +280,21 @@
     margin-top: 3rem;
     padding-top: 2rem;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .letter-closing p {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    font-weight: 500;
     margin: 0.5rem 0;
-    font-style: italic;
     color: var(--ink);
+  }
+
+  .letter-closing p:last-child {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
   }
 
   /* FOOTER */
