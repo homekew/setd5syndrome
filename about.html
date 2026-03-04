@@ -283,18 +283,33 @@
     z-index: 2;
   }
 
+  .letter-image {
+    max-width: 280px;
+    float: right;
+    margin: 0 0 1.5rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .letter-closing {
+    margin-top: 2.5rem;
+    padding-top: 0.5rem;
+    position: relative;
+    z-index: 2;
+    clear: both;
+  }
+
   .letter-closing p {
     font-family: 'Caveat', cursive;
     font-size: 24px;
     font-weight: 500;
-    margin: 0.5rem 0;
+    margin: 0;
     color: var(--ink);
   }
 
   .letter-closing p:last-child {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 0.5rem;
   }
 
   /* FOOTER */
@@ -348,6 +363,8 @@
 
     <h2>How This Was Made</h2>
     <p>While this site was created by one parent, it was built with support from others in the SETD5 community. This is a resource created <em>for</em> families, by someone who understands what it's like to navigate a rare diagnosis.</p>
+
+    <img src="journey-begins.jpg" alt="The beginning of our journey" class="letter-image">
 
     <h2>Questions or Feedback?</h2>
     <p>If you have suggestions, corrections, or would like to share your family's story, <a href="suggest-a-resource.html">please reach out</a>. This site is meant to grow and improve based on what families in our community need most.</p>
