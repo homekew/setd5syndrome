@@ -94,6 +94,24 @@
   }
   /* Sticky nav wrapper */
   .sticky-nav{ position:sticky; top:0; z-index:100; transition: top 0.3s ease; }
+  /* Search bar */
+  .search-bar{ background:#1e4f63; padding:7px 24px 8px; border-top:1px solid rgba(255,255,255,0.08); }
+  .search-bar-inner{ max-width:860px; margin:0 auto; position:relative; }
+  .search-input{
+    width:100%; padding:7px 36px 7px 14px;
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+    border-radius:6px; color:#fff; font-family:'Poppins',sans-serif; font-size:13px;
+    outline:none; transition:background .15s, border-color .15s;
+  }
+  .search-input::placeholder{ color:rgba(255,255,255,0.45); }
+  .search-input:focus{ background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.45); }
+  .search-clear{
+    position:absolute; right:10px; top:50%; transform:translateY(-50%);
+    background:none; border:none; color:rgba(255,255,255,0.5); font-size:16px;
+    cursor:pointer; line-height:1; padding:2px 4px; display:none;
+  }
+  .search-clear:hover{ color:#fff; }
+  .search-no-results{ display:none; text-align:center; padding:2rem; color:var(--muted); font-size:14px; }
   /* Alpha index bar */
   .alpha-bar{
     background:#2a627a;
@@ -139,6 +157,7 @@
   .tag-opt:hover{ background:var(--cream); }
   .tag-opt.active{ font-weight:600; color:var(--navy); background:var(--cream2); }
   .tag-hidden{ display:none !important; }
+  .search-hidden{ display:none !important; }
   /* Layout */
   .page-body{ max-width:860px; margin:0 auto; padding:48px 32px 80px; }
   /* Prose */
@@ -296,7 +315,15 @@
     </div>
   </div>
 </nav>
+  <div class="search-bar">
+    <div class="search-bar-inner">
+      <input class="search-input" id="term-search" type="search" placeholder="Search definitions…" autocomplete="off" spellcheck="false">
+      <button class="search-clear" id="search-clear" aria-label="Clear search">&#x2715;</button>
+    </div>
+  </div>
 </div>
+
+<div id="search-no-results" class="search-no-results">No matching terms found. Try a different word.</div>
 
 <div class="page-body">
 
@@ -1382,6 +1409,43 @@
         g.classList.toggle('tag-hidden', !any);
       });
     });
+  });
+})();
+</script>
+
+<!-- SEARCH -->
+<script>
+(function(){
+  var input    = document.getElementById('term-search');
+  var clearBtn = document.getElementById('search-clear');
+  var noResults = document.getElementById('search-no-results');
+  var cards    = document.querySelectorAll('.term-card');
+  var groups   = document.querySelectorAll('.letter-group');
+  var prose    = document.querySelector('.page-body > .prose');
+
+  function applySearch(q) {
+    q = q.trim().toLowerCase();
+    clearBtn.style.display = q ? 'block' : 'none';
+    var any = false;
+    cards.forEach(function(card) {
+      var text = card.textContent.toLowerCase();
+      var match = !q || text.indexOf(q) !== -1;
+      card.classList.toggle('search-hidden', !match);
+      if (match) any = true;
+    });
+    groups.forEach(function(g) {
+      var visible = g.querySelectorAll('.term-card:not(.search-hidden):not(.tag-hidden)').length > 0;
+      g.classList.toggle('search-hidden', !visible);
+    });
+    if (prose) prose.style.display = q ? 'none' : '';
+    noResults.style.display = (q && !any) ? 'block' : 'none';
+  }
+
+  input.addEventListener('input', function() { applySearch(this.value); });
+  clearBtn.addEventListener('click', function() {
+    input.value = '';
+    applySearch('');
+    input.focus();
   });
 })();
 </script>
