@@ -86,7 +86,7 @@
   .intro-bar-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; font-size: 14.5px; line-height: 1.65; }
 
   /* ── SEARCH ── */
-  .search-container { margin-top: 0; display: flex; gap: 8px; position: sticky; bottom: 0; background: #2a627a; padding: 8px 32px; margin-left: -32px; margin-right: -32px; margin-bottom: -22px; z-index: 998; }
+  .search-container { display: flex; gap: 8px; position: sticky; top: 68px; background: #2a627a; padding: 8px 32px; margin: 0; width: 100%; z-index: 998; }
   .search-input {
     flex: 1;
     max-width: 300px;
@@ -435,13 +435,15 @@
       <strong>How to use this report:</strong> Each research paper includes a plain-language summary and a note on what it means for families. This report covers significant SETD5 publications found from 2020 through the present, plus foundational research from before 2020. All findings are drawn from published or registered sources, linked throughout. This report is not medical advice; bring any questions to your child's care team.
       <div style="margin-top:14px; font-size:13.5px; color:rgba(255,255,255,0.65);">Reviewed monthly for new research and updated accordingly. Last updated: March 4, 2026</div>
     </div>
-    <div class="search-container">
-      <input type="text" class="search-input" id="research-search" placeholder="Search by keyword, author, or topic...">
-      <button class="search-clear" id="search-clear">Clear</button>
-    </div>
-    <div class="search-results" id="search-results"></div>
   </div>
 </div>
+
+<!-- SEARCH CONTAINER -->
+<div class="search-container">
+  <input type="text" class="search-input" id="research-search" placeholder="Search by keyword, author, or topic...">
+  <button class="search-clear" id="search-clear">Clear</button>
+</div>
+<div class="search-results" id="search-results"></div>
 
 <div class="page-body">
 
