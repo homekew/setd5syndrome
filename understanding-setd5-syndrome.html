@@ -285,7 +285,17 @@
     document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
     document.getElementById(id).classList.add('active');
     document.querySelector('[data-tab="' + id + '"]').classList.add('active');
+    history.replaceState(null, '', '#' + id);
   }
+
+  // Restore tab from URL hash on page load
+  (function() {
+    var hash = window.location.hash.replace('#', '');
+    var validTabs = ['tab-what', 'tab-symptoms', 'tab-nextsteps', 'tab-resources'];
+    if (hash && validTabs.indexOf(hash) !== -1) {
+      showTab(hash);
+    }
+  })();
 </script>
 <link rel="canonical" href="https://setd5syndrome.live/understanding-setd5-syndrome.html">
 </head>
@@ -537,6 +547,17 @@
 <!-- ══════════════════════════════════════════════ -->
 <div id="tab-nextsteps" class="tab-panel">
 <div class="page-body">
+
+  <div style="background:#eaf5f3; border:1.5px solid #2a7a6a; border-radius:10px; padding:16px 20px; margin-bottom:24px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:200px;">
+      <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#2a7a6a; margin-bottom:3px;">Printable Resource</div>
+      <div style="font-size:15px; font-weight:700; color:#1a2744; margin-bottom:5px;">SETD5 Syndrome — At a Glance</div>
+      <p style="font-size:13px; color:#374151; margin:0; line-height:1.55;">A one-page PDF summary of SETD5 Syndrome for medical providers, educators, or anyone new to the diagnosis. Bring it to appointments or share with your child's school team.</p>
+    </div>
+    <a href="setd5-one-sheet.pdf" download="SETD5-Syndrome-One-Sheet.pdf" style="display:inline-flex; align-items:center; gap:7px; background:#2a7a6a; color:#fff; font-weight:600; font-size:13px; padding:9px 18px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">
+      &#8595; Download PDF
+    </a>
+  </div>
 
   <p class="section-label">Getting started</p>
   <h2 class="section-title">What to Do After a Diagnosis</h2>
