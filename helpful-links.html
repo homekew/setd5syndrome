@@ -72,6 +72,16 @@
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
   .header-subtitle { font-size: 16.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  /* ── HEADER COLLAPSE ── */
+  .header-inner { transition: padding 0.25s; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+
   .header-meta {
     display: flex; flex-wrap: wrap; gap: 12px;
     margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15);
@@ -387,6 +397,14 @@
 </footer>
 
 <script type="text/javascript">
+/* ── HEADER COLLAPSE ON SCROLL ── */
+(function() {
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() {
+    header.classList.toggle('collapsed', window.scrollY > 60);
+  });
+})();
+
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
