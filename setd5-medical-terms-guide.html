@@ -113,45 +113,37 @@
   }
   .alpha-link:hover{ color:#fff; }
   .alpha-link.has-entries{ color:rgba(255,255,255,.85); }
-  /* Tag filter bar */
-  .tag-bar{
-    background:var(--cream);
-    border-bottom:1px solid var(--border);
+  /* Tag filter bar — dropdown */
+  .tag-bar{ background:var(--cream); border-bottom:1px solid var(--border); }
+  .tag-bar-inner{ max-width:860px; margin:0 auto; padding:7px 24px; display:flex; align-items:center; gap:8px; }
+  .tag-filter-label{ font-size:11px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); white-space:nowrap; flex-shrink:0; }
+  .tag-dropdown{ position:relative; }
+  .tag-dropdown-btn{
+    font-family:'Poppins', sans-serif; font-size:12px; font-weight:500;
+    padding:4px 10px; border:1px solid var(--border); border-radius:4px;
+    background:#fff; color:var(--text); cursor:pointer;
+    display:flex; align-items:center; gap:6px;
+    transition:border-color .15s;
   }
-  .tag-bar-inner{
-    max-width:860px; margin:0 auto; padding:9px 24px;
-    display:flex; flex-wrap:wrap; gap:7px; align-items:center; justify-content:center;
+  .tag-dropdown-btn:hover, .tag-dropdown-btn.open{ border-color:#2a627a; }
+  .tag-arrow{ font-size:10px; color:var(--muted); transition:transform 0.2s; display:inline-block; }
+  .tag-dropdown-btn.open .tag-arrow{ transform:rotate(180deg); }
+  .tag-dropdown-menu{
+    position:absolute; top:calc(100% + 4px); left:0;
+    background:#fff; border:1px solid var(--border); border-radius:6px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.1); min-width:170px; z-index:200;
+    opacity:0; visibility:hidden; transform:translateY(-4px);
+    transition:opacity 0.15s, transform 0.15s, visibility 0.15s;
   }
-  .tag-filter-label{
-    font-size:11px; font-weight:600; letter-spacing:.09em;
-    text-transform:uppercase; color:var(--muted);
-    margin-right:2px; white-space:nowrap; flex-shrink:0;
+  .tag-dropdown-menu.open{ opacity:1; visibility:visible; transform:translateY(0); }
+  .tag-opt{
+    display:block; width:100%; text-align:left;
+    font-family:'Poppins', sans-serif; font-size:13px; padding:8px 14px;
+    border:none; background:transparent; cursor:pointer; color:var(--text);
+    transition:background .12s;
   }
-  .tag-btn{
-    font-family:'Poppins', sans-serif;
-    font-size:11px; font-weight:600; letter-spacing:.08em;
-    text-transform:uppercase; border-radius:20px;
-    padding:4px 12px; border:1.5px solid transparent;
-    background:transparent; cursor:pointer; line-height:1.5;
-    transition:background .15s, color .15s, border-color .15s, opacity .15s;
-  }
-  .tag-btn:hover{ opacity:.8; }
-  .tag-btn[data-filter="all"]{ color:var(--navy); border-color:var(--navy); }
-  .tag-btn[data-filter="all"].active{ background:var(--navy); color:#fff; }
-  .tag-btn[data-filter="genetics"]{ color:var(--blue); border-color:var(--blue); }
-  .tag-btn[data-filter="genetics"].active{ background:var(--blue); color:#fff; }
-  .tag-btn[data-filter="neuro"]{ color:var(--sage); border-color:var(--sage); }
-  .tag-btn[data-filter="neuro"].active{ background:var(--sage); color:#fff; }
-  .tag-btn[data-filter="physical"]{ color:var(--rose); border-color:var(--rose); }
-  .tag-btn[data-filter="physical"].active{ background:var(--rose); color:#fff; }
-  .tag-btn[data-filter="behavior"]{ color:#8a3a6a; border-color:#8a3a6a; }
-  .tag-btn[data-filter="behavior"].active{ background:#8a3a6a; color:#fff; }
-  .tag-btn[data-filter="therapy"]{ color:#8a5a1a; border-color:var(--amber); }
-  .tag-btn[data-filter="therapy"].active{ background:var(--amber); color:#fff; }
-  .tag-btn[data-filter="testing"]{ color:var(--teal); border-color:var(--teal); }
-  .tag-btn[data-filter="testing"].active{ background:var(--teal); color:#fff; }
-  .tag-btn[data-filter="heart"]{ color:#9b2335; border-color:#9b2335; }
-  .tag-btn[data-filter="heart"].active{ background:#9b2335; color:#fff; }
+  .tag-opt:hover{ background:var(--cream); }
+  .tag-opt.active{ font-weight:600; color:var(--navy); background:var(--cream2); }
   .tag-hidden{ display:none !important; }
   /* Layout */
   .page-body{ max-width:860px; margin:0 auto; padding:48px 32px 80px; }
@@ -294,13 +286,21 @@
 <div class="tag-bar" aria-label="Filter by category">
   <div class="tag-bar-inner">
     <span class="tag-filter-label">Filter:</span>
-    <button class="tag-btn active" data-filter="all">All</button>
-    <button class="tag-btn" data-filter="behavior">Behavior</button>
-    <button class="tag-btn" data-filter="genetics">Genetics</button>
-    <button class="tag-btn" data-filter="neuro">Neurology</button>
-    <button class="tag-btn" data-filter="physical">Physical</button>
-    <button class="tag-btn" data-filter="testing">Testing</button>
-    <button class="tag-btn" data-filter="therapy">Therapy &amp; Services</button>
+    <div class="tag-dropdown">
+      <button class="tag-dropdown-btn" id="tag-dropdown-btn">
+        <span id="tag-dropdown-label">All</span>
+        <span class="tag-arrow">▾</span>
+      </button>
+      <div class="tag-dropdown-menu" id="tag-dropdown-menu">
+        <button class="tag-opt active" data-filter="all">All</button>
+        <button class="tag-opt" data-filter="behavior">Behavior</button>
+        <button class="tag-opt" data-filter="genetics">Genetics</button>
+        <button class="tag-opt" data-filter="neuro">Neurology</button>
+        <button class="tag-opt" data-filter="physical">Physical</button>
+        <button class="tag-opt" data-filter="testing">Testing</button>
+        <button class="tag-opt" data-filter="therapy">Therapy &amp; Services</button>
+      </div>
+    </div>
   </div>
 </div>
 </div>
@@ -1259,11 +1259,14 @@
 <!-- TAG FILTER -->
 <script>
 (function(){
-  var btns  = document.querySelectorAll('.tag-btn');
+  var dropBtn  = document.getElementById('tag-dropdown-btn');
+  var dropMenu = document.getElementById('tag-dropdown-menu');
+  var dropLabel = document.getElementById('tag-dropdown-label');
+  var opts  = document.querySelectorAll('.tag-opt');
   var cards = document.querySelectorAll('.term-card');
   var groups = document.querySelectorAll('.letter-group');
 
-  // Read the tag-* class off each card's tag pill and store it as a data attribute
+  // Store tag filter data on each card
   cards.forEach(function(card){
     var tagEl = card.querySelector('.term-tag');
     if(tagEl){
@@ -1272,19 +1275,35 @@
     }
   });
 
-  btns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var f = btn.getAttribute('data-filter');
-      // Swap active class
-      btns.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      // Show / hide individual term cards
+  // Toggle dropdown open/close
+  dropBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = dropMenu.classList.toggle('open');
+    dropBtn.classList.toggle('open', open);
+  });
+
+  // Close on outside click
+  document.addEventListener('click', function(){
+    dropMenu.classList.remove('open');
+    dropBtn.classList.remove('open');
+  });
+
+  // Filter on option select
+  opts.forEach(function(opt){
+    opt.addEventListener('click', function(e){
+      e.stopPropagation();
+      var f = opt.getAttribute('data-filter');
+      opts.forEach(function(o){ o.classList.remove('active'); });
+      opt.classList.add('active');
+      dropLabel.textContent = opt.textContent;
+      dropMenu.classList.remove('open');
+      dropBtn.classList.remove('open');
+
       cards.forEach(function(card){
         var t = card.dataset.tagFilter;
         var match = f === 'all' || t === f || (f === 'physical' && t === 'heart');
         card.classList.toggle('tag-hidden', !match);
       });
-      // Hide whole letter groups that have no visible cards
       groups.forEach(function(g){
         var any = g.querySelectorAll('.term-card:not(.tag-hidden)').length > 0;
         g.classList.toggle('tag-hidden', !any);
