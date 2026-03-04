@@ -303,6 +303,11 @@
   <div style="background:var(--sage-lt);border:1px solid var(--sage);border-radius:8px;margin:0 auto 2rem;max-width:680px;padding:11px 20px;font-size:13px;line-height:1.6;color:var(--ink);">
     <strong>Note for international readers:</strong> Some guides on this site refer to US-specific programs and laws, including the Disability Discounts guide, the School and IEP Guide (which is based on US federal law under IDEA), and sections covering SSI and Medicaid. Most medical and research content applies globally. Please refer to your country for equivalent support systems under different names.
   </div>
+
+  <div style="max-width:680px;margin:0 auto 2rem;padding:0;">
+    <input type="text" id="searchInput" placeholder="Search guides..." style="width:100%;padding:11px 14px;font-size:14px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--ink);font-family:'Poppins',sans-serif;box-sizing:border-box;">
+  </div>
+
   <div class="guides-label">Our Guides</div>
   <div class="card-grid">
 
@@ -341,6 +346,23 @@
 
 
 <script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('searchInput');
+  const cards = document.querySelectorAll('.card-grid .card');
+
+  searchInput.addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+      const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+      const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+      const isMatch = title.includes(searchTerm) || description.includes(searchTerm);
+
+      card.style.display = searchTerm === '' || isMatch ? 'flex' : 'none';
+    });
+  });
+});
+
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
