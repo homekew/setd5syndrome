@@ -118,6 +118,11 @@
   mark.search-highlight { background: rgba(255,255,0,0.2); color: inherit; padding: 1px 2px; }
   .research-card.hidden { display: none; }
 
+  /* ── INTRO COLLAPSE ── */
+  .intro-description { transition: opacity 0.2s, max-height 0.2s; max-height: 500px; overflow: hidden; }
+  .intro-description.collapsed { opacity: 0; max-height: 0; }
+  .intro-bar.collapsed { padding: 0; }
+
   /* ── LAYOUT ── */
   .page-body { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
 
@@ -1318,6 +1323,22 @@
     searchResults.textContent = '';
     performSearch();
     searchInput.focus();
+  });
+</script>
+
+<script>
+  var introDescription = document.querySelector('.intro-description');
+  var introBar = document.getElementById('intro-bar');
+  var collapseThreshold = 50;
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > collapseThreshold) {
+      introDescription.classList.add('collapsed');
+      introBar.classList.add('collapsed');
+    } else {
+      introDescription.classList.remove('collapsed');
+      introBar.classList.remove('collapsed');
+    }
   });
 </script>
 
