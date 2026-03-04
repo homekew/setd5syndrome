@@ -307,7 +307,7 @@
     window.addEventListener('scroll', function() {
       header.classList.toggle('collapsed', window.scrollY > 60);
     });
-  });
+  })();
 
   function showTab(id) {
     document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });

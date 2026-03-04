@@ -631,7 +631,7 @@ Sincerely,
     window.addEventListener('scroll', function() {
       header.classList.toggle('collapsed', window.scrollY > 60);
     });
-  });
+  })();
 
   function showTab(name, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
