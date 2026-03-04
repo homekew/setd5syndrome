@@ -47,7 +47,7 @@
   }
 
   /* ── HEADER ── */
-  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000;}
+  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; transition: box-shadow 0.2s; }
   .site-header::before {
     content: '';
     position: absolute;
@@ -59,16 +59,18 @@
     z-index: 0;
   }
 
-  .header-inner { max-width: 860px; margin: 0 auto; padding: 14px 32px 18px; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 14px 32px 18px; transition: padding 0.25s; }
   .header-eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
+    max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s;
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
   .header-title {
     font-family: 'Lora', serif;
     font-size: clamp(1.65rem, 4.0vw, 2.6rem); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
+    transition: font-size 0.25s, margin 0.25s;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
   .header-subtitle { font-size: 15.5px; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
@@ -81,15 +83,40 @@
     border-radius: 20px; padding: 4px 14px; font-size: 12px; color: rgba(255,255,255,.8);
   }
 
+  /* ── HEADER COLLAPSED ── */
+  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+
   /* ── INTRO ── */
-  .intro-bar { background: #2a627a; color: #fff; padding: 22px 0; border: none; border-bottom: none; }
+  .intro-bar { background: #2a627a; color: #fff; padding: 22px 0; border: none; border-bottom: none; transition: padding 0.25s; }
   .intro-bar-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; font-size: 14.5px; line-height: 1.65; border: none; }
 
-  .page-body { border: none; border-top: none; }
-
   /* ── INTRO COLLAPSE ── */
-  .intro-description { transition: opacity 0.2s, max-height 0.2s; max-height: 500px; overflow: hidden; }
+  .intro-description { transition: opacity 0.2s, max-height 0.25s, margin 0.25s; max-height: 500px; overflow: hidden; }
   .intro-description.collapsed { opacity: 0; max-height: 0; margin: 0; }
+  .intro-bar.collapsed { padding: 0; }
+
+  /* ── SEARCH ── */
+  .search-bar-wrap { position: sticky; top: 38px; z-index: 999; background: var(--cream); border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .search-bar-inner { max-width: 860px; margin: 0 auto; padding: 10px 32px; display: flex; gap: 8px; align-items: center; }
+  .search-input {
+    flex: 1; max-width: 340px; padding: 7px 12px; font-size: 14px;
+    border: 1px solid var(--border); border-radius: 4px;
+    background: #fff; color: var(--text); font-family: 'Poppins', sans-serif;
+  }
+  .search-input::placeholder { color: var(--muted); }
+  .search-input:focus { outline: none; border-color: #2a627a; box-shadow: 0 0 0 2px rgba(42,98,122,0.12); }
+  .search-clear {
+    padding: 6px 12px; font-size: 13px; border: 1px solid var(--border); border-radius: 4px;
+    background: #fff; color: var(--muted); cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.15s;
+  }
+  .search-clear:hover { background: var(--cream2); color: var(--text); }
+  .search-results { font-size: 13px; color: var(--muted); margin-left: 4px; }
+  mark.search-highlight { background: rgba(42,98,122,0.15); color: inherit; padding: 1px 2px; border-radius: 2px; }
+  .research-card.hidden { display: none; }
+
+  .page-body { border: none; border-top: none; }
 
   /* ── LAYOUT ── */
   .page-body { max-width: 860px; margin: 0 auto; padding: 12px 32px 80px; }
@@ -404,6 +431,15 @@
       <strong>How to use this report:</strong> Each research paper includes a plain-language summary and a note on what it means for families. This report covers significant SETD5 publications found from 2020 through the present, plus foundational research from before 2020. All findings are drawn from published or registered sources, linked throughout. This report is not medical advice; bring any questions to your child's care team.
       <div style="margin-top:14px; font-size:13.5px; color:rgba(255,255,255,0.65);">Reviewed monthly for new research and updated accordingly. Last updated: March 4, 2026</div>
     </div>
+  </div>
+</div>
+
+<!-- SEARCH BAR -->
+<div class="search-bar-wrap">
+  <div class="search-bar-inner">
+    <input type="text" class="search-input" id="research-search" placeholder="Search by keyword, author, or topic...">
+    <button class="search-clear" id="search-clear">Clear</button>
+    <span class="search-results" id="search-results"></span>
   </div>
 </div>
 
@@ -1183,18 +1219,84 @@
 </script>
 
 <script>
+  // ── COLLAPSE HEADER + INTRO ON SCROLL ──
+  var siteHeader = document.querySelector('.site-header');
   var introDescription = document.querySelector('.intro-description');
   var introBar = document.getElementById('intro-bar');
   var collapseThreshold = 50;
 
   window.addEventListener('scroll', function() {
-    if (window.scrollY > collapseThreshold) {
-      introDescription.classList.add('collapsed');
-      introBar.classList.add('collapsed');
-    } else {
-      introDescription.classList.remove('collapsed');
-      introBar.classList.remove('collapsed');
+    var collapsed = window.scrollY > collapseThreshold;
+    siteHeader.classList.toggle('collapsed', collapsed);
+    introDescription.classList.toggle('collapsed', collapsed);
+    introBar.classList.toggle('collapsed', collapsed);
+  });
+</script>
+
+<script>
+  // ── SEARCH ──
+  var searchInput = document.getElementById('research-search');
+  var searchClear = document.getElementById('search-clear');
+  var searchResults = document.getElementById('search-results');
+  var researchCards = document.querySelectorAll('.research-card');
+
+  function clearHighlights() {
+    document.querySelectorAll('mark.search-highlight').forEach(function(mark) {
+      var parent = mark.parentNode;
+      while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+      parent.removeChild(mark);
+      parent.normalize();
+    });
+  }
+
+  function highlightText(element, query) {
+    var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [];
+    var node;
+    while (node = walker.nextNode()) {
+      if (node.nodeValue.toLowerCase().includes(query)) nodes.push(node);
     }
+    nodes.forEach(function(textNode) {
+      var text = textNode.nodeValue;
+      var regex = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      var fragment = document.createDocumentFragment();
+      var lastIndex = 0, match;
+      while ((match = regex.exec(text)) !== null) {
+        if (match.index > lastIndex) fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+        var mark = document.createElement('mark');
+        mark.className = 'search-highlight';
+        mark.textContent = text.substring(match.index, match.index + match[0].length);
+        fragment.appendChild(mark);
+        lastIndex = regex.lastIndex;
+      }
+      if (lastIndex < text.length) fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+      textNode.parentNode.replaceChild(fragment, textNode);
+    });
+  }
+
+  function performSearch() {
+    var query = searchInput.value.toLowerCase().trim();
+    clearHighlights();
+    var matches = 0;
+    researchCards.forEach(function(card) {
+      if (!query) { card.classList.remove('hidden'); return; }
+      if (card.innerText.toLowerCase().includes(query)) {
+        card.classList.remove('hidden');
+        highlightText(card, query);
+        matches++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    searchResults.textContent = query ? (matches === 0 ? 'No results' : matches + ' paper' + (matches === 1 ? '' : 's') + ' found') : '';
+  }
+
+  searchInput.addEventListener('input', performSearch);
+  searchClear.addEventListener('click', function() {
+    searchInput.value = '';
+    searchResults.textContent = '';
+    clearHighlights();
+    researchCards.forEach(function(card) { card.classList.remove('hidden'); });
   });
 </script>
 
