@@ -37,7 +37,7 @@
   html, body { height: 100%; }
 
   body {
-    background: var(--bg);
+    background: linear-gradient(135deg, #f5f1ed 0%, #faf7f2 100%);
     color: var(--ink);
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
@@ -46,6 +46,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 2rem 1rem;
   }
 
   /* HEADER */
@@ -163,6 +164,81 @@
     text-decoration: underline;
   }
 
+  /* LETTER CONTAINER */
+  .letter-container {
+    background: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3.5rem 3rem;
+    box-shadow: 0 10px 40px rgba(26,39,68,0.1), inset 0 0 0 1px rgba(224,217,207,0.3);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .letter-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--navy), transparent);
+    border-radius: 2px 2px 0 0;
+    opacity: 0.05;
+  }
+
+  .letter-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .letter-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .letter-header p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .letter-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .letter-content h2 {
+    font-family: 'Lora', serif;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--navy);
+    font-size: 1.5rem;
+  }
+
+  .letter-content h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .letter-closing {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .letter-closing p {
+    margin: 0.5rem 0;
+    font-style: italic;
+    color: var(--ink);
+  }
+
   /* FOOTER */
   .site-footer,
   footer {
@@ -201,8 +277,13 @@
 </header>
 
 <main>
-  <div class="container">
-    <h2>Why This Site Exists</h2>
+  <div class="letter-container">
+    <div class="letter-header">
+      <h1>A Letter from Kate</h1>
+      <p>About This Site</p>
+    </div>
+    <div class="letter-content">
+      <h2>Why This Site Exists</h2>
     <p>When my child was diagnosed with SETD5 Syndrome, I found myself in a difficult position. We had been stuck in what is known as a diagnostic odyssey for several years before we finally got our diagnosis. It was a rare diagnosis, and there weren't many accessible resources out there to help me understand what it meant or where to start. I spent a lot of time searching, reading research papers written in technical language, and trying to piece together information from different sources scattered across the internet.</p>
 
     <p>I realized that other families would face the same challenge. So I created this site—a place where families navigating a SETD5 Syndrome diagnosis could find clear, straightforward information without having to sift through medical jargon or spend hours hunting for resources.</p>
@@ -216,7 +297,11 @@
     <h2>Questions or Feedback?</h2>
     <p>If you have suggestions, corrections, or would like to share your family's story, <a href="suggest-a-resource.html">please reach out</a>. This site is meant to grow and improve based on what families in our community need most.</p>
 
-    <p style="margin-top: 3rem; font-style: italic; color: var(--muted);">Sincerely,<br>Kate</p>
+    <div class="letter-closing">
+      <p>Sincerely,</p>
+      <p style="margin-top: 2rem; font-size: 1.1rem; font-weight: 500;">Kate</p>
+    </div>
+    </div>
   </div>
 </main>
 
