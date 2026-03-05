@@ -84,7 +84,7 @@
 
 
   /* ── TABS ── */
-  .tab-nav {
+  .tab-nav { position: sticky; top: 0; z-index: 999;
     background: var(--navy);
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -312,8 +312,9 @@
   window.scrollTo(0, 0);
 
   /* ── HEADER COLLAPSE ON SCROLL ── */
-  (function() {
+  document.addEventListener('DOMContentLoaded', function() {
     var header = document.querySelector('.site-header');
+    if (!header) return;
     var ticking = false;
     window.addEventListener('scroll', function() {
       if (!ticking) {
@@ -324,7 +325,7 @@
         ticking = true;
       }
     });
-  })();
+  });
 
   function showTab(id) {
     document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
