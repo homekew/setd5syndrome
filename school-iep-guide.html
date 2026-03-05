@@ -314,17 +314,31 @@
   /* ── HEADER COLLAPSE ON SCROLL ── */
   document.addEventListener('DOMContentLoaded', function() {
     var header = document.querySelector('.site-header');
+    var tabNav = document.querySelector('.tab-nav');
     if (!header) return;
+
+    function syncNavTop() {
+      if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
+    }
+
+    function updateLayout() {
+      header.classList.toggle('collapsed', window.scrollY > 60);
+      syncNavTop();
+    }
+
     var ticking = false;
     window.addEventListener('scroll', function() {
       if (!ticking) {
         requestAnimationFrame(function() {
-          header.classList.toggle('collapsed', window.scrollY > 60);
+          updateLayout();
           ticking = false;
         });
         ticking = true;
       }
     });
+
+    header.addEventListener('transitionend', syncNavTop);
+    syncNavTop();
   });
 
   function showTab(id) {

@@ -98,7 +98,6 @@
     scrollbar-width: none;
     position: sticky; top: 0; z-index: 100; transition: top 0.25s ease;
   }
-  .tab-nav.collapsed .tab-btn { padding: 8px 18px; font-size: 13px; }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; }
   .tab-btn {
@@ -650,13 +649,13 @@ Sincerely,
     var tabNav = document.querySelector('.tab-nav');
     if (!header) return;
 
+    function syncNavTop() {
+      if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
+    }
+
     function updateLayout() {
-      var scrolled = window.scrollY > 60;
-      header.classList.toggle('collapsed', scrolled);
-      if (tabNav) {
-        tabNav.classList.toggle('collapsed', scrolled);
-        tabNav.style.top = header.offsetHeight + 'px';
-      }
+      header.classList.toggle('collapsed', window.scrollY > 60);
+      syncNavTop();
     }
 
     var ticking = false;
@@ -670,7 +669,8 @@ Sincerely,
       }
     });
 
-    updateLayout(); // set correct top on initial load
+    header.addEventListener('transitionend', syncNavTop);
+    syncNavTop(); // set correct top on initial load
   });
 </script>
 <script type="text/javascript">
