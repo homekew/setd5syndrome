@@ -84,10 +84,11 @@
 
 
   /* ── TABS ── */
-  .tab-nav { position: sticky; top: 0; z-index: 999;
-    background: var(--navy);
+  .tab-nav {
+    background: #2a627a;
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    position: sticky; top: 0; z-index: 100; transition: top 0.3s ease;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
@@ -99,7 +100,7 @@
     transition: color .18s, border-color .18s;
   }
   .tab-btn:hover { color: rgba(255,255,255,.85); }
-  .tab-btn.active { color: #fff; border-bottom-color: #a8cfc8; }
+  .tab-btn.active { color: #fff; border-bottom-color: #c9893a; }
 
   /* ── LAYOUT ── */
   .tab-panel { display: none; }
