@@ -88,17 +88,33 @@
   .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
 
+  /* ── TAB NAV ── */
+  .tab-nav {
+    background: #2a627a;
+    display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky; top: 0; z-index: 100; transition: top 0.3s ease;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
+    font-size: 15px; font-weight: 400; padding: 14px 18px;
+    white-space: nowrap; border-bottom: 3px solid transparent;
+    transition: color .18s, border-color .18s;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,.85); }
+  .tab-btn.active { color: #fff; border-bottom-color: #c9893a; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
   /* ── INTRO ── */
-  .intro-bar { background: #2a627a; color: #fff; padding: 22px 0; border: none; border-bottom: none; transition: padding 0.25s; }
+  .intro-bar { background: #2a627a; color: #fff; padding: 22px 0; border: none; border-bottom: none; }
   .intro-bar-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; font-size: 16.5px; line-height: 1.6; border: none; }
 
-  /* ── INTRO COLLAPSE ── */
-  .intro-description { transition: opacity 0.2s, max-height 0.25s, margin 0.25s; max-height: 500px; overflow: hidden; }
-  .intro-description.collapsed { opacity: 0; max-height: 0; margin: 0; }
-  .intro-bar.collapsed { padding: 0; }
-
   /* ── SEARCH ── */
-  .search-bar-wrap { position: sticky; top: 38px; z-index: 999; background: var(--cream); border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .search-bar-wrap { position: sticky; top: 0; z-index: 99; background: var(--cream); border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
   .search-bar-inner { max-width: 860px; margin: 0 auto; padding: 10px 32px; display: flex; gap: 8px; align-items: center; }
   .search-input {
     flex: 1; max-width: 340px; padding: 7px 12px; font-size: 14px;
@@ -433,18 +449,28 @@
   </div>
 </header>
 
+<!-- TAB NAV -->
+<nav class="tab-nav" id="research-tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="tab-research" onclick="showResearchTab('tab-research', this)">Research</button>
+    <button class="tab-btn" data-tab="tab-management" onclick="showResearchTab('tab-management', this)">Current Management</button>
+    <button class="tab-btn" data-tab="tab-resources" onclick="showResearchTab('tab-resources', this)">Resources &amp; Support</button>
+    <button class="tab-btn" data-tab="tab-gaps" onclick="showResearchTab('tab-gaps', this)">Open Questions</button>
+  </div>
+</nav>
+
+<!-- TAB PANEL: RESEARCH -->
+<div id="tab-research" class="tab-panel active">
 
 <!-- INTRO BAR -->
 <div class="intro-bar" id="intro-bar">
   <div class="intro-bar-inner">
-    <div class="intro-description">
-      Each paper includes a plain-language summary and a note on what it means for families. Coverage is limited to SETD5 Syndrome (haploinsufficiency) and is not exhaustive. All sources are linked. This is not medical advice. This page is updated monthly. If you'd like to suggest a study that hasn't been included, <a href="suggest-a-resource.html" style="color:#c9893a;">let us know</a>. Last updated: March 4, 2026
-    </div>
+    Each paper includes a plain-language summary and a note on what it means for families. Coverage is limited to SETD5 Syndrome (haploinsufficiency) and is not exhaustive. All sources are linked. This is not medical advice. This page is updated monthly. If you'd like to suggest a study that hasn't been included, <a href="suggest-a-resource.html" style="color:#c9893a;">let us know</a>. Last updated: March 4, 2026
   </div>
 </div>
 
 <!-- SEARCH BAR -->
-<div class="search-bar-wrap">
+<div class="search-bar-wrap" id="search-bar-wrap">
   <div class="search-bar-inner">
     <input type="text" class="search-input" id="research-search" placeholder="Search by keyword, author, or topic...">
     <button class="search-clear" id="search-clear">Clear</button>
@@ -1530,9 +1556,12 @@
     </div>
   </div>
 
-  <hr class="section-divider">
+</div><!-- /.page-body (research) -->
+</div><!-- /#tab-research -->
 
-  <!-- MANAGEMENT -->
+<!-- TAB PANEL: MANAGEMENT -->
+<div id="tab-management" class="tab-panel">
+<div class="page-body">
   <p class="section-label">Current care</p>
   <h2 class="section-title">How SETD5 Is Managed Today</h2>
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;">There are no medications specifically designed to treat SETD5-related syndrome. Management is symptomatic; each feature is treated individually. The treatments and therapies listed below are based on currently published case data and clinical guidance. <strong>Note:</strong> Some medical treatments listed (e.g., growth hormone therapy, zoledronic acid) are based on single published case reports and should not be interpreted as established treatment guidelines. Always discuss options with your child's medical team.</p>
@@ -1596,9 +1625,12 @@
     </div>
   </div>
 
-  <hr class="section-divider">
+</div><!-- /.page-body (management) -->
+</div><!-- /#tab-management -->
 
-  <!-- RESOURCES -->
+<!-- TAB PANEL: RESOURCES -->
+<div id="tab-resources" class="tab-panel">
+<div class="page-body">
   <p class="section-label">For families</p>
   <h2 class="section-title">Community and Support Resources</h2>
 
@@ -1654,9 +1686,12 @@
     </li>
   </ul>
 
-  <hr class="section-divider">
+</div><!-- /.page-body (resources) -->
+</div><!-- /#tab-resources -->
 
-  <!-- GAPS -->
+<!-- TAB PANEL: GAPS -->
+<div id="tab-gaps" class="tab-panel">
+<div class="page-body">
   <p class="section-label">Open questions</p>
   <h2 class="section-title">What Is Not Yet Known</h2>
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px;">The following are documented gaps in the published SETD5 literature as of February 2026.</p>
@@ -1670,9 +1705,8 @@
     <div class="gap-item"><strong>Sex-based differences in presentation:</strong> Females are documented to have more variable symptom expression than males. No study has formally investigated the biological basis for this difference.</div>
     <div class="gap-item"><strong>Registry and literature size:</strong> Fewer than 75 individuals are described in the published literature. Larger cohorts are needed to generate statistically reliable estimates of symptom frequency and outcomes. Enrolling in Simons Searchlight is the most direct way families can help grow the research dataset.</div>
   </div>
-
-
-</div>
+</div><!-- /.page-body (gaps) -->
+</div><!-- /#tab-gaps -->
 
 <!-- BACK TO TOP -->
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">↑</button>
@@ -1699,24 +1733,45 @@
 </script>
 
 <script>
-  // ── COLLAPSE HEADER + INTRO ON SCROLL ──
-  var siteHeader = document.querySelector('.site-header');
-  var introDescription = document.querySelector('.intro-description');
-  var introBar = document.getElementById('intro-bar');
-  var collapseThreshold = 50;
-  var tickingCollapse = false;
+  // ── TAB SWITCHING ──
+  function showResearchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('#research-tab-nav .tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo(0, 0);
+  }
 
-  window.addEventListener('scroll', function() {
-    if (!tickingCollapse) {
-      requestAnimationFrame(function() {
-        var collapsed = window.scrollY > collapseThreshold;
-        siteHeader.classList.toggle('collapsed', collapsed);
-        introDescription.classList.toggle('collapsed', collapsed);
-        introBar.classList.toggle('collapsed', collapsed);
-        tickingCollapse = false;
-      });
-      tickingCollapse = true;
+  // ── COLLAPSE HEADER ON SCROLL + SYNC TAB NAV & SEARCH BAR ──
+  document.addEventListener('DOMContentLoaded', function() {
+    var siteHeader = document.querySelector('.site-header');
+    var tabNav = document.getElementById('research-tab-nav');
+    var searchWrap = document.getElementById('search-bar-wrap');
+    var collapseThreshold = 50;
+    var tickingCollapse = false;
+
+    function syncPositions() {
+      if (tabNav) tabNav.style.top = siteHeader.offsetHeight + 'px';
+      if (searchWrap) searchWrap.style.top = (siteHeader.offsetHeight + (tabNav ? tabNav.offsetHeight : 0)) + 'px';
     }
+
+    function updateLayout() {
+      siteHeader.classList.toggle('collapsed', window.scrollY > collapseThreshold);
+      syncPositions();
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!tickingCollapse) {
+        requestAnimationFrame(function() {
+          updateLayout();
+          tickingCollapse = false;
+        });
+        tickingCollapse = true;
+      }
+    });
+
+    siteHeader.addEventListener('transitionend', syncPositions);
+    syncPositions();
   });
 </script>
 
