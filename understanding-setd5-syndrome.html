@@ -278,6 +278,10 @@
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a, .page-body a, .letter-content a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
 </style>
 <script>
   function showTab(id) {
@@ -352,9 +356,7 @@
     <div class="stat-box"><div class="stat-number">75+</div><div class="stat-label">individuals in published literature (as of 2025)</div></div>
     <div class="stat-box"><div class="stat-number">Chr. 3</div><div class="stat-label">gene location (3p25.3)</div></div>
   </div>
-  <p style="font-size:14px; color:var(--muted); text-align:center; margin-top:10px; margin-bottom:0;">*While there are approximately 75+ individuals in published studies (as of 2025), the SETD5 Syndrome Facebook support group has grown to over 1,100 members worldwide; suggesting the exact prevalence remains unknown and is likely underestimated due to underreporting in the medical literature.</p>
-
-  <p style="font-size:14px; color:var(--muted); text-align:center; margin-top:10px; margin-bottom:0;">Research on SETD5 Syndrome is evolving and this page is updated monthly as new information becomes available. If you find something that needs correcting or know of a recent publication we haven't included, please <a href="suggest-a-resource.html" style="color:var(--teal);">let us know</a>.</p>
+  <p style="font-size:14px; color:var(--muted); text-align:left; margin-top:10px; margin-bottom:0;">*While there are approximately 75+ individuals in published studies (as of 2025), the SETD5 Syndrome Facebook support group has grown to over 1,100 members worldwide; suggesting the exact prevalence remains unknown and is likely underestimated due to underreporting in the medical literature.</p>
 
   <hr class="section-divider">
 
@@ -792,6 +794,7 @@
 
 <!-- FOOTER -->
 <footer class="site-footer">
+  <p style="margin-top:10px; font-size:0.75rem; color:rgba(255,255,255,0.6);">Research on SETD5 Syndrome is evolving and this site is updated monthly as new information becomes available. If you find something that needs correcting or know of a recent publication, please <a href="suggest-a-resource.html" style="color:rgba(255,255,255,0.8);">let us know</a>.</p>
   <p style="margin-bottom:8px;">For informational purposes only. Some data was aggregated with the help of Claude AI. Always verify with your care team.</p>
   <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.7); text-decoration:none;">Sources &amp; References</a></p>
   <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
@@ -800,10 +803,17 @@
 
 
 <script>
+// Scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', function() {
   var header  = document.querySelector('.site-header');
   var tabNav  = document.querySelector('.tab-nav');
   var threshold = 60;
+  var ticking = false;
 
   function syncNavTop() {
     if (header && tabNav) tabNav.style.top = header.offsetHeight + 'px';
@@ -815,7 +825,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   syncNavTop();
-  window.addEventListener('scroll', updateCollapse);
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateCollapse();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
   header.addEventListener('transitionend', syncNavTop);
 });
 </script>

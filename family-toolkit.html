@@ -81,7 +81,7 @@
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.75);
     margin-bottom: 16px;
   }
   .header-eyebrow a {
@@ -90,7 +90,7 @@
     transition: color 0.15s;
   }
   .header-eyebrow a:hover { color: #a8cfc8; }
-  .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-eyebrow .sep { margin: 0 8px; opacity: 0.35; }
   .header-title {
     font-family: 'Lora', serif;
@@ -364,6 +364,10 @@
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a, .page-body a, .letter-content a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
 </style>
 <link rel="canonical" href="https://setd5syndrome.live/family-toolkit.html">
 </head>
@@ -413,7 +417,7 @@
 
     <a href="helpful-links.html" class="card card-links">
       <h2>Resources &amp; Organizations</h2>
-      <p>Support groups, rare disease organizations, and benefit programs.</p>
+      <p>External links to support groups, rare disease organizations, genetics databases, and US benefit programs — organized by category.</p>
       <span class="card-link">View Resources</span>
     </a>
 
@@ -441,6 +445,7 @@
 </main>
 
 <footer class="site-footer">
+  <p style="margin-top:10px; font-size:0.75rem; color:rgba(255,255,255,0.6);">Research on SETD5 Syndrome is evolving and this site is updated monthly as new information becomes available. If you find something that needs correcting or know of a recent publication, please <a href="suggest-a-resource.html" style="color:rgba(255,255,255,0.8);">let us know</a>.</p>
   <p style="margin-bottom:8px;">For informational purposes only. Some data was aggregated with the help of Claude AI. Always verify with your care team.</p>
   <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.7); text-decoration:none;">Sources &amp; References</a></p>
   <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
@@ -448,10 +453,23 @@
 </footer>
 
 <script>
+// Scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 (function(){
   var header = document.querySelector('.site-header');
+  var ticking = false;
   window.addEventListener('scroll', function(){
-    header.classList.toggle('collapsed', window.scrollY > 60);
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        header.classList.toggle('collapsed', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 })();
 </script>

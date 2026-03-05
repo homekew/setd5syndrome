@@ -299,13 +299,30 @@
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a, .page-body a, .letter-content a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
 </style>
 <script>
+  // Scroll to top on page load
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   /* ── HEADER COLLAPSE ON SCROLL ── */
   (function() {
     var header = document.querySelector('.site-header');
+    var ticking = false;
     window.addEventListener('scroll', function() {
-      header.classList.toggle('collapsed', window.scrollY > 60);
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          header.classList.toggle('collapsed', window.scrollY > 60);
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
   })();
 
@@ -362,38 +379,6 @@
     <p>The <strong>Individuals with Disabilities Education Act (IDEA)</strong> is the federal law that guarantees children with qualifying disabilities the right to special education services at no cost to families. Children with SETD5 Syndrome typically meet eligibility criteria under IDEA. The law covers birth through age 21 (or high school graduation, whichever comes first).</p>
   </div>
 
-  <p class="section-label">Key terms</p>
-  <h2 class="section-title">Terms Every Parent Should Know</h2>
-
-  <div class="term-list">
-    <div class="term-item">
-      <div class="term-name">Free Appropriate Public Education <span class="term-abbr">FAPE</span></div>
-      <div class="term-def">Your child is entitled to a special education at no cost that is appropriate for their individual needs, not the best possible education, but one that provides meaningful educational benefit. If the school can't provide FAPE, they must fund an alternative.</div>
-    </div>
-    <div class="term-item">
-      <div class="term-name">Least Restrictive Environment <span class="term-abbr">LRE</span></div>
-      <div class="term-def">Children with disabilities must be educated alongside non-disabled peers to the maximum extent appropriate. Removal to a separate classroom or school should only happen when the nature or severity of the disability makes it necessary, even with supports in place.</div>
-    </div>
-    <div class="term-item">
-      <div class="term-name">Child Find</div>
-      <div class="term-def">Schools are legally required to identify, locate, and evaluate children who may have a disability, even if the child attends private school or is homeschooled. If you suspect your child has a disability, you don't have to wait for the school to bring it up. You can request an evaluation yourself.</div>
-    </div>
-    <div class="term-item">
-      <div class="term-name">Prior Written Notice <span class="term-abbr">PWN</span></div>
-      <div class="term-def">Any time the school proposes to initiate, change, or refuse a service or placement, they must give you written notice explaining why. This is an important document. Keep every PWN you receive.</div>
-    </div>
-    <div class="term-item">
-      <div class="term-name">Procedural Safeguards</div>
-      <div class="term-def">A document the school is required to give you at least once per year (and at key points like an initial evaluation or when you file a complaint). It explains all of your rights as a parent under IDEA, including how to disagree with the school's decisions.</div>
-    </div>
-    <div class="term-item">
-      <div class="term-name">Related Services</div>
-      <div class="term-def">Support services required to help a child benefit from special education, including speech-language therapy, occupational therapy, physical therapy, counseling, transportation, and more. If your child needs a service, it can be written into the IEP.</div>
-    </div>
-  </div>
-
-  <hr class="section-divider">
-
   <p class="section-label">Age ranges</p>
   <h2 class="section-title">Services at Every Age</h2>
 
@@ -425,6 +410,38 @@
   <div class="amber-callout">
     <span class="callout-label">Important</span>
     <p>Early Intervention services end at age 3. They do not automatically transfer to the school district. You must separately request an evaluation from your local school district before your child turns 3 to avoid a gap in services. Start the process early, as evaluations take time.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <p class="section-label">Key terms</p>
+  <h2 class="section-title">Terms Every Parent Should Know</h2>
+
+  <div class="term-list">
+    <div class="term-item">
+      <div class="term-name">Free Appropriate Public Education <span class="term-abbr">FAPE</span></div>
+      <div class="term-def">Your child is entitled to a special education at no cost that is appropriate for their individual needs, not the best possible education, but one that provides meaningful educational benefit. If the school can't provide FAPE, they must fund an alternative.</div>
+    </div>
+    <div class="term-item">
+      <div class="term-name">Least Restrictive Environment <span class="term-abbr">LRE</span></div>
+      <div class="term-def">Children with disabilities must be educated alongside non-disabled peers to the maximum extent appropriate. Removal to a separate classroom or school should only happen when the nature or severity of the disability makes it necessary, even with supports in place.</div>
+    </div>
+    <div class="term-item">
+      <div class="term-name">Child Find</div>
+      <div class="term-def">Schools are legally required to identify, locate, and evaluate children who may have a disability, even if the child attends private school or is homeschooled. If you suspect your child has a disability, you don't have to wait for the school to bring it up. You can request an evaluation yourself.</div>
+    </div>
+    <div class="term-item">
+      <div class="term-name">Prior Written Notice <span class="term-abbr">PWN</span></div>
+      <div class="term-def">Any time the school proposes to initiate, change, or refuse a service or placement, they must give you written notice explaining why. This is an important document. Keep every PWN you receive.</div>
+    </div>
+    <div class="term-item">
+      <div class="term-name">Procedural Safeguards</div>
+      <div class="term-def">A document the school is required to give you at least once per year (and at key points like an initial evaluation or when you file a complaint). It explains all of your rights as a parent under IDEA, including how to disagree with the school's decisions.</div>
+    </div>
+    <div class="term-item">
+      <div class="term-name">Related Services</div>
+      <div class="term-def">Support services required to help a child benefit from special education, including speech-language therapy, occupational therapy, physical therapy, counseling, transportation, and more. If your child needs a service, it can be written into the IEP.</div>
+    </div>
   </div>
 
 </div>
@@ -772,6 +789,14 @@
       <div class="resource-name"><a href="https://www.wrightslaw.com" target="_blank">Wrightslaw</a></div>
       <div class="resource-desc">A well-regarded resource for special education law and advocacy, including articles, a yellow pages directory of advocates and attorneys by state, and books on IEP and special education law.</div>
     </li>
+    <li class="resource-item">
+      <div class="resource-name"><a href="https://www.understood.org/en/articles/sample-letters-to-use-with-your-childs-school" target="_blank">Understood.org — Sample Letters for Requesting Evaluations</a></div>
+      <div class="resource-desc">Ready-to-use letter templates for requesting evaluations, services, and other actions from your school. These can help you document requests officially.</div>
+    </li>
+    <li class="resource-item">
+      <div class="resource-name"><a href="https://www.understood.org/en/articles/the-iep-binder-why-you-need-one-and-whats-in-it" target="_blank">Understood.org — How to Organize Your Child's IEP Binder</a></div>
+      <div class="resource-desc">A guide to creating and organizing a binder to keep all IEP documents, emails, and notes in one place for easy reference and preparation for meetings.</div>
+    </li>
   </ul>
 
   <div class="sage-callout" style="margin-top:8px;">
@@ -784,6 +809,7 @@
 
 <!-- FOOTER -->
 <footer class="site-footer">
+  <p style="margin-top:10px; font-size:0.75rem; color:rgba(255,255,255,0.6);">Research on SETD5 Syndrome is evolving and this site is updated monthly as new information becomes available. If you find something that needs correcting or know of a recent publication, please <a href="suggest-a-resource.html" style="color:rgba(255,255,255,0.8);">let us know</a>.</p>
   <p style="margin-bottom:8px;">For informational purposes only. Some data was aggregated with the help of Claude AI. Always verify with your care team.</p>
   <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.7); text-decoration:none;">Sources &amp; References</a></p>
   <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>

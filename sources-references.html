@@ -187,6 +187,10 @@
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a, .page-body a, .letter-content a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -570,6 +574,12 @@
 </footer>
 
 <script type="text/javascript">
+// Scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',

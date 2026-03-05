@@ -61,7 +61,7 @@
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
   }
-  .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-title {
     font-family: 'Lora', serif;
     font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
@@ -277,6 +277,10 @@
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a, .page-body a, .letter-content a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -290,7 +294,7 @@
     <div id="google_translate_element"></div>
   </div>
   <div class="header-inner">
-    <p class="header-eyebrow"><a href="family-toolkit.html" style="color:rgba(255,255,255,0.45);text-decoration:none;">← Family Toolkit</a></p>
+    <p class="header-eyebrow"><a href="family-toolkit.html" style="color:rgba(255,255,255,0.75);text-decoration:none;">← Family Toolkit</a></p>
     <h1 class="header-title">Family <em>Stories</em></h1>
     <p class="header-subtitle">Real experiences from families living with SETD5 Syndrome, in their own words.</p>
   </div>
@@ -345,6 +349,7 @@
 </div>
 
 <footer class="site-footer">
+  <p style="margin-top:10px; font-size:0.75rem; color:rgba(255,255,255,0.6);">Research on SETD5 Syndrome is evolving and this site is updated monthly as new information becomes available. If you find something that needs correcting or know of a recent publication, please <a href="suggest-a-resource.html" style="color:rgba(255,255,255,0.8);">let us know</a>.</p>
   <p style="margin-bottom:8px;">For informational purposes only. Some data was aggregated with the help of Claude AI. Always verify with your care team.</p>
   <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.55); text-decoration:none;">Sources &amp; References</a></p>
   <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
@@ -352,11 +357,24 @@
 </footer>
 
 <script type="text/javascript">
+// Scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 /* ── HEADER COLLAPSE ON SCROLL ── */
 (function() {
   var header = document.querySelector('.site-header');
+  var ticking = false;
   window.addEventListener('scroll', function() {
-    header.classList.toggle('collapsed', window.scrollY > 60);
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        header.classList.toggle('collapsed', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 })();
 
