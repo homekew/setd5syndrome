@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use | SETD5 Syndrome</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://setd5syndrome.live/terms-of-use.html">
+<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:title" content="Terms of Use | SETD5 Syndrome">
+<meta property="og:description" content="Terms of Use for SETD5Syndrome.live, including medical disclaimer, AI disclosure, and permitted use of content.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terms of Use | SETD5 Syndrome">
+<meta name="twitter:description" content="Terms of Use for SETD5Syndrome.live.">
+<link rel="canonical" href="https://setd5syndrome.live/terms-of-use.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:    #faf7f2;
+    --navy:     #1a2744;
+    --deep:     #2a627a;
+    --teal:     #2a7a6a;
+    --amber:    #c9893a;
+    --amber-lt: #fdf4e7;
+    --border:   #e0d9cf;
+    --muted:    #6b6b6b;
+    --text:     #2c2c2c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .header-inner { transition: padding 0.25s; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 22px 32px 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 16px;
+  }
+  .header-eyebrow a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .header-eyebrow a:hover { color: #a8cfc8; }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .header-title {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 4.3vw, 2.8rem);
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    width: 100%;
+  }
+
+  .last-updated {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .intro {
+    font-size: 16px;
+    line-height: 1.78;
+    margin-bottom: 2.5rem;
+    color: var(--text);
+  }
+
+  .section-number {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+    margin-top: 2.5rem;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-number:first-of-type {
+    margin-top: 0;
+  }
+
+  .terms-text {
+    font-size: 15.5px;
+    line-height: 1.78;
+    color: var(--text);
+    margin-bottom: 0;
+  }
+  .terms-text + .terms-text {
+    margin-top: 14px;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.82rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  footer a { text-decoration: underline; }
+  main a { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .header-inner { padding: 14px 18px 18px; }
+    main { padding: 2rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-eyebrow"><a href="index.html">&larr; Home</a></p>
+    <h1 class="header-title">Terms of <em>Use</em></h1>
+  </div>
+</header>
+
+<main>
+
+  <p class="last-updated">Last Updated: March 2026</p>
+
+  <p class="intro">Welcome to SETD5Syndrome.live (the "Website"). This site was created by a parent of a child with SETD5 Syndrome to share research, resources, and practical tools. By using this Website, you agree to the following terms.</p>
+
+  <h2 class="section-number">1. Informational Purposes Only (Not Medical Advice)</h2>
+  <p class="terms-text">The content on this Website, including guides, research summaries, the medical terms glossary, and handout builders, is for general informational and educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician, geneticist, or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay seeking it because of something you have read on this Website.</p>
+
+  <h2 class="section-number">2. Use of Artificial Intelligence</h2>
+  <p class="terms-text">To help make complex genetic and medical research accessible in plain language, this Website uses Claude by Anthropic to assist with research and aggregating information. While all content is also reviewed by a human before publishing, medical research evolves rapidly. Always verify information with your care team.</p>
+
+  <h2 class="section-number">3. Accuracy and Currency of Information</h2>
+  <p class="terms-text">This Website reflects published research and community knowledge as of the date noted on each page. Content is reviewed and updated on a regular basis, but the creator cannot guarantee that all information is current or complete at any given moment. SETD5 Syndrome research is still in its early stages and new findings may change what is currently understood.</p>
+
+  <h2 class="section-number">4. No Professional Relationship</h2>
+  <p class="terms-text">Your use of this Website does not create a doctor-patient, therapist-patient, or any other professional relationship between you and the creator of this Website.</p>
+
+  <h2 class="section-number">5. External Links and Resources</h2>
+  <p class="terms-text">This Website contains links to third-party websites, organizations, and resources (such as disability discount programs and genetics databases). These links are provided solely for your convenience. The creator does not endorse, control, or take responsibility for the content, privacy policies, or practices of any third-party websites.</p>
+
+  <h2 class="section-number">6. Permitted Use of Content</h2>
+  <p class="terms-text">The materials on this Website are provided for personal, non-commercial use by families, caregivers, educators, and individuals navigating a SETD5 Syndrome diagnosis. You may download, print, or share materials from the Family Toolkit, handout builders, and other pages for your personal use or to share with your personal care team, provided you do not modify the content or use it for commercial purposes. Content generated through the handout builders is personalized based on your selections and is subject to the same terms.</p>
+
+  <h2 class="section-number">7. User-Submitted Content</h2>
+  <p class="terms-text">This Website accepts voluntary submissions, including family stories and resource suggestions. By submitting content, you grant the creator permission to publish, edit, or decline your submission at their discretion. You are responsible for ensuring that any content you submit does not violate the rights of others. The creator reserves the right to remove any submitted content at any time.</p>
+
+  <h2 class="section-number">8. Google Translate Disclaimer</h2>
+  <p class="terms-text">Some pages on this Website include a Google Translate widget to help international families access content in their preferred language. These translations are generated automatically by Google and may not be fully accurate, particularly for medical or technical terminology. The creator is not responsible for errors or misunderstandings resulting from machine translation. When in doubt, refer to the original English-language version or consult a qualified translator.</p>
+
+  <h2 class="section-number">9. Limitation of Liability</h2>
+  <p class="terms-text">To the fullest extent permitted by law, the creator of SETD5Syndrome.live shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in any way connected with your use of this Website or the information contained within it.</p>
+
+  <h2 class="section-number">10. Governing Law</h2>
+  <p class="terms-text">These Terms of Use shall be governed by and construed in accordance with the laws of the State of Oregon, without regard to its conflict of law provisions.</p>
+
+  <h2 class="section-number">11. Changes to These Terms</h2>
+  <p class="terms-text">These Terms of Use may be updated from time to time. Any changes will be posted on this page with an updated revision date.</p>
+
+</main>
+
+<footer class="site-footer">
+  <p style="font-size:0.8rem; color:rgba(255,255,255,0.6);">Research on SETD5 Syndrome is evolving. This site is updated monthly as new information becomes available. If you find something that needs correcting or know of a recent publication, please <a href="suggest-a-resource.html" style="color:rgba(255,255,255,0.8);">let us know</a>. For informational purposes only. Some data was aggregated with the help of Claude AI. Always verify with your care team.</p>
+  <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
+  <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
+</footer>
+
+<script>
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+(function(){
+  var header = document.querySelector('.site-header');
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        header.classList.toggle('collapsed', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+</script>
+</body>
+</html>
