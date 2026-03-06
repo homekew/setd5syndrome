@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build Your School Handout — SETD5 Syndrome</title>
+<title>Build Your School Handout | SETD5 Syndrome</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -372,11 +372,11 @@ body {
   <div class="form-header">
     <p class="form-eyebrow">School Toolkit · SETD5 Syndrome</p>
     <h1 class="form-title">Build Your Child's <em>School Handout</em></h1>
-    <p class="form-subtitle">Answer a few questions about your child and we'll generate a personalized one-page handout — ready to print and share.</p>
+    <p class="form-subtitle">Answer a few questions about your child and we'll generate a personalized one-page handout, ready to print and share.</p>
   </div>
 
   <!-- Step 1: Purpose -->
-  <div class="section-divider">Step 1 — What is this handout for?</div>
+  <div class="section-divider">Step 1: What is this handout for?</div>
 
   <div class="purpose-selector">
     <div class="purpose-option selected" id="opt-iep" onclick="setPurpose('iep')">
@@ -396,7 +396,7 @@ body {
   </div>
 
   <!-- Step 2: Child's name -->
-  <div class="section-divider">Step 2 — About your child</div>
+  <div class="section-divider">Step 2: About your child</div>
 
   <div class="field-section">
     <label for="child-name">Child's first name <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
@@ -433,8 +433,8 @@ body {
   </div>
 
   <!-- Step 3: Features -->
-  <div class="section-divider">Step 3 — Which features apply to your child?</div>
-  <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Check anything that applies to your child — whether it has been formally diagnosed or is something you have observed or noticed. Only what you select will appear on the handout.</p>
+  <div class="section-divider">Step 3: Which features apply to your child?</div>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Check anything that applies to your child, whether it has been formally diagnosed or is something you have observed or noticed. Only what you select will appear on the handout.</p>
 
   <div class="feature-group">
     <div class="feature-group-header">Learning &amp; Communication</div>
@@ -452,8 +452,8 @@ body {
         <label>Speech and language delays or difficulties</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Minimally verbal or nonverbal — uses AAC, signs, or other communication supports">
-        <label>Minimally verbal or nonverbal — uses AAC, signs, or other communication supports</label>
+        <input type="checkbox" value="Minimally verbal or nonverbal (uses AAC, signs, or other communication supports)">
+        <label>Minimally verbal or nonverbal (uses AAC, signs, or other communication supports)</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Working memory and short-term memory difficulties">
@@ -518,8 +518,8 @@ body {
     <div class="feature-group-header">Health &amp; Safety at School</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Seizure history — requires a school safety plan">
-        <label>Seizure history — requires a school safety plan</label>
+        <input type="checkbox" value="Seizure history (requires a school safety plan)">
+        <label>Seizure history (requires a school safety plan)</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Sleep difficulties that may affect daytime alertness and focus">
@@ -541,7 +541,7 @@ body {
   </div>
 
   <!-- Step 4: Extra notes -->
-  <div class="section-divider">Step 4 — Anything else?</div>
+  <div class="section-divider">Step 4: Anything else?</div>
 
   <div class="field-section">
     <label for="parent-note">Additional notes <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
@@ -727,18 +727,18 @@ function generateHandout() {
       '<div class="h-section-label">Classroom strategies</div>' +
       '<div class="h-section-title">What Helps ' + (childName || 'This Child') + '</div>' +
       '<ul class="h-tips-list">' +
-        '<li>Give advance notice before transitions — a 5-minute warning helps</li>' +
+        '<li>Give advance notice before transitions (a 5-minute warning helps)</li>' +
         '<li>Use visual schedules or picture cues where possible</li>' +
         '<li>Keep instructions short and concrete; check for understanding</li>' +
         '<li>Allow extra processing time before expecting a response</li>' +
         '<li>Reduce sensory overload when possible (noise, lighting, crowds)</li>' +
-        '<li>Praise effort and small steps — positive reinforcement works well</li>' +
+        '<li>Praise effort and small steps; positive reinforcement works well</li>' +
         '<li>Be consistent with routines; unexpected changes can be hard</li>' +
         '<li>If behavior escalates, reduce demands and give calm, quiet space</li>' +
       '</ul>';
     document.getElementById('h-fact-3').innerHTML =
       '<div class="h-fact-label">IEP Status</div>' +
-      '<div class="h-fact-value">Has an IEP — please review</div>';
+      '<div class="h-fact-value">Has an IEP: please review</div>';
   } else {
     rightCol.innerHTML =
       '<div class="h-section-label">For this meeting</div>' +
