@@ -275,35 +275,6 @@
     --card-accent: var(--amber);
     --card-icon-bg: var(--amber-lt);
   }
-  .card-multi {
-    cursor: default;
-  }
-  .card-multi:hover {
-    transform: none;
-    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
-    border-color: var(--border);
-  }
-  .card-links-row {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    margin-top: auto;
-  }
-  .card-link-a {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.83rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--teal);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .card-link-a::after { content: '→'; transition: transform 0.2s; }
-  .card-link-a:hover::after { transform: translateX(4px); }
-  .card-link-a.amber { color: var(--amber); }
 
   /* ── HELPFUL LINKS SECTION ── */
   .links-section {
@@ -439,14 +410,17 @@
       <span class="card-link">Read Stories</span>
     </a>
 
-    <div class="card card-handouts card-multi">
-      <h2>School Handouts</h2>
-      <p>Free resources to help school teams understand your child's SETD5 Syndrome profile. Download a general overview PDF to share with anyone new to the diagnosis, or use the builder to generate a personalized one-page handout for IEP meetings, evaluations, or introducing your child to a new teacher at the start of the year.</p>
-      <div class="card-links-row">
-        <a href="printable-handouts.html" class="card-link-a">View Printable Handouts</a>
-        <a href="iep-handout-builder.html" class="card-link-a amber">Open School Meeting Builder</a>
-      </div>
-    </div>
+    <a href="printable-handouts.html" class="card card-handouts">
+      <h2>Printable Handouts</h2>
+      <p>Free one-page guides you can download, print, and bring to appointments or share with providers, school staff, and family members.</p>
+      <span class="card-link">View Handouts</span>
+    </a>
+
+    <a href="iep-handout-builder.html" class="card card-builder">
+      <h2>School Meeting Handout Builder</h2>
+      <p>Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout for IEP meetings, evaluations, or introducing your child to a new teacher at the start of the year.</p>
+      <span class="card-link">Open Builder</span>
+    </a>
 
     <a href="medical-handout-builder.html" class="card card-builder">
       <h2>Medical Appointment Handout Builder</h2>
