@@ -244,38 +244,49 @@ body {
 }
 .h-header {
   background: var(--navy);
-  padding: 18px 28px 16px;
+  padding: 22px 28px 18px;
   display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.h-tag { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 4px; }
-.h-title { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 600; color: #fff; line-height: 1.2; }
-.h-child-name { font-size: 13px; font-weight: 500; color: var(--amber); margin-top: 4px; }
-.h-amber-line { height: 3px; background: var(--amber); }
+.h-tag { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #a8cfc8; margin-bottom: 6px; }
+.h-title { font-family: 'Lora', serif; font-size: 1.55rem; font-weight: 400; color: #fff; line-height: 1.15; }
+.h-title em { font-style: italic; color: #a8cfc8; }
+.h-child-name { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.75); margin-top: 6px; }
+.h-amber-line { display: none; }
 
-.h-body { padding: 18px 28px 22px; }
+/* Quick facts bar */
+.h-facts-bar {
+  background: var(--teal);
+  padding: 10px 28px;
+  display: flex; gap: 0; flex-wrap: wrap;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.h-fact { flex: 1; min-width: 110px; padding: 4px 12px 4px 0; border-right: 1px solid rgba(255,255,255,0.2); margin-right: 12px; }
+.h-fact:last-child { border-right: none; margin-right: 0; }
+.h-fact-label { font-size: 8.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 1px; }
+.h-fact-value { font-size: 11px; font-weight: 500; color: #fff; line-height: 1.3; }
 
 .h-what-is {
-  background: #f4f8f7;
-  border-left: 3px solid var(--teal);
-  border-radius: 0 6px 6px 0;
-  padding: 10px 14px;
-  margin-bottom: 16px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #374151;
+  background: var(--navy); color: #fff;
+  padding: 14px 28px;
+  font-size: 12px; line-height: 1.6;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.h-what-is strong { color: var(--navy); }
+.h-what-is strong { color: #a8cfc8; }
+.h-what-is em { font-style: italic; }
+
+.h-body { padding: 18px 28px 22px; }
 
 .h-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
 .h-section-label {
-  font-size: 9px; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--amber); margin-bottom: 5px;
+  font-size: 8.5px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 5px;
+  padding-bottom: 4px; border-bottom: 1px solid var(--border);
 }
 .h-section-title {
   font-family: 'Lora', serif; font-size: .92rem; font-weight: 600;
-  color: var(--navy); margin-bottom: 8px; padding-bottom: 5px;
-  border-bottom: 1.5px solid var(--border);
+  color: var(--navy); margin-bottom: 8px; margin-top: 4px;
 }
 .h-feature-list { list-style: none; margin: 0; padding: 0; }
 .h-feature-list li {
@@ -297,7 +308,7 @@ body {
 .h-q-list li:last-child { border-bottom: none; }
 .h-q-list li::before {
   content: '›'; position: absolute; left: 2px;
-  color: var(--amber); font-weight: 700; font-size: 14px; line-height: 1.3;
+  color: var(--teal); font-weight: 700; font-size: 14px; line-height: 1.3;
 }
 
 /* Teacher tips list */
@@ -319,6 +330,7 @@ body {
   border-radius: 6px;
   padding: 9px 13px;
   margin-top: 12px;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
 .h-amber-box-label {
   font-size: 8.5px; font-weight: 700; letter-spacing: .12em;
@@ -326,22 +338,13 @@ body {
 }
 .h-amber-box-text { font-size: 11.5px; line-height: 1.55; color: var(--ink); }
 
-/* Quick facts bar */
-.h-facts-bar {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  border-top: 2px solid var(--navy); margin-top: 16px;
-}
-.h-fact { padding: 8px 12px; border-right: 1px solid var(--border); }
-.h-fact:last-child { border-right: none; }
-.h-fact-label { font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-.h-fact-value { font-size: 10.5px; font-weight: 600; color: var(--navy); line-height: 1.35; }
-
 .h-footer {
-  background: var(--navy); padding: 7px 28px;
+  background: #f2ede4; padding: 10px 28px;
   display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.h-footer-url { font-size: 10px; color: rgba(255,255,255,.4); letter-spacing: .04em; }
-.h-footer-disc { font-size: 9px; color: rgba(255,255,255,.3); font-style: italic; max-width: 400px; text-align: right; }
+.h-footer-url { font-size: 10px; font-weight: 600; color: var(--navy); letter-spacing: .04em; }
+.h-footer-disc { font-size: 9.5px; color: var(--muted); max-width: 420px; text-align: right; line-height: 1.5; }
 
 /* ══════════════════════════════════
    PRINT
@@ -588,17 +591,35 @@ body {
         <div class="h-child-name" id="h-child-display"></div>
       </div>
       <div style="text-align:right;align-self:flex-start;">
-        <div style="font-size:10px;color:rgba(255,255,255,.35);">setd5syndrome.live</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.45);">setd5syndrome.live</div>
       </div>
     </div>
-    <div class="h-amber-line"></div>
+
+    <div class="h-facts-bar">
+      <div class="h-fact">
+        <div class="h-fact-label">Gene</div>
+        <div class="h-fact-value">SETD5 (3p25.3)</div>
+      </div>
+      <div class="h-fact">
+        <div class="h-fact-label">Inheritance</div>
+        <div class="h-fact-value">Typically de novo; can be inherited (AD)</div>
+      </div>
+      <div class="h-fact" id="h-fact-3">
+        <div class="h-fact-label">IEP Eligibility</div>
+        <div class="h-fact-value">Typically qualifies under IDEA</div>
+      </div>
+      <div class="h-fact">
+        <div class="h-fact-label">More Information</div>
+        <div class="h-fact-value">setd5syndrome.live</div>
+      </div>
+    </div>
+
+    <!-- What is SETD5 Syndrome (shown when educator may be unfamiliar) -->
+    <div class="h-what-is" id="h-what-is" style="display:none;">
+      <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a loss-of-function variant in the <em>SETD5</em> gene (chromosome 3p25.3). It typically causes intellectual disability, global developmental delay, and speech and language difficulties. Features vary widely between individuals. The items below reflect this child's profile.
+    </div>
 
     <div class="h-body">
-
-      <!-- What is SETD5 Syndrome (teacher mode only) -->
-      <div class="h-what-is" id="h-what-is" style="display:none;">
-        <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a loss-of-function variant in the <em>SETD5</em> gene (chromosome 3p25.3). It typically causes intellectual disability, global developmental delay, and speech and language difficulties. Features vary widely between individuals. The items below reflect this child's profile.
-      </div>
 
       <div class="h-cols">
         <!-- Left: features (same for both) -->
@@ -626,27 +647,8 @@ body {
 
     </div><!-- /h-body -->
 
-    <div class="h-facts-bar">
-      <div class="h-fact">
-        <div class="h-fact-label">Gene</div>
-        <div class="h-fact-value">SETD5 (3p25.3)</div>
-      </div>
-      <div class="h-fact">
-        <div class="h-fact-label">Inheritance</div>
-        <div class="h-fact-value">Typically de novo; can be inherited (AD)</div>
-      </div>
-      <div class="h-fact" id="h-fact-3">
-        <div class="h-fact-label">IEP Eligibility</div>
-        <div class="h-fact-value">Typically qualifies under IDEA</div>
-      </div>
-      <div class="h-fact">
-        <div class="h-fact-label">More Information</div>
-        <div class="h-fact-value">setd5syndrome.live</div>
-      </div>
-    </div>
-
     <div class="h-footer">
-      <div class="h-footer-url">setd5syndrome.live/school-iep-guide</div>
+      <div class="h-footer-url">setd5syndrome.live</div>
       <div class="h-footer-disc">For informational purposes only. Not a substitute for medical or educational advice. Content based on published research and the SETD5 Syndrome family community. Always verify with your care and education team.</div>
     </div>
 
