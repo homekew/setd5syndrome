@@ -161,6 +161,28 @@ body {
 .feature-item.checked { background: var(--teal-lt); }
 .feature-item.checked label { color: var(--navy); font-weight: 500; }
 
+/* ── CHECKBOX TOGGLE ── */
+.toggle-field {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.toggle-field:hover { border-color: var(--teal); background: var(--teal-lt); }
+.toggle-field.active { border-color: var(--teal); background: var(--teal-lt); }
+.toggle-field input[type="checkbox"] {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
+  accent-color: var(--teal); cursor: pointer;
+}
+.toggle-field-label { font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+.toggle-field-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
 /* ── GENERATE BUTTON ── */
 .section-divider {
   font-size: 11px; font-weight: 600; letter-spacing: .14em;
@@ -381,6 +403,14 @@ body {
     <input type="text" id="child-name" placeholder="e.g. Maya" autocomplete="off">
   </div>
 
+  <div class="toggle-field" id="toggle-new" onclick="toggleNew(this)">
+    <input type="checkbox" id="new-to-setd5">
+    <div>
+      <div class="toggle-field-label">This educator may be unfamiliar with SETD5 Syndrome</div>
+      <div class="toggle-field-desc">Adds a brief introduction to the top of the handout explaining what SETD5 Syndrome is.</div>
+    </div>
+  </div>
+
   <!-- Teacher-only: what child enjoys -->
   <div class="field-section teacher-field" id="field-enjoys">
     <label for="child-enjoys">What does your child enjoy? <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
@@ -559,7 +589,7 @@ body {
 
       <!-- What is SETD5 Syndrome (teacher mode only) -->
       <div class="h-what-is" id="h-what-is" style="display:none;">
-        <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a variant in the <em>SETD5</em> gene. It typically causes intellectual disability, developmental delays, and speech and language difficulties. Features vary widely between individuals — the items checked below reflect this child's profile.
+        <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a loss-of-function variant in the <em>SETD5</em> gene (chromosome 3p25.3). It typically causes intellectual disability, global developmental delay, and speech and language difficulties. Features vary widely between individuals. The items below reflect this child's profile.
       </div>
 
       <div class="h-cols">
@@ -630,6 +660,16 @@ function setPurpose(p) {
   });
 }
 
+function toggleNew(el) {
+  var cb = el.querySelector('input[type="checkbox"]');
+  if (event.target === cb) {
+    el.classList.toggle('active', cb.checked);
+    return;
+  }
+  cb.checked = !cb.checked;
+  el.classList.toggle('active', cb.checked);
+}
+
 function toggleFeature(item) {
   var cb = item.querySelector('input[type="checkbox"]');
   if (event.target === cb) {
@@ -667,8 +707,9 @@ function generateHandout() {
     ? ''
     : (childName ? 'Prepared for: ' + childName : '');
 
-  // What is SETD5 blurb (teacher only)
-  document.getElementById('h-what-is').style.display = isTeacher ? 'block' : 'none';
+  // What is SETD5 blurb: always in teacher mode; in IEP mode only if toggle checked
+  var newToSETD5 = document.getElementById('new-to-setd5').checked;
+  document.getElementById('h-what-is').style.display = (isTeacher || newToSETD5) ? 'block' : 'none';
 
   // Feature list
   var ul = document.getElementById('h-feature-list');
