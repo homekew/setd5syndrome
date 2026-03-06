@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Your Genetic Report</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://setd5syndrome.live/understanding-genetic-report.html">
+<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:title" content="Understanding Your Genetic Report">
+<meta property="og:description" content="A plain-language guide to the terms, classifications, and databases you will encounter after a SETD5 Syndrome diagnosis.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Understanding Your Genetic Report">
+<meta name="twitter:description" content="A plain-language guide to the terms, classifications, and databases you will encounter after a SETD5 Syndrome diagnosis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #faf7f2;
+    --cream2:    #f2ede4;
+    --navy:      #1a2744;
+    --deep:      #2a627a;
+    --teal:      #2a7a6a;
+    --amber:     #c9893a;
+    --amber-lt:  #fdf4e7;
+    --rose:      #b05a5a;
+    --rose-lt:   #fdf0ef;
+    --sage:      #4e7c5f;
+    --sage-lt:   #edf5ef;
+    --blue:      #5a80a8;
+    --blue-lt:   #e8eff7;
+    --text:      #2c2c2c;
+    --muted:     #6b6b6b;
+    --border:    #e0d9cf;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* -- HEADER -- */
+  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; }
+  /* -- HEADER COLLAPSE -- */
+  .header-inner { transition: padding 0.25s; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; }
+  .header-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
+  }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .header-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
+    line-height: 1.18; color: #fff; margin-bottom: 16px;
+  }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-subtitle { font-size: 16.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-meta {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15);
+  }
+  .meta-chip {
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+    border-radius: 20px; padding: 4px 14px; font-size: 12px; color: rgba(255,255,255,.8);
+  }
+
+  /* -- LAYOUT -- */
+  .page-body { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  /* -- SECTION -- */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .section-label::before { content: ''; display: block; width: 18px; height: 2px; background: var(--amber); }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(21px, 3.5vw, 29px); font-weight: 400;
+    color: var(--navy); margin-bottom: 20px; line-height: 1.25;
+  }
+  .section-divider { border: none; border-top: 2px solid var(--border); margin: 44px 0 40px; }
+
+  /* -- PROSE -- */
+  .prose { font-size: 16px; line-height: 1.78; margin-bottom: 18px; }
+  .prose + .prose { margin-top: 0; }
+
+  /* -- INFO CALLOUT -- */
+  .info-callout {
+    background: var(--blue-lt); border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .info-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 6px;
+  }
+  .info-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  .teal-callout {
+    background: #eef7f5; border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .teal-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
+  }
+  .teal-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  .amber-callout {
+    background: var(--amber-lt); border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .amber-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
+  }
+  .amber-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  .sage-callout {
+    background: var(--sage-lt); border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .sage-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 6px;
+  }
+  .sage-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  .rose-callout {
+    background: var(--rose-lt); border-left: 4px solid var(--rose);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .rose-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 6px;
+  }
+  .rose-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  /* -- FEATURE CARDS -- */
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+  @media (max-width: 580px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; border-top: 3px solid var(--teal);
+  }
+  .feature-card.amber-top { border-top-color: var(--amber); }
+  .feature-card.rose-top  { border-top-color: var(--rose); }
+  .feature-card.sage-top  { border-top-color: var(--sage); }
+  .feature-card.blue-top  { border-top-color: var(--blue); }
+  .feature-card h4 {
+    font-family: 'Lora', serif; font-size: 16px;
+    color: var(--navy); margin-bottom: 10px;
+  }
+  .feature-card p {
+    font-size: 15px; line-height: 1.65; color: var(--text); margin: 0;
+  }
+  .feature-card ul { list-style: none; padding: 0; }
+  .feature-card ul li {
+    font-size: 14.5px; padding: 3px 0 3px 18px;
+    position: relative; color: var(--text); line-height: 1.55;
+  }
+  .feature-card ul li::before {
+    content: '·'; position: absolute; left: 5px;
+    font-size: 20px; line-height: 1; color: var(--teal); top: 2px;
+  }
+  .feature-card.amber-top ul li::before { color: var(--amber); }
+  .feature-card.rose-top  ul li::before { color: var(--rose); }
+  .feature-card.sage-top  ul li::before { color: var(--sage); }
+  .feature-card.blue-top  ul li::before { color: var(--blue); }
+
+  /* -- RESOURCE LIST -- */
+  .resource-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .resource-item {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px 18px; display: flex; align-items: flex-start; gap: 14px;
+  }
+  .resource-icon {
+    width: 36px; height: 36px; flex-shrink: 0; background: var(--cream2);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .resource-info { flex: 1; }
+  .resource-name { font-weight: 600; font-size: 14.5px; color: var(--navy); margin-bottom: 3px; }
+  .resource-name a { color: var(--teal); text-decoration: none; }
+  .resource-name a:hover { text-decoration: underline; }
+  .resource-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+  /* -- LINK LIST -- */
+  .link-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .link-list li {
+    font-size: 15px; padding: 6px 0 6px 24px; position: relative; color: var(--text); line-height: 1.6;
+  }
+  .link-list li::before {
+    content: '·'; position: absolute; left: 8px;
+    font-size: 20px; line-height: 1; color: var(--teal); top: 1px;
+  }
+  .link-list li a { color: var(--teal); text-decoration: underline; }
+  .link-list li a:hover { text-decoration: none; }
+  .link-list.amber-dots li::before { color: var(--amber); }
+  .link-list.amber-dots li a { color: var(--amber); }
+
+  /* -- FOOTER -- */
+  .site-footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    padding: 1.5rem; text-align: center; font-size: 0.82rem; line-height: 1.65;
+    font-family: 'Poppins', sans-serif;
+  }
+  .site-footer .footer-brand { font-family: 'Lora', serif; font-size: 16px; color: #fff; margin-bottom: 8px; }
+  .site-footer a { color: rgba(255,255,255,.8); }
+  .site-footer p + p { margin-top: 8px; }
+
+  @media (max-width: 600px) {
+    .page-body { padding: 36px 18px 60px; }
+    .header-inner { padding: 14px 18px 18px; }
+  }
+
+  /* -- GOOGLE TRANSLATE WIDGET -- */
+  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a, .page-body a, .letter-content a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
+</style>
+<link rel="canonical" href="https://setd5syndrome.live/understanding-genetic-report.html">
+</head>
+<body>
+
+
+
+
+<!-- HEADER -->
+<header class="site-header">
+  <div style="position:fixed;top:8px;right:12px;z-index:99999;transform:scale(0.78);transform-origin:top right;opacity:0.85;min-width:130px;min-height:24px;">
+    <div id="google_translate_element"></div>
+  </div>
+  <div class="header-inner">
+    <p class="header-eyebrow"><a href="family-toolkit.html" style="color:rgba(255,255,255,0.45);text-decoration:none;">← Family Toolkit</a></p>
+    <h1 class="header-title">Understanding Your <em>Genetic Report</em></h1>
+    <p class="header-subtitle">A plain-language guide to the terms, classifications, and databases you will encounter after a SETD5 Syndrome diagnosis.</p>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="page-body">
+
+  <!-- INTRO CALLOUT -->
+  <div class="teal-callout">
+    <p>After receiving a genetic diagnosis, many families want to understand more about what the test found. This page explains the key terms on a genetic test report and introduces the databases where researchers track information about SETD5 variants. You do not need to understand all of this. But if you are someone who feels better with more information, this page is for you.</p>
+  </div>
+
+  <!-- SECTION: WHAT THE CLASSIFICATION MEANS -->
+  <p class="section-label">Interpreting your results</p>
+  <h2 class="section-title">What the Classification Means</h2>
+
+  <div class="feature-grid">
+    <div class="feature-card sage-top">
+      <h4>Pathogenic</h4>
+      <p>This genetic change is known to cause SETD5 Syndrome. There is strong evidence from multiple sources. This is the clearest result.</p>
+    </div>
+    <div class="feature-card teal-top">
+      <h4>Likely Pathogenic</h4>
+      <p>Strong evidence that this change causes SETD5 Syndrome, but hasn't been seen in as many people yet. Clinicians treat this the same as pathogenic.</p>
+    </div>
+    <div class="feature-card amber-top">
+      <h4>Variant of Uncertain Significance (VUS)</h4>
+      <p>The lab found a change in SETD5, but there isn't enough evidence to confirm whether it causes the condition or is harmless. This does not mean 'no diagnosis' -- it means 'we need more information.' Classifications can change over time.</p>
+    </div>
+    <div class="feature-card blue-top">
+      <h4>Likely Benign / Benign</h4>
+      <p>This change is probably or definitely harmless. Common in the general population and not thought to cause disease.</p>
+    </div>
+  </div>
+
+  <div class="amber-callout">
+    <span class="callout-label">If you received a VUS result</span>
+    <p>Three things can help clarify your variant: (1) Parental testing, to see if either parent carries the same change. (2) Enrolling in Simons Searchlight, which helps researchers gather data. (3) Asking your lab to re-classify the variant in 1--2 years as new evidence becomes available.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- SECTION: TYPES OF GENETIC CHANGES -->
+  <p class="section-label">What happened in the DNA</p>
+  <h2 class="section-title">Types of Genetic Changes</h2>
+
+  <div class="feature-card" style="margin-bottom: 18px; border-top: none; border-left: 4px solid var(--amber); background: var(--amber-lt);">
+    <h4 style="color: var(--amber); font-size: 15px;">Missense mutation</h4>
+    <p>One letter in the genetic code changed, which changes one building block of the protein. The protein is still made but may not work correctly. Like a typo that changes the meaning of a word.</p>
+  </div>
+
+  <div class="feature-card" style="margin-bottom: 18px; border-top: none; border-left: 4px solid var(--amber); background: var(--amber-lt);">
+    <h4 style="color: var(--amber); font-size: 15px;">Nonsense mutation</h4>
+    <p>One letter changed in a way that creates a premature stop signal. The protein gets cut short and usually cannot do its job. Like a sentence that stops in the middle.</p>
+  </div>
+
+  <div class="feature-card" style="margin-bottom: 18px; border-top: none; border-left: 4px solid var(--amber); background: var(--amber-lt);">
+    <h4 style="color: var(--amber); font-size: 15px;">Frameshift mutation</h4>
+    <p>A letter was added or deleted, throwing off the reading of everything that follows. The genetic code is read in groups of three, so shifting by one scrambles everything downstream.</p>
+  </div>
+
+  <div class="feature-card" style="margin-bottom: 18px; border-top: none; border-left: 4px solid var(--amber); background: var(--amber-lt);">
+    <h4 style="color: var(--amber); font-size: 15px;">Deletion</h4>
+    <p>A piece of the genetic code is missing. Can be small (a few letters) or large (a section of chromosome). Larger deletions involving neighboring genes alongside SETD5 may cause additional features.</p>
+  </div>
+
+  <div class="feature-card" style="margin-bottom: 28px; border-top: none; border-left: 4px solid var(--amber); background: var(--amber-lt);">
+    <h4 style="color: var(--amber); font-size: 15px;">Duplication</h4>
+    <p>A section of genetic code is copied, appearing twice instead of once.</p>
+  </div>
+
+  <div class="sage-callout">
+    <span class="callout-label">Important note</span>
+    <p>The type of variant your child has can sometimes give clues about severity, but it is not a reliable predictor. Two people with the exact same variant can look very different. Researchers are still working to understand why.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- SECTION: WHY EVERYONE LOOKS DIFFERENT -->
+  <p class="section-label">Variable expression</p>
+  <h2 class="section-title">Why Every Person with SETD5 Syndrome Looks Different</h2>
+
+  <p class="prose"><strong>Variable expressivity</strong> describes the fact that the same genetic change can cause a wide range of symptoms. Two people in the same family with the identical SETD5 variant can have very different presentations -- one might have mild intellectual disability with few physical features, while another has more significant challenges across multiple systems.</p>
+
+  <p class="prose"><strong>Genetic background</strong> plays a major role. Each person carries roughly 20,000 genes that all interact with one another. These other genes (called "modifiers") influence how SETD5 dysfunction shows up in the body. Your child's unique collection of genes from both parents shapes their outcome in ways we are still learning to predict.</p>
+
+  <p class="prose"><strong>Variant type and location</strong> matter, but not in a simple way. Where in the SETD5 gene the change occurs can affect how much protein is made and how it functions. But the relationship between variant location and severity is not yet well-understood. This is an active area of research.</p>
+
+  <hr class="section-divider">
+
+  <!-- SECTION: GENETICS DATABASES -->
+  <p class="section-label">Where the research lives</p>
+  <h2 class="section-title">A Guide to Genetics Databases</h2>
+
+  <p class="prose">These are the databases researchers, genetic counselors, and clinicians use. You do not need to use them. But if you want to look up your child's specific variant, here is what each one does.</p>
+
+  <h3 style="font-family: 'Lora', serif; font-size: 18px; color: var(--navy); margin-bottom: 16px; margin-top: 32px;">Databases You May Already Know</h3>
+
+  <ul class="link-list">
+    <li><strong>OMIM (omim.org)</strong> -- The reference encyclopedia for genetic conditions. Look up "SETD5" or "MRD23" for clinical description, research history, and bibliography.</li>
+    <li><strong>ClinVar (ncbi.nlm.nih.gov/clinvar/)</strong> -- Database of genetic variants and classifications. Search "SETD5" to see all reported variants and which labs submitted them.</li>
+    <li><strong>GeneCards (genecards.org)</strong> -- Broad summary of what SETD5 does, where it's active, and associated diseases.</li>
+    <li><strong>PubMed (pubmed.ncbi.nlm.nih.gov)</strong> -- World's largest database of published medical research. Search "SETD5" for all published papers.</li>
+  </ul>
+
+  <h3 style="font-family: 'Lora', serif; font-size: 18px; color: var(--navy); margin-bottom: 16px; margin-top: 28px;">Additional Databases Worth Knowing</h3>
+
+  <ul class="link-list amber-dots">
+    <li><strong>DECIPHER (deciphergenomics.org)</strong> -- Collects information about people with genomic changes, especially deletions and duplications. If your child has a deletion, DECIPHER may show similar cases.</li>
+    <li><strong>ClinGen (clinicalgenome.org)</strong> -- Evaluates clinical evidence for specific genes. Their dosage sensitivity maps show which genes cause problems with too little or too much.</li>
+    <li><strong>gnomAD (gnomad.broadinstitute.org)</strong> -- Database of variants from 125,000+ people. If your child's variant appears frequently here, it's probably harmless. If rare or absent, that supports disease-causing.</li>
+    <li><strong>MedGen (ncbi.nlm.nih.gov/medgen/)</strong> -- Pulls together information from multiple sources into one searchable interface.</li>
+    <li><strong>MedlinePlus Genetics (medlineplus.gov/genetics/)</strong> -- The most parent-friendly resource. Written by NIH specifically for patients and families.</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <!-- SECTION: GETTING HELP -->
+  <p class="section-label">Support available</p>
+  <h2 class="section-title">Getting Help Understanding Your Report</h2>
+
+  <ul class="link-list">
+    <li><strong>Simons Searchlight Genetic Counseling (simonssearchlight.org)</strong> -- Enrolled SETD5 families can access board-certified genetic counselors at no cost.</li>
+    <li><strong>MedlinePlus Genetics (medlineplus.gov/genetics/)</strong> -- Step-by-step guides explaining genetic test reports.</li>
+    <li><strong>National Human Genome Research Institute (genome.gov)</strong> -- Educational resources including a genetics glossary.</li>
+    <li><strong>National Society of Genetic Counselors (nsgc.org)</strong> -- Find a genetic counselor near you.</li>
+  </ul>
+
+  <div class="teal-callout">
+    <span class="callout-label">Free genetic counseling available</span>
+    <p>If you are enrolled in Simons Searchlight, you have access to free genetic counseling. This is one of the most valuable resources available to SETD5 Syndrome families. A genetic counselor can walk you through your child's specific report and answer questions that no website can.</p>
+  </div>
+
+  <div class="info-callout" style="background: var(--blue-lt); border-left: 4px solid var(--blue);">
+    <p style="margin: 0; font-size: 15px; line-height: 1.68;"><strong>Want a broader overview?</strong> For a comprehensive look at what SETD5 Syndrome is and how it affects development, see our <a href="understanding-setd5-syndrome.html" style="color: var(--blue); text-decoration: underline;">Understanding SETD5 Syndrome</a> page.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <p style="text-align: center; margin-top: 48px;">
+    <a href="family-toolkit.html" style="display: inline-block; background: var(--navy); color: #fff; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 14px;">← Back to Family Toolkit</a>
+  </p>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p style="font-size:0.8rem; color:rgba(255,255,255,0.6);">For informational purposes only. <a href="terms-of-use.html" style="color:rgba(255,255,255,.7);">Terms of Use</a> &middot; <a href="sources-references.html" style="color:rgba(255,255,255,.7);">Sources &amp; References</a> &middot; <a href="suggest-a-resource.html" style="color:rgba(255,255,255,.7);">Suggest a resource or correction</a></p>
+  <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.7); text-decoration:none;">Sources &amp; References</a></p>
+  <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
+  <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
+</footer>
+
+<script>
+// Scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+document.addEventListener('DOMContentLoaded', function() {
+  var header  = document.querySelector('.site-header');
+  var threshold = 60;
+  var ticking = false;
+
+  function updateCollapse() {
+    header.classList.toggle('collapsed', window.scrollY > threshold);
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateCollapse();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+});
+</script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

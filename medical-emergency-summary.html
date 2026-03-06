@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Emergency Summary | SETD5 Syndrome</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://setd5syndrome.live/medical-emergency-summary.html">
+<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:title" content="Medical Emergency Summary | SETD5 Syndrome">
+<meta property="og:description" content="Create a critical one-page emergency medical summary for your child with SETD5 Syndrome. Essential information for ER doctors, paramedics, and emergency responders.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Medical Emergency Summary | SETD5 Syndrome">
+<meta name="twitter:description" content="Create an emergency medical summary for your child with SETD5 Syndrome: medications, allergies, communication needs, and crisis protocols.">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #faf7f2;
+    --cream2:    #f2ede4;
+    --navy:      #1a2744;
+    --deep:      #2a627a;
+    --teal:      #2a7a6a;
+    --amber:     #c9893a;
+    --amber-lt:  #fdf4e7;
+    --rose:      #b05a5a;
+    --rose-lt:   #fdf0ef;
+    --sage:      #4e7c5f;
+    --sage-lt:   #edf5ef;
+    --blue:      #5a80a8;
+    --blue-lt:   #e8eff7;
+    --text:      #2c2c2c;
+    --muted:     #6b6b6b;
+    --border:    #e0d9cf;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 18px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    position: sticky; top: 0; z-index: 1000;
+  }
+  /* ── HEADER COLLAPSE ── */
+  .header-inner { transition: padding 0.25s; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 22px 32px 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 16px;
+  }
+  .header-eyebrow a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .header-eyebrow a:hover { color: #a8cfc8; }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .header-eyebrow .sep { margin: 0 8px; opacity: 0.35; }
+  .header-title {
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 4.3vw, 2.8rem);
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-subtitle {
+    font-size: 16.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    line-height: 1.65;
+    font-style: normal;
+  }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    width: 100%;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── INTRO CALLOUT ── */
+  .intro-callout {
+    background: #eef7f5;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 22px 24px;
+    margin-bottom: 3rem;
+  }
+  .intro-callout p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid var(--amber);
+    line-height: 1.25;
+  }
+
+  /* ── FEATURE GRID ── */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .feature-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.8rem;
+    box-shadow: 0 2px 8px rgba(26,39,68,0.05);
+  }
+
+  .feature-card.teal-top { border-top: 4px solid var(--teal); }
+  .feature-card.amber-top { border-top: 4px solid var(--amber); }
+  .feature-card.rose-top { border-top: 4px solid var(--rose); }
+  .feature-card.sage-top { border-top: 4px solid var(--sage); }
+  .feature-card.blue-top { border-top: 4px solid var(--blue); }
+
+  .feature-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 1.2rem;
+  }
+
+  .feature-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-card ul li {
+    font-size: 16px;
+    padding: 0.6rem 0 0.6rem 1.2rem;
+    position: relative;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .feature-card ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    line-height: 1;
+    top: 4px;
+  }
+
+  .feature-card.teal-top ul li::before { color: var(--teal); }
+  .feature-card.amber-top ul li::before { color: var(--amber); }
+  .feature-card.rose-top ul li::before { color: var(--rose); }
+  .feature-card.sage-top ul li::before { color: var(--sage); }
+  .feature-card.blue-top ul li::before { color: var(--blue); }
+
+  /* ── PROSE ── */
+  .prose {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .prose + .prose { margin-top: 0; }
+
+  .prose strong { font-weight: 600; }
+
+  /* ── CALLOUTS ── */
+  .teal-callout {
+    background: #eef7f5;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 2rem;
+  }
+
+  .teal-callout .callout-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .teal-callout p {
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .sage-callout {
+    background: #edf5ef;
+    border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 2rem;
+  }
+
+  .sage-callout .callout-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--sage);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .sage-callout p {
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* ── RESOURCE LIST ── */
+  .resource-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .resource-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .resource-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .resource-info { flex: 1; }
+
+  .resource-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .resource-name a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  .resource-name a:hover {
+    text-decoration: underline;
+  }
+
+  .resource-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── TIPS LIST ── */
+  .tips-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tips-list li {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.2rem 1rem 2.8rem;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    position: relative;
+  }
+
+  .tips-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    background: var(--sage);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 3.5rem 0 3rem;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer,
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.82rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .site-footer a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .site-footer p + p { margin-top: 10px; }
+
+  /* ── BACK BUTTON ── */
+  .back-link {
+    display: inline-block;
+    background: #fff;
+    color: var(--navy);
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    border-bottom: none;
+    margin-bottom: 16px;
+  }
+
+  .back-link:hover {
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .header-inner { padding: 14px 18px 18px; }
+    main { padding: 2rem 1.25rem 4rem; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 1.3rem; }
+  }
+
+  /* ── GOOGLE TRANSLATE WIDGET ── */
+  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a, .page-body a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
+</style>
+<link rel="canonical" href="https://setd5syndrome.live/medical-emergency-summary.html">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="translate-widget">
+    <div id="google_translate_element"></div>
+  </div>
+  <div class="header-inner">
+    <p class="header-eyebrow">
+      <a href="family-toolkit.html">← Family Toolkit</a>
+    </p>
+    <h1 class="header-title">Medical Emergency <em>Summary</em></h1>
+    <p class="header-subtitle">A one-page document that gives critical information to someone who has never met your child and has 30 seconds to read it.</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro-callout">
+    <p><strong>An emergency medical summary is different from the general SETD5 Syndrome handouts on this site.</strong> Those explain the condition. This is about your individual child -- their specific medications, allergies, communication needs, and what to do in a crisis. It's designed for ER doctors, paramedics, substitute caregivers, and school nurses who are meeting your child for the first time.</p>
+  </div>
+
+  <div class="section-label">Core Components</div>
+  <h2 class="section-title">What to Include</h2>
+
+  <div class="section-label" style="margin-top: 2rem;">At a Glance</div>
+
+  <div class="feature-grid">
+    <div class="feature-card teal-top">
+      <h3>Identification</h3>
+      <ul>
+        <li>Full name and date of birth</li>
+        <li>Current photo</li>
+        <li>Diagnosis (SETD5 Syndrome -- rare genetic neurodevelopmental disorder)</li>
+        <li>One-line functional summary (e.g. "nonverbal, uses AAC device")</li>
+      </ul>
+    </div>
+
+    <div class="feature-card amber-top">
+      <h3>Emergency Contacts</h3>
+      <ul>
+        <li>Parent/guardian 1 (name, phone)</li>
+        <li>Parent/guardian 2 (name, phone)</li>
+        <li>Primary care physician (name, phone)</li>
+        <li>Key specialist (e.g. neurologist) (name, phone)</li>
+        <li>Preferred hospital</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Critical Medical Information</div>
+
+  <div class="feature-grid">
+    <div class="feature-card rose-top">
+      <h3>Allergies &amp; Medications</h3>
+      <ul>
+        <li>All known allergies (meds, food, latex)</li>
+        <li>Current medications with dosages</li>
+        <li>Medications to avoid (if any)</li>
+        <li>Seizure protocol if applicable</li>
+      </ul>
+    </div>
+
+    <div class="feature-card blue-top">
+      <h3>Baseline Status</h3>
+      <ul>
+        <li>What is "normal" for this person</li>
+        <li>Known cardiac issues</li>
+        <li>Known medical triggers</li>
+        <li>Behavioral baseline</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Communication &amp; Behavior</div>
+
+  <div class="feature-grid">
+    <div class="feature-card sage-top">
+      <h3>How They Communicate</h3>
+      <ul>
+        <li>Method (verbal, AAC, gestures, signs)</li>
+        <li>How to tell if they are in pain</li>
+        <li>What comforts them</li>
+        <li>What escalates their distress</li>
+      </ul>
+    </div>
+
+    <div class="feature-card amber-top">
+      <h3>In Emergency Settings</h3>
+      <ul>
+        <li>Behavioral notes (e.g. "may become agitated in loud environments")</li>
+        <li>Sensory sensitivities</li>
+        <li>What helps in unfamiliar situations</li>
+        <li>How to keep them safe and calm</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="section-label">What NOT to Include</div>
+  <h2 class="section-title">Protect Your Privacy</h2>
+
+  <p class="prose">The emergency summary should be strictly actionable. Leave off:</p>
+
+  <ul style="list-style: none; padding: 0; margin-bottom: 2.5rem;">
+    <li style="margin-bottom: 0.8rem;"><strong>Social Security numbers or insurance policy numbers</strong> -- privacy risk if document is lost</li>
+    <li style="margin-bottom: 0.8rem;"><strong>Detailed genetic information</strong> beyond the diagnosis name</li>
+    <li style="margin-bottom: 0.8rem;"><strong>School or work details</strong></li>
+    <li style="margin-bottom: 0.8rem;"><strong>Lengthy medical history</strong> -- only what is actionable right now</li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <div class="section-label">Ready-Made Templates</div>
+  <h2 class="section-title">Existing Templates You Can Use</h2>
+
+  <ul class="resource-list">
+    <li class="resource-item">
+      <div class="resource-number">1</div>
+      <div class="resource-info">
+        <p class="resource-name"><strong>AAP/ACEP Emergency Information Form</strong></p>
+        <p class="resource-desc">The most widely recognized emergency form for children with special healthcare needs. Two pages, designed to be filled out with your doctor. Available through healthychildren.org.</p>
+      </div>
+    </li>
+
+    <li class="resource-item">
+      <div class="resource-number">2</div>
+      <div class="resource-info">
+        <p class="resource-name"><strong>Cambridge Rare Disease Network "This is Me" Passport</strong></p>
+        <p class="resource-desc">Designed specifically for rare conditions. Concise, printable, easy to update. Available at camraredisease.org.</p>
+      </div>
+    </li>
+
+    <li class="resource-item">
+      <div class="resource-number">3</div>
+      <div class="resource-info">
+        <p class="resource-name"><strong>Global Genes "Building a Care Notebook"</strong></p>
+        <p class="resource-desc">A broader toolkit for organizing all medical records, not just the emergency page. Available at globalgenes.org.</p>
+      </div>
+    </li>
+  </ul>
+
+  <hr class="section-divider">
+
+  <div class="section-label">Implementation Tips</div>
+  <h2 class="section-title">Tips for Using Your Summary</h2>
+
+  <ul class="tips-list">
+    <li>Keep a copy in your car, your child's backpack, and with every caregiver</li>
+    <li>Save a digital copy on your phone (photo or PDF)</li>
+    <li>Update every 6 months or when medications change</li>
+    <li>Ask your child's doctor to review and co-sign annually</li>
+    <li>Consider a MedicAlert bracelet that references the document</li>
+  </ul>
+
+  <div class="sage-callout">
+    <span class="callout-label">Pro Tip</span>
+    <p><strong>The most useful emergency summary is the one that's actually with you when you need it.</strong> Print several copies. Keep one in the glove box, one in the school file, and one with anyone who watches your child.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="section-label">What's Coming</div>
+  <h2 class="section-title">Coming Soon: SETD5 Syndrome Emergency Summary Builder</h2>
+
+  <div class="teal-callout">
+    <p>We are working on an interactive emergency summary builder designed specifically for SETD5 Syndrome families -- similar to our Medical Appointment Handout Builder and School Meeting Handout Builder. It will pre-populate with SETD5-relevant fields and generate a printable one-page summary. Check back soon.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <p style="text-align: center; margin-top: 2.5rem;">
+    <a href="family-toolkit.html" class="back-link">← Back to Family Toolkit</a>
+  </p>
+
+</main>
+
+<footer class="site-footer">
+  <p style="font-size:0.8rem; color:rgba(255,255,255,0.6);">For informational purposes only. <a href="terms-of-use.html" style="color:rgba(255,255,255,.7);">Terms of Use</a> &middot; <a href="sources-references.html" style="color:rgba(255,255,255,.7);">Sources &amp; References</a> &middot; <a href="suggest-a-resource.html" style="color:rgba(255,255,255,.7);">Suggest a resource or correction</a></p>
+  <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.7); text-decoration:none;">Sources &amp; References</a></p>
+  <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
+  <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
+</footer>
+
+<script>
+// Scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+(function(){
+  var header = document.querySelector('.site-header');
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        header.classList.toggle('collapsed', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+</script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

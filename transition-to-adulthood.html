@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planning for Adulthood | SETD5 Syndrome</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://setd5syndrome.live/transition-to-adulthood.html">
+<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:title" content="Planning for Adulthood | SETD5 Syndrome">
+<meta property="og:description" content="A roadmap for SETD5 Syndrome families navigating the transition from childhood services to adult systems: healthcare, legal decisions, benefits, and more.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Planning for Adulthood | SETD5 Syndrome">
+<meta name="twitter:description" content="A roadmap for SETD5 Syndrome families navigating the transition from childhood services to adult systems.">
+<meta name="description" content="A practical guide for SETD5 families planning for the transition to adulthood: healthcare, legal decisions, benefits, and adult services.">
+<link rel="canonical" href="https://setd5syndrome.live/transition-to-adulthood.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #faf7f2;
+    --cream2:    #f2ede4;
+    --navy:      #1a2744;
+    --deep:      #2a627a;
+    --teal:      #2a7a6a;
+    --amber:     #c9893a;
+    --amber-lt:  #fdf4e7;
+    --rose:      #b05a5a;
+    --rose-lt:   #fdf0ef;
+    --sage:      #4e7c5f;
+    --sage-lt:   #edf5ef;
+    --blue:      #5a80a8;
+    --blue-lt:   #e8eff7;
+    --text:      #2c2c2c;
+    --muted:     #6b6b6b;
+    --border:    #e0d9cf;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 18px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000;}
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; position: relative; z-index: 1; }
+  .header-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
+  }
+  .header-eyebrow a {
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .header-eyebrow a:hover { color: #a8cfc8; }
+  .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
+
+  .header-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
+    line-height: 1.18; color: #fff; margin-bottom: 16px;
+  }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+
+  .header-subtitle { font-size: 16.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 650px; line-height: 1.6; }
+
+  /* ── HEADER COLLAPSE ── */
+  .header-inner { transition: padding 0.25s; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+
+  /* ── LAYOUT ── */
+  main {
+    flex: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+    width: 100%;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: #eef7f5;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 36px;
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--text);
+  }
+
+  /* ── SECTION HEADINGS ── */
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(21px, 3.5vw, 28px);
+    font-weight: 400;
+    color: var(--navy);
+    border-left: 4px solid var(--amber);
+    padding-left: 14px;
+    margin: 40px 0 20px;
+    line-height: 1.25;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  /* ── PROSE ── */
+  .prose { font-size: 18px; line-height: 1.78; margin-bottom: 18px; }
+  .prose + .prose { margin-top: 0; }
+  .prose strong { color: var(--navy); }
+
+  /* ── CALLOUTS ── */
+  .teal-callout {
+    background: #eef7f5; border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .teal-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
+  }
+  .teal-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  .amber-callout {
+    background: var(--amber-lt); border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .amber-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
+  }
+  .amber-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  .sage-callout {
+    background: var(--sage-lt); border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .sage-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 6px;
+  }
+  .sage-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  .blue-callout {
+    background: var(--blue-lt); border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .blue-callout .callout-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 6px;
+  }
+  .blue-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  /* ── FEATURE CARDS ── */
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+  @media (max-width: 580px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; border-top: 3px solid var(--teal);
+  }
+  .feature-card.amber-top { border-top-color: var(--amber); }
+  .feature-card.sage-top  { border-top-color: var(--sage); }
+  .feature-card.blue-top  { border-top-color: var(--blue); }
+  .feature-card h4 {
+    font-family: 'Lora', serif; font-size: 16px;
+    color: var(--navy); margin-bottom: 12px; font-weight: 500;
+  }
+  .feature-card p { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+
+  /* ── LINK LIST ── */
+  .link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .link-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .link-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .link-item:first-child { padding-top: 0; }
+
+  .link-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .link-content { flex: 1; }
+
+  .link-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: none;
+    display: inline;
+  }
+  .link-name:hover { color: var(--teal); }
+
+  .link-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-top: 3px;
+  }
+
+  /* ── SECTION BOXES ── */
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  /* ── STEPS ── */
+  .steps-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .step-item {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px 20px 70px; position: relative;
+  }
+  .step-number {
+    position: absolute; left: 20px; top: 20px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-family: 'Lora', serif; font-size: 17px;
+    display: flex; align-items: center; justify-content: center; font-weight: 600;
+  }
+  .step-item h4 {
+    font-family: 'Lora', serif; font-size: 16px;
+    color: var(--navy); margin-bottom: 6px; font-weight: 500;
+  }
+  .step-item p { font-size: 15px; line-height: 1.65; color: var(--text); }
+
+  /* ── LINKS ── */
+  a {
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(42,122,106,0.3);
+  }
+  a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.65);
+    padding: 32px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.65;
+    margin-top: auto;
+  }
+  .site-footer a { color: rgba(255,255,255,.8); border-bottom: none; }
+  .site-footer p + p { margin-top: 8px; }
+
+  @media (max-width: 600px) {
+    main { padding: 36px 18px 60px; }
+    .header-inner { padding: 14px 18px 18px; }
+    .section { padding: 18px; }
+    h2 { font-size: 18px; }
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── GOOGLE TRANSLATE WIDGET ── */
+  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
+  /* Ensure all body links are underlined */
+  main a { text-decoration: underline; }
+  footer a { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="translate-widget">
+    <div id="google_translate_element"></div>
+  </div>
+  <div class="header-inner">
+    <p class="header-eyebrow"><a href="family-toolkit.html">← Family Toolkit</a></p>
+    <h1 class="header-title">Planning for <em>Adulthood</em></h1>
+    <p class="header-subtitle">A roadmap for SETD5 Syndrome families navigating the transition from childhood services to adult systems.</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro-box">
+    <p>If your child is approaching their teens, you may be starting to think about what comes next. The transition from childhood services to adult systems can feel overwhelming, but you don't have to figure it all out at once. This page walks through the key areas to plan for, with timelines and resources.</p>
+  </div>
+
+  <!-- Healthcare Transition -->
+  <h2>Healthcare Transition</h2>
+
+  <p class="prose">Starting to plan for healthcare transition around ages 12 to 14 gives you time to prepare. Many pediatric specialists won't see patients past age 21 (sometimes even earlier, around 18). For your child with SETD5 Syndrome, you'll want to identify adult providers ahead of time: an adult neurologist, an adult geneticist or genetic counselor, and a primary care doctor willing to coordinate care.</p>
+
+  <p class="prose">One important step is transferring your child's medical records and creating a care summary document for new providers. This helps them understand your child's history quickly and completely. You may want to reference our <a href="medical-emergency-summary.html">Medical Emergency Summary</a> guide for help organizing this information.</p>
+
+  <p class="prose">Adult care often operates differently than pediatric care. Instead of having one pediatrician coordinate everything, adults typically need to manage their own care coordination. This is sometimes called a "medical home" -- a single provider (often your primary care doctor) who knows your full medical history and helps coordinate specialist care. Talk with your child about this transition as appropriate for their understanding.</p>
+
+  <div class="teal-callout">
+    <span class="callout-label">Resource</span>
+    <p><strong>Got Transition</strong> (gottransition.org) is the national resource center on healthcare transition, funded by HHS. They offer free downloadable checklists, readiness assessments, and a step-by-step framework designed for both families and providers. Highly recommended.</p>
+  </div>
+
+  <div class="section">
+    <ul class="link-list">
+      <li class="link-item">
+        <div class="link-dot"></div>
+        <div class="link-content">
+          <a href="https://www.gottransition.org/" class="link-name">Got Transition</a>
+          <p class="link-desc">National resource center on healthcare transition with free tools for families and providers.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Legal Decision-Making at Age 18 -->
+  <h2>Legal Decision-Making at Age 18</h2>
+
+  <p class="prose">At age 18, every person in the United States is legally presumed to be competent, and parents no longer have automatic authority over medical, financial, or personal decisions. This is a major change from childhood. Your options depend on your child's abilities and needs. Here are the main pathways.</p>
+
+  <div class="feature-grid">
+    <div class="feature-card amber-top">
+      <h4>Guardianship</h4>
+      <p>A court grants a guardian legal authority over some or all of your child's decisions. This is the most restrictive option and requires ongoing court involvement, but it's appropriate for children with significant cognitive disabilities who cannot participate in decision-making.</p>
+    </div>
+    <div class="feature-card teal-top">
+      <h4>Power of Attorney</h4>
+      <p>Your child voluntarily grants you (or someone else) authority to make specific decisions. This only works if your child can understand what they're signing and the implications. It's less restrictive than guardianship but requires capacity to consent.</p>
+    </div>
+    <div class="feature-card sage-top">
+      <h4>Supported Decision-Making</h4>
+      <p>Your child keeps their legal rights but has trusted people (family, friends, professionals) who help them understand options and make decisions. This is less restrictive and is gaining legal recognition in more states. A growing number of families choose this approach first.</p>
+    </div>
+    <div class="feature-card blue-top">
+      <h4>Healthcare Proxy</h4>
+      <p>A designated person is authorized to make medical decisions if your child cannot. This is narrower than guardianship and focuses only on healthcare. It can be used alongside other arrangements.</p>
+    </div>
+  </div>
+
+  <p class="prose">You may also hear about conservatorship (which typically covers financial decisions) and representative payee status (for SSI benefits). Talk with a disability attorney about what combination of tools makes sense for your family.</p>
+
+  <div class="sage-callout">
+    <span class="callout-label">Note</span>
+    <p>Guardianship is not the only option. Many disability advocates encourage families to explore supported decision-making first, as it is less restrictive and honors your child's autonomy. The right choice depends on your individual child's abilities and your family's values.</p>
+  </div>
+
+  <div class="amber-callout">
+    <span class="callout-label">Important</span>
+    <p>Start this conversation with a disability attorney at least 6 months before your child turns 18. Your state's Protection & Advocacy agency (find yours at ndrn.org) can provide free legal help and resources, often at no cost to families.</p>
+  </div>
+
+  <div class="section">
+    <ul class="link-list">
+      <li class="link-item">
+        <div class="link-dot"></div>
+        <div class="link-content">
+          <a href="https://www.thearc.org/" class="link-name">The Arc</a>
+          <p class="link-desc">National organization with chapters nationwide, offering resources on guardianship, supported decision-making, and disability rights.</p>
+        </div>
+      </li>
+      <li class="link-item">
+        <div class="link-dot"></div>
+        <div class="link-content">
+          <a href="https://www.ndrn.org/" class="link-name">National Disability Rights Network (NDRN)</a>
+          <p class="link-desc">Find your state's Protection & Advocacy agency for free legal help and advocacy.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- SSI and Benefits at Age 18 -->
+  <h2>SSI and Benefits at Age 18</h2>
+
+  <p class="prose">If your child receives Supplemental Security Income (SSI), be aware that Social Security will conduct an "age-18 redetermination" using adult disability criteria instead of childhood criteria. This is a significant hurdle: about 25 to 30 percent of children lose SSI benefits when they turn 18, even though their disability hasn't changed.</p>
+
+  <p class="prose">To prepare, start gathering updated medical records, school evaluations, and clear documentation of functional limitations now. Have your doctors put in writing how SETD5 Syndrome affects your child's ability to work, live independently, and manage daily tasks. This documentation is crucial when Social Security reviews the case.</p>
+
+  <p class="prose">Medicaid is often tied to SSI. If SSI is lost, Medicaid may be at risk too, though many states offer Medicaid waivers that let people continue coverage even without SSI. Medicaid waiver programs vary enormously by state and usually have long waiting lists -- sometimes years. Apply early, even if you don't need services immediately.</p>
+
+  <div class="amber-callout">
+    <span class="callout-label">Critical</span>
+    <p>If your child receives SSI, mark their 18th birthday on your calendar now. Social Security will re-evaluate eligibility using adult criteria. Having updated medical documentation, school records, and clear statements about functional limitations ready can make a significant difference in the outcome.</p>
+  </div>
+
+  <p class="prose">See our <a href="qualifying-for-services.html">Qualifying for Services</a> page for much more detail on SSI, Medicaid, and related benefits.</p>
+
+  <!-- Financial Planning -->
+  <h2>Financial Planning</h2>
+
+  <p class="prose">Even if your family doesn't have substantial assets, financial planning is important. Here are three key tools to understand.</p>
+
+  <h3 style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">ABLE Accounts</h3>
+  <p class="prose">ABLE accounts are tax-advantaged savings accounts for people with disabilities (available since 2014). You can save money in an ABLE account without affecting your child's SSI or Medicaid eligibility. The money can be used for housing, education, transportation, assistive technology, and other disability-related expenses. However, you must open an ABLE account before your child turns 26 (or before the onset of disability if that happens before 26). After that, the window closes.</p>
+
+  <h3 style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Special Needs Trusts (SNTs)</h3>
+  <p class="prose">A Special Needs Trust is a legal arrangement that holds assets for your child without affecting their public benefits. There are two types: a first-party SNT (using your child's own money, like a settlement) and a third-party SNT (using family funds). A third-party SNT is one of the most important estate planning tools for families with disabled children. It allows you to leave money to your child while protecting their SSI and Medicaid.</p>
+
+  <h3 style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Letter of Intent</h3>
+  <p class="prose">A Letter of Intent is not a legal document, but it's incredibly valuable. It's a detailed guide you write for future caregivers -- whether that's a group home staff, a sibling, or a residential program. In it, you describe your child's daily routines, medical needs, food preferences, what helps them feel safe, important people in their life, and their personality and strengths. Every family should write one, regardless of financial situation or current living arrangements.</p>
+
+  <div class="teal-callout">
+    <span class="callout-label">Tip</span>
+    <p>You do not need to be wealthy to benefit from an ABLE account. Even small savings for future technology, transportation, or housing can make a difference -- and the money won't jeopardize your child's benefits.</p>
+  </div>
+
+  <div class="section">
+    <ul class="link-list">
+      <li class="link-item">
+        <div class="link-dot"></div>
+        <div class="link-content">
+          <a href="https://www.ablenrc.org/" class="link-name">ABLE National Resource Center</a>
+          <p class="link-desc">Information on setting up and managing ABLE accounts, including state-specific guidance.</p>
+        </div>
+      </li>
+      <li class="link-item">
+        <div class="link-dot"></div>
+        <div class="link-content">
+          <a href="https://www.specialneedsalliance.org/" class="link-name">Special Needs Alliance</a>
+          <p class="link-desc">Resources on Special Needs Trusts, estate planning, and financial planning for families.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Adult Services -->
+  <h2>Adult Services -- Day Programs, Employment, and Housing</h2>
+
+  <p class="prose">Once your child is no longer in school, adult services replace special education. These services include vocational rehabilitation, supported employment, adult day programs, and residential options. Every state has a Vocational Rehabilitation (VR) agency that provides free services to help people with disabilities work. VR can help your child explore career interests, get job training and coaching, and find community employment. Some people use supported employment, where they work in regular community jobs with ongoing coaching and support from a job coach.</p>
+
+  <p class="prose">Adult day programs offer structured activities, socialization, and supervision for adults who aren't working or who work part-time. Residential options range from living at home with family support, to supported living arrangements, to group homes, to more intensive residential services. What's available varies significantly by state.</p>
+
+  <p class="prose">Here's the most important piece of advice from experienced families: waiting lists are long. Get on them now. In most states, adult disability services have waiting lists of years or even decades. You can always decline a spot or pause services, but you cannot get back years spent waiting. Contact your state's disability agency and your local chapter of The Arc for information on applying.</p>
+
+  <div class="amber-callout">
+    <span class="callout-label">Critical</span>
+    <p>The most common advice from experienced families: get on waiting lists now. Adult disability services in most states have years-long waits. You can always decline a spot, but you cannot get back the years spent not on the list.</p>
+  </div>
+
+  <div class="section">
+    <ul class="link-list">
+      <li class="link-item">
+        <div class="link-dot"></div>
+        <div class="link-content">
+          <a href="https://www.thearc.org/" class="link-name">The Arc (Find a Chapter)</a>
+          <p class="link-desc">Local Arc chapters can connect you to state services, adult programs, employment support, and more.</p>
+        </div>
+      </li>
+      <li class="link-item">
+        <div class="link-dot"></div>
+        <div class="link-content">
+          <a href="https://www.askjan.org/" class="link-name">Job Accommodation Network (JAN)</a>
+          <p class="link-desc">Free consultations on workplace accommodations and employment for people with disabilities.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Timeline -->
+  <h2>A Suggested Timeline</h2>
+
+  <p class="prose">Here's a roadmap showing what to focus on at each stage. Every family's situation is different, but this gives you a framework.</p>
+
+  <div class="steps-list">
+    <div class="step-item">
+      <div class="step-number">1</div>
+      <h4>Ages 12--14</h4>
+      <p>Begin healthcare transition planning. Discuss future with school transition coordinators and start identifying adult providers. Visit Got Transition's website for assessment tools.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">2</div>
+      <h4>Ages 14--16</h4>
+      <p>School transition planning intensifies through the IEP process. Research guardianship and supported decision-making options. Get on Medicaid waiver waiting lists (even if you don't need services yet). Start documenting medical history for adult providers.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">3</div>
+      <h4>Ages 16--18</h4>
+      <p>Identify specific adult healthcare providers and schedule transition appointments. Consult a disability attorney about legal decisions. If eligible, open an ABLE account. Apply for Vocational Rehabilitation services.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">4</div>
+      <h4>Age 18</h4>
+      <p>SSI redetermination happens. Legal decision-making authority takes effect (guardianship, supported decision-making, or other arrangement). Transition medical records to adult providers. Apply for adult day programs if needed.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">5</div>
+      <h4>Ages 18--21</h4>
+      <p>Your child still has the right to school services under IDEA until age 21 or high school graduation. Use these years to build employment and independent living skills. VR services can coordinate with school. Continue engaging with adult service systems.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">6</div>
+      <h4>Age 21+</h4>
+      <p>Full transition to adult services (VR, day programs, residential support). School services end. Ensure connections to adult system are solid before the school system exits.</p>
+    </div>
+  </div>
+
+  <!-- Back link -->
+  <p style="margin-top: 48px; text-align: center;">
+    <a href="family-toolkit.html" style="display: inline-block; background: var(--navy); color: #fff; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; border: none;">← Back to Family Toolkit</a>
+  </p>
+
+</main>
+
+<footer class="site-footer">
+  <p style="font-size:0.8rem; color:rgba(255,255,255,0.6);">Research on SETD5 Syndrome is evolving. This site is updated quarterly as new information becomes available. If you find something that needs correcting or know of a recent publication, please <a href="suggest-a-resource.html" style="color:rgba(255,255,255,0.8);">let us know</a>. For informational purposes only. Some data was aggregated with the help of Claude AI. Always verify with your care team.</p>
+  <p style="margin-top:10px; font-size:0.8rem;"><a href="sources-references.html" style="color:rgba(255,255,255,.7); text-decoration:none;">Sources &amp; References</a></p>
+  <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
+  <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
+</footer>
+
+<script>
+// Scroll to top on page load
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+(function(){
+  var header = document.querySelector('.site-header');
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        header.classList.toggle('collapsed', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+</script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>
