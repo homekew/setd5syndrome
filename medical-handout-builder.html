@@ -52,40 +52,6 @@ body {
 .form-title em { color: #a8cfc8; font-style: italic; }
 .form-subtitle { font-size: 15.5px; color: var(--muted); max-width: 580px; line-height: 1.65; }
 
-/* ── APPOINTMENT TYPE SELECTOR ── */
-.appt-selector {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 28px;
-}
-.appt-option {
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  padding: 16px 18px;
-  cursor: pointer;
-  transition: border-color .15s, background .15s;
-  position: relative;
-  background: #fff;
-}
-.appt-option:hover { border-color: var(--teal); }
-.appt-option.selected {
-  border-color: var(--teal);
-  background: var(--teal-lt);
-}
-.appt-option input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
-.appt-label { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
-.appt-desc { font-size: 12px; color: var(--muted); line-height: 1.45; }
-.appt-option.selected .appt-label { color: var(--teal); }
-.appt-check {
-  position: absolute; top: 10px; right: 12px;
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--teal); display: none;
-  align-items: center; justify-content: center;
-}
-.appt-option.selected .appt-check { display: flex; }
-.appt-check svg { width: 10px; height: 10px; stroke: #fff; stroke-width: 2.5; }
-
 /* ── CHECKBOX TOGGLE ── */
 .toggle-field {
   background: #fff;
@@ -105,7 +71,6 @@ body {
   width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
   accent-color: var(--teal); cursor: pointer;
 }
-.toggle-field-text {}
 .toggle-field-label { font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
 .toggle-field-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
@@ -122,7 +87,10 @@ body {
   font-size: 13px; font-weight: 600; letter-spacing: .06em;
   text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
 }
-.field-section .field-hint { font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.field-section .field-hint {
+  font-size: 13px; color: var(--muted); margin-bottom: 10px;
+  font-weight: 400; text-transform: none; letter-spacing: 0;
+}
 .field-section input[type="text"] {
   max-width: 320px; width: 100%;
   border: 1.5px solid var(--border); border-radius: 7px;
@@ -306,9 +274,8 @@ body {
   @page { margin: 0.4in; size: letter; }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 600px) {
   #form-view, #handout-view { padding: 2rem 1.25rem 4rem; }
-  .appt-selector { grid-template-columns: 1fr; }
   .h-cols { grid-template-columns: 1fr; }
   .h-facts-bar { grid-template-columns: repeat(2, 1fr); }
 }
@@ -323,56 +290,34 @@ body {
   <div class="form-header">
     <p class="form-eyebrow">Medical Toolkit · SETD5 Syndrome</p>
     <h1 class="form-title">Build Your <em>Medical Appointment Handout</em></h1>
-    <p class="form-subtitle">Select your appointment type, check which features apply to your child, and generate a personalized one-page handout to bring to any medical visit.</p>
+    <p class="form-subtitle">Check which features apply to your child and we'll generate a personalized one-page handout to bring to any medical appointment.</p>
   </div>
 
-  <!-- Step 1: Appointment type -->
-  <div class="section-divider">Step 1 — What kind of appointment is this?</div>
-
-  <div class="appt-selector">
-    <div class="appt-option selected" id="opt-primary" onclick="setAppt('primary')">
-      <input type="radio" name="appt" value="primary" checked>
-      <div class="appt-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-      <div class="appt-label">General / Primary Care</div>
-      <div class="appt-desc">Pediatrician or family doctor visit — general management, monitoring, and referrals.</div>
-    </div>
-    <div class="appt-option" id="opt-neuro" onclick="setAppt('neuro')">
-      <input type="radio" name="appt" value="neuro">
-      <div class="appt-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-      <div class="appt-label">Neurology</div>
-      <div class="appt-desc">Neurologist visit — seizures, brain imaging, neurological development, and medication.</div>
-    </div>
-    <div class="appt-option" id="opt-psych" onclick="setAppt('psych')">
-      <input type="radio" name="appt" value="psych">
-      <div class="appt-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-      <div class="appt-label">Psychiatry &amp; Behavioral Health</div>
-      <div class="appt-desc">Psychiatrist or behavioral health visit — ADHD, anxiety, ASD features, and behavioral strategies.</div>
-    </div>
-  </div>
-
-  <!-- New to SETD5 toggle -->
-  <div class="toggle-field" id="toggle-new" onclick="toggleNewToSETD5(this)">
-    <input type="checkbox" id="new-to-setd5">
-    <div class="toggle-field-text">
-      <div class="toggle-field-label">This provider may be unfamiliar with SETD5 Syndrome</div>
-      <div class="toggle-field-desc">Adds a brief "What is SETD5 Syndrome?" introduction to the top of the handout.</div>
-    </div>
-  </div>
-
-  <!-- Step 2: Child's name -->
-  <div class="section-divider">Step 2 — About your child</div>
+  <!-- Step 1: Child's name -->
+  <div class="section-divider">Step 1 — About your child</div>
 
   <div class="field-section">
     <label for="child-name">Child's first name <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
     <input type="text" id="child-name" placeholder="e.g. Maya" autocomplete="off">
   </div>
 
-  <!-- Step 3: Features -->
-  <div class="section-divider">Step 3 — Which features apply to your child?</div>
-  <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Check everything that's relevant. Only what you select will appear on the handout.</p>
+  <!-- Provider unfamiliar toggle -->
+  <div class="toggle-field" id="toggle-new" onclick="toggleNew(this)">
+    <input type="checkbox" id="new-to-setd5">
+    <div>
+      <div class="toggle-field-label">This provider may be unfamiliar with SETD5 Syndrome</div>
+      <div class="toggle-field-desc">Adds a brief clinical introduction to the top of the handout.</div>
+    </div>
+  </div>
+
+  <!-- Step 2: Features -->
+  <div class="section-divider">Step 2 — Which features apply to your child?</div>
+  <div style="background:#eaf5f3; border-left:3px solid var(--teal); border-radius:0 7px 7px 0; padding:12px 16px; margin-bottom:22px;">
+    <p style="font-size:13.5px; color:#254a42; margin:0; line-height:1.65;">The features below are drawn from <strong>published research</strong> and the lived experiences of the <strong>SETD5 Syndrome family community</strong>. Check everything that applies to your child — only what you select will appear on the handout.</p>
+  </div>
 
   <div class="feature-group">
-    <div class="feature-group-header">Neurodevelopmental &amp; Cognitive</div>
+    <div class="feature-group-header">Learning &amp; Cognition</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Intellectual disability (mild to moderate; some borderline or near-typical)">
@@ -383,46 +328,76 @@ body {
         <label>Global developmental delay</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Speech and language delays or difficulties">
-        <label>Speech and language delays or difficulties</label>
+        <input type="checkbox" value="Difficulties with reading, writing, and numeracy">
+        <label>Difficulties with reading, writing, and numeracy</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Working memory and short-term memory difficulties">
+        <label>Working memory and short-term memory difficulties</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Uneven cognitive profile: strengths in some areas alongside challenges in others">
+        <label>Uneven cognitive profile: strengths in some areas alongside challenges in others</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-group">
+    <div class="feature-group-header">Speech &amp; Language</div>
+    <div class="feature-list">
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Speech and language delay">
+        <label>Speech and language delay</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Expressive language more affected than receptive language">
+        <label>Expressive language more affected than receptive language</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Minimally verbal or nonverbal">
         <label>Minimally verbal or nonverbal</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Working memory and short-term memory difficulties">
-        <label>Working memory and short-term memory difficulties</label>
+        <input type="checkbox" value="Speech dysfluency (may resemble a stammer)">
+        <label>Speech dysfluency (may resemble a stammer)</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Articulation and pronunciation difficulties">
+        <label>Articulation and pronunciation difficulties</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Uses AAC (augmentative and alternative communication)">
+        <label>Uses AAC (augmentative and alternative communication)</label>
       </div>
     </div>
   </div>
 
   <div class="feature-group">
-    <div class="feature-group-header">Behavioral &amp; Psychiatric</div>
+    <div class="feature-group-header">Behavior &amp; Emotional Regulation</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="ADHD features: inattention, hyperactivity, or impulsivity">
-        <label>ADHD features: inattention, hyperactivity, or impulsivity</label>
+        <input type="checkbox" value="ADHD features: inattention, hyperactivity, impulsivity">
+        <label>ADHD features: inattention, hyperactivity, impulsivity</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Anxiety and difficulty with transitions or change">
+        <label>Anxiety and difficulty with transitions or change</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Behavioral rigidity; preference for routine">
+        <label>Behavioral rigidity; preference for routine</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Autism spectrum disorder (ASD) features">
         <label>Autism spectrum disorder (ASD) features</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Anxiety or emotional dysregulation">
-        <label>Anxiety or emotional dysregulation</label>
+        <input type="checkbox" value="Repetitive movements or behaviors">
+        <label>Repetitive movements or behaviors</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Behavioral rigidity and difficulty with transitions">
-        <label>Behavioral rigidity and difficulty with transitions</label>
-      </div>
-      <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Repetitive behaviors or movements">
-        <label>Repetitive behaviors or movements</label>
-      </div>
-      <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Sleep difficulties">
-        <label>Sleep difficulties</label>
+        <input type="checkbox" value="Obsessive compulsive behaviors">
+        <label>Obsessive compulsive behaviors</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Sensory sensitivities">
@@ -432,60 +407,136 @@ body {
   </div>
 
   <div class="feature-group">
-    <div class="feature-group-header">Neurological</div>
+    <div class="feature-group-header">Social &amp; Adaptive</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Seizure history">
-        <label>Seizure history</label>
+        <input type="checkbox" value="Social understanding and communication challenges">
+        <label>Social understanding and communication challenges</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Low muscle tone (hypotonia)">
-        <label>Low muscle tone (hypotonia)</label>
+        <input type="checkbox" value="Difficulty with awareness of danger or personal safety">
+        <label>Difficulty with awareness of danger or personal safety</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Coordination difficulties (dyspraxia or ataxia)">
-        <label>Coordination difficulties (dyspraxia or ataxia)</label>
-      </div>
-      <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Brain MRI abnormalities (known or suspected)">
-        <label>Brain MRI abnormalities (known or suspected)</label>
+        <input type="checkbox" value="Limited independence with daily living skills">
+        <label>Limited independence with daily living skills</label>
       </div>
     </div>
   </div>
 
   <div class="feature-group">
-    <div class="feature-group-header">Physical &amp; Growth</div>
+    <div class="feature-group-header">Neurological &amp; Motor</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Growth concerns (height, weight, or head circumference)">
-        <label>Growth concerns (height, weight, or head circumference)</label>
+        <input type="checkbox" value="Low muscle tone (hypotonia)">
+        <label>Low muscle tone (hypotonia)</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Feeding difficulties">
-        <label>Feeding difficulties</label>
+        <input type="checkbox" value="Gait abnormalities, including tip-toe walking">
+        <label>Gait abnormalities, including tip-toe walking</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Vision concerns">
-        <label>Vision concerns</label>
+        <input type="checkbox" value="Coordination difficulties and clumsiness">
+        <label>Coordination difficulties and clumsiness</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Hearing concerns">
-        <label>Hearing concerns</label>
+        <input type="checkbox" value="Epilepsy or seizures">
+        <label>Epilepsy or seizures</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Orthopedic or musculoskeletal concerns">
-        <label>Orthopedic or musculoskeletal concerns</label>
+        <input type="checkbox" value="EEG abnormalities without clinical seizures">
+        <label>EEG abnormalities without clinical seizures</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Gross and/or fine motor development delays">
+        <label>Gross and/or fine motor development delays</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Sleep disturbances">
+        <label>Sleep disturbances</label>
       </div>
     </div>
   </div>
 
-  <!-- Step 4: Notes -->
-  <div class="section-divider">Step 4 — Anything else?</div>
+  <div class="feature-group">
+    <div class="feature-group-header">Feeding &amp; Growth</div>
+    <div class="feature-list">
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Feeding difficulties (sucking, swallowing, or chewing)">
+        <label>Feeding difficulties (sucking, swallowing, or chewing)</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Failure to thrive or growth concerns">
+        <label>Failure to thrive or growth concerns</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Gastroesophageal reflux">
+        <label>Gastroesophageal reflux</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Short stature">
+        <label>Short stature</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Reduced bone mineral density">
+        <label>Reduced bone mineral density</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-group">
+    <div class="feature-group-header">Other Medical Features</div>
+    <div class="feature-list">
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Congenital heart defect">
+        <label>Congenital heart defect</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Eye or vision concerns (strabismus, nystagmus, ptosis, refractive error)">
+        <label>Eye or vision concerns (strabismus, nystagmus, ptosis, refractive error)</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Hearing impairment">
+        <label>Hearing impairment</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Cryptorchidism and/or hypospadias">
+        <label>Cryptorchidism and/or hypospadias</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Musculoskeletal concerns (scoliosis, kyphosis, joint laxity)">
+        <label>Musculoskeletal concerns (scoliosis, kyphosis, joint laxity)</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Gastrointestinal anomalies">
+        <label>Gastrointestinal anomalies</label>
+      </div>
+      <div class="feature-item" id="other-feature-item" onclick="toggleOtherFeature(event, this)">
+        <input type="checkbox" id="other-cb">
+        <div style="flex:1;">
+          <label style="cursor:pointer;">Other — describe below</label>
+          <input type="text" id="other-text"
+            placeholder="e.g. Hypothyroidism, urinary tract anomaly…"
+            style="display:none; margin-top:7px; width:100%; max-width:380px;
+              border:1.5px solid var(--border); border-radius:6px;
+              padding:8px 12px; font-family:'Poppins',sans-serif; font-size:14px;
+              color:var(--ink); background:var(--bg); outline:none;
+              transition:border-color .15s;"
+            onfocus="this.style.borderColor='var(--teal)'"
+            onblur="this.style.borderColor='var(--border)'"
+            onclick="event.stopPropagation()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Notes -->
+  <div class="section-divider">Step 3 — Anything else?</div>
 
   <div class="field-section">
     <label for="parent-note">Notes for this visit <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
     <p class="field-hint">Recent changes, specific concerns, or anything you want the provider to know. Appears at the bottom of the handout.</p>
-    <textarea id="parent-note" style="width:100%;border:1.5px solid var(--border);border-radius:7px;padding:10px 14px;font-family:'Poppins',sans-serif;font-size:15px;color:var(--ink);background:var(--bg);resize:vertical;min-height:80px;outline:none;transition:border-color .15s;" placeholder="e.g. Maya recently started a new medication. We want to discuss whether her sleep issues may be a side effect."></textarea>
+    <textarea id="parent-note" style="width:100%;border:1.5px solid var(--border);border-radius:7px;padding:10px 14px;font-family:'Poppins',sans-serif;font-size:15px;color:var(--ink);background:var(--bg);resize:vertical;min-height:80px;outline:none;transition:border-color .15s;" placeholder="e.g. Maya recently started a new medication. We want to discuss whether her sleep difficulties may be a side effect."></textarea>
   </div>
 
   <button class="generate-btn" onclick="generateHandout()">
@@ -499,7 +550,7 @@ body {
 
 <!-- ══════════════════════════════════
      HANDOUT VIEW
-══════════════════════════════════ */
+══════════════════════════════════ -->
 <div id="handout-view">
   <div class="handout-actions">
     <button class="back-btn" onclick="goBack()">← Edit answers</button>
@@ -514,7 +565,7 @@ body {
 
     <div class="h-header">
       <div>
-        <div class="h-tag" id="h-tag-line">SETD5 Syndrome · Medical Appointment</div>
+        <div class="h-tag">SETD5 Syndrome · Medical Appointment</div>
         <div class="h-title" id="h-title-line">Medical Appointment Handout</div>
         <div class="h-child-name" id="h-child-display"></div>
       </div>
@@ -526,12 +577,13 @@ body {
 
     <div class="h-body">
 
-      <!-- What is SETD5 blurb (optional) -->
+      <!-- Optional SETD5 intro -->
       <div class="h-what-is" id="h-what-is" style="display:none;">
-        <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a loss-of-function variant in the <em>SETD5</em> gene (chromosome 3p25.3), resulting in haploinsufficiency. It typically causes intellectual disability, global developmental delay, and speech and language difficulties. Most cases arise de novo (not inherited), though autosomal dominant inheritance is possible. Features vary widely — the items checked below reflect this child's profile. OMIM #615761 · Simons Searchlight patient registry available.
+        <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a loss-of-function variant in the <em>SETD5</em> gene (chromosome 3p25.3), resulting in haploinsufficiency. It typically causes intellectual disability, global developmental delay, and speech and language difficulties. Features vary widely between individuals — the items checked below reflect this child's profile. OMIM #615761 · Simons Searchlight patient registry available.
       </div>
 
       <div class="h-cols">
+
         <!-- Left: features -->
         <div>
           <div class="h-section-label">Features reported in this child</div>
@@ -540,9 +592,23 @@ body {
           <ul class="h-feature-list" id="h-feature-list"></ul>
         </div>
 
-        <!-- Right: questions (populated by JS) -->
-        <div id="h-right-col"></div>
-      </div>
+        <!-- Right: questions -->
+        <div>
+          <div class="h-section-label">For this visit</div>
+          <div class="h-section-title">Questions to Raise</div>
+          <ul class="h-q-list">
+            <li>What specialist referrals do you recommend based on these features?</li>
+            <li>How should we monitor growth, development, and any changes over time?</li>
+            <li>Are there baseline evaluations we should prioritize (vision, hearing, EEG, MRI)?</li>
+            <li>How should we coordinate care across multiple specialists?</li>
+            <li>Are there medications or treatments worth discussing given current symptoms?</li>
+            <li>Are there known medication considerations for SETD5 Syndrome?</li>
+            <li>What signs or changes should prompt urgent evaluation?</li>
+            <li>When and how often should we schedule follow-up?</li>
+          </ul>
+        </div>
+
+      </div><!-- /h-cols -->
 
       <!-- Notes -->
       <div class="h-amber-box" id="h-notes-box" style="display:none;">
@@ -581,52 +647,7 @@ body {
 
 
 <script>
-var currentAppt = 'primary';
-
-var questions = {
-  primary: [
-    'What specialist referrals do you recommend based on these features?',
-    'How should we monitor growth, development, and regression over time?',
-    'Are there baseline evaluations we should prioritize (vision, hearing, EEG, MRI)?',
-    'How should we coordinate care across multiple specialists?',
-    'Are there medications or supplements worth discussing given current symptoms?',
-    'What signs or changes should prompt urgent evaluation?',
-    'When and how often should we schedule follow-up?'
-  ],
-  neuro: [
-    'Is an EEG indicated, and what would we be looking for?',
-    'Is brain MRI warranted, and what findings are associated with SETD5 Syndrome?',
-    'What seizure threshold guidelines apply, and when should we act?',
-    'Are there neurological medications to consider or avoid?',
-    'How does SETD5 Syndrome affect brain development — what trajectory can we expect?',
-    'Are there signs of neurological regression we should watch for?',
-    'What is the appropriate follow-up interval for neurology?'
-  ],
-  psych: [
-    'Is ADHD a diagnosis we should formalize, and what treatment options fit this profile?',
-    'How should we approach anxiety — behavioral, medication, or both?',
-    'Are there ASD-specific behavioral therapies indicated?',
-    'Are there known considerations for psychiatric medication in SETD5 Syndrome?',
-    'What behavioral strategies complement any medication being considered?',
-    'How should behavioral health coordinate with school and developmental services?',
-    'What is the appropriate follow-up interval for behavioral health?'
-  ]
-};
-
-var apptLabels = {
-  primary: 'General / Primary Care',
-  neuro:   'Neurology',
-  psych:   'Psychiatry & Behavioral Health'
-};
-
-function setAppt(a) {
-  currentAppt = a;
-  ['primary','neuro','psych'].forEach(function(id) {
-    document.getElementById('opt-' + id).classList.toggle('selected', id === a);
-  });
-}
-
-function toggleNewToSETD5(el) {
+function toggleNew(el) {
   var cb = el.querySelector('input[type="checkbox"]');
   if (event.target === cb) {
     el.classList.toggle('active', cb.checked);
@@ -646,9 +667,30 @@ function toggleFeature(item) {
   item.classList.toggle('checked', cb.checked);
 }
 
+function toggleOtherFeature(e, item) {
+  var cb = document.getElementById('other-cb');
+  var txt = document.getElementById('other-text');
+  if (e.target === cb) {
+    item.classList.toggle('checked', cb.checked);
+    txt.style.display = cb.checked ? 'block' : 'none';
+    if (cb.checked) { setTimeout(function(){ txt.focus(); }, 50); }
+    return;
+  }
+  if (e.target === txt) return; // don't toggle when clicking the input
+  cb.checked = !cb.checked;
+  item.classList.toggle('checked', cb.checked);
+  txt.style.display = cb.checked ? 'block' : 'none';
+  if (cb.checked) { setTimeout(function(){ txt.focus(); }, 50); }
+}
+
 function generateHandout() {
   var checked = document.querySelectorAll('#form-view .feature-item input[type="checkbox"]:checked');
-  if (checked.length === 0) {
+  var otherCb  = document.getElementById('other-cb');
+  var otherTxt = document.getElementById('other-text').value.trim();
+  // Count real features: checked standard items, or "other" with text filled in
+  var standardChecked = document.querySelectorAll('#form-view .feature-item:not(#other-feature-item) input[type="checkbox"]:checked');
+  var hasOther = otherCb.checked && otherTxt.length > 0;
+  if (standardChecked.length === 0 && !hasOther) {
     document.getElementById('error-msg').style.display = 'block';
     return;
   }
@@ -659,34 +701,29 @@ function generateHandout() {
   var newToSETD5 = document.getElementById('new-to-setd5').checked;
 
   // Header
-  var apptLabel = apptLabels[currentAppt];
-  document.getElementById('h-tag-line').textContent = 'SETD5 Syndrome · ' + apptLabel;
   document.getElementById('h-title-line').textContent = childName
-    ? childName + '\u2019s Medical Handout — ' + apptLabel
-    : 'Medical Appointment Handout — ' + apptLabel;
+    ? childName + '\u2019s Medical Appointment Handout'
+    : 'Medical Appointment Handout';
   document.getElementById('h-child-display').textContent = childName
     ? 'Prepared for: ' + childName : '';
 
-  // What is SETD5 blurb
+  // SETD5 intro blurb
   document.getElementById('h-what-is').style.display = newToSETD5 ? 'block' : 'none';
 
-  // Feature list
+  // Feature list (standard checkboxes only — "other-cb" is excluded from the querySelectorAll)
   var ul = document.getElementById('h-feature-list');
   ul.innerHTML = '';
-  checked.forEach(function(cb) {
+  standardChecked.forEach(function(cb) {
     var li = document.createElement('li');
     li.textContent = cb.value;
     ul.appendChild(li);
   });
-
-  // Right column — questions for this appointment type
-  var qs = questions[currentAppt];
-  var qHtml = '<div class="h-section-label">For this visit</div>' +
-    '<div class="h-section-title">Questions to Raise</div>' +
-    '<ul class="h-q-list">';
-  qs.forEach(function(q) { qHtml += '<li>' + escHtml(q) + '</li>'; });
-  qHtml += '</ul>';
-  document.getElementById('h-right-col').innerHTML = qHtml;
+  // "Other" free-text entry
+  if (hasOther) {
+    var li = document.createElement('li');
+    li.textContent = otherTxt;
+    ul.appendChild(li);
+  }
 
   // Notes
   var notesBox = document.getElementById('h-notes-box');
@@ -706,10 +743,6 @@ function goBack() {
   document.getElementById('handout-view').style.display = 'none';
   document.getElementById('form-view').style.display = 'block';
   window.scrollTo(0, 0);
-}
-
-function escHtml(str) {
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 </script>
 </body>
