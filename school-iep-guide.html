@@ -91,17 +91,7 @@
     position: sticky; top: 0; z-index: 100; transition: top 0.3s ease;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
-  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; align-items: center; }
-  .tab-nav-download {
-    color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
-    font-size: 13px; font-weight: 500; padding: 10px 16px;
-    white-space: nowrap; border-bottom: 3px solid transparent;
-    text-decoration: none; border: 1.5px solid rgba(255,255,255,.35);
-    border-radius: 6px; margin-left: 12px; line-height: 1;
-    transition: color .18s, border-color .18s, background .18s;
-    display: inline-flex; align-items: center; gap: 6px;
-  }
-  .tab-nav-download:hover { color: #fff; border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
   .tab-btn {
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
@@ -379,6 +369,16 @@
   </div>
 </header>
 
+<!-- HANDOUT DOWNLOAD BOX -->
+<div style="background:#eaf5f3; border:1.5px solid #2a7a6a; border-radius:10px; padding:18px 24px; margin:20px auto; max-width:860px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; padding-left:32px; padding-right:32px;">
+  <div style="flex:1; min-width:220px;">
+    <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#2a7a6a; margin-bottom:5px;">School &amp; IEP Appointment Handout</div>
+    <div style="font-family:'Lora',serif; font-size:1.1rem; font-weight:600; color:#1a2744; margin-bottom:7px; line-height:1.3;">SETD5 Syndrome — School &amp; IEP Appointment Guide</div>
+    <p style="font-size:13.5px; color:#374151; margin:0; line-height:1.6;">A printable handout for IEP meetings, school evaluations, and conversations with teachers or administrators. Covers features relevant to learning, behavior, and communication — plus questions to raise with your child's school team.</p>
+  </div>
+  <a href="setd5-school-handout.pdf" download="SETD5-Syndrome-School-Handout.pdf" style="display:inline-flex; align-items:center; gap:8px; background:#2a7a6a; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:13.5px; padding:11px 22px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background 0.15s;">&#8595; Download PDF</a>
+</div>
+
 <!-- TAB NAV -->
 <nav class="tab-nav">
   <div class="tab-nav-inner">
@@ -386,7 +386,6 @@
     <button class="tab-btn" data-tab="tab-plans" onclick="showTab('tab-plans')">IEP vs 504</button>
     <button class="tab-btn" data-tab="tab-process" onclick="showTab('tab-process')">The Process</button>
     <button class="tab-btn" data-tab="tab-advocacy" onclick="showTab('tab-advocacy')">Advocacy &amp; Tips</button>
-    <a href="setd5-school-handout.pdf" download="SETD5-Syndrome-School-Handout.pdf" class="tab-nav-download">&#8595; School Handout</a>
   </div>
 </nav>
 
