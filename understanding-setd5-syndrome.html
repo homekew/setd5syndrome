@@ -292,14 +292,14 @@
     history.replaceState(null, '', '#' + id);
   }
 
-  // Restore tab from URL hash on page load
-  (function() {
+  // Restore tab from URL hash on page load -- must run after DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
     var hash = window.location.hash.replace('#', '');
     var validTabs = ['tab-what', 'tab-symptoms', 'tab-nextsteps', 'tab-resources'];
     if (hash && validTabs.indexOf(hash) !== -1) {
       showTab(hash);
     }
-  })();
+  });
 </script>
 <link rel="canonical" href="https://setd5syndrome.live/understanding-setd5-syndrome.html">
 </head>
