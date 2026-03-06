@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build Your School Handout — SETD5 Syndrome</title>
+<title>Build Your Medical Appointment Handout — SETD5 Syndrome</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -52,83 +52,85 @@ body {
 .form-title em { color: #a8cfc8; font-style: italic; }
 .form-subtitle { font-size: 15.5px; color: var(--muted); max-width: 580px; line-height: 1.65; }
 
-/* ── PURPOSE SELECTOR ── */
-.purpose-selector {
+/* ── APPOINTMENT TYPE SELECTOR ── */
+.appt-selector {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
   margin-bottom: 28px;
 }
-.purpose-option {
+.appt-option {
   border: 2px solid var(--border);
   border-radius: 10px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   cursor: pointer;
   transition: border-color .15s, background .15s;
   position: relative;
   background: #fff;
 }
-.purpose-option:hover { border-color: var(--teal); }
-.purpose-option.selected {
+.appt-option:hover { border-color: var(--teal); }
+.appt-option.selected {
   border-color: var(--teal);
   background: var(--teal-lt);
 }
-.purpose-option input[type="radio"] {
-  position: absolute; opacity: 0; pointer-events: none;
-}
-.purpose-label {
-  font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 4px;
-}
-.purpose-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
-.purpose-option.selected .purpose-label { color: var(--teal); }
-.purpose-check {
-  position: absolute; top: 12px; right: 14px;
-  width: 20px; height: 20px; border-radius: 50%;
+.appt-option input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.appt-label { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+.appt-desc { font-size: 12px; color: var(--muted); line-height: 1.45; }
+.appt-option.selected .appt-label { color: var(--teal); }
+.appt-check {
+  position: absolute; top: 10px; right: 12px;
+  width: 18px; height: 18px; border-radius: 50%;
   background: var(--teal); display: none;
   align-items: center; justify-content: center;
 }
-.purpose-option.selected .purpose-check { display: flex; }
-.purpose-check svg { width: 11px; height: 11px; stroke: #fff; stroke-width: 2.5; }
+.appt-option.selected .appt-check { display: flex; }
+.appt-check svg { width: 10px; height: 10px; stroke: #fff; stroke-width: 2.5; }
+
+/* ── CHECKBOX TOGGLE ── */
+.toggle-field {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.toggle-field:hover { border-color: var(--teal); background: var(--teal-lt); }
+.toggle-field.active { border-color: var(--teal); background: var(--teal-lt); }
+.toggle-field input[type="checkbox"] {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
+  accent-color: var(--teal); cursor: pointer;
+}
+.toggle-field-text {}
+.toggle-field-label { font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+.toggle-field-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
 /* ── FORM FIELDS ── */
 .field-section {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 22px 24px;
-  margin-bottom: 20px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
 }
 .field-section label {
   display: block;
   font-size: 13px; font-weight: 600; letter-spacing: .06em;
   text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
 }
-.field-section .field-hint {
-  font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 400;
-  text-transform: none; letter-spacing: 0;
+.field-section .field-hint { font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.field-section input[type="text"] {
+  max-width: 320px; width: 100%;
+  border: 1.5px solid var(--border); border-radius: 7px;
+  padding: 10px 14px; font-family: 'Poppins', sans-serif; font-size: 15px;
+  color: var(--ink); background: var(--bg); outline: none; transition: border-color .15s;
 }
-.field-section input[type="text"],
-.field-section textarea {
-  width: 100%;
-  border: 1.5px solid var(--border);
-  border-radius: 7px;
-  padding: 10px 14px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  color: var(--ink);
-  background: var(--bg);
-  outline: none;
-  transition: border-color .15s;
-}
-.field-section input[type="text"] { max-width: 320px; }
-.field-section input[type="text"]:focus,
-.field-section textarea:focus { border-color: var(--teal); }
-.field-section input::placeholder,
-.field-section textarea::placeholder { color: #b0aaa3; }
-.field-section textarea { resize: vertical; min-height: 72px; }
-
-/* teacher-only fields (hidden by default) */
-.teacher-field { display: none; }
+.field-section input[type="text"]:focus { border-color: var(--teal); }
+.field-section input::placeholder { color: #b0aaa3; }
 
 /* ── FEATURE GROUPS ── */
 .feature-group {
@@ -139,17 +141,14 @@ body {
   overflow: hidden;
 }
 .feature-group-header {
-  background: var(--navy);
-  color: #fff;
-  padding: 11px 20px;
-  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  background: var(--navy); color: #fff;
+  padding: 11px 20px; font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
 }
 .feature-item {
   display: flex; align-items: flex-start; gap: 12px;
-  padding: 10px 20px;
-  border-bottom: 1px solid #f3ede6;
-  cursor: pointer;
-  transition: background .12s;
+  padding: 10px 20px; border-bottom: 1px solid #f3ede6;
+  cursor: pointer; transition: background .12s;
 }
 .feature-item:last-child { border-bottom: none; }
 .feature-item:hover { background: var(--teal-lt); }
@@ -161,15 +160,17 @@ body {
 .feature-item.checked { background: var(--teal-lt); }
 .feature-item.checked label { color: var(--navy); font-weight: 500; }
 
-/* ── GENERATE BUTTON ── */
+/* ── SECTION DIVIDER ── */
 .section-divider {
   font-size: 11px; font-weight: 600; letter-spacing: .14em;
   text-transform: uppercase; color: var(--muted);
-  display: flex; align-items: center; gap: 10px; margin: 28px 0 20px;
+  display: flex; align-items: center; gap: 10px; margin: 28px 0 18px;
 }
 .section-divider::before, .section-divider::after {
   content: ''; flex: 1; height: 1px; background: var(--border);
 }
+
+/* ── GENERATE BUTTON ── */
 .generate-btn {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--teal); color: #fff;
@@ -210,15 +211,12 @@ body {
 
 /* ── HANDOUT PAPER ── */
 .handout-paper {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
   box-shadow: 0 4px 24px rgba(26,39,68,.09);
 }
 .h-header {
-  background: var(--navy);
-  padding: 18px 28px 16px;
+  background: var(--navy); padding: 18px 28px 16px;
   display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
 .h-tag { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 4px; }
@@ -229,14 +227,9 @@ body {
 .h-body { padding: 18px 28px 22px; }
 
 .h-what-is {
-  background: #f4f8f7;
-  border-left: 3px solid var(--teal);
-  border-radius: 0 6px 6px 0;
-  padding: 10px 14px;
-  margin-bottom: 16px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #374151;
+  background: #f4f8f7; border-left: 3px solid var(--teal);
+  border-radius: 0 6px 6px 0; padding: 10px 14px;
+  margin-bottom: 16px; font-size: 12px; line-height: 1.6; color: #374151;
 }
 .h-what-is strong { color: var(--navy); }
 
@@ -261,8 +254,6 @@ body {
   content: ''; position: absolute; left: 0; top: 9px;
   width: 5px; height: 5px; border-radius: 50%; background: var(--teal);
 }
-
-/* IEP questions list */
 .h-q-list { list-style: none; margin: 0; padding: 0; }
 .h-q-list li {
   font-size: 11.5px; line-height: 1.5; padding: 4px 0 4px 16px;
@@ -273,26 +264,9 @@ body {
   content: '›'; position: absolute; left: 2px;
   color: var(--amber); font-weight: 700; font-size: 14px; line-height: 1.3;
 }
-
-/* Teacher tips list */
-.h-tips-list { list-style: none; margin: 0; padding: 0; }
-.h-tips-list li {
-  font-size: 11.5px; line-height: 1.5; padding: 4px 0 4px 20px;
-  position: relative; color: var(--ink); border-bottom: 1px dotted #e8e2da;
-}
-.h-tips-list li:last-child { border-bottom: none; }
-.h-tips-list li::before {
-  content: '✓'; position: absolute; left: 2px;
-  color: var(--sage); font-weight: 700; font-size: 11px; line-height: 1.6;
-}
-
-/* Amber extra boxes (teacher version) */
 .h-amber-box {
-  background: var(--amber-lt);
-  border: 1px solid #e8c98a;
-  border-radius: 6px;
-  padding: 9px 13px;
-  margin-top: 12px;
+  background: var(--amber-lt); border: 1px solid #e8c98a;
+  border-radius: 6px; padding: 9px 13px; margin-top: 12px;
 }
 .h-amber-box-label {
   font-size: 8.5px; font-weight: 700; letter-spacing: .12em;
@@ -326,18 +300,17 @@ body {
   #handout-view { display: block !important; padding: 0; margin: 0; max-width: 100%; }
   .handout-actions, .handout-hint { display: none !important; }
   .handout-paper { border: none; box-shadow: none; border-radius: 0; }
-  .h-header, .h-facts-bar, .h-footer, .h-tips-list li::before, .h-what-is {
+  .h-header, .h-facts-bar, .h-footer, .h-what-is {
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
   @page { margin: 0.4in; size: letter; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   #form-view, #handout-view { padding: 2rem 1.25rem 4rem; }
-  .purpose-selector { grid-template-columns: 1fr; }
+  .appt-selector { grid-template-columns: 1fr; }
   .h-cols { grid-template-columns: 1fr; }
   .h-facts-bar { grid-template-columns: repeat(2, 1fr); }
-  .h-what-is { display: none; }
 }
 </style>
 </head>
@@ -348,28 +321,41 @@ body {
 ══════════════════════════════════ -->
 <div id="form-view">
   <div class="form-header">
-    <p class="form-eyebrow">School Toolkit · SETD5 Syndrome</p>
-    <h1 class="form-title">Build Your Child's <em>School Handout</em></h1>
-    <p class="form-subtitle">Answer a few questions about your child and we'll generate a personalized one-page handout — ready to print and share.</p>
+    <p class="form-eyebrow">Medical Toolkit · SETD5 Syndrome</p>
+    <h1 class="form-title">Build Your <em>Medical Appointment Handout</em></h1>
+    <p class="form-subtitle">Select your appointment type, check which features apply to your child, and generate a personalized one-page handout to bring to any medical visit.</p>
   </div>
 
-  <!-- Step 1: Purpose -->
-  <div class="section-divider">Step 1 — What is this handout for?</div>
+  <!-- Step 1: Appointment type -->
+  <div class="section-divider">Step 1 — What kind of appointment is this?</div>
 
-  <div class="purpose-selector">
-    <div class="purpose-option selected" id="opt-iep" onclick="setPurpose('iep')">
-      <input type="radio" name="purpose" value="iep" checked>
-      <div class="purpose-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-
-      <div class="purpose-label">IEP, 504 Plan, or School Meeting</div>
-      <div class="purpose-desc">For IEP meetings, 504 plan meetings, evaluations, or any meeting with the school team. Includes features and questions to raise.</div>
+  <div class="appt-selector">
+    <div class="appt-option selected" id="opt-primary" onclick="setAppt('primary')">
+      <input type="radio" name="appt" value="primary" checked>
+      <div class="appt-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+      <div class="appt-label">General / Primary Care</div>
+      <div class="appt-desc">Pediatrician or family doctor visit — general management, monitoring, and referrals.</div>
     </div>
-    <div class="purpose-option" id="opt-teacher" onclick="setPurpose('teacher')">
-      <input type="radio" name="purpose" value="teacher">
-      <div class="purpose-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+    <div class="appt-option" id="opt-neuro" onclick="setAppt('neuro')">
+      <input type="radio" name="appt" value="neuro">
+      <div class="appt-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+      <div class="appt-label">Neurology</div>
+      <div class="appt-desc">Neurologist visit — seizures, brain imaging, neurological development, and medication.</div>
+    </div>
+    <div class="appt-option" id="opt-psych" onclick="setAppt('psych')">
+      <input type="radio" name="appt" value="psych">
+      <div class="appt-check"><svg viewBox="0 0 12 10" fill="none"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+      <div class="appt-label">Psychiatry &amp; Behavioral Health</div>
+      <div class="appt-desc">Psychiatrist or behavioral health visit — ADHD, anxiety, ASD features, and behavioral strategies.</div>
+    </div>
+  </div>
 
-      <div class="purpose-label">Meet My Child</div>
-      <div class="purpose-desc">For a new teacher or staff member at the start of the year. Introduces SETD5 Syndrome and shares what helps your child.</div>
+  <!-- New to SETD5 toggle -->
+  <div class="toggle-field" id="toggle-new" onclick="toggleNewToSETD5(this)">
+    <input type="checkbox" id="new-to-setd5">
+    <div class="toggle-field-text">
+      <div class="toggle-field-label">This provider may be unfamiliar with SETD5 Syndrome</div>
+      <div class="toggle-field-desc">Adds a brief "What is SETD5 Syndrome?" introduction to the top of the handout.</div>
     </div>
   </div>
 
@@ -381,33 +367,12 @@ body {
     <input type="text" id="child-name" placeholder="e.g. Maya" autocomplete="off">
   </div>
 
-  <!-- Teacher-only: what child enjoys -->
-  <div class="field-section teacher-field" id="field-enjoys">
-    <label for="child-enjoys">What does your child enjoy? <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
-    <p class="field-hint">Appears on the handout to help the teacher connect with your child.</p>
-    <textarea id="child-enjoys" rows="2" placeholder="e.g. trains, music, swimming, and being read to"></textarea>
-  </div>
-
-  <!-- Teacher-only: what helps -->
-  <div class="field-section teacher-field" id="field-helps">
-    <label for="child-helps">What helps your child in the classroom? <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
-    <p class="field-hint">Strategies, supports, or approaches that work well.</p>
-    <textarea id="child-helps" rows="3" placeholder="e.g. Visual schedules, extra transition warnings, a quiet corner when overwhelmed, praise for effort"></textarea>
-  </div>
-
-  <!-- Teacher-only: hard days -->
-  <div class="field-section teacher-field" id="field-hard">
-    <label for="child-hard">What helps on a hard day? <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
-    <p class="field-hint">What should a teacher or aide do when your child is struggling?</p>
-    <textarea id="child-hard" rows="2" placeholder="e.g. Give space and low demands, offer a sensory toy, avoid loud voices"></textarea>
-  </div>
-
   <!-- Step 3: Features -->
   <div class="section-divider">Step 3 — Which features apply to your child?</div>
   <p style="font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Check everything that's relevant. Only what you select will appear on the handout.</p>
 
   <div class="feature-group">
-    <div class="feature-group-header">Learning &amp; Communication</div>
+    <div class="feature-group-header">Neurodevelopmental &amp; Cognitive</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Intellectual disability (mild to moderate; some borderline or near-typical)">
@@ -422,22 +387,18 @@ body {
         <label>Speech and language delays or difficulties</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Minimally verbal or nonverbal — uses AAC, signs, or other communication supports">
-        <label>Minimally verbal or nonverbal — uses AAC, signs, or other communication supports</label>
+        <input type="checkbox" value="Minimally verbal or nonverbal">
+        <label>Minimally verbal or nonverbal</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Working memory and short-term memory difficulties">
         <label>Working memory and short-term memory difficulties</label>
       </div>
-      <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Difficulty with reading and/or writing">
-        <label>Difficulty with reading and/or writing</label>
-      </div>
     </div>
   </div>
 
   <div class="feature-group">
-    <div class="feature-group-header">Behavior &amp; Attention</div>
+    <div class="feature-group-header">Behavioral &amp; Psychiatric</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="ADHD features: inattention, hyperactivity, or impulsivity">
@@ -452,71 +413,79 @@ body {
         <label>Anxiety or emotional dysregulation</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Behavioral rigidity and difficulty with transitions or changes in routine">
-        <label>Behavioral rigidity and difficulty with transitions or changes in routine</label>
+        <input type="checkbox" value="Behavioral rigidity and difficulty with transitions">
+        <label>Behavioral rigidity and difficulty with transitions</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Repetitive behaviors or movements">
         <label>Repetitive behaviors or movements</label>
       </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Sleep difficulties">
+        <label>Sleep difficulties</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Sensory sensitivities">
+        <label>Sensory sensitivities</label>
+      </div>
     </div>
   </div>
 
   <div class="feature-group">
-    <div class="feature-group-header">Sensory &amp; Motor</div>
+    <div class="feature-group-header">Neurological</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Sensory sensitivities (sound, touch, light, or other)">
-        <label>Sensory sensitivities (sound, touch, light, or other)</label>
-      </div>
-      <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Fine motor delays affecting writing or self-care tasks">
-        <label>Fine motor delays affecting writing or self-care tasks</label>
-      </div>
-      <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Gross motor delays or coordination difficulties">
-        <label>Gross motor delays or coordination difficulties</label>
+        <input type="checkbox" value="Seizure history">
+        <label>Seizure history</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
         <input type="checkbox" value="Low muscle tone (hypotonia)">
         <label>Low muscle tone (hypotonia)</label>
       </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Coordination difficulties (dyspraxia or ataxia)">
+        <label>Coordination difficulties (dyspraxia or ataxia)</label>
+      </div>
+      <div class="feature-item" onclick="toggleFeature(this)">
+        <input type="checkbox" value="Brain MRI abnormalities (known or suspected)">
+        <label>Brain MRI abnormalities (known or suspected)</label>
+      </div>
     </div>
   </div>
 
   <div class="feature-group">
-    <div class="feature-group-header">Health &amp; Safety at School</div>
+    <div class="feature-group-header">Physical &amp; Growth</div>
     <div class="feature-list">
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Seizure history — requires a school safety plan">
-        <label>Seizure history — requires a school safety plan</label>
+        <input type="checkbox" value="Growth concerns (height, weight, or head circumference)">
+        <label>Growth concerns (height, weight, or head circumference)</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Sleep difficulties that may affect daytime alertness and focus">
-        <label>Sleep difficulties that may affect daytime alertness and focus</label>
+        <input type="checkbox" value="Feeding difficulties">
+        <label>Feeding difficulties</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Vision or hearing concerns">
-        <label>Vision or hearing concerns</label>
+        <input type="checkbox" value="Vision concerns">
+        <label>Vision concerns</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Feeding or eating difficulties at lunch or snack time">
-        <label>Feeding or eating difficulties at lunch or snack time</label>
+        <input type="checkbox" value="Hearing concerns">
+        <label>Hearing concerns</label>
       </div>
       <div class="feature-item" onclick="toggleFeature(this)">
-        <input type="checkbox" value="Elopement risk or safety awareness concerns">
-        <label>Elopement risk or safety awareness concerns</label>
+        <input type="checkbox" value="Orthopedic or musculoskeletal concerns">
+        <label>Orthopedic or musculoskeletal concerns</label>
       </div>
     </div>
   </div>
 
-  <!-- Step 4: Extra notes -->
+  <!-- Step 4: Notes -->
   <div class="section-divider">Step 4 — Anything else?</div>
 
   <div class="field-section">
-    <label for="parent-note">Additional notes <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
-    <p class="field-hint">Anything else you want the school to know. Appears at the bottom of the handout.</p>
-    <textarea id="parent-note" placeholder="e.g. Please contact us before any changes to Maya's routine."></textarea>
+    <label for="parent-note">Notes for this visit <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
+    <p class="field-hint">Recent changes, specific concerns, or anything you want the provider to know. Appears at the bottom of the handout.</p>
+    <textarea id="parent-note" style="width:100%;border:1.5px solid var(--border);border-radius:7px;padding:10px 14px;font-family:'Poppins',sans-serif;font-size:15px;color:var(--ink);background:var(--bg);resize:vertical;min-height:80px;outline:none;transition:border-color .15s;" placeholder="e.g. Maya recently started a new medication. We want to discuss whether her sleep issues may be a side effect."></textarea>
   </div>
 
   <button class="generate-btn" onclick="generateHandout()">
@@ -530,7 +499,7 @@ body {
 
 <!-- ══════════════════════════════════
      HANDOUT VIEW
-══════════════════════════════════ -->
+══════════════════════════════════ */
 <div id="handout-view">
   <div class="handout-actions">
     <button class="back-btn" onclick="goBack()">← Edit answers</button>
@@ -545,8 +514,8 @@ body {
 
     <div class="h-header">
       <div>
-        <div class="h-tag" id="h-tag-line">SETD5 Syndrome · School Handout</div>
-        <div class="h-title" id="h-title-line">School Handout</div>
+        <div class="h-tag" id="h-tag-line">SETD5 Syndrome · Medical Appointment</div>
+        <div class="h-title" id="h-title-line">Medical Appointment Handout</div>
         <div class="h-child-name" id="h-child-display"></div>
       </div>
       <div style="text-align:right;align-self:flex-start;">
@@ -557,32 +526,27 @@ body {
 
     <div class="h-body">
 
-      <!-- What is SETD5 Syndrome (teacher mode only) -->
+      <!-- What is SETD5 blurb (optional) -->
       <div class="h-what-is" id="h-what-is" style="display:none;">
-        <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a variant in the <em>SETD5</em> gene. It typically causes intellectual disability, developmental delays, and speech and language difficulties. Most cases arise de novo (not inherited). Features vary widely between individuals — the items checked below reflect this child's profile.
+        <strong>What is SETD5 Syndrome?</strong> SETD5 Syndrome is a rare genetic condition caused by a loss-of-function variant in the <em>SETD5</em> gene (chromosome 3p25.3), resulting in haploinsufficiency. It typically causes intellectual disability, global developmental delay, and speech and language difficulties. Most cases arise de novo (not inherited), though autosomal dominant inheritance is possible. Features vary widely — the items checked below reflect this child's profile. OMIM #615761 · Simons Searchlight patient registry available.
       </div>
 
       <div class="h-cols">
-        <!-- Left: features (same for both) -->
+        <!-- Left: features -->
         <div>
-          <div class="h-section-label" id="h-features-label">Features reported in this child</div>
-          <div class="h-section-title">What the School Team Should Know</div>
+          <div class="h-section-label">Features reported in this child</div>
+          <div class="h-section-title">What This Provider Should Know</div>
           <p style="font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.5;font-style:italic;">Not every individual with SETD5 Syndrome has all features. The items below apply to this child.</p>
           <ul class="h-feature-list" id="h-feature-list"></ul>
         </div>
 
-        <!-- Right: IEP questions OR teacher tips -->
-        <div id="h-right-col">
-          <!-- populated by JS -->
-        </div>
+        <!-- Right: questions (populated by JS) -->
+        <div id="h-right-col"></div>
       </div>
 
-      <!-- Teacher extras: enjoys + hard day -->
-      <div id="h-teacher-extras"></div>
-
-      <!-- Notes (both modes) -->
+      <!-- Notes -->
       <div class="h-amber-box" id="h-notes-box" style="display:none;">
-        <div class="h-amber-box-label">Additional notes from family</div>
+        <div class="h-amber-box-label">Notes for this visit</div>
         <div class="h-amber-box-text" id="h-notes-text"></div>
       </div>
 
@@ -597,19 +561,19 @@ body {
         <div class="h-fact-label">Inheritance</div>
         <div class="h-fact-value">Typically de novo; can be inherited (AD)</div>
       </div>
-      <div class="h-fact" id="h-fact-3">
-        <div class="h-fact-label">IEP Eligibility</div>
-        <div class="h-fact-value">Typically qualifies under IDEA</div>
+      <div class="h-fact">
+        <div class="h-fact-label">Prevalence</div>
+        <div class="h-fact-value">&lt;100 in literature; ~1,100 in patient community</div>
       </div>
       <div class="h-fact">
-        <div class="h-fact-label">More Information</div>
-        <div class="h-fact-value">setd5syndrome.live</div>
+        <div class="h-fact-label">OMIM / Registry</div>
+        <div class="h-fact-value">#615761 · Simons Searchlight</div>
       </div>
     </div>
 
     <div class="h-footer">
-      <div class="h-footer-url">setd5syndrome.live/school-iep-guide</div>
-      <div class="h-footer-disc">For informational purposes only. Content based on published research and the SETD5 Syndrome family community. Always verify with your care and education team.</div>
+      <div class="h-footer-url">setd5syndrome.live</div>
+      <div class="h-footer-disc">For informational purposes only. Content based on published research, clinician observations, and the SETD5 Syndrome family community. Always verify with your care team.</div>
     </div>
 
   </div><!-- /handout-paper -->
@@ -617,17 +581,59 @@ body {
 
 
 <script>
-var currentPurpose = 'iep';
+var currentAppt = 'primary';
 
-function setPurpose(p) {
-  currentPurpose = p;
-  document.getElementById('opt-iep').classList.toggle('selected', p === 'iep');
-  document.getElementById('opt-teacher').classList.toggle('selected', p === 'teacher');
-  // Show/hide teacher-only fields
-  var teacherFields = document.querySelectorAll('.teacher-field');
-  teacherFields.forEach(function(f) {
-    f.style.display = p === 'teacher' ? 'block' : 'none';
+var questions = {
+  primary: [
+    'What specialist referrals do you recommend based on these features?',
+    'How should we monitor growth, development, and regression over time?',
+    'Are there baseline evaluations we should prioritize (vision, hearing, EEG, MRI)?',
+    'How should we coordinate care across multiple specialists?',
+    'Are there medications or supplements worth discussing given current symptoms?',
+    'What signs or changes should prompt urgent evaluation?',
+    'When and how often should we schedule follow-up?'
+  ],
+  neuro: [
+    'Is an EEG indicated, and what would we be looking for?',
+    'Is brain MRI warranted, and what findings are associated with SETD5 Syndrome?',
+    'What seizure threshold guidelines apply, and when should we act?',
+    'Are there neurological medications to consider or avoid?',
+    'How does SETD5 Syndrome affect brain development — what trajectory can we expect?',
+    'Are there signs of neurological regression we should watch for?',
+    'What is the appropriate follow-up interval for neurology?'
+  ],
+  psych: [
+    'Is ADHD a diagnosis we should formalize, and what treatment options fit this profile?',
+    'How should we approach anxiety — behavioral, medication, or both?',
+    'Are there ASD-specific behavioral therapies indicated?',
+    'Are there known considerations for psychiatric medication in SETD5 Syndrome?',
+    'What behavioral strategies complement any medication being considered?',
+    'How should behavioral health coordinate with school and developmental services?',
+    'What is the appropriate follow-up interval for behavioral health?'
+  ]
+};
+
+var apptLabels = {
+  primary: 'General / Primary Care',
+  neuro:   'Neurology',
+  psych:   'Psychiatry & Behavioral Health'
+};
+
+function setAppt(a) {
+  currentAppt = a;
+  ['primary','neuro','psych'].forEach(function(id) {
+    document.getElementById('opt-' + id).classList.toggle('selected', id === a);
   });
+}
+
+function toggleNewToSETD5(el) {
+  var cb = el.querySelector('input[type="checkbox"]');
+  if (event.target === cb) {
+    el.classList.toggle('active', cb.checked);
+    return;
+  }
+  cb.checked = !cb.checked;
+  el.classList.toggle('active', cb.checked);
 }
 
 function toggleFeature(item) {
@@ -641,34 +647,28 @@ function toggleFeature(item) {
 }
 
 function generateHandout() {
-  var checked = document.querySelectorAll('#form-view input[type="checkbox"]:checked');
+  var checked = document.querySelectorAll('#form-view .feature-item input[type="checkbox"]:checked');
   if (checked.length === 0) {
     document.getElementById('error-msg').style.display = 'block';
     return;
   }
   document.getElementById('error-msg').style.display = 'none';
 
-  var childName = document.getElementById('child-name').value.trim();
-  var note      = document.getElementById('parent-note').value.trim();
-  var enjoys    = document.getElementById('child-enjoys').value.trim();
-  var helps     = document.getElementById('child-helps').value.trim();
-  var hard      = document.getElementById('child-hard').value.trim();
-  var isTeacher = currentPurpose === 'teacher';
+  var childName  = document.getElementById('child-name').value.trim();
+  var note       = document.getElementById('parent-note').value.trim();
+  var newToSETD5 = document.getElementById('new-to-setd5').checked;
 
   // Header
-  var nameRef = childName || 'this child';
-  document.getElementById('h-tag-line').textContent = isTeacher
-    ? 'SETD5 Syndrome · Meet My Child'
-    : 'SETD5 Syndrome · IEP, 504 Plan & School Meeting';
-  document.getElementById('h-title-line').textContent = isTeacher
-    ? (childName ? 'Meet ' + childName : 'Meet My Child')
-    : (childName ? childName + '\u2019s School Handout' : 'IEP & School Meeting Handout');
-  document.getElementById('h-child-display').textContent = isTeacher
-    ? ''
-    : (childName ? 'Prepared for: ' + childName : '');
+  var apptLabel = apptLabels[currentAppt];
+  document.getElementById('h-tag-line').textContent = 'SETD5 Syndrome · ' + apptLabel;
+  document.getElementById('h-title-line').textContent = childName
+    ? childName + '\u2019s Medical Handout — ' + apptLabel
+    : 'Medical Appointment Handout — ' + apptLabel;
+  document.getElementById('h-child-display').textContent = childName
+    ? 'Prepared for: ' + childName : '';
 
-  // What is SETD5 blurb (teacher only)
-  document.getElementById('h-what-is').style.display = isTeacher ? 'block' : 'none';
+  // What is SETD5 blurb
+  document.getElementById('h-what-is').style.display = newToSETD5 ? 'block' : 'none';
 
   // Feature list
   var ul = document.getElementById('h-feature-list');
@@ -679,62 +679,14 @@ function generateHandout() {
     ul.appendChild(li);
   });
 
-  // Right column
-  var rightCol = document.getElementById('h-right-col');
-  if (isTeacher) {
-    rightCol.innerHTML =
-      '<div class="h-section-label">Classroom strategies</div>' +
-      '<div class="h-section-title">What Helps ' + (childName || 'This Child') + '</div>' +
-      '<ul class="h-tips-list">' +
-        '<li>Give advance notice before transitions — a 5-minute warning helps</li>' +
-        '<li>Use visual schedules or picture cues where possible</li>' +
-        '<li>Keep instructions short and concrete; check for understanding</li>' +
-        '<li>Allow extra processing time before expecting a response</li>' +
-        '<li>Reduce sensory overload when possible (noise, lighting, crowds)</li>' +
-        '<li>Praise effort and small steps — positive reinforcement works well</li>' +
-        '<li>Be consistent with routines; unexpected changes can be hard</li>' +
-        '<li>If behavior escalates, reduce demands and give calm, quiet space</li>' +
-      '</ul>';
-    document.getElementById('h-fact-3').innerHTML =
-      '<div class="h-fact-label">IEP Status</div>' +
-      '<div class="h-fact-value">Has an IEP — please review</div>';
-  } else {
-    rightCol.innerHTML =
-      '<div class="h-section-label">For this meeting</div>' +
-      '<div class="h-section-title">Questions to Raise with the School Team</div>' +
-      '<ul class="h-q-list">' +
-        '<li>What IEP goals are appropriate given these features?</li>' +
-        '<li>What classroom supports or accommodations are in place?</li>' +
-        '<li>How will transitions between activities be managed?</li>' +
-        '<li>What communication supports are available (AAC, visuals, etc.)?</li>' +
-        '<li>How will sensory or behavioral needs be addressed in the classroom?</li>' +
-        '<li>Who is the main point of contact between meetings?</li>' +
-        '<li>How will progress toward IEP goals be measured and reported?</li>' +
-        '<li>What related services (speech, OT, PT) are being provided or considered?</li>' +
-        '<li>Is there a behavior intervention plan (BIP) in place or needed?</li>' +
-      '</ul>';
-    document.getElementById('h-fact-3').innerHTML =
-      '<div class="h-fact-label">IEP Eligibility</div>' +
-      '<div class="h-fact-value">Typically qualifies under IDEA</div>';
-  }
-
-  // Teacher extras block
-  var extrasEl = document.getElementById('h-teacher-extras');
-  extrasEl.innerHTML = '';
-  if (isTeacher && (enjoys || helps || hard)) {
-    var html = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:14px;">';
-    if (enjoys) html +=
-      '<div class="h-amber-box"><div class="h-amber-box-label">What ' + (childName || 'this child') + ' enjoys</div>' +
-      '<div class="h-amber-box-text">' + escHtml(enjoys) + '</div></div>';
-    if (helps) html +=
-      '<div class="h-amber-box"><div class="h-amber-box-label">What helps in the classroom</div>' +
-      '<div class="h-amber-box-text">' + escHtml(helps) + '</div></div>';
-    if (hard) html +=
-      '<div class="h-amber-box"><div class="h-amber-box-label">What helps on a hard day</div>' +
-      '<div class="h-amber-box-text">' + escHtml(hard) + '</div></div>';
-    html += '</div>';
-    extrasEl.innerHTML = html;
-  }
+  // Right column — questions for this appointment type
+  var qs = questions[currentAppt];
+  var qHtml = '<div class="h-section-label">For this visit</div>' +
+    '<div class="h-section-title">Questions to Raise</div>' +
+    '<ul class="h-q-list">';
+  qs.forEach(function(q) { qHtml += '<li>' + escHtml(q) + '</li>'; });
+  qHtml += '</ul>';
+  document.getElementById('h-right-col').innerHTML = qHtml;
 
   // Notes
   var notesBox = document.getElementById('h-notes-box');
