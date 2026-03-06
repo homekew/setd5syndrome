@@ -22,6 +22,10 @@
   --muted:    #6b6b6b;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── GOOGLE TRANSLATE WIDGET ── */
+.translate-widget { position:fixed; top:10px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+
 body {
   background: var(--bg);
   color: var(--ink);
@@ -346,7 +350,7 @@ body {
   body { background: #fff; }
   #form-view { display: none !important; }
   #handout-view { display: block !important; padding: 0; margin: 0; max-width: 100%; }
-  .handout-actions, .handout-hint { display: none !important; }
+  .handout-actions, .handout-hint, .translate-widget { display: none !important; }
   .handout-paper { border: none; box-shadow: none; border-radius: 0; }
   .h-header, .h-facts-bar, .h-footer, .h-tips-list li::before, .h-what-is {
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
@@ -364,6 +368,10 @@ body {
 </style>
 </head>
 <body>
+
+<div class="translate-widget">
+  <div id="google_translate_element"></div>
+</div>
 
 <!-- ══════════════════════════════════
      FORM
@@ -801,5 +809,14 @@ function escHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 </script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
