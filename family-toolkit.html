@@ -276,6 +276,43 @@
     --card-icon-bg: var(--amber-lt);
   }
 
+  /* ── SECTION NAV ── */
+  .section-nav {
+    background: #2a627a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: top 0.3s ease;
+  }
+  .section-nav-inner {
+    display: flex;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px;
+    justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .section-nav-inner::-webkit-scrollbar { display: none; }
+  .section-nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255,255,255,.7);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 14px 20px;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+    transition: color .18s, border-color .18s;
+  }
+  .section-nav-btn:hover { color: rgba(255,255,255,.9); text-decoration: none; }
+  .section-nav-btn.active { color: #fff; border-bottom-color: #c9893a; }
+
   /* ── HELPFUL LINKS SECTION ── */
   .links-section {
     scroll-margin-top: 2rem;
@@ -398,9 +435,17 @@
   </div>
 </header>
 
+<nav class="section-nav" id="section-nav">
+  <div class="section-nav-inner">
+    <a href="#handouts" class="section-nav-btn active">Handouts &amp; Builders</a>
+    <a href="#guides" class="section-nav-btn">Guides &amp; Resources</a>
+    <a href="#community" class="section-nav-btn">Community</a>
+  </div>
+</nav>
+
 <main>
 
-  <div class="section-label">Handouts &amp; Builders</div>
+  <div class="section-label" id="handouts" style="scroll-margin-top: 100px;">Handouts &amp; Builders</div>
 
   <div class="card-grid">
 
@@ -424,7 +469,7 @@
 
   </div>
 
-  <div class="section-label">Guides &amp; Resources</div>
+  <div class="section-label" id="guides" style="scroll-margin-top: 100px;">Guides &amp; Resources</div>
 
   <div class="card-grid">
 
@@ -448,7 +493,7 @@
 
   </div>
 
-  <div class="section-label">Community</div>
+  <div class="section-label" id="community" style="scroll-margin-top: 100px;">Community</div>
 
   <div class="card-grid">
 
@@ -483,17 +528,38 @@ if (history.scrollRestoration) {
 window.scrollTo(0, 0);
 
 (function(){
-  var header = document.querySelector('.site-header');
+  var header  = document.querySelector('.site-header');
+  var secNav  = document.getElementById('section-nav');
   var ticking = false;
+
+  function syncNavTop() {
+    if (header && secNav) secNav.style.top = header.offsetHeight + 'px';
+  }
+
+  function updateScroll() {
+    header.classList.toggle('collapsed', window.scrollY > 60);
+    syncNavTop();
+
+    // Highlight active section
+    var sections = ['handouts','guides','community'];
+    var current  = sections[0];
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.section-nav-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('href') === '#' + current);
+    });
+  }
+
+  syncNavTop();
   window.addEventListener('scroll', function(){
     if (!ticking) {
-      requestAnimationFrame(function() {
-        header.classList.toggle('collapsed', window.scrollY > 60);
-        ticking = false;
-      });
+      requestAnimationFrame(function() { updateScroll(); ticking = false; });
       ticking = true;
     }
   });
+  header.addEventListener('transitionend', syncNavTop);
 })();
 </script>
 
