@@ -91,7 +91,17 @@
     position: sticky; top: 0; z-index: 100; transition: top 0.3s ease;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
-  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
+  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; align-items: center; }
+  .tab-nav-download {
+    color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
+    font-size: 13px; font-weight: 500; padding: 10px 16px;
+    white-space: nowrap; border-bottom: 3px solid transparent;
+    text-decoration: none; border: 1.5px solid rgba(255,255,255,.35);
+    border-radius: 6px; margin-left: 12px; line-height: 1;
+    transition: color .18s, border-color .18s, background .18s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .tab-nav-download:hover { color: #fff; border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
   .tab-btn {
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
@@ -376,6 +386,7 @@
     <button class="tab-btn" data-tab="tab-plans" onclick="showTab('tab-plans')">IEP vs 504</button>
     <button class="tab-btn" data-tab="tab-process" onclick="showTab('tab-process')">The Process</button>
     <button class="tab-btn" data-tab="tab-advocacy" onclick="showTab('tab-advocacy')">Advocacy &amp; Tips</button>
+    <a href="setd5-school-handout.pdf" download="SETD5-Syndrome-School-Handout.pdf" class="tab-nav-download">&#8595; School Handout</a>
   </div>
 </nav>
 
