@@ -309,10 +309,11 @@
     border-bottom: 3px solid transparent;
     text-decoration: none;
     display: inline-block;
-    transition: color .18s, border-color .18s;
+    transition: color .18s, border-color .18s, padding 0.175s ease, min-height 0.175s ease;
   }
   .section-nav-btn:hover { color: rgba(255,255,255,.9); text-decoration: none; }
   .section-nav-btn.active { color: #fff; border-bottom-color: #c9893a; }
+  .section-nav.is-slim .section-nav-btn { padding: 6px 16px; min-height: 32px; }
 
   /* ── HELPFUL LINKS SECTION ── */
   .links-section {
@@ -576,9 +577,25 @@ window.scrollTo(0, 0);
     if (secNav) secNav.style.top = header.offsetHeight + 'px';
   }
 
+  var wasCollapsed = false;
+  var trackingRaf  = null;
+  function trackDuringTransition() {
+    var start = performance.now();
+    function tick(now) {
+      setNavTop();
+      if (now - start < 250) { trackingRaf = requestAnimationFrame(tick); }
+    }
+    if (trackingRaf) cancelAnimationFrame(trackingRaf);
+    trackingRaf = requestAnimationFrame(tick);
+  }
   function updateScroll() {
     var isCollapsed = window.scrollY > 60;
-    header.classList.toggle('collapsed', isCollapsed);
+    if (isCollapsed !== wasCollapsed) {
+      wasCollapsed = isCollapsed;
+      header.classList.toggle('collapsed', isCollapsed);
+      if (secNav) secNav.classList.toggle('is-slim', isCollapsed);
+      trackDuringTransition();
+    }
     setNavTop();
     updateActiveSectionHighlight();
   }

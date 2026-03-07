@@ -68,10 +68,11 @@
 
   /* ── STICKY NAV ── */
   .sticky-nav{ position:sticky; top:0; z-index:100; }
-  @media (max-width:600px){ .sticky-nav{ top:70px; } }
+  .sticky-nav.is-slim .search-bar{ padding:4px 24px 5px; }
+  .sticky-nav.is-slim .alpha-link{ padding:5px 6px; min-height:30px; }
 
   /* ── SEARCH BAR ── */
-  .search-bar{ background:#1e4f63; padding:7px 24px 8px; border-top:1px solid rgba(255,255,255,0.08); }
+  .search-bar{ background:#1e4f63; padding:7px 24px 8px; border-top:1px solid rgba(255,255,255,0.08); transition:padding 0.175s ease; }
   .search-bar-inner{ max-width:860px; margin:0 auto; position:relative; }
   .search-input{ width:100%; padding:7px 36px 7px 14px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:6px; color:#fff; font-family:'Poppins',sans-serif; font-size:13px; outline:none; transition:background .15s, border-color .15s; }
   .search-input::placeholder{ color:rgba(255,255,255,0.45); }
@@ -84,7 +85,7 @@
   .alpha-bar{ background:#5a9186; border-bottom:1px solid rgba(255,255,255,.1); overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
   .alpha-bar::-webkit-scrollbar{ display:none; }
   .alpha-bar-inner{ max-width:860px; margin:0 auto; padding:0 12px 0 16px; display:flex; flex-wrap:nowrap; gap:0; align-items:center; min-width:max-content; }
-  .alpha-link{ color:rgba(255,255,255,.7); font-size:13.5px; font-weight:500; padding:10px 6px; text-decoration:none; line-height:1; transition:color .15s; min-height:40px; display:inline-flex; align-items:center; justify-content:center; }
+  .alpha-link{ color:rgba(255,255,255,.7); font-size:13.5px; font-weight:500; padding:10px 6px; text-decoration:none; line-height:1; transition:color .15s, padding 0.175s ease, min-height 0.175s ease; min-height:40px; display:inline-flex; align-items:center; justify-content:center; }
   .alpha-link:hover{ color:#fff; }
   .alpha-link.has-entries{ color:rgba(255,255,255,.9); }
   .alpha-link.inactive{ color:rgba(255,255,255,.25); cursor:default; pointer-events:none; }
@@ -856,10 +857,27 @@
   var hdr = document.getElementById('siteHeader');
   var nav = document.getElementById('stickyNav');
   function setNavTop(){ nav.style.top = hdr.offsetHeight + 'px'; }
+  var wasCollapsed = false;
+  var trackingRaf  = null;
+  function trackDuringTransition() {
+    var start = performance.now();
+    function tick(now) {
+      setNavTop();
+      if (now - start < 250) { trackingRaf = requestAnimationFrame(tick); }
+    }
+    if (trackingRaf) cancelAnimationFrame(trackingRaf);
+    trackingRaf = requestAnimationFrame(tick);
+  }
   setNavTop();
   window.addEventListener('resize', setNavTop);
   window.addEventListener('scroll', function(){
-    hdr.classList.toggle('collapsed', window.scrollY > 30);
+    var isCollapsed = window.scrollY > 30;
+    if (isCollapsed !== wasCollapsed) {
+      wasCollapsed = isCollapsed;
+      hdr.classList.toggle('collapsed', isCollapsed);
+      nav.classList.toggle('is-slim', isCollapsed);
+      trackDuringTransition();
+    }
     setNavTop();
   }, { passive: true });
 })();

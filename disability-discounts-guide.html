@@ -105,10 +105,11 @@
     color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
     font-size: 15px; font-weight: 400; padding: 14px 18px;
     white-space: nowrap; border-bottom: 3px solid transparent;
-    transition: color .18s, border-color .18s;
+    transition: color .18s, border-color .18s, padding 0.175s ease;
   }
   .tab-btn:hover { color: rgba(255,255,255,.85); }
   .tab-btn.active { color: #fff; border-bottom-color: #c9893a; }
+  .tab-nav.is-slim .tab-btn { padding: 8px 18px; }
 
   /* ── PANELS / LAYOUT ── */
   .tab-panel { display: none; }
@@ -656,9 +657,25 @@ Sincerely,
       if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
     }
 
+    var wasCollapsed = false;
+    var trackingRaf  = null;
+    function trackDuringTransition() {
+      var start = performance.now();
+      function tick(now) {
+        setNavTop();
+        if (now - start < 250) { trackingRaf = requestAnimationFrame(tick); }
+      }
+      if (trackingRaf) cancelAnimationFrame(trackingRaf);
+      trackingRaf = requestAnimationFrame(tick);
+    }
     function updateLayout() {
       var isCollapsed = window.scrollY > 60;
-      header.classList.toggle('collapsed', isCollapsed);
+      if (isCollapsed !== wasCollapsed) {
+        wasCollapsed = isCollapsed;
+        header.classList.toggle('collapsed', isCollapsed);
+        if (tabNav) tabNav.classList.toggle('is-slim', isCollapsed);
+        trackDuringTransition();
+      }
       setNavTop();
     }
 
