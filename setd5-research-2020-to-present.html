@@ -90,7 +90,7 @@
 
   /* ── TAB NAV ── */
   .tab-nav {
-    background: #2a7a6a;
+    background: #479e8d;
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     position: sticky; top: 0; z-index: 100; transition: top 0.175s ease;
@@ -429,6 +429,52 @@
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
+
+  /* ── YEAR JUMP NAV ── */
+  .year-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 28px;
+    padding: 14px 16px;
+    background: var(--cream2, #f2ede4);
+    border-radius: 8px;
+    border: 1px solid var(--border, #e0d9cf);
+    align-items: center;
+  }
+  .year-jump-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted, #6b6b6b);
+    margin-right: 4px; flex-shrink: 0;
+  }
+  .year-jump a {
+    font-size: 12.5px; color: var(--teal, #2a7a6a); text-decoration: none;
+    padding: 3px 10px; border: 1px solid var(--border, #e0d9cf);
+    border-radius: 20px; background: #fff;
+    transition: background .15s, border-color .15s;
+  }
+  .year-jump a:hover { background: var(--sage-lt, #edf5ef); border-color: var(--teal, #2a7a6a); }
+
+  /* ── PAGE TOC ── */
+  .page-toc {
+    background: var(--cream2, #f2ede4);
+    border: 1px solid var(--border, #e0d9cf);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+  }
+  .page-toc-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted, #6b6b6b); margin-bottom: 8px;
+  }
+  .page-toc ol {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: 4px 0;
+    flex-direction: column;
+  }
+  .page-toc ol li { padding: 1px 0; }
+  .page-toc ol li a { color: var(--teal, #2a7a6a); text-decoration: none; font-size: 13.5px; }
+  .page-toc ol li a:hover { text-decoration: underline; }
 </style>
 <script>
   // Safari print fix: force desktop-width viewport before printing
@@ -490,9 +536,20 @@
 
 <div class="page-body">
 
+  <div class="year-jump">
+    <span class="year-jump-label">Jump to year:</span>
+    <a href="#year-2026">2026</a>
+    <a href="#year-2025">2025</a>
+    <a href="#year-2023">2023</a>
+    <a href="#year-2022">2022</a>
+    <a href="#year-2021">2021</a>
+    <a href="#year-2020">2020</a>
+    <a href="#year-foundational">2013–2019</a>
+  </div>
+
   <!-- 2026 -->
   <p class="section-label">Most recent</p>
-  <h2 class="section-title">2026 Research</h2>
+  <h2 class="section-title" id="year-2026">2026 Research</h2>
 
   <div class="year-block">
     <div class="year-badge">2026</div>
@@ -568,7 +625,7 @@
 
   <!-- 2025 -->
   <p class="section-label">2025 publications</p>
-  <h2 class="section-title">2025 Research</h2>
+  <h2 class="section-title" id="year-2025">2025 Research</h2>
 
   <div class="year-block">
     <div class="year-badge">2025</div>
@@ -858,7 +915,7 @@
 
   <!-- 2022 -->
   <p class="section-label">2022 publication</p>
-  <h2 class="section-title">2022 Research</h2>
+  <h2 class="section-title" id="year-2022">2022 Research</h2>
 
   <div class="year-block">
     <div class="year-badge">2022</div>
@@ -890,7 +947,7 @@
 
   <!-- 2023 -->
   <p class="section-label">2023 publications</p>
-  <h2 class="section-title">2023 Research</h2>
+  <h2 class="section-title" id="year-2023">2023 Research</h2>
 
   <div class="year-block">
     <div class="year-badge">2023</div>
@@ -1030,7 +1087,7 @@
 
   <!-- 2021 -->
   <p class="section-label">2021 publication</p>
-  <h2 class="section-title">2021 Research</h2>
+  <h2 class="section-title" id="year-2021">2021 Research</h2>
 
   <div class="year-block">
     <div class="year-badge">2021</div>
@@ -1084,7 +1141,7 @@
 
   <!-- 2020 -->
   <p class="section-label">2020 publication</p>
-  <h2 class="section-title">2020 Research</h2>
+  <h2 class="section-title" id="year-2020">2020 Research</h2>
 
   <div class="year-block">
     <div class="year-badge">2020</div>
@@ -1183,7 +1240,7 @@
 
   <!-- FOUNDATIONAL -->
   <p class="section-label">Before 2020</p>
-  <h2 class="section-title">Foundational Research (2013–2019)</h2>
+  <h2 class="section-title" id="year-foundational">Foundational Research (2013–2019)</h2>
 
   <!-- 2013 -->
   <div class="year-block">
@@ -1572,8 +1629,16 @@
 <!-- TAB PANEL: MANAGEMENT -->
 <div id="tab-management" class="tab-panel">
 <div class="page-body">
+  <div class="page-toc">
+    <p class="page-toc-label">On this tab</p>
+    <ol>
+      <li><a href="#sec-management">How SETD5 Is Managed Today</a></li>
+      <li><a href="#sec-monitoring">Recommended Monitoring</a></li>
+    </ol>
+  </div>
+
   <p class="section-label">Current care</p>
-  <h2 class="section-title">How SETD5 Is Managed Today</h2>
+  <h2 class="section-title" id="sec-management">How SETD5 Is Managed Today</h2>
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;">There are no medications specifically designed to treat SETD5-related syndrome. Management is symptomatic; each feature is treated individually. The treatments and therapies listed below are based on currently published case data and clinical guidance. <strong>Note:</strong> Some medical treatments listed (e.g., growth hormone therapy, zoledronic acid) are based on single published case reports and should not be interpreted as established treatment guidelines. Always discuss options with your child's medical team.</p>
 
   <div class="treatment-grid">
@@ -1620,7 +1685,7 @@
   </div>
 
   <div class="monitoring-box">
-    <h3>Monitoring Recommended by Published Literature</h3>
+    <h3 id="sec-monitoring">Monitoring Recommended by Published Literature</h3>
     <div class="monitoring-grid">
       <div class="monitoring-item">Regular developmental assessments</div>
       <div class="monitoring-item">Bone density (DEXA scan)</div>
@@ -1642,8 +1707,15 @@
 <!-- TAB PANEL: GAPS -->
 <div id="tab-gaps" class="tab-panel">
 <div class="page-body">
+  <div class="page-toc">
+    <p class="page-toc-label">On this tab</p>
+    <ol>
+      <li><a href="#sec-openquestions">What Is Not Yet Known</a></li>
+    </ol>
+  </div>
+
   <p class="section-label">Open questions</p>
-  <h2 class="section-title">What Is Not Yet Known</h2>
+  <h2 class="section-title" id="sec-openquestions">What Is Not Yet Known</h2>
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px;">The following are documented gaps in the published SETD5 literature as of February 2026.</p>
 
   <div class="gaps-list">

@@ -92,7 +92,7 @@
 
   /* ── TABS ── */
   .tab-nav {
-    background: #2a7a6a;
+    background: #479e8d;
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     position: sticky; top: 0; z-index: 100; transition: top 0.175s ease;
@@ -292,6 +292,52 @@
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
+
+  /* ── PAGE TOC ── */
+  .page-toc {
+    background: var(--cream2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 2rem;
+    font-size: 14px;
+  }
+  .page-toc-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  .page-toc ol {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: 4px 0;
+    flex-direction: column;
+  }
+  .page-toc ol li { padding: 1px 0; }
+  .page-toc ol li a { color: var(--teal); text-decoration: none; font-size: 13.5px; }
+  .page-toc ol li a:hover { text-decoration: underline; }
+
+  /* ── QUICK SUMMARY ── */
+  .quick-summary {
+    background: var(--sage-lt);
+    border: 1px solid #b8d4be;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+  .quick-summary-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--sage); margin-bottom: 8px; display: block;
+  }
+  .quick-summary p { font-size: 15px; line-height: 1.65; margin-bottom: 8px; color: var(--text); }
+  .quick-summary ul { list-style: none; padding: 0; margin: 4px 0 8px; }
+  .quick-summary ul li {
+    font-size: 14.5px; padding: 2px 0 2px 18px;
+    position: relative; line-height: 1.55; color: var(--text);
+  }
+  .quick-summary ul li::before {
+    content: '·'; position: absolute; left: 5px;
+    font-size: 20px; line-height: 1; color: var(--sage); top: 2px;
+  }
+  .quick-summary .qs-note { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
 </style>
 <script>
   function showTab(id) {
@@ -358,13 +404,22 @@
       <div style="font-size:15px; font-weight:700; color:#1a2744; margin-bottom:5px;">SETD5 Syndrome: At a Glance</div>
       <p style="font-size:13px; color:#374151; margin:0; line-height:1.55;">Key facts, common features, and resources -- one page.</p>
     </div>
-    <a href="setd5-general-guide.pdf" download="SETD5-Syndrome-General-Guide.pdf" style="display:inline-flex; align-items:center; gap:7px; background:#2a7a6a; color:#fff; font-weight:600; font-size:13px; padding:9px 18px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">
+    <a href="setd5-general-guide.pdf" download="SETD5-Syndrome-General-Guide.pdf" style="display:inline-flex; align-items:center; gap:7px; background:#479e8d; color:#fff; font-weight:600; font-size:13px; padding:9px 18px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">
       &#8595; Download PDF
     </a>
   </div>
 
+  <div class="page-toc">
+    <p class="page-toc-label">On this tab</p>
+    <ol>
+      <li><a href="#sec-what">What is SETD5 Syndrome</a></li>
+      <li><a href="#sec-caused">What Caused This?</a></li>
+      <li><a href="#sec-diagnosed">How Is It Diagnosed?</a></li>
+    </ol>
+  </div>
+
   <p class="section-label">The basics</p>
-  <h2 class="section-title">What is SETD5 Syndrome</h2>
+  <h2 class="section-title" id="sec-what">What is SETD5 Syndrome</h2>
 
   <p class="prose">SETD5 Syndrome is a rare genetic neurodevelopmental disorder caused by a change (variant) in the <strong>SETD5 gene</strong> on chromosome 3. This gene regulates how other genes are switched on and off during development. When one copy doesn't function correctly, it can lead to a range of developmental, behavioral, medical, and physical features. No two individuals are exactly alike. See the <strong>Symptoms &amp; Features</strong> tab for details. The condition was first identified in published research in 2014, which means it is still relatively new to researchers and clinicians.</p>
 
@@ -386,7 +441,7 @@
   <hr class="section-divider">
 
   <p class="section-label">How it happens</p>
-  <h2 class="section-title">What Caused This?</h2>
+  <h2 class="section-title" id="sec-caused">What Caused This?</h2>
 
   <p class="prose">Most reported cases of SETD5 Syndrome are <strong>de novo</strong> (meaning the genetic change arose spontaneously and was not passed down from either parent). It is a random change in a single gene that occurred very early in development.</p>
 
@@ -407,7 +462,7 @@
   <hr class="section-divider">
 
   <p class="section-label">Diagnosis</p>
-  <h2 class="section-title">How Is It Diagnosed?</h2>
+  <h2 class="section-title" id="sec-diagnosed">How Is It Diagnosed?</h2>
 
   <p class="prose">SETD5 Syndrome is diagnosed through genetic testing. Many families receive the diagnosis after years of searching for answers, a process sometimes called a "diagnostic odyssey." If you are newly diagnosed, know that the testing has now given you a specific answer, which opens the door to targeted support and appropriate specialists.</p>
 
@@ -444,8 +499,29 @@
 <div id="tab-symptoms" class="tab-panel">
 <div class="page-body">
 
+  <div class="page-toc">
+    <p class="page-toc-label">On this tab</p>
+    <ol>
+      <li><a href="#sec-symptoms">Overview</a></li>
+      <li><a href="#sec-neuro-beh">Neurodevelopmental &amp; Behavioral</a></li>
+      <li><a href="#sec-neuro-phys">Neurological, Physical &amp; Growth</a></li>
+    </ol>
+  </div>
+
+  <div class="quick-summary">
+    <span class="quick-summary-label">Quick Summary</span>
+    <p>SETD5 Syndrome most commonly affects:</p>
+    <ul>
+      <li>Developmental delay and intellectual disability (ranging from mild to moderate)</li>
+      <li>Speech and language development (often one of the earliest concerns)</li>
+      <li>Behavior — including ADHD features, autism-like traits, and anxiety</li>
+      <li>Motor development (low muscle tone, coordination)</li>
+    </ul>
+    <p class="qs-note">Features vary widely between individuals. No two people with SETD5 Syndrome are exactly alike, and many features change over time.</p>
+  </div>
+
   <p class="section-label">What to know</p>
-  <h2 class="section-title">Symptoms &amp; Features</h2>
+  <h2 class="section-title" id="sec-symptoms">Symptoms &amp; Features</h2>
 
   <div class="amber-callout">
     <span class="callout-label">Important note</span>
@@ -453,7 +529,7 @@
   </div>
 
   <p class="section-label">Core features</p>
-  <h2 class="section-title">Neurodevelopmental &amp; Behavioral</h2>
+  <h2 class="section-title" id="sec-neuro-beh">Neurodevelopmental &amp; Behavioral</h2>
 
   <div class="feature-grid">
     <div class="feature-card">
@@ -504,7 +580,7 @@
   <hr class="section-divider">
 
   <p class="section-label">Physical features</p>
-  <h2 class="section-title">Neurological, Physical &amp; Growth Features</h2>
+  <h2 class="section-title" id="sec-neuro-phys">Neurological, Physical &amp; Growth Features</h2>
 
   <div class="feature-grid">
     <div class="feature-card blue-top">
@@ -578,12 +654,21 @@
 <div id="tab-nextsteps" class="tab-panel">
 <div class="page-body">
 
+  <div class="page-toc">
+    <p class="page-toc-label">On this tab</p>
+    <ol>
+      <li><a href="#sec-nextsteps">What to Do After a Diagnosis</a></li>
+      <li><a href="#sec-specialists">Specialists to Consider</a></li>
+      <li><a href="#sec-questions">Questions to Ask Your Care Team</a></li>
+    </ol>
+  </div>
+
   <div style="background:#eef7f5; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:14px 20px; margin-bottom:28px;">
     <p style="font-size:14.5px; margin:0;">Need something to bring to an appointment or hand to a new teacher? Visit the <a href="printable-handouts.html">Printable Handouts</a> page for one-page summaries, including customizable handouts for medical visits and school meetings.</p>
   </div>
 
   <p class="section-label">Getting started</p>
-  <h2 class="section-title">What to Do After a Diagnosis</h2>
+  <h2 class="section-title" id="sec-nextsteps">What to Do After a Diagnosis</h2>
 
   <p class="prose">Receiving a diagnosis can feel overwhelming. It can also feel like a relief. Finally having a name for what you or your child has been experiencing. There is no single "right" path forward, but there are some clear first steps that can help you access the right support.</p>
 
@@ -623,7 +708,7 @@
   <hr class="section-divider">
 
   <p class="section-label">Your care team</p>
-  <h2 class="section-title">Specialists to Consider</h2>
+  <h2 class="section-title" id="sec-specialists">Specialists to Consider</h2>
 
   <div class="specialist-grid">
     <div class="specialist-card">
@@ -679,7 +764,7 @@
   <hr class="section-divider">
 
   <p class="section-label">Appointments</p>
-  <h2 class="section-title">Questions to Ask Your Child's Care Team</h2>
+  <h2 class="section-title" id="sec-questions">Questions to Ask Your Child's Care Team</h2>
 
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px;">These questions were compiled from published research on SETD5 Syndrome and from conversations within the SETD5 parent support community. They are meant as a starting point for discussions with your child's medical team, and your doctors will guide what's appropriate for your child's individual situation.</p>
 
