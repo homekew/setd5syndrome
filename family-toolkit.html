@@ -608,6 +608,23 @@ window.scrollTo(0, 0);
   window.addEventListener('resize', function() {
     setNavTop(header.classList.contains('collapsed'));
   });
+
+  // Intercept section nav clicks to scroll past both sticky bars
+  document.querySelectorAll('.section-nav-btn').forEach(function(btn) {
+    var href = btn.getAttribute('href');
+    if (href && href.charAt(0) === '#') {
+      btn.addEventListener('click', function(e) {
+        var target = document.getElementById(href.slice(1));
+        if (target) {
+          e.preventDefault();
+          var offset = header.offsetHeight + (secNav ? secNav.offsetHeight : 0) + 8;
+          var targetTop = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: targetTop, behavior: 'smooth' });
+          history.replaceState(null, '', href);
+        }
+      });
+    }
+  });
 })();
 </script>
 
