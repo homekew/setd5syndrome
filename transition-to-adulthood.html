@@ -45,7 +45,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -87,10 +87,10 @@
   .header-subtitle { font-size: 16.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 650px; line-height: 1.6; }
 
   /* ── HEADER COLLAPSE ── */
-  .header-inner { transition: padding 0.25s; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px; }
   .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
@@ -326,7 +326,7 @@
   <!-- Healthcare Transition -->
   <h2>Healthcare Transition</h2>
 
-  <p class="prose">Starting to plan for healthcare transition around ages 12 to 14 gives you time to prepare. Many pediatric specialists won't see patients past age 21 (sometimes even earlier, around 18). For your child with SETD5 Syndrome, you'll want to identify adult providers ahead of time: an adult neurologist, an adult geneticist or genetic counselor, and a primary care doctor willing to coordinate care.</p>
+  <p class="prose">Starting to plan for healthcare transition around ages 12 to 14 gives you time to prepare. Many pediatric specialists won't see patients past age 21 (sometimes even earlier, around 18). Families of individuals with SETD5 Syndrome may want to identify adult providers ahead of time. Depending on your child's needs, this might include an adult neurologist, a geneticist or genetic counselor, and a primary care doctor willing to coordinate care.</p>
 
   <p class="prose">One important step is transferring your child's medical records and creating a care summary document for new providers. This helps them understand your child's history quickly and completely. You may want to reference our <a href="medical-emergency-summary.html">Medical Emergency Summary</a> guide for help organizing this information.</p>
 
@@ -357,7 +357,7 @@
   <div class="feature-grid">
     <div class="feature-card amber-top">
       <h4>Guardianship</h4>
-      <p>A court grants a guardian legal authority over some or all of your child's decisions. This is the most restrictive option and requires ongoing court involvement, but it's appropriate for children with significant cognitive disabilities who cannot participate in decision-making.</p>
+      <p>A court grants a guardian legal authority over some or all of your child's decisions. This is the most restrictive option and requires ongoing court involvement. It is typically considered for individuals with significant cognitive disabilities who have difficulty participating in decision-making.</p>
     </div>
     <div class="feature-card teal-top">
       <h4>Power of Attorney</h4>
@@ -382,7 +382,7 @@
 
   <div class="amber-callout">
     <span class="callout-label">Important</span>
-    <p>Start this conversation with a disability attorney at least 6 months before your child turns 18. Your state's Protection & Advocacy agency (find yours at ndrn.org) can provide free legal help and resources, often at no cost to families.</p>
+    <p>Many families find it helpful to begin this conversation with a disability attorney well before their child turns 18. Six months or more in advance is a timeframe commonly suggested by disability advocates. Your state's Protection & Advocacy agency (find yours at ndrn.org) can provide free legal help and resources, often at no cost to families.</p>
   </div>
 
   <div class="section">
@@ -510,12 +510,12 @@
     <div class="step-item">
       <div class="step-number">3</div>
       <h4>Ages 16--18</h4>
-      <p>Identify specific adult healthcare providers and schedule transition appointments. Consult a disability attorney about legal decisions. If eligible, open an ABLE account. Apply for Vocational Rehabilitation services.</p>
+      <p>Consider identifying adult healthcare providers and scheduling transition appointments. Consult a disability attorney about legal decisions. If eligible, open an ABLE account. Apply for Vocational Rehabilitation services.</p>
     </div>
     <div class="step-item">
       <div class="step-number">4</div>
       <h4>Age 18</h4>
-      <p>SSI redetermination happens. Legal decision-making authority takes effect (guardianship, supported decision-making, or other arrangement). Transition medical records to adult providers. Apply for adult day programs if needed.</p>
+      <p>SSI redetermination happens. Legal decision-making authority takes effect (guardianship, supported decision-making, or other arrangement). Medical records typically transfer to adult providers during this period -- this is a good time to ensure that transition is complete. Apply for adult day programs if needed.</p>
     </div>
     <div class="step-item">
       <div class="step-number">5</div>
