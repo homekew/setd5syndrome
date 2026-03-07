@@ -142,13 +142,30 @@
   .stat-number { font-family: 'Lora', serif; font-size: 30px; color: var(--navy); line-height: 1; margin-bottom: 6px; }
   .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
+  /* ── NEW DIAGNOSIS NOTE ── */
+  .new-diagnosis-note {
+    background: var(--sage-lt); border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0; padding: 16px 22px; margin-bottom: 32px;
+  }
+  .new-diagnosis-note p { font-size: 15px; line-height: 1.75; color: var(--text); margin: 0; }
+
+  /* ── PROSE NOTE (footnotes) ── */
+  .prose-note { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 10px; margin-bottom: 24px; }
+
+  /* ── QUESTION GROUP LABEL ── */
+  .question-group-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted);
+    margin: 24px 0 8px; display: block;
+  }
+
   /* ── INFO CALLOUT ── */
   .info-callout {
     background: var(--blue-lt); border-left: 4px solid var(--blue);
     border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
   }
   .info-callout .callout-label {
-    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    font-size: 11px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 6px;
   }
   .info-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
@@ -158,7 +175,7 @@
     border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
   }
   .teal-callout .callout-label {
-    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    font-size: 11px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
   }
   .teal-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
@@ -168,14 +185,17 @@
     border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
   }
   .amber-callout .callout-label {
-    font-size: 10px; font-weight: 600; letter-spacing: .11em;
+    font-size: 11px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
   }
   .amber-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
 
   /* ── FEATURE CARDS ── */
-  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; align-items: start; }
   @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } }
+  /* Two-column list inside a feature card for long lists */
+  .feature-card.two-col-list ul { columns: 2; column-gap: 16px; }
+  @media (max-width: 560px) { .feature-card.two-col-list ul { columns: 1; } }
   .feature-card {
     background: #fff; border: 1px solid var(--border); border-radius: 10px;
     padding: 20px 22px; border-top: 3px solid var(--teal);
@@ -347,6 +367,7 @@
     document.getElementById(id).classList.add('active');
     document.querySelector('[data-tab="' + id + '"]').classList.add('active');
     history.replaceState(null, '', '#' + id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   // Restore tab from URL hash on page load -- must run after DOM is ready
@@ -375,17 +396,17 @@
   <div class="header-inner">
     <p class="header-eyebrow"><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none;">← SETD5 Syndrome Research &amp; Resources</a></p>
     <h1 class="header-title">Understanding SETD5 Syndrome</h1>
-    <p class="header-subtitle">For parents, caregivers, and adults living with SETD5 Syndrome: what it means, what to expect, and where to turn.</p>
+    <p class="header-subtitle">A guide for families, caregivers, and adults navigating SETD5 Syndrome.</p>
   </div>
 </header>
 
 <!-- TAB NAV -->
 <nav class="tab-nav">
   <div class="tab-nav-inner">
-    <button class="tab-btn active" data-tab="tab-what" onclick="showTab('tab-what')">What is SETD5 Syndrome</button>
+    <button class="tab-btn active" data-tab="tab-what" onclick="showTab('tab-what')">Overview</button>
     <button class="tab-btn" data-tab="tab-symptoms" onclick="showTab('tab-symptoms')">Symptoms &amp; Features</button>
     <button class="tab-btn" data-tab="tab-nextsteps" onclick="showTab('tab-nextsteps')">Next Steps</button>
-    <a href="family-toolkit.html" class="tab-btn" style="text-decoration:none;">Resources &amp; Support</a>
+    <a href="family-toolkit.html" class="tab-btn" style="text-decoration:none; opacity:0.75; font-style:italic;">Resources &amp; Support &#8594;</a>
   </div>
 </nav>
 
@@ -395,13 +416,15 @@
 <div id="tab-what" class="tab-panel active">
 <div class="page-body">
 
-  <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:28px; max-width:100%;"><strong style="color:var(--text);">Just diagnosed?</strong> You don't have to read all of this today. Start with the <em>At a Glance</em> handout below for a one-page overview, then come back to this page when you're ready. The most important thing right now is that you have an answer, and that opens the door to the right support.</p>
+  <div class="new-diagnosis-note">
+    <p><strong>Just diagnosed?</strong> You don't have to read all of this today. Start with the <em>At a Glance</em> handout below for a one-page overview, then come back to this page when you're ready. The most important thing right now is that you have an answer, and that opens the door to the right support.</p>
+  </div>
 
   <div style="background:#eaf5f3; border:1.5px solid #2a7a6a; border-radius:10px; padding:16px 20px; margin-bottom:32px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
     <div style="flex:1; min-width:min(200px, 100%);">
       <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#2a7a6a; margin-bottom:3px;">Printable Resource</div>
       <div style="font-size:15px; font-weight:700; color:#1a2744; margin-bottom:5px;">SETD5 Syndrome: At a Glance</div>
-      <p style="font-size:13px; color:#374151; margin:0; line-height:1.55;">Key facts, common features, and resources -- one page.</p>
+      <p style="font-size:13px; color:#374151; margin:0; line-height:1.55;">Key facts, common features, and resources. One page.</p>
     </div>
     <a href="setd5-general-guide.pdf" download="SETD5-Syndrome-General-Guide.pdf" style="display:inline-flex; align-items:center; gap:7px; background:#5a9186; color:#fff; font-weight:600; font-size:13px; padding:9px 18px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">
       &#8595; Download PDF
@@ -426,7 +449,7 @@
     <div class="stat-box"><div class="stat-number">75+</div><div class="stat-label">individuals in published literature (as of 2025)</div></div>
     <div class="stat-box"><div class="stat-number">Chr. 3</div><div class="stat-label">gene location (3p25.3)</div></div>
   </div>
-  <p style="font-size:14px; color:var(--muted); text-align:left; margin-top:10px; margin-bottom:0;">*While there are approximately 75+ individuals in published studies (as of 2025), the SETD5 Syndrome Facebook support group has grown to over 1,100 members worldwide; suggesting the exact prevalence remains unknown and is likely underestimated due to underreporting in the medical literature.</p>
+  <p class="prose-note">*The SETD5 Syndrome Facebook support group has grown to over 1,100 members worldwide, suggesting the true prevalence is likely higher than published figures reflect. Exact numbers remain unknown due to underdiagnosis and underreporting.</p>
 
   <hr class="section-divider">
 
@@ -574,7 +597,7 @@
         <li>Sleep disturbances common</li>
       </ul>
     </div>
-    <div class="feature-card">
+    <div class="feature-card two-col-list">
       <h4>Craniofacial &amp; Physical Features</h4>
       <ul>
         <li>Triangular-shaped face</li>
@@ -608,7 +631,6 @@
       </ul>
     </div>
     <div class="feature-card rose-top">
-      <p style="font-size:14px; color:var(--muted); margin: 8px 0 4px; font-style:italic;">Not every person with SETD5 Syndrome will have any of the features below. Many individuals have only a few features from this entire list.</p>
       <h4>Other Medical Features</h4>
       <ul>
         <li>Congenital heart defects reported in some; various types have been documented. Outcomes depend on the specific defect and are best discussed with a cardiologist.</li>
@@ -623,6 +645,7 @@
     </div>
   </div>
 
+  <p class="prose-note">Not every person with SETD5 Syndrome will have all of the features listed above. Many individuals have only a few. Features vary widely between individuals and can change over time.</p>
 
 </div>
 </div>
@@ -687,7 +710,7 @@
     </div>
     <div class="specialist-card">
       <h5>Neurologist</h5>
-      <p>Evaluates and manages seizures, EEG findings, and neurological features. Often recommended, especially if there are seizures, concerning spells, developmental regression, or abnormal neurologic findings. <strong>Moyamoya disease</strong> (a rare condition affecting blood flow to the brain) has been reported in a very small number of individuals with SETD5 Syndrome in the published literature; this appears to be uncommon. Routine screening is not currently established. If your child experiences symptoms such as recurrent headaches or stroke-like episodes, mention this association to your neurologist.</p>
+      <p>Evaluates and manages seizures, EEG findings, and neurological features. Often recommended if there are seizures, concerning spells, developmental regression, or abnormal neurologic findings.</p>
     </div>
     <div class="specialist-card">
       <h5>Speech-Language Pathologist</h5>
@@ -727,6 +750,11 @@
     </div>
   </div>
 
+  <div class="teal-callout" style="margin-top:4px;">
+    <span class="callout-label">Note: Moyamoya disease</span>
+    <p><strong>Moyamoya disease</strong> (a rare condition affecting blood flow to the brain) has been reported in a very small number of individuals with SETD5 Syndrome in published literature; this appears to be uncommon and routine screening is not currently established. If your child experiences symptoms such as recurrent headaches or stroke-like episodes, mention this association to your neurologist.</p>
+  </div>
+
   <hr class="section-divider">
 
   <p class="section-label">Appointments</p>
@@ -734,10 +762,15 @@
 
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px;">These questions were compiled from published research on SETD5 Syndrome and from conversations within the SETD5 parent support community. They are meant as a starting point for discussions with your child's medical team, and your doctors will guide what's appropriate for your child's individual situation.</p>
 
+  <span class="question-group-label">Understanding the diagnosis</span>
   <ul class="question-list">
     <li>What type of SETD5 variant does my child have: a point mutation or a deletion? Does the type affect prognosis?</li>
     <li>Is this de novo, or could it have been inherited from a parent?</li>
     <li>What is the recurrence risk for future pregnancies?</li>
+  </ul>
+
+  <span class="question-group-label">Referrals &amp; monitoring</span>
+  <ul class="question-list">
     <li>What specialists should we see first, given the features we're observing?</li>
     <li>Should we do an EEG or cardiac evaluation, even if no seizures or heart symptoms are present?</li>
     <li>Has my child had a bone density (DEXA) scan? Is that something we should consider?</li>
@@ -747,7 +780,15 @@
     <li>Should my child receive regular ophthalmology screening?</li>
     <li>Has my child been assessed for both neurological and psychiatric features? I understand these can sometimes co-occur.</li>
     <li>What should we be monitoring as my child grows: milestones, bone density, vision, hearing?</li>
+  </ul>
+
+  <span class="question-group-label">School &amp; services</span>
+  <ul class="question-list">
     <li>What does this diagnosis mean for school services and IEP eligibility?</li>
+  </ul>
+
+  <span class="question-group-label">Research &amp; community</span>
+  <ul class="question-list">
     <li>Are there any clinical trials or research studies our family could participate in, including those related to similar conditions like KBG syndrome?</li>
     <li>Are we enrolled in Simons Searchlight? Can you help support us in enrolling to access free genetic counseling and contribute to research?</li>
   </ul>

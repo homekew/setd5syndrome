@@ -52,9 +52,17 @@
   .site-header {
     background: var(--navy);
     color: #fff;
-    padding: 2rem 2rem 1.75rem;
+    padding: 0;
     position: relative;
     border-bottom: 4px solid #5a9186;
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 22px 32px 28px;
+    position: relative;
+    z-index: 1;
   }
 
   .site-header::before {
@@ -72,7 +80,6 @@
   .site-header .header-title,
   .site-header .header-subtitle {
     position: relative;
-    z-index: 1;
   }
 
   .header-eyebrow {
@@ -502,8 +509,10 @@
   <div class="translate-widget">
     <div id="google_translate_element"></div>
   </div>
-  <p class="header-eyebrow"><a href="index.html">← SETD5 Syndrome Research &amp; Resources</a></p>
-  <h1 class="header-title">About This Site</h1>
+  <div class="header-inner">
+    <p class="header-eyebrow"><a href="index.html">← SETD5 Syndrome Research &amp; Resources</a></p>
+    <h1 class="header-title">About This Site</h1>
+  </div>
 </header>
 
 <main>
