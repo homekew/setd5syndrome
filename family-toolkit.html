@@ -437,13 +437,43 @@
 
 <nav class="section-nav" id="section-nav">
   <div class="section-nav-inner">
-    <a href="#handouts" class="section-nav-btn active">Tools</a>
+    <a href="#community" class="section-nav-btn active">Community</a>
+    <a href="#handouts" class="section-nav-btn">Tools</a>
     <a href="#guides" class="section-nav-btn">Guides</a>
-    <a href="#community" class="section-nav-btn">Community</a>
   </div>
 </nav>
 
 <main>
+
+  <div class="section-label" id="community" style="scroll-margin-top: 100px;">Community</div>
+
+  <div class="card-grid">
+
+    <a href="family-stories.html" class="card card-stories">
+      <h2>Family Stories</h2>
+      <p>Real experiences from families living with SETD5 Syndrome, in their own words. More stories coming soon!</p>
+      <span class="card-link">Read Stories</span>
+    </a>
+
+    <a href="https://www.facebook.com/groups/setd5families/" target="_blank" rel="noopener" class="card card-links">
+      <h2>SETD5 Syndrome Facebook Group</h2>
+      <p>The primary peer support community for SETD5 Syndrome families worldwide. Connect with parents, caregivers, and adults living with the diagnosis.</p>
+      <span class="card-link">Visit Group ↗</span>
+    </a>
+
+    <a href="https://simonssearchlight.org/research/what-we-study/setd5/" target="_blank" rel="noopener" class="card card-discounts">
+      <h2>Simons Searchlight</h2>
+      <p>A free patient registry specifically studying SETD5 Syndrome. Enrolling connects your family with researchers and helps build the evidence that benefits future families. International and multilingual.</p>
+      <span class="card-link">Learn More ↗</span>
+    </a>
+
+    <a href="helpful-links.html" class="card card-links">
+      <h2>Organizations &amp; Programs</h2>
+      <p>External links to support groups, rare disease organizations, genetics databases, and US benefit programs, organized by category.</p>
+      <span class="card-link">Browse Directory</span>
+    </a>
+
+  </div>
 
   <div class="section-label" id="handouts" style="scroll-margin-top: 100px;">Tools</div>
 
@@ -485,36 +515,6 @@
       <span class="card-link">View Discounts Guide</span>
     </a>
 
-    <a href="helpful-links.html" class="card card-links">
-      <h2>Organizations &amp; Programs</h2>
-      <p>External links to support groups, rare disease organizations, genetics databases, and US benefit programs, organized by category.</p>
-      <span class="card-link">Browse Directory</span>
-    </a>
-
-  </div>
-
-  <div class="section-label" id="community" style="scroll-margin-top: 100px;">Community</div>
-
-  <div class="card-grid">
-
-    <a href="family-stories.html" class="card card-stories">
-      <h2>Family Stories</h2>
-      <p>Real experiences from families living with SETD5 Syndrome, in their own words. More stories coming soon!</p>
-      <span class="card-link">Read Stories</span>
-    </a>
-
-    <a href="https://www.facebook.com/groups/setd5families/" target="_blank" rel="noopener" class="card card-links">
-      <h2>SETD5 Syndrome Facebook Group</h2>
-      <p>The primary peer support community for SETD5 Syndrome families worldwide. Connect with parents, caregivers, and adults living with the diagnosis.</p>
-      <span class="card-link">Visit Group ↗</span>
-    </a>
-
-    <a href="https://simonssearchlight.org/research/what-we-study/setd5/" target="_blank" rel="noopener" class="card card-discounts">
-      <h2>Simons Searchlight</h2>
-      <p>A free patient registry specifically studying SETD5 Syndrome. Enrolling connects your family with researchers and helps build the evidence that benefits future families. International and multilingual.</p>
-      <span class="card-link">Learn More ↗</span>
-    </a>
-
   </div>
 
   <div style="background:#eef7f5; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:14px 20px; margin-top:0;">
@@ -550,7 +550,7 @@ window.scrollTo(0, 0);
     syncNavTop();
 
     // Highlight active section
-    var sections = ['handouts','guides','community'];
+    var sections = ['community','handouts','guides'];
     var current  = sections[0];
     sections.forEach(function(id) {
       var el = document.getElementById(id);
