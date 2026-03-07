@@ -257,6 +257,20 @@
     --card-icon-bg: #e8eff7;
   }
 
+  .card-international {
+    --card-accent: var(--sage);
+    --card-icon-bg: var(--sage-lt);
+    cursor: default;
+    max-width: 680px;
+    margin: 1.5rem auto 0;
+  }
+
+  .card-international:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
+    border-color: var(--border);
+  }
+
   /* FOOTER */
   footer {
     background: var(--navy);
@@ -317,10 +331,6 @@
 </nav>
 
 <main>
-  <div style="background:var(--sage-lt);border:1px solid var(--sage);border-radius:8px;margin:0 auto 2rem;max-width:680px;padding:11px 20px;font-size:13px;line-height:1.6;color:var(--ink);">
-    <strong>Note for international readers:</strong> Most medical and research content applies globally. Some information on this site may refer to US-specific programs and laws, so please refer to your country for equivalent support systems.
-  </div>
-
   <div class="guides-label">Our Guides</div>
   <div class="card-grid">
 
@@ -355,6 +365,14 @@
     </a>
 
   </div>
+
+  <div class="card card-international">
+    <div class="card-icon">&#127760;</div>
+    <h2>A Note for International Readers</h2>
+    <p>Most medical and research content on this site applies globally. Some sections cover US-specific programs and laws — such as SSI, Medicaid, IDEA, and disability discounts — so please check your country for equivalent support systems.</p>
+    <p style="margin-bottom:0; font-size:0.9rem;">A Google Translate widget (powered by Google) is available in the top corner of most pages to help make content accessible in your language. Translations are automatic and may not be fully accurate for medical or technical terms — when in doubt, refer to the English version.</p>
+  </div>
+
 </main>
 
 <footer class="site-footer">
