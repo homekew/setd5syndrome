@@ -125,6 +125,7 @@
     font-family: 'Lora', serif;
     font-size: clamp(21px, 3.5vw, 29px); font-weight: 400;
     color: var(--navy); margin-bottom: 20px; line-height: 1.25;
+    scroll-margin-top: 150px;
   }
   .section-divider { border: none; border-top: 2px solid var(--border); margin: 44px 0 40px; }
 
@@ -489,7 +490,6 @@
 <div class="page-body">
 
   <div class="quick-summary">
-    <span class="quick-summary-label">Quick Summary</span>
     <p>SETD5 Syndrome can affect:</p>
     <ul>
       <li>Developmental delay and intellectual disability (ranging from mild to moderate)</li>
@@ -505,7 +505,7 @@
 
   <div class="amber-callout">
     <span class="callout-label">Important note</span>
-    <p>This list describes features that have been reported across individuals with SETD5 Syndrome, and it is not a prediction of what your child or you will experience. SETD5 Syndrome affects each person differently, and no single feature is present in everyone. Severity varies widely, even among people with the same type of variant. Some individuals have relatively mild presentations; others face more significant challenges. The research literature is still growing, and our understanding of the full range of the condition continues to expand. Bring any specific questions to your medical team.</p>
+    <p>This list describes features that have been reported across individuals with SETD5 Syndrome, and <strong>it is not a prediction of what your child or you will experience.</strong> SETD5 Syndrome affects each person differently, and no single feature is present in everyone. Severity varies widely, even among people with the same type of variant. Some individuals have relatively mild presentations; others face more significant challenges. The research literature is still growing, and our understanding of the full range of the condition continues to expand. Bring any specific questions to your medical team.</p>
   </div>
 
   <p class="section-label">Core features</p>
@@ -526,12 +526,11 @@
     <div class="feature-card amber-top">
       <h4>Speech &amp; Language</h4>
       <ul>
-        <li>Speech and language delay (nearly universal)</li>
+        <li>Speech and language delay</li>
         <li>Expressive language typically more affected than receptive</li>
         <li>Some individuals are minimally verbal or nonverbal</li>
         <li>Speech dysfluency (may resemble a stammer)</li>
         <li>Articulation and pronunciation difficulties</li>
-        <li>Benefits from AAC (augmentative and alternative communication)</li>
       </ul>
     </div>
     <div class="feature-card rose-top">
@@ -809,6 +808,21 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   window.addEventListener('resize', function() {
     setNavTop(header.classList.contains('collapsed'));
+  });
+
+  // Intercept in-page anchor clicks to scroll past both sticky bars
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var id = this.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        var offset = header.offsetHeight + (tabNav ? tabNav.offsetHeight : 0) + 8;
+        var top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        history.replaceState(null, '', '#' + id);
+      }
+    });
   });
 });
 </script>
