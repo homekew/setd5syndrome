@@ -122,6 +122,7 @@
   /* ── ABOUT SECTIONS ── */
   .about-section {
     margin-top: 48px;
+    scroll-margin-top: 24px;
   }
 
   .contact-section {
@@ -451,6 +452,45 @@
   /* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
 
+  /* ── PAGE NAV ── */
+  .page-nav {
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-nav-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .page-nav ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .page-nav ol li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 3px 0;
+    color: var(--ink);
+  }
+
+  .page-nav ol li a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  .page-nav ol li a:hover { text-decoration: underline; }
+
   /* Ensure all body links are underlined */
   main a, .page-body a { text-decoration: underline; }
   footer a { text-decoration: underline; }
@@ -469,6 +509,18 @@
 <main>
 
   <p class="page-intro">This site was created by a parent of a child with SETD5 Syndrome to help families better understand the condition. Below you'll find the story behind it, what it contains, how the information is gathered, and what to keep in mind as you use it.</p>
+
+  <nav class="page-nav" aria-label="On this page">
+    <span class="page-nav-label">On this page</span>
+    <ol>
+      <li><a href="#why-this-site">Why This Site Exists</a></li>
+      <li><a href="#what-you-find">What You'll Find Here</a></li>
+      <li><a href="#how-information">How Information Is Collected</a></li>
+      <li><a href="#what-this-is-not">What This Site Is Not</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+  </nav>
 
   <section class="about-section" id="why-this-site">
     <h2>Why This Site Exists</h2>
@@ -518,7 +570,7 @@
     <a href="suggest-a-resource.html" class="contact-cta">Send a suggestion or correction &rarr;</a>
   </section>
 
-  <section class="faq-section" aria-label="Frequently asked questions">
+  <section class="faq-section" id="faq" aria-label="Frequently asked questions">
     <span class="faq-section-label">Frequently Asked Questions</span>
     <h2>Questions About This Site</h2>
 
