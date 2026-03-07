@@ -43,7 +43,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
   }
 
   /* ── HEADER ── */
@@ -155,14 +155,14 @@
   .stat-strip { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
   .stat-box {
     background: #fff; border: 1px solid var(--border); border-radius: 8px;
-    padding: 18px 20px; flex: 1; min-width: 130px; text-align: center;
+    padding: 18px 20px; flex: 1; min-width: 80px; text-align: center;
   }
   .stat-number { font-family: 'Lora', serif; font-size: 30px; color: var(--navy); line-height: 1; margin-bottom: 6px; }
   .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
   /* ── OVERVIEW GRID ── */
   .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
-  @media (max-width: 580px) { .overview-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; } }
   .overview-grid .overview-box:nth-child(5):last-child,
   .overview-grid .overview-box:nth-child(5):nth-last-child(2) { grid-column: span 1; }
   .overview-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; }
@@ -309,6 +309,13 @@
     .header-inner { padding: 14px 18px 18px; }
     .intro-bar { padding: 18px 18px 0; }
     .site-header.collapsed .header-inner { padding: 12px 18px 13px; }
+    .tab-btn { padding: 10px 12px; font-size: 13px; }
+  }
+
+  @media (max-width: 480px) {
+    .stat-box { min-width: 70px; padding: 12px 10px; }
+    .stat-number { font-size: 22px; }
+    .stat-label { font-size: 10px; }
   }
 
   @media print {
@@ -415,7 +422,9 @@
   }
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
-  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; overflow:hidden; }
+
+  @media (max-width: 400px) { .translate-widget { transform: scale(0.65); } }
 
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }

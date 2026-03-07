@@ -43,7 +43,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
   }
 
   /* ── HEADER ── */
@@ -250,10 +250,13 @@
     .section { padding: 18px; }
     h2 { font-size: 18px; }
     .site-header.collapsed .header-inner { padding: 12px 18px 13px; }
+    .tab-btn { padding: 10px 12px; font-size: 13px; }
   }
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
-  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
+  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; overflow:hidden; }
+
+  @media (max-width: 400px) { .translate-widget { transform: scale(0.65); } }
 
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
