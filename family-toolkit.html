@@ -282,7 +282,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    transition: top 0.175s ease;
+    
   }
   .section-nav-inner {
     display: flex;
@@ -566,23 +566,14 @@ window.scrollTo(0, 0);
   var secNav  = document.getElementById('section-nav');
   var ticking = false;
 
-  function setNavTop(isCollapsed) {
-    var isMobile = window.innerWidth <= 600;
-    var h = isCollapsed ? (isMobile ? 44 : 50) : (isMobile ? 70 : 90);
-    if (secNav) secNav.style.top = h + 'px';
+  function setNavTop() {
+    if (secNav) secNav.style.top = header.offsetHeight + 'px';
   }
 
   function updateScroll() {
     var isCollapsed = window.scrollY > 60;
-    if (header.classList.contains('collapsed') === isCollapsed) {
-      // Update nav highlighting even if collapsed state didn't change
-      updateActiveSectionHighlight();
-      return;
-    }
     header.classList.toggle('collapsed', isCollapsed);
-    setNavTop(isCollapsed);
-
-    // Highlight active section
+    setNavTop();
     updateActiveSectionHighlight();
   }
 
@@ -598,7 +589,7 @@ window.scrollTo(0, 0);
     });
   }
 
-  setNavTop(false);
+  setNavTop();
   window.addEventListener('scroll', function(){
     if (!ticking) {
       requestAnimationFrame(function() { updateScroll(); ticking = false; });
@@ -606,7 +597,7 @@ window.scrollTo(0, 0);
     }
   });
   window.addEventListener('resize', function() {
-    setNavTop(header.classList.contains('collapsed'));
+    setNavTop();
   });
 
   // Intercept section nav clicks to scroll past both sticky bars

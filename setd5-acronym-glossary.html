@@ -67,7 +67,7 @@
   .site-header.collapsed .header-title{ font-size:1rem; margin-bottom:0; }
 
   /* ── STICKY NAV ── */
-  .sticky-nav{ position:sticky; top:90px; z-index:100; transition:top 0.175s ease; }
+  .sticky-nav{ position:sticky; top:0; z-index:100; }
   @media (max-width:600px){ .sticky-nav{ top:70px; } }
 
   /* ── SEARCH BAR ── */
@@ -831,22 +831,12 @@
 (function(){
   var hdr = document.getElementById('siteHeader');
   var nav = document.getElementById('stickyNav');
-  var collapsed = false;
-  var DESK_FULL = 90, DESK_COLL = 50, MOB_FULL = 70, MOB_COLL = 44;
-  function isMobile(){ return window.innerWidth <= 600; }
-  function setNavTop(c){
-    var h = isMobile() ? (c ? MOB_COLL : MOB_FULL) : (c ? DESK_COLL : DESK_FULL);
-    nav.style.top = h + 'px';
-  }
-  setNavTop(false);
-  window.addEventListener('resize', function(){ setNavTop(collapsed); });
+  function setNavTop(){ nav.style.top = hdr.offsetHeight + 'px'; }
+  setNavTop();
+  window.addEventListener('resize', setNavTop);
   window.addEventListener('scroll', function(){
-    var c = window.scrollY > 30;
-    if(c !== collapsed){
-      collapsed = c;
-      hdr.classList.toggle('collapsed', c);
-      setNavTop(c);
-    }
+    hdr.classList.toggle('collapsed', window.scrollY > 30);
+    setNavTop();
   }, { passive: true });
 })();
 

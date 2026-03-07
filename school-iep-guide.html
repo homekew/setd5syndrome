@@ -88,7 +88,7 @@
     background: #5a9186;
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    position: sticky; top: 0; z-index: 100; transition: top 0.175s ease;
+    position: sticky; top: 0; z-index: 100;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
@@ -322,17 +322,14 @@
     var tabNav = document.querySelector('.tab-nav');
     if (!header) return;
 
-    function setNavTop(isCollapsed) {
-      var isMobile = window.innerWidth <= 600;
-      var h = isCollapsed ? (isMobile ? 44 : 50) : (isMobile ? 70 : 90);
-      if (tabNav) tabNav.style.top = h + 'px';
+    function setNavTop() {
+      if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
     }
 
     function updateLayout() {
       var isCollapsed = window.scrollY > 60;
-      if (header.classList.contains('collapsed') === isCollapsed) return;
       header.classList.toggle('collapsed', isCollapsed);
-      setNavTop(isCollapsed);
+      setNavTop();
     }
 
     var ticking = false;
@@ -347,9 +344,9 @@
     });
 
     window.addEventListener('resize', function() {
-      setNavTop(header.classList.contains('collapsed'));
+      setNavTop();
     });
-    setNavTop(false);
+    setNavTop();
   });
 
   function showTab(id) {
