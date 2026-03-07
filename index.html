@@ -41,8 +41,8 @@
     color: var(--ink);
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: clamp(15px, 2vw, 16px);
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.65;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -120,9 +120,9 @@
   /* MAIN */
   main {
     flex: 1;
-    max-width: 860px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 5rem;
+    padding: 2.5rem 1.5rem 5rem;
     width: 100%;
   }
 
@@ -156,7 +156,7 @@
     background: #fff;
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 2rem 2rem 1.75rem;
+    padding: 1.75rem 1.75rem 1.5rem;
     text-decoration: none;
     color: inherit;
     display: flex;
@@ -197,9 +197,9 @@
   .card h2 {
     font-family: 'Lora', serif;
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--navy);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.65rem;
     line-height: 1.25;
   }
 
@@ -257,14 +257,78 @@
     --card-icon-bg: #e8eff7;
   }
 
+  /* START HERE BANNER */
+  .start-here {
+    background: var(--amber-lt);
+    border: 1px solid #e6c08a;
+    border-left: 4px solid var(--amber);
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .start-here-text strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+  .start-here-text p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .start-here-btn {
+    white-space: nowrap;
+    background: var(--amber);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.55rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .start-here-btn:hover { background: #b87c2e; }
+  @media (max-width: 520px) {
+    .start-here { flex-direction: column; align-items: flex-start; }
+  }
+
   /* FOOTER */
   footer {
     background: var(--navy);
-    color: rgba(255,255,255,0.6);
     text-align: center;
-    padding: 1.5rem;
-    font-size: 0.82rem;
+    padding: 2rem 1.5rem;
     font-family: 'Poppins', sans-serif;
+  }
+  .footer-love {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.85rem;
+  }
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem 0.7rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.82rem;
+  }
+  .footer-nav a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-nav a:hover { color: rgba(255,255,255,0.9); }
+  .footer-nav .sep { color: rgba(255,255,255,0.25); }
+  .footer-legal {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.55;
   }
 
   @media (max-width: 600px) {
@@ -305,10 +369,10 @@
 
 <nav style="background:#2a7a6a; padding:0; text-align:center;">
   <div style="max-width:900px; margin:0 auto; display:flex; justify-content:center; flex-wrap:wrap; gap:0;">
-    <a href="understanding-setd5-syndrome.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 18px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Understanding SETD5</a>
-    <a href="family-toolkit.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 18px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Family Toolkit</a>
-    <a href="setd5-research-2020-to-present.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 18px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Research</a>
-    <a href="setd5-medical-terms-guide.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 18px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Medical Terms</a>
+    <a href="understanding-setd5-syndrome.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Understanding SETD5</a>
+    <a href="family-toolkit.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Family Toolkit</a>
+    <a href="setd5-research-2020-to-present.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Research</a>
+    <a href="setd5-medical-terms-guide.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Poppins',sans-serif; display:inline-block;">Medical Terms</a>
   </div>
 </nav>
 
@@ -316,7 +380,15 @@
   <p style="font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:1.25rem;">This website was created by a parent of a child with SETD5 Syndrome to help other families better understand the condition. The information shared here is based on published research and insights from the SETD5 community and is intended for educational purposes only.</p>
 
   <div style="background:var(--sage-lt); border:1px solid #b8d4be; border-radius:8px; padding:0.9rem 1.2rem; margin-bottom:2rem; font-size:0.88rem; color:#3a5c48; line-height:1.65;">
-    &#127760; <strong>A note for international readers:</strong> Most medical and research content on this site applies globally. Some sections cover US-specific programs and laws, so please check your country for equivalent support systems. A Google Translate widget (powered by Google) is available in the top corner of most pages.
+    <strong>A note for international readers:</strong> Most medical and research content on this site applies globally. Some sections cover US-specific programs and laws, so please check your country for equivalent support systems. A Google Translate widget (powered by Google) is available in the top corner of most pages.
+  </div>
+
+  <div class="start-here">
+    <div class="start-here-text">
+      <strong>New to SETD5 Syndrome?</strong>
+      <p>Start with our plain-language guide to the condition, common features, and where families often begin.</p>
+    </div>
+    <a href="understanding-setd5-syndrome.html" class="start-here-btn">Start Here &rarr;</a>
   </div>
 
   <div class="guides-label">Our Guides</div>
@@ -358,10 +430,14 @@
 </main>
 
 <footer class="site-footer">
-  <p style="margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">♥</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
-  <p style="margin-bottom:16px; font-size:0.8rem;"><a href="about.html" style="color:rgba(255,255,255,.55); text-decoration:none;">About</a> • <a href="sources-references.html" style="color:rgba(255,255,255,.55); text-decoration:none;">Sources &amp; References</a> • <a href="suggest-a-resource.html" style="color:rgba(255,255,255,.55); text-decoration:none;">Contact</a></p>
-  <p style="font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:6px;">This site is maintained by a parent of a child with SETD5 Syndrome. It is not affiliated with any medical institution or research organization.</p>
-  <p style="font-size:0.8rem; color:rgba(255,255,255,0.6);">For informational purposes only. <a href="terms-of-use.html" style="color:rgba(255,255,255,.7);">Terms of Use</a> &middot; <a href="sources-references.html" style="color:rgba(255,255,255,.7);">Sources &amp; References</a> &middot; <a href="suggest-a-resource.html" style="color:rgba(255,255,255,.7);">Suggest a resource or correction</a></p>
+  <p class="footer-love">Made with <span style="color:#8b1a1a;">♥</span> for SETD5 Syndrome families.</p>
+  <div class="footer-nav">
+    <a href="about.html">About</a><span class="sep">·</span>
+    <a href="sources-references.html">Sources &amp; References</a><span class="sep">·</span>
+    <a href="suggest-a-resource.html">Contact</a><span class="sep">·</span>
+    <a href="terms-of-use.html">Terms of Use</a>
+  </div>
+  <p class="footer-legal">This site is not affiliated with any medical institution or research organization. For educational purposes only.</p>
 </footer>
 
 
