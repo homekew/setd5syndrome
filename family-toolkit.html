@@ -445,6 +445,7 @@
     <a href="#community" class="section-nav-btn active">Community</a>
     <a href="#handouts" class="section-nav-btn">Tools</a>
     <a href="#guides" class="section-nav-btn">Guides</a>
+    <a href="#reference" class="section-nav-btn">Reference</a>
   </div>
 </nav>
 
@@ -522,6 +523,24 @@
 
   </div>
 
+  <div class="section-label" id="reference" style="scroll-margin-top: 100px;">Reference</div>
+
+  <div class="card-grid">
+
+    <a href="setd5-medical-terms-guide.html" class="card card-discounts">
+      <h2>Medical Terms in Plain Language</h2>
+      <p>Definitions of medical, genetic, and service-related words that appear in SETD5 Syndrome reports, appointments, and research &mdash; alphabetically organized with a search bar.</p>
+      <span class="card-link">View Glossary</span>
+    </a>
+
+    <a href="setd5-acronym-glossary.html" class="card card-links">
+      <h2>Acronym Glossary</h2>
+      <p>Plain-language explanations of abbreviations families encounter across education, benefits, medical, genetics, and research settings &mdash; from IEP and SSI to WES and VUS.</p>
+      <span class="card-link">View Glossary</span>
+    </a>
+
+  </div>
+
   <div style="background:#eef7f5; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:14px 20px; margin-top:0;">
     <p style="font-size:14.5px; margin:0; color:var(--ink);">Have an idea for something that would help families? <a href="suggest-a-resource.html" style="color:var(--teal); font-weight:600;">Suggest a resource →</a></p>
   </div>
@@ -568,7 +587,7 @@ window.scrollTo(0, 0);
   }
 
   function updateActiveSectionHighlight() {
-    var sections = ['community','handouts','guides'];
+    var sections = ['community','handouts','guides','reference'];
     var current  = sections[0];
     sections.forEach(function(id) {
       var el = document.getElementById(id);
