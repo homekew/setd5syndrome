@@ -49,11 +49,11 @@
   /* ── HEADER ── */
   .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; }
   /* ── HEADER COLLAPSE ── */
-  .header-inner { transition: padding 0.25s; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title { transition: font-size 0.25s, margin 0.25s; }
-  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 15px 32px 16px; }
   .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
@@ -95,7 +95,7 @@
     background: #2a627a;
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    position: sticky; top: 0; z-index: 100; transition: top 0.3s ease;
+    position: sticky; top: 0; z-index: 100; transition: top 0.175s ease;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
@@ -274,6 +274,7 @@
   @media (max-width: 600px) {
     .page-body { padding: 36px 18px 60px; }
     .header-inner { padding: 14px 18px 18px; }
+    .site-header.collapsed .header-inner { padding: 12px 18px 13px; }
   }
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
@@ -712,16 +713,20 @@ document.addEventListener('DOMContentLoaded', function() {
   var threshold = 60;
   var ticking = false;
 
-  function syncNavTop() {
-    if (header && tabNav) tabNav.style.top = header.offsetHeight + 'px';
+  function setNavTop(isCollapsed) {
+    var isMobile = window.innerWidth <= 600;
+    var h = isCollapsed ? (isMobile ? 44 : 50) : (isMobile ? 70 : 90);
+    if (tabNav) tabNav.style.top = h + 'px';
   }
 
   function updateCollapse() {
-    header.classList.toggle('collapsed', window.scrollY > threshold);
-    syncNavTop();
+    var isCollapsed = window.scrollY > threshold;
+    if (header.classList.contains('collapsed') === isCollapsed) return;
+    header.classList.toggle('collapsed', isCollapsed);
+    setNavTop(isCollapsed);
   }
 
-  syncNavTop();
+  setNavTop(false);
   window.addEventListener('scroll', function() {
     if (!ticking) {
       requestAnimationFrame(function() {
@@ -731,7 +736,9 @@ document.addEventListener('DOMContentLoaded', function() {
       ticking = true;
     }
   });
-  header.addEventListener('transitionend', syncNavTop);
+  window.addEventListener('resize', function() {
+    setNavTop(header.classList.contains('collapsed'));
+  });
 });
 </script>
 <script type="text/javascript">

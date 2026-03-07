@@ -52,11 +52,11 @@
     position: sticky; top: 0; z-index: 1000;
   }
   /* ── HEADER COLLAPSE ── */
-  .header-inner { transition: padding 0.25s; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title { transition: font-size 0.25s, margin 0.25s; }
-  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 15px 32px 16px; }
   .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
@@ -282,7 +282,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    transition: top 0.3s ease;
+    transition: top 0.175s ease;
   }
   .section-nav-inner {
     display: flex;
@@ -404,6 +404,7 @@
     .header-inner { padding: 14px 18px 18px; }
     main { padding: 2rem 1.25rem 4rem; }
     .card-grid { grid-template-columns: 1fr; }
+    .site-header.collapsed .header-inner { padding: 12px 18px 13px; }
   }
 
 
@@ -541,15 +542,27 @@ window.scrollTo(0, 0);
   var secNav  = document.getElementById('section-nav');
   var ticking = false;
 
-  function syncNavTop() {
-    if (header && secNav) secNav.style.top = header.offsetHeight + 'px';
+  function setNavTop(isCollapsed) {
+    var isMobile = window.innerWidth <= 600;
+    var h = isCollapsed ? (isMobile ? 44 : 50) : (isMobile ? 70 : 90);
+    if (secNav) secNav.style.top = h + 'px';
   }
 
   function updateScroll() {
-    header.classList.toggle('collapsed', window.scrollY > 60);
-    syncNavTop();
+    var isCollapsed = window.scrollY > 60;
+    if (header.classList.contains('collapsed') === isCollapsed) {
+      // Update nav highlighting even if collapsed state didn't change
+      updateActiveSectionHighlight();
+      return;
+    }
+    header.classList.toggle('collapsed', isCollapsed);
+    setNavTop(isCollapsed);
 
     // Highlight active section
+    updateActiveSectionHighlight();
+  }
+
+  function updateActiveSectionHighlight() {
     var sections = ['community','handouts','guides'];
     var current  = sections[0];
     sections.forEach(function(id) {
@@ -561,14 +574,16 @@ window.scrollTo(0, 0);
     });
   }
 
-  syncNavTop();
+  setNavTop(false);
   window.addEventListener('scroll', function(){
     if (!ticking) {
       requestAnimationFrame(function() { updateScroll(); ticking = false; });
       ticking = true;
     }
   });
-  header.addEventListener('transitionend', syncNavTop);
+  window.addEventListener('resize', function() {
+    setNavTop(header.classList.contains('collapsed'));
+  });
 })();
 </script>
 
