@@ -53,7 +53,9 @@
     background: var(--navy);
     color: #fff;
     padding: 0;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     border-bottom: 4px solid #5a9186;
   }
 
@@ -63,7 +65,15 @@
     padding: 22px 32px 28px;
     position: relative;
     z-index: 1;
+    transition: padding 0.175s ease;
   }
+
+  /* ── HEADER COLLAPSE ── */
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
 
   .site-header::before {
     content: '';
@@ -449,7 +459,8 @@
   }
 
   @media (max-width: 600px) {
-    .site-header { padding: 1.5rem 1.25rem 1.5rem; }
+    .header-inner { padding: 14px 18px 18px; }
+    .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
     main { padding: 2rem 1.25rem 3rem; }
     h2 { font-size: 1.5rem; }
     .faq-question { font-size: 15.5px; padding: 15px 16px; }
@@ -720,6 +731,21 @@ if (history.scrollRestoration) {
 }
 window.scrollTo(0, 0);
 
+(function(){
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      requestAnimationFrame(function(){
+        header.classList.toggle('collapsed', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+
 function toggleFaq(id) {
   var item = document.getElementById(id);
   var btn  = item.querySelector('.faq-question');
@@ -736,6 +762,19 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+
+<script>
+(function(){
+  var btt = document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll', function(){
+      btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+  }
+})();
+</script>
 </body>
 
 </html>

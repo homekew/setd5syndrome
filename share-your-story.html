@@ -319,6 +319,13 @@
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
+  /* ── HEADER COLLAPSE ── */
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
 </style>
 <link rel="canonical" href="https://setd5syndrome.live/share-your-story.html">
 </head>
@@ -573,6 +580,23 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+(function(){
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) {
+      requestAnimationFrame(function(){
+        header.classList.toggle('collapsed', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+</script>
 </body>
 
 </html>
