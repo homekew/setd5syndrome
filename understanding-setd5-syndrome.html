@@ -295,7 +295,7 @@
   // Restore tab from URL hash on page load -- must run after DOM is ready
   document.addEventListener('DOMContentLoaded', function() {
     var hash = window.location.hash.replace('#', '');
-    var validTabs = ['tab-what', 'tab-symptoms', 'tab-nextsteps', 'tab-resources'];
+    var validTabs = ['tab-what', 'tab-symptoms', 'tab-nextsteps'];
     if (hash && validTabs.indexOf(hash) !== -1) {
       showTab(hash);
     }
@@ -328,7 +328,7 @@
     <button class="tab-btn active" data-tab="tab-what" onclick="showTab('tab-what')">What is SETD5 Syndrome</button>
     <button class="tab-btn" data-tab="tab-symptoms" onclick="showTab('tab-symptoms')">Symptoms &amp; Features</button>
     <button class="tab-btn" data-tab="tab-nextsteps" onclick="showTab('tab-nextsteps')">Next Steps</button>
-    <button class="tab-btn" data-tab="tab-resources" onclick="showTab('tab-resources')">Resources &amp; Support</button>
+    <a href="family-toolkit.html" class="tab-btn" style="text-decoration:none;">Resources &amp; Support</a>
   </div>
 </nav>
 
@@ -691,28 +691,6 @@
 
 <!-- ══════════════════════════════════════════════ -->
 <!-- TAB 4: RESOURCES & SUPPORT -->
-<!-- ══════════════════════════════════════════════ -->
-<div id="tab-resources" class="tab-panel">
-<div class="page-body">
-
-  <p class="section-label">Where to turn</p>
-  <h2 class="section-title">Resources &amp; Support</h2>
-
-  <p class="prose">Living with a rare condition is easier when you're connected: to other families, to researchers, and to the broader rare disease community.</p>
-
-  <div style="background:#eef7f5; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:14px 20px; margin:0 0 24px;">
-    <p style="font-size:14.5px; margin:0;"><strong>Printable handouts available:</strong> Free one-page guides you can download and bring to appointments, for medical visits, school meetings, or anyone new to the diagnosis. <a href="printable-handouts.html">View all handouts →</a></p>
-  </div>
-
-  <div style="background:#eef7f5; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:18px 22px; margin:20px 0;">
-    <p style="font-size:15px; margin-bottom:10px;">The <a href="helpful-links.html">Resources &amp; Organizations</a> page has a full curated list including support groups, genetics databases, rare disease organizations, and US benefit programs.</p>
-    <p style="font-size:14px; color:var(--muted); margin:0;">Key starting points: <a href="https://www.simonssearchlight.org/research/what-we-study/setd5/" target="_blank">Simons Searchlight</a> (free patient registry &amp; genetic counseling) · <a href="https://www.facebook.com/groups/setd5families/" target="_blank" rel="noopener">SETD5 Family Facebook Group</a> · <a href="https://rarediseases.org/" target="_blank">NORD</a></p>
-  </div>
-
-
-</div>
-</div>
-
 <!-- FOOTER -->
 <footer class="site-footer">
   <p style="font-size:0.8rem; color:rgba(255,255,255,0.6);">For informational purposes only. <a href="terms-of-use.html" style="color:rgba(255,255,255,.7);">Terms of Use</a> &middot; <a href="sources-references.html" style="color:rgba(255,255,255,.7);">Sources &amp; References</a> &middot; <a href="suggest-a-resource.html" style="color:rgba(255,255,255,.7);">Suggest a resource or correction</a></p>
