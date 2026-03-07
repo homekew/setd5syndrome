@@ -354,6 +354,7 @@
     var validTabs = ['tab-what', 'tab-symptoms', 'tab-nextsteps'];
     if (hash && validTabs.indexOf(hash) !== -1) {
       showTab(hash);
+      setTimeout(function() { window.scrollTo(0, 0); }, 0);
     }
   });
 </script>
