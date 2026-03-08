@@ -191,7 +191,8 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
-    font-size: 1.3rem;
+    color: var(--card-accent, var(--teal));
+    line-height: 0;
   }
 
   .card h2 {
@@ -388,30 +389,35 @@
   <div class="card-grid">
 
     <a href="understanding-setd5-syndrome.html" class="card card-newly-diagnosed">
+      <div class="card-icon"><i data-lucide="book-open"></i></div>
       <h2>Understanding SETD5 Syndrome</h2>
       <p>A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</p>
       <span class="card-link">View Guide</span>
     </a>
 
     <a href="family-toolkit.html" class="card card-discounts">
+      <div class="card-icon"><i data-lucide="folder-open"></i></div>
       <h2>Family Toolkit</h2>
       <p>Printable handouts, personalized appointment guides you can build for your child, family stories, school and education resources, qualifying for services, disability discounts, and more.</p>
       <span class="card-link">View Family Toolkit</span>
     </a>
 
     <a href="setd5-research-2020-to-present.html" class="card card-research">
+      <div class="card-icon"><i data-lucide="microscope"></i></div>
       <h2>SETD5 Syndrome Research</h2>
       <p>A comprehensive summary of published research on SETD5 Syndrome from 2013 to present, written for families and caregivers.</p>
       <span class="card-link">View Research Guide</span>
     </a>
 
     <a href="setd5-medical-terms-guide.html" class="card card-glossary">
+      <div class="card-icon"><i data-lucide="file-text"></i></div>
       <h2>Medical Terms Guide</h2>
       <p>A plain-language glossary of medical, genetic, and service-related terms that appear in SETD5-related reports, appointments, and research, alphabetically organized.</p>
       <span class="card-link">View Medical Terms Guide</span>
     </a>
 
     <a href="about.html" class="card card-letters">
+      <div class="card-icon"><i data-lucide="heart"></i></div>
       <h2>About This Site</h2>
       <p>This site was built by a SETD5 Syndrome parent, for SETD5 Syndrome families. Here's the story behind it and why it exists.</p>
       <span class="card-link">Read More</span>
@@ -434,6 +440,10 @@
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+<script>
+lucide.createIcons({ attrs: { width: 22, height: 22, 'stroke-width': 1.5 } });
+</script>
 <script>
 if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
 window.scrollTo(0, 0);
