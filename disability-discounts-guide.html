@@ -232,29 +232,37 @@
   }
   a:hover { color: var(--amber); border-bottom-color: var(--amber); }
 
-  /* ── FOOTER ── */
-  .site-footer {
+    /* ── FOOTER ── */
+  footer {
     background: var(--navy);
-    color: rgba(255,255,255,.65);
-    padding: 32px;
     text-align: center;
+    padding: 2rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .footer-love {
+    font-size: 15.5px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.85rem;
+  }
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem 0.7rem;
+    margin-bottom: 0.85rem;
     font-size: 14px;
-    line-height: 1.65;
   }
-  .site-footer .footer-brand { font-family: 'Lora', serif; font-size: 16px; color: #fff; margin-bottom: 8px; }
-  .site-footer a { color: rgba(255,255,255,.8); border-bottom: none; }
-  .site-footer p + p { margin-top: 8px; }
-
-  @media (max-width: 600px) {
-    .container { padding: 36px 18px 60px; }
-    .header-inner { padding: 14px 18px 18px; }
-    .section { padding: 18px; }
-    h2{ font-size: clamp(21px, 3.5vw, 28px); }
-    .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
-    .tab-btn{ padding: 10px 22px; font-size: 15px; }
+  .footer-nav a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-nav a:hover { color: rgba(255,255,255,0.9); }
+  .footer-nav .sep { color: rgba(255,255,255,0.25); }
+  .footer-legal {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.55;
   }
-
-  /* ── GOOGLE TRANSLATE WIDGET ── */
+/* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; overflow:hidden; }
 
   @media (max-width: 400px) { .translate-widget { transform: scale(0.65); } }
@@ -626,10 +634,14 @@ Sincerely,
 </div>
 
 <footer class="site-footer">
-  <p style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:6px;">This site is maintained by a parent of a child with SETD5 Syndrome. It is not affiliated with any medical institution or research organization.</p>
-  <p style="font-size:14px; color:rgba(255,255,255,0.6);">For informational purposes only. <a href="terms-of-use.html" style="color:rgba(255,255,255,.7);">Terms of Use</a> &middot; <a href="sources-references.html" style="color:rgba(255,255,255,.7);">Sources &amp; References</a> &middot; <a href="suggest-a-resource.html" style="color:rgba(255,255,255,.7);">Suggest a resource or correction</a></p>
-  <p style="margin-top:16px; margin-bottom:16px; font-size:14.5px;">Made with <span style="color:#8b1a1a; font-style:normal;">&#9829;</span> by a parent of a child with SETD5 Syndrome, for families like ours.</p>
-  <p><a href="index.html" style="display:inline-block; background:#fff; color:#1a2744; font-weight:600; padding:6px 14px; border-radius:6px; text-decoration:none; font-size:12px; border-bottom:none;">&larr; Back to Main Page</a></p>
+  <p class="footer-love">Made with <span style="color:#8b1a1a;">&#9829;</span> for SETD5 Syndrome families.</p>
+  <div class="footer-nav">
+    <a href="about.html">About</a><span class="sep">&middot;</span>
+    <a href="sources-references.html">Sources &amp; References</a><span class="sep">&middot;</span>
+    <a href="suggest-a-resource.html">Contact</a><span class="sep">&middot;</span>
+    <a href="terms-of-use.html">Terms of Use</a>
+  </div>
+  <p class="footer-legal">This site is not affiliated with any medical institution or research organization. For educational purposes only.</p>
 </footer>
 
 <script>
