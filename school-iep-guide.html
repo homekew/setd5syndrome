@@ -112,6 +112,12 @@
   .tab-btn.active { color: #fff; border-bottom-color: #c9893a; }
   .tab-nav.is-slim .tab-btn{ padding: 6px 22px; }
 
+  @media (max-width: 520px) {
+    .tab-nav-inner { justify-content: flex-start; padding: 0 8px; }
+    .tab-btn { font-size: 13px; padding: 10px 14px; }
+    .tab-nav.is-slim .tab-btn { padding: 6px 14px; }
+  }
+
   /* ── LAYOUT ── */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
@@ -206,10 +212,21 @@
   .feature-card.blue-top  ul li::before { color: var(--blue); }
 
   /* ── STEPS ── */
-  .steps-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .steps-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; position: relative; }
   .step-item {
     background: #fff; border: 1px solid var(--border); border-radius: 10px;
     padding: 20px 22px 20px 70px; position: relative;
+  }
+  /* Timeline connector line between step numbers */
+  .step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 36px; /* center of 20px offset + 34px circle / 2 = 37px, minus 1px for line width */
+    top: 54px; /* below the circle: top 20px + circle 34px */
+    width: 2px;
+    height: calc(100% - 18px); /* extend through the gap to the next card */
+    background: var(--border);
+    z-index: 0;
   }
   .step-number {
     position: absolute; left: 20px; top: 20px;
@@ -217,6 +234,7 @@
     background: var(--navy); color: #fff;
     font-family: 'Lora', serif; font-size: 17px;
     display: flex; align-items: center; justify-content: center;
+    z-index: 1;
   }
   .step-item h4 {
     font-family: 'Lora', serif; font-size: 16px;
