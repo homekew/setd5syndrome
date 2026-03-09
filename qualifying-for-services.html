@@ -247,6 +247,28 @@
   /* Ensure all body links are underlined */
   main a { text-decoration: underline; }
   footer a { text-decoration: underline; }
+  /* ── SECTION NAV ── */
+  .section-nav {
+    background: #5a9186;
+    display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; position: sticky; top: 0; z-index: 100;
+  }
+  .section-nav::-webkit-scrollbar { display: none; }
+  .section-nav-inner {
+    display: flex; max-width: 860px; margin: 0 auto;
+    padding: 0 16px; flex-wrap: nowrap;
+  }
+  .section-link {
+    background: none; border: none; border-bottom: 3px solid transparent;
+    cursor: pointer; color: rgba(255,255,255,0.85);
+    font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500;
+    padding: 11px 16px 8px; white-space: nowrap;
+    text-decoration: none; display: inline-block;
+    transition: color .18s, border-color .18s;
+  }
+  .section-link:hover { color: #fff; text-decoration: none; }
+  .section-link.active { color: #fff; border-bottom-color: #c9893a; }
+
   /* ── STATE FINDER WIDGET ── */
   .state-finder {
     background: #eef7f5;
@@ -319,6 +341,21 @@
 
 <main>
 
+<!-- SECTION NAV -->
+<nav class="section-nav" id="section-nav" aria-label="Page sections">
+  <div class="section-nav-inner">
+    <a class="section-link" href="#sec-early-intervention">Early Intervention</a>
+    <a class="section-link" href="#sec-school-services">School Services</a>
+    <a class="section-link" href="#sec-ssi">SSI</a>
+    <a class="section-link" href="#sec-medicaid">Medicaid</a>
+    <a class="section-link" href="#sec-hcbs">HCBS Waivers</a>
+    <a class="section-link" href="#sec-dac">DAC Benefits</a>
+    <a class="section-link" href="#sec-note">A Note</a>
+  </div>
+</nav>
+
+
+
   <div class="intro-box">
     <p><strong>This page describes programs available in the United States only.</strong> Families outside the US may have access to different or additional programs through their own country's systems.</p>
     <p>Families of children with SETD5-related disorder may be eligible for a range of educational, medical, and disability support programs. Eligibility depends on individual needs, functional limitations, and program-specific requirements.</p>
@@ -327,7 +364,7 @@
   </div>
 
   <!-- Early Intervention -->
-  <h2>Early Intervention (Birth to Age 3)</h2>
+  <h2 id="sec-early-intervention">Early Intervention (Birth to Age 3)</h2>
 
   <p class="prose">In the United States, infants and toddlers with developmental delays or diagnosed conditions may be eligible for Early Intervention (EI) services under Part C of the Individuals with Disabilities Education Act (IDEA).</p>
 
@@ -347,7 +384,7 @@
   <p class="prose">Families can usually begin the process by contacting their state's Early Intervention program.</p>
 
   <!-- School Services -->
-  <h2>School Services (Age 3 and Up)</h2>
+  <h2 id="sec-school-services">School Services (Age 3 and Up)</h2>
 
   <p class="prose">After age three, children may receive services through their local public school district under IDEA Part B.</p>
 
@@ -372,7 +409,7 @@
   </div>
 
   <!-- SSI -->
-  <h2>Supplemental Security Income (SSI)</h2>
+  <h2 id="sec-ssi">Supplemental Security Income (SSI)</h2>
 
   <p class="prose">Supplemental Security Income (SSI) is a federal program administered by the Social Security Administration that provides financial assistance to some children with disabilities whose families meet certain income and resource limits.</p>
 
@@ -401,7 +438,7 @@
   <p class="prose">Families can begin the application process through the Social Security Administration.</p>
 
   <!-- Medicaid -->
-  <h2>Medicaid</h2>
+  <h2 id="sec-medicaid">Medicaid</h2>
 
   <p class="prose">Many children with significant disabilities receive health coverage through Medicaid, which may help cover medical care, therapies, and long-term services.</p>
 
@@ -410,7 +447,7 @@
   <p class="prose">Some states also offer Medicaid waiver programs that allow children with disabilities to qualify for Medicaid regardless of parental income. Availability and eligibility criteria vary by state.</p>
 
   <!-- HCBS Waivers -->
-  <h2>Home and Community-Based Services (HCBS) Waivers</h2>
+  <h2 id="sec-hcbs">Home and Community-Based Services (HCBS) Waivers</h2>
 
   <p class="prose">Many states provide disability supports through Home and Community-Based Services (HCBS) waiver programs. These programs help fund services that allow individuals with disabilities to live at home or in community settings rather than institutional settings.</p>
 
@@ -497,7 +534,7 @@
   </div>
 
   <!-- DAC Benefits -->
-  <h2>Disabled Adult Child (DAC) Benefits</h2>
+  <h2 id="sec-dac">Disabled Adult Child (DAC) Benefits</h2>
 
   <p class="prose">Some adults with childhood-onset disabilities may qualify for Disabled Adult Child (DAC) benefits through Social Security.</p>
 
@@ -511,7 +548,7 @@
   <p class="prose">Benefit amounts are typically based on the parent's Social Security work record.</p>
 
   <!-- A Note for Families -->
-  <h2>A Note for Families</h2>
+  <h2 id="sec-note">A Note for Families</h2>
 
   <div class="section">
     <p class="prose">Every individual with SETD5-related disorder has a unique profile. Eligibility for services depends on many factors, including developmental needs, functional limitations, and local program rules.</p>
@@ -602,6 +639,40 @@ function googleTranslateElementInit() {
   });
   btn.addEventListener('click', function(){
     if(sel.value) window.open(sel.value, '_blank', 'noopener');
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('.section-link');
+  var sections = Array.from(links).map(function(l){
+    return document.querySelector(l.getAttribute('href'));
+  }).filter(Boolean);
+
+  function onScroll(){
+    var scrollY = window.scrollY + 80;
+    var current = sections[0];
+    sections.forEach(function(s){
+      if(s.getBoundingClientRect().top + window.scrollY <= scrollY) current = s;
+    });
+    links.forEach(function(l){
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Smooth scroll with offset for sticky nav
+  links.forEach(function(l){
+    l.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.querySelector(l.getAttribute('href'));
+      if(!target) return;
+      var offset = document.getElementById('section-nav').offsetHeight + 12;
+      var top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({top: top, behavior: 'smooth'});
+    });
   });
 })();
 </script>
