@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About This <em>Site</em> - SETD5 Syndrome Resources</title>
+<title>About This Site - SETD5 Syndrome Resources</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/about.html">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
-<meta property="og:title" content="About This <em>Site</em>">
+<meta property="og:title" content="About This Site">
 <meta property="og:description" content="Learn about the SETD5 Syndrome resource site, created by a parent to support families navigating this rare genetic condition.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About This <em>Site</em>">
+<meta name="twitter:title" content="About This Site">
 <meta name="twitter:description" content="Learn about the SETD5 Syndrome resource site, created by a parent to support families navigating this rare genetic condition.">
 <meta name="description" content="About the SETD5 Syndrome resource site: created by a parent for families and communities navigating diagnosis.">
 <link rel="canonical" href="https://setd5syndrome.live/about.html">
@@ -22,10 +22,12 @@
 
   :root {
     --bg: #faf7f2;
+    --cream2: #f2ede4;
     --ink: #2c2c2c;
     --deep: #2a627a;
     --navy: #1a2744;
     --teal: #2a7a6a;
+    --teal-soft: #a8cfc8;
     --amber: #c9893a;
     --amber-lt: #fdf4e7;
     --sage: #4e7c5f;
@@ -34,21 +36,20 @@
     --muted: #6b6b6b;
   }
 
-  html, body{
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    line-height: 1.65; height: 100%; }
-
-  body{
+  html, body {
     font-family: 'Inter', sans-serif;
     font-size: 17px;
     line-height: 1.65;
-    background: var(--bg);
-    color: var(--ink);
+    height: 100%;
+  }
+
+  body {
     font-family: 'Lora', serif;
     font-weight: 400;
     font-size: 17px;
     line-height: 1.75;
+    background: var(--bg);
+    color: var(--ink);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -75,19 +76,13 @@
   }
 
   /* ── HEADER COLLAPSE ── */
-  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;}
-  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
-  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;}
-  .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title { font-size: 20px; margin-bottom: 0; }
 
   .site-header::before {
     content: '';
@@ -102,11 +97,9 @@
 
   .site-header .header-eyebrow,
   .site-header .header-title,
-  .site-header .header-subtitle{
-    position: relative;
-  }
+  .site-header .header-subtitle { position: relative; }
 
-  .header-eyebrow{
+  .header-eyebrow {
     display: block;
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -120,7 +113,7 @@
   .header-eyebrow a { color: rgba(255,255,255,0.45); text-decoration: none; }
   .header-eyebrow a:hover { color: #fff; }
 
-  .header-title{
+  .header-title {
     font-family: 'Lora', serif;
     font-weight: 400;
     font-size: clamp(32px, 4.5vw, 44px);
@@ -132,57 +125,124 @@
   .header-title em { color: #a8cfc8; font-style: italic; }
   .header-subtitle { font-size: 15.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
 
-  /* ── MAIN ── */
+  /* ── MAIN WRAPPER ── */
   main {
     flex: 1;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 3rem 2rem 5rem;
     width: 100%;
   }
 
+  /* ── INNER CONTENT WIDTH ── */
+  .content-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
   /* ── PAGE INTRO ── */
+  .page-intro-wrap {
+    padding: 3rem 0 2.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .page-intro {
     font-size: 18px;
     color: var(--muted);
     line-height: 1.75;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
+    margin-bottom: 0;
+  }
+
+  /* ── PAGE NAV (On This Page) ── */
+  .page-nav-wrap {
+    background: var(--amber-lt);
+    border-left: 4px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    max-width: 860px;
+    margin: 0 auto 0;
+    padding: 0 2rem;
+  }
+
+  .page-nav {
+    padding: 1.5rem 0;
+  }
+
+  .page-nav-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a5a1a;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .page-nav ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .page-nav ol li {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 2px 0;
+    color: var(--ink);
+  }
+
+  .page-nav ol li a { color: var(--teal); text-decoration: none; }
+  .page-nav ol li a:hover { text-decoration: underline; }
+
+  /* ── SECTION WRAPPERS (alternating backgrounds) ── */
+  .section-wrap {
+    padding: 56px 0 48px;
     border-bottom: 1px solid var(--border);
   }
 
-  /* ── INTRO CALLOUT ── */
-  .intro-callout {
+  .section-wrap.bg-alt {
+    background: var(--cream2);
+  }
+
+  .section-wrap.bg-story {
+    background: #1a2744;
+    border-bottom: none;
+  }
+
+  .section-wrap.bg-contact {
     background: var(--sage-lt);
-    border: 1px solid #b8d4be;
-    border-radius: 8px;
-    padding: 0.9rem 1.2rem;
-    margin-bottom: 2rem;
-    font-size: 18px;
-    color: #3a5c48;
-    line-height: 1.75;
+    border-bottom: none;
   }
 
-  /* ── ABOUT SECTIONS ── */
-  .about-section {
-    margin-top: 48px;
-    scroll-margin-top: 24px;
+  /* ── SECTION TAG (small label above h2) ── */
+  .section-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
   }
 
-  .contact-section {
-    margin-top: 56px;
-  }
+  .section-tag.on-dark { color: var(--teal-soft); }
 
-  h2{
+  /* ── HEADINGS ── */
+  h2 {
     font-family: 'Lora', serif;
     font-weight: 400;
     font-size: 28px;
     color: var(--navy);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     line-height: 1.2;
   }
 
-  h3{
+  h2.on-dark { color: #fff; }
+
+  h3 {
     font-family: 'Lora', serif;
     font-weight: 600;
     font-size: 22px;
@@ -190,11 +250,34 @@
     margin: 1.75rem 0 0.75rem;
   }
 
+  /* ── SECTION DIVIDER ── */
   .section-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
   }
+
+  .section-divider::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--amber);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .section-divider::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-divider.on-dark::before { background: var(--teal-soft); }
+  .section-divider.on-dark::after { background: rgba(255,255,255,0.12); }
 
   p {
     font-size: 18px;
@@ -203,95 +286,139 @@
     color: var(--ink);
   }
 
-  a {
-    color: var(--teal);
-    text-decoration: none;
-  }
+  p.on-dark { color: rgba(255,255,255,0.82); }
 
+  a { color: var(--teal); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* ── CLOSING NOTE ── */
+  /* ── KATE STORY SECTION ── */
+  .kate-quote {
+    font-family: 'Lora', serif;
+    font-size: 19px;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    border-left: 3px solid var(--teal-soft);
+    padding-left: 20px;
+    margin: 28px 0;
+    line-height: 1.7;
+  }
+
   .closing-note {
-    font-family: 'Caveat', cursive;
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-top: 24px;
-    margin-bottom: 16px;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--teal-soft);
+    margin-top: 28px;
+    margin-bottom: 20px;
   }
 
   /* ── PHOTO ── */
+  .about-photo-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0 8px;
+  }
+
   .about-photo {
-    display: block;
-    max-width: 260px;
+    max-width: 340px;
     width: 100%;
-    border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(26,39,68,0.12);
-    margin: 28px 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .about-photo-caption {
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+    margin-top: 10px;
   }
 
   /* ── PROVIDES LIST ── */
   .about-list {
     list-style: none;
     padding: 0;
-    margin: 8px 0 20px;
+    margin: 12px 0 24px;
   }
 
   .about-list li {
     font-family: 'Lora', serif;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.65;
-    padding: 5px 0 5px 22px;
+    padding: 9px 12px 9px 44px;
     position: relative;
     color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 8px;
   }
 
   .about-list li::before {
-    content: '·';
+    content: '';
     position: absolute;
-    left: 6px;
-    font-size: 24px;
-    line-height: 1;
-    color: var(--teal);
-    top: 4px;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    background: var(--teal);
+    border-radius: 50%;
+    opacity: 0.3;
   }
 
-  /* ── DISCLAIMER CALLOUT ── */
-  .disclaimer-callout {
+  .about-list li::after {
+    content: '✓';
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal);
+    font-family: 'Inter', sans-serif;
+    width: 14px;
+    text-align: center;
+  }
+
+  /* ── WHAT THIS SITE IS NOT — callout ── */
+  .not-callout {
     background: var(--amber-lt);
     border: 1px solid #e6c08a;
     border-left: 4px solid var(--amber);
-    border-radius: 8px;
-    padding: 20px 22px;
-    margin: 32px 0;
+    border-radius: 0 8px 8px 0;
+    padding: 22px 24px;
+    margin-top: 8px;
   }
 
-  .disclaimer-callout .callout-label {
+  .not-callout-label {
     display: block;
     font-family: 'Inter', sans-serif;
     font-size: 10px;
     font-weight: 600;
-    letter-spacing: .13em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #8a5a1a;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
-  .disclaimer-callout p {
-    font-size: 16px;
-    line-height: 1.7;
+  .not-callout p {
+    font-size: 17px;
+    line-height: 1.72;
     color: var(--ink);
     margin-bottom: 0;
   }
 
-  /* ── CONTACT CTA ── */
+  /* ── CONTACT SECTION ── */
   .contact-cta {
     display: inline-block;
-    margin-top: 8px;
-    background: var(--navy);
+    margin-top: 12px;
+    background: var(--teal);
     color: #fff;
     text-decoration: none;
-    padding: 0.8rem 1.8rem;
+    padding: 0.85rem 1.8rem;
     border-radius: 6px;
     font-family: 'Inter', sans-serif;
     font-size: 0.94rem;
@@ -299,29 +426,68 @@
     transition: background 0.2s;
   }
 
-  .contact-cta:hover { background: #2a3e6a; text-decoration: none; }
+  .contact-cta:hover { background: #236358; text-decoration: none; }
+
+  /* ── CLOSING CTA SECTION ── */
+  .closing-cta-section {
+    background: var(--navy);
+    padding: 52px 0;
+    border-bottom: none;
+  }
+
+  .closing-cta-section h2 { color: #fff; margin-bottom: 10px; }
+
+  .closing-cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 28px; font-size: 17px; }
+
+  .cta-link-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .cta-link-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: background 0.2s;
+  }
+
+  .cta-link-btn:hover { background: rgba(255,255,255,0.18); text-decoration: none; }
+
+  .cta-link-btn.primary {
+    background: var(--teal);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .cta-link-btn.primary:hover { background: #236358; }
 
   /* ── FAQ SECTION ── */
   .faq-section {
-    margin-top: 56px;
-    padding-top: 48px;
-    border-top: 2px solid var(--border);
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--border);
   }
 
   .faq-section-label {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--teal);
-    margin-bottom: 1rem;
+    margin-bottom: 12px;
     display: block;
   }
 
-  .faq-section h2{
-    margin-bottom: 1.75rem;
-  }
+  .faq-section h2 { margin-bottom: 1.75rem; }
 
   .faq-item {
     background: #fff;
@@ -393,19 +559,18 @@
 
   /* ── TERMS SECTION ── */
   .terms-section {
-    margin-top: 56px;
-    padding-top: 48px;
-    border-top: 2px solid var(--border);
+    padding: 56px 0 64px;
+    border-top: none;
   }
 
   .terms-section-label {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 1rem;
+    margin-bottom: 12px;
     display: block;
   }
 
@@ -486,68 +651,43 @@
     line-height: 1.55;
   }
 
+  /* ── GOOGLE TRANSLATE (footer) ── */
+  .footer-translate {
+    margin-bottom: 1rem;
+    opacity: 0.7;
+    transform: scale(0.88);
+    transform-origin: center top;
+    display: flex;
+    justify-content: center;
+  }
+
   @media (max-width: 600px) {
     .header-inner { padding: 14px 18px 18px; }
     .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
-    main { padding: 2rem 1.25rem 3rem; }
-    h2{ font-size: 28px; }
+    .content-inner { padding: 0 1.25rem; }
+    .page-intro-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .page-nav-wrap { padding: 0 1.25rem; }
+    h2 { font-size: 26px; }
     .faq-question { font-size: 15.5px; padding: 15px 16px; }
     .faq-answer-inner { padding: 0 16px 16px; }
+    .closing-cta-section .content-inner { padding: 0 1.25rem; }
+    .section-wrap { padding: 40px 0 36px; }
+    .about-photo { max-width: 100%; }
   }
 
-  /* ── GOOGLE TRANSLATE WIDGET ── */
-  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
-
-  /* ── PAGE NAV ── */
-  .page-nav {
-    margin-bottom: 48px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .page-nav-label{
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  .page-nav ol {
-    list-style: decimal;
-    padding-left: 1.25rem;
-    margin: 0;
-  }
-
-  .page-nav ol li {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 3px 0;
-    color: var(--ink);
-  }
-
-  .page-nav ol li a {
-    color: var(--teal);
-    text-decoration: none;
-  }
-
-  .page-nav ol li a:hover { text-decoration: underline; }
-
-  /* Ensure all body links are underlined */
+  /* Ensure links in body content are underlined */
   main a, .page-body a { text-decoration: underline; }
   footer a { text-decoration: underline; }
+  .contact-cta { text-decoration: none !important; }
+  .cta-link-btn { text-decoration: none !important; }
+  .page-nav ol li a { text-decoration: none; }
+  .page-nav ol li a:hover { text-decoration: underline; }
+  .header-eyebrow a { text-decoration: none !important; }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="translate-widget">
-    <div id="google_translate_element"></div>
-  </div>
   <div class="header-inner">
     <p class="header-eyebrow"><a href="index.html">← SETD5 Syndrome Research &amp; Resources</a></p>
     <h1 class="header-title">About This <em>Site</em></h1>
@@ -557,173 +697,228 @@
 
 <main>
 
-  <p class="page-intro">This site was created by a parent of a child with SETD5 Syndrome to help families better understand the condition. It is meant to share general information and resources, not to provide medical, legal, or educational advice. Below, you can read more about the story behind the site, what it includes, how the information is gathered, and a few important things to keep in mind as you use it.</p>
+  <!-- ── PAGE INTRO ── -->
+  <div class="page-intro-wrap">
+    <p class="page-intro">This site was created by a parent of a child with SETD5 Syndrome to help families better understand the condition. It is meant to share general information and resources, not to provide medical, legal, or educational advice. Below, you can read more about the story behind the site, what it includes, how the information is gathered, and a few important things to keep in mind as you use it.</p>
+  </div>
 
-  <nav class="page-nav" aria-label="On this page">
-    <span class="page-nav-label">On this page</span>
-    <ol>
-      <li><a href="#why-this-site">Why This Site Exists</a></li>
-      <li><a href="#what-you-find">What You'll Find Here</a></li>
-      <li><a href="#what-this-is-not">What This Site Is Not</a></li>
-      <li><a href="#how-information">How Information Is Collected</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#faq">Frequently Asked Questions</a></li>
-    </ol>
-  </nav>
+  <!-- ── ON THIS PAGE ── -->
+  <div class="page-nav-wrap">
+    <nav class="page-nav" aria-label="On this page">
+      <span class="page-nav-label">On this page</span>
+      <ol>
+        <li><a href="#why-this-site">Why This Site Exists</a></li>
+        <li><a href="#what-you-find">What You'll Find Here</a></li>
+        <li><a href="#what-this-is-not">What This Site Is Not</a></li>
+        <li><a href="#how-information">How Information Is Collected</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ol>
+    </nav>
+  </div>
 
-  <section class="about-section" id="why-this-site">
-    <h2>Why This Site Exists</h2>
-    <hr class="section-divider">
-    <p>My son was diagnosed with SETD5 Syndrome at age 11, after years of appointments, testing, and waiting. When the diagnosis finally came, it was a relief to finally have a name for what we'd been navigating, but SETD5 Syndrome is rare enough that there wasn't an easy, ready-made roadmap for us. I found myself searching on my own, reading research papers written in technical language, piecing together information from genetics journals and parent forums.</p>
-    <p>So I built this site to gather everything I wished I'd had, all in one place, for families like ours. The information is out there, but it's scattered. I wanted to bring it together somewhere accessible.</p>
-    <p>Above all, this site is for families like ours. I hope it helps.</p>
-    <p class="closing-note">-- Kate</p>
-    <img src="IMG_9273.jpg" alt="The beginning of our journey" class="about-photo">
-    <p style="font-family:'Lora',serif; font-size:13px; font-style:italic; color:var(--muted); margin-top:-12px;">The beginning of our journey.</p>
-  </section>
-
-  <section class="about-section" id="what-you-find">
-    <h2>What You'll Find Here</h2>
-    <hr class="section-divider">
-    <p>This site provides:</p>
-    <ul class="about-list">
-      <li>Plain-language explanations of SETD5 Syndrome and what it means for daily life</li>
-      <li>Summaries of published research written in accessible language</li>
-      <li>Practical resources for families: handouts, appointment guides, IEP guidance, and more</li>
-      <li>A medical terms glossary and acronym reference</li>
-      <li>Guidance for navigating information after a diagnosis</li>
-    </ul>
-    <p>Everything is organized to be useful whether you're a parent, educator, medical professional, or someone else in the SETD5 Syndrome community, and shaped with input from families who understand what this journey actually looks like.</p>
-  </section>
-
-  <section class="about-section" id="what-this-is-not">
-    <h2>What This Site Is Not</h2>
-    <hr class="section-divider">
-    <p>This site is not a replacement for professional guidance from a physician, attorney, or educator. It is a starting point: a way to help families orient themselves before and between appointments. When something here conflicts with what your child's doctor, attorney, or school team tells you, please follow them.</p>
-  </section>
-
-  <section class="about-section" id="how-information">
-    <h2>How Information Is Collected</h2>
-    <hr class="section-divider">
-    <p>Content on this site is drawn from publicly available published research on SETD5 Syndrome. Papers are located through PubMed, Google Scholar, scientific journals, and websites. All content is written and curated by the site's author, and Claude by Anthropic is sometimes used as a tool to help translate dense technical language into plain language. Everything published here has been written and reviewed by the site's author.</p>
-    <p>A full list of sources is available on the <a href="sources-references.html">Sources &amp; References</a> page. Content is updated as new research is published. If you notice something that should be corrected or updated, please <a href="suggest-a-resource.html">submit a correction</a>.</p>
-  </section>
-
-  <section class="about-section contact-section" id="contact">
-    <h2>Contact</h2>
-    <hr class="section-divider">
-    <p>Questions or corrections? If you notice an error or have a suggestion for improving the site, please reach out. Community input is what makes a resource like this better over time.</p>
-    <a href="suggest-a-resource.html" class="contact-cta">Send a suggestion or correction &rarr;</a>
-  </section>
-
-  <section class="faq-section" id="faq" aria-label="Frequently asked questions">
-    <span class="faq-section-label">Frequently Asked Questions</span>
-    <h2>Questions About This <em>Site</em></h2>
-
-    <div class="faq-item" id="faq-1">
-      <button class="faq-question" aria-expanded="false" aria-controls="faq-1-answer" onclick="toggleFaq('faq-1')">
-        <span>Why does the site search for research on haploinsufficiency rather than just the SETD5 gene?</span>
-        <span class="faq-chevron" aria-hidden="true">&#9660;</span>
-      </button>
-      <div class="faq-answer" id="faq-1-answer" role="region">
-        <div class="faq-answer-inner">
-          <p>Every person has two copies of the SETD5 gene, one inherited from each parent. In SETD5 Syndrome, one copy has a change that prevents it from working correctly, leaving a single functioning copy to do a job that normally takes two. This is called <strong>haploinsufficiency</strong> (from the Greek "haplo" meaning one, and "insufficiency" meaning not enough). The reduction in functional SETD5 protein is what drives the condition.</p>
-          <p>This distinction matters when searching the research. SETD5 is studied across many fields, including cancer biology, and a general search on the SETD5 gene will return a wide mix of unrelated studies. Research specifically on SETD5 haploinsufficiency points to studies about the neurodevelopmental condition, its mechanisms, and its features. That's the lens this site uses when presenting the research, because it's the one most directly relevant to families navigating this diagnosis.</p>
+  <!-- ── WHY THIS SITE EXISTS (Kate story — dark, elevated) ── -->
+  <div class="section-wrap bg-story" id="why-this-site">
+    <div class="content-inner">
+      <span class="section-tag on-dark">Our Story</span>
+      <h2 class="on-dark">Why This Site Exists</h2>
+      <div class="section-divider on-dark"></div>
+      <p class="on-dark">My son was diagnosed with SETD5 Syndrome at age 11, after years of appointments, testing, and waiting. When the diagnosis finally came, it was a relief to finally have a name for what we'd been navigating, but SETD5 Syndrome is rare enough that there wasn't an easy, ready-made roadmap for us.</p>
+      <blockquote class="kate-quote">I found myself searching on my own, reading research papers written in technical language, piecing together information from genetics journals and parent forums.</blockquote>
+      <p class="on-dark">So I built this site to gather everything I wished I'd had, all in one place, for families like ours. The information is out there, but it's scattered. I wanted to bring it together somewhere accessible.</p>
+      <p class="on-dark">Above all, this site is for families like ours. I hope it helps.</p>
+      <p class="closing-note">— Kate</p>
+      <div class="about-photo-wrap">
+        <div>
+          <img src="IMG_9273.jpg" alt="The beginning of our journey" class="about-photo">
+          <p class="about-photo-caption">The beginning of our journey.</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="faq-item" id="faq-2">
-      <button class="faq-question" aria-expanded="false" aria-controls="faq-2-answer" onclick="toggleFaq('faq-2')">
-        <span>Why does this site say "SETD5 Syndrome" and not just "SETD5"?</span>
-        <span class="faq-chevron" aria-hidden="true">&#9660;</span>
-      </button>
-      <div class="faq-answer" id="faq-2-answer" role="region">
-        <div class="faq-answer-inner">
-          <p>You'll often hear or see people refer to it simply as "SETD5," especially in parent communities and on social media where typing the full name repeatedly gets old. That's completely understandable. But technically, SETD5 is the name of the gene, not the condition. <em>Every</em> person has two copies of the SETD5 gene. So saying someone "has SETD5" is a bit like saying they "have ABO" — it names the gene everyone carries, not what happened to it.</p>
-          <p>What people with this diagnosis have is <strong>SETD5 Syndrome</strong>: the clinical condition that results when one copy of the SETD5 gene doesn't function correctly (haploinsufficiency), leaving only one working copy where two are needed. "SETD5 Syndrome" names the condition. "SETD5" names the gene.</p>
-          <p>This site uses the full name throughout, not to be pedantic, but because it matters in medical settings and in research searches. Searching "SETD5 Syndrome" or "SETD5 haploinsufficiency" returns relevant, condition-specific results. Searching just "SETD5" may pull in cancer studies and other unrelated literature. Using the correct term helps families and clinicians find the right information.</p>
-        </div>
+  <!-- ── WHAT YOU'LL FIND HERE (alt background) ── -->
+  <div class="section-wrap bg-alt" id="what-you-find">
+    <div class="content-inner">
+      <span class="section-tag">What's Here</span>
+      <h2>What You'll Find Here</h2>
+      <div class="section-divider"></div>
+      <p>This site provides:</p>
+      <ul class="about-list">
+        <li>Plain-language explanations of SETD5 Syndrome and what it means for daily life</li>
+        <li>Summaries of published research written in accessible language</li>
+        <li>Practical resources for families: handouts, appointment guides, IEP guidance, and more</li>
+        <li>A medical terms glossary and acronym reference</li>
+        <li>Guidance for navigating information after a diagnosis</li>
+      </ul>
+      <p>Everything is organized to be useful whether you're a parent, educator, medical professional, or someone else in the SETD5 Syndrome community, and shaped with input from families who understand what this journey actually looks like.</p>
+    </div>
+  </div>
+
+  <!-- ── WHAT THIS SITE IS NOT (callout style) ── -->
+  <div class="section-wrap" id="what-this-is-not">
+    <div class="content-inner">
+      <span class="section-tag">Important to Know</span>
+      <h2>What This Site Is Not</h2>
+      <div class="section-divider"></div>
+      <div class="not-callout">
+        <span class="not-callout-label">Please keep in mind</span>
+        <p>This site is not a replacement for professional guidance from a physician, attorney, or educator. It is a starting point: a way to help families orient themselves before and between appointments. When something here conflicts with what your child's doctor, attorney, or school team tells you, please follow them.</p>
       </div>
     </div>
+  </div>
 
-    <div class="faq-item" id="faq-4">
-      <button class="faq-question" aria-expanded="false" aria-controls="faq-4-answer" onclick="toggleFaq('faq-4')">
-        <span>Can I share or print materials from this site?</span>
-        <span class="faq-chevron" aria-hidden="true">&#9660;</span>
-      </button>
-      <div class="faq-answer" id="faq-4-answer" role="region">
-        <div class="faq-answer-inner">
-          <p>Yes. Everything on this site is created to be shared, with doctors, therapists, teachers, family members, or anyone else who might benefit. Please keep attribution intact (the site name and URL) and don't use the content commercially. The At a Glance handout is a PDF you can download directly. See the <a href="#terms-section">Terms of Use below</a> for more detail.</p>
-        </div>
+  <!-- ── HOW INFORMATION IS COLLECTED (alt background) ── -->
+  <div class="section-wrap bg-alt" id="how-information">
+    <div class="content-inner">
+      <span class="section-tag">Our Sources</span>
+      <h2>How Information Is Collected</h2>
+      <div class="section-divider"></div>
+      <p>Content on this site is drawn from publicly available published research on SETD5 Syndrome. Papers are located through PubMed, Google Scholar, scientific journals, and websites. All content is written and curated by the site's author, and Claude by Anthropic is sometimes used as a tool to help translate dense technical language into plain language. Everything published here has been written and reviewed by the site's author.</p>
+      <p>A full list of sources is available on the <a href="sources-references.html">Sources &amp; References</a> page. Content is updated as new research is published. If you notice something that should be corrected or updated, please <a href="suggest-a-resource.html">submit a correction</a>.</p>
+    </div>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <div class="section-wrap bg-contact" id="contact">
+    <div class="content-inner">
+      <span class="section-tag">Get in Touch</span>
+      <h2>Contact</h2>
+      <div class="section-divider"></div>
+      <p>Questions or corrections? If you notice an error or have a suggestion for improving the site, please reach out. Community input is what makes a resource like this better over time.</p>
+      <a href="suggest-a-resource.html" class="contact-cta">Send a suggestion or correction &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ── CLOSING CTA ── -->
+  <div class="section-wrap closing-cta-section">
+    <div class="content-inner">
+      <span class="section-tag on-dark">Ready to Explore?</span>
+      <h2>Start with the resources</h2>
+      <p>The site is organized around what families most need after a diagnosis — understanding the condition, finding tools, and reading the research.</p>
+      <div class="cta-link-grid">
+        <a href="understanding-setd5-syndrome.html" class="cta-link-btn primary">Understanding SETD5 Syndrome &rarr;</a>
+        <a href="family-toolkit.html" class="cta-link-btn">Family Toolkit</a>
+        <a href="setd5-research-2020-to-present.html" class="cta-link-btn">Research</a>
+        <a href="setd5-medical-terms-guide.html" class="cta-link-btn">Medical Terms Guide</a>
       </div>
     </div>
+  </div>
 
-  </section>
+  <!-- ── FAQ ── -->
+  <div class="faq-section" id="faq">
+    <div class="content-inner">
+      <span class="faq-section-label">Frequently Asked Questions</span>
+      <h2>Questions About This <em>Site</em></h2>
 
-  <section class="terms-section" id="terms-section" aria-label="Terms of use">
-    <span class="terms-section-label">Legal</span>
-    <h2>Terms of Use</h2>
-    <p class="terms-last-updated">Last updated: March 2026</p>
+      <div class="faq-item" id="faq-1">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-1-answer" onclick="toggleFaq('faq-1')">
+          <span>Why does the site search for research on haploinsufficiency rather than just the SETD5 gene?</span>
+          <span class="faq-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="faq-answer" id="faq-1-answer" role="region">
+          <div class="faq-answer-inner">
+            <p>Every person has two copies of the SETD5 gene, one inherited from each parent. In SETD5 Syndrome, one copy has a change that prevents it from working correctly, leaving a single functioning copy to do a job that normally takes two. This is called <strong>haploinsufficiency</strong> (from the Greek "haplo" meaning one, and "insufficiency" meaning not enough). The reduction in functional SETD5 protein is what drives the condition.</p>
+            <p>This distinction matters when searching the research. SETD5 is studied across many fields, including cancer biology, and a general search on the SETD5 gene will return a wide mix of unrelated studies. Research specifically on SETD5 haploinsufficiency points to studies about the neurodevelopmental condition, its mechanisms, and its features. That's the lens this site uses when presenting the research, because it's the one most directly relevant to families navigating this diagnosis.</p>
+          </div>
+        </div>
+      </div>
 
-    <p class="terms-intro-text">Welcome to SETD5Syndrome.live. This site was created by a parent of a child with SETD5 Syndrome to share research, resources, and practical tools. By using this website, you agree to the following terms.</p>
+      <div class="faq-item" id="faq-2">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-2-answer" onclick="toggleFaq('faq-2')">
+          <span>Why does this site say "SETD5 Syndrome" and not just "SETD5"?</span>
+          <span class="faq-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="faq-answer" id="faq-2-answer" role="region">
+          <div class="faq-answer-inner">
+            <p>You'll often hear or see people refer to it simply as "SETD5," especially in parent communities and on social media where typing the full name repeatedly gets old. That's completely understandable. But technically, SETD5 is the name of the gene, not the condition. <em>Every</em> person has two copies of the SETD5 gene. So saying someone "has SETD5" is a bit like saying they "have ABO" — it names the gene everyone carries, not what happened to it.</p>
+            <p>What people with this diagnosis have is <strong>SETD5 Syndrome</strong>: the clinical condition that results when one copy of the SETD5 gene doesn't function correctly (haploinsufficiency), leaving only one working copy where two are needed. "SETD5 Syndrome" names the condition. "SETD5" names the gene.</p>
+            <p>This site uses the full name throughout, not to be pedantic, but because it matters in medical settings and in research searches. Searching "SETD5 Syndrome" or "SETD5 haploinsufficiency" returns relevant, condition-specific results. Searching just "SETD5" may pull in cancer studies and other unrelated literature. Using the correct term helps families and clinicians find the right information.</p>
+          </div>
+        </div>
+      </div>
 
-    <div class="terms-item">
-      <p class="terms-item-title">1. Informational Purposes Only: Not Medical Advice</p>
-      <p class="terms-item-text">The content on this website, including guides, research summaries, the medical terms glossary, and handout builders, is for general informational and educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician, geneticist, or other qualified health provider with any questions you may have. Never disregard professional medical advice or delay seeking it because of something you read here.</p>
+      <div class="faq-item" id="faq-4">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-4-answer" onclick="toggleFaq('faq-4')">
+          <span>Can I share or print materials from this site?</span>
+          <span class="faq-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="faq-answer" id="faq-4-answer" role="region">
+          <div class="faq-answer-inner">
+            <p>Yes. Everything on this site is created to be shared, with doctors, therapists, teachers, family members, or anyone else who might benefit. Please keep attribution intact (the site name and URL) and don't use the content commercially. The At a Glance handout is a PDF you can download directly. See the <a href="#terms-section">Terms of Use below</a> for more detail.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="terms-item">
-      <p class="terms-item-title">2. How Content Is Collected and Written</p>
-      <p class="terms-item-text">All content on this site is written and reviewed by the site's author. Claude by Anthropic is sometimes used as a tool to help translate technical research language into plain language. Medical research evolves rapidly, so always verify information with your care team.</p>
+  <!-- ── TERMS OF USE ── -->
+  <div class="terms-section" id="terms-section">
+    <div class="content-inner">
+      <span class="terms-section-label">Legal</span>
+      <h2>Terms of Use</h2>
+      <p class="terms-last-updated">Last updated: March 2026</p>
+
+      <p class="terms-intro-text">Welcome to SETD5Syndrome.live. This site was created by a parent of a child with SETD5 Syndrome to share research, resources, and practical tools. By using this website, you agree to the following terms.</p>
+
+      <div class="terms-item">
+        <p class="terms-item-title">1. Informational Purposes Only: Not Medical Advice</p>
+        <p class="terms-item-text">The content on this website, including guides, research summaries, the medical terms glossary, and handout builders, is for general informational and educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician, geneticist, or other qualified health provider with any questions you may have. Never disregard professional medical advice or delay seeking it because of something you read here.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">2. How Content Is Collected and Written</p>
+        <p class="terms-item-text">All content on this site is written and reviewed by the site's author. Claude by Anthropic is sometimes used as a tool to help translate technical research language into plain language. Medical research evolves rapidly, so always verify information with your care team.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">3. Accuracy and Currency of Information</p>
+        <p class="terms-item-text">This website reflects published research and community knowledge as of the date noted on each page. Content is reviewed and updated regularly, but the creator cannot guarantee that all information is current or complete. SETD5 Syndrome research is still in early stages and new findings may change what is currently understood.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">4. No Professional Relationship</p>
+        <p class="terms-item-text">Your use of this website does not create a doctor-patient, therapist-patient, or any other professional relationship between you and the creator of this website.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">5. External Links and Resources</p>
+        <p class="terms-item-text">This website contains links to third-party websites, organizations, and resources. These links are provided for your convenience only. The creator does not endorse, control, or take responsibility for the content, privacy policies, or practices of any third-party websites.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">6. Permitted Use of Content</p>
+        <p class="terms-item-text">Materials on this website are provided for personal, non-commercial use by families, caregivers, educators, and individuals navigating a SETD5 Syndrome diagnosis. You may download, print, or share materials for personal use or to share with your care team, provided you do not modify the content or use it commercially. Please keep attribution intact (site name and URL).</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">7. User-Submitted Content</p>
+        <p class="terms-item-text">This website accepts voluntary submissions, including family stories and resource suggestions. By submitting content, you grant the creator permission to publish, edit, or decline your submission at their discretion. You are responsible for ensuring submitted content does not violate the rights of others. The creator reserves the right to remove any submitted content at any time.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">8. Google Translate Disclaimer</p>
+        <p class="terms-item-text">Some pages include a Google Translate widget to help international families access content. These translations are generated automatically and may not be fully accurate, particularly for medical or technical terminology. The creator is not responsible for errors or misunderstandings resulting from machine translation. When in doubt, refer to the original English-language version or consult a qualified translator.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">9. Limitation of Liability</p>
+        <p class="terms-item-text">To the fullest extent permitted by law, the creator of SETD5Syndrome.live shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in any way connected with your use of this website or the information contained within it.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">10. Governing Law</p>
+        <p class="terms-item-text">These Terms of Use shall be governed by and construed in accordance with the laws of the State of Oregon, without regard to its conflict of law provisions.</p>
+      </div>
+
+      <div class="terms-item">
+        <p class="terms-item-title">11. Changes to These Terms</p>
+        <p class="terms-item-text">These Terms of Use may be updated from time to time. Any changes will be posted on this page with an updated revision date.</p>
+      </div>
+
     </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">3. Accuracy and Currency of Information</p>
-      <p class="terms-item-text">This website reflects published research and community knowledge as of the date noted on each page. Content is reviewed and updated regularly, but the creator cannot guarantee that all information is current or complete. SETD5 Syndrome research is still in early stages and new findings may change what is currently understood.</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">4. No Professional Relationship</p>
-      <p class="terms-item-text">Your use of this website does not create a doctor-patient, therapist-patient, or any other professional relationship between you and the creator of this website.</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">5. External Links and Resources</p>
-      <p class="terms-item-text">This website contains links to third-party websites, organizations, and resources. These links are provided for your convenience only. The creator does not endorse, control, or take responsibility for the content, privacy policies, or practices of any third-party websites.</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">6. Permitted Use of Content</p>
-      <p class="terms-item-text">Materials on this website are provided for personal, non-commercial use by families, caregivers, educators, and individuals navigating a SETD5 Syndrome diagnosis. You may download, print, or share materials for personal use or to share with your care team, provided you do not modify the content or use it commercially. Please keep attribution intact (site name and URL).</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">7. User-Submitted Content</p>
-      <p class="terms-item-text">This website accepts voluntary submissions, including family stories and resource suggestions. By submitting content, you grant the creator permission to publish, edit, or decline your submission at their discretion. You are responsible for ensuring submitted content does not violate the rights of others. The creator reserves the right to remove any submitted content at any time.</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">8. Google Translate Disclaimer</p>
-      <p class="terms-item-text">Some pages include a Google Translate widget to help international families access content. These translations are generated automatically and may not be fully accurate, particularly for medical or technical terminology. The creator is not responsible for errors or misunderstandings resulting from machine translation. When in doubt, refer to the original English-language version or consult a qualified translator.</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">9. Limitation of Liability</p>
-      <p class="terms-item-text">To the fullest extent permitted by law, the creator of SETD5Syndrome.live shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in any way connected with your use of this website or the information contained within it.</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">10. Governing Law</p>
-      <p class="terms-item-text">These Terms of Use shall be governed by and construed in accordance with the laws of the State of Oregon, without regard to its conflict of law provisions.</p>
-    </div>
-
-    <div class="terms-item">
-      <p class="terms-item-title">11. Changes to These Terms</p>
-      <p class="terms-item-text">These Terms of Use may be updated from time to time. Any changes will be posted on this page with an updated revision date.</p>
-    </div>
-
-  </section>
+  </div>
 
 </main>
 
@@ -736,6 +931,9 @@
     <a href="#terms-section">Terms of Use</a>
   </div>
   <p class="footer-legal">This site is not affiliated with any medical institution or research organization. For educational purposes only.</p>
+  <div class="footer-translate">
+    <div id="google_translate_element"></div>
+  </div>
 </footer>
 
 <script type="text/javascript">
@@ -791,5 +989,4 @@ function googleTranslateElementInit() {
 })();
 </script>
 </body>
-
 </html>
