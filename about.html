@@ -34,9 +34,15 @@
     --muted: #6b6b6b;
   }
 
-  html, body{ height: 100%; }
+  html, body{
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.65; height: 100%; }
 
   body{
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
     background: var(--bg);
     color: var(--ink);
     font-family: 'Lora', serif;
@@ -69,10 +75,16 @@
   }
 
   /* ── HEADER COLLAPSE ── */
-  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;}
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
-  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;}
   .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
 
   .site-header::before {
@@ -490,7 +502,7 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .page-nav-label {
+  .page-nav-label{
     font-family: 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 600;

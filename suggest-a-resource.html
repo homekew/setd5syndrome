@@ -58,11 +58,17 @@
 
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.25s; max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; }
-  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;}
   .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
   .header-title{ transition: font-size 0.25s, margin 0.25s; }
   .site-header.collapsed .header-inner { padding: 8px 32px; }
-  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;}
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
 
