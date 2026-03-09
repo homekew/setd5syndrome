@@ -221,13 +221,15 @@
   .step-item:not(:last-child)::after {
     content: '';
     position: absolute;
-    left: 36px; /* center of 20px offset + 34px circle / 2 = 37px, minus 1px for line width */
+    left: 36px;
     top: 54px; /* below the circle: top 20px + circle 34px */
     width: 2px;
-    height: calc(100% - 18px); /* extend through the gap to the next card */
-    background: var(--border);
+    height: calc(100% - 54px + 16px + 20px + 17px);
+    /* card-bottom + gap + next-card-top + half-circle = bridges to next circle center */
+    background: #c4bfb5;
     z-index: 0;
   }
+  .step-item { overflow: visible; }
   .step-number {
     position: absolute; left: 20px; top: 20px;
     width: 34px; height: 34px; border-radius: 50%;
