@@ -148,8 +148,16 @@
 
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+
+  /* Center the orphan 5th card at the same width as the others */
+  .card-grid .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.75rem);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .card {
@@ -336,6 +344,7 @@
     header { padding: 1.5rem 1.5rem 1.25rem; }
     h1 { font-size: 2rem; }
     .card-grid { grid-template-columns: 1fr; }
+    .card-grid .card:last-child:nth-child(odd) { max-width: none; margin: 0; }
   }
 
   /* ── COMPACT STICKY HEADER — disabled on home page ── */
