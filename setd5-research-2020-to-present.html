@@ -463,27 +463,6 @@
     transition: background .15s, border-color .15s;
   }
   .year-jump a:hover { background: var(--sage-lt, #edf5ef); border-color: var(--teal, #2a7a6a); }
-
-  /* ── PAGE TOC ── */
-  .page-toc {
-    background: var(--cream2, #f2ede4);
-    border: 1px solid var(--border, #e0d9cf);
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-bottom: 28px;
-  }
-  .page-toc-label {
-    font-size: 10px; font-weight: 600; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--muted, #6b6b6b); margin-bottom: 8px;
-  }
-  .page-toc ol {
-    list-style: none; padding: 0; margin: 0;
-    display: flex; flex-wrap: wrap; gap: 4px 0;
-    flex-direction: column;
-  }
-  .page-toc ol li { padding: 1px 0; }
-  .page-toc ol li a { color: var(--teal, #2a7a6a); text-decoration: none; font-size: 13.5px; }
-  .page-toc ol li a:hover { text-decoration: underline; }
 </style>
 <script>
   // Safari print fix: force desktop-width viewport before printing
@@ -1638,15 +1617,7 @@
 <!-- TAB PANEL: MANAGEMENT -->
 <div id="tab-management" class="tab-panel">
 <div class="page-body">
-  <div class="page-toc">
-    
-    <ol>
-      <li><a href="#sec-management">How SETD5 Is Managed Today</a></li>
-      <li><a href="#sec-monitoring">Recommended Monitoring</a></li>
-    </ol>
-  </div>
-
-  <p class="section-label">Current care</p>
+<p class="section-label">Current care</p>
   <h2 class="section-title" id="sec-management">How SETD5 Is Managed Today</h2>
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;">There are no medications specifically designed to treat SETD5-related syndrome. Management is symptomatic; each feature is treated individually. The treatments and therapies listed below are based on currently published case data and clinical guidance. <strong>Note:</strong> Some medical treatments listed (e.g., growth hormone therapy, zoledronic acid) are based on single published case reports and should not be interpreted as established treatment guidelines. Always discuss options with your child's medical team.</p>
 
@@ -1717,14 +1688,7 @@
 <!-- TAB PANEL: GAPS -->
 <div id="tab-gaps" class="tab-panel">
 <div class="page-body">
-  <div class="page-toc">
-    
-    <ol>
-      <li><a href="#sec-openquestions">What Is Not Yet Known</a></li>
-    </ol>
-  </div>
-
-  <p class="section-label">Open questions</p>
+<p class="section-label">Open questions</p>
   <h2 class="section-title" id="sec-openquestions">What Is Not Yet Known</h2>
   <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px;">The following are documented gaps in the published SETD5 literature as of February 2026.</p>
 
