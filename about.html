@@ -36,18 +36,18 @@
 
   html, body{
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.65; height: 100%; }
 
   body{
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.65;
     background: var(--bg);
     color: var(--ink);
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.75;
     min-height: 100vh;
     display: flex;
@@ -76,16 +76,16 @@
 
   /* ── HEADER COLLAPSE ── */
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.1em;}
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.1em;}
-  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
+  .site-header.collapsed .header-title{ font-size: 1rem; margin-bottom: 0; }
 
   .site-header::before {
     content: '';
@@ -107,7 +107,7 @@
   .header-eyebrow{
     display: block;
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -121,7 +121,7 @@
   .header-title{
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: clamp(30px, 4vw, 42px);
+    font-size: clamp(28px, 4.5vw, 44px);
     line-height: 1.08;
     letter-spacing: -0.02em;
     color: #fff;
@@ -172,7 +172,7 @@
 
   h2{
     font-family: 'Lora', serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 28px;
     color: var(--navy);
     margin-bottom: 16px;

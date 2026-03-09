@@ -43,11 +43,11 @@
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 15px;
+    font-size: clamp(16px, 2vw, 18px);
   }
   h2{
     font-family: 'Lora', serif;
-    font-size: 28px;
+    font-size: clamp(21px, 3.5vw, 29px);
     font-weight: 400;
     line-height: 1.25;
     color: var(--navy, #1a2744);
@@ -70,19 +70,19 @@
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 14px 32px 18px; transition: padding 0.175s ease; }
   .header-eyebrow{
-    font-size: 12px; font-weight: 600; letter-spacing: .14em;
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
     max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
   .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(30px, 4vw, 42px); font-weight: 400;
+    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
     transition: font-size 0.175s ease, margin 0.175s ease;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
-  .header-subtitle{ font-size: 15px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-subtitle{ font-size: 14.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
   .header-meta {
     display: flex; flex-wrap: wrap; gap: 12px;
     margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15);
@@ -95,7 +95,7 @@
   /* ── HEADER COLLAPSED ── */
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
+  .site-header.collapsed .header-title{ font-size: 1rem; margin-bottom: 0; }
 
   /* ── TAB NAV ── */
   .tab-nav {
@@ -109,7 +109,7 @@
   .tab-btn{
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,.7); font-family: 'Inter', sans-serif;
-    font-size: 13px; font-weight: 500; padding: 14px 18px;
+    font-size: 15px; font-weight: 400; padding: 14px 18px;
     white-space: nowrap; border-bottom: 3px solid transparent;
     transition: color .18s, border-color .18s;
   }
@@ -149,13 +149,13 @@
   /* ── SECTION ── */
   .section-label{
     display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; font-weight: 600; letter-spacing: .12em;
+    font-size: 11px; font-weight: 600; letter-spacing: .12em;
     text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
   }
   .section-label::before { content: ''; display: block; width: 18px; height: 2px; background: var(--amber); }
   .section-title{
     font-family: 'Lora', serif;
-    font-size: 28px; font-weight: 400;
+    font-size: clamp(21px, 3.5vw, 29px); font-weight: 400;
     color: var(--navy); margin-bottom: 24px; line-height: 1.25;
   }
   .section-divider { display: none; }
@@ -318,7 +318,7 @@
     .header-inner { padding: 14px 18px 18px; }
     .intro-bar { padding: 18px 18px 0; }
     .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
-    .tab-btn{ padding: 10px 12px; font-size: 13px; }
+    .tab-btn{ padding: 10px 12px; font-size: 15px; }
   }
 
   @media (max-width: 480px) {
@@ -342,7 +342,7 @@
     html, body{
       width: 100% !important;
       min-width: 0 !important;
-      font-size: 10pt;
+      font-size: clamp(16px, 2vw, 18px);
       line-height: 1.5;
       background: #fff !important;
     }

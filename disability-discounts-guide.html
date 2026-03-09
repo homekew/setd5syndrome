@@ -43,7 +43,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 15px;
+    font-size: clamp(16px, 2vw, 18px);
   }
 
   /* ── HEADER ── */
@@ -61,17 +61,17 @@
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; }
   .header-eyebrow{
-    font-size: 12px; font-weight: 600; letter-spacing: .14em;
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(30px, 4vw, 42px); font-weight: 400;
+    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
-  .header-subtitle{ font-size: 15px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-subtitle{ font-size: 14.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.175s ease; }
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
@@ -80,7 +80,7 @@
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
+  .site-header.collapsed .header-title{ font-size: 1rem; margin-bottom: 0; }
 
   .header-meta {
     display: flex; flex-wrap: wrap; gap: 12px;
@@ -103,7 +103,7 @@
   .tab-btn{
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,.7); font-family: 'Inter', sans-serif;
-    font-size: 13px; font-weight: 500; padding: 14px 18px;
+    font-size: 15px; font-weight: 400; padding: 14px 18px;
     white-space: nowrap; border-bottom: 3px solid transparent;
     transition: color .18s, border-color .18s, padding 0.175s ease;
   }
@@ -137,7 +137,7 @@
   /* ── SECTION HEADINGS ── */
   h2{
     font-family: 'Lora', serif;
-    font-size: 28px;
+    font-size: clamp(21px, 3.5vw, 28px);
     font-weight: 400;
     color: var(--navy);
     border-left: 4px solid var(--amber);
@@ -249,9 +249,9 @@
     .container { padding: 36px 18px 60px; }
     .header-inner { padding: 14px 18px 18px; }
     .section { padding: 18px; }
-    h2{ font-size: 28px; }
+    h2{ font-size: clamp(21px, 3.5vw, 28px); }
     .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
-    .tab-btn{ padding: 10px 12px; font-size: 13px; }
+    .tab-btn{ padding: 10px 12px; font-size: 15px; }
   }
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
