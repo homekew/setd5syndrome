@@ -339,8 +339,6 @@
   </div>
 </header>
 
-<main>
-
 <!-- SECTION NAV -->
 <nav class="section-nav" id="section-nav" aria-label="Page sections">
   <div class="section-nav-inner">
@@ -354,7 +352,7 @@
   </div>
 </nav>
 
-
+<main>
 
   <div class="intro-box">
     <p><strong>This page describes programs available in the United States only.</strong> Families outside the US may have access to different or additional programs through their own country's systems.</p>
@@ -502,7 +500,7 @@
         <option value="https://mn.gov/dhs/people-we-serve/adults/services/developmental-disabilities/">Minnesota</option>
         <option value="https://www.dmh.ms.gov/service-area/intellectual-disabilities/">Mississippi</option>
         <option value="https://dmh.mo.gov/developmental-disabilities">Missouri</option>
-        <option value="https://dphhs.mt.gov/dsd/developmentaldisabilities">Montana</option>
+        <option value="https://dphhs.mt.gov/BHDD/DisabilityServices/DevelopmentalDisabilities">Montana</option>
         <option value="https://dhhs.ne.gov/Pages/Developmental-Disabilities.aspx">Nebraska</option>
         <option value="https://dhhs.nv.gov/Agencies/DRDB/">Nevada</option>
         <option value="https://www.dhhs.nh.gov/programs-services/developmental-disabilities">New Hampshire</option>
@@ -513,7 +511,7 @@
         <option value="https://www.hhs.nd.gov/disabilities">North Dakota</option>
         <option value="https://dodd.ohio.gov/">Ohio</option>
         <option value="https://oklahoma.gov/okdhs/disability-services.html">Oklahoma</option>
-        <option value="https://www.oregon.gov/odhs/developmental-disabilities">Oregon</option>
+        <option value="https://www.oregon.gov/odhs/idd/Pages/default.aspx">Oregon</option>
         <option value="https://www.dhs.pa.gov/Services/Disabilities-Special-Needs/Pages/Intellectual-Disabilities.aspx">Pennsylvania</option>
         <option value="https://ddts.ri.gov/">Rhode Island</option>
         <option value="https://www.ddsn.sc.gov/">South Carolina</option>
@@ -594,11 +592,21 @@ window.scrollTo(0, 0);
 
 (function(){
   var header = document.querySelector('.site-header');
+  var sectionNav = document.getElementById('section-nav');
   var ticking = false;
+
+  function updateNavTop() {
+    if (sectionNav) sectionNav.style.top = header.offsetHeight + 'px';
+  }
+
+  updateNavTop();
+  window.addEventListener('resize', updateNavTop);
+
   window.addEventListener('scroll', function(){
     if (!ticking) {
       requestAnimationFrame(function() {
         header.classList.toggle('collapsed', window.scrollY > 60);
+        updateNavTop();
         ticking = false;
       });
       ticking = true;
@@ -645,13 +653,19 @@ function googleTranslateElementInit() {
 
 <script>
 (function(){
+  var header = document.querySelector('.site-header');
+  var sectionNav = document.getElementById('section-nav');
   var links = document.querySelectorAll('.section-link');
   var sections = Array.from(links).map(function(l){
     return document.querySelector(l.getAttribute('href'));
   }).filter(Boolean);
 
+  function stickyHeight() {
+    return (header ? header.offsetHeight : 0) + (sectionNav ? sectionNav.offsetHeight : 0);
+  }
+
   function onScroll(){
-    var scrollY = window.scrollY + 80;
+    var scrollY = window.scrollY + stickyHeight() + 12;
     var current = sections[0];
     sections.forEach(function(s){
       if(s.getBoundingClientRect().top + window.scrollY <= scrollY) current = s;
@@ -663,13 +677,13 @@ function googleTranslateElementInit() {
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
-  // Smooth scroll with offset for sticky nav
+  // Smooth scroll with offset for both sticky header and section nav
   links.forEach(function(l){
     l.addEventListener('click', function(e){
       e.preventDefault();
       var target = document.querySelector(l.getAttribute('href'));
       if(!target) return;
-      var offset = document.getElementById('section-nav').offsetHeight + 12;
+      var offset = stickyHeight() + 12;
       var top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({top: top, behavior: 'smooth'});
     });
