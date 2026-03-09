@@ -97,13 +97,12 @@
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
 
   /* -- LAYOUT -- */
-  main {
-    flex: 1;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 48px 32px 80px;
-    width: 100%;
-  }
+  main { flex: 1; width: 100%; }
+  .content-band { padding: 44px 32px; }
+  .content-band.alt { background: #ffffff; }
+  .content-band.note-band { background: var(--sage-lt); border-top: 3px solid var(--sage); }
+  .content-inner { max-width: 860px; margin: 0 auto; }
+  @media (max-width: 600px) { .content-band { padding: 32px 20px; } }
 
   /* -- INTRO BOX -- */
   .intro-box {
@@ -121,15 +120,22 @@
   /* -- SECTION HEADINGS -- */
   h2{
     font-family: 'Lora', serif;
-    font-size: clamp(21px, 3.5vw, 28px);
+    font-size: clamp(22px, 3.5vw, 29px);
     font-weight: 400;
     color: var(--navy);
-    border-left: 4px solid var(--amber);
-    padding-left: 14px;
-    margin: 40px 0 20px;
+    margin: 0 0 20px;
     line-height: 1.25;
   }
-  h2:first-of-type { margin-top: 2.5rem; }
+  /* -- SECTION LABEL (eyebrow above h2) -- */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 18px; height: 2px; background: var(--amber);
+  }
 
   /* -- PROSE -- */
   .prose{ font-size: 16px; line-height: 1.72; margin-bottom: 14px; }
@@ -181,22 +187,20 @@
   .bullet-list {
     list-style: none;
     padding: 0;
-    margin: 14px 0 18px;
+    margin: 12px 0 18px;
   }
   .bullet-list li {
-    padding: 6px 0 6px 22px;
+    padding: 4px 0 4px 22px;
     position: relative;
     font-size: 15.5px;
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--text);
-    border-bottom: 1px solid var(--border);
   }
-  .bullet-list li:last-child { border-bottom: none; }
   .bullet-list li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 17px;
+    top: 13px;
     width: 7px;
     height: 7px;
     border-radius: 50%;
@@ -271,26 +275,43 @@
 
   /* ── STATE FINDER WIDGET ── */
   .state-finder {
-    background: #eef7f5;
-    border: 1px solid #b0d4ce;
-    border-radius: 8px;
-    padding: 18px 20px 14px;
-    margin: 1.5rem 0;
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 26px 28px 22px;
+    margin: 1.5rem 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .state-finder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 30%, rgba(42,98,122,0.22) 0%, transparent 55%);
+    pointer-events: none;
   }
   .state-finder-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .state-finder-sub {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+    line-height: 1.55;
+    position: relative;
   }
   .state-finder-row {
     display: flex;
     gap: 8px;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
   }
   .state-select {
     flex: 1;
@@ -320,10 +341,29 @@
   .state-go-btn:disabled { background: var(--border); color: var(--muted); cursor: default; }
   .state-finder-note {
     font-size: 12px;
-    color: var(--muted);
+    color: rgba(255,255,255,0.4);
     margin-top: 10px;
     line-height: 1.5;
+    position: relative;
   }
+
+  /* ── FEATURE CARDS ── */
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 28px; }
+  @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; border-top: 3px solid var(--teal);
+  }
+  .content-band.alt .feature-card { background: var(--cream); }
+  .feature-card.amber-top { border-top-color: var(--amber); }
+  .feature-card.sage-top  { border-top-color: var(--sage); }
+  .feature-card.blue-top  { border-top-color: var(--blue); }
+  .feature-card.deep-top  { border-top-color: var(--deep); }
+  .feature-card h4 {
+    font-family: 'Lora', serif; font-size: 16px;
+    color: var(--navy); margin-bottom: 6px;
+  }
+  .feature-card p { font-size: 14.5px; line-height: 1.6; color: var(--text); margin: 0; }
 
 </style>
 </head>
@@ -354,16 +394,17 @@
 
 <main>
 
-  <div class="intro-box">
-    <p><strong>This page describes programs available in the United States only.</strong> Families outside the US may have access to different or additional programs through their own country's systems.</p>
-    <p>Families of children with SETD5-related disorder may be eligible for a range of educational, medical, and disability support programs. Eligibility depends on individual needs, functional limitations, and program-specific requirements.</p>
-    <p>This page provides a general overview of common pathways families sometimes explore. Specific eligibility rules, timelines, and program availability can vary by state and may change over time.</p>
-    <p>Families may want to confirm current requirements with local agencies, service providers, or official program websites.</p>
-  </div>
+<div class="content-band">
+  <div class="content-inner">
+    <div class="intro-box">
+      <p><strong>This page describes programs available in the United States only.</strong> Families outside the US may have access to different or additional programs through their own country's systems.</p>
+      <p>This page provides a general overview of common pathways families sometimes explore. Specific eligibility rules, timelines, and program availability can vary by state and may change over time.</p>
+    </div>
 
-  <!-- State DD Agency Finder -->
-  <div class="state-finder">
-    <p class="state-finder-label">Find your state&#8217;s developmental disability agency</p>
+    <!-- State DD Agency Finder -->
+    <div class="state-finder">
+      <p class="state-finder-label">Find Your State&#8217;s DD Agency</p>
+      <p class="state-finder-sub">Select your state to visit your developmental disability agency&#8217;s official website.</p>
     <div class="state-finder-row">
       <select id="state-select" class="state-select">
         <option value="">Select a state&hellip;</option>
@@ -422,30 +463,41 @@
       <button id="state-go-btn" class="state-go-btn" disabled>Go</button>
     </div>
     <p class="state-finder-note">Links go to official state agency websites and open in a new tab. Links may change over time &#8212; if one doesn&#8217;t work, search your state name and &#8220;developmental disability services.&#8221;</p>
+    </div>
   </div>
+</div>
 
-  <!-- Early Intervention -->
-  <h2 id="sec-early-intervention">Early Intervention (Birth to Age 3)</h2>
+<div class="content-band alt">
+  <div class="content-inner">
+    <p class="section-label">Ages 0–3</p>
+    <h2 id="sec-early-intervention">Early Intervention (Birth to Age 3)</h2>
 
-  <p class="prose">In the United States, infants and toddlers with developmental delays or diagnosed conditions may be eligible for Early Intervention (EI) services under Part C of the Individuals with Disabilities Education Act (IDEA).</p>
+    <p class="prose">In the United States, infants and toddlers with developmental delays or diagnosed conditions may be eligible for Early Intervention (EI) services under Part C of the Individuals with Disabilities Education Act (IDEA).</p>
 
-  <p class="prose">Early Intervention services can include:</p>
-  <ul class="bullet-list">
-    <li>developmental therapy</li>
-    <li>speech and language therapy</li>
-    <li>occupational therapy</li>
-    <li>physical therapy</li>
-    <li>family support services</li>
-  </ul>
+    <p class="prose">Early Intervention services can include:</p>
+    <ul class="bullet-list">
+      <li>developmental therapy</li>
+      <li>speech and language therapy</li>
+      <li>occupational therapy</li>
+      <li>physical therapy</li>
+      <li>family support services</li>
+    </ul>
 
-  <p class="prose">Children with a diagnosed genetic condition associated with developmental delay, such as SETD5-related disorder, may qualify based on the diagnosis itself or through developmental evaluation.</p>
+    <p class="prose">Children with a diagnosed genetic condition associated with developmental delay, such as SETD5-related disorder, may qualify based on the diagnosis itself or through developmental evaluation.</p>
 
-  <p class="prose">Federal law requires that the evaluation, assessment, and initial Individualized Family Service Plan (IFSP) occur within a defined timeline after referral, except in limited circumstances.</p>
+    <p class="prose">Federal law requires that the evaluation, assessment, and initial Individualized Family Service Plan (IFSP) occur within a defined timeline after referral, except in limited circumstances.</p>
 
-  <p class="prose">Families can usually begin the process by contacting their state's Early Intervention program.</p>
+    <div class="teal-callout">
+      <span class="callout-label">Getting started</span>
+      <p>Families can usually begin the process by contacting their state's Early Intervention program. You do not need a doctor's referral to request an evaluation, and there is no cost to families for the evaluation itself.</p>
+    </div>
+  </div>
+</div>
 
-  <!-- School Services -->
-  <h2 id="sec-school-services">School Services (Age 3 and Up)</h2>
+<div class="content-band">
+  <div class="content-inner">
+    <p class="section-label">Ages 3+</p>
+    <h2 id="sec-school-services">School Services (Age 3 and Up)</h2>
 
   <p class="prose">After age three, children may receive services through their local public school district under IDEA Part B.</p>
 
@@ -464,51 +516,82 @@
 
   <p class="prose">If a child qualifies, the school develops an Individualized Education Program (IEP) outlining services, supports, and educational goals.</p>
 
-  <div class="teal-callout">
-    <span class="callout-label">Related Guide</span>
-    <p>For a detailed walkthrough of the IEP process and how to advocate effectively in school meetings, see our <a href="school-iep-guide.html">School &amp; IEP Guide</a>.</p>
+    <div class="teal-callout">
+      <span class="callout-label">Related guide</span>
+      <p>For a detailed walkthrough of the IEP process and how to advocate effectively in school meetings, see our <a href="school-iep-guide.html">School &amp; IEP Guide</a>.</p>
+    </div>
   </div>
+</div>
 
-  <!-- SSI -->
-  <h2 id="sec-ssi">Supplemental Security Income (SSI)</h2>
+<div class="content-band alt">
+  <div class="content-inner">
+    <p class="section-label">Financial assistance</p>
+    <h2 id="sec-ssi">Supplemental Security Income (SSI)</h2>
 
-  <p class="prose">Supplemental Security Income (SSI) is a federal program administered by the Social Security Administration that provides financial assistance to some children with disabilities whose families meet certain income and resource limits.</p>
+    <p class="prose">Supplemental Security Income (SSI) is a federal program administered by the Social Security Administration that provides financial assistance to some children with disabilities whose families meet certain income and resource limits.</p>
 
-  <p class="prose">Eligibility is based on both:</p>
-  <ul class="bullet-list">
-    <li>financial criteria (family income and assets)</li>
-    <li>medical criteria (the child's level of functional limitation)</li>
-  </ul>
+    <p class="prose">Eligibility is based on both financial criteria (family income and assets) and medical criteria (the child's level of functional limitation).</p>
 
-  <p class="prose">When evaluating children, the Social Security Administration considers functioning across six domains:</p>
-  <ul class="bullet-list">
-    <li>acquiring and using information</li>
-    <li>attending and completing tasks</li>
-    <li>interacting and relating with others</li>
-    <li>moving about and manipulating objects</li>
-    <li>caring for oneself</li>
-    <li>health and physical well-being</li>
-  </ul>
+    <p class="prose">When evaluating children, the Social Security Administration considers functioning across six domains:</p>
 
-  <p class="prose">A child may qualify if their medical condition results in marked and severe functional limitations, or if the condition meets, medically equals, or functionally equals a listing used by the Social Security Administration.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>Acquiring &amp; Using Information</h4>
+        <p>How the child learns, remembers, and uses knowledge</p>
+      </div>
+      <div class="feature-card amber-top">
+        <h4>Attending &amp; Completing Tasks</h4>
+        <p>Ability to focus, keep pace, and finish activities</p>
+      </div>
+      <div class="feature-card sage-top">
+        <h4>Interacting with Others</h4>
+        <p>Social skills, cooperation, and communication</p>
+      </div>
+      <div class="feature-card blue-top">
+        <h4>Moving About &amp; Manipulating Objects</h4>
+        <p>Gross and fine motor skills</p>
+      </div>
+      <div class="feature-card deep-top">
+        <h4>Caring for Oneself</h4>
+        <p>Self-care, emotional regulation, and independence</p>
+      </div>
+      <div class="feature-card">
+        <h4>Health &amp; Physical Well-Being</h4>
+        <p>Physical health, medication needs, and effects of treatment</p>
+      </div>
+    </div>
 
-  <p class="prose">Some children with SETD5-related disorder may qualify depending on their individual developmental and medical profile.</p>
+    <p class="prose">A child may qualify if their medical condition results in marked and severe functional limitations, or if the condition meets, medically equals, or functionally equals a listing used by the Social Security Administration. Some children with SETD5-related disorder may qualify depending on their individual developmental and medical profile.</p>
 
-  <p class="prose">SSI provides monthly financial assistance, although the exact amount depends on federal benefit levels and household income.</p>
+    <div class="amber-callout">
+      <span class="callout-label">Applying for SSI</span>
+      <p>Families can start the application process through the Social Security Administration at <a href="https://www.ssa.gov/benefits/ssi/" target="_blank" rel="noopener">ssa.gov</a> or by calling their local Social Security office. Gathering medical records, evaluation reports, and therapy documentation before applying may be helpful.</p>
+    </div>
+  </div>
+</div>
 
-  <p class="prose">Families can begin the application process through the Social Security Administration.</p>
-
-  <!-- Medicaid -->
-  <h2 id="sec-medicaid">Medicaid</h2>
+<div class="content-band">
+  <div class="content-inner">
+    <p class="section-label">Health coverage</p>
+    <h2 id="sec-medicaid">Medicaid</h2>
 
   <p class="prose">Many children with significant disabilities receive health coverage through Medicaid, which may help cover medical care, therapies, and long-term services.</p>
 
   <p class="prose">In many states, children who qualify for SSI also qualify for Medicaid, though eligibility rules and application processes can vary.</p>
 
-  <p class="prose">Some states also offer Medicaid waiver programs that allow children with disabilities to qualify for Medicaid regardless of parental income. Availability and eligibility criteria vary by state.</p>
+    <p class="prose">Some states also offer Medicaid waiver programs that allow children with disabilities to qualify for Medicaid regardless of parental income. Availability and eligibility criteria vary by state.</p>
 
-  <!-- HCBS Waivers -->
-  <h2 id="sec-hcbs">Home and Community-Based Services (HCBS) Waivers</h2>
+    <div class="sage-callout">
+      <span class="callout-label">Good to know</span>
+      <p>Some states have pathways, sometimes called Katie Beckett waivers or TEFRA options, that allow children with significant disabilities to qualify for Medicaid based on the child's own medical needs, even if parental income would otherwise be too high. Your state's Medicaid office or disability agency can explain what options are available.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content-band alt">
+  <div class="content-inner">
+    <p class="section-label">Community supports</p>
+    <h2 id="sec-hcbs">Home and Community-Based Services (HCBS) Waivers</h2>
 
   <p class="prose">Many states provide disability supports through Home and Community-Based Services (HCBS) waiver programs. These programs help fund services that allow individuals with disabilities to live at home or in community settings rather than institutional settings.</p>
 
@@ -525,14 +608,17 @@
 
   <p class="prose">Families can often learn about available waivers through their state's developmental disability agency. <a href="https://thearc.org" target="_blank" rel="noopener">The Arc</a> is one of the nation's largest advocacy organizations for people with intellectual and developmental disabilities, with nearly 600 chapters in all 50 states. Local chapters can help families understand and navigate the waiver application process, connect to state-specific programs, and access a wide range of services including housing, employment support, and transition planning.</p>
 
-  <div class="amber-callout">
-    <span class="callout-label">Note on Timing</span>
-    <p>HCBS waiver programs in many states have waiting lists that can be years long. Families who think they may eventually need these services sometimes find it helpful to inquire about waiting lists early, even if services are not needed right away.</p>
+    <div class="amber-callout">
+      <span class="callout-label">Note on Timing</span>
+      <p>HCBS waiver programs in many states have waiting lists that can be years long. Families who think they may eventually need these services sometimes find it helpful to inquire about waiting lists early, even if services are not needed right away.</p>
+    </div>
   </div>
+</div>
 
-
-  <!-- DAC Benefits -->
-  <h2 id="sec-dac">Disabled Adult Child (DAC) Benefits</h2>
+<div class="content-band">
+  <div class="content-inner">
+    <p class="section-label">Adult benefits</p>
+    <h2 id="sec-dac">Disabled Adult Child (DAC) Benefits</h2>
 
   <p class="prose">Some adults with childhood-onset disabilities may qualify for Disabled Adult Child (DAC) benefits through Social Security.</p>
 
@@ -543,12 +629,19 @@
     <li>a parent is receiving Social Security retirement or disability benefits, or has passed away after qualifying for Social Security</li>
   </ul>
 
-  <p class="prose">Benefit amounts are typically based on the parent's Social Security work record.</p>
+    <p class="prose">Benefit amounts are typically based on the parent's Social Security work record.</p>
 
-  <!-- A Note for Families -->
-  <h2 id="sec-note">A Note for Families</h2>
+    <div class="teal-callout">
+      <span class="callout-label">Planning ahead</span>
+      <p>DAC eligibility requires documentation that the disability began before age 22. Keeping records of diagnoses, evaluations, and service history throughout childhood may be helpful when applying for benefits later.</p>
+    </div>
+  </div>
+</div>
 
-  <div class="section">
+<div class="content-band note-band">
+  <div class="content-inner">
+    <h2 id="sec-note" style="margin-top:0;">A Note for Families</h2>
+
     <p class="prose">Every individual with SETD5-related disorder has a unique profile. Eligibility for services depends on many factors, including developmental needs, functional limitations, and local program rules.</p>
 
     <p class="prose">Families may find it helpful to speak with:</p>
@@ -562,13 +655,16 @@
 
     <p class="prose" style="margin-bottom:0;">These professionals can help explain available programs and the steps involved in applying for services.</p>
   </div>
+</div>
 
-  <!-- Information About This Page -->
-  <div class="sage-callout" style="margin-top:8px;">
-    <span class="callout-label">Information About This Page</span>
-    <p>This page is intended as an informational overview of programs that families sometimes explore when seeking support for children with developmental disabilities. Policies, eligibility requirements, and program availability can change over time and may vary by state or country. Families should refer to official program websites or speak with relevant agencies to confirm the most current information.</p>
+<div class="content-band" style="padding-top:0;">
+  <div class="content-inner">
+    <div class="sage-callout" style="margin-top:0;">
+      <span class="callout-label">Information About This Page</span>
+      <p>This page is intended as an informational overview of programs that families sometimes explore when seeking support for children with developmental disabilities. Policies, eligibility requirements, and program availability can change over time and may vary by state or country. Families should refer to official program websites or speak with relevant agencies to confirm the most current information.</p>
+    </div>
   </div>
-
+</div>
 
 </main>
 
