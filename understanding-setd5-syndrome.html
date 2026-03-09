@@ -202,7 +202,8 @@
 
   /* ── FEATURE CARDS ── */
   .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; align-items: start; }
-  @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature-grid-3col { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } .feature-grid-3col { grid-template-columns: 1fr; } }
   /* Two-column list inside a feature card for long lists */
   .feature-card.two-col-list ul { columns: 2; column-gap: 16px; }
   @media (max-width: 560px) { .feature-card.two-col-list ul { columns: 1; } }
@@ -525,7 +526,7 @@
 
   <p class="prose">To understand genetic variants, it can be helpful to think of human DNA as a massive instruction manual. Genes are the specific chapters within that manual that tell the body how to grow, develop, and function. Every person has two copies of most genes, one inherited from each parent. Sometimes, there is a change in the text of those instructions. In genetics, any change to the standard DNA sequence is called a variant. Variants can happen in a few different ways:</p>
 
-  <div class="feature-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 8px;">
+  <div class="feature-grid feature-grid-3col" style="margin-top: 8px;">
     <div class="feature-card amber-top">
       <h4>Mutations (Sequence Changes)</h4>
       <p style="font-size:14.5px; line-height:1.6; color:var(--text); margin:0;">A mutation is like a spelling mistake within a word in the instruction manual. The chapter is still there, but one or more of the "letters" (the DNA sequence) is swapped out, altered, or scrambled. Depending on where this spelling mistake happens, it can make the instructions unreadable or change their meaning, preventing the gene from working properly.</p>
