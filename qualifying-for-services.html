@@ -247,6 +247,62 @@
   /* Ensure all body links are underlined */
   main a { text-decoration: underline; }
   footer a { text-decoration: underline; }
+  /* ── STATE FINDER WIDGET ── */
+  .state-finder {
+    background: #eef7f5;
+    border: 1px solid #b0d4ce;
+    border-radius: 8px;
+    padding: 18px 20px 14px;
+    margin: 1.5rem 0;
+  }
+  .state-finder-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .state-finder-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .state-select {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+    padding: 8px 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: #fff;
+    color: var(--text);
+  }
+  .state-go-btn {
+    padding: 8px 20px;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .state-go-btn:hover:not(:disabled) { background: #1f6358; }
+  .state-go-btn:disabled { background: var(--border); color: var(--muted); cursor: default; }
+  .state-finder-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
 </style>
 </head>
 <body>
@@ -376,6 +432,70 @@
     <p>HCBS waiver programs in many states have waiting lists that can be years long. Families who think they may eventually need these services sometimes find it helpful to inquire about waiting lists early, even if services are not needed right away.</p>
   </div>
 
+
+  <!-- State DD Agency Finder -->
+  <div class="state-finder">
+    <p class="state-finder-label">Find your state&#8217;s developmental disability agency</p>
+    <div class="state-finder-row">
+      <select id="state-select" class="state-select">
+        <option value="">Select a state&hellip;</option>
+        <option value="https://mh.alabama.gov/developmental-disabilities/">Alabama</option>
+        <option value="https://dhss.alaska.gov/dsds/">Alaska</option>
+        <option value="https://des.az.gov/services/developmental-disabilities">Arizona</option>
+        <option value="https://humanservices.arkansas.gov/about-dhs/dds/">Arkansas</option>
+        <option value="https://www.dds.ca.gov/">California</option>
+        <option value="https://hcpf.colorado.gov/long-term-services-and-supports">Colorado</option>
+        <option value="https://portal.ct.gov/DDS">Connecticut</option>
+        <option value="https://dhss.delaware.gov/dhss/ddds/">Delaware</option>
+        <option value="https://dds.dc.gov/">District of Columbia</option>
+        <option value="https://apdcares.org/">Florida</option>
+        <option value="https://dbhdd.georgia.gov/developmental-disabilities">Georgia</option>
+        <option value="https://health.hawaii.gov/ddd/">Hawaii</option>
+        <option value="https://healthandwelfare.idaho.gov/services-programs/disabilities-aging">Idaho</option>
+        <option value="https://dhs.illinois.gov/services/services-for-persons-with-disabilities/developmental-disabilities.html">Illinois</option>
+        <option value="https://www.in.gov/fssa/ddrs/">Indiana</option>
+        <option value="https://dhs.iowa.gov/ime/members/medicaid-a-to-z/id">Iowa</option>
+        <option value="https://kdads.ks.gov/commissions/developmental-disabilities">Kansas</option>
+        <option value="https://chfs.ky.gov/agencies/dbhdid/Pages/ddd.aspx">Kentucky</option>
+        <option value="https://ldh.la.gov/offices-programs/office-for-citizens-with-developmental-disabilities/">Louisiana</option>
+        <option value="https://www.maine.gov/dhhs/oads/disability-services/">Maine</option>
+        <option value="https://dda.health.maryland.gov/">Maryland</option>
+        <option value="https://www.mass.gov/orgs/department-of-developmental-services">Massachusetts</option>
+        <option value="https://www.michigan.gov/mdhhs/keep-mi-healthy/mentalhealth-substanceuse/developmental-disabilities">Michigan</option>
+        <option value="https://mn.gov/dhs/people-we-serve/adults/services/developmental-disabilities/">Minnesota</option>
+        <option value="https://www.dmh.ms.gov/service-area/intellectual-disabilities/">Mississippi</option>
+        <option value="https://dmh.mo.gov/developmental-disabilities">Missouri</option>
+        <option value="https://dphhs.mt.gov/dsd/developmentaldisabilities">Montana</option>
+        <option value="https://dhhs.ne.gov/Pages/Developmental-Disabilities.aspx">Nebraska</option>
+        <option value="https://dhhs.nv.gov/Agencies/DRDB/">Nevada</option>
+        <option value="https://www.dhhs.nh.gov/programs-services/developmental-disabilities">New Hampshire</option>
+        <option value="https://www.nj.gov/humanservices/ddd/">New Jersey</option>
+        <option value="https://www.dhi.health.nm.gov/">New Mexico</option>
+        <option value="https://opwdd.ny.gov/">New York</option>
+        <option value="https://www.ncdhhs.gov/divisions/intellectual-and-developmental-disabilities">North Carolina</option>
+        <option value="https://www.hhs.nd.gov/disabilities">North Dakota</option>
+        <option value="https://dodd.ohio.gov/">Ohio</option>
+        <option value="https://oklahoma.gov/okdhs/disability-services.html">Oklahoma</option>
+        <option value="https://www.oregon.gov/odhs/developmental-disabilities">Oregon</option>
+        <option value="https://www.dhs.pa.gov/Services/Disabilities-Special-Needs/Pages/Intellectual-Disabilities.aspx">Pennsylvania</option>
+        <option value="https://ddts.ri.gov/">Rhode Island</option>
+        <option value="https://www.ddsn.sc.gov/">South Carolina</option>
+        <option value="https://dhs.sd.gov/disabilityservices/">South Dakota</option>
+        <option value="https://www.tn.gov/disability-services.html">Tennessee</option>
+        <option value="https://www.hhs.texas.gov/services/disability/intellectual-developmental-disabilities">Texas</option>
+        <option value="https://dspd.utah.gov/">Utah</option>
+        <option value="https://ddsd.vermont.gov/">Vermont</option>
+        <option value="https://dbhds.virginia.gov/developmental-services/">Virginia</option>
+        <option value="https://www.dshs.wa.gov/dda">Washington</option>
+        <option value="https://dhhr.wv.gov/bdd/">West Virginia</option>
+        <option value="https://www.dhs.wisconsin.gov/disability/index.htm">Wisconsin</option>
+        <option value="https://health.wyo.gov/behavioralhealth/dd/">Wyoming</option>
+      </select>
+      <button id="state-go-btn" class="state-go-btn" disabled>Go</button>
+    </div>
+    <p class="state-finder-note">Links go to official state agency websites and open in a new tab. Links may change over time &#8212; if one doesn&#8217;t work, search your state name and &#8220;developmental disability services.&#8221;</p>
+  </div>
+
   <!-- DAC Benefits -->
   <h2>Disabled Adult Child (DAC) Benefits</h2>
 
@@ -470,6 +590,19 @@ function googleTranslateElementInit() {
       btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
     });
   }
+})();
+</script>
+
+<script>
+(function(){
+  var sel = document.getElementById('state-select');
+  var btn = document.getElementById('state-go-btn');
+  sel.addEventListener('change', function(){
+    btn.disabled = !sel.value;
+  });
+  btn.addEventListener('click', function(){
+    if(sel.value) window.open(sel.value, '_blank', 'noopener');
+  });
 })();
 </script>
 </body>
