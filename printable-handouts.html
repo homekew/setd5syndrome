@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Handout Builders & Downloads | SETD5 Syndrome">
 <meta name="twitter:description" content="Free one-page printable handouts for SETD5 Syndrome families: medical, school, and general.">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:       #faf7f2;
@@ -31,12 +31,12 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  body{
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.7;
     min-height: 100vh;
     display: flex;
@@ -50,13 +50,13 @@
     position: sticky; top: 0; z-index: 1000;
   }
   .header-inner { transition: padding 0.25s; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title{ transition: font-size 0.25s, margin 0.25s; }
   .site-header.collapsed .header-inner { padding: 8px 32px; }
-  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
   .site-header::before {
     content: '';
     position: absolute;
@@ -73,9 +73,9 @@
     position: relative;
     z-index: 1;
   }
-  .header-eyebrow {
-    font-size: 11px;
-    font-weight: 500;
+  .header-eyebrow{
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.75);
@@ -89,17 +89,17 @@
   .header-eyebrow a:hover { color: #a8cfc8; }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-eyebrow .sep { margin: 0 8px; opacity: 0.35; }
-  .header-title {
+  .header-title{
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: clamp(28px, 4.5vw, 44px);
+    font-size: clamp(30px, 4vw, 42px);
     line-height: 1.12;
     color: #fff;
     margin-bottom: 14px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
-  .header-subtitle {
-    font-size: 14.5px;
+  .header-subtitle{
+    font-size: 15px;
     font-weight: 400;
     color: rgba(255,255,255,0.65);
     max-width: 520px;
@@ -117,10 +117,10 @@
   }
 
   /* Section label */
-  .section-label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
+  .section-label{
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
@@ -148,7 +148,7 @@
     gap: 20px;
     flex-wrap: wrap;
   }
-  .handout-box-body {
+  .handout-box-body{
     flex: 1;
     min-width: 220px;
   }
@@ -180,7 +180,7 @@
     gap: 8px;
     background: #5a9186;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 13.5px;
     padding: 11px 22px;
@@ -210,7 +210,7 @@
     text-align: center;
     padding: 1.5rem;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   footer a { text-decoration: underline; }
 
@@ -272,7 +272,7 @@
       <div style="font-family:'Lora',serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for medical visits</div>
       <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin:0; line-height:1.65;">Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout to bring to any medical appointment, whether primary care, specialist, or otherwise.</p>
     </div>
-    <a href="medical-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#c9893a; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
+    <a href="medical-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#c9893a; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
   </div>
 
   <div class="section-label">School &amp; IEP Meetings</div>
@@ -283,7 +283,7 @@
       <div style="font-family:'Lora',serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for educational meetings</div>
       <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin:0; line-height:1.65;">Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout for IEP meetings, evaluations, or introducing your child to a new teacher at the start of the year.</p>
     </div>
-    <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#c9893a; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
+    <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#c9893a; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
   </div>
 
   <div style="background:#eef7f5; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:16px 20px; margin-top:36px;">

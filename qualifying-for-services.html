@@ -16,7 +16,7 @@
 <meta name="description" content="An overview of educational, medical, and disability support programs that families of children with SETD5-related disorder sometimes explore, including Early Intervention, school services, SSI, Medicaid, and HCBS waivers.">
 <link rel="canonical" href="https://setd5syndrome.live/qualifying-for-services.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream:     #faf7f2;
@@ -39,13 +39,13 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  body{
     background: var(--cream);
     color: var(--text);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: 15px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -65,8 +65,8 @@
   }
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; position: relative; z-index: 1; }
-  .header-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  .header-eyebrow{
+    font-size: 12px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
   }
   .header-eyebrow a {
@@ -77,24 +77,24 @@
   .header-eyebrow a:hover { color: #a8cfc8; }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
 
-  .header-title {
+  .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
+    font-size: clamp(30px, 4vw, 42px); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
 
-  .header-subtitle { font-size: 14.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 650px; line-height: 1.6; }
+  .header-subtitle{ font-size: 15px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 650px; line-height: 1.6; }
 
   /* -- HEADER COLLAPSE -- */
   .header-inner { transition: padding 0.175s ease; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px; }
-  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
 
   /* -- LAYOUT -- */
   main {
@@ -119,10 +119,10 @@
   .intro-box p + p { margin-top: 10px; }
 
   /* -- SECTION HEADINGS -- */
-  h2 {
+  h2{
     font-family: 'Lora', serif;
-    font-size: clamp(21px, 3.5vw, 28px);
-    font-weight: 400;
+    font-size: 28px;
+    font-weight: 600;
     color: var(--navy);
     border-left: 4px solid var(--amber);
     padding-left: 14px;
@@ -132,8 +132,8 @@
   h2:first-of-type { margin-top: 0; }
 
   /* -- PROSE -- */
-  .prose { font-size: 15px; line-height: 1.72; margin-bottom: 14px; }
-  .prose + .prose { margin-top: 0; }
+  .prose{ font-size: 15px; line-height: 1.72; margin-bottom: 14px; }
+  .prose + .prose{ margin-top: 0; }
   .prose strong { color: var(--navy); }
 
   /* -- SECTION BOXES -- */
@@ -155,7 +155,7 @@
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
   }
-  .teal-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+  .teal-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .amber-callout {
     background: var(--amber-lt); border-left: 4px solid var(--amber);
@@ -165,7 +165,7 @@
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
   }
-  .amber-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+  .amber-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .sage-callout {
     background: var(--sage-lt); border-left: 4px solid var(--sage);
@@ -228,7 +228,7 @@
     main { padding: 36px 18px 60px; }
     .header-inner { padding: 14px 18px 18px; }
     .section { padding: 18px; }
-    h2 { font-size: 18px; }
+    h2{ font-size: 28px; }
   }
 
   /* -- GOOGLE TRANSLATE WIDGET -- */

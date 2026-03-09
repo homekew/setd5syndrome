@@ -16,7 +16,7 @@
 <meta name="description" content="A practical guide for SETD5 families planning for the transition to adulthood: healthcare, legal decisions, benefits, and adult services.">
 <link rel="canonical" href="https://setd5syndrome.live/transition-to-adulthood.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream:     #faf7f2;
@@ -39,13 +39,13 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  body{
     background: var(--cream);
     color: var(--text);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: 15px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -65,8 +65,8 @@
   }
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; position: relative; z-index: 1; }
-  .header-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  .header-eyebrow{
+    font-size: 12px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
   }
   .header-eyebrow a {
@@ -77,24 +77,24 @@
   .header-eyebrow a:hover { color: #a8cfc8; }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
 
-  .header-title {
+  .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
+    font-size: clamp(30px, 4vw, 42px); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
 
-  .header-subtitle { font-size: 14.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 650px; line-height: 1.6; }
+  .header-subtitle{ font-size: 15px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 650px; line-height: 1.6; }
 
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.175s ease; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px; }
-  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
 
   /* ── LAYOUT ── */
   main {
@@ -118,10 +118,10 @@
   }
 
   /* ── SECTION HEADINGS ── */
-  h2 {
+  h2{
     font-family: 'Lora', serif;
-    font-size: clamp(21px, 3.5vw, 28px);
-    font-weight: 400;
+    font-size: 28px;
+    font-weight: 600;
     color: var(--navy);
     border-left: 4px solid var(--amber);
     padding-left: 14px;
@@ -131,8 +131,8 @@
   h2:first-of-type { margin-top: 0; }
 
   /* ── PROSE ── */
-  .prose { font-size: 18px; line-height: 1.78; margin-bottom: 18px; }
-  .prose + .prose { margin-top: 0; }
+  .prose{ font-size: 18px; line-height: 1.78; margin-bottom: 18px; }
+  .prose + .prose{ margin-top: 0; }
   .prose strong { color: var(--navy); }
 
   /* ── CALLOUTS ── */
@@ -144,7 +144,7 @@
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
   }
-  .teal-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+  .teal-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .amber-callout {
     background: var(--amber-lt); border-left: 4px solid var(--amber);
@@ -154,7 +154,7 @@
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
   }
-  .amber-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+  .amber-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .sage-callout {
     background: var(--sage-lt); border-left: 4px solid var(--sage);
@@ -221,7 +221,7 @@
   .link-content { flex: 1; }
 
   .link-name {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 1rem;
     color: var(--navy);
@@ -292,7 +292,7 @@
     main { padding: 36px 18px 60px; }
     .header-inner { padding: 14px 18px 18px; }
     .section { padding: 18px; }
-    h2 { font-size: 18px; }
+    h2{ font-size: 28px; }
     .feature-grid { grid-template-columns: 1fr; }
   }
 
@@ -425,13 +425,13 @@
 
   <p class="prose">Even if your family doesn't have substantial assets, financial planning is important. Here are three key tools to understand.</p>
 
-  <h3 style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">ABLE Accounts</h3>
+  <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">ABLE Accounts</h3>
   <p class="prose">ABLE accounts are tax-advantaged savings accounts for people with disabilities (available since 2014). You can save money in an ABLE account without affecting your child's SSI or Medicaid eligibility. The money can be used for housing, education, transportation, assistive technology, and other disability-related expenses. As of 2026, the ABLE Age Adjustment Act raised the age-of-onset requirement from 26 to 46. Check <a href="https://www.ablenrc.org/" target="_blank">ablenrc.org</a> for the most current eligibility rules.</p>
 
-  <h3 style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Special Needs Trusts (SNTs)</h3>
+  <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Special Needs Trusts (SNTs)</h3>
   <p class="prose">A Special Needs Trust is a legal arrangement that holds assets for your child without affecting their public benefits. There are two types: a first-party SNT (using your child's own money, like a settlement) and a third-party SNT (using family funds). A third-party SNT is an estate planning tool that allows families to leave money to a child while protecting their SSI and Medicaid eligibility.</p>
 
-  <h3 style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Letter of Intent</h3>
+  <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Letter of Intent</h3>
   <p class="prose">A Letter of Intent is not a legal document, but it is a detailed planning guide you write for future caregivers -- whether that's a group home staff, a sibling, or a residential program. In it, you describe your child's daily routines, medical needs, food preferences, what helps them feel safe, important people in their life, and their personality and strengths. It can be a useful document to have, regardless of financial situation or current living arrangements.</p>
 
   <div class="teal-callout">

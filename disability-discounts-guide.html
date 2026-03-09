@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Disability Discounts Guide | SETD5 Syndrome">
 <meta name="twitter:description" content="Nationwide discount programs for disabled children and adults in the US, plus how to find state-specific savings and documentation resources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream:     #faf7f2;
@@ -37,13 +37,13 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  body{
     background: var(--cream);
     color: var(--text);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: 15px;
   }
 
   /* ── HEADER ── */
@@ -60,27 +60,27 @@
   }
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; }
-  .header-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  .header-eyebrow{
+    font-size: 12px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
-  .header-title {
+  .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
+    font-size: clamp(30px, 4vw, 42px); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
-  .header-subtitle { font-size: 14.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-subtitle{ font-size: 15px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.175s ease; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
-  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
 
   .header-meta {
     display: flex; flex-wrap: wrap; gap: 12px;
@@ -102,7 +102,7 @@
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
   .tab-btn {
     background: none; border: none; cursor: pointer;
-    color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
+    color: rgba(255,255,255,.7); font-family: 'Inter', sans-serif;
     font-size: 15px; font-weight: 400; padding: 14px 18px;
     white-space: nowrap; border-bottom: 3px solid transparent;
     transition: color .18s, border-color .18s, padding 0.175s ease;
@@ -135,10 +135,10 @@
   .intro-box strong { color: var(--navy); }
 
   /* ── SECTION HEADINGS ── */
-  h2 {
+  h2{
     font-family: 'Lora', serif;
-    font-size: clamp(21px, 3.5vw, 28px);
-    font-weight: 400;
+    font-size: 28px;
+    font-weight: 600;
     color: var(--navy);
     border-left: 4px solid var(--amber);
     padding-left: 14px;
@@ -147,10 +147,10 @@
   }
   h2:first-of-type { margin-top: 0; }
 
-  h3 {
+  h3{
     font-family: 'Lora', serif;
-    font-size: 17px;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 600;
     color: var(--deep);
     margin: 24px 0 8px;
   }
@@ -200,7 +200,7 @@
     background: var(--navy);
     color: #fff;
     font-size: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -249,7 +249,7 @@
     .container { padding: 36px 18px 60px; }
     .header-inner { padding: 14px 18px 18px; }
     .section { padding: 18px; }
-    h2 { font-size: 18px; }
+    h2{ font-size: 28px; }
     .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
     .tab-btn { padding: 10px 12px; font-size: 13px; }
   }
@@ -465,7 +465,7 @@
 
     <h3>Template 1: Request to Doctor / Specialist</h3>
     <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">Send to your physician, pediatrician, neurologist, psychiatrist, or other treating provider.</p>
-    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Poppins', sans-serif;">Dear Dr. [Last Name],
+    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Inter', sans-serif;">Dear Dr. [Last Name],
 
 I am writing to request a letter on official letterhead confirming the disability status of [Patient Name / my child, Name]. This letter is needed to apply for disability-related discounts and assistance programs.
 
@@ -487,7 +487,7 @@ Sincerely,
 
     <h3>Template 2: Request to School for IEP / 504 Plan Copy <span class="badge kids">Kids</span></h3>
     <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">Send to your child's school principal, special education coordinator, or 504 plan coordinator.</p>
-    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Poppins', sans-serif;">Dear [Principal / Special Education Coordinator / 504 Coordinator],
+    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Inter', sans-serif;">Dear [Principal / Special Education Coordinator / 504 Coordinator],
 
 I am writing to request a copy of my child's current [IEP / 504 Plan]. My child's information is as follows:
 
@@ -510,7 +510,7 @@ Sincerely,
 
     <h3>Template 3: General Disability Verification Letter from School <span class="badge kids">Kids</span></h3>
     <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">Use this if you need a general letter from the school confirming your child receives special education services, rather than the full IEP document.</p>
-    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Poppins', sans-serif;">Dear [Principal / Special Education Coordinator],
+    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Inter', sans-serif;">Dear [Principal / Special Education Coordinator],
 
 I am writing to request a brief verification letter on school letterhead confirming that my child, [Child's Full Name] (DOB: [Date of Birth], Grade: [Grade]), currently receives special education services or accommodations through an IEP or 504 Plan at [School Name].
 
@@ -528,7 +528,7 @@ Sincerely,
 
     <h3>Template 4: Request to County or State Disability Office <span class="badge kids">Kids</span></h3>
     <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem;">Use this if your child is already receiving services through a county or state disability agency and you need official documentation from them.</p>
-    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Poppins', sans-serif;">Dear [Agency Name / Caseworker Name],
+    <div style="background:#f9f6f0; border:1px solid var(--border); border-radius:6px; padding:1.5rem; font-size:0.95rem; line-height:1.8; white-space:pre-wrap; font-family:'Inter', sans-serif;">Dear [Agency Name / Caseworker Name],
 
 I am writing to request an official letter or certification confirming the disability status of my child, [Child's Full Name] (DOB: [Date of Birth]), who is currently receiving services through [Agency Name].
 

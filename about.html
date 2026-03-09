@@ -16,7 +16,7 @@
 <meta name="description" content="About the SETD5 Syndrome resource site: created by a parent for families and communities navigating diagnosis.">
 <link rel="canonical" href="https://setd5syndrome.live/about.html">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -34,14 +34,14 @@
     --muted: #6b6b6b;
   }
 
-  html, body { height: 100%; }
+  html, body{ height: 100%; }
 
-  body {
+  body{
     background: var(--bg);
     color: var(--ink);
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.75;
     min-height: 100vh;
     display: flex;
@@ -69,11 +69,11 @@
   }
 
   /* ── HEADER COLLAPSE ── */
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
-  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
 
   .site-header::before {
     content: '';
@@ -88,15 +88,15 @@
 
   .site-header .header-eyebrow,
   .site-header .header-title,
-  .site-header .header-subtitle {
+  .site-header .header-subtitle{
     position: relative;
   }
 
-  .header-eyebrow {
+  .header-eyebrow{
     display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.6);
@@ -106,10 +106,10 @@
   .header-eyebrow a { color: rgba(255,255,255,0.6); text-decoration: none; }
   .header-eyebrow a:hover { color: #fff; }
 
-  .header-title {
+  .header-title{
     font-family: 'Lora', serif;
     font-weight: 400;
-    font-size: clamp(28px, 4.5vw, 44px);
+    font-size: clamp(30px, 4vw, 42px);
     line-height: 1.08;
     letter-spacing: -0.02em;
     color: #fff;
@@ -158,19 +158,19 @@
     margin-top: 56px;
   }
 
-  h2 {
+  h2{
     font-family: 'Lora', serif;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 28px;
     color: var(--navy);
     margin-bottom: 16px;
     line-height: 1.2;
   }
 
-  h3 {
+  h3{
     font-family: 'Lora', serif;
-    font-weight: 500;
-    font-size: 1.2rem;
+    font-weight: 600;
+    font-size: 22px;
     color: var(--deep);
     margin: 1.75rem 0 0.75rem;
   }
@@ -253,7 +253,7 @@
 
   .disclaimer-callout .callout-label {
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: .13em;
@@ -278,7 +278,7 @@
     text-decoration: none;
     padding: 0.8rem 1.8rem;
     border-radius: 6px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.94rem;
     font-weight: 500;
     transition: background 0.2s;
@@ -294,7 +294,7 @@
   }
 
   .faq-section-label {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -304,7 +304,7 @@
     display: block;
   }
 
-  .faq-section h2 {
+  .faq-section h2{
     margin-bottom: 1.75rem;
   }
 
@@ -384,7 +384,7 @@
   }
 
   .terms-section-label {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -395,7 +395,7 @@
   }
 
   .terms-last-updated {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     color: var(--muted);
     margin-bottom: 1.5rem;
@@ -441,7 +441,7 @@
     background: var(--navy);
     text-align: center;
     padding: 2rem 1.5rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .footer-love {
@@ -475,7 +475,7 @@
     .header-inner { padding: 14px 18px 18px; }
     .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
     main { padding: 2rem 1.25rem 3rem; }
-    h2 { font-size: 1.5rem; }
+    h2{ font-size: 28px; }
     .faq-question { font-size: 15.5px; padding: 15px 16px; }
     .faq-answer-inner { padding: 0 16px 16px; }
   }
@@ -491,7 +491,7 @@
   }
 
   .page-nav-label {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -508,7 +508,7 @@
   }
 
   .page-nav ol li {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     padding: 3px 0;

@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Understanding SETD5 Syndrome">
 <meta name="twitter:description" content="A practical guide to SETD5 Syndrome: what it is, symptoms and features, next steps, and resources for families and individuals."
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream:     #faf7f2;
@@ -37,26 +37,26 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  body{
     background: var(--cream);
     color: var(--text);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: clamp(15px, 2vw, 16px);
+    font-size: 15px;
   }
 
   /* ── HEADER ── */
   .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; }
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.175s ease; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
-  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
   .site-header::before {
     content: '';
     position: absolute;
@@ -69,18 +69,18 @@
   }
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; }
-  .header-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  .header-eyebrow{
+    font-size: 12px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
-  .header-title {
+  .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(28px, 4.5vw, 44px); font-weight: 400;
+    font-size: clamp(30px, 4vw, 42px); font-weight: 400;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
-  .header-subtitle { font-size: 14.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-subtitle{ font-size: 15px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
   .header-meta {
     display: flex; flex-wrap: wrap; gap: 12px;
     margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15);
@@ -101,7 +101,7 @@
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
   .tab-btn {
     background: none; border: none; cursor: pointer;
-    color: rgba(255,255,255,.7); font-family: 'Poppins', sans-serif;
+    color: rgba(255,255,255,.7); font-family: 'Inter', sans-serif;
     font-size: 15px; font-weight: 400; padding: 14px 18px;
     white-space: nowrap; border-bottom: 3px solid transparent;
     transition: color .18s, border-color .18s, padding 0.175s ease;
@@ -113,26 +113,26 @@
   /* ── LAYOUT ── */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
-  .page-body { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+  .page-body{ max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
 
   /* ── SECTION ── */
-  .section-label {
+  .section-label{
     display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    font-size: 12px; font-weight: 600; letter-spacing: .12em;
     text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
   }
   .section-label::before { content: ''; display: block; width: 18px; height: 2px; background: var(--amber); }
-  .section-title {
+  .section-title{
     font-family: 'Lora', serif;
-    font-size: clamp(21px, 3.5vw, 29px); font-weight: 400;
+    font-size: 28px; font-weight: 600;
     color: var(--navy); margin-bottom: 20px; line-height: 1.25;
     scroll-margin-top: 150px;
   }
   .section-divider { border: none; border-top: 2px solid var(--border); margin: 44px 0 40px; }
 
   /* ── PROSE ── */
-  .prose { font-size: 16px; line-height: 1.78; margin-bottom: 18px; }
-  .prose + .prose { margin-top: 0; }
+  .prose{ font-size: 15px; line-height: 1.78; margin-bottom: 18px; }
+  .prose + .prose{ margin-top: 0; }
 
   /* ── STAT STRIP ── */
   .stat-strip { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
@@ -148,10 +148,10 @@
     background: var(--sage-lt); border-left: 4px solid var(--sage);
     border-radius: 0 8px 8px 0; padding: 16px 22px; margin-bottom: 32px;
   }
-  .new-diagnosis-note p { font-size: 15px; line-height: 1.75; color: var(--text); margin: 0; }
+  .new-diagnosis-note p{ font-size: 15px; line-height: 1.75; color: var(--text); margin: 0; }
 
   /* ── PROSE NOTE (footnotes) ── */
-  .prose-note { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 10px; margin-bottom: 24px; }
+  .prose-note{ font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 10px; margin-bottom: 24px; }
 
   /* ── QUESTION GROUP LABEL ── */
   .question-group-label {
@@ -169,7 +169,7 @@
     font-size: 11px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 6px;
   }
-  .info-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+  .info-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .teal-callout {
     background: #eef7f5; border-left: 4px solid var(--teal);
@@ -179,7 +179,7 @@
     font-size: 11px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
   }
-  .teal-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+  .teal-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .amber-callout {
     background: var(--amber-lt); border-left: 4px solid var(--amber);
@@ -189,7 +189,7 @@
     font-size: 11px; font-weight: 600; letter-spacing: .11em;
     text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
   }
-  .amber-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+  .amber-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   /* ── FEATURE CARDS ── */
   .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; align-items: start; }
@@ -287,14 +287,14 @@
   .site-footer {
     background: var(--navy); color: rgba(255,255,255,0.6);
     padding: 1.5rem; text-align: center; font-size: 14px; line-height: 1.65;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   .site-footer .footer-brand { font-family: 'Lora', serif; font-size: 16px; color: #fff; margin-bottom: 8px; }
   .site-footer a { color: rgba(255,255,255,.8); }
   .site-footer p + p { margin-top: 8px; }
 
   @media (max-width: 600px) {
-    .page-body { padding: 36px 18px 60px; }
+    .page-body{ padding: 36px 18px 60px; }
     .header-inner { padding: 14px 18px 18px; }
     .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
     .tab-btn { padding: 10px 12px; font-size: 13px; }

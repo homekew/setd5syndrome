@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Suggest a Resource | SETD5 Syndrome">
 <meta name="twitter:description" content="Have a suggestion for the SETD5 Syndrome Family Toolkit? We'd love to hear what would be helpful to you.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --cream:    #faf7f2;
@@ -34,13 +34,13 @@
     --white:    #ffffff;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
+  body{
     background: var(--cream);
     color: var(--text);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   /* Header */
@@ -58,27 +58,27 @@
 
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.25s; max-width: 860px; margin: 0 auto; padding: 22px 32px 28px; }
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title { transition: font-size 0.25s, margin 0.25s; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
+  .header-title{ transition: font-size 0.25s, margin 0.25s; }
   .site-header.collapsed .header-inner { padding: 8px 32px; }
-  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
-  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title { font-size: 1rem; margin-bottom: 0; }
+  .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title{ font-size: clamp(30px, 4vw, 42px); margin-bottom: 0; }
 
-  .header-eyebrow {
-    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  .header-eyebrow{
+    font-size: 12px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 14px;
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
-  .header-title {
+  .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(28px, 4.5vw, 44px);
+    font-size: clamp(30px, 4vw, 42px);
     font-weight: 400; line-height: 1.2; color: #fff; margin-bottom: 14px;
   }
   .header-title em { font-style: italic; color: #c8e6d4; }
-  .header-subtitle {
-    font-size: 14.5px;
+  .header-subtitle{
+    font-size: 15px;
     font-weight: 400; color: rgba(255,255,255,.75); line-height: 1.6;
   }
   .back-link {
@@ -133,7 +133,7 @@
     padding: 10px 14px;
     border: 1px solid var(--border);
     border-radius: 7px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
     color: var(--text);
     background: var(--cream);
@@ -164,7 +164,7 @@
     border: none;
     border-radius: 8px;
     padding: 13px 32px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
@@ -189,10 +189,10 @@
     font-size: 2.8rem;
     margin-bottom: 18px;
   }
-  .thank-you h2 {
+  .thank-you h2{
     font-family: 'Lora', serif;
-    font-size: 1.6rem;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: 600;
     color: var(--navy);
     margin-bottom: 12px;
   }
@@ -219,7 +219,7 @@
     text-align: center;
     padding: 1.5rem;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   footer a { color: rgba(255,255,255,.7); text-decoration: none; }
   footer a:hover { color: rgba(255,255,255,.85); }
