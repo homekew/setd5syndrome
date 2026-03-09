@@ -106,7 +106,7 @@
     width: 60px;
     height: 3px;
     background: var(--amber);
-    margin: 0.75rem auto 1rem;
+    margin: 0.9rem auto 0.85rem;
     border-radius: 2px;
   }
 
@@ -114,7 +114,9 @@
     font-size: 1rem;
     color: rgba(255,255,255,0.65);
     font-style: normal;
-    margin: 1.4rem auto 0;
+    margin: 0 auto;
+    max-width: 540px;
+    line-height: 1.6;
   }
 
   /* MAIN */
@@ -122,8 +124,58 @@
     flex: 1;
     max-width: 860px;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 5rem;
+    padding: 0 1.5rem 5rem;
     width: 100%;
+  }
+
+  /* INTRO ZONE */
+  .intro-zone {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .intro-lead {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.65;
+    margin-bottom: 0.9rem;
+    border-left: 3px solid var(--teal);
+    padding-left: 1.1rem;
+  }
+
+  .intro-body {
+    font-size: 15.5px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    padding-left: 1.1rem;
+  }
+
+  /* GUIDES ZONE */
+  .guides-zone {
+    background: #f2ede4;
+    margin: 0 -1.5rem;
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  /* FEATURED CARD */
+  .card-featured {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2.25rem 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-featured h2 {
+    font-size: 26px;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-featured p {
+    font-size: 16.5px;
+    margin-bottom: 1.5rem;
+    max-width: 560px;
   }
 
   .guides-label{
@@ -369,6 +421,8 @@
     <div id="google_translate_element"></div>
   </div>
   <h1>SETD5 Syndrome<br><em>Research &amp; Resources</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-sub">Plain-language resources for families navigating a SETD5 Syndrome diagnosis.</p>
 </header>
 
 <nav style="background:#5a9186; padding:0; text-align:center;">
@@ -382,47 +436,56 @@
 </nav>
 
 <main>
-  <p style="font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:1.25rem;">If your family has recently received a SETD5 Syndrome diagnosis, this site was created with you in mind. A parent of a child with SETD5 Syndrome built it to bring published research, plain-language guides, and community insights together in one place. All content here is educational and informational only — it is not medical, legal, or professional advice.</p>
 
-  <div style="background:var(--sage-lt); border:1px solid #b8d4be; border-radius:8px; padding:0.9rem 1.2rem; margin-bottom:2rem; font-size:16px; color:#3a5c48; line-height:1.65;">
-    <strong>A note for international readers:</strong> Most informational content on this site applies globally. Some sections cover US-specific programs and laws, so please check your country for equivalent support systems. A Google Translate widget (powered by Google) is available in the top corner of most pages.
+  <!-- Intro zone -->
+  <div class="intro-zone">
+    <p class="intro-lead">If your family has recently received a SETD5 Syndrome diagnosis, this site was created with you in mind.</p>
+    <p class="intro-body">A parent of a child with SETD5 Syndrome built it to bring published research, plain-language guides, and community insights together in one place. All content here is educational and informational only — it is not medical, legal, or professional advice.</p>
+    <div style="background:var(--sage-lt); border:1px solid #b8d4be; border-radius:8px; padding:0.9rem 1.2rem; font-size:15.5px; color:#3a5c48; line-height:1.65;">
+      <strong>A note for international readers:</strong> Most informational content on this site applies globally. Some sections cover US-specific programs and laws, so please check your country for equivalent support systems. A Google Translate widget (powered by Google) is available in the top corner of most pages.
+    </div>
   </div>
 
-  <div class="guides-label">Our Guides</div>
-  <div class="card-grid">
+  <!-- Guides zone -->
+  <div class="guides-zone">
+    <div class="guides-label">Our Guides</div>
 
-    <a href="understanding-setd5-syndrome.html" class="card card-newly-diagnosed">
+    <!-- Featured card -->
+    <a href="understanding-setd5-syndrome.html" class="card card-newly-diagnosed card-featured">
       <h2>Understanding SETD5 Syndrome</h2>
       <p>A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</p>
       <span class="card-link"><i data-lucide="book-open"></i>View Guide</span>
     </a>
 
-    <a href="family-toolkit.html" class="card card-discounts">
-      <h2>Family Toolkit</h2>
-      <p>Printable handouts, personalized appointment guides you can build for your child, family stories, school and education resources, qualifying for services, disability discounts, and more.</p>
-      <span class="card-link"><i data-lucide="folder-open"></i>View Family Toolkit</span>
-    </a>
+    <!-- Supporting cards -->
+    <div class="card-grid">
 
-    <a href="setd5-research-2020-to-present.html" class="card card-research">
-      <h2>SETD5 Syndrome Research</h2>
-      <p>A comprehensive summary of published research on SETD5 Syndrome from 2013 to present, written for families and caregivers.</p>
-      <span class="card-link"><i data-lucide="microscope"></i>View Research Guide</span>
-    </a>
+      <a href="family-toolkit.html" class="card card-discounts">
+        <h2>Family Toolkit</h2>
+        <p>Printable handouts, personalized appointment guides you can build for your child, family stories, school and education resources, qualifying for services, disability discounts, and more.</p>
+        <span class="card-link"><i data-lucide="folder-open"></i>View Family Toolkit</span>
+      </a>
 
-    <a href="setd5-medical-terms-guide.html" class="card card-glossary">
-      <h2>Medical Terms Guide</h2>
-      <p>A plain-language glossary of medical, genetic, and service-related terms that appear in SETD5-related reports, appointments, and research, alphabetically organized.</p>
-      <span class="card-link"><i data-lucide="file-text"></i>View Medical Terms Guide</span>
-    </a>
+      <a href="setd5-research-2020-to-present.html" class="card card-research">
+        <h2>SETD5 Syndrome Research</h2>
+        <p>A comprehensive summary of published research on SETD5 Syndrome from 2013 to present, written for families and caregivers.</p>
+        <span class="card-link"><i data-lucide="microscope"></i>View Research Guide</span>
+      </a>
 
-    <a href="about.html" class="card card-letters">
-      <h2>About This Site</h2>
-      <p>This site was built by a SETD5 Syndrome parent, for SETD5 Syndrome families. Here's the story behind it and why it exists.</p>
-      <span class="card-link"><i data-lucide="heart"></i>Read More</span>
-    </a>
+      <a href="setd5-medical-terms-guide.html" class="card card-glossary">
+        <h2>Medical Terms Guide</h2>
+        <p>A plain-language glossary of medical, genetic, and service-related terms that appear in SETD5-related reports, appointments, and research, alphabetically organized.</p>
+        <span class="card-link"><i data-lucide="file-text"></i>View Medical Terms Guide</span>
+      </a>
 
+      <a href="about.html" class="card card-letters">
+        <h2>About This Site</h2>
+        <p>This site was built by a SETD5 Syndrome parent, for SETD5 Syndrome families. Here's the story behind it and why it exists.</p>
+        <span class="card-link"><i data-lucide="heart"></i>Read More</span>
+      </a>
+
+    </div>
   </div>
-
 
 </main>
 
