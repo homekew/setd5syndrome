@@ -147,34 +147,6 @@
   .alpha-link:hover{ color:#fff; }
   .alpha-link.has-entries{ color:rgba(255,255,255,.85); }
   .alpha-link.no-entries{ color:rgba(255,255,255,.28); cursor:default; pointer-events:none; }
-  /* Tag filter dropdown — inside alpha-bar */
-  .tag-dropdown{ position:relative; margin-left:auto; flex-shrink:0; }
-  .tag-dropdown-btn{
-    font-family:'Inter', sans-serif; font-size:11px; font-weight:500;
-    padding:4px 10px; border:1px solid rgba(255,255,255,0.3); border-radius:4px;
-    background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.85); cursor:pointer;
-    display:flex; align-items:center; gap:5px;
-    transition:background .15s, border-color .15s;
-  }
-  .tag-dropdown-btn:hover, .tag-dropdown-btn.open{ background:rgba(255,255,255,0.2); border-color:rgba(255,255,255,0.6); }
-  .tag-arrow{ font-size:9px; color:rgba(255,255,255,0.6); transition:transform 0.2s; display:inline-block; }
-  .tag-dropdown-btn.open .tag-arrow{ transform:rotate(180deg); }
-  .tag-dropdown-menu{
-    position:absolute; top:calc(100% + 4px); left:0;
-    background:#fff; border:1px solid var(--border); border-radius:6px;
-    box-shadow:0 4px 16px rgba(0,0,0,0.1); min-width:170px; z-index:200;
-    opacity:0; visibility:hidden; transform:translateY(-4px);
-    transition:opacity 0.15s, transform 0.15s, visibility 0.15s;
-  }
-  .tag-dropdown-menu.open{ opacity:1; visibility:visible; transform:translateY(0); }
-  .tag-opt{
-    display:block; width:100%; text-align:left;
-    font-family:'Inter', sans-serif; font-size:13px; padding:8px 14px;
-    border:none; background:transparent; cursor:pointer; color:var(--text);
-    transition:background .12s;
-  }
-  .tag-opt:hover{ background:var(--cream); }
-  .tag-opt.active{ font-weight:600; color:var(--navy); background:var(--cream2); }
   .tag-hidden{ display:none !important; }
   .search-hidden{ display:none !important; }
   mark.search-hl{ background:#fff176; color:inherit; border-radius:2px; padding:0 1px; }
@@ -340,21 +312,6 @@
     <span class="alpha-link no-entries">X</span>
     <span class="alpha-link no-entries">Y</span>
     <span class="alpha-link no-entries">Z</span>
-    <div class="tag-dropdown">
-      <button class="tag-dropdown-btn" id="tag-dropdown-btn">
-        <span id="tag-dropdown-label">All</span>
-        <span class="tag-arrow">▾</span>
-      </button>
-      <div class="tag-dropdown-menu" id="tag-dropdown-menu">
-        <button class="tag-opt active" data-filter="all">All</button>
-        <button class="tag-opt" data-filter="behavior">Behavior</button>
-        <button class="tag-opt" data-filter="genetics">Genetics</button>
-        <button class="tag-opt" data-filter="neuro">Neurology</button>
-        <button class="tag-opt" data-filter="physical">Physical</button>
-        <button class="tag-opt" data-filter="testing">Testing</button>
-        <button class="tag-opt" data-filter="therapy">Therapy &amp; Services</button>
-      </div>
-    </div>
   </div>
 </nav>
   <div class="search-bar">
@@ -1401,62 +1358,6 @@
 
 </div><!-- /page-body -->
 
-<!-- TAG FILTER -->
-<script>
-(function(){
-  var dropBtn  = document.getElementById('tag-dropdown-btn');
-  var dropMenu = document.getElementById('tag-dropdown-menu');
-  var dropLabel = document.getElementById('tag-dropdown-label');
-  var opts  = document.querySelectorAll('.tag-opt');
-  var cards = document.querySelectorAll('.term-card');
-  var groups = document.querySelectorAll('.letter-group');
-
-  // Store tag filter data on each card
-  cards.forEach(function(card){
-    var tagEl = card.querySelector('.term-tag');
-    if(tagEl){
-      var cls = Array.from(tagEl.classList).find(function(c){ return c.startsWith('tag-'); });
-      if(cls) card.dataset.tagFilter = cls.replace('tag-','');
-    }
-  });
-
-  // Toggle dropdown open/close
-  dropBtn.addEventListener('click', function(e){
-    e.stopPropagation();
-    var open = dropMenu.classList.toggle('open');
-    dropBtn.classList.toggle('open', open);
-  });
-
-  // Close on outside click
-  document.addEventListener('click', function(){
-    dropMenu.classList.remove('open');
-    dropBtn.classList.remove('open');
-  });
-
-  // Filter on option select
-  opts.forEach(function(opt){
-    opt.addEventListener('click', function(e){
-      e.stopPropagation();
-      var f = opt.getAttribute('data-filter');
-      opts.forEach(function(o){ o.classList.remove('active'); });
-      opt.classList.add('active');
-      dropLabel.textContent = opt.textContent;
-      dropMenu.classList.remove('open');
-      dropBtn.classList.remove('open');
-
-      cards.forEach(function(card){
-        var t = card.dataset.tagFilter;
-        var match = f === 'all' || t === f || (f === 'physical' && t === 'heart');
-        card.classList.toggle('tag-hidden', !match);
-      });
-      groups.forEach(function(g){
-        var any = g.querySelectorAll('.term-card:not(.tag-hidden)').length > 0;
-        g.classList.toggle('tag-hidden', !any);
-      });
-    });
-  });
-})();
-</script>
 
 <!-- SEARCH -->
 <script>
