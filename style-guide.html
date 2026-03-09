@@ -146,6 +146,28 @@
   .util-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #a8cfc8; margin-bottom: 6px; }
   .util-value { font-size: 12px; font-family: monospace; color: #2c2c2c; }
 
+  /* ICON GRID */
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  .icon-card {
+    border: 1px solid #e0d9cf;
+    border-radius: 8px;
+    padding: 16px 14px 12px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .icon-card svg { color: #6b6b6b; flex-shrink: 0; }
+  .icon-meta { display: flex; flex-direction: column; gap: 2px; }
+  .icon-name { font-size: 12px; font-weight: 600; color: #1a2744; font-family: monospace; }
+  .icon-usage { font-size: 10.5px; color: #6b6b6b; line-height: 1.4; }
+  .icon-spec { font-size: 10px; color: #a8cfc8; font-family: monospace; margin-top: 2px; }
+
   /* TAG */
   .tag {
     display: inline-block;
@@ -322,7 +344,36 @@
     </div>
   </div>
 
-  <!-- ── 7. BORDER RADIUS ── -->
+  <!-- ── 7. LUCIDE ICONS ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">Lucide Icons  --  Card links  <span class="tag" style="background:#edf5ef;color:#2a7a6a;">Lucide v0.475 · outline · stroke-width 1.5 · 24px · color: --muted</span></div>
+
+    <div class="sg-divider">Homepage  --  index.html</div>
+    <div class="icon-grid">
+      <div class="icon-card"><i data-lucide="book-open"></i><div class="icon-meta"><div class="icon-name">book-open</div><div class="icon-usage">Understanding SETD5 Syndrome</div><div class="icon-spec">BookOpen</div></div></div>
+      <div class="icon-card"><i data-lucide="folder-open"></i><div class="icon-meta"><div class="icon-name">folder-open</div><div class="icon-usage">Family Toolkit</div><div class="icon-spec">FolderOpen</div></div></div>
+      <div class="icon-card"><i data-lucide="microscope"></i><div class="icon-meta"><div class="icon-name">microscope</div><div class="icon-usage">SETD5 Syndrome Research</div><div class="icon-spec">Microscope</div></div></div>
+      <div class="icon-card"><i data-lucide="file-text"></i><div class="icon-meta"><div class="icon-name">file-text</div><div class="icon-usage">Medical Terms Guide</div><div class="icon-spec">FileText</div></div></div>
+      <div class="icon-card"><i data-lucide="heart"></i><div class="icon-meta"><div class="icon-name">heart</div><div class="icon-usage">About This Site</div><div class="icon-spec">Heart</div></div></div>
+    </div>
+
+    <div class="sg-divider">Family Toolkit  --  family-toolkit.html</div>
+    <div class="icon-grid">
+      <div class="icon-card"><i data-lucide="message-square-heart"></i><div class="icon-meta"><div class="icon-name">message-square-heart</div><div class="icon-usage">Share Your Story</div><div class="icon-spec">MessageSquareHeart</div></div></div>
+      <div class="icon-card"><i data-lucide="users"></i><div class="icon-meta"><div class="icon-name">users</div><div class="icon-usage">SETD5 Facebook Group</div><div class="icon-spec">Users</div></div></div>
+      <div class="icon-card"><i data-lucide="network"></i><div class="icon-meta"><div class="icon-name">network</div><div class="icon-usage">Organizations &amp; Programs</div><div class="icon-spec">Network</div></div></div>
+      <div class="icon-card"><i data-lucide="file-text"></i><div class="icon-meta"><div class="icon-name">file-text</div><div class="icon-usage">SETD5: At a Glance</div><div class="icon-spec">FileText</div></div></div>
+      <div class="icon-card"><i data-lucide="clipboard-plus"></i><div class="icon-meta"><div class="icon-name">clipboard-plus</div><div class="icon-usage">Medical Handout Builder</div><div class="icon-spec">ClipboardPlus</div></div></div>
+      <div class="icon-card"><i data-lucide="school"></i><div class="icon-meta"><div class="icon-name">school</div><div class="icon-usage">School Handout Builder</div><div class="icon-spec">School</div></div></div>
+      <div class="icon-card"><i data-lucide="graduation-cap"></i><div class="icon-meta"><div class="icon-name">graduation-cap</div><div class="icon-usage">School &amp; IEP Guide</div><div class="icon-spec">GraduationCap</div></div></div>
+      <div class="icon-card"><i data-lucide="badge-help"></i><div class="icon-meta"><div class="icon-name">badge-help</div><div class="icon-usage">Qualifying for Services</div><div class="icon-spec">BadgeHelp</div></div></div>
+      <div class="icon-card"><i data-lucide="ticket-percent"></i><div class="icon-meta"><div class="icon-name">ticket-percent</div><div class="icon-usage">Disability Discounts Guide</div><div class="icon-spec">TicketPercent</div></div></div>
+      <div class="icon-card"><i data-lucide="book-open-text"></i><div class="icon-meta"><div class="icon-name">book-open-text</div><div class="icon-usage">Medical Terms in Plain Language</div><div class="icon-spec">BookOpenText</div></div></div>
+      <div class="icon-card"><i data-lucide="list-checks"></i><div class="icon-meta"><div class="icon-name">list-checks</div><div class="icon-usage">Acronym Glossary</div><div class="icon-spec">ListChecks</div></div></div>
+    </div>
+  </div>
+
+  <!-- ── 8. BORDER RADIUS ── -->
   <div class="sg-section">
     <div class="sg-section-title">Border Radius</div>
     <div class="util-grid">
@@ -337,5 +388,7 @@
   </div>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons({ attrs: { width: 24, height: 24, 'stroke-width': 1.5 } });</script>
 </body>
 </html>
