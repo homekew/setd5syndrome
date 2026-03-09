@@ -116,6 +116,7 @@
   }
   .tab-btn:hover { color: rgba(255,255,255,.85); }
   .tab-btn.active { color: #fff; border-bottom-color: #c9893a; }
+  .tab-nav.is-slim .tab-btn{ padding: 6px 22px; }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
@@ -1757,6 +1758,7 @@
     function updateLayout() {
       var isCollapsed = window.scrollY > collapseThreshold;
       siteHeader.classList.toggle('collapsed', isCollapsed);
+      if (tabNav) tabNav.classList.toggle('is-slim', isCollapsed);
       setNavTop();
     }
 
