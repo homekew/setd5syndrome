@@ -58,11 +58,11 @@
   /* -- HEADER -- */
   .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; }
   /* -- HEADER COLLAPSE -- */
-  .header-inner { transition: padding 0.25s; }
-  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title{ transition: font-size 0.25s, margin 0.25s; }
-  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
@@ -275,8 +275,6 @@
 <body>
 
 
-
-
 <!-- HEADER -->
 <header class="site-header">
   <div style="position:fixed;top:8px;right:12px;z-index:99999;transform:scale(0.78);transform-origin:top right;opacity:0.85;min-width:130px;min-height:24px;">
@@ -477,6 +475,19 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+
+<script>
+(function(){
+  var btt = document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll', function(){
+      btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+  }
+})();
+</script>
 </body>
 
 </html>

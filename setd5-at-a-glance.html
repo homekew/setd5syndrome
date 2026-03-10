@@ -17,8 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:       #faf7f2;
-  --ink:      #2c2c2c;
+  --cream:    #faf7f2;
+  --text:     #2c2c2c;
   --navy:     #1a2744;
   --deep:     #2a627a;
   --teal:     #2a7a6a;
@@ -37,8 +37,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body{
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--cream);
+  color: var(--text);
   font-family: 'Inter', sans-serif;
   font-size: 17px;
   line-height: 1.7;
@@ -85,7 +85,7 @@ body{
   padding: 24px 32px 30px;
   position: relative;
   z-index: 1;
-  transition: padding 0.25s;
+  transition: padding 0.175s ease;
 }
 .header-eyebrow{
   font-size: 11px;
@@ -96,7 +96,7 @@ body{
   margin-bottom: 16px;
   max-height: 30px;
   overflow: hidden;
-  transition: opacity 0.2s, max-height 0.25s, margin 0.25s;
+  transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
 }
 .header-eyebrow a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.15s; }
 .header-eyebrow a:hover { color: #a8cfc8; }
@@ -108,7 +108,7 @@ body{
   line-height: 1.12;
   color: #fff;
   margin-bottom: 14px;
-  transition: font-size 0.25s, margin 0.25s;
+  transition: font-size 0.175s ease, margin 0.175s ease;
 }
 .header-title em { font-style: italic; color: #a8cfc8; }
 .header-subtitle{
@@ -119,9 +119,9 @@ body{
   line-height: 1.65;
   max-height: 100px;
   overflow: hidden;
-  transition: opacity 0.2s, max-height 0.25s, margin 0.25s;
+  transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
 }
-.site-header.collapsed .header-inner { padding: 8px 32px; }
+.site-header.collapsed .header-inner { padding: 8px 32px 10px; }
 .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
 .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
 .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
@@ -514,13 +514,13 @@ main {
     <!-- What is it -->
     <div class="h-what-is">
       <div class="h-what-is-label">What is SETD5 Syndrome?</div>
-      <p>SETD5 Syndrome is a rare genetic neurodevelopmental condition caused by a change (variant) in the SETD5 gene on chromosome 3. This gene helps regulate how other genes are switched on and off during development. When one copy does not function correctly, it can lead to a range of developmental, behavioral, medical, and physical features. No two individuals are exactly alike. The condition affects each person differently, and severity varies widely.</p>
+      <p>SETD5 Syndrome is a rare genetic neurodevelopmental condition caused by a change (variant) in the SETD5 gene on chromosome 3. Research suggests that SETD5 may help regulate how other genes are switched on and off during development. When one copy does not function correctly, a range of developmental, behavioral, medical, and physical features have been observed in affected individuals. No two individuals are exactly alike. The condition affects each person differently, and severity varies widely.</p>
     </div>
 
     <div class="h-body">
 
       <!-- Features -->
-      <div class="h-section-label">Commonly Reported Features (not every individual will have all of these)</div>
+      <div class="h-section-label">Commonly Reported Features (not every individual will have all of these) Features documented in published case series; see Sources &amp; References.</div>
 
       <div class="h-feature-grid">
 
@@ -541,7 +541,7 @@ main {
             <li>Expressive language often reported as more affected than receptive</li>
             <li>Some minimally verbal or nonverbal</li>
             <li>Speech dysfluency, articulation difficulties</li>
-            <li>May benefit from AAC</li>
+            <li>Some individuals use AAC (augmentative and alternative communication) as a communication support</li>
           </ul>
         </div>
 
@@ -593,7 +593,7 @@ main {
       <div class="h-bottom-row">
         <div class="h-callout">
           <div class="h-callout-title">Inheritance &amp; Recurrence</div>
-          <p>In published case series, most cases have been de novo (a new mutation, not inherited from either parent). In some families, a parent carries the same variant and may pass it on. Parental genetic testing may be recommended after a SETD5 diagnosis. If neither parent carries the variant, recurrence risk is very low. If a parent carries it, risk may be up to 50%. Genetic counseling can help clarify recurrence risk and testing options for your family.</p>
+          <p>Published case series suggest most reported cases have been de novo (a new mutation, not inherited from either parent). In some families, a parent carries the same variant and may pass it on. Parental genetic testing may be recommended after a SETD5 diagnosis. Recurrence risk depends on whether a parent carries the variant. Consult with a genetic counselor for an assessment of your family's specific risk. Genetic counseling can help clarify recurrence risk and testing options for your family.</p>
         </div>
         <div class="h-callout-amber">
           <div class="h-callout-title">Resources for Families</div>
@@ -654,5 +654,18 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+
+<script>
+(function(){
+  var btt = document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll', function(){
+      btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+  }
+})();
+</script>
 </body>
 </html>

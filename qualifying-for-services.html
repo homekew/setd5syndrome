@@ -91,7 +91,7 @@
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
-  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
@@ -208,12 +208,8 @@
   }
 
   /* -- LINKS -- */
-  a {
-    color: var(--teal);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(42,122,106,0.3);
-  }
-  a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
   footer {
@@ -489,7 +485,7 @@
 
     <div class="teal-callout">
       <span class="callout-label">Getting started</span>
-      <p>Families can typically request an evaluation by contacting their state's Early Intervention program. In general, a doctor's referral is not required, and under federal guidelines there is no cost to families for the evaluation itself. Your state's Early Intervention program can confirm how the process works in your area.</p>
+      <p>Families can typically request an evaluation by contacting their state's Early Intervention program. In most cases, a doctor's referral is not required, and under federal guidelines there is generally no cost to families for the evaluation itself. Your state's Early Intervention program can confirm current policies</p>
     </div>
   </div>
 </div>

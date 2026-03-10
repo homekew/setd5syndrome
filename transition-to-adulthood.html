@@ -91,7 +91,7 @@
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
-  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
@@ -175,6 +175,16 @@
     text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 6px;
   }
   .blue-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  /* ── SUBSECTION TITLES ── */
+  .subsection-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
 
   /* ── FEATURE CARDS ── */
   .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
@@ -268,12 +278,8 @@
   .step-item p { font-size: 15px; line-height: 1.65; color: var(--text); }
 
   /* ── LINKS ── */
-  a {
-    color: var(--teal);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(42,122,106,0.3);
-  }
-  a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
   footer {
@@ -369,11 +375,11 @@
     </div>
     <div class="feature-card teal-top">
       <h4>Power of Attorney</h4>
-      <p>Your child voluntarily grants you (or someone else) authority to make specific decisions. This generally requires that your child can understand what they're signing and the implications. It's less restrictive than guardianship but requires capacity to consent, which is determined under state law.</p>
+      <p>Your child voluntarily grants you (or someone else) authority to make specific decisions. This generally requires that your child can understand what they're signing and the implications, according to state law. It's less restrictive than guardianship but requires capacity to consent, which is determined under state law.</p>
     </div>
     <div class="feature-card sage-top">
       <h4>Supported Decision-Making</h4>
-      <p>Your child keeps their legal rights but has trusted people (family, friends, professionals) who help them understand options and make decisions. This is less restrictive and is gaining legal recognition in more states. A growing number of families choose this approach first.</p>
+      <p>Your child keeps their legal rights but has trusted people (family, friends, professionals) who help them understand options and make decisions. This is less restrictive and is gaining legal recognition in a growing number of states. Some families are exploring this approach first.</p>
     </div>
     <div class="feature-card blue-top">
       <h4>Healthcare Proxy</h4>
@@ -433,13 +439,13 @@
 
   <p class="prose">Even if your family doesn't have substantial assets, financial planning is important. Here are three key tools to understand.</p>
 
-  <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">ABLE Accounts</h3>
-  <p class="prose">ABLE accounts are tax-advantaged savings accounts for people with disabilities (available since 2014). ABLE accounts are designed so that savings up to certain limits generally do not affect SSI or Medicaid eligibility. The money can be used for housing, education, transportation, assistive technology, and other disability-related expenses. As of 2026, the ABLE Age Adjustment Act raised the age-of-onset requirement from 26 to 46. Check <a href="https://www.ablenrc.org/" target="_blank">ablenrc.org</a> for the most current eligibility rules.</p>
+  <h3 class="subsection-title">ABLE Accounts</h3>
+  <p class="prose">ABLE accounts are tax-advantaged savings accounts for people with disabilities (available since 2014). ABLE accounts are designed so that savings up to certain limits generally do not affect SSI or Medicaid eligibility. The money can be used for housing, education, transportation, assistive technology, and other disability-related expenses. As of 2026, the ABLE Age Adjustment Act raised the age-of-onset requirement from 26 to 46 (see ablenrc.org for current information). Check <a href="https://www.ablenrc.org/" target="_blank">ablenrc.org</a> for the most current eligibility rules.</p>
 
-  <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Special Needs Trusts (SNTs)</h3>
-  <p class="prose">A Special Needs Trust is a legal arrangement designed to hold assets for your child while helping preserve eligibility for public benefits. There are two types: a first-party SNT (using your child's own money, like a settlement) and a third-party SNT (using family funds). A third-party SNT is an estate planning tool that allows families to leave money to a child while helping preserve their SSI and Medicaid eligibility. Consult a special needs attorney for guidance on how trusts interact with benefits in your state.</p>
+  <h3 class="subsection-title">Special Needs Trusts (SNTs)</h3>
+  <p class="prose">A Special Needs Trust is a legal arrangement designed to hold assets for your child while helping preserve eligibility for public benefits. There are two types: a first-party SNT (using your child's own money, like a settlement) and a third-party SNT (using family funds). A third-party SNT is an estate planning tool designed to help preserve SSI and Medicaid eligibility; consult a special needs attorney about how this works in your state.</p>
 
-  <h3 style="font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-top: 24px; margin-bottom: 12px;">Letter of Intent</h3>
+  <h3 class="subsection-title">Letter of Intent</h3>
   <p class="prose">A Letter of Intent is not a legal document, but it is a detailed planning guide you write for future caregivers -- whether that's a group home staff, a sibling, or a residential program. In it, you describe your child's daily routines, medical needs, food preferences, what helps them feel safe, important people in their life, and their personality and strengths. It can be a useful document to have, regardless of financial situation or current living arrangements.</p>
 
   <div class="teal-callout">
@@ -469,7 +475,7 @@
   <!-- Adult Services -->
   <h2>Adult Services -- Day Programs, Employment, and Housing</h2>
 
-  <p class="prose">Once your child is no longer in school, adult services replace special education. These services include vocational rehabilitation, supported employment, adult day programs, and residential options. Every state has a Vocational Rehabilitation (VR) agency that provides free services to help people with disabilities work. VR can help your child explore career interests, get job training and coaching, and find community employment. Some people use supported employment, where they work in regular community jobs with ongoing coaching and support from a job coach.</p>
+  <p class="prose">Once your child is no longer in school, adult services replace special education. These services include vocational rehabilitation, supported employment, adult day programs, and residential options. Most states have a Vocational Rehabilitation (VR) agency that provides services to help people with disabilities prepare for work. Check your state's VR program for current offerings. VR can help your child explore career interests, get job training and coaching, and find community employment. Some people use supported employment, where they work in regular community jobs with ongoing coaching and support from a job coach.</p>
 
   <p class="prose">Adult day programs offer structured activities, socialization, and supervision for adults who aren't working or who work part-time. Residential options range from living at home with family support, to supported living arrangements, to group homes, to more intensive residential services. What's available varies significantly by state.</p>
 
@@ -586,6 +592,19 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+
+<script>
+(function(){
+  var btt = document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll', function(){
+      btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+  }
+})();
+</script>
 </body>
 
 </html>

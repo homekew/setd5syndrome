@@ -21,8 +21,8 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #fefdf9;
-    --ink: #2c2c2c;
+    --cream: #faf7f2;
+    --text: #2c2c2c;
     --deep: #2a627a;
     --navy: #1a2744;
     --teal: #2a7a6a;
@@ -37,12 +37,12 @@
   html, body{ height: 100%; }
 
   body{
-    background: var(--bg);
-    color: var(--ink);
+    background: var(--cream);
+    color: var(--text);
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.7;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -398,6 +398,32 @@
   }
   /* (no compact collapse on home page) */
 
+  /* ── SITE NAV ── */
+  .site-nav {
+    background: #5a9186;
+    padding: 0;
+    text-align: center;
+  }
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .site-nav a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    padding: 10px 22px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+  }
+  .site-nav a:hover {
+    color: #fff;
+  }
+
   /* ── GOOGLE TRANSLATE WIDGET ── */
   .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:1; min-width:130px; min-height:24px; overflow:hidden; }
 
@@ -411,9 +437,6 @@
 <body>
 
 
-
-
-
 <header>
   <div class="translate-widget">
     <div id="google_translate_element"></div>
@@ -423,13 +446,13 @@
   <p class="header-sub">Resources for families navigating a SETD5 Syndrome diagnosis.</p>
 </header>
 
-<nav style="background:#5a9186; padding:0; text-align:center;">
-  <div style="max-width:900px; margin:0 auto; display:flex; justify-content:center; flex-wrap:wrap; gap:0;">
-    <a href="understanding-setd5-syndrome.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Inter',sans-serif; display:inline-block;">Understanding SETD5 Syndrome</a>
-    <a href="family-toolkit.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Inter',sans-serif; display:inline-block;">Family Toolkit</a>
-    <a href="setd5-research-2020-to-present.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Inter',sans-serif; display:inline-block;">Research</a>
-    <a href="setd5-medical-terms-guide.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Inter',sans-serif; display:inline-block;">Medical Terms</a>
-    <a href="about.html" style="color:rgba(255,255,255,0.9); text-decoration:none; padding:10px 22px; font-size:15px; font-family:'Inter',sans-serif; display:inline-block;">Our Story</a>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="understanding-setd5-syndrome.html">Understanding SETD5 Syndrome</a>
+    <a href="family-toolkit.html">Family Toolkit</a>
+    <a href="setd5-research-2020-to-present.html">Research</a>
+    <a href="setd5-medical-terms-guide.html">Medical Terms</a>
+    <a href="about.html">Our Story</a>
   </div>
 </nav>
 

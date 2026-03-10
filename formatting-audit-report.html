@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formatting & Visual Cohesion Audit | SETD5 Syndrome Site</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --navy: #1a2744;
+    --teal: #2a7a6a;
+    --amber: #c9893a;
+    --amber-lt: #fdf4e7;
+    --sage: #4e7c5f;
+    --sage-lt: #edf5ef;
+    --rose: #b05a5a;
+    --rose-lt: #fdf0ef;
+    --blue: #5a80a8;
+    --blue-lt: #e8eff7;
+    --text: #2c2c2c;
+    --muted: #6b6b6b;
+    --border: #e0d9cf;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 0;
+  }
+
+  .report-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 48px 32px 40px;
+    text-align: center;
+  }
+  .report-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .report-header h1 em { color: #a8cfc8; font-style: italic; }
+  .report-header p { color: rgba(255,255,255,0.65); font-size: 15px; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 32px 80px; }
+
+  /* Verdict banner */
+  .verdict {
+    background: var(--sage-lt);
+    border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .verdict strong { color: var(--sage); }
+
+  /* Section headings */
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--navy);
+    border-left: 4px solid var(--amber);
+    padding-left: 14px;
+    margin: 40px 0 20px;
+    line-height: 1.25;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 24px 0 10px;
+  }
+
+  p { margin-bottom: 14px; }
+
+  /* Finding cards */
+  .finding {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    border-top: 3px solid var(--teal);
+  }
+  .finding.high { border-top-color: var(--rose); }
+  .finding.medium { border-top-color: var(--amber); }
+  .finding.low { border-top-color: var(--blue); }
+  .finding.cosmetic { border-top-color: var(--border); }
+
+  .finding-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+  .finding-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+  }
+  .finding-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-high { background: var(--rose-lt); color: var(--rose); }
+  .tag-medium { background: var(--amber-lt); color: var(--amber); }
+  .tag-low { background: var(--blue-lt); color: var(--blue); }
+  .tag-cosmetic { background: #f0eeea; color: var(--muted); }
+
+  .finding p {
+    font-size: 14.5px;
+    line-height: 1.68;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .finding p:last-child { margin-bottom: 0; }
+
+  .affected {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  .fix {
+    background: var(--sage-lt);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: #3a5c48;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  .fix strong { color: var(--sage); }
+
+  /* Summary table */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 28px;
+    font-size: 14px;
+  }
+  .summary-table th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--navy);
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .summary-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-table tr:nth-child(even) td { background: #faf7f2; }
+
+  /* Priority plan */
+  .priority-list {
+    list-style: none;
+    counter-reset: priority;
+  }
+  .priority-list li {
+    counter-increment: priority;
+    padding: 14px 14px 14px 50px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  .priority-list li::before {
+    content: counter(priority);
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .priority-list li strong { color: var(--navy); }
+
+  code {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 13px;
+    background: #f0eeea;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 60px; }
+    .finding { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <h1>Formatting &amp; <em>Visual Cohesion</em> Audit</h1>
+  <p>setd5syndrome.live &middot; March 9, 2026 &middot; 26 pages reviewed</p>
+</div>
+
+<div class="container">
+
+<!-- VERDICT -->
+<div class="verdict">
+  <strong>Overall Verdict:</strong> The site reads as a thoughtfully built, parent-created resource with a strong visual identity. The navy/teal/amber palette, Lora + Inter font pairing, and collapsing header all work well. However, the page-by-page build process has introduced a layer of small inconsistencies &mdash; different variable names for the same color, two animation timing families, mixed link styles, and some pages missing shared components like the back-to-top button. None of these are show-stoppers, but tightening them up will make the site feel more polished and professionally cohesive. Below are 19 specific findings, grouped and prioritized.
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<h2>1. Typography Consistency</h2>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">T1: Two different body background color values</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p><strong>index.html</strong> uses <code>--bg: #fefdf9</code> while every other page uses <code>#faf7f2</code> (via <code>--cream</code> or <code>--bg</code>). This creates a very subtle warm shift when navigating away from the homepage that undermines the feeling of a unified palette.</p>
+  <p class="affected">Affected: index.html</p>
+  <div class="fix"><strong>Fix:</strong> Change index.html's <code>--bg</code> to <code>#faf7f2</code> to match the rest of the site.</div>
+</div>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">T2: Two variable name families for the same background color</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>Some pages use <code>--bg</code> and <code>--ink</code> (index, family-toolkit, setd5-at-a-glance, medical-handout-builder), while most others use <code>--cream</code> and <code>--text</code>. The values are the same (<code>#faf7f2</code> / <code>#2c2c2c</code>), but having two naming conventions makes future updates error-prone and feels stitched together.</p>
+  <p class="affected">Affected: index.html, family-toolkit.html, setd5-at-a-glance.html, medical-handout-builder.html, iep-handout-builder.html</p>
+  <div class="fix"><strong>Fix:</strong> Standardize on one convention. Recommendation: <code>--cream</code> / <code>--text</code> since it's used by the majority of pages. But either works &mdash; just pick one and apply everywhere.</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">T3: about.html sets body font-family to Lora (serif) instead of Inter</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>The About page sets <code>body { font-family: 'Lora', serif; }</code> after an initial <code>html, body { font-family: 'Inter', sans-serif; }</code>. This means the body text on About renders in Lora while every other page renders in Inter. The effect is a slightly "softer" feel on About &mdash; which may be intentional for the personal narrative style, but it does break the pattern. Additionally, the <code>html, body</code> block also sets <code>line-height: 1.65</code> which is then overridden by <code>body { line-height: 1.75 }</code>.</p>
+  <p class="affected">Affected: about.html</p>
+  <div class="fix"><strong>Fix:</strong> If the Lora body text on About is intentional, consider leaving it but adding a brief CSS comment noting the deliberate override. If not, remove the Lora override on body to match the rest of the site.</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">T4: Body line-height varies across pages</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>Body line-height is <code>1.65</code> on index.html, <code>1.7</code> on most content pages, and <code>1.75</code> on about.html. While the differences are small, they contribute to an uneven reading rhythm when moving between pages.</p>
+  <p class="affected">Affected: index.html (1.65), about.html (1.75), most others (1.7)</p>
+  <div class="fix"><strong>Fix:</strong> Standardize body line-height to <code>1.7</code> across all pages.</div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<h2>2. Spacing &amp; Layout</h2>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">S1: Inconsistent collapsed header padding</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>The collapsed sticky header has at least four different padding values across pages:</p>
+  <p><code>8px 32px 10px</code> (disability-discounts, index-adjacent pages) &middot; <code>8px 32px</code> (most pages) &middot; <code>8px 18px 9px</code> (about.html mobile) &middot; <code>8px 18px</code> (some mobile overrides)</p>
+  <p>This means the header height changes slightly when navigating between pages while scrolled, which creates a visual "jump."</p>
+  <p class="affected">Affected: all pages with sticky headers</p>
+  <div class="fix"><strong>Fix:</strong> Standardize collapsed header padding to <code>8px 32px 10px</code> on desktop and <code>8px 18px 10px</code> on mobile across all pages.</div>
+</div>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">S2: Main content container approach differs between page families</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>The site uses two different layout approaches. The "prose" pages (transition-to-adulthood, qualifying-for-services, helpful-links) put <code>max-width: 860px</code> on <code>main</code> with inline padding. The "band" pages (family-toolkit, about) use full-width sections with a nested <code>.content-inner { max-width: 860px }</code>. Both work, but they behave differently with alternating background bands &mdash; the prose-style pages can't do edge-to-edge alternating backgrounds.</p>
+  <p class="affected">Affected: transition-to-adulthood.html, qualifying-for-services.html vs. family-toolkit.html, about.html</p>
+  <div class="fix"><strong>Fix:</strong> This is an architectural pattern difference, not a bug. No immediate fix needed, but if you ever want to add alternating band backgrounds to the prose-style pages, you'll need to restructure their <code>main</code> container. Consider documenting the two patterns in a style guide comment.</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">S3: Some pages missing flex-direction: column and min-height: 100vh on body</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>Pages like disability-discounts-guide.html, helpful-links.html, share-your-story.html, and suggest-a-resource.html don't set <code>min-height: 100vh; display: flex; flex-direction: column</code> on the body. This means the footer may not stick to the bottom of the viewport on short pages.</p>
+  <p class="affected">Affected: disability-discounts-guide.html, helpful-links.html, share-your-story.html, suggest-a-resource.html, iep-handout-builder.html, medical-handout-builder.html</p>
+  <div class="fix"><strong>Fix:</strong> Add <code>min-height: 100vh; display: flex; flex-direction: column</code> to body on all pages, and ensure <code>main { flex: 1; }</code>.</div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<h2>3. Component Consistency</h2>
+
+<div class="finding high">
+  <div class="finding-header">
+    <span class="finding-title">C1: Back-to-top button missing on 11 content pages</span>
+    <span class="finding-tag tag-high">High</span>
+  </div>
+  <p>The back-to-top button exists on 10 pages but is absent from: family-stories.html, helpful-links.html, setd5-at-a-glance.html, share-your-story.html, sources-references.html, suggest-a-resource.html, terms-of-use.html, transition-to-adulthood.html, and understanding-genetic-report.html. Several of these are long-scroll pages (helpful-links, sources-references, transition-to-adulthood) where the button would be especially useful.</p>
+  <p class="affected">Affected: 11+ pages (excluding builders/tools and internal-only pages)</p>
+  <div class="fix"><strong>Fix:</strong> Add the standard back-to-top button and scroll listener to all content pages. The button HTML + script pattern is already established.</div>
+</div>
+
+<div class="finding high">
+  <div class="finding-header">
+    <span class="finding-title">C2: Two different link styling systems</span>
+    <span class="finding-tag tag-high">High</span>
+  </div>
+  <p>Some pages use <code>text-decoration: underline</code> via the blanket rule <code>main a { text-decoration: underline }</code> (index, family-toolkit, about, disability-discounts, setd5-at-a-glance), while others use <code>border-bottom: 1px solid rgba(42,122,106,0.3)</code> on the base <code>a</code> tag (transition-to-adulthood, qualifying-for-services, helpful-links, school-iep-guide, understanding-setd5-syndrome). The visual result is similar but not identical &mdash; the border-bottom approach gives a thinner, lighter underline that sits lower.</p>
+  <p class="affected">Affected: all pages</p>
+  <div class="fix"><strong>Fix:</strong> Pick one approach and apply it everywhere. Recommendation: the <code>text-decoration: underline</code> approach is more accessible and works better with wrapped text. The <code>main a { text-decoration: underline }</code> blanket rule is simpler to maintain.</div>
+</div>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">C3: Header border-bottom only on about.html</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>Only about.html has <code>border-bottom: 4px solid #5a9186</code> on the header. No other page has this teal accent line below the header. On pages with the sub-navigation bar (family-toolkit, school-iep-guide, etc.), the teal nav bar serves a similar purpose, but pages without a sub-nav (transition-to-adulthood, helpful-links, etc.) have a bare transition from header to content.</p>
+  <p class="affected">Affected: about.html (has border) vs. all other non-nav pages (don't)</p>
+  <div class="fix"><strong>Fix:</strong> Either remove the border from about.html to match other pages, or add it to all pages without a sub-nav bar for visual consistency.</div>
+</div>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">C4: Google Translate widget positioned inconsistently</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>Most pages use <code>position: absolute</code> inside the header for the translate widget, but disability-discounts-guide.html, understanding-setd5-syndrome.html, and understanding-genetic-report.html use <code>position: fixed</code>. The about.html page puts its translate widget in the footer instead of the header. Fixed positioning means the widget stays visible while scrolling (which could overlap content), while absolute keeps it in the header only.</p>
+  <p class="affected">Affected: disability-discounts-guide.html, understanding-setd5-syndrome.html, understanding-genetic-report.html, about.html</p>
+  <div class="fix"><strong>Fix:</strong> Standardize on <code>position: absolute</code> inside the header. This matches most pages and avoids overlap issues.</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">C5: Footer is identical across all pages (good!), but index.html nav-bar uses inline styles</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>The footer markup and CSS is consistent across all 21+ content pages &mdash; great. However, the homepage navigation bar below the header uses entirely inline styles (<code>style="background:#5a9186; padding:0..."</code>) rather than a class-based approach. The sub-nav on family-toolkit.html and school-iep-guide.html uses proper CSS classes (<code>.section-nav</code>). This makes the homepage nav harder to maintain and creates a disconnect.</p>
+  <p class="affected">Affected: index.html</p>
+  <div class="fix"><strong>Fix:</strong> Extract the inline styles on the homepage nav to a CSS class. Could use the existing <code>.section-nav</code> pattern or create a <code>.site-nav</code> class.</div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<h2>4. Visual Cohesion</h2>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">V1: Two transition timing families (0.175s vs 0.25s)</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>The header collapse animation uses <code>0.175s</code> on some pages (about, family-toolkit, school-iep-guide, transition-to-adulthood, qualifying-for-services, disability-discounts, sources-references) and <code>0.25s</code> on others (helpful-links, setd5-at-a-glance, family-stories, suggest-a-resource, terms-of-use, medical-terms, research). This means the header collapses at different speeds depending on which page you're on.</p>
+  <p class="affected">Affected: ~12 pages use 0.25s, ~9 use 0.175s</p>
+  <div class="fix"><strong>Fix:</strong> Standardize on one timing. Recommendation: <code>0.175s</code> feels snappier and more polished. Apply to all pages.</div>
+</div>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">V2: Header eyebrow link color varies</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>The "← Back to..." eyebrow link and <code>:visited</code> state color varies: some pages use <code>rgba(255,255,255,0.5)</code>, others <code>0.45</code>, others <code>0.75</code>. The visited state is especially inconsistent &mdash; some set it to <code>0.75</code> (brighter than default), some to <code>0.45</code> (dimmer). A few pages don't set <code>:visited</code> at all.</p>
+  <p class="affected">Affected: all subpages with eyebrow breadcrumbs</p>
+  <div class="fix"><strong>Fix:</strong> Standardize eyebrow link color to <code>rgba(255,255,255,0.5)</code> and <code>:visited</code> to <code>rgba(255,255,255,0.5)</code> (same as default, so visited doesn't look different).</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">V3: Index page uses a different header structure than all subpages</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>The homepage uses a plain <code>&lt;header&gt;</code> tag with non-sticky positioning, no eyebrow, and a larger visual treatment (centered h1, header-rule divider, .header-sub). All subpages use <code>.site-header</code> with sticky positioning, eyebrow breadcrumb, and the collapse-on-scroll behavior. This is likely intentional &mdash; the homepage serves as a "landing" page &mdash; but it means the header gradient overlay, font sizes, and layout are duplicated with slightly different implementations.</p>
+  <p class="affected">Affected: index.html</p>
+  <div class="fix"><strong>Fix:</strong> This is a design decision, not a bug. Keep as-is. Just be aware that any header changes need to be applied in two places: the index header and the <code>.site-header</code> pattern.</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">V4: H2 headings styled two different ways</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>Content pages like transition-to-adulthood, qualifying-for-services, and helpful-links style <code>h2</code> with an amber left border (<code>border-left: 4px solid var(--amber)</code>). The about.html page styles <code>h2</code> without a border, using a section-divider component instead. The family-toolkit page doesn't use h2 for section headings at all (uses <code>.section-label</code> divider pattern). These are all fine individually but represent three different heading treatments.</p>
+  <p class="affected">Affected: about.html (divider pattern), family-toolkit.html (label pattern), prose pages (border-left pattern)</p>
+  <div class="fix"><strong>Fix:</strong> Document the three patterns in a style guide comment. The amber border-left on prose pages, the section-divider on about/landing pages, and the label pattern on card-grid pages each serve a purpose. No change needed, but consistency within each page type should be maintained.</div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<h2>5. Readability &amp; Accessibility</h2>
+
+<div class="finding medium">
+  <div class="finding-header">
+    <span class="finding-title">R1: Inline h3 styling on transition-to-adulthood.html</span>
+    <span class="finding-tag tag-medium">Medium</span>
+  </div>
+  <p>The Financial Planning section uses inline styles for h3 headings: <code>&lt;h3 style="font-family: 'Inter'..."&gt;</code>. This overrides the site's standard Lora serif h3 with Inter sans-serif and a smaller size (15px vs 22px elsewhere). It reads fine, but it's a one-off pattern that should be a class.</p>
+  <p class="affected">Affected: transition-to-adulthood.html (3 instances in Financial Planning section)</p>
+  <div class="fix"><strong>Fix:</strong> Create a CSS class like <code>.subsection-title</code> with these styles and replace the inline attributes.</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">R2: Title tags contain raw HTML entities on some pages</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>disability-discounts-guide.html and setd5-at-a-glance.html have <code>&lt;em&gt;</code> tags inside their <code>&lt;title&gt;</code> elements (e.g., <code>&lt;title&gt;Disability &lt;em&gt;Discounts Guide&lt;/em&gt;&lt;/title&gt;</code>). Similarly, OG/Twitter title meta tags on these pages include <code>&lt;em&gt;</code> markup. The <code>&lt;em&gt;</code> tag doesn't render in title bars and will appear as literal text in search results and social shares.</p>
+  <p class="affected">Affected: disability-discounts-guide.html, setd5-at-a-glance.html (both &lt;title&gt; and og:title/twitter:title)</p>
+  <div class="fix"><strong>Fix:</strong> Remove <code>&lt;em&gt;</code> tags from <code>&lt;title&gt;</code> and <code>&lt;meta&gt;</code> content attributes. HTML tags don't render in these contexts.</div>
+</div>
+
+<div class="finding low">
+  <div class="finding-header">
+    <span class="finding-title">R3: understanding-setd5-syndrome.html has malformed meta tag</span>
+    <span class="finding-tag tag-low">Low</span>
+  </div>
+  <p>Line 15 of understanding-setd5-syndrome.html is missing a closing <code>&gt;</code> on the twitter:description meta tag. This could cause parsing issues in some browsers or social media crawlers.</p>
+  <p class="affected">Affected: understanding-setd5-syndrome.html</p>
+  <div class="fix"><strong>Fix:</strong> Add the missing <code>&gt;</code> to close the meta tag.</div>
+</div>
+
+<div class="finding cosmetic">
+  <div class="finding-header">
+    <span class="finding-title">R4: Some pages have extra blank lines in the &lt;body&gt; opening</span>
+    <span class="finding-tag tag-cosmetic">Cosmetic</span>
+  </div>
+  <p>Several pages (index.html, family-toolkit.html, helpful-links.html, etc.) have 3-4 blank lines between <code>&lt;body&gt;</code> and the first content element. This is harmless but looks unintentional in the source.</p>
+  <p class="affected">Affected: ~6 pages</p>
+  <div class="fix"><strong>Fix:</strong> Remove extra blank lines for cleaner source code.</div>
+</div>
+
+<div class="finding cosmetic">
+  <div class="finding-header">
+    <span class="finding-title">R5: Missing canonical URL and meta description on 5 tool/internal pages</span>
+    <span class="finding-tag tag-cosmetic">Cosmetic</span>
+  </div>
+  <p>SETD5-Site-Audit-Prompts.html, element-reference.html, iep-handout-builder.html, medical-handout-builder.html, and style-guide.html lack <code>rel="canonical"</code> links. The handout builders would benefit from meta descriptions for search discoverability.</p>
+  <p class="affected">Affected: 5 pages (mostly internal/tool pages)</p>
+  <div class="fix"><strong>Fix:</strong> Add canonical URLs and meta descriptions to the two handout builder pages. The internal pages (audit-prompts, element-reference, style-guide) are less critical.</div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<h2>6. Summary Table</h2>
+
+<table class="summary-table">
+  <tr>
+    <th>Priority</th>
+    <th>Count</th>
+    <th>Category</th>
+  </tr>
+  <tr>
+    <td><span class="finding-tag tag-high">High</span></td>
+    <td>2</td>
+    <td>Back-to-top button gaps, link styling inconsistency</td>
+  </tr>
+  <tr>
+    <td><span class="finding-tag tag-medium">Medium</span></td>
+    <td>9</td>
+    <td>Background color mismatch, variable naming, collapsed header padding, header border, translate widget, transition timing, eyebrow colors, inline h3 styles, container pattern</td>
+  </tr>
+  <tr>
+    <td><span class="finding-tag tag-low">Low</span></td>
+    <td>6</td>
+    <td>About body font, line-height variance, missing flexbox, H2 patterns, nav inline styles, title tag HTML</td>
+  </tr>
+  <tr>
+    <td><span class="finding-tag tag-cosmetic">Cosmetic</span></td>
+    <td>2</td>
+    <td>Blank lines, missing canonical on tools</td>
+  </tr>
+</table>
+
+<!-- ═══════════════════════════════════ -->
+<h2>7. Recommended Fix Plan</h2>
+
+<p>Ordered by impact and effort. Each batch can be done together.</p>
+
+<ol class="priority-list">
+  <li><strong>Batch 1 &mdash; Quick wins (high impact, low effort):</strong> Fix the <code>&lt;em&gt;</code> tags in title/meta on disability-discounts-guide and setd5-at-a-glance. Fix the missing <code>&gt;</code> on understanding-setd5-syndrome meta tag. Change index.html <code>--bg</code> from <code>#fefdf9</code> to <code>#faf7f2</code>.</li>
+  <li><strong>Batch 2 &mdash; Link styling unification:</strong> Pick one link approach (recommend <code>text-decoration: underline</code>) and apply it across all pages. Remove conflicting <code>border-bottom</code> link styles.</li>
+  <li><strong>Batch 3 &mdash; Back-to-top button rollout:</strong> Add the back-to-top button + scroll script to the ~11 content pages that are missing it.</li>
+  <li><strong>Batch 4 &mdash; Header normalization:</strong> Standardize collapsed header padding, transition timing (0.175s), and eyebrow link colors across all pages.</li>
+  <li><strong>Batch 5 &mdash; Translate widget consistency:</strong> Change the 3 pages using <code>position: fixed</code> to <code>position: absolute</code>. Move about.html's translate widget from footer to header.</li>
+  <li><strong>Batch 6 &mdash; Body/layout normalization:</strong> Add <code>min-height: 100vh; display: flex; flex-direction: column</code> to the ~6 pages missing it. Standardize body line-height to 1.7.</li>
+  <li><strong>Batch 7 &mdash; Variable naming cleanup:</strong> Rename <code>--bg/--ink</code> to <code>--cream/--text</code> (or vice versa) on the 5 pages that use the minority convention.</li>
+  <li><strong>Batch 8 &mdash; Polish:</strong> Extract inline styles on index.html nav and transition-to-adulthood h3s to CSS classes. Remove extra blank lines. Add canonical/meta to builder pages.</li>
+</ol>
+
+<p style="margin-top: 32px; font-size: 14px; color: var(--muted); font-style: italic;">This audit is research only. No changes have been committed or pushed. All fixes require your review and approval.</p>
+
+</div>
+
+</body>
+</html>

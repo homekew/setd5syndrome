@@ -654,6 +654,19 @@ function googleTranslateElementInit() {
   });
 })();
 </script>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+
+<script>
+(function(){
+  var btt = document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll', function(){
+      btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+  }
+})();
+</script>
 </body>
 
 </html>

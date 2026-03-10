@@ -49,11 +49,11 @@
     color: #fff;
     position: sticky; top: 0; z-index: 1000;
   }
-  .header-inner { transition: padding 0.25s; }
-  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title{ transition: font-size 0.25s, margin 0.25s; }
-  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }

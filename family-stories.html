@@ -70,11 +70,11 @@
   .header-title em { font-style: italic; color: #a8cfc8; }
   .header-subtitle{ font-size: 15.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
   /* ── HEADER COLLAPSE ── */
-  .header-inner { transition: padding 0.25s; }
-  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.2s, max-height 0.25s, margin 0.25s; }
-  .header-title{ transition: font-size 0.25s, margin 0.25s; }
-  .site-header.collapsed .header-inner { padding: 8px 32px; }
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
@@ -248,12 +248,8 @@
   }
 
   /* ── LINKS ── */
-  a {
-    color: var(--teal);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(42,122,106,0.3);
-  }
-  a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
   footer {
@@ -400,6 +396,19 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+
+<script>
+(function(){
+  var btt = document.getElementById('back-to-top');
+  if(btt){
+    window.addEventListener('scroll', function(){
+      btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+  }
+})();
+</script>
 </body>
 
 </html>

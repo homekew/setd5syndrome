@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claim Verification Audit | SETD5 Syndrome Site</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --text: #2c2c2c;
+    --navy: #1a2744;
+    --teal: #2a7a6a;
+    --amber: #c9893a;
+    --amber-lt: #fdf4e7;
+    --sage: #4e7c5f;
+    --sage-lt: #edf5ef;
+    --rose: #b05a5a;
+    --rose-lt: #fdf0ef;
+    --blue: #5a80a8;
+    --blue-lt: #e8eff7;
+    --deep: #2a627a;
+    --border: #e0d9cf;
+    --muted: #6b6b6b;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 0;
+  }
+  .report-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 48px 32px 40px;
+    text-align: center;
+  }
+  .report-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .report-header .subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em;
+  }
+  .report-body {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+
+  /* Summary cards */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .stat-card .label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .stat-card.source .number { color: var(--amber); }
+  .stat-card.soften .number { color: var(--blue); }
+  .stat-card.rewrite .number { color: var(--rose); }
+  .stat-card.clean .number { color: var(--sage); }
+
+  /* Page sections */
+  .page-section {
+    margin-bottom: 48px;
+  }
+  .page-title {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .page-verdict {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-top: 4px;
+  }
+  .page-verdict.clean { color: var(--sage); }
+
+  /* Finding cards */
+  .finding {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--border);
+  }
+  .finding.source { border-left-color: var(--amber); }
+  .finding.soften { border-left-color: var(--blue); }
+  .finding.rewrite { border-left-color: var(--rose); }
+
+  .finding-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .verdict-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .verdict-badge.source { background: var(--amber-lt); color: #8a5a1a; }
+  .verdict-badge.soften { background: var(--blue-lt); color: #3a5a80; }
+  .verdict-badge.rewrite { background: var(--rose-lt); color: #8a3a3a; }
+
+  .finding-category {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .original-text {
+    background: #f8f5ef;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 12px;
+    border-left: 3px solid var(--border);
+  }
+  .original-text::before {
+    content: 'ORIGINAL: ';
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .why-flagged {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .why-flagged strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .suggestion {
+    background: var(--sage-lt);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #2c4a38;
+  }
+  .suggestion::before {
+    content: 'SUGGESTED REVISION: ';
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--sage);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 48px 0 20px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  p.intro {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    font-size: 13px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+  .legend-dot.source { background: var(--amber); }
+  .legend-dot.soften { background: var(--blue); }
+  .legend-dot.rewrite { background: var(--rose); }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <h1>Claim Verification Audit</h1>
+  <div class="subtitle">SETD5 Syndrome Research &amp; Resources &mdash; Full Site Review &mdash; March 2026</div>
+</div>
+
+<div class="report-body">
+
+  <p class="intro">
+    Every factual or descriptive claim across all live pages was reviewed against the standard that the site author is a parent (not a credentialed professional) running a peer support resource. Claims were evaluated for medical accuracy, appropriate hedging, and whether they cross into professional advice territory. Pages with zero findings are noted as clean.
+  </p>
+
+  <div class="summary-grid">
+    <div class="stat-card">
+      <div class="number">20</div>
+      <div class="label">Pages audited</div>
+    </div>
+    <div class="stat-card source">
+      <div class="number">19</div>
+      <div class="label">Needs Source</div>
+    </div>
+    <div class="stat-card soften">
+      <div class="number">18</div>
+      <div class="label">Needs Softening</div>
+    </div>
+    <div class="stat-card rewrite">
+      <div class="number">2</div>
+      <div class="label">Remove / Rewrite</div>
+    </div>
+    <div class="stat-card clean">
+      <div class="number">9</div>
+      <div class="label">Clean pages (0 findings)</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot source"></div> Needs Source</div>
+    <div class="legend-item"><div class="legend-dot soften"></div> Needs Softening</div>
+    <div class="legend-item"><div class="legend-dot rewrite"></div> Remove / Rewrite</div>
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>understanding-setd5-syndrome.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">SETD5 is a chromatin regulator that helps control gene activity during development. It influences how tightly DNA is packaged and how genes are turned on and off, often by working with other proteins that modify histones.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Describes specific molecular function of SETD5 as established fact. A parent presenting detailed chromatin biology should cite the research establishing this.</div>
+      <div class="suggestion">Based on published research, SETD5 is believed to function as a chromatin regulator that helps control gene activity during development by influencing how DNA is packaged. For detailed scientific explanation, see the Sources &amp; References section.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">When SETD5 doesn't function properly in one copy, the balance of gene expression during brain development is disrupted.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> States a developmental mechanism as established fact without attribution.</div>
+      <div class="suggestion">Research suggests that when SETD5 doesn't function properly in one copy, the balance of gene expression during brain development may be disrupted.</div>
+    </div>
+
+    <div class="finding rewrite">
+      <div class="finding-header">
+        <span class="verdict-badge rewrite">Remove / Rewrite</span>
+        <span class="finding-category">General Credibility</span>
+      </div>
+      <div class="original-text">As of early 2026, the SETD5 Syndrome Facebook support group has over 1,100 members worldwide, suggesting the true prevalence is likely higher than published figures reflect.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Social media membership is not a reliable epidemiological indicator. Members include researchers, administrators, duplicates. Using it to infer actual prevalence misrepresents its significance.</div>
+      <div class="suggestion">The SETD5 Syndrome Facebook support group has over 1,100 members worldwide. It's important to note that support group membership does not represent confirmed diagnoses; actual prevalence remains unknown.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">In published case series, most reported SETD5 Syndrome cases have been de novo...</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Most reported" is a prevalence claim that should cite the specific literature reviewed.</div>
+      <div class="suggestion">Published case series suggest most reported SETD5 Syndrome cases have been de novo (see Sources &amp; References).</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">If neither parent carries the variant, the chance of having another affected child is very low, though not zero (due to a rare possibility called germline mosaicism).</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Specifying recurrence risk levels ("very low," "not zero") is a genetic counseling claim. Germline mosaicism mention requires cited evidence.</div>
+      <div class="suggestion">Recurrence risk depends on whether parents carry the variant. Your genetic counselor can explain specific risks for your family, including possibilities like germline mosaicism that may affect future pregnancies.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Chewing difficulties common in older children</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Common" implies prevalence data without citation.</div>
+      <div class="suggestion">Chewing difficulties reported in some older children</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Hearing impairment (temporary or permanent) in some; this can affect speech and language development</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "This can affect" states a direct causal relationship too definitively for a non-professional.</div>
+      <div class="suggestion">Hearing impairment (temporary or permanent) in some; hearing difficulties may impact speech and language development, which is worth discussing with your care team.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Educational</span>
+      </div>
+      <div class="original-text">...many families have found these services, including speech, occupational, and physical therapy, to be valuable, and they are provided at no cost through the public school system.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "They are provided at no cost" is stated as guaranteed when eligibility and provision vary by jurisdiction.</div>
+      <div class="suggestion">Many families have found services including speech, occupational, and physical therapy valuable when available through the school system, which typically provides them at no cost.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Endocrinologist / Bone Specialist - Relevant if short stature or reduced bone density is a concern (reported in published SETD5 research beginning around 2021).</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Specific citation of when research began documenting this should be verified and linked.</div>
+      <div class="suggestion">Either add the specific citation to Sources, or soften to "reported in published SETD5 research."</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Moyamoya disease...has been reported in a very small number of individuals with SETD5 Syndrome in published literature; this appears to be uncommon and routine screening is not currently established.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Specific citation of how many cases and which publications would strengthen this. "Routine screening is not currently established" edges into clinical guidance.</div>
+      <div class="suggestion">Moyamoya disease has been reported in a very small number of individuals with SETD5 Syndrome. This association appears uncommon. Consult with your neurologist about whether this is relevant for your family.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">General Credibility</span>
+      </div>
+      <div class="original-text">Simons Searchlight is the primary patient registry for SETD5 Syndrome and is free to join.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "The primary" is a status claim about the research landscape that should be sourced.</div>
+      <div class="suggestion">Simons Searchlight is a well-known patient registry that includes SETD5 Syndrome and is free to join.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Parental genetic testing is often offered after a SETD5 diagnosis, to determine whether the variant is de novo or inherited...</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Often offered" is a clinical practice claim that should cite evidence of common practice patterns.</div>
+      <div class="suggestion">After a SETD5 diagnosis, genetic testing of parents may be recommended to determine whether the variant is de novo or inherited. Discuss with your genetic counselor.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>setd5-at-a-glance.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">This gene helps regulate how other genes are switched on and off during development. When one copy does not function correctly, it can lead to a range of developmental, behavioral, medical, and physical features.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> The causal mechanism is stated as established fact. Requires a source citation.</div>
+      <div class="suggestion">Research suggests that SETD5 may help regulate how other genes are switched on and off during development. When one copy does not function correctly, a range of developmental, behavioral, medical, and physical features have been observed in affected individuals.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">"Commonly Reported Features" list (intellectual disability, speech/language delay, behavioral features, etc.)</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Feature list is presented without citations or attribution to specific published research.</div>
+      <div class="suggestion">Add a footnote: "Features based on published case series. Not every individual will have all of these. [Citation to literature]"</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">In published case series, most cases have been de novo (a new mutation, not inherited from either parent).</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Most cases" requires a citation to the published literature it references.</div>
+      <div class="suggestion">Add inline citation: "In published case series, most cases have been de novo. [Citation]"</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">If neither parent carries the variant, recurrence risk is very low. If a parent carries it, risk may be up to 50%.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Provides specific risk estimates that cross into genetic counseling territory.</div>
+      <div class="suggestion">Recurrence risk depends on whether a parent carries the variant. Consult with a genetic counselor for an assessment of your family's specific risk.</div>
+    </div>
+
+    <div class="finding rewrite">
+      <div class="finding-header">
+        <span class="verdict-badge rewrite">Remove / Rewrite</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">May benefit from AAC (under Speech &amp; Language features)</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "May benefit from" is treatment guidance. AAC is a clinical recommendation that should come from a speech-language pathologist.</div>
+      <div class="suggestion">Some individuals use AAC (augmentative and alternative communication) as a communication support.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>qualifying-for-services.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">...in general, a doctor's referral is not required, and under federal guidelines there is no cost to families for the evaluation itself.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "There is no cost" stated as absolute fact. While generally true under IDEA, some states may have exceptions.</div>
+      <div class="suggestion">In most cases, a doctor's referral is not required, and under federal guidelines there is generally no cost to families for the evaluation itself. Your state's Early Intervention program can confirm current policies.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>school-iep-guide.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Educational</span>
+      </div>
+      <div class="original-text">Given the developmental features associated with SETD5 Syndrome, many children may meet eligibility criteria under IDEA.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Many children may meet" implies a higher likelihood than appropriate for a non-credentialed author.</div>
+      <div class="suggestion">Each child's eligibility under IDEA depends on individual evaluation. Some families have found that school-based services are available to their children, while each situation is unique.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">The school must either fund the IEE or file for a due process hearing to justify their own evaluation.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> States the school's obligation as absolute and oversimplifies a complex procedural right. The school can also challenge whether the parent's request is reasonable.</div>
+      <div class="suggestion">If you request an IEE, the school must either fund the IEE at no cost to you, or file for a due process hearing to defend their evaluation. The outcome depends on the specifics of your situation.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">...you can file a complaint with your state's department of education. The state must investigate and respond within 60 days.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Must investigate and respond within 60 days" oversimplifies. Resolution may take longer and "respond" does not mean "resolve in your favor."</div>
+      <div class="suggestion">...you can file a complaint with your state's department of education. Your state is required to investigate and provide a response, typically within 60 days, though resolution of the issue may take longer.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">If a school recommends a 504 Plan, parents have the right to ask in writing whether an IEP evaluation was considered and, if not, the reason it was not recommended.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Stated as an explicit procedural right but this is not formally guaranteed in IDEA or Section 504 as phrased. It is best practice, not a codified entitlement.</div>
+      <div class="suggestion">If a school recommends a 504 Plan instead of an IEP, it is reasonable to ask the school in writing to explain whether an IEP evaluation was considered and why it was not recommended.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">Services must begin as soon as possible after the IEP is signed.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Must begin" is stated as guaranteed. Districts can have valid reasons for brief delays. A parent reading this might believe services start immediately.</div>
+      <div class="suggestion">Services should begin as soon as possible after the IEP is signed. If there are delays, ask the school why and when services will start.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">If the LEA refuses to reconvene the IEP team, it must provide written notice explaining the refusal.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Makes it sound like any parent request for a meeting must be honored. Districts can refuse unreasonable requests.</div>
+      <div class="suggestion">You may request an IEP meeting at any time. If the school declines, it should provide written notice explaining why.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">You can also decline a reevaluation if you feel it isn't necessary (though the school may proceed with one anyway in some circumstances).</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Oversimplifies parent consent rights. "If you feel it isn't necessary" is too casual for a legal decision.</div>
+      <div class="suggestion">A reevaluation requires your informed consent. If you don't believe a reevaluation is necessary, discuss your concerns with the team. In some circumstances, the school may seek due process to proceed.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>transition-to-adulthood.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">Your child voluntarily grants you (or someone else) authority to make specific decisions. This generally requires that your child can understand what they're signing...</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Legal standards for Power of Attorney vary significantly by state and should cite state law resources.</div>
+      <div class="suggestion">Add "according to state law" or link to specific resources on POA requirements by state.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">...is gaining legal recognition in more states. A growing number of families choose this approach first.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Growing number of families" is a trend claim that needs documentation.</div>
+      <div class="suggestion">Some families are exploring this approach first. Supported decision-making is gaining legal recognition in a growing number of states.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">As of 2026, the ABLE Age Adjustment Act raised the age-of-onset requirement from 26 to 46.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Specific legislative fact that should cite the statute or link to ablenrc.org for verification.</div>
+      <div class="suggestion">Add citation to the ABLE Age Adjustment Act and link to ablenrc.org for current information.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">A third-party SNT is an estate planning tool that allows families to leave money to a child while helping preserve their SSI and Medicaid eligibility.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Helps preserve" should be softened further as SNT structure and effectiveness vary significantly by state.</div>
+      <div class="suggestion">A third-party SNT is an estate planning tool designed to help preserve SSI and Medicaid eligibility; consult a special needs attorney about how this works in your state.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">Every state has a Vocational Rehabilitation (VR) agency that provides free services to help people with disabilities work.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Every state" is a broad claim that should be verified and cited.</div>
+      <div class="suggestion">Most states have a Vocational Rehabilitation (VR) agency that provides services to help people with disabilities prepare for work. Check your state's VR program for current offerings.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>disability-discounts-guide.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">As a condition of receiving certain federal funding under the Federal Transit Act, public transit systems must offer reduced fares (at least 50% off) during off-peak hours...</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Specific regulatory claim needs citation (49 CFR Part 37 or transit.dot.gov).</div>
+      <div class="suggestion">Add citation to the Federal Transit Act requirement or link to transit.dot.gov source.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">Many cities offer free transit for people on SSI (check locally)</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Many cities" is vague and undocumented.</div>
+      <div class="suggestion">Some cities offer free or additional transit discounts for SSI recipients (check your local transit authority).</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">General Credibility</span>
+      </div>
+      <div class="original-text">AZA-accredited zoos/aquariums often offer free or discounted admission to people with disabilities and one caregiver</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Often" is vague; varies by institution.</div>
+      <div class="suggestion">Many AZA-accredited zoos and aquariums offer free or discounted admission to people with disabilities and one caregiver; check directly with your local facility.</div>
+    </div>
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">General Credibility</span>
+      </div>
+      <div class="original-text">Children's museums commonly offer free admission to children with disabilities + caregivers</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Commonly" lacks documentation; varies by institution.</div>
+      <div class="suggestion">Many children's museums offer free or reduced admission to children with disabilities and caregivers; call ahead to confirm.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Legal &amp; Benefits</span>
+      </div>
+      <div class="original-text">Medicaid Home and Community Based Services (HCBS) waivers are one of the most valuable, and most underused, state-level programs...</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Most underused" is a claim that requires documentation.</div>
+      <div class="suggestion">Medicaid HCBS waivers are valuable state-level programs for people with intellectual and developmental disabilities that some families may not be aware of.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>setd5-medical-terms-guide.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">...a negative parental result does not completely eliminate recurrence risk, due to the possibility of germline mosaicism.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Clinically significant genetic concept that could affect family planning decisions. Should explicitly reference genetic counselor guidance.</div>
+      <div class="suggestion">Genetic counselors note that while negative parental testing strongly supports de novo status, the possibility of germline mosaicism cannot be completely eliminated. Discuss recurrence risk with your genetic counselor.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">SETD5 is associated with pathways involved in chromatin regulation and gene expression.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Molecular biology claim that should be backed by literature citation.</div>
+      <div class="suggestion">SETD5 is associated with pathways involved in chromatin regulation and gene expression. (See the Sources &amp; References page for relevant research.)</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>setd5-acronym-glossary.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Some individuals with SETD5 Syndrome have limited or delayed expressive speech. AAC is commonly explored through a speech-language pathology evaluation...</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Is commonly explored" states clinical practice as fact without citation.</div>
+      <div class="suggestion">Some individuals with SETD5 Syndrome have limited or delayed expressive speech. A speech-language pathology evaluation may explore whether AAC could support communication.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Attention difficulties are frequently reported.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Frequently reported" is a prevalence claim needing citation.</div>
+      <div class="suggestion">Attention difficulties have been reported in some individuals with SETD5 Syndrome.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Autism features or a formal ASD diagnosis appear frequently in published case series.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Appear frequently" is a prevalence claim needing specific citation.</div>
+      <div class="suggestion">Published case reports have documented autism features in some individuals with SETD5 Syndrome.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">A normal CMA result does not rule out SETD5 Syndrome -- a more detailed test such as WES or WGS is needed to identify the SETD5 variant.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "Does not rule out" is a diagnostic claim requiring professional knowledge.</div>
+      <div class="suggestion">A normal CMA does not exclude SETD5 Syndrome. If SETD5 is suspected, discuss with your care team about whether more detailed genetic testing (such as WES or WGS) is appropriate.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>setd5-research-2020-to-present.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">Medical &amp; Scientific</span>
+      </div>
+      <div class="original-text">Therapies developed for one genetic form of autism may potentially benefit others -- including SETD5 -- if they target these shared pathways.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> "May potentially benefit" is speculative based on a single mouse model study. The leap from animal models to human therapeutic benefit is significant.</div>
+      <div class="suggestion">Research on shared brain circuit dysfunction across autism genetic models may point to future therapy directions, but this is early-stage research in animal models.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>helpful-links.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">General Credibility</span>
+      </div>
+      <div class="original-text">Board-certified genetic counselors are available at no cost to enrolled SETD5 families to help interpret genetic reports and navigate clinical decisions.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Claims specific professional credentials and "at no cost" services without verification link. Requires confirmation that this applies to all enrolled families.</div>
+      <div class="suggestion">Simons Searchlight offers genetic counseling services to enrolled SETD5 families. Verify current offerings and eligibility on their website.</div>
+    </div>
+
+    <div class="finding source">
+      <div class="finding-header">
+        <span class="verdict-badge source">Needs Source</span>
+        <span class="finding-category">General Credibility</span>
+      </div>
+      <div class="original-text">One of the nation's largest advocacy organizations for people with intellectual and developmental disabilities, with nearly 600 chapters in all 50 states.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Makes specific quantitative claims (600 chapters, all 50 states) without citations.</div>
+      <div class="suggestion">A major advocacy organization for people with intellectual and developmental disabilities with chapters across the United States. See their website to locate a chapter near you.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>about.html</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+
+    <div class="finding soften">
+      <div class="finding-header">
+        <span class="verdict-badge soften">Needs Softening</span>
+        <span class="finding-category">General Credibility</span>
+      </div>
+      <div class="original-text">All content is written and curated by the site's author, and Claude by Anthropic is sometimes used as a tool to help translate dense technical language into plain language.</div>
+      <div class="why-flagged"><strong>Why flagged:</strong> Could imply AI is generating original content or medical analysis. The disclosure should clarify the scope of AI use.</div>
+      <div class="suggestion">All content is written and reviewed by the site's author. Claude by Anthropic is used as a tool to help rephrase existing technical language into clearer language; it is not used for generating original medical analysis or research interpretation.</div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================ -->
+  <h2>Clean Pages (0 findings)</h2>
+  <!-- ============================================================ -->
+
+  <div class="page-section">
+    <p class="page-verdict clean">The following pages had no claims requiring revision:</p>
+    <div style="columns: 2; column-gap: 24px; font-size: 15px; line-height: 2.2; padding-left: 8px;">
+      family-toolkit.html<br>
+      family-stories.html<br>
+      index.html<br>
+      medical-emergency-summary.html<br>
+      printable-handouts.html<br>
+      share-your-story.html<br>
+      suggest-a-resource.html<br>
+      sources-references.html<br>
+      terms-of-use.html
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
