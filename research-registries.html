@@ -198,10 +198,6 @@
   .section-label.sl-blue  { color: var(--blue); }
   .section-label.sl-blue::before  { background: var(--blue); }
 
-  /* -- H3 WITH ICON -- */
-  h3.with-icon { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
-  h3.with-icon svg { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; opacity: 0.85; }
-
   /* -- PROSE -- */
   .prose{ font-size: 16px; line-height: 1.72; margin-bottom: 14px; max-width: 680px; }
   .prose + .prose{ margin-top: 0; }
@@ -325,20 +321,6 @@
     color: var(--navy); margin-bottom: 8px;
   }
   .feature-card p { font-size: 14.5px; line-height: 1.6; color: var(--text); margin: 0; }
-
-  /* -- CARD ICONS -- */
-  .card-icon {
-    width: 40px; height: 40px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 12px; background: #e6f4f1;
-  }
-  .card-icon svg { width: 20px; height: 20px; color: var(--teal); }
-  .feature-card.amber-top .card-icon { background: var(--amber-lt); }
-  .feature-card.amber-top .card-icon svg { color: var(--amber); }
-  .feature-card.sage-top  .card-icon { background: var(--sage-lt); }
-  .feature-card.sage-top  .card-icon svg { color: var(--sage); }
-  .feature-card.blue-top  .card-icon { background: var(--blue-lt); }
-  .feature-card.blue-top  .card-icon svg { color: var(--blue); }
 
   /* ── REGISTRY CARD ── */
   .registry-card {
@@ -514,13 +496,13 @@
 
     <p class="prose">Research registries are one of the primary tools for addressing this problem. A registry is a structured database where individuals with the same condition can enroll, share information about their health history and development, and be contacted if they may be eligible for future studies. Registries do not diagnose or treat anyone; they create the infrastructure that makes research possible.</p>
 
-    <h3 class="with-icon"><i data-lucide="users"></i>The Numbers Problem</h3>
+    <h3>The Numbers Problem</h3>
 
     <p class="prose">Rare diseases often face a difficult cycle: there aren&#8217;t enough patients enrolled in research to design good studies, and without good studies there aren&#8217;t strong findings to attract more funding or participants. Registries help break this cycle by giving researchers a clearer picture of how many individuals with a specific condition exist, where they are, and what their experiences look like over time.</p>
 
     <p class="prose">For SETD5-related disorder specifically, each family that joins a registry adds to a growing dataset that didn&#8217;t exist even a few years ago. The more families participate, the more accurately researchers can describe the range of experiences, including individuals whose presentation is milder, more complex, or different from the cases most visible in published literature so far.</p>
 
-    <h3 class="with-icon"><i data-lucide="activity"></i>What &#8220;Natural History&#8221; Means</h3>
+    <h3>What &#8220;Natural History&#8221; Means</h3>
 
     <p class="prose">&#8220;Natural history&#8221; in medical research refers to the course of a condition over time: what happens, when, and in what sequence, without treatment. Understanding the natural history of SETD5-related disorder means tracking things like:</p>
 
@@ -534,7 +516,7 @@
 
     <p class="prose">This baseline knowledge helps ensure researchers have a reliable reference point before any treatment or intervention can be meaningfully tested. If researchers don&#8217;t know what the typical trajectory looks like without intervention, they have a much harder time reliably measuring whether an intervention changes that trajectory.</p>
 
-    <h3 class="with-icon"><i data-lucide="flask-conical"></i>How Registries Support Future Research</h3>
+    <h3>How Registries Support Future Research</h3>
 
     <p class="prose">For any rare condition to be positioned for clinical research, including potential treatment trials, several things generally need to be in place first: an established natural history, reliable ways to measure outcomes, and an enrolled population that can actually be found and contacted. Registries help build all three.</p>
 
@@ -557,17 +539,14 @@
 
     <div class="feature-grid three-col">
       <div class="feature-card">
-        <div class="card-icon"><i data-lucide="search"></i></div>
         <h4>Simons Searchlight</h4>
         <p>A research program with a dedicated program for SETD5-related disorder. Surveys, data collection, and periodic reports are specific to enrolled SETD5-related disorder families, not drawn from a general pool.</p>
       </div>
       <div class="feature-card amber-top">
-        <div class="card-icon"><i data-lucide="microscope"></i></div>
         <h4>Brain Gene Registry</h4>
         <p>A multi-institutional NIH-funded registry studying brain development gene variants. Families with SETD5-related disorder are actively recruited, and the data can be analyzed both within the SETD5-related disorder cohort and alongside other similar conditions.</p>
       </div>
       <div class="feature-card sage-top">
-        <div class="card-icon"><i data-lucide="link-2"></i></div>
         <h4>GenomeConnect</h4>
         <p>An NIH-funded registry that links participant genetic data to ClinVar, the global variant database. Open to anyone with genetic testing results, including families affected by SETD5-related disorder. Also supports connecting with others who share the same variant.</p>
       </div>
@@ -835,9 +814,6 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
-
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script>lucide.createIcons();</script>
 
 <script>
 (function(){
