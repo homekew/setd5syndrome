@@ -308,6 +308,7 @@
     <a class="nav-item" href="#section-1"><span class="num">1</span> Sense-Check</a>
 
     <a class="nav-item" href="#section-2"><span class="num">2</span> Content Accuracy</a>
+    <a class="nav-sub" href="#p-2-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
     <a class="nav-sub" href="#p-2a">2a · Claim Verification</a>
     <a class="nav-sub" href="#p-2b">2b · Plain Language</a>
     <a class="nav-sub" href="#p-2c">2c · Gap Check</a>
@@ -315,6 +316,7 @@
     <a class="nav-sub" href="#p-2e">2e · Legal Language</a>
 
     <a class="nav-item" href="#section-3"><span class="num">3</span> UI &amp; Design</a>
+    <a class="nav-sub" href="#p-3-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
     <a class="nav-sub" href="#p-3a">3a · First Impression</a>
     <a class="nav-sub" href="#p-3b">3b · Page Flow</a>
     <a class="nav-sub" href="#p-3c">3c · Navigation</a>
@@ -323,11 +325,13 @@
     <a class="nav-sub" href="#p-3f">3f · Full Visual Design</a>
 
     <a class="nav-item" href="#section-4"><span class="num">4</span> Site Protection</a>
+    <a class="nav-sub" href="#p-4-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
     <a class="nav-sub" href="#p-4a">4a · Disclaimer</a>
     <a class="nav-sub" href="#p-4b">4b · External Links</a>
     <a class="nav-sub" href="#p-4c">4c · Outdated Content</a>
 
     <a class="nav-item" href="#section-5"><span class="num">5</span> Community &amp; Audience</a>
+    <a class="nav-sub" href="#p-5-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
     <a class="nav-sub" href="#p-5a">5a · Tone Consistency</a>
     <a class="nav-sub" href="#p-5b">5b · Emotional Safety</a>
     <a class="nav-sub" href="#p-5c">5c · Accessibility Language</a>
@@ -396,6 +400,86 @@ Here are the audit recommendations to evaluate:
     <!-- ══════════════════════════════════════════ -->
     <div class="section-anchor" id="section-2"></div>
     <h2 class="section-title"><span class="sec-num">2</span> Content Accuracy Prompts</h2>
+
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2-master">2 · Full Content Accuracy Audit (all subsections)</h3>
+      <p class="use-desc">Runs all five content accuracy checks in a single pass: claim verification, plain language, gap check, consistency, and legal language. Use when you want a comprehensive content review of one page without running each prompt separately.</p>
+      <div class="note-box"><strong>Note:</strong> This is the broadest single prompt in the library. It covers medical, educational, legal, and credibility risks in one pass. Best for full page reviews; for targeted checks use the individual 2a–2e prompts.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from setd5syndrome.live across all five content
+accuracy areas below. The site is run by a parent of a child with SETD5
+Syndrome — NOT a medical, educational, legal, or credentialed professional.
+
+For each area, list every issue found, with the original text, why it is
+flagged, and a suggested revision.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 1 — CLAIM VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+For every factual or descriptive claim, assign:
+  VERIFIED — factual, appropriately hedged
+  NEEDS SOURCE — plausible but needs a citation
+  NEEDS SOFTENING — stated too definitively
+  REMOVE OR REWRITE — crosses into professional advice
+
+Flag claims that:
+  Medical/scientific: states cause, prognosis, treatment outcome as fact;
+    recommends or evaluates any intervention; makes prevalence claims without
+    a source; uses clinical language as guidance
+  Educational: states what schools will/should do as guaranteed; describes
+    IEP or therapy outcomes definitively
+  Legal/benefits: uses "entitled to", "have the right to", "must", "required
+    to" regarding schools, insurers, or government programs
+  General: any claim requiring credentials to make responsibly
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 2 — PLAIN LANGUAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Flag language that:
+  - Is too clinical or assumes medical knowledge
+  - Uses jargon a non-specialist parent would not know
+  - Could confuse or intimidate a newly diagnosed reader
+
+Suggest plain-language rewrites for anything flagged.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 3 — GAP CHECK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Imagine you are a parent who received their child's diagnosis today.
+  - What urgent questions would this page leave unanswered?
+  - What would you wish someone had told you?
+  - Is anything implied but never explained?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 4 — CONSISTENCY CHECK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Flag anywhere the content:
+  - Contradicts itself internally
+  - Uses inconsistent terminology for the same concepts
+  - Makes claims that would conflict with other pages on the site
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 5 — LEGAL LANGUAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Flag language that sounds like legal advice in any of these areas:
+
+  Education law (IDEA, IEPs, 504 Plans): states what schools are legally
+    required to do; tells families what they are entitled to; sounds like
+    legal strategy
+  Insurance &amp; benefits: implies specific legal rights to coverage;
+    guidance on appeals that sounds like legal advice; definitive statements
+    about what insurers must cover
+  Disability benefits: describes eligibility as guaranteed; states what
+    families qualify for rather than what they may want to explore
+
+  For each item, suggest a revision using softening language such as
+  "in our experience", "you may want to explore", "some families have
+  found", or "consider speaking with an advocate or attorney"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[paste full page content here]</div>
+    </div>
 
     <div class="prompt-block">
       <h3 class="prompt-title" id="p-2a">2a. Claim Verification</h3>
@@ -547,6 +631,83 @@ For each item flagged, suggest a revision that:
     <!-- ══════════════════════════════════════════ -->
     <div class="section-anchor" id="section-3"></div>
     <h2 class="section-title"><span class="sec-num">3</span> UI &amp; Design Review Prompts</h2>
+
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3-master">3 · Full UI &amp; Design Review (all subsections)</h3>
+      <p class="use-desc">Combines all six UI checks in one pass: first impression, page flow, navigation, mobile readability, visual design, and full visual audit. Use when you want to cover every design angle on a page without running 3a–3f separately.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Act as an experienced UI/UX designer and website design reviewer. Conduct a
+full design review of the following page from setd5syndrome.live — a parent-run
+family resource site for SETD5 Syndrome. The audience is families who may be
+overwhelmed, stressed, or newly diagnosed.
+
+Evaluate across all six areas below and organize your response by area.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 1 — FIRST IMPRESSION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Based on the opening content only:
+  1. What is this page about?
+  2. Who is it for?
+  3. What is it asking visitors to do?
+  4. Does the most important information appear early enough?
+  5. Anything in the first screen that might discourage a new visitor?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 2 — PAGE FLOW &amp; SCANNABILITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Is the page easy to scan?
+  2. Are headings and sections logically ordered?
+  3. Are there walls of text that should be broken up?
+  4. Is urgent information near the top?
+  5. Are calls to action clear and easy to find?
+  6. Is anything buried that should be prominent?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 3 — NAVIGATION &amp; WAYFINDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. Are navigation labels clear and self-explanatory?
+  2. Is there a logical path for someone just diagnosed?
+  3. Are there dead ends — pages that don't suggest where to go next?
+  4. Is it easy to get back to the homepage from any page?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 4 — MOBILE READABILITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Flag anything that:
+  - Would be hard to read on a small screen (dense paragraphs, long sentences)
+  - Relies on layout features that may not translate to mobile (columns, tables)
+  - Has links or buttons that might be hard to tap
+  - Would benefit from being broken into shorter sections on mobile
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 5 — VISUAL DESIGN (this page)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Evaluate:
+  - First impression, layout balance, spacing, font sizing, heading clarity
+  - Color use, button prominence, visual clutter, section flow
+  - Whether anything feels amateur, busy, flat, or hard to scan
+Then provide: what looks good / what needs improvement /
+high, medium, and low priority fixes / specific developer instructions
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 6 — OVERALL VISUAL DESIGN VERDICT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+The site should feel: compassionate, trustworthy, clear, calm,
+family-friendly, polished, and engaging without being clinical or busy.
+
+Rate honestly (not just "looks clean"):
+  - Does it feel visually appealing or boring and flat?
+  - Does it feel warm and human or too plain and sterile?
+  - Does it feel modern or dated?
+  - Do colors support a compassionate, trustworthy family-centered experience?
+
+Top 5 highest-impact visual improvements for this page.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[paste full page content or URL here]</div>
+    </div>
 
     <div class="prompt-block">
       <h3 class="prompt-title" id="p-3a">3a. First Impression Check</h3>
@@ -770,6 +931,68 @@ how to improve it without losing trust or accessibility.</div>
     <div class="section-anchor" id="section-4"></div>
     <h2 class="section-title"><span class="sec-num">4</span> Site-Wide Protection Prompts</h2>
 
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-4-master">4 · Full Site Protection Audit (all subsections)</h3>
+      <p class="use-desc">Combines all three protection checks in one pass: disclaimer presence and strength, external link credibility, and outdated content. Use when you want a complete protection review of a page without running 4a–4c separately.</p>
+      <div class="note-box"><strong>Note:</strong> This prompt covers your biggest liability areas. A strong disclaimer, credible sources, and current information are your primary defenses as a non-professional site author.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live across all three site
+protection areas. The site is run by a parent of a child with SETD5 Syndrome
+who is NOT a medical, legal, or educational professional.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 1 — DISCLAIMER PRESENCE &amp; STRENGTH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Evaluate the disclaimer on this page for:
+  Presence: Is there a disclaimer? Does this page need one?
+  Visibility: Is it easy to find, or buried? Would a first-time visitor
+    notice it before reading the main content?
+  Wording strength: Does it clearly state the author is a parent, not a
+    professional? Does it say the content is not medical, legal, or
+    educational advice? Does it direct visitors to consult professionals?
+  Scope: Does it cover medical, legal, educational, and benefits areas?
+    Does it make clear that every child with SETD5 is different?
+
+Verdict: ADEQUATE / NEEDS IMPROVEMENT / MISSING OR INSUFFICIENT
+If improvement is needed, suggest revised wording.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 2 — EXTERNAL LINK CREDIBILITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+For each external link or cited source, evaluate:
+  Credibility: Is this a credible, authoritative source? (Peer-reviewed
+    research, established medical institutions, government agencies,
+    recognized patient advocacy organizations)
+  Accuracy of characterization: Is the site accurately describing what
+    the linked source says? Is it overstating or misrepresenting?
+  Appropriateness: Is this the best or most current source? Is it
+    recent enough given that SETD5 research is still emerging?
+  Link descriptions: Is the link text clear about what the visitor will find?
+
+Verdict per link: GOOD / REVIEW (specify concern) / REPLACE OR REMOVE
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 3 — OUTDATED CONTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SETD5 research is still actively developing. Flag content that:
+  Scientific understanding: describes gene, mechanism, or features in
+    ways that may reflect earlier or incomplete understanding; references
+    a study that may have been superseded
+  Resources &amp; organizations: mentions programs, registries, or policies
+    that may have changed, ended, or been replaced
+  Language &amp; terminology: uses older diagnostic or disability labels
+    that have since been revised or considered outdated
+  General staleness: any time-sensitive claim that should be verified
+
+For each item: identify what may be outdated, explain why, and suggest a
+verification step or revision (e.g. "as of [year]" or "check with your
+specialist for the most current guidance")
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[paste full page content here, including header, footer, and any sidebar]</div>
+    </div>
+
     <div class="prompt-block">
       <h3 class="prompt-title" id="p-4a">4a. Disclaimer Presence &amp; Strength Check</h3>
       <p class="use-desc">Use this to verify your site has a disclaimer that is visible, prominent, and worded strongly enough to protect you. Run this on your homepage and any page that contains health, legal, or educational information.</p>
@@ -899,6 +1122,85 @@ For each flagged item:
     <!-- ══════════════════════════════════════════ -->
     <div class="section-anchor" id="section-5"></div>
     <h2 class="section-title"><span class="sec-num">5</span> Community &amp; Audience Prompts</h2>
+
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-5-master">5 · Full Community &amp; Audience Review (all subsections)</h3>
+      <p class="use-desc">Combines all four audience checks in one pass: tone consistency, emotional safety, accessibility language, and new visitor pathway. Use when you want a complete audience-focused review without running 5a–5d separately.</p>
+      <div class="note-box"><strong>Note:</strong> Your audience includes families who may be in crisis, grief, or overwhelm. This prompt checks whether your content meets them where they are — with the right tone, emotional care, respectful language, and a clear path forward.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from setd5syndrome.live across all four
+community and audience areas. The intended voice is warm, personal, and
+parent-to-parent. The audience includes families who may have just
+received a diagnosis, be in crisis, or be processing grief and fear.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 1 — TONE CONSISTENCY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Flag passages where the tone:
+  - Shifts into formal, institutional, or research-paper language
+  - Reads like a medical brochure rather than a parent writing to another parent
+  - Sounds noticeably different in warmth from surrounding content
+  - Uses passive constructions that remove the human element
+  - Lists facts without acknowledging what they mean for real families
+
+Suggest revisions that bring each passage back to the warm, parent-to-parent voice.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 2 — EMOTIONAL SAFETY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Flag content that:
+  Could cause unnecessary alarm: presents challenges without context or
+    balance; lists worst-case scenarios without reassurance; describes the
+    future in ways that could feel hopeless
+  Is unrealistically optimistic: implies outcomes that may not apply to all
+    children; sets expectations that could lead to disappointment or self-blame
+  Lacks emotional acknowledgment: presents hard information without any
+    recognition of how difficult it may be to receive
+  Missing support signposting: covers difficult topics without pointing
+    families toward support resources or professional help
+
+Suggest revisions that create better balance: honest, realistic, supportive.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 3 — ACCESSIBILITY LANGUAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Flag language that:
+  Uses outdated or contested disability terminology: "suffers from",
+    "afflicted with", "confined to", "wheelchair-bound", "special needs"
+    where more specific language is available, "high-functioning" or
+    "low-functioning" used reductively, older retired diagnostic labels
+  Uses identity-first vs. person-first language inconsistently (flag
+    inconsistency; do not prescribe which to use — recommend picking one
+    and applying it consistently)
+  Implies tragedy or burden: frames disability purely as loss without balance;
+    centers parental suffering over the child's experience; reduces people
+    to their diagnosis
+
+For each: identify the language, explain why it may be problematic,
+suggest preferred alternatives, and note if it is a clear issue vs. debate.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AREA 4 — NEW VISITOR PATHWAY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Imagine you are a parent who received their child's SETD5 diagnosis yesterday.
+You found this page through a search engine and have never seen this site.
+
+Evaluate:
+  Orientation: Can you immediately tell what the site is and who runs it?
+    Is it clear this is a parent-run community resource, not a clinical site?
+  Emotional welcome: Does the page feel like it was written by someone who
+    understands what you are going through? Does it make you feel less alone?
+  Clear starting point: Is it obvious what to do next if you are brand new?
+    Is there a clear path to the most essential information?
+  Overwhelm risk: Is there too much on this page for someone in emotional crisis?
+  Next steps: Does the page suggest where to go next?
+
+Overall verdict + top three improvements for the new visitor experience.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[paste full page content here]</div>
+    </div>
 
     <div class="prompt-block">
       <h3 class="prompt-title" id="p-5a">5a. Tone Consistency Check</h3>
