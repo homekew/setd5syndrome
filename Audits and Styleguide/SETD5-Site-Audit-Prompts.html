@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Syndrome — AI Audit Prompt Library</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --teal: #1A7A8A;
+    --teal-light: #e8f4f6;
+    --teal-mid: #a8d4da;
+    --navy: #1B2A4A;
+    --amber: #C47B00;
+    --amber-bg: #fff8e8;
+    --amber-border: #e8a020;
+    --gray-bg: #f6f7f8;
+    --gray-border: #e2e6e8;
+    --text: #1a1a1a;
+    --muted: #556;
+    --code-bg: #f4f5f6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR NAV ── */
+  .sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--navy);
+    padding: 32px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+  .sidebar-brand {
+    padding: 0 24px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+  }
+  .sidebar-brand .site-name {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 4px;
+  }
+  .sidebar-brand .doc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .nav-section-label {
+    padding: 6px 24px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 12px;
+  }
+  .nav-item {
+    display: block;
+    padding: 7px 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: all 0.15s;
+    border-left: 3px solid transparent;
+  }
+  .nav-item:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.06);
+    border-left-color: var(--teal-mid);
+  }
+  .nav-item.active {
+    color: #fff;
+    border-left-color: var(--teal-mid);
+    background: rgba(255,255,255,0.08);
+  }
+  .nav-item .num {
+    color: var(--teal-mid);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    margin-right: 6px;
+  }
+  .nav-sub {
+    padding: 4px 24px 4px 40px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    display: block;
+    transition: all 0.15s;
+    border-left: 3px solid transparent;
+  }
+  .nav-sub:hover {
+    color: rgba(255,255,255,0.8);
+    border-left-color: rgba(255,255,255,0.2);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    flex: 1;
+    padding: 56px 64px;
+    max-width: 860px;
+  }
+
+  /* ── TITLE BLOCK ── */
+  .title-block {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 3px solid var(--teal);
+  }
+  .title-block .super {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .title-block h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .title-block .subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-anchor { padding-top: 80px; margin-top: -60px; }
+
+  h2.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--teal-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2.section-title .sec-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  h3.prompt-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--teal-light);
+  }
+
+  .prompt-block {
+    margin-bottom: 48px;
+  }
+  .prompt-block + .prompt-block {
+    padding-top: 8px;
+  }
+
+  .use-desc {
+    font-size: 15.5px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NOTE BOX ── */
+  .note-box {
+    background: var(--amber-bg);
+    border-left: 4px solid var(--amber-border);
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .note-box strong {
+    color: var(--amber);
+    font-weight: 600;
+  }
+
+  /* ── PROMPT BOX ── */
+  .prompt-box {
+    background: var(--code-bg);
+    border: 1.5px solid var(--teal-mid);
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #222;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 11.5px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    letter-spacing: 0.02em;
+  }
+  .copy-btn:hover { background: #155f6d; }
+  .copy-btn:active { transform: scale(0.96); }
+  .copy-btn.copied { background: #2a7a3b; }
+
+  /* ── HOW TO USE ── */
+  .how-to-box {
+    background: var(--teal-light);
+    border: 1px solid var(--teal-mid);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .how-to-box h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-border);
+    font-size: 14px;
+    color: #999;
+    font-style: italic;
+  }
+
+  /* ── SCROLLBAR ── */
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <div class="site-name">setd5syndrome.live</div>
+      <div class="doc-title">AI Audit Prompt Library</div>
+    </div>
+
+    <div class="nav-section-label">Getting Started</div>
+    <a class="nav-item" href="#how-to-use">How to Use</a>
+
+    <div class="nav-section-label">Prompts</div>
+    <a class="nav-item" href="#section-1"><span class="num">1</span> Sense-Check</a>
+
+    <a class="nav-item" href="#section-2"><span class="num">2</span> Content Accuracy</a>
+    <a class="nav-sub" href="#p-2a">2a · Claim Verification</a>
+    <a class="nav-sub" href="#p-2b">2b · Plain Language</a>
+    <a class="nav-sub" href="#p-2c">2c · Gap Check</a>
+    <a class="nav-sub" href="#p-2d">2d · Consistency</a>
+    <a class="nav-sub" href="#p-2e">2e · Legal Language</a>
+
+    <a class="nav-item" href="#section-3"><span class="num">3</span> UI &amp; Design</a>
+    <a class="nav-sub" href="#p-3a">3a · First Impression</a>
+    <a class="nav-sub" href="#p-3b">3b · Page Flow</a>
+    <a class="nav-sub" href="#p-3c">3c · Navigation</a>
+    <a class="nav-sub" href="#p-3d">3d · Mobile</a>
+    <a class="nav-sub" href="#p-3e">3e · Visual Design</a>
+    <a class="nav-sub" href="#p-3f">3f · Full Visual Design</a>
+
+    <a class="nav-item" href="#section-4"><span class="num">4</span> Site Protection</a>
+    <a class="nav-sub" href="#p-4a">4a · Disclaimer</a>
+    <a class="nav-sub" href="#p-4b">4b · External Links</a>
+    <a class="nav-sub" href="#p-4c">4c · Outdated Content</a>
+
+    <a class="nav-item" href="#section-5"><span class="num">5</span> Community &amp; Audience</a>
+    <a class="nav-sub" href="#p-5a">5a · Tone Consistency</a>
+    <a class="nav-sub" href="#p-5b">5b · Emotional Safety</a>
+    <a class="nav-sub" href="#p-5c">5c · Accessibility Language</a>
+    <a class="nav-sub" href="#p-5d">5d · New Visitor Pathway</a>
+
+    <a class="nav-item" href="#section-6"><span class="num">6</span> Full Page Audit</a>
+
+    <a class="nav-item" href="#section-7"><span class="num">7</span> Formatting Consistency</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TITLE -->
+    <div class="title-block">
+      <div class="super">SETD5 Syndrome Community Site</div>
+      <h1>AI Audit Prompt Library</h1>
+      <div class="subtitle">A ready-to-use collection of prompts for auditing setd5syndrome.live</div>
+    </div>
+
+    <!-- HOW TO USE -->
+    <div id="how-to-use" class="how-to-box">
+      <h3>How to Use This Document</h3>
+      Each section below contains a copy-and-paste prompt. Click the <strong>Copy</strong> button on any prompt, paste it into Claude or ChatGPT, then replace <code>[paste content here]</code> with the actual text from your website page. Run each prompt separately.
+      <br><br>
+      <strong>Remember:</strong> You are a parent of a child with SETD5 Syndrome — not a medical, educational, or legal professional. This context is built into every prompt. Never remove the bracketed reminders about your role.
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 1 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-1"></div>
+    <h2 class="section-title"><span class="sec-num">1</span> Sense-Check Prompt</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-1">Audit Recommendation Review</h3>
+      <p class="use-desc">Run this after any AI audit to evaluate whether the recommendations actually make sense before you act on them.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>I have received audit recommendations for my website. Before I implement them,
+please review each recommendation against these criteria:
+
+1. Does it make sense in context? Does it account for the actual purpose of the
+   site, or is it flagging something appropriate given the context?
+2. Is it proportionate? Is the concern significant enough to warrant a change?
+3. Is the suggested revision actually better? Does it fix the problem without
+   creating new issues or losing meaning?
+4. Is it consistent? Does it contradict other recommendations or other content
+   on the site that wasn't flagged?
+5. Is it based on a real risk or just a technicality?
+
+IMPORTANT CONTEXT: This site is run by a parent of a child with SETD5 Syndrome.
+The author is NOT a medical, educational, or legal professional. The audience is
+other SETD5 families. Language should feel like one knowledgeable parent sharing
+what they have learned — not a clinician or researcher.
+
+For each recommendation, give one of three verdicts:
+  IMPLEMENT — the recommendation is sound
+  MODIFY — the issue is real but the fix needs adjustment
+  REJECT — the recommendation is unnecessary or would make content worse
+
+Here are the audit recommendations to evaluate:
+[paste recommendations here]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 2 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-2"></div>
+    <h2 class="section-title"><span class="sec-num">2</span> Content Accuracy Prompts</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2a">2a. Claim Verification</h3>
+      <p class="use-desc">Use this to catch overconfident or unqualified claims across medical, scientific, educational, and legal areas. This is the broadest accuracy check and should be run on every page.</p>
+      <div class="note-box"><strong>Note:</strong> This is your first line of defense. It catches claims that may sound reasonable but that a parent without professional credentials should not be making definitively.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from a website run by a parent of a child with
+SETD5 Syndrome. The author is NOT a medical, educational, legal, or any other
+kind of credentialed professional. This is a peer support and information
+resource, not a clinical or expert resource.
+
+Go through every factual or descriptive claim on the page. For each claim,
+assign one of these verdicts:
+
+  VERIFIED — factual, appropriately hedged, suitable for a parent to state
+  NEEDS SOURCE — plausible but requires a citation to be credible
+  NEEDS SOFTENING — stated too definitively; reframe as experience or
+    something families may want to discuss with a professional
+  REMOVE OR REWRITE — crosses into professional advice territory
+
+Specifically flag any claim that:
+
+  MEDICAL & SCIENTIFIC
+  - States or implies a cause, mechanism, prognosis, or treatment outcome
+    as established fact
+  - Recommends, discourages, or evaluates any medical intervention, therapy,
+    medication, or clinical approach
+  - Describes what a diagnosis means for a child's future in definitive terms
+  - Uses clinical language that could be mistaken for medical guidance
+  - Makes statistical or prevalence claims without a source
+
+  EDUCATIONAL
+  - States what schools will or should do as if it is guaranteed
+  - Describes outcomes of IEPs, therapies, or educational interventions
+    definitively rather than as possibilities or shared experiences
+  - Implies a particular approach is right for all children with SETD5
+
+  LEGAL & BENEFITS
+  - Uses 'entitled to', 'have the right to', 'must', or 'required to'
+    regarding schools, insurers, or government programs
+  - Describes eligibility for benefits or services as guaranteed
+  - Gives guidance on appeals or disputes that sounds like legal strategy
+
+  GENERAL CREDIBILITY
+  - Any claim requiring professional credentials to make responsibly
+  - Any claim a family might act on without consulting a professional,
+    where acting without professional input could cause harm
+
+For each flagged item provide:
+  1. The original text
+  2. Why it is flagged
+  3. A suggested revision using language such as 'in our experience',
+     'some families have found', 'you may want to discuss with your
+     doctor or specialist', or 'research suggests' with a note to cite
+
+[paste content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2b">2b. Plain Language Check</h3>
+      <p class="use-desc">Use this to make sure content is genuinely readable for families who may have no medical background.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content written for families of children with SETD5 Syndrome.
+Most readers are not medical professionals and may be newly diagnosed and
+overwhelmed. The tone should feel like a knowledgeable, experienced parent
+sharing what they have learned — not a clinician or researcher.
+
+Flag any language that:
+  - Is too clinical or assumes medical knowledge
+  - Uses jargon a non-specialist parent would not know
+  - Could confuse or intimidate a reader who is new to this diagnosis
+
+Suggest plain-language rewrites for anything flagged.
+
+[paste content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2c">2c. Gap Check</h3>
+      <p class="use-desc">Use this to find what important questions your page doesn't answer.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Read the following page from a SETD5 Syndrome family resource website.
+Imagine you are a parent who just received their child's diagnosis today
+and found this page.
+
+  - What urgent questions would you have that this page does not answer?
+  - What would you wish someone had told you that is not here?
+  - Is there anything implied but never explained?
+
+[paste content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2d">2d. Consistency Check</h3>
+      <p class="use-desc">Use this when you want to check that different pages on your site don't contradict each other.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Read the following content from multiple pages of a SETD5 Syndrome family
+resource website. Flag anywhere the site:
+  - Contradicts itself across different pages
+  - Uses inconsistent terminology for the same concepts
+  - Makes claims on one page that conflict with another page
+
+IMPORTANT CONTEXT: This site is run by a parent, not a medical professional.
+Flag any inconsistencies that could confuse families or undermine the site's
+credibility as a reliable resource.
+
+[paste content from multiple pages here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2e">2e. Legal Language Check</h3>
+      <p class="use-desc">Use this to catch anything that could be interpreted as legal advice or guidance. Especially important for content touching on IEPs, 504 plans, insurance, disability benefits, or school rights.</p>
+      <div class="note-box"><strong>Note:</strong> This prompt covers the highest-risk area for your site. Content about education law, disability rights, and insurance can easily cross from 'sharing experience' into 'giving legal guidance' without realizing it.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from a website run by a parent of a child with
+SETD5 Syndrome. The author is NOT a lawyer or legal professional.
+
+Flag any language that:
+
+  EDUCATION LAW (IDEA, IEPs, 504 Plans)
+  - States or implies what schools are legally required to do
+  - Tells families what they are legally entitled to
+  - Describes how to use education law in a way that sounds like legal strategy
+  - Makes definitive statements about IEP or 504 rights without softening
+
+  INSURANCE & BENEFITS
+  - Implies families have specific legal rights to coverage or reimbursement
+  - Gives guidance on appeals or denials that sounds like legal advice
+  - Makes definitive statements about what insurers must cover
+
+  DISABILITY BENEFITS & PROGRAMS
+  - Describes eligibility rules in a way that could mislead families
+  - States what families qualify for rather than what they may want to explore
+  - Implies guaranteed outcomes from applying for benefits
+
+  GENERAL LEGAL RISK
+  - Any use of 'you have the right to', 'they must', 'you are entitled to',
+    or similar definitive legal framing
+  - Any content that a family might rely on as legal guidance rather than
+    as one parent's shared experience
+
+For each item flagged, suggest a revision that:
+  - Reframes it as personal experience or general information
+  - Recommends consulting a professional where appropriate
+  - Uses softening language such as 'in our experience', 'you may want to
+    explore', 'some families have found', or 'consider speaking with an
+    advocate or attorney'
+
+[paste content here]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 3 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-3"></div>
+    <h2 class="section-title"><span class="sec-num">3</span> UI &amp; Design Review Prompts</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3a">3a. First Impression Check</h3>
+      <p class="use-desc">Use this on your homepage to make sure visitors immediately understand what the site is and who it's for.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Read only the following homepage content. Based solely on what you read:
+
+  1. What is this site about?
+  2. Who is it for?
+  3. What is it asking visitors to do or where does it want them to go?
+  4. Does the most important information appear early enough?
+  5. Is there anything in the first screen of content that might confuse
+     or discourage a newly-diagnosed family from reading further?
+
+Then compare your conclusions to this intended purpose:
+This is a community resource website for families affected by SETD5 Syndrome,
+run by a parent. Its goal is to help families find information, connect, and
+navigate the diagnosis.
+
+[paste homepage content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3b">3b. Page Flow &amp; Scannability Check</h3>
+      <p class="use-desc">Use this to evaluate whether a page is easy to navigate and read, especially for someone who is stressed or overwhelmed.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page content as a UI designer would, focusing on
+readability and flow. The audience is parents of children with SETD5 Syndrome —
+many of whom may be reading while overwhelmed, tired, or in crisis.
+
+Evaluate:
+  1. Is the page easy to scan? Can someone find what they need quickly?
+  2. Are headings and sections logically ordered?
+  3. Are there any walls of text that should be broken up?
+  4. Is the most important or urgent information near the top?
+  5. Are calls to action (links, next steps) clear and easy to find?
+  6. Is anything buried that should be more prominent?
+
+[paste page content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3c">3c. Navigation &amp; Wayfinding Check</h3>
+      <p class="use-desc">Use this to make sure visitors can find their way around the site and know where they are.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following site navigation and page structure as a UI designer.
+The audience is families who may be new to SETD5 Syndrome and unfamiliar with
+medical or support websites.
+
+Evaluate:
+  1. Are the navigation labels clear and self-explanatory?
+  2. Can a new visitor understand what each section contains before clicking?
+  3. Is there a logical path for someone who just received a diagnosis?
+  4. Are there any dead ends — pages that don't suggest where to go next?
+  5. Is it easy to get back to the homepage from any page?
+
+[paste navigation structure or page list here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3d">3d. Mobile Readability Check</h3>
+      <p class="use-desc">Use this to flag content or formatting that might not work well on a phone screen.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page content with mobile readability in mind.
+Many parents will be reading this on a phone, possibly in a waiting room
+or during a stressful moment.
+
+Flag anything that:
+  - Would be hard to read on a small screen (very long sentences, dense paragraphs)
+  - Relies on layout features that may not translate to mobile (columns, tables)
+  - Has links or buttons that might be hard to tap
+  - Would benefit from being broken into shorter sections on mobile
+
+[paste page content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3e">3e. Visual Design Audit</h3>
+      <p class="use-desc">Use this when you want objective feedback on whether a page looks polished, modern, and trustworthy. Paste a screenshot or the page's HTML/content. Works best with an image.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Act as an experienced UI designer and website design reviewer. Review this
+website section for visual appeal and usability. I want objective feedback
+on whether it looks polished, modern, trustworthy, and easy to read.
+
+Please evaluate:
+  - First impression
+  - Layout balance
+  - Spacing and padding
+  - Font sizing and line length
+  - Heading clarity
+  - Color use
+  - Button prominence
+  - Visual clutter
+  - Section flow
+  - Whether anything feels amateur, busy, flat, or hard to scan
+
+Then provide:
+  1. What looks good
+  2. What needs improvement
+  3. High priority fixes
+  4. Medium priority fixes
+  5. Low priority refinements
+  6. Specific design instructions I can give a developer to improve it
+
+Do not just say "make it cleaner" or "improve spacing." Be specific about
+what should change and where.
+
+Here is the section:
+[PASTE IMAGE OR CONTENT HERE]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3f">3f. Full Visual Design Audit</h3>
+      <p class="use-desc">Use this for a deep, honest critique of the site's overall visual design. Works best with a live URL or screenshots. Goes well beyond basic layout — covers emotional tone, typography, hierarchy, color, and engagement.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Act as a senior UI/UX designer, visual designer, accessibility-minded
+front-end reviewer, and compassionate website art director. Review the
+visual design of this website and tell me whether it feels visually
+appealing, modern, emotionally engaging, and trustworthy, or whether
+it feels boring, flat, outdated, cluttered, or too text-heavy.
+
+Website to review: https://setd5syndrome.live
+
+This is a parent-created informational website for families affected
+by SETD5 Syndrome. The goal is for the site to feel:
+  * compassionate
+  * trustworthy
+  * clear
+  * calm
+  * family-friendly
+  * polished
+  * engaging without feeling overly clinical or overly busy
+
+Please do a true visual design audit, not just a general opinion.
+Focus on the following:
+  * first impression in the first 5 seconds
+  * whether the site feels warm and human or too plain and sterile
+  * whether the design feels visually interesting or monotonous
+  * whether the layout feels modern or dated
+  * whether the sections have enough contrast and variation
+  * whether the page feels too text-heavy
+  * whether typography is inviting and easy to read
+  * whether spacing and alignment feel polished
+  * whether colors feel cohesive, supportive, and emotionally appropriate
+  * whether headers, cards, buttons, and navigation feel refined
+  * whether important information stands out clearly
+  * whether the site creates trust for newly diagnosed families
+  * whether anything feels repetitive, visually flat, generic, or amateur
+  * whether the site balances emotional warmth with credibility
+  * whether the site is visually effective on both desktop and mobile
+
+Please organize your response into these sections:
+
+1. Overall visual impression
+   Tell me honestly whether the site feels visually appealing and
+   engaging or boring and flat, and explain why.
+
+2. Strongest design elements
+   List the visual choices that are working best.
+
+3. What feels boring, plain, repetitive, or visually weak
+   Be very specific. Identify actual sections, patterns, or design
+   choices that reduce visual interest.
+
+4. Visual hierarchy
+   Explain what draws attention first, what gets lost, and what should
+   stand out more.
+
+5. Layout and spacing
+   Point out any issues with spacing, alignment, grouping, density,
+   rhythm, or section structure that make the site feel less polished.
+
+6. Typography
+   Assess font choice, heading hierarchy, paragraph density, line
+   length, readability, and whether the text presentation feels
+   welcoming or overwhelming.
+
+7. Color and emotional tone
+   Evaluate whether the color palette supports a compassionate,
+   trustworthy, family-centered experience. Tell me if anything feels
+   too dark, too dull, too cold, too harsh, or too generic.
+
+8. Navigation and calls to action
+   Review whether the navigation is visually clean and whether buttons
+   or important next steps stand out enough.
+
+9. Section-by-section visual improvement suggestions
+   Go through the homepage and major subpages and give specific
+   recommendations for how each could look more polished and engaging.
+
+10. Top 10 highest-impact visual improvements
+    Prioritize the changes that would most improve the site's appearance
+    and make it feel less boring.
+
+11. Final score
+    Rate the site from 1 to 10 for:
+      * visual appeal
+      * warmth
+      * trustworthiness
+      * clarity
+      * modern feel
+      * engagement
+
+Important instructions:
+  * Be honest and specific, not overly nice.
+  * Do not just say "add more color" or "looks good."
+  * Explain exactly what makes something feel boring, flat, engaging,
+    modern, warm, or polished.
+  * Give practical recommendations I could hand to a designer or
+    developer.
+  * Suggest improvements in terms of section backgrounds, spacing,
+    card design, typography, imagery, icon use, dividers, visual
+    hierarchy, CTA styling, and layout rhythm.
+  * If desktop and mobile differ, explain that clearly.
+  * If the site is clear and trustworthy but still visually dull,
+    say so directly.
+
+I want a brutally honest design critique. If the site feels safe and
+informative but visually boring, say that clearly. Tell me exactly
+what is making it feel static, repetitive, or emotionally flat, and
+how to improve it without losing trust or accessibility.</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 4 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-4"></div>
+    <h2 class="section-title"><span class="sec-num">4</span> Site-Wide Protection Prompts</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-4a">4a. Disclaimer Presence &amp; Strength Check</h3>
+      <p class="use-desc">Use this to verify your site has a disclaimer that is visible, prominent, and worded strongly enough to protect you. Run this on your homepage and any page that contains health, legal, or educational information.</p>
+      <div class="note-box"><strong>Note:</strong> This is your most important protection. Strong content auditing helps, but if visitors do not see a clear disclaimer, they may still rely on your content as professional guidance. The disclaimer needs to be impossible to miss.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live and evaluate whether it
+contains an adequate disclaimer. The site is run by a parent of a child with
+SETD5 Syndrome who is NOT a medical, legal, or educational professional.
+
+Evaluate the disclaimer on this page across these criteria:
+
+  PRESENCE
+  - Is there a disclaimer on this page at all?
+  - If not, does the page contain content that requires one?
+
+  VISIBILITY
+  - Is the disclaimer easy to find, or buried in a footer or small print?
+  - Would a first-time visitor notice it before reading the main content?
+  - Is it on pages where it matters most, not just the homepage?
+
+  WORDING STRENGTH
+  - Does it clearly state the author is a parent, not a professional?
+  - Does it explicitly say the content is not medical, legal, or educational
+    advice?
+  - Does it tell visitors to consult qualified professionals for their
+    specific situation?
+  - Is the language direct and plain, or vague and easy to overlook?
+
+  SCOPE
+  - Does the disclaimer cover all relevant areas — medical, legal,
+    educational, and benefits?
+  - Does it make clear that every child with SETD5 is different and that
+    what worked for one family may not apply to another?
+
+Give an overall verdict:
+  ADEQUATE — disclaimer is present, visible, and sufficiently strong
+  NEEDS IMPROVEMENT — disclaimer exists but has gaps (specify what)
+  MISSING OR INSUFFICIENT — page needs a disclaimer or the current one
+    is too weak to be protective
+
+If the disclaimer needs improvement, suggest revised or additional wording.
+
+[paste full page content here, including header, footer, and any sidebar]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-4b">4b. External Link Credibility Check</h3>
+      <p class="use-desc">Use this to verify that external links on your page point to credible sources, and that you are accurately describing what those sources say.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from setd5syndrome.live, which contains links
+to external sources. Evaluate each external link or cited source for:
+
+  CREDIBILITY
+  - Is this a credible, authoritative source for the claim it supports?
+    (Credible sources include: peer-reviewed research, established medical
+    institutions, government agencies, recognized patient advocacy organizations)
+  - Would a knowledgeable reader consider this a trustworthy reference?
+
+  ACCURACY OF CHARACTERIZATION
+  - Is the site accurately describing what the linked source actually says?
+  - Is it overstating, understating, or misrepresenting the source?
+  - If quoting or paraphrasing a source, is it done accurately?
+
+  APPROPRIATENESS
+  - Is this the best or most current source available for this claim?
+  - Is the source recent enough to still be relevant, given that SETD5
+    research is still emerging?
+  - Are there more authoritative sources that should be used instead?
+
+  LINK DESCRIPTIONS
+  - Is the link text or surrounding description clear about what the visitor
+    will find if they click?
+  - Does anything imply the linked source says more than it actually does?
+
+For each external link or citation, give a verdict:
+  GOOD — credible, accurately characterized, appropriate
+  REVIEW — minor concern worth checking (specify what)
+  REPLACE OR REMOVE — not credible, mischaracterized, or outdated
+
+[paste content with links here, including link text and URLs if possible]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-4c">4c. Outdated Information Check</h3>
+      <p class="use-desc">Use this to catch content that was accurate when written but may no longer reflect current SETD5 research or available resources. Run this periodically on older pages, not just when first publishing.</p>
+      <div class="note-box"><strong>Note:</strong> SETD5 Syndrome research is still actively developing. What was understood a few years ago may have been revised, expanded, or corrected. This prompt helps catch content that has aged out of accuracy.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from a SETD5 Syndrome family resource website.
+This content may have been written at various points over several years.
+SETD5 Syndrome is a rare genetic condition where research is still actively
+developing.
+
+Flag any content that:
+
+  SCIENTIFIC UNDERSTANDING
+  - Describes the gene, mutation mechanism, or syndrome characteristics in
+    ways that may reflect earlier or incomplete understanding
+  - Makes claims about prevalence, features, or presentation that newer
+    research may have revised
+  - References a study or finding that may have been superseded or updated
+
+  RESOURCES & ORGANIZATIONS
+  - Mentions organizations, programs, registries, or studies that may have
+    changed, ended, or been replaced
+  - References policies (insurance, education, benefits) that may have changed
+  - Describes availability of tests, therapies, or interventions that may
+    no longer be current
+
+  LANGUAGE & TERMINOLOGY
+  - Uses older terminology for the condition, related diagnoses, or disability
+    categories that may now be outdated or considered inappropriate
+  - Uses diagnostic or classification language that has since been revised
+
+  GENERAL STALENESS
+  - Any claim that feels time-sensitive and should be verified against
+    current sources before being relied on
+
+For each flagged item:
+  1. Identify what specifically may be outdated
+  2. Explain why it may need to be reviewed
+  3. Suggest a verification step or a revision that acknowledges the
+     information may have evolved (e.g. 'as of [year]' or 'check with
+     your specialist for the most current guidance')
+
+[paste content here]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 5 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-5"></div>
+    <h2 class="section-title"><span class="sec-num">5</span> Community &amp; Audience Prompts</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-5a">5a. Tone Consistency Check</h3>
+      <p class="use-desc">Use this to catch places where the writing voice shifts from warm and personal to clinical or detached. Can be run across multiple pages at once to check site-wide consistency.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from setd5syndrome.live. The intended tone
+throughout the site is warm, personal, and parent-to-parent — like a
+knowledgeable and caring fellow parent sharing what they have learned.
+It should never sound like a clinician, researcher, or official source.
+
+Flag any passages where the tone:
+
+  BECOMES TOO CLINICAL OR DETACHED
+  - Shifts into formal, institutional, or research-paper language
+  - Uses third-person distance where first-person or direct address
+    would feel more appropriate
+  - Reads like a medical brochure or official report rather than a
+    parent writing to another parent
+
+  BECOMES INCONSISTENT WITH THE REST
+  - Sounds noticeably different in warmth or register from surrounding content
+  - Uses a different level of formality without a clear reason
+  - Would feel jarring to a reader who has been reading the rest of the site
+
+  BECOMES UNINTENTIONALLY COLD OR IMPERSONAL
+  - Describes children or families in ways that feel distancing or objectifying
+  - Uses passive constructions that remove the human element
+  - Lists facts without any acknowledgment of what they mean for real families
+
+For each flagged passage, suggest a revision that brings it back in line
+with the warm, parent-to-parent voice of the site.
+
+[paste content here — can be from a single page or multiple pages]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-5b">5b. Emotional Safety Check</h3>
+      <p class="use-desc">Use this to make sure content is honest and realistic without being needlessly alarming, and hopeful without being unrealistically optimistic. Your audience includes families who may be in crisis or grief.</p>
+      <div class="note-box"><strong>Note:</strong> Families reading this site may have just received a diagnosis, be in the middle of a difficult stretch, or be processing grief. Content that is either too alarming or too rosy without balance can cause real harm.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from a SETD5 Syndrome family resource website.
+The audience includes families who may have just received a diagnosis, be
+going through a difficult period, or be processing grief and fear.
+
+Flag any content that:
+
+  COULD CAUSE UNNECESSARY ALARM OR DISTRESS
+  - Presents challenges, risks, or difficulties without adequate context
+    or balance
+  - Lists worst-case scenarios without acknowledging the range of outcomes
+  - Uses language that could feel frightening to a newly-diagnosed family
+    without providing reassurance or next steps
+  - Describes the future in ways that could feel hopeless
+
+  IS UNREALISTICALLY OPTIMISTIC
+  - Implies outcomes or progress that may not apply to all children
+  - Suggests that certain therapies, approaches, or interventions will
+    work without acknowledging variability
+  - Sets expectations that could lead to disappointment or self-blame
+    if a family's experience differs
+
+  LACKS EMOTIONAL ACKNOWLEDGMENT
+  - Presents hard information without any recognition of how difficult
+    it may be to receive
+  - Jumps straight to information or action steps without acknowledging
+    the emotional weight for families
+
+  MISSING SUPPORT SIGNPOSTING
+  - Covers difficult topics without pointing families toward support
+    resources, community, or professional help
+
+For each flagged item, suggest a revision or addition that creates
+better balance — honest, realistic, and supportive without being
+alarming or falsely reassuring.
+
+[paste content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-5c">5c. Accessibility Language Check</h3>
+      <p class="use-desc">Use this to flag outdated, offensive, or contested disability terminology. Language norms in the disability community evolve and what was standard a few years ago may now be considered inappropriate by many families.</p>
+      <div class="note-box"><strong>Note:</strong> This is not about political correctness — it is about respect for the community you serve. Using language that families find hurtful or outdated can undermine trust in your site.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from a disability and rare disease family
+resource website. Evaluate the language used to describe disability,
+medical conditions, and the people affected by them.
+
+Flag any language that:
+
+  USES OUTDATED OR CONTESTED DISABILITY TERMINOLOGY
+  - Uses 'suffers from', 'afflicted with', 'confined to', 'wheelchair-bound',
+    or similar framing that many in the disability community find
+    disempowering or inaccurate
+  - Uses 'special needs' where more specific or neutral language is available
+  - Uses 'high-functioning' or 'low-functioning' in ways that may be
+    considered reductive
+  - Uses older diagnostic labels that have been revised or retired
+
+  USES IDENTITY-FIRST VS PERSON-FIRST LANGUAGE INCONSISTENTLY
+  - Note: there is genuine disagreement in the disability community about
+    whether to say 'autistic person' (identity-first) or 'person with autism'
+    (person-first). Flag inconsistency, but do not prescribe which to use —
+    recommend the site picks one and applies it consistently, or acknowledges
+    that both are used intentionally
+
+  USES LANGUAGE THAT IMPLIES TRAGEDY OR BURDEN
+  - Frames disability purely as tragedy, burden, or loss without balance
+  - Uses language that centers parental suffering over the child's experience
+  - Describes disabled people in ways that reduce them to their diagnosis
+
+  USES CLINICAL LABELS AS CASUAL DESCRIPTORS
+  - Uses diagnostic terms informally in ways that could feel reductive
+    or stigmatizing
+
+For each flagged item:
+  1. Identify the specific language
+  2. Explain why it may be considered problematic
+  3. Suggest preferred or more neutral alternatives
+  4. Note if this is a clear issue vs. an area of community debate
+
+[paste content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-5d">5d. New Visitor Pathway Check</h3>
+      <p class="use-desc">Use this on any page — not just the homepage — to make sure a family who just received a diagnosis could land anywhere on your site and still know where they are, what the site offers, and where to start.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Read the following page from setd5syndrome.live. Imagine you are a parent
+who received their child's SETD5 Syndrome diagnosis yesterday. You are
+scared, overwhelmed, and not sure what this means for your child or family.
+You found this specific page through a search engine and have never seen
+this site before.
+
+Evaluate:
+
+  ORIENTATION
+  - Can you immediately tell what this site is and who runs it?
+  - Is it clear this is a parent-run community resource, not a medical
+    or clinical site?
+  - Would you feel like you are in the right place, or would you be unsure?
+
+  EMOTIONAL WELCOME
+  - Does the page acknowledge that receiving this diagnosis is hard?
+  - Does it feel like it was written by someone who understands what you
+    are going through?
+  - Does it make you feel less alone, or does it feel impersonal?
+
+  CLEAR STARTING POINT
+  - Is it obvious what to do next if you are brand new to all of this?
+  - Is there a clear path to the most essential information for
+    newly-diagnosed families?
+  - Or would you feel lost about where to start?
+
+  OVERWHELM RISK
+  - Is there too much information on this page for someone in an
+    emotionally raw state to absorb?
+  - Is anything presented in a way that could increase panic rather
+    than reduce it?
+
+  NEXT STEPS
+  - Does the page suggest where to go next?
+  - Are there links or signposts to the most helpful resources for
+    someone at the very beginning of this journey?
+
+Give an overall verdict on how well this page serves a brand-new visitor,
+and list the top three things that would most improve the experience
+for that person.
+
+[paste page content here]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-6"></div>
+    <h2 class="section-title"><span class="sec-num">6</span> Full Page Audit — Combined Prompt</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-6">Full Page Audit</h3>
+      <p class="use-desc">Use this when you want a comprehensive review of a single page all at once. Combines all content, accuracy, protection, and UI checks in one pass. Returns findings organized by section with Minor / Moderate / Important severity ratings.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Please conduct a full review of the following page from setd5syndrome.live.
+
+IMPORTANT CONTEXT:
+  - This site is run by a parent of a child with SETD5 Syndrome
+  - The author is NOT a medical, educational, or legal professional
+  - The primary audience is other SETD5 families
+  - Tone should feel like a knowledgeable parent sharing what they have learned
+  - Language should be plain and accessible to non-medical readers
+
+Evaluate the page across all twelve areas below and organize your response
+by section. For each issue found, indicate: Minor / Moderate / Important
+
+1. ACCURACY & PROFESSIONAL SCOPE
+  - Claims that sound like professional medical or educational advice
+  - Statements that should be softened or cited
+  - Anything requiring credentials to state responsibly
+
+2. LEGAL LANGUAGE
+  - Anything implying legal entitlement or sounding like legal guidance
+  - Definitive statements about IEPs, 504s, insurance, or disability benefits
+  - Any 'you have the right to' or 'they must' framing that needs softening
+
+3. PLAIN LANGUAGE
+  - Language that is too clinical or assumes prior knowledge
+  - Suggested plain-language rewrites
+
+4. GAPS
+  - Questions a newly-diagnosed parent would have that this page does not answer
+
+5. DISCLAIMER
+  - Is a disclaimer present and visible on this page?
+  - Is it strong enough — does it cover medical, legal, and educational scope?
+  - Does it state the author is a parent, not a professional?
+
+6. EXTERNAL LINKS & SOURCES
+  - Any links or citations that appear non-credible, outdated, or mischaracterized
+  - Any claim that needs a source but does not have one
+
+7. OUTDATED CONTENT
+  - Anything that may no longer reflect current SETD5 research or resources
+  - Terminology or classifications that may have been revised
+
+8. TONE CONSISTENCY
+  - Any passages that shift from warm and personal to clinical or detached
+  - Any sections that feel inconsistent with the parent-to-parent voice
+
+9. EMOTIONAL SAFETY
+  - Anything unnecessarily alarming without context or balance
+  - Anything unrealistically optimistic that could set families up for
+    disappointment
+  - Hard topics presented without emotional acknowledgment or support
+    signposting
+
+10. ACCESSIBILITY LANGUAGE
+  - Outdated, offensive, or contested disability terminology
+  - Inconsistent use of identity-first vs. person-first language
+  - Language that frames disability purely as tragedy or burden
+
+11. NEW VISITOR EXPERIENCE
+  - Would a newly-diagnosed parent landing on this page feel oriented
+    and welcomed?
+  - Is there a clear next step for someone brand new to SETD5?
+  - Is there anything that could increase panic rather than reduce it?
+
+12. UI & READABILITY
+  - Flow, scannability, and structure issues
+  - Anything that should be moved, broken up, or made more prominent
+
+[paste full page content here, including header and footer]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 7 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-7"></div>
+    <h2 class="section-title"><span class="sec-num">7</span> Formatting Consistency &amp; Visual Cohesion</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-7">Formatting Consistency Audit</h3>
+      <p class="use-desc">Use this to evaluate whether formatting and visual presentation are consistent and cohesive across the whole website — not just whether individual sections look okay on their own. Covers typography, spacing, components, visual cohesion, and readability.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Audit this website for formatting consistency and visual cohesion across the entire site:
+setd5syndrome.live
+
+Act as an experienced UI designer, front-end design reviewer, accessibility-minded website auditor, and editorial design QA specialist.
+
+This is an educational, family-facing, nonprofit-style website about SETD5 Syndrome. The audience includes parents, caregivers, relatives, educators, and people who may be overwhelmed, stressed, or new to the diagnosis. The site should feel clear, calm, trustworthy, welcoming, polished, and easy to follow.
+
+Your job is to evaluate whether the formatting and visual presentation are consistent and cohesive across the whole website, not just whether individual sections look okay on their own.
+
+Review the entire site as one design system and look for places where formatting feels inconsistent, patched together, visually uneven, confusing, amateur, or harder to read than it should be.
+
+Focus only on formatting, layout, readability, and visual consistency.
+
+Audit these areas:
+
+1. Typography consistency
+- Heading hierarchy across all pages
+- Whether H1, H2, H3, and H4 styles are consistent
+- Font sizes
+- Font weights
+- Line heights
+- Letter spacing
+- Paragraph spacing
+- Body text consistency
+- Link style consistency
+- List formatting consistency
+- Whether text sizes feel appropriately scaled for a family-facing informational website
+- Whether any text looks too large, too small, too heavy, too tight, or too loose
+
+2. Spacing and layout consistency
+- Section padding
+- Space between headings and paragraphs
+- Space between cards, buttons, lists, icons, and callout boxes
+- Container widths
+- Grid alignment
+- Visual rhythm from section to section
+- Whether spacing is consistent across pages
+- Whether some pages feel more crowded or more empty than others
+
+3. Component consistency
+Check whether repeated components follow the same design rules across the site:
+- Buttons
+- Cards
+- Resource boxes
+- Info boxes / note boxes / disclaimer boxes
+- Icons
+- Section labels
+- Navigation bars
+- Sticky elements
+- Footer
+- Dividers
+- Images or illustrations
+- Link treatments
+
+4. Visual cohesion
+- Does the site feel like one unified design system?
+- Do some pages look more polished than others?
+- Are there mismatched styles that make the site feel inconsistent?
+- Do card sections, toolkit sections, educational sections, and support pages all feel like part of the same website?
+- Does the site visually support trust, clarity, and calmness?
+
+5. Readability and user comfort
+Because this is a syndrome information site for families, also assess:
+- Whether the text hierarchy makes information easy to scan
+- Whether pages feel overwhelming due to dense formatting
+- Whether long sections need better spacing or structure
+- Whether formatting helps the reader feel oriented and supported
+- Whether any sections feel too visually busy or too visually plain
+- Whether the site feels accessible for readers with stress, fatigue, cognitive overload, or limited familiarity with medical terminology
+
+For your output:
+
+First, give an overall verdict:
+- Does the website feel formatting-consistent and visually cohesive overall?
+- Does it feel polished and trustworthy?
+- Does it feel calm, family-friendly, and easy to follow?
+
+Then provide:
+
+A. Biggest formatting inconsistencies across the site
+For each issue, explain:
+1. what is inconsistent
+2. where it shows up
+3. why it hurts cohesion or readability
+4. what site-wide standard should replace it
+
+B. Issues grouped by category
+Group findings under:
+- Typography
+- Spacing/layout
+- Components
+- Visual cohesion
+- Readability
+
+C. Priority fix plan
+Organize recommendations into:
+- High priority
+- Medium priority
+- Low priority
+
+D. Recommended site-wide style system
+Create a clean master style guide for:
+- Heading sizes
+- Body text sizes
+- Card title sizes
+- Link sizes
+- Label sizes
+- Footer text sizes
+- Font weights
+- Line heights
+- Section spacing
+- Card padding
+- Button consistency
+- Icon consistency
+
+Important instructions:
+- Be specific and honest
+- Do not give vague compliments
+- Do not focus on copywriting, SEO, medical accuracy, or branding strategy unless it directly affects formatting clarity
+- Prioritize practical fixes that will make the site look more polished, cohesive, and professional
+- If something feels amateur or uneven, say so clearly
+- Recommend standards that are realistic and easy to apply across the full site</div>
+    </div>
+
+    <div class="doc-footer">
+      setd5syndrome.live &nbsp;·&nbsp; Site Audit Prompt Library &nbsp;·&nbsp; For internal use
+    </div>
+
+  </main>
+</div>
+
+<script>
+  function copyPrompt(btn) {
+    const box = btn.parentElement;
+    const text = box.innerText.replace('Copy\n', '').replace('Copied!\n', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // Highlight active nav item on scroll
+  const anchors = document.querySelectorAll('.section-anchor, .prompt-title');
+  const navLinks = document.querySelectorAll('.nav-item, .nav-sub');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+
+  anchors.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
