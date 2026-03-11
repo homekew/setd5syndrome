@@ -258,6 +258,27 @@
 
   @media (max-width: 400px) { .translate-widget { transform: scale(0.65); } }
 
+  /* Companion reference block */
+  .companion-block { margin-top: -24px; margin-bottom: 40px; }
+  .companion-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+  }
+  .companion-card {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--white); border: 1px solid var(--border);
+    border-left: 4px solid var(--teal); border-radius: 0 8px 8px 0;
+    padding: 16px 20px; text-decoration: none !important; color: var(--text);
+    transition: background .15s;
+  }
+  .companion-card:hover { background: #eef7f5; }
+  .companion-card-body strong {
+    display: block; font-size: 15px; color: var(--navy);
+    margin-bottom: 3px; font-weight: 600;
+  }
+  .companion-card-body span { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+  .companion-card-arrow { font-size: 20px; color: var(--teal); flex-shrink: 0; margin-left: auto; }
+
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
@@ -325,7 +346,17 @@
 
   <div class="teal-callout">
     <p>These definitions are intended to help you understand terms you may encounter in reports and appointments -- not to replace guidance from your medical team. Each entry includes a plain-language definition and, where relevant, a brief note on where the term has appeared in SETD5-related research or reports. Terminology and testing methods can vary by laboratory and country.</p>
-    <p style="margin-top:10px;">Looking for abbreviations and acronyms (IEP, SSI, WES, VUS, and more)? See the <a href="setd5-acronym-glossary.html" style="color:var(--teal); font-weight:600;">Acronym Glossary &#8594;</a></p>
+  </div>
+
+  <div class="companion-block">
+    <p class="companion-label">Companion reference</p>
+    <a href="setd5-acronym-glossary.html" class="companion-card">
+      <div class="companion-card-body">
+        <strong>Acronym Glossary</strong>
+        <span>IEP, SSI, WES, VUS, ADHD, ASD, AUDHD, and more &mdash; all abbreviations used in reports, appointments, and school meetings, in one place.</span>
+      </div>
+      <span class="companion-card-arrow">&#8594;</span>
+    </a>
   </div>
 
   <!-- # -->
