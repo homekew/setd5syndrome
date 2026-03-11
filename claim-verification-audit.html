@@ -233,6 +233,93 @@
   .legend-dot.source { background: var(--amber); }
   .legend-dot.soften { background: var(--blue); }
   .legend-dot.rewrite { background: var(--rose); }
+
+  /* ── TAB NAV ── */
+  .tab-nav-bar {
+    display: flex; gap: 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 36px;
+  }
+  .tab-btn {
+    padding: 11px 26px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: var(--muted);
+    background: none; border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: color .15s, border-color .15s;
+  }
+  .tab-btn:hover { color: var(--navy); }
+  .tab-btn.active { color: var(--navy); border-bottom-color: var(--teal); font-weight: 600; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── CHECKLIST ── */
+  .cl-intro {
+    background: #fff; border: 1px solid var(--border);
+    border-left: 4px solid var(--teal); border-radius: 0 8px 8px 0;
+    padding: 18px 22px; margin-bottom: 32px; font-size: 15px; line-height: 1.7;
+  }
+  .cl-intro p { margin-bottom: 10px; }
+  .cl-intro p:last-child { margin-bottom: 0; }
+  .cl-verdicts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .cl-verdict {
+    font-size: 12px; font-weight: 600; letter-spacing: .06em;
+    padding: 4px 12px; border-radius: 20px;
+  }
+  .cl-verdict.v { background: var(--sage-lt); color: var(--sage); }
+  .cl-verdict.s { background: var(--blue-lt); color: var(--blue); }
+  .cl-verdict.n { background: var(--amber-lt); color: var(--amber); }
+  .cl-verdict.r { background: var(--rose-lt); color: var(--rose); }
+  .cl-section { margin-bottom: 40px; }
+  .cl-section-head {
+    font-family: 'Lora', serif; font-size: 1.1rem;
+    color: var(--navy); font-weight: 600;
+    margin-bottom: 6px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .cl-section-num {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 4px;
+  }
+  .cl-section-desc { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.65; }
+  .cl-check {
+    display: grid; grid-template-columns: 22px 60px 1fr;
+    gap: 0 12px; align-items: start;
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px; margin-bottom: 10px;
+  }
+  .cl-check input[type=checkbox] { margin-top: 3px; accent-color: var(--teal); width: 16px; height: 16px; cursor: pointer; }
+  .cl-check-id { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--teal); text-transform: uppercase; padding-top: 2px; }
+  .cl-check-name { font-weight: 600; font-size: 14px; color: var(--navy); margin-bottom: 4px; }
+  .cl-check-desc { font-size: 13.5px; color: var(--text); line-height: 1.6; margin-bottom: 6px; }
+  .cl-flags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .cl-flag {
+    font-size: 11.5px; font-family: monospace;
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 4px; padding: 2px 8px; color: var(--rose);
+  }
+  .cl-correct { font-size: 13px; color: var(--sage); font-style: italic; margin-top: 6px; }
+  .cl-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 32px; }
+  .cl-table th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .05em; }
+  .cl-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .cl-table tbody tr:nth-child(even) td { background: #fff; }
+  .cl-table tbody tr:nth-child(odd) td { background: var(--cream); }
+  .cl-qr-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-bottom: 32px; }
+  .cl-qr-table th { background: #2a627a; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: .05em; }
+  .cl-qr-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+  .cl-qr-table td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; width: 230px; }
+  .cl-qr-table td:last-child { color: var(--rose); font-style: italic; }
+  .cl-qr-table tbody tr:nth-child(even) td { background: #fff; }
+  .cl-qr-table tbody tr:nth-child(odd) td { background: var(--cream); }
+  .cl-note {
+    background: var(--sage-lt); border: 1px solid #b8d4be;
+    border-radius: 8px; padding: 16px 20px;
+    font-size: 14px; color: #3a5c48; line-height: 1.65; font-style: italic;
+    margin-top: 32px;
+  }
 </style>
 </head>
 <body>
@@ -243,6 +330,13 @@
 </div>
 
 <div class="report-body">
+
+  <div class="tab-nav-bar">
+    <button class="tab-btn active" onclick="showTab('tab-findings', this)">Findings</button>
+    <button class="tab-btn" onclick="showTab('tab-checklist', this)">Audit Checklist</button>
+  </div>
+
+  <div id="tab-findings" class="tab-panel active">
 
   <p class="intro">
     Every factual or descriptive claim across all live pages was reviewed against the standard that the site author is a parent (not a credentialed professional) running a peer support resource. Claims were evaluated for medical accuracy, appropriate hedging, and whether they cross into professional advice territory. Pages with zero findings are noted as clean.
@@ -886,7 +980,348 @@
     </div>
   </div>
 
+  </div><!-- /tab-findings -->
+
+  <!-- ============================================================ -->
+  <div id="tab-checklist" class="tab-panel">
+
+    <div class="cl-intro">
+      <p><strong>Content Accuracy Audit Checklist</strong> &mdash; setd5syndrome.live &nbsp;|&nbsp; Non-credentialed author standard</p>
+      <p>Apply every check below to every page, section by section. Scan the entire page for the flag words listed. A single match is enough to trigger review of that sentence.</p>
+      <p><strong>Audit standard:</strong> This site is written by a non-credentialed author for a patient and family audience. The standard is not whether a statement is clinically accurate, but whether it could be misread as clinical guidance, directional advice, or a verified fact about the current state of medical practice or science.</p>
+      <p>For each flagged item, choose one verdict:</p>
+      <div class="cl-verdicts">
+        <span class="cl-verdict v">Verified</span>
+        <span class="cl-verdict s">Needs Softening</span>
+        <span class="cl-verdict n">Needs Source</span>
+        <span class="cl-verdict r">Remove / Rewrite</span>
+      </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="cl-section">
+      <div class="cl-section-num">Section 1</div>
+      <div class="cl-section-head">Clinical Recommendation Language</div>
+      <p class="cl-section-desc">The site cannot make clinical recommendations. Any sentence that tells families what to do medically &mdash; or passes through a clinician's recommendation as if it were established fact &mdash; must be reframed.</p>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c1a">
+        <label class="cl-check-id" for="c1a">1A</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Recommendation verbs</div>
+          <div class="cl-check-desc">Does any sentence use a recommendation verb? If from a study author, the framing must attribute it to them, not present it as established standard.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">recommended</span><span class="cl-flag">should</span><span class="cl-flag">must</span><span class="cl-flag">is indicated</span><span class="cl-flag">is required</span><span class="cl-flag">is advised</span><span class="cl-flag">need to</span><span class="cl-flag">advise</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c1b">
+        <label class="cl-check-id" for="c1b">1B</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Action-directing language</div>
+          <div class="cl-check-desc">Does any callout tell families to request, ask for, pursue, or take a specific clinical action? Families may be told they "can ask" or "may want to discuss" &mdash; not that this "provides the basis for requesting."</div>
+          <div class="cl-flags">
+            <span class="cl-flag">provides the basis for requesting</span><span class="cl-flag">you should ask</span><span class="cl-flag">request a referral</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c1c">
+        <label class="cl-check-id" for="c1c">1C</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Bare symptom lists</div>
+          <div class="cl-check-desc">Does any callout list symptoms of a condition without framing them as described in published reports? Bare symptom lists can cause families to self-diagnose.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">can cause symptoms including</span><span class="cl-flag">[condition] symptoms are</span>
+          </div>
+          <div class="cl-correct">Correct framing: "Symptoms described in published reports include&hellip;" ending with a prompt to discuss with their child's care team.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="cl-section">
+      <div class="cl-section-num">Section 2</div>
+      <div class="cl-section-head">Statistics and Source Attribution</div>
+      <p class="cl-section-desc">Every specific number, percentage, or prevalence figure on the page must be traceable to a source within that card or section. A reader should never encounter a statistic without knowing where it came from.</p>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c2a">
+        <label class="cl-check-id" for="c2a">2A</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Floating statistics</div>
+          <div class="cl-check-desc">Does the card contain a percentage, fraction, or count that is not attributed to a specific paper within that card? Attribution must appear in the same card, not just the footer or sources page.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">approximately X%</span><span class="cl-flag">1 in X patients</span><span class="cl-flag">X% of SETD5 patients</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c2b">
+        <label class="cl-check-id" for="c2b">2B</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Multi-gene cohort stats as SETD5-specific</div>
+          <div class="cl-check-desc">Does the card present statistics from a study of multiple genes as if they apply to SETD5 specifically? If a study included 19 genes and reports "93.9% had developmental delay," that is not a SETD5-specific figure.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">X of Y genes identified</span><span class="cl-flag">patients with epigenetic gene variants</span>
+          </div>
+          <div class="cl-correct">Correct framing: "Across all [N] patients representing [N] genes including SETD5&hellip;" with a note that percentages reflect the full multi-gene group.</div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c2c">
+        <label class="cl-check-id" for="c2c">2C</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Small cohort statistics</div>
+          <div class="cl-check-desc">Are statistics from studies of 30 or fewer patients presented without noting the cohort size? Small-cohort percentages are highly unstable and should always include "in a cohort of [N] patients."</div>
+          <div class="cl-flags">
+            <span class="cl-flag">28 patients</span><span class="cl-flag">13 participants</span><span class="cl-flag">case series of [small N]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="cl-section">
+      <div class="cl-section-num">Section 3</div>
+      <div class="cl-section-head">Superlative and Definitive Claims</div>
+      <p class="cl-section-desc">The site cannot make superlative claims about the state of the literature or definitive claims about what a condition "is." These statements can be invalidated by new research or interpreted as authoritative by readers.</p>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c3a">
+        <label class="cl-check-id" for="c3a">3A</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Superlative language</div>
+          <div class="cl-check-desc">Does any sentence use a superlative? These require either a citation or a hedge such as "as of this page's last review" or "among the most."</div>
+          <div class="cl-flags">
+            <span class="cl-flag">most comprehensive</span><span class="cl-flag">most direct way</span><span class="cl-flag">the only</span><span class="cl-flag">the largest</span><span class="cl-flag">most important</span><span class="cl-flag">most commonly</span><span class="cl-flag">most widely</span><span class="cl-flag">best</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c3b">
+        <label class="cl-check-id" for="c3b">3B</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Definitive clinical characterizations</div>
+          <div class="cl-check-desc">Does any sentence state a clinical fact as absolute &mdash; without hedging &mdash; when it reflects current scientific consensus rather than established medical standard? Example: "Autism in SETD5 is a direct feature of the condition" vs. "Research suggests autism in SETD5 may reflect the condition itself."</div>
+          <div class="cl-flags">
+            <span class="cl-flag">is a direct feature</span><span class="cl-flag">is not a separate diagnosis</span><span class="cl-flag">is caused by</span><span class="cl-flag">definitively</span><span class="cl-flag">is a direct result</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c3c">
+        <label class="cl-check-id" for="c3c">3C</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Unverifiable attributions to third parties</div>
+          <div class="cl-check-desc">Does any sentence claim that unnamed "clinicians," "researchers," or "experts" have done or recommended something? These cannot be verified and should be removed or replaced with a direct reference to a named study.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">some clinicians have cited</span><span class="cl-flag">researchers recommend</span><span class="cl-flag">experts suggest</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="cl-section">
+      <div class="cl-section-num">Section 4</div>
+      <div class="cl-section-head">Time-Sensitive Claims</div>
+      <p class="cl-section-desc">Any claim about a current program, cost, enrollment offering, or count is time-sensitive and will become inaccurate. These must be hedged or marked for regular re-verification.</p>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c4a">
+        <label class="cl-check-id" for="c4a">4A</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Current program offerings</div>
+          <div class="cl-check-desc">Does the page make factual claims about a third-party registry or program's current offerings (cost, services, access, features)? Hedge with "has been free," "has included," or "check the [program] site for current details."</div>
+          <div class="cl-flags">
+            <span class="cl-flag">enrollment is free</span><span class="cl-flag">includes access to</span><span class="cl-flag">offers [specific service]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c4b">
+        <label class="cl-check-id" for="c4b">4B</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Specific counts that may change</div>
+          <div class="cl-check-desc">Does the page cite a specific count for something that grows over time (number of conditions tracked, families enrolled, published cases)? Replace with hedged language or remove.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">tracks over 175</span><span class="cl-flag">more than 300 families</span><span class="cl-flag">over X conditions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c4c">
+        <label class="cl-check-id" for="c4c">4C</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Update commitments</div>
+          <div class="cl-check-desc">Does the page commit to a specific update frequency? Replace with "reviewed and updated regularly" unless there is a verified process to ensure that schedule is met.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">updated monthly</span><span class="cl-flag">updated weekly</span><span class="cl-flag">updated every [period]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c4d">
+        <label class="cl-check-id" for="c4d">4D</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Header date ranges</div>
+          <div class="cl-check-desc">Does the page header or subtitle accurately describe the date range of content covered? If foundational content from 2013 is included, the subtitle should not say "from 2019."</div>
+          <div class="cl-flags">
+            <span class="cl-flag">Header subtitle</span><span class="cl-flag">intro bar date range</span><span class="cl-flag">meta description date</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="cl-section">
+      <div class="cl-section-num">Section 5</div>
+      <div class="cl-section-head">Therapeutic Implications</div>
+      <p class="cl-section-desc">Research findings about biological mechanisms are frequently framed in ways that imply therapeutic relevance. This framing must not suggest that treatments exist, are imminent, or are in active clinical development unless that is verifiably true.</p>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c5a">
+        <label class="cl-check-id" for="c5a">5A</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Implied treatments</div>
+          <div class="cl-check-desc">Does any sentence suggest that treatments exist or are available when they do not? "Treatments that restore SETD5 function may be relevant" implies treatments exist. Correct framing: "If treatments targeting X are developed in the future, they may be relevant."</div>
+          <div class="cl-flags">
+            <span class="cl-flag">treatments may be relevant</span><span class="cl-flag">interventions that restore</span><span class="cl-flag">therapy targeting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c5b">
+        <label class="cl-check-id" for="c5b">5B</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Research as clinical activity</div>
+          <div class="cl-check-desc">Does any sentence describe a laboratory finding or animal model pathway as "ongoing research" or "a target" in a way that implies active clinical development? Distinguish between early-stage discovery and clinical trials.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">become a target of ongoing research</span><span class="cl-flag">being studied as a treatment</span><span class="cl-flag">in active development</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c5c">
+        <label class="cl-check-id" for="c5c">5C</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Animal model generalization</div>
+          <div class="cl-check-desc">Does any callout draw a direct line from animal model findings to human treatment without the required caveats? Animal model findings require: (a) noting the model type, and (b) noting that findings have not been validated in human clinical trials.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">this means children with SETD5 may benefit from</span><span class="cl-flag">this translates to</span><span class="cl-flag">families can expect</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="cl-section">
+      <div class="cl-section-num">Section 6</div>
+      <div class="cl-section-head">Header and Metadata Consistency</div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c6a">
+        <label class="cl-check-id" for="c6a">6A</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">"Review" framing</div>
+          <div class="cl-check-desc">Does the subtitle or header use the word "review" in a way that could imply a formal literature review by a credentialed author? Use "plain-language summary" or "guide" instead.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">a review of published</span><span class="cl-flag">a literature review</span><span class="cl-flag">a clinical review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cl-check">
+        <input type="checkbox" id="c6b">
+        <label class="cl-check-id" for="c6b">6B</label>
+        <div class="cl-check-body">
+          <div class="cl-check-name">Intro bar disclaimers</div>
+          <div class="cl-check-desc">Does the intro bar include all three required elements? All three should be present on research pages.</div>
+          <div class="cl-flags">
+            <span class="cl-flag">(1) not medical advice</span><span class="cl-flag">(2) sources are linked</span><span class="cl-flag">(3) coverage is not exhaustive</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUDIT LOG -->
+    <div class="cl-section">
+      <div class="cl-section-head">Audit Log</div>
+      <p class="cl-section-desc">Record each audit pass below. A complete audit covers every section on every tab of the page.</p>
+      <table class="cl-table">
+        <thead>
+          <tr>
+            <th>Page / File</th>
+            <th>Date</th>
+            <th>Items Flagged</th>
+            <th>All Fixed?</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>setd5-research-2020-to-present.html (foundational section)</td><td>March 2026</td><td>3</td><td>Yes</td><td>Kuechler 2015 gene description; 3p25 callout hedge; Fernandes 2018 registry language</td></tr>
+          <tr><td>setd5-medical-terms-guide.html</td><td>March 2026</td><td>2</td><td>Yes</td><td>Enamel Hypoplasia "is recommended"; ACMG "widely used / most" superlatives</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- QUICK REFERENCE -->
+    <div class="cl-section">
+      <div class="cl-section-head">Quick Reference: Flag Words by Category</div>
+      <p class="cl-section-desc">Scan the page for any of these words or phrases. Each match should be evaluated against the relevant check above.</p>
+      <table class="cl-qr-table">
+        <thead>
+          <tr><th>Category</th><th>Flag words and phrases</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Clinical recommendations</td><td>recommended, should, must, is indicated, is required, is advised, need to, advise, provides the basis for, you should ask, request a referral</td></tr>
+          <tr><td>Superlatives</td><td>most comprehensive, most direct, the only, the largest, best, most important, most commonly, most widely</td></tr>
+          <tr><td>Definitive clinical characterizations</td><td>is a direct feature, is not a separate diagnosis, is caused by, definitively, is a direct result</td></tr>
+          <tr><td>Statistics without attribution</td><td>approximately X%, 1 in X, X% of SETD5 patients, roughly, about [number]</td></tr>
+          <tr><td>Time-sensitive claims</td><td>enrollment is free, includes access to, offers, tracks over [number], updated monthly</td></tr>
+          <tr><td>Unverifiable third-party attributions</td><td>some clinicians, some researchers, experts suggest, clinicians have cited, widely recommended</td></tr>
+          <tr><td>Therapeutic implications</td><td>treatments may be relevant, interventions that restore, become a target of ongoing research, in active development, could be a treatment</td></tr>
+          <tr><td>Animal to human generalization</td><td>this means children with SETD5, families can expect, this translates to</td></tr>
+          <tr><td>Multi-gene stats as SETD5-specific</td><td>any percentage from a multi-gene cohort study without the qualifier "not SETD5-specific"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cl-note">
+      The goal of this checklist is to make audits repeatable and exhaustive, not judgment-based. If you apply every check above mechanically to every card on every page, the same issues will be caught every time &mdash; regardless of who is doing the audit or how many sessions have passed.
+    </div>
+
+  </div><!-- /tab-checklist -->
+
 </div>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
 
 </body>
 </html>
