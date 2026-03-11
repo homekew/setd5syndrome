@@ -9,11 +9,11 @@
 <meta property="og:url" content="https://setd5syndrome.live/research-registries.html">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
 <meta property="og:title" content="Research Registries | SETD5 Syndrome">
-<meta property="og:description" content="Why joining a research registry matters for families affected by SETD5-related disorder — and an overview of Simons Searchlight, Brain Gene Registry, and GenomeConnect.">
+<meta property="og:description" content="Why joining a research registry matters for families affected by SETD5-related disorder, and an overview of Simons Searchlight, Brain Gene Registry, and GenomeConnect.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Research Registries | SETD5 Syndrome">
 <meta name="twitter:description" content="Why joining a research registry matters for families with SETD5-related disorder, and an overview of Simons Searchlight, Brain Gene Registry, and GenomeConnect.">
-<meta name="description" content="Why joining a research registry matters for families affected by SETD5-related disorder — and an overview of Simons Searchlight, Brain Gene Registry, and GenomeConnect.">
+<meta name="description" content="Why joining a research registry matters for families affected by SETD5-related disorder, and an overview of Simons Searchlight, Brain Gene Registry, and GenomeConnect.">
 <link rel="canonical" href="https://setd5syndrome.live/research-registries.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -99,10 +99,56 @@
   /* -- LAYOUT -- */
   main { flex: 1; width: 100%; }
   .content-band { padding: 44px 32px; }
-  .content-band.alt { background: #ffffff; }
+  .content-band.alt { background: var(--cream2); }
   .content-band.note-band { background: var(--sage-lt); border-top: 3px solid var(--sage); }
+  .content-band.amber-band { background: var(--amber-lt); border-top: 3px solid var(--amber); }
+  .content-band.intro-band { padding-bottom: 0; }
   .content-inner { max-width: 860px; margin: 0 auto; }
   @media (max-width: 600px) { .content-band { padding: 32px 20px; } }
+
+  /* -- REGISTRY SECTION TINTS -- */
+  .registry-section-teal  { background: #f0f7f5; }
+  .registry-section-amber { background: #fef9f2; }
+  .registry-section-blue  { background: #eef4fb; }
+  .registry-section-teal  .registry-card,
+  .registry-section-amber .registry-card,
+  .registry-section-blue  .registry-card { background: #fff; }
+  .registry-section-teal  .registry-facts { background: #e8f5f2; border-color: #c8e8e2; }
+  .registry-section-amber .registry-facts { background: #fdf4e7; border-color: #f0d9b8; }
+  .registry-section-blue  .registry-facts { background: #e4edf6; border-color: #c0d0e4; }
+
+  /* -- START HERE BAND -- */
+  .start-here-band {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .start-here-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 50%, rgba(42,122,106,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 30%, rgba(42,98,122,0.25) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .start-here-inner { position: relative; max-width: 680px; }
+  .start-here-heading {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-style: italic;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .start-here-body {
+    font-size: 15.5px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.65;
+    margin-bottom: 22px;
+    max-width: 580px;
+  }
 
   /* -- INTRO BOX -- */
   .intro-box {
@@ -145,11 +191,32 @@
   .section-label::before {
     content: ''; display: block; width: 18px; height: 2px; background: var(--amber);
   }
+  .section-label.sl-teal { color: var(--teal); }
+  .section-label.sl-teal::before  { background: var(--teal); }
+  .section-label.sl-amber { color: var(--amber); }
+  .section-label.sl-amber::before { background: var(--amber); }
+  .section-label.sl-blue  { color: var(--blue); }
+  .section-label.sl-blue::before  { background: var(--blue); }
+
+  /* -- H3 WITH ICON -- */
+  h3.with-icon { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
+  h3.with-icon svg { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; opacity: 0.85; }
 
   /* -- PROSE -- */
-  .prose{ font-size: 16px; line-height: 1.72; margin-bottom: 14px; }
+  .prose{ font-size: 16px; line-height: 1.72; margin-bottom: 14px; max-width: 680px; }
   .prose + .prose{ margin-top: 0; }
   .prose strong { color: var(--navy); }
+  .registry-card .prose { max-width: none; }
+
+  /* -- LEAD SENTENCE -- */
+  .prose-lead {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 22px;
+    max-width: 620px;
+  }
 
   /* -- CALLOUTS -- */
   .teal-callout {
@@ -245,18 +312,33 @@
   @media (max-width: 700px) { .feature-grid { grid-template-columns: 1fr; } .feature-grid.three-col { grid-template-columns: 1fr; } }
   .feature-card {
     background: #fff; border: 1px solid var(--border); border-radius: 10px;
-    padding: 18px 20px; border-top: 3px solid var(--teal);
+    padding: 20px 20px 18px; border-top: 5px solid var(--teal);
   }
   .content-band.alt .feature-card { background: var(--cream); }
+  .content-band .feature-card { background: var(--cream2); }
   .feature-card.amber-top { border-top-color: var(--amber); }
   .feature-card.sage-top  { border-top-color: var(--sage); }
   .feature-card.blue-top  { border-top-color: var(--blue); }
   .feature-card.deep-top  { border-top-color: var(--deep); }
   .feature-card h4 {
     font-family: 'Lora', serif; font-size: 16px;
-    color: var(--navy); margin-bottom: 6px;
+    color: var(--navy); margin-bottom: 8px;
   }
   .feature-card p { font-size: 14.5px; line-height: 1.6; color: var(--text); margin: 0; }
+
+  /* -- CARD ICONS -- */
+  .card-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px; background: #e6f4f1;
+  }
+  .card-icon svg { width: 20px; height: 20px; color: var(--teal); }
+  .feature-card.amber-top .card-icon { background: var(--amber-lt); }
+  .feature-card.amber-top .card-icon svg { color: var(--amber); }
+  .feature-card.sage-top  .card-icon { background: var(--sage-lt); }
+  .feature-card.sage-top  .card-icon svg { color: var(--sage); }
+  .feature-card.blue-top  .card-icon { background: var(--blue-lt); }
+  .feature-card.blue-top  .card-icon svg { color: var(--blue); }
 
   /* ── REGISTRY CARD ── */
   .registry-card {
@@ -265,25 +347,23 @@
     border-radius: 12px;
     padding: 28px 32px;
     margin-bottom: 24px;
-    border-top: 4px solid var(--teal);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--teal);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
   .registry-card.amber-top { border-top-color: var(--amber); }
   .registry-card.blue-top  { border-top-color: var(--blue); }
-  .content-band.alt .registry-card { background: var(--cream); }
-  .registry-card-title {
-    font-family: 'Lora', serif;
-    font-size: clamp(18px, 2.5vw, 22px);
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-  .registry-card-org {
+
+  /* -- REGISTRY TAGLINE (replaces repeated card title) -- */
+  .registry-tagline {
     font-size: 13px;
-    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--teal);
     margin-bottom: 18px;
-    font-style: italic;
+    display: block;
   }
+  .registry-tagline.amber { color: var(--amber); }
+  .registry-tagline.blue  { color: var(--blue); }
   .registry-facts {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -313,16 +393,24 @@
   .registry-enroll {
     display: inline-block;
     margin-top: 16px;
-    padding: 10px 22px;
-    background: var(--navy);
+    padding: 11px 24px;
+    background: var(--teal);
     color: #fff;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     transition: background 0.15s;
   }
-  .registry-enroll:hover { background: #2a3d6e; text-decoration: none; }
+  .registry-enroll:hover { background: #1f6358; text-decoration: none; }
+  .registry-enroll.enroll-amber { background: var(--amber); }
+  .registry-enroll.enroll-amber:hover { background: #a06a20; }
+  .registry-enroll.enroll-blue  { background: var(--blue); }
+  .registry-enroll.enroll-blue:hover  { background: #3d6590; }
+  .registry-enroll.enroll-white {
+    background: #fff; color: var(--navy);
+  }
+  .registry-enroll.enroll-white:hover { background: #f0f0f0; }
 
   /* ── EMAIL TEMPLATE ── */
   .email-template {
@@ -387,7 +475,7 @@
   <div class="header-inner">
     <p class="header-eyebrow"><a href="family-toolkit.html">← Family Toolkit</a></p>
     <h1 class="header-title"><em>Research</em> Registries</h1>
-    <p class="header-subtitle">How joining a research registry helps build the foundation for future studies — and an overview of three registries open to families affected by SETD5-related disorder.</p>
+    <p class="header-subtitle">How joining a research registry helps build the foundation for future studies, and an overview of three registries open to families affected by SETD5-related disorder.</p>
   </div>
 </header>
 
@@ -405,7 +493,7 @@
 
 <main>
 
-<div class="content-band">
+<div class="content-band intro-band">
   <div class="content-inner">
     <div class="intro-box">
       <p>This page explains why research registry participation matters for families affected by SETD5-related disorder, and provides an overview of three registries currently open to families with SETD5-related disorder: <strong>Simons Searchlight</strong>, the <strong>Brain Gene Registry</strong>, and <strong>GenomeConnect</strong>.</p>
@@ -420,19 +508,21 @@
     <p class="section-label">The foundation</p>
     <h2 id="sec-why">Why Registries Matter for SETD5-Related Disorder</h2>
 
-    <p class="prose">SETD5-related disorder is rare. The published literature describes a relatively small number of individuals &#8212; as of when this site was last updated, approximately 75 or more individuals had been described in published case series reviewed for this site. That small number creates a real challenge for researchers, not because of lack of interest, but because drawing statistically meaningful conclusions about any condition requires enough documented cases to compare.</p>
+    <p class="prose-lead">Every family that joins a registry makes the next study more possible.</p>
 
-    <p class="prose">Research registries are one of the primary tools for addressing this problem. A registry is a structured database where individuals with the same condition can enroll, share information about their health history and development, and be contacted if they may be eligible for future studies. Registries do not diagnose or treat anyone &#8212; they create the infrastructure that makes research possible.</p>
+    <p class="prose">SETD5-related disorder is rare. The published literature describes a relatively small number of individuals, as of when this site was last updated, approximately 75 or more individuals had been described in published case series reviewed for this site. That small number creates a real challenge for researchers, not because of lack of interest, but because drawing statistically meaningful conclusions about any condition requires enough documented cases to compare.</p>
 
-    <h3>The Numbers Problem</h3>
+    <p class="prose">Research registries are one of the primary tools for addressing this problem. A registry is a structured database where individuals with the same condition can enroll, share information about their health history and development, and be contacted if they may be eligible for future studies. Registries do not diagnose or treat anyone; they create the infrastructure that makes research possible.</p>
+
+    <h3 class="with-icon"><i data-lucide="users"></i>The Numbers Problem</h3>
 
     <p class="prose">Rare diseases often face a difficult cycle: there aren&#8217;t enough patients enrolled in research to design good studies, and without good studies there aren&#8217;t strong findings to attract more funding or participants. Registries help break this cycle by giving researchers a clearer picture of how many individuals with a specific condition exist, where they are, and what their experiences look like over time.</p>
 
-    <p class="prose">For SETD5-related disorder specifically, each family that joins a registry adds to a growing dataset that didn&#8217;t exist even a few years ago. The more families participate, the more accurately researchers can describe the range of experiences &#8212; including individuals whose presentation is milder, more complex, or different from the cases most visible in published literature so far.</p>
+    <p class="prose">For SETD5-related disorder specifically, each family that joins a registry adds to a growing dataset that didn&#8217;t exist even a few years ago. The more families participate, the more accurately researchers can describe the range of experiences, including individuals whose presentation is milder, more complex, or different from the cases most visible in published literature so far.</p>
 
-    <h3>What &#8220;Natural History&#8221; Means</h3>
+    <h3 class="with-icon"><i data-lucide="activity"></i>What &#8220;Natural History&#8221; Means</h3>
 
-    <p class="prose">&#8220;Natural history&#8221; in medical research refers to the course of a condition over time &#8212; what happens, when, and in what sequence &#8212; without treatment. Understanding the natural history of SETD5-related disorder means tracking things like:</p>
+    <p class="prose">&#8220;Natural history&#8221; in medical research refers to the course of a condition over time: what happens, when, and in what sequence, without treatment. Understanding the natural history of SETD5-related disorder means tracking things like:</p>
 
     <ul class="bullet-list">
       <li>When motor milestones tend to appear and how they progress</li>
@@ -444,9 +534,9 @@
 
     <p class="prose">This baseline knowledge helps ensure researchers have a reliable reference point before any treatment or intervention can be meaningfully tested. If researchers don&#8217;t know what the typical trajectory looks like without intervention, they have a much harder time reliably measuring whether an intervention changes that trajectory.</p>
 
-    <h3>How Registries Support Future Research</h3>
+    <h3 class="with-icon"><i data-lucide="flask-conical"></i>How Registries Support Future Research</h3>
 
-    <p class="prose">For any rare condition to be positioned for clinical research &#8212; including potential treatment trials &#8212; several things generally need to be in place first: an established natural history, reliable ways to measure outcomes, and an enrolled population that can actually be found and contacted. Registries help build all three.</p>
+    <p class="prose">For any rare condition to be positioned for clinical research, including potential treatment trials, several things generally need to be in place first: an established natural history, reliable ways to measure outcomes, and an enrolled population that can actually be found and contacted. Registries help build all three.</p>
 
     <p class="prose">When researchers are ready to move forward with a study, an existing registry means they can identify potential participants far more quickly than if they had to start from scratch. For a condition as rare as SETD5-related disorder, that existing enrollment infrastructure could be the difference between a study being feasible and not.</p>
 
@@ -467,14 +557,17 @@
 
     <div class="feature-grid three-col">
       <div class="feature-card">
+        <div class="card-icon"><i data-lucide="search"></i></div>
         <h4>Simons Searchlight</h4>
-        <p>A research program with a dedicated program for SETD5-related disorder. Surveys, data collection, and periodic reports are specific to enrolled SETD5-related disorder families &#8212; not drawn from a general pool.</p>
+        <p>A research program with a dedicated program for SETD5-related disorder. Surveys, data collection, and periodic reports are specific to enrolled SETD5-related disorder families, not drawn from a general pool.</p>
       </div>
       <div class="feature-card amber-top">
+        <div class="card-icon"><i data-lucide="microscope"></i></div>
         <h4>Brain Gene Registry</h4>
         <p>A multi-institutional NIH-funded registry studying brain development gene variants. Families with SETD5-related disorder are actively recruited, and the data can be analyzed both within the SETD5-related disorder cohort and alongside other similar conditions.</p>
       </div>
       <div class="feature-card sage-top">
+        <div class="card-icon"><i data-lucide="link-2"></i></div>
         <h4>GenomeConnect</h4>
         <p>An NIH-funded registry that links participant genetic data to ClinVar, the global variant database. Open to anyone with genetic testing results, including families affected by SETD5-related disorder. Also supports connecting with others who share the same variant.</p>
       </div>
@@ -482,27 +575,26 @@
 
     <div class="amber-callout">
       <span class="callout-label">What participation does not guarantee</span>
-      <p>Joining a registry does not mean your child will receive a new evaluation or diagnosis, be enrolled in a clinical trial, receive any medical advice, or be guaranteed any research outcome. Registries are research tools, not clinical services. They create the foundation for future research &#8212; the timeline for what that research produces is beyond any individual family&#8217;s or registry&#8217;s control.</p>
+      <p>Joining a registry does not mean your child will receive a new evaluation or diagnosis, be enrolled in a clinical trial, receive any medical advice, or be guaranteed any research outcome. Registries are research tools, not clinical services. They create the foundation for future research; the timeline for what that research produces is beyond any individual family&#8217;s or registry&#8217;s control.</p>
     </div>
 
     <div class="sage-callout">
       <span class="callout-label">Privacy and de-identification</span>
-      <p>All three registries described on this page use de-identified data practices, meaning your personal identifying information is not shared with outside researchers. Data shared with researchers is stripped of identifying details. Each registry has its own consent and privacy documentation &#8212; review those materials during enrollment to understand exactly what information is shared and how. Participants can generally withdraw from any of these registries at any time.</p>
+      <p>All three registries described on this page use de-identified data practices, meaning your personal identifying information is not shared with outside researchers. Data shared with researchers is stripped of identifying details. Each registry has its own consent and privacy documentation; review those materials during enrollment to understand exactly what information is shared and how. Participants can generally withdraw from any of these registries at any time.</p>
     </div>
   </div>
 </div>
 
 <!-- SIMONS SEARCHLIGHT -->
-<div class="content-band alt" id="sec-simons-band">
+<div class="content-band registry-section-teal" id="sec-simons-band">
   <div class="content-inner">
-    <p class="section-label">Registry</p>
+    <p class="section-label sl-teal">Registry</p>
     <h2 id="sec-simons">Simons Searchlight</h2>
 
-    <p class="prose">Simons Searchlight is a research program run by the Simons Foundation (SFARI) that focuses specifically on rare genetic neurodevelopmental conditions &#8212; including SETD5-related disorder. Unlike broader registries that enroll participants across many different conditions, Simons Searchlight has a dedicated research program for SETD5-related disorder, with condition-specific surveys and periodic reports based on enrolled families.</p>
+    <p class="prose">Simons Searchlight is a research program run by the Simons Foundation (SFARI) that focuses specifically on rare genetic neurodevelopmental conditions, including SETD5-related disorder. Unlike broader registries that enroll participants across many different conditions, Simons Searchlight has a dedicated research program for SETD5-related disorder, with condition-specific surveys and periodic reports based on enrolled families.</p>
 
     <div class="registry-card">
-      <p class="registry-card-title">Simons Searchlight</p>
-      <p class="registry-card-org">Simons Foundation (SFARI) &mdash; simonssearchlight.org</p>
+      <span class="registry-tagline">SETD5-specific &middot; International &middot; Free</span>
 
       <div class="registry-facts">
         <div class="registry-fact">
@@ -511,7 +603,7 @@
         </div>
         <div class="registry-fact">
           <strong>SETD5-specific</strong>
-          Yes &mdash; dedicated research program for SETD5-related disorder with condition-specific surveys
+          Yes, dedicated research program for SETD5-related disorder with condition-specific surveys
         </div>
         <div class="registry-fact">
           <strong>Who can enroll</strong>
@@ -523,7 +615,7 @@
         </div>
       </div>
 
-      <p class="prose" style="margin-bottom:10px;">Simons Searchlight is one of the most directly relevant registries for SETD5-related disorder families because the research is condition-specific &#8212; not pooled from a general rare disease population. The program produces surveys, analyses, and periodic reports that reflect what enrolled families with SETD5-related disorder have shared, giving participants a window into what the research is actually finding about the condition. Families can also be invited into optional deeper studies as those opportunities arise.</p>
+      <p class="prose" style="margin-bottom:10px;">Simons Searchlight is one of the most directly relevant registries for SETD5-related disorder families because the research is condition-specific, not pooled from a general rare disease population. The program produces surveys, analyses, and periodic reports that reflect what enrolled families with SETD5-related disorder have shared, giving participants a window into what the research is actually finding about the condition. Families can also be invited into optional deeper studies as those opportunities arise.</p>
 
       <p class="prose" style="margin-bottom:10px;">Simons Searchlight accepts participants internationally, making it accessible to families with SETD5-related disorder regardless of where they live.</p>
 
@@ -535,27 +627,26 @@
 </div>
 
 <!-- BRAIN GENE REGISTRY -->
-<div class="content-band" id="sec-bgr-band">
+<div class="content-band registry-section-amber" id="sec-bgr-band">
   <div class="content-inner">
-    <p class="section-label">Registry</p>
+    <p class="section-label sl-amber">Registry</p>
     <h2 id="sec-bgr">Brain Gene Registry</h2>
 
-    <p class="prose">The Brain Gene Registry (BGR) is a multi-institutional research registry focused on individuals with variants in genes that affect brain development &#8212; including SETD5. It is funded by the National Institutes of Health (NIH) and led by researchers at Washington University in St. Louis, Harvard Medical School / Boston Children&#8217;s Hospital, and the University of North Carolina at Chapel Hill.</p>
+    <p class="prose">The Brain Gene Registry (BGR) is a multi-institutional research registry focused on individuals with variants in genes that affect brain development, including SETD5. It is funded by the National Institutes of Health (NIH) and led by researchers at Washington University in St. Louis, Harvard Medical School / Boston Children&#8217;s Hospital, and the University of North Carolina at Chapel Hill.</p>
 
     <p class="prose">SETD5 is among the genes of interest actively recruited for at the time this page was written. The BGR uses standardized neurobehavioral assessments, electronic health record data, and a virtual visit format to build a detailed, comparable dataset across many different brain gene variants.</p>
 
     <div class="registry-card amber-top">
-      <p class="registry-card-title">Brain Gene Registry</p>
-      <p class="registry-card-org">Washington University in St. Louis / Harvard Medical School / UNC Chapel Hill &mdash; NIH-funded</p>
+      <span class="registry-tagline amber">Multi-institutional &middot; NIH-funded &middot; SETD5 actively recruited</span>
 
       <div class="registry-facts">
         <div class="registry-fact">
           <strong>Who runs it</strong>
-          Multi-institutional team; WashU, Harvard/BCH, UNC &mdash; NIH NCATS-funded
+          Multi-institutional team; WashU, Harvard/BCH, UNC, NIH NCATS-funded
         </div>
         <div class="registry-fact">
           <strong>SETD5-specific</strong>
-          No &mdash; general brain gene registry; the SETD5 gene is a listed gene of interest
+          Not condition-specific; the SETD5 gene is a listed gene of interest
         </div>
         <div class="registry-fact">
           <strong>Who can enroll</strong>
@@ -567,30 +658,29 @@
         </div>
       </div>
 
-      <p class="prose" style="margin-bottom:10px;">The Brain Gene Registry is relevant to families with SETD5-related disorder because the SETD5 gene is among those the registry actively recruits. Its approach &#8212; collecting standardized information across many different brain development gene variants &#8212; is designed to support the kind of gene-phenotype analysis that connects a specific variant with its observable effects on development and health. This allows researchers to analyze SETD5-related disorder both on its own and alongside other related genetic conditions, which can help establish what features are specific to SETD5-related disorder versus what reflects broader patterns.</p>
+      <p class="prose" style="margin-bottom:10px;">The Brain Gene Registry is relevant to families with SETD5-related disorder because the SETD5 gene is among those the registry actively recruits. Its approach, collecting standardized information across many different brain development gene variants, is designed to support the kind of gene-phenotype analysis that connects a specific variant with its observable effects on development and health. This allows researchers to analyze SETD5-related disorder both on its own and alongside other related genetic conditions, which can help establish what features are specific to SETD5-related disorder versus what reflects broader patterns.</p>
 
-      <p class="prose" style="margin-bottom:10px;">Because the BGR collects a detailed picture of each participant, including clinical history and health records, it can serve as a foundation for natural history research &#8212; the baseline data that makes future treatment research possible.</p>
+      <p class="prose" style="margin-bottom:10px;">Because the BGR collects a detailed picture of each participant, including clinical history and health records, it can serve as a foundation for natural history research: the baseline data that makes future treatment research possible.</p>
 
       <p class="prose" style="margin-bottom:0;">More information is available at <a href="https://braingeneregistry.wustl.edu" target="_blank" rel="noopener">braingeneregistry.wustl.edu</a>. To express interest in enrolling, complete the inquiry form; a research coordinator will follow up with eligibility details.</p>
 
-      <a href="https://braingeneregistry.wustl.edu/enrollment/" target="_blank" rel="noopener" class="registry-enroll">Inquire About Enrollment &rarr;</a>
+      <a href="https://braingeneregistry.wustl.edu/enrollment/" target="_blank" rel="noopener" class="registry-enroll enroll-amber">Inquire About Enrollment &rarr;</a>
     </div>
   </div>
 </div>
 
 <!-- GENOMECONNECT -->
-<div class="content-band alt" id="sec-genomeconnect-band">
+<div class="content-band registry-section-blue" id="sec-genomeconnect-band">
   <div class="content-inner">
-    <p class="section-label">Registry</p>
+    <p class="section-label sl-blue">Registry</p>
     <h2 id="sec-genomeconnect">GenomeConnect</h2>
 
-    <p class="prose">GenomeConnect is a patient registry run by ClinGen, an NIH-funded program focused on defining the clinical relevance of genes and variants. GenomeConnect allows anyone who has had genetic testing to share their information with ClinVar &#8212; a public database used by researchers and clinicians worldwide to evaluate the significance of genetic variants.</p>
+    <p class="prose">GenomeConnect is a patient registry run by ClinGen, an NIH-funded program focused on defining the clinical relevance of genes and variants. GenomeConnect allows anyone who has had genetic testing to share their information with ClinVar, a public database used by researchers and clinicians worldwide to evaluate the significance of genetic variants.</p>
 
     <p class="prose">Unlike Simons Searchlight or the Brain Gene Registry, GenomeConnect is a lower-commitment option. It is not condition-specific, but it plays an important role in the broader genetic data ecosystem: the more individuals with a given variant contribute data to ClinVar, the more evidence exists for researchers and clinicians evaluating the significance of that variant.</p>
 
     <div class="registry-card blue-top">
-      <p class="registry-card-title">GenomeConnect</p>
-      <p class="registry-card-org">ClinGen (Clinical Genome Resource) &mdash; NIH-funded &mdash; genomeconnect.org</p>
+      <span class="registry-tagline blue">ClinVar-linked &middot; Open to all &middot; Free</span>
 
       <div class="registry-facts">
         <div class="registry-fact">
@@ -599,7 +689,7 @@
         </div>
         <div class="registry-fact">
           <strong>SETD5-specific</strong>
-          No &mdash; open to anyone with genetic testing results, including SETD5-related disorder families
+          No, open to anyone with genetic testing results, including SETD5-related disorder families
         </div>
         <div class="registry-fact">
           <strong>Who can enroll</strong>
@@ -611,19 +701,30 @@
         </div>
       </div>
 
-      <p class="prose" style="margin-bottom:10px;">GenomeConnect is relevant to families with SETD5-related disorder because adding data to ClinVar helps build the body of evidence supporting how the SETD5 gene variant is classified. The more individuals contribute data, the more evidence exists for researchers and clinicians evaluating the significance of the variant. GenomeConnect also supports recontact &#8212; participants can consent to being contacted if a researcher studying their specific variant wants to reach out &#8212; and allows families to optionally connect with others sharing the same genetic variant, which can be meaningful in a rare condition community.</p>
+      <p class="prose" style="margin-bottom:10px;">GenomeConnect is relevant to families with SETD5-related disorder because adding data to ClinVar helps build the body of evidence supporting how the SETD5 gene variant is classified. The more individuals contribute data, the more evidence exists for researchers and clinicians evaluating the significance of the variant. GenomeConnect also supports recontact; participants can consent to being contacted if a researcher studying their specific variant wants to reach out, and allows families to optionally connect with others sharing the same genetic variant, which can be meaningful in a rare condition community.</p>
 
       <p class="prose" style="margin-bottom:10px;">Note: If you enroll in the Brain Gene Registry (above), you will also be asked to enroll in GenomeConnect as part of that process. If you have already joined GenomeConnect separately, let the BGR coordinator know during enrollment.</p>
 
       <p class="prose" style="margin-bottom:0;">More information is available at <a href="https://www.genomeconnect.org" target="_blank" rel="noopener">genomeconnect.org</a>.</p>
 
-      <a href="https://www.genomeconnect.org/enroll" target="_blank" rel="noopener" class="registry-enroll">Enroll in GenomeConnect &rarr;</a>
+      <a href="https://www.genomeconnect.org/enroll" target="_blank" rel="noopener" class="registry-enroll enroll-blue">Enroll in GenomeConnect &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- START HERE CTA BAND -->
+<div class="content-band start-here-band">
+  <div class="content-inner">
+    <div class="start-here-inner">
+      <p class="start-here-heading">Ready to join a registry?</p>
+      <p class="start-here-body">You don&#8217;t need to pick just one. Many families enroll in all three. Each registry captures different information, and your participation in all of them contributes to a more complete picture of SETD5-related disorder.</p>
+      <a href="#sec-get-started" class="registry-enroll enroll-white">Jump to Get Started &darr;</a>
     </div>
   </div>
 </div>
 
 <!-- GET STARTED -->
-<div class="content-band" id="sec-get-started-band">
+<div class="content-band amber-band" id="sec-get-started-band">
   <div class="content-inner">
     <p class="section-label">Action step</p>
     <h2 id="sec-get-started">Get Started</h2>
@@ -635,7 +736,7 @@
     <h3>Sample Message: Requesting a Genetic Report</h3>
     <p class="prose" style="font-size:14px; color:var(--muted); margin-bottom:8px;">Adapt this message for email, a patient portal, or a phone call.</p>
 
-<div class="email-template">Subject: Request for Genetic Testing Report &mdash; <span class="placeholder">[Child&rsquo;s Name]</span>
+<div class="email-template">Subject: Request for Genetic Testing Report: <span class="placeholder">[Child&rsquo;s Name]</span>
 
 Dear <span class="placeholder">[Doctor&rsquo;s Name or Office Name]</span>,
 
@@ -665,7 +766,7 @@ Thank you for your help.
 
     <p class="prose">Registry procedures, eligibility requirements, and enrollment links can change over time. The information on this page reflects what was available when the page was last reviewed. Please refer to each registry&#8217;s own website for current enrollment details.</p>
 
-    <p class="prose" style="margin-bottom:0;">This page is written by a parent, not a medical or research professional. It is intended to help other families with SETD5-related disorder understand why registry participation matters and where to start &#8212; not to serve as a clinical recommendation or research endorsement.</p>
+    <p class="prose" style="margin-bottom:0;">This page is written by a parent, not a medical or research professional. It is intended to help other families with SETD5-related disorder understand why registry participation matters and where to start, not to serve as a clinical recommendation or research endorsement.</p>
   </div>
 </div>
 
@@ -673,7 +774,7 @@ Thank you for your help.
   <div class="content-inner">
     <div class="sage-callout" style="margin-top:0;">
       <span class="callout-label">Information About This Page</span>
-      <p>Registry details &#8212; including enrollment URLs, eligibility requirements, and participation procedures &#8212; may change after this page was written. Always review the registry&#8217;s own materials before enrolling, and contact registry staff directly with questions about your specific situation.</p>
+      <p>Registry details, including enrollment URLs, eligibility requirements, and participation procedures, may change after this page was written. Always review the registry&#8217;s own materials before enrolling, and contact registry staff directly with questions about your specific situation.</p>
     </div>
   </div>
 </div>
@@ -734,6 +835,9 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>lucide.createIcons();</script>
 
 <script>
 (function(){
