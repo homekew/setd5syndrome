@@ -274,6 +274,61 @@
     letter-spacing: 0.05em;
   }
 
+  /* ── SEARCH BAR ── */
+  .search-bar {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .search-input {
+    width: 100%;
+    padding: 11px 44px 11px 16px;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .search-input:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(26,122,138,0.1);
+  }
+  .search-input::placeholder { color: #aab; }
+  .search-clear {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1;
+    display: none;
+    padding: 4px;
+    border-radius: 4px;
+  }
+  .search-clear:hover { color: var(--text); }
+  .search-no-results {
+    display: none;
+    text-align: center;
+    color: var(--muted);
+    padding: 3rem 0;
+    font-size: 15px;
+    font-style: italic;
+  }
+  .prompt-block.search-hidden { display: none; }
+  mark.search-highlight {
+    background: #fff3b0;
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
   /* ── FOOTER ── */
   .doc-footer {
     margin-top: 64px;
@@ -323,6 +378,7 @@
     <a class="nav-sub" href="#p-3d">3d · Mobile</a>
     <a class="nav-sub" href="#p-3e">3e · Visual Design</a>
     <a class="nav-sub" href="#p-3f">3f · Full Visual Design</a>
+    <a class="nav-sub" href="#p-3g">3g · Formatting Consistency</a>
 
     <a class="nav-item" href="#section-4"><span class="num">4</span> Site Protection</a>
     <a class="nav-sub" href="#p-4-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
@@ -339,8 +395,6 @@
     <a class="nav-sub" href="#p-5d">5d · New Visitor Pathway</a>
 
     <a class="nav-item" href="#section-6"><span class="num">6</span> Full Page Audit</a>
-
-    <a class="nav-item" href="#section-7"><span class="num">7</span> Formatting Consistency</a>
   </nav>
 
   <!-- MAIN -->
@@ -360,6 +414,15 @@
       <br><br>
       <strong>Remember:</strong> You are a parent of a child with SETD5 Syndrome — not a medical, educational, or legal professional. This context is built into every prompt. Never remove the bracketed reminders about your role.
     </div>
+
+    <!-- SEARCH -->
+    <div class="search-bar">
+      <input type="text" class="search-input" id="prompt-search"
+        placeholder="Search prompts... (e.g. &quot;disclaimer&quot;, &quot;mobile&quot;, &quot;tone&quot;, &quot;formatting&quot;)"
+        autocomplete="off" spellcheck="false" />
+      <button class="search-clear" id="search-clear" aria-label="Clear search">&#x2715;</button>
+    </div>
+    <div class="search-no-results" id="search-no-results">No prompts match that search. Try a different keyword.</div>
 
     <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 1 -->
@@ -926,6 +989,133 @@ what is making it feel static, repetitive, or emotionally flat, and
 how to improve it without losing trust or accessibility.</div>
     </div>
 
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3g">3g. Formatting Consistency Audit</h3>
+      <p class="use-desc">Use this to evaluate whether formatting and visual presentation are consistent and cohesive across the whole website — not just whether individual sections look okay on their own. Covers typography, spacing, components, visual cohesion, and readability.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Audit this website for formatting consistency and visual cohesion across the entire site:
+setd5syndrome.live
+
+Act as an experienced UI designer, front-end design reviewer, accessibility-minded website auditor, and editorial design QA specialist.
+
+This is an educational, family-facing, nonprofit-style website about SETD5 Syndrome. The audience includes parents, caregivers, relatives, educators, and people who may be overwhelmed, stressed, or new to the diagnosis. The site should feel clear, calm, trustworthy, welcoming, polished, and easy to follow.
+
+Your job is to evaluate whether the formatting and visual presentation are consistent and cohesive across the whole website, not just whether individual sections look okay on their own.
+
+Review the entire site as one design system and look for places where formatting feels inconsistent, patched together, visually uneven, confusing, amateur, or harder to read than it should be.
+
+Focus only on formatting, layout, readability, and visual consistency.
+
+Audit these areas:
+
+1. Typography consistency
+- Heading hierarchy across all pages
+- Whether H1, H2, H3, and H4 styles are consistent
+- Font sizes
+- Font weights
+- Line heights
+- Letter spacing
+- Paragraph spacing
+- Body text consistency
+- Link style consistency
+- List formatting consistency
+- Whether text sizes feel appropriately scaled for a family-facing informational website
+- Whether any text looks too large, too small, too heavy, too tight, or too loose
+
+2. Spacing and layout consistency
+- Section padding
+- Space between headings and paragraphs
+- Space between cards, buttons, lists, icons, and callout boxes
+- Container widths
+- Grid alignment
+- Visual rhythm from section to section
+- Whether spacing is consistent across pages
+- Whether some pages feel more crowded or more empty than others
+
+3. Component consistency
+Check whether repeated components follow the same design rules across the site:
+- Buttons
+- Cards
+- Resource boxes
+- Info boxes / note boxes / disclaimer boxes
+- Icons
+- Section labels
+- Navigation bars
+- Sticky elements
+- Footer
+- Dividers
+- Images or illustrations
+- Link treatments
+
+4. Visual cohesion
+- Does the site feel like one unified design system?
+- Do some pages look more polished than others?
+- Are there mismatched styles that make the site feel inconsistent?
+- Do card sections, toolkit sections, educational sections, and support pages all feel like part of the same website?
+- Does the site visually support trust, clarity, and calmness?
+
+5. Readability and user comfort
+Because this is a syndrome information site for families, also assess:
+- Whether the text hierarchy makes information easy to scan
+- Whether pages feel overwhelming due to dense formatting
+- Whether long sections need better spacing or structure
+- Whether formatting helps the reader feel oriented and supported
+- Whether any sections feel too visually busy or too visually plain
+- Whether the site feels accessible for readers with stress, fatigue, cognitive overload, or limited familiarity with medical terminology
+
+For your output:
+
+First, give an overall verdict:
+- Does the website feel formatting-consistent and visually cohesive overall?
+- Does it feel polished and trustworthy?
+- Does it feel calm, family-friendly, and easy to follow?
+
+Then provide:
+
+A. Biggest formatting inconsistencies across the site
+For each issue, explain:
+1. what is inconsistent
+2. where it shows up
+3. why it hurts cohesion or readability
+4. what site-wide standard should replace it
+
+B. Issues grouped by category
+Group findings under:
+- Typography
+- Spacing/layout
+- Components
+- Visual cohesion
+- Readability
+
+C. Priority fix plan
+Organize recommendations into:
+- High priority
+- Medium priority
+- Low priority
+
+D. Recommended site-wide style system
+Create a clean master style guide for:
+- Heading sizes
+- Body text sizes
+- Card title sizes
+- Link sizes
+- Label sizes
+- Footer text sizes
+- Font weights
+- Line heights
+- Section spacing
+- Card padding
+- Button consistency
+- Icon consistency
+
+Important instructions:
+- Be specific and honest
+- Do not give vague compliments
+- Do not focus on copywriting, SEO, medical accuracy, or branding strategy unless it directly affects formatting clarity
+- Prioritize practical fixes that will make the site look more polished, cohesive, and professional
+- If something feels amateur or uneven, say so clearly
+- Recommend standards that are realistic and easy to apply across the full site</div>
+    </div>
+
     <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 4 -->
     <!-- ══════════════════════════════════════════ -->
@@ -1481,136 +1671,6 @@ by section. For each issue found, indicate: Minor / Moderate / Important
     <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 7 -->
     <!-- ══════════════════════════════════════════ -->
-    <div class="section-anchor" id="section-7"></div>
-    <h2 class="section-title"><span class="sec-num">7</span> Formatting Consistency &amp; Visual Cohesion</h2>
-
-    <div class="prompt-block">
-      <h3 class="prompt-title" id="p-7">Formatting Consistency Audit</h3>
-      <p class="use-desc">Use this to evaluate whether formatting and visual presentation are consistent and cohesive across the whole website — not just whether individual sections look okay on their own. Covers typography, spacing, components, visual cohesion, and readability.</p>
-      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Audit this website for formatting consistency and visual cohesion across the entire site:
-setd5syndrome.live
-
-Act as an experienced UI designer, front-end design reviewer, accessibility-minded website auditor, and editorial design QA specialist.
-
-This is an educational, family-facing, nonprofit-style website about SETD5 Syndrome. The audience includes parents, caregivers, relatives, educators, and people who may be overwhelmed, stressed, or new to the diagnosis. The site should feel clear, calm, trustworthy, welcoming, polished, and easy to follow.
-
-Your job is to evaluate whether the formatting and visual presentation are consistent and cohesive across the whole website, not just whether individual sections look okay on their own.
-
-Review the entire site as one design system and look for places where formatting feels inconsistent, patched together, visually uneven, confusing, amateur, or harder to read than it should be.
-
-Focus only on formatting, layout, readability, and visual consistency.
-
-Audit these areas:
-
-1. Typography consistency
-- Heading hierarchy across all pages
-- Whether H1, H2, H3, and H4 styles are consistent
-- Font sizes
-- Font weights
-- Line heights
-- Letter spacing
-- Paragraph spacing
-- Body text consistency
-- Link style consistency
-- List formatting consistency
-- Whether text sizes feel appropriately scaled for a family-facing informational website
-- Whether any text looks too large, too small, too heavy, too tight, or too loose
-
-2. Spacing and layout consistency
-- Section padding
-- Space between headings and paragraphs
-- Space between cards, buttons, lists, icons, and callout boxes
-- Container widths
-- Grid alignment
-- Visual rhythm from section to section
-- Whether spacing is consistent across pages
-- Whether some pages feel more crowded or more empty than others
-
-3. Component consistency
-Check whether repeated components follow the same design rules across the site:
-- Buttons
-- Cards
-- Resource boxes
-- Info boxes / note boxes / disclaimer boxes
-- Icons
-- Section labels
-- Navigation bars
-- Sticky elements
-- Footer
-- Dividers
-- Images or illustrations
-- Link treatments
-
-4. Visual cohesion
-- Does the site feel like one unified design system?
-- Do some pages look more polished than others?
-- Are there mismatched styles that make the site feel inconsistent?
-- Do card sections, toolkit sections, educational sections, and support pages all feel like part of the same website?
-- Does the site visually support trust, clarity, and calmness?
-
-5. Readability and user comfort
-Because this is a syndrome information site for families, also assess:
-- Whether the text hierarchy makes information easy to scan
-- Whether pages feel overwhelming due to dense formatting
-- Whether long sections need better spacing or structure
-- Whether formatting helps the reader feel oriented and supported
-- Whether any sections feel too visually busy or too visually plain
-- Whether the site feels accessible for readers with stress, fatigue, cognitive overload, or limited familiarity with medical terminology
-
-For your output:
-
-First, give an overall verdict:
-- Does the website feel formatting-consistent and visually cohesive overall?
-- Does it feel polished and trustworthy?
-- Does it feel calm, family-friendly, and easy to follow?
-
-Then provide:
-
-A. Biggest formatting inconsistencies across the site
-For each issue, explain:
-1. what is inconsistent
-2. where it shows up
-3. why it hurts cohesion or readability
-4. what site-wide standard should replace it
-
-B. Issues grouped by category
-Group findings under:
-- Typography
-- Spacing/layout
-- Components
-- Visual cohesion
-- Readability
-
-C. Priority fix plan
-Organize recommendations into:
-- High priority
-- Medium priority
-- Low priority
-
-D. Recommended site-wide style system
-Create a clean master style guide for:
-- Heading sizes
-- Body text sizes
-- Card title sizes
-- Link sizes
-- Label sizes
-- Footer text sizes
-- Font weights
-- Line heights
-- Section spacing
-- Card padding
-- Button consistency
-- Icon consistency
-
-Important instructions:
-- Be specific and honest
-- Do not give vague compliments
-- Do not focus on copywriting, SEO, medical accuracy, or branding strategy unless it directly affects formatting clarity
-- Prioritize practical fixes that will make the site look more polished, cohesive, and professional
-- If something feels amateur or uneven, say so clearly
-- Recommend standards that are realistic and easy to apply across the full site</div>
-    </div>
-
     <div class="doc-footer">
       setd5syndrome.live &nbsp;·&nbsp; Site Audit Prompt Library &nbsp;·&nbsp; For internal use
     </div>
@@ -1619,21 +1679,63 @@ Important instructions:
 </div>
 
 <script>
+  /* ── COPY BUTTON ── */
   function copyPrompt(btn) {
     const box = btn.parentElement;
     const text = box.innerText.replace('Copy\n', '').replace('Copied!\n', '').trim();
     navigator.clipboard.writeText(text).then(() => {
       btn.textContent = 'Copied!';
       btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'Copy';
-        btn.classList.remove('copied');
-      }, 2000);
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     });
   }
 
-  // Highlight active nav item on scroll
-  const anchors = document.querySelectorAll('.section-anchor, .prompt-title');
+  /* ── SEARCH ── */
+  const searchInput  = document.getElementById('prompt-search');
+  const searchClear  = document.getElementById('search-clear');
+  const noResults    = document.getElementById('search-no-results');
+
+  function doSearch() {
+    const q = searchInput.value.trim().toLowerCase();
+    const allBlocks = document.querySelectorAll('.prompt-block');
+
+    // Show / hide individual prompt blocks
+    allBlocks.forEach(block => {
+      if (!q || block.textContent.toLowerCase().includes(q)) {
+        block.classList.remove('search-hidden');
+      } else {
+        block.classList.add('search-hidden');
+      }
+    });
+
+    // Show / hide section anchors + headings based on whether any child block is visible
+    document.querySelectorAll('.section-anchor').forEach(anchor => {
+      let hasVisible = false;
+      let node = anchor.nextElementSibling;
+      while (node && !node.classList.contains('section-anchor')) {
+        if (node.classList.contains('prompt-block') && !node.classList.contains('search-hidden')) {
+          hasVisible = true;
+          break;
+        }
+        node = node.nextElementSibling;
+      }
+      const show = !q || hasVisible;
+      anchor.style.display = show ? '' : 'none';
+      if (anchor.nextElementSibling && anchor.nextElementSibling.tagName === 'H2') {
+        anchor.nextElementSibling.style.display = show ? '' : 'none';
+      }
+    });
+
+    searchClear.style.display = q ? 'block' : 'none';
+    const visibleCount = document.querySelectorAll('.prompt-block:not(.search-hidden)').length;
+    noResults.style.display = (q && visibleCount === 0) ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', doSearch);
+  searchClear.addEventListener('click', () => { searchInput.value = ''; doSearch(); searchInput.focus(); });
+
+  /* ── ACTIVE NAV HIGHLIGHT ON SCROLL ── */
+  const anchors  = document.querySelectorAll('.section-anchor, .prompt-title');
   const navLinks = document.querySelectorAll('.nav-item, .nav-sub');
 
   const observer = new IntersectionObserver((entries) => {
@@ -1642,9 +1744,7 @@ Important instructions:
         const id = entry.target.id;
         navLinks.forEach(link => {
           link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + id) {
-            link.classList.add('active');
-          }
+          if (link.getAttribute('href') === '#' + id) link.classList.add('active');
         });
       }
     });
