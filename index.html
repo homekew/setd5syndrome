@@ -393,16 +393,17 @@
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0;
   }
   .site-nav a {
     color: rgba(255,255,255,0.9);
     text-decoration: none;
-    padding: 10px 22px;
+    padding: 10px 15px;
     font-size: 15px;
     font-family: 'Inter', sans-serif;
     display: inline-block;
+    white-space: nowrap;
   }
   .site-nav a:hover {
     color: #fff;
@@ -428,11 +429,14 @@
     font-family: 'Inter', sans-serif;
   }
 
-  /* Mobile nav: keep items from bunching on small phones */
-  @media (max-width: 480px) {
+  /* Mobile nav: allow wrapping on small phones */
+  @media (max-width: 600px) {
+    .site-nav-inner {
+      flex-wrap: wrap;
+    }
     .site-nav a {
       font-size: 13px;
-      padding: 9px 11px;
+      padding: 9px 10px;
     }
   }
 
@@ -450,7 +454,7 @@
   </div>
   <h1><a href="/" style="color:inherit;text-decoration:none;">SETD5 Syndrome<br><em>Research &amp; Resources</em></a></h1>
   <div class="header-rule"></div>
-  <p class="header-sub">A family resource for SETD5 Syndrome.</p>
+  <p class="header-sub">A family resource for SETD5 Syndrome</p>
 </header>
 
 <nav class="site-nav">
@@ -468,16 +472,7 @@
 
   <!-- Intro bar -->
   <div class="intro-bar">
-    <p class="intro-bar-inner">Built by a parent of a child with SETD5 Syndrome, for families navigating the same journey. A peer resource, not medical or professional advice. Plain-language information, practical tools, and community connections for every stage.</p>
-  </div>
-
-  <!-- Start Here banner -->
-  <div class="start-here">
-    <div class="start-here-text">
-      <strong>Newly diagnosed?</strong>
-      <p>Start with our plain-language guide to what SETD5 Syndrome is and what to expect.</p>
-    </div>
-    <a href="understanding-setd5-syndrome.html" class="start-here-btn">Start Here</a>
+    <p class="intro-bar-inner">Built by a parent of a child with SETD5 Syndrome, for families navigating the same journey. A peer resource, not medical or professional advice.</p>
   </div>
 
   <!-- Guides zone -->
