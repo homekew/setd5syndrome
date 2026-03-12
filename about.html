@@ -65,19 +65,40 @@
   .header-inner {
     max-width: 860px;
     margin: 0 auto;
-    padding: 24px 32px 30px;
+    padding: 24px 32px 48px;
     position: relative;
     z-index: 1;
     transition: padding 0.175s ease;
   }
 
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .meta-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    font-family: 'Inter', sans-serif;
+  }
+
   /* ── HEADER COLLAPSE ── */
   .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-meta { max-height: 80px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
   .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-meta { opacity: 0; max-height: 0; margin: 0; padding: 0; }
   .site-header.collapsed .header-title { font-size: 20px; margin-bottom: 0; }
 
   .site-header::before {
@@ -622,6 +643,11 @@
     <p class="header-eyebrow"><a href="index.html">← SETD5 Syndrome Research &amp; Resources</a></p>
     <h1 class="header-title">About This <em>Site</em></h1>
     <p class="header-subtitle">How this site was made, who it's for, and the family behind it.</p>
+    <div class="header-meta">
+      <span class="meta-chip">Built by a parent</span>
+      <span class="meta-chip">Rare disease family</span>
+      <span class="meta-chip">Not medical advice</span>
+    </div>
   </div>
 </header>
 
