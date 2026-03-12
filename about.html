@@ -60,7 +60,6 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 4px solid #5a9186;
   }
 
   .header-inner {
@@ -136,20 +135,18 @@
     padding: 0 2rem;
   }
 
-  /* ── PAGE INTRO ── */
-  .page-intro-wrap {
-    padding: 3rem 0 2.5rem;
+  /* ── PAGE INTRO + NAV SHARED CONTAINER ── */
+  .about-lead {
     max-width: 860px;
     margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 3rem 2rem 0;
   }
 
   .page-intro {
     font-size: 18px;
     color: var(--muted);
     line-height: 1.75;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
   }
 
   /* ── PAGE NAV (On This Page) ── */
@@ -157,8 +154,7 @@
     background: var(--amber-lt);
     border-left: 4px solid var(--amber);
     border-radius: 0 8px 8px 0;
-    max-width: 860px;
-    margin: 0 auto 2.5rem;
+    margin-bottom: 2.5rem;
     padding: 0 2rem;
   }
 
@@ -631,13 +627,11 @@
 
 <main>
 
-  <!-- ── PAGE INTRO ── -->
-  <div class="page-intro-wrap">
-    <p class="page-intro">This site was created by a parent of a child with SETD5 Syndrome to help families better understand the condition. It is meant to share general information and resources, not to provide medical, legal, or educational advice. Below, you can read more about the story behind the site, what it includes, how the information is gathered, and a few important things to keep in mind as you use it.</p>
-  </div>
+  <!-- ── PAGE INTRO + ON THIS PAGE ── -->
+  <div class="about-lead">
+    <p class="page-intro">A diagnosis like SETD5 Syndrome arrives with a lot of questions. Even with a great care team, it can take time to find resources written for families rather than specialists. I built this site as a parent who has sat in that waiting room and pieced things together slowly over time. Everything here is what I've gathered for my own family, offered freely to yours. Below you'll find the full story, what the site includes, and a few important things to keep in mind as you use it.</p>
 
-  <!-- ── ON THIS PAGE ── -->
-  <div class="page-nav-wrap">
+    <div class="page-nav-wrap">
     <nav class="page-nav" aria-label="On this page">
       <span class="page-nav-label">On this page</span>
       <ol>
@@ -649,6 +643,7 @@
       </ol>
     </nav>
   </div>
+  </div><!-- /about-lead -->
 
   <!-- ── WHY THIS SITE EXISTS (Kate story — dark, elevated) ── -->
   <div class="section-wrap bg-story" id="why-this-site">
