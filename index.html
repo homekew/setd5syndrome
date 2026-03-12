@@ -50,16 +50,16 @@
   }
 
   /* HEADER */
-  .site-header {
+  header {
     background: var(--navy);
     color: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: box-shadow 0.2s;
+    text-align: center;
+    padding: 2rem 2rem 1.5rem;
+    position: relative;
+    border-bottom: none;
   }
 
-  .site-header::before {
+  header::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -70,42 +70,55 @@
     z-index: 0;
   }
 
-  .header-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 24px 32px 30px;
+  .site-label,
+  h1,
+  .header-rule,
+  .header-sub {
     position: relative;
     z-index: 1;
-    transition: padding 0.175s ease;
   }
 
-  .header-title {
+  .site-label {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1.25rem;
+  }
+
+  h1{
     font-family: 'Lora', serif;
-    font-size: clamp(32px, 4.5vw, 44px);
     font-weight: 400;
-    line-height: 1.18;
-    color: #fff;
-    margin-bottom: 16px;
-    transition: font-size 0.175s ease, margin 0.175s ease;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    position: relative;
   }
 
-  .header-title em { font-style: italic; color: #a8cfc8; }
+  h1 em {
 
-  .header-subtitle {
-    font-size: 15.5px;
-    font-weight: 400;
-    color: rgba(255,255,255,.72);
-    max-width: 580px;
+    color: #a8cfc8;
+  }
+
+  .header-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--amber);
+    margin: 0.9rem auto 0.85rem;
+    border-radius: 2px;
+  }
+
+  .header-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    font-style: normal;
+    margin: 0 auto;
+    max-width: 540px;
     line-height: 1.6;
-    max-height: 100px;
-    overflow: hidden;
-    transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
   }
-
-  /* ── COLLAPSED HEADER ── */
-  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
-  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
-  .site-header.collapsed .header-title { font-size: 20px; margin-bottom: 0; }
 
   /* MAIN */
   main {
@@ -373,10 +386,18 @@
   }
 
   @media (max-width: 600px) {
-    .site-header .header-inner { padding: 1.5rem 1.5rem 1.25rem; }
-    .card-grid { grid-template-columns: 1fr; }
+    header { padding: 1.5rem 1.5rem 1.25rem; }
+    h1{ font-size: clamp(2.2rem, 6vw, 4rem); }
+.card-grid { grid-template-columns: 1fr; }
     .card-grid .card:last-child:nth-child(odd) { max-width: none; margin: 0; }
   }
+
+  /* ── COMPACT STICKY HEADER — disabled on home page ── */
+  .header-sub {
+    transition: opacity 0.2s ease, max-height 0.3s ease;
+    max-height: 60px; overflow: hidden;
+  }
+  /* (no compact collapse on home page) */
 
   /* ── SITE NAV ── */
   .site-nav {
@@ -440,14 +461,13 @@
 <body>
 
 
-<header class="site-header">
+<header>
   <div class="translate-widget">
     <div id="google_translate_element"></div>
   </div>
-  <div class="header-inner">
-    <h1 class="header-title">SETD5 Syndrome <em>Research &amp; Resources</em></h1>
-    <p class="header-subtitle">Built by a parent of a child with SETD5 Syndrome, for families navigating the same journey. A peer resource, not medical or professional advice. Plain-language information, practical tools, and community connections for every stage.</p>
-  </div>
+  <h1><a href="/" style="color:inherit;text-decoration:none;">SETD5 Syndrome<br><em>Research &amp; Resources</em></a></h1>
+  <div class="header-rule"></div>
+  <p class="header-sub">A parent-built guide for SETD5 Syndrome families: plain-language research, practical tools, and resources for every stage of the journey.</p>
 </header>
 
 <nav class="site-nav">
@@ -462,6 +482,11 @@
 </nav>
 
 <main>
+
+  <!-- Intro / welcome zone -->
+  <div class="intro-zone" style="border-left: 3px solid var(--teal); padding-left: 1.5rem;">
+    <p class="intro-lead">Built by a parent, for families like ours. Whether you are new to the diagnosis or years into the journey, the guides here cover what SETD5 Syndrome is, practical tools for navigating school and medical appointments, published research summarized for families, and resources for getting support.</p>
+  </div>
 
   <!-- Start Here banner -->
   <div class="start-here">
@@ -541,21 +566,6 @@
 </footer>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var siteHeader = document.querySelector('.site-header');
-  var ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        siteHeader.classList.toggle('collapsed', window.scrollY > 50);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-});
-</script>
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.475.0/dist/umd/lucide.min.js"></script>
 <script>
 lucide.createIcons({ attrs: { width: 22, height: 22, 'stroke-width': 1.5 } });
