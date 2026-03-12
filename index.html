@@ -32,6 +32,7 @@
     --sage-lt: #edf5ef;
     --border: #e0d9cf;
     --muted: #6b6b6b;
+    --nav-bg: #5a9186;
   }
 
   html, body{ height: 100%; }
@@ -151,7 +152,7 @@
 
   /* GUIDES ZONE */
   .guides-zone {
-    background: #faf7f2;
+    background: #f4efe6;
     margin: 0 -1.5rem 0;
     padding: 3rem 1.5rem 2.5rem;
   }
@@ -400,7 +401,7 @@
 
   /* ── SITE NAV ── */
   .site-nav {
-    background: #5a9186;
+    background: var(--nav-bg);
     padding: 0;
     text-align: center;
   }
@@ -429,6 +430,29 @@
 
   @media (max-width: 400px) { .translate-widget { transform: scale(0.65); } }
 
+  /* FEATURED BADGE */
+  .featured-badge {
+    display: inline-block;
+    background: var(--amber);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 0.9rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Mobile nav: keep items from bunching on small phones */
+  @media (max-width: 480px) {
+    .site-nav a {
+      font-size: 13px;
+      padding: 9px 11px;
+    }
+  }
+
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
@@ -441,9 +465,9 @@
   <div class="translate-widget">
     <div id="google_translate_element"></div>
   </div>
-  <h1>SETD5 Syndrome<br><em>Research &amp; Resources</em></h1>
+  <h1><a href="/" style="color:inherit;text-decoration:none;">SETD5 Syndrome<br><em>Research &amp; Resources</em></a></h1>
   <div class="header-rule"></div>
-  <p class="header-sub">Resources for families navigating a SETD5 Syndrome diagnosis.</p>
+  <p class="header-sub">A parent-built guide for SETD5 Syndrome families: plain-language research, practical tools, and resources for every stage of the journey.</p>
 </header>
 
 <nav class="site-nav">
@@ -452,18 +476,35 @@
     <a href="family-toolkit.html">Family Toolkit</a>
     <a href="setd5-medical-terms-guide.html">Medical Terms</a>
     <a href="setd5-research-2020-to-present.html">Research</a>
+    <a href="helpful-links.html">Helpful Links</a>
     <a href="about.html">Our Story</a>
   </div>
 </nav>
 
 <main>
 
+  <!-- Intro / welcome zone -->
+  <div class="intro-zone">
+    <p class="intro-lead">If you recently received a SETD5 Syndrome diagnosis, you are not alone. This site was built by a parent who spent years gathering what you will find here in one place.</p>
+    <p class="intro-body">The guides below cover what SETD5 Syndrome is, practical tools for navigating school and medical appointments, published research summarized for families, and resources for getting support. Start with the Understanding SETD5 Syndrome guide if this is new territory for you.</p>
+  </div>
+
+  <!-- Start Here banner -->
+  <div class="start-here">
+    <div class="start-here-text">
+      <strong>Newly diagnosed?</strong>
+      <p>Start with our plain-language guide to what SETD5 Syndrome is and what to expect.</p>
+    </div>
+    <a href="understanding-setd5-syndrome.html" class="start-here-btn">Start Here</a>
+  </div>
+
   <!-- Guides zone -->
   <div class="guides-zone">
     <div class="guides-label">Explore the Site</div>
 
     <!-- Featured card -->
-    <a href="understanding-setd5-syndrome.html" class="card card-featured">
+    <a href="understanding-setd5-syndrome.html" class="card card-featured card-newly-diagnosed" style="background:var(--amber-lt);">
+      <span class="featured-badge">Start Here</span>
       <h2>Understanding SETD5 Syndrome</h2>
       <p>A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</p>
       <span class="card-link"><i data-lucide="book-open"></i>View Guide</span>
@@ -494,6 +535,12 @@
         <h2>About This Site</h2>
         <p>This site was built by a SETD5 Syndrome parent, for SETD5 Syndrome families. Here's the story behind it and why it exists.</p>
         <span class="card-link"><i data-lucide="heart"></i>Read More</span>
+      </a>
+
+      <a href="helpful-links.html" class="card" style="--card-accent: var(--deep);">
+        <h2>Helpful Links</h2>
+        <p>Curated links to SETD5 community groups, research registries, rare disease databases, and clinical resources for families and caregivers.</p>
+        <span class="card-link"><i data-lucide="link"></i>View Helpful Links</span>
       </a>
 
     </div>
