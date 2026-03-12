@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build a Site Like This | Best Practices</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:     #faf7f2;
+    --cream2:    #f2ede4;
+    --navy:      #1a2744;
+    --deep:      #2a627a;
+    --teal:      #2a7a6a;
+    --amber:     #c9893a;
+    --amber-lt:  #fdf4e7;
+    --sage:      #4e7c5f;
+    --sage-lt:   #edf5ef;
+    --blue:      #5a80a8;
+    --blue-lt:   #e8eff7;
+    --text:      #2c2c2c;
+    --muted:     #6b6b6b;
+    --border:    #e0d9cf;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 17px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 24px 32px 30px; position: relative; z-index: 1; }
+  .header-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 22px;
+  }
+  .header-eyebrow a { color: rgba(255,255,255,0.75); text-decoration: none; }
+  .header-eyebrow a:hover { color: #fff; }
+  .header-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(32px, 4.5vw, 44px); font-weight: 400;
+    line-height: 1.18; color: #fff; margin-bottom: 16px;
+  }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-subtitle { font-size: 15.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+
+  /* Header collapse */
+  .header-inner { transition: padding 0.175s ease; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
+  .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
+  .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
+  .site-header.collapsed .header-title { font-size: 20px; margin-bottom: 0; }
+
+  /* ── LAYOUT ── */
+  .container {
+    flex: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: #eef7f5;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 36px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .intro-box strong { color: var(--navy); }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 15px;
+    line-height: 1.68;
+  }
+  .callout-amber { background: var(--amber-lt); border-left: 4px solid var(--amber); }
+  .callout-blue  { background: var(--blue-lt);  border-left: 4px solid var(--blue);  }
+  .callout-sage  { background: var(--sage-lt);  border-left: 4px solid var(--sage);  }
+  .callout-teal  { background: #eef7f5;         border-left: 4px solid var(--teal);  }
+  .callout strong { color: var(--navy); display: block; margin-bottom: 5px; font-size: 14px; letter-spacing: .04em; }
+
+  /* ── SECTION HEADINGS ── */
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(21px, 3.5vw, 28px);
+    font-weight: 400;
+    color: var(--navy);
+    border-left: 4px solid var(--amber);
+    padding-left: 14px;
+    margin: 48px 0 18px;
+    line-height: 1.25;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin: 28px 0 10px;
+  }
+
+  /* ── SECTION CARDS ── */
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .section p { margin-bottom: 14px; font-size: 16px; line-height: 1.72; }
+  .section p:last-child { margin-bottom: 0; }
+
+  /* ── NUMBERED BEST PRACTICES ── */
+  .bp-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: bp;
+  }
+  .bp-item {
+    counter-increment: bp;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .bp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .bp-item:first-child { padding-top: 0; }
+  .bp-num {
+    background: var(--navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .bp-content {}
+  .bp-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .bp-desc {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.68;
+  }
+  .bp-desc p { margin-bottom: 8px; font-size: 15px; }
+  .bp-desc p:last-child { margin-bottom: 0; }
+  .bp-tip {
+    margin-top: 10px;
+    background: var(--amber-lt);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .bp-tip strong { color: var(--navy); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 3px; }
+
+  /* ── PHASE STRIP ── */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .phase-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .phase-head {
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .phase-head.teal   { background: var(--teal); }
+  .phase-head.amber  { background: var(--amber); }
+  .phase-head.navy   { background: var(--navy); }
+  .phase-body {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .phase-body ul { list-style: none; padding: 0; }
+  .phase-body li {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .phase-body li:last-child { border-bottom: none; }
+  .phase-body li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* ── EFFICIENCY TABLE ── */
+  .eff-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .eff-table th {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--muted); text-align: left;
+    padding: 0 16px 10px 0; border-bottom: 2px solid var(--border);
+  }
+  .eff-table td {
+    padding: 13px 16px 13px 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .eff-table tr:last-child td { border-bottom: none; }
+  .eff-table td:first-child { font-weight: 600; color: var(--navy); width: 38%; }
+  .eff-table td:last-child { color: var(--muted); font-size: 14px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+  .footer-love { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .footer-legal { max-width: 560px; margin: 0.75rem auto 0; font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .header-inner { padding: 20px 20px 24px; }
+    .container { padding: 32px 20px 60px; }
+    .phase-grid { grid-template-columns: 1fr; }
+    .bp-item { grid-template-columns: 30px 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="header-eyebrow">
+      <a href="index.html">SETD5 Syndrome Research &amp; Resources</a>
+      &nbsp;&rsaquo;&nbsp; Internal Reference
+    </div>
+    <h1 class="header-title">Building a Site <em>Like This One</em></h1>
+    <p class="header-subtitle">Best practices for efficiency, consistency, and sanity when building a static HTML website with AI assistance.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="intro-box">
+    <strong>Who this is for:</strong> Anyone who wants to build a plain HTML/CSS resource website similar to this one. These practices are drawn from the experience of building setd5syndrome.live and are written for someone with some technical familiarity but not a professional development background.
+  </div>
+
+  <!-- ───────────────────────────────────────────── -->
+  <h2>Think in Three Phases</h2>
+
+  <p style="font-size:16px;color:var(--muted);margin-bottom:20px;">Before writing a single line of HTML, it helps to think of the project in three distinct phases. Mixing them together is the most common source of wasted time.</p>
+
+  <div class="phase-grid">
+    <div class="phase-card">
+      <div class="phase-head teal">Phase 1: Foundation</div>
+      <div class="phase-body">
+        <ul>
+          <li>Define the purpose and audience</li>
+          <li>List every page the site needs</li>
+          <li>Choose your color palette and fonts</li>
+          <li>Build one template page</li>
+          <li>Set up GitHub and hosting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-head amber">Phase 2: Content</div>
+      <div class="phase-body">
+        <ul>
+          <li>Write or gather all content first</li>
+          <li>Clone the template for each page</li>
+          <li>Add content before styling</li>
+          <li>Review for accuracy and tone</li>
+          <li>Add meta descriptions</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-head navy">Phase 3: Polish</div>
+      <div class="phase-body">
+        <ul>
+          <li>Refine visual consistency</li>
+          <li>Test on mobile</li>
+          <li>Check all links</li>
+          <li>Update sitemap</li>
+          <li>Publish and verify live</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>The most common mistake</strong>
+    Jumping straight into styling before the content is written. You will redesign everything once the real words are in place. Write first, style second.
+  </div>
+
+  <!-- ───────────────────────────────────────────── -->
+  <h2>Best Practices for Efficiency</h2>
+
+  <div class="section">
+    <ul class="bp-list">
+
+      <li class="bp-item">
+        <div class="bp-num">1</div>
+        <div class="bp-content">
+          <div class="bp-title">Build a design system before building any pages</div>
+          <div class="bp-desc">
+            <p>Decide on your colors, fonts, and spacing before writing a single page. Define them as CSS custom properties (variables) at the top of your template file. Every decision you make upfront saves you from having to update twenty files later when you change your mind about a shade of blue.</p>
+            <p>At minimum, define: background color, body text color, heading color, two accent colors, border color, and a muted text color. Give them meaningful names like <code style="font-family:monospace;font-size:13px;">--teal</code> or <code style="font-family:monospace;font-size:13px;">--amber</code>, not <code style="font-family:monospace;font-size:13px;">--color1</code>.</p>
+          </div>
+          <div class="bp-tip"><strong>Time saver</strong> Ask Claude to generate a full CSS variable block from a description of the mood you want ("warm, trustworthy, approachable") and a few seed colors. Refine from there rather than starting from scratch.</div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">2</div>
+        <div class="bp-content">
+          <div class="bp-title">Build one template page, then clone it for everything else</div>
+          <div class="bp-desc">
+            <p>Spend real time getting one page exactly right: the header, the layout, the typography, the footer, the card styles. Once that page looks and feels correct, every subsequent page starts as a copy of it. You only change the content, not the structure.</p>
+            <p>This is the single biggest efficiency gain in the entire project. Without a solid template, every page becomes a fresh design problem.</p>
+          </div>
+          <div class="bp-tip"><strong>Time saver</strong> Keep your template file named something like <code style="font-family:monospace;font-size:13px;">_template.html</code> so it is easy to find and never accidentally published.</div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">3</div>
+        <div class="bp-content">
+          <div class="bp-title">Keep styles inside each HTML file</div>
+          <div class="bp-desc">
+            <p>For a site like this, embedding styles directly in each page (inside a <code style="font-family:monospace;font-size:13px;">&lt;style&gt;</code> block in the <code style="font-family:monospace;font-size:13px;">&lt;head&gt;</code>) is simpler to manage than a separate stylesheet. Each file is completely self-contained and nothing breaks if files get moved or renamed.</p>
+            <p>The tradeoff is that global changes have to be made page by page. For a site with under 30 pages, this is manageable. For a larger site, a shared stylesheet would make more sense.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">4</div>
+        <div class="bp-content">
+          <div class="bp-title">Write your content before you open a code editor</div>
+          <div class="bp-desc">
+            <p>The words on the page are what the site is for. Get them right first. Write your page content in a plain document or notes app, review it, edit it, and only then bring it into HTML. Trying to write and code simultaneously slows both tasks down.</p>
+            <p>This is also where working with Claude is most effective: describe the page's purpose, share your raw notes and knowledge, and let Claude help you shape it into clear, organized prose that you then review and refine.</p>
+          </div>
+          <div class="bp-tip"><strong>Time saver</strong> Give Claude the messy version: your rough notes, copied research, half-formed thoughts. Ask it to turn that into a structured first draft. Editing a draft is much faster than writing from scratch.</div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">5</div>
+        <div class="bp-content">
+          <div class="bp-title">Set up GitHub from day one</div>
+          <div class="bp-desc">
+            <p>Even before the first page is finished, initialize a GitHub repository and connect it to GitHub Pages. This means every change is versioned, every mistake is reversible, and the site is always backed up. It also means you can work on files locally and push to publish, which is a much cleaner workflow than editing files directly on a server.</p>
+            <p>GitHub Desktop makes this approachable without needing to know command-line git. You can commit and push with two clicks.</p>
+          </div>
+          <div class="bp-tip"><strong>Time saver</strong> Name your repository after your domain name from the start. It avoids confusion later and makes the GitHub Pages URL predictable before the custom domain is connected.</div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">6</div>
+        <div class="bp-content">
+          <div class="bp-title">Keep an element reference page</div>
+          <div class="bp-desc">
+            <p>As soon as you have established your visual language, build a reference page that shows every UI component: card styles, callout boxes, heading levels, button styles, color swatches, typography examples. This page is never published on the site but lives in the folder.</p>
+            <p>When you return to the site after weeks away, this reference page tells you at a glance what patterns to use and what your design decisions were. It also serves as a spec you can hand to Claude: "make this match the style in my reference page."</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">7</div>
+        <div class="bp-content">
+          <div class="bp-title">Use consistent, descriptive file names</div>
+          <div class="bp-desc">
+            <p>Name every file in lowercase with hyphens between words: <code style="font-family:monospace;font-size:13px;">transition-to-adulthood.html</code>, not <code style="font-family:monospace;font-size:13px;">TransitionToAdulthood.html</code> or <code style="font-family:monospace;font-size:13px;">page3.html</code>. Descriptive names become the URL and help both visitors and search engines understand what the page is about before clicking.</p>
+          </div>
+          <div class="bp-tip"><strong>Time saver</strong> Decide your file naming convention on day one and never break it. Renaming files later breaks links and requires updating every page that links to them.</div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">8</div>
+        <div class="bp-content">
+          <div class="bp-title">Write meta descriptions for every page immediately</div>
+          <div class="bp-desc">
+            <p>The <code style="font-family:monospace;font-size:13px;">&lt;meta name="description"&gt;</code> tag controls what appears under your page title in Google search results. Write it at the same time you write the page, while the content is fresh. Going back later to add descriptions to twenty pages is tedious and easy to forget.</p>
+            <p>Keep descriptions between 140 and 160 characters. Be specific about what the page contains and who it is for.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">9</div>
+        <div class="bp-content">
+          <div class="bp-title">Test in a real browser constantly, not just in preview</div>
+          <div class="bp-desc">
+            <p>Open the actual HTML file in Chrome or Safari as you build it. Preview panes in editors and AI tools do not always render things correctly, and they cannot show interactive behaviors like hover states, scrolling, or sticky headers. The browser is the ground truth.</p>
+            <p>Also test on a phone before considering any page finished. Many layout issues only appear on narrow screens.</p>
+          </div>
+          <div class="bp-tip"><strong>Time saver</strong> Keep a browser window with the file open alongside your editor. After every meaningful change, switch to the browser and hit refresh. Catching problems immediately is far faster than debugging accumulated changes later.</div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">10</div>
+        <div class="bp-content">
+          <div class="bp-title">Work with AI iteratively, not in one big request</div>
+          <div class="bp-desc">
+            <p>The most efficient way to use Claude is in short, focused cycles: ask for one thing, review it in the browser, give specific feedback, repeat. Large all-at-once requests ("build me this whole page") tend to produce results that need more correction than a series of smaller, directed steps.</p>
+            <p>Be specific with feedback. "The heading feels too heavy" is harder to act on than "reduce the heading font size to 24px and change the weight from 600 to 400." The more precise the feedback, the faster the iteration.</p>
+          </div>
+          <div class="bp-tip"><strong>Time saver</strong> When something is working well, tell Claude explicitly: "keep everything about the card design, just change the border color." This prevents Claude from second-guessing things that are already correct.</div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">11</div>
+        <div class="bp-content">
+          <div class="bp-title">Use AI for brainstorming, not just execution</div>
+          <div class="bp-desc">
+            <p>Claude is most useful before the coding starts. Describe the page you are planning and ask questions like: What sections should this page have? What would a first-time visitor want to know? What am I probably forgetting? The answers surface gaps and ideas that would otherwise only appear after the page is built and you realize something is missing.</p>
+            <p>Claude can also push back usefully: if a structure you are proposing would confuse readers, it will often flag that before you invest time building it.</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="bp-item">
+        <div class="bp-num">12</div>
+        <div class="bp-content">
+          <div class="bp-title">Keep a running list of what needs updating</div>
+          <div class="bp-desc">
+            <p>Maintain a simple text file or note with things you want to revisit: placeholder text that needs real content, pages that need a meta description, links you still need to find, sections that feel incomplete. Without this list, small unfinished items accumulate invisibly until the site feels rough in ways that are hard to pinpoint.</p>
+            <p>Review the list at the start of every work session. Even completing one or two small items per session keeps the site moving forward steadily.</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- ───────────────────────────────────────────── -->
+  <h2>Common Time Traps to Avoid</h2>
+
+  <div class="section" style="padding:20px 28px;">
+    <table class="eff-table">
+      <thead>
+        <tr>
+          <th>The trap</th>
+          <th>Why it costs time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Perfecting one page before moving on</td>
+          <td>Design decisions that seem final always change once other pages exist. Build all pages to 80% first, then polish together.</td>
+        </tr>
+        <tr>
+          <td>Choosing colors by trial and error</td>
+          <td>Color decisions should be made once, up front, with purpose. Changing a color after it is hardcoded across twenty pages is painful. Use variables from day one.</td>
+        </tr>
+        <tr>
+          <td>Starting from a blank page every time</td>
+          <td>Always clone an existing page. Even a page that needs heavy editing starts faster than one built from scratch.</td>
+        </tr>
+        <tr>
+          <td>Not checking mobile until the end</td>
+          <td>Retrofitting a desktop layout to work on mobile is harder than building responsively from the start. Check mobile after every major layout decision.</td>
+        </tr>
+        <tr>
+          <td>Vague feedback to Claude</td>
+          <td>"Make it look better" produces unpredictable results. Specific feedback ("increase the line height to 1.7 and add 8px more padding inside the cards") produces exactly what you asked for.</td>
+        </tr>
+        <tr>
+          <td>Forgetting to commit before making big changes</td>
+          <td>If you change many things at once and something breaks, it is hard to identify what caused the problem. Commit working versions frequently so you always have a clean rollback point.</td>
+        </tr>
+        <tr>
+          <td>Building features before content</td>
+          <td>Elaborate interactive components on a page with placeholder text create a false sense of progress. Real content reveals real structural needs.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ───────────────────────────────────────────── -->
+  <h2>The Minimum You Need to Launch</h2>
+
+  <div class="section">
+    <p>It is easy to delay launching because the site does not feel "complete." Here is the actual minimum a site needs to go live and be useful:</p>
+
+    <div class="callout callout-teal" style="margin-top:4px;">
+      <strong>Launch checklist</strong>
+      A home page that explains what the site is and links to content. At least two or three content pages that deliver real value. A working domain or GitHub Pages URL. A meta description on every published page. No broken links. Readable on a phone.
+    </div>
+
+    <p>Everything else, including more pages, refined visuals, a sitemap, Open Graph tags for social sharing, and additional features, can be added after launch. A live site with good content beats a perfect site that is never published.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-love">Internal reference document. Not published on the site.</p>
+  <p class="footer-legal">For personal use. Last reviewed March 2026.</p>
+</footer>
+
+<script>
+  const hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) hdr.classList.add('collapsed');
+    else hdr.classList.remove('collapsed');
+  }, { passive: true });
+</script>
+</body>
+</html>
