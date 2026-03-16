@@ -192,7 +192,7 @@
 
   .amber-callout {
     background: var(--amber-lt); border-left: 4px solid var(--amber);
-    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+    border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 28px;
   }
   .amber-callout .callout-label {
     font-size: 11px; font-weight: 600; letter-spacing: .11em;
@@ -201,15 +201,17 @@
   .amber-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   /* ── FEATURE CARDS ── */
-  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; align-items: start; }
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; align-items: start; }
   .feature-grid-3col { grid-template-columns: 1fr 1fr 1fr; }
   @media (max-width: 768px) { .feature-grid { grid-template-columns: 1fr; } .feature-grid-3col { grid-template-columns: 1fr; } }
   /* Two-column list inside a feature card for long lists */
-  .feature-card.two-col-list ul { columns: 2; column-gap: 16px; }
+  .feature-card.two-col-list { grid-column: 1 / -1; }
+  .feature-card.two-col-list ul { columns: 2; column-gap: 24px; }
   @media (max-width: 560px) { .feature-card.two-col-list ul { columns: 1; } }
   .feature-card {
     background: #fff; border: 1px solid var(--border); border-radius: 10px;
     padding: 20px 22px; border-top: 3px solid var(--teal);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   }
   .feature-card.amber-top { border-top-color: var(--amber); }
   .feature-card.rose-top  { border-top-color: var(--deep); }
@@ -222,7 +224,7 @@
   .feature-card ul { list-style: none; padding: 0; }
   .feature-card ul li {
     font-size: 15.5px; padding: 3px 0 3px 18px;
-    position: relative; color: var(--text); line-height: 1.55;
+    position: relative; color: var(--text); line-height: 1.65;
   }
   .feature-card ul li::before {
     content: '·'; position: absolute; left: 5px;
@@ -232,6 +234,9 @@
   .feature-card.rose-top  ul li::before { color: var(--deep); }
   .feature-card.sage-top  ul li::before { color: var(--sage); }
   .feature-card.blue-top  ul li::before { color: var(--blue); }
+
+  /* ── LI NOTE (secondary text within a list item) ── */
+  .li-note { font-size: 13.5px; color: var(--muted); display: block; margin-top: 3px; line-height: 1.5; }
 
   /* ── STEPS ── */
   .steps-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
@@ -643,7 +648,7 @@
 
   <hr class="section-divider">
 
-  <p class="section-label">Physical features</p>
+  <p class="section-label" style="margin-top: 12px;">Physical features</p>
   <h2 class="section-title" id="sec-neuro-phys">Neurological, Physical &amp; Growth Features</h2>
 
   <div class="feature-grid">
@@ -665,7 +670,7 @@
       <ul>
         <li>Triangular-shaped face</li>
         <li>Broad or prominent forehead in some</li>
-        <li>Head size varies; a smaller-than-average head (microcephaly) is the more commonly reported finding, though some individuals have an average or larger-than-average head size, and the shape may vary (for example, flat at the back, sometimes called brachycephaly). Head circumference is one measurement that care teams may track over time.</li>
+        <li>Head size varies; a smaller-than-average head (microcephaly) is the most commonly reported finding. Some have an average or larger head, and the shape may also vary, such as flat at the back (brachycephaly). Head circumference is one measurement care teams may track over time.</li>
         <li>Prominent eyebrows that meet or nearly meet (synophrys)</li>
         <li>Widely spaced eyes (hypertelorism)</li>
         <li>Epicanthal folds (small skin folds at the inner corners of the eyes) in some</li>
@@ -700,9 +705,9 @@
     <div class="feature-card rose-top">
       <h4>Other Medical Features</h4>
       <ul>
-        <li>Congenital heart defects reported in some; various types have been documented. Outcomes depend on the specific defect and are best discussed with a cardiologist.</li>
+        <li>Congenital heart defects reported in some; various types have been documented.<span class="li-note">Outcomes depend on the specific defect and are best discussed with a cardiologist.</span></li>
         <li>Eye and vision anomalies reported in many, including strabismus, nystagmus (involuntary eye movements), long- or short-sightedness, and ptosis (drooping eyelid)</li>
-        <li>Hearing impairment (temporary or permanent) in some; hearing difficulties may impact speech and language development, which is worth discussing with your care team</li>
+        <li>Hearing impairment (temporary or permanent) in some.<span class="li-note">Hearing difficulties may impact speech and language development, which is worth discussing with your care team.</span></li>
         <li>Cryptorchidism (undescended testes) and/or hypospadias in some males</li>
         <li>Inguinal hernia or umbilical hernia in some</li>
         <li>Kidney or urinary tract anomalies reported in some</li>
