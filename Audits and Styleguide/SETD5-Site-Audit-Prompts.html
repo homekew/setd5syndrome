@@ -369,6 +369,7 @@
     <a class="nav-sub" href="#p-2c">2c · Gap Check</a>
     <a class="nav-sub" href="#p-2d">2d · Consistency</a>
     <a class="nav-sub" href="#p-2e">2e · Legal Language</a>
+    <a class="nav-sub" href="#p-2f">2f · Scientific Accuracy</a>
 
     <a class="nav-item" href="#section-3"><span class="num">3</span> UI &amp; Design</a>
     <a class="nav-sub" href="#p-3-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
@@ -468,8 +469,8 @@ Here are the audit recommendations to evaluate:
 
     <div class="prompt-block">
       <h3 class="prompt-title" id="p-2-master">2 · Full Content Accuracy Audit (all subsections)</h3>
-      <p class="use-desc">Runs all five content accuracy checks in a single pass: claim verification, plain language, gap check, consistency, and legal language. Use when you want a comprehensive content review of one page without running each prompt separately.</p>
-      <div class="note-box"><strong>Note:</strong> This is the broadest single prompt in the library. It covers medical, educational, legal, and credibility risks in one pass. Best for full page reviews; for targeted checks use the individual 2a–2e prompts.</div>
+      <p class="use-desc">Runs all six content accuracy checks in a single pass: claim verification, plain language, gap check, consistency, legal language, and scientific accuracy. Use when you want a comprehensive content review of one page without running each prompt separately.</p>
+      <div class="note-box"><strong>Note:</strong> This is the broadest single prompt in the library. It covers medical, educational, legal, credibility, and scientific accuracy risks in one pass. Best for full page reviews; for targeted checks use the individual 2a–2f prompts.</div>
       <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content from setd5syndrome.live across all five content
 accuracy areas below. The site is run by a parent of a child with SETD5
 Syndrome — NOT a medical, educational, legal, or credentialed professional.
@@ -686,6 +687,36 @@ For each item flagged, suggest a revision that:
   - Uses softening language such as 'in our experience', 'you may want to
     explore', 'some families have found', or 'consider speaking with an
     advocate or attorney'
+
+[paste content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2f">2f. Scientific Accuracy Check</h3>
+      <p class="use-desc">Use this to verify that every medical or scientific statement on the page is factually correct and appropriately hedged. Especially important for pages describing the SETD5 gene, inheritance, prevalence, co-occurring conditions, or any claim drawn from published research. Run this any time you add new clinical content or update the Symptoms, Overview, or Genetics tabs.</p>
+      <div class="note-box"><strong>Note:</strong> This prompt is distinct from Claim Verification (2a). Where 2a checks whether a claim is too confident for a parent to make, this prompt checks whether the underlying science is correct in the first place. A claim can pass 2a and still fail here if the medical facts are outdated or inaccurate.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review every medical or scientific statement in the following content for
+factual correctness. For each claim, assign one of these verdicts:
+
+  ACCURATE — supported by published research or established medical consensus
+  UNVERIFIABLE — cannot be confirmed or denied without a source; flag for
+    citation or removal
+  INCORRECT OR OUTDATED — contradicts current published research or medical
+    understanding
+  OVERSIMPLIFIED — directionally correct but simplified to the point of
+    being misleading
+
+Flag claims that:
+  * State how the SETD5 gene functions or malfunctions
+  * Describe inheritance patterns, prevalence, or co-occurring conditions
+  * Reference research findings without a citation
+  * Describe what is or isn't known about the condition
+  * Use statistics or numbers of any kind
+  * Attribute any feature, trait, or characteristic to SETD5 Syndrome
+
+For each flagged item, note what a correct or more accurate version would
+say, or recommend the claim be removed if it cannot be verified against
+published research.
 
 [paste content here]</div>
     </div>
