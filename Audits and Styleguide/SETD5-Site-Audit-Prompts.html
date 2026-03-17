@@ -370,6 +370,10 @@
     <a class="nav-sub" href="#p-2d">2d · Consistency</a>
     <a class="nav-sub" href="#p-2e">2e · Legal Language</a>
     <a class="nav-sub" href="#p-2f">2f · Scientific Accuracy</a>
+    <a class="nav-sub" href="#p-2g">2g · Readability &amp; Cognitive Load</a>
+    <a class="nav-sub" href="#p-2h">2h · Content Duplication</a>
+    <a class="nav-sub" href="#p-2i">2i · Citation Traceability</a>
+    <a class="nav-sub" href="#p-2j">2j · FAQ Quality</a>
 
     <a class="nav-item" href="#section-3"><span class="num">3</span> UI &amp; Design</a>
     <a class="nav-sub" href="#p-3-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
@@ -381,6 +385,11 @@
     <a class="nav-sub" href="#p-3f">3f · Full Visual Design</a>
     <a class="nav-sub" href="#p-3g">3g · Formatting Consistency</a>
     <a class="nav-sub" href="#p-3h">3h · Technical Accessibility</a>
+    <a class="nav-sub" href="#p-3i">3i · Browser &amp; Device QA</a>
+    <a class="nav-sub" href="#p-3j">3j · Page Purpose &amp; CTAs</a>
+    <a class="nav-sub" href="#p-3k">3k · Image &amp; Media Strategy</a>
+    <a class="nav-sub" href="#p-3l">3l · Navigation Labels</a>
+    <a class="nav-sub" href="#p-3m">3m · Homepage Messaging</a>
 
     <a class="nav-item" href="#section-4"><span class="num">4</span> Site Protection</a>
     <a class="nav-sub" href="#p-4-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
@@ -401,15 +410,27 @@
     <a class="nav-item" href="#section-7"><span class="num">7</span> Information Requests</a>
     <a class="nav-sub" href="#p-7a">7a · What to Add to the Site</a>
     <a class="nav-sub" href="#p-7b">7b · Evaluate an External Source</a>
+    <a class="nav-sub" href="#p-7c">7c · Content Gap Opportunities</a>
 
     <a class="nav-item" href="#section-8"><span class="num">8</span> Writing &amp; Editing</a>
     <a class="nav-sub" href="#p-8a">8a · Research Summary Card</a>
     <a class="nav-sub" href="#p-8b">8b · Draft New Page Content</a>
     <a class="nav-sub" href="#p-8c">8c · De-AI Writing Check</a>
+    <a class="nav-sub" href="#p-8d">8d · Section Rewrite</a>
+    <a class="nav-sub" href="#p-8e">8e · Format Decision</a>
+    <a class="nav-sub" href="#p-8f">8f · Style &amp; Voice Governance</a>
 
     <a class="nav-item" href="#section-9"><span class="num">9</span> Discoverability &amp; Maintenance</a>
     <a class="nav-sub" href="#p-9a">9a · SEO &amp; Discoverability</a>
     <a class="nav-sub" href="#p-9b">9b · Periodic Maintenance Review</a>
+    <a class="nav-sub" href="#p-9c">9c · Technical SEO &amp; Metadata</a>
+    <a class="nav-sub" href="#p-9d">9d · Social &amp; Search Preview</a>
+    <a class="nav-sub" href="#p-9e">9e · Search Intent &amp; Keywords</a>
+
+    <a class="nav-item" href="#section-10"><span class="num">10</span> Technical &amp; Performance</a>
+    <a class="nav-sub" href="#p-10a">10a · Core Web Vitals</a>
+    <a class="nav-sub" href="#p-10b">10b · Broken Links &amp; Assets</a>
+    <a class="nav-sub" href="#p-10c">10c · Internal Linking</a>
   </nav>
 
   <!-- MAIN -->
@@ -733,6 +754,176 @@ say, or recommend the claim be removed if it cannot be verified against
 published research.
 
 [paste content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2g">2g. Readability &amp; Cognitive Load Check</h3>
+      <p class="use-desc">Use this to reduce mental strain on pages that may overwhelm a stressed or newly diagnosed reader. Goes beyond grammar — focuses on how demanding the page feels to process.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for readability and cognitive
+load.
+
+This site may be read by parents who are overwhelmed, exhausted, or new to the
+topic. Focus not just on grammar, but on how mentally demanding the page feels.
+
+Evaluate:
+
+READING EASE
+- Are sentence length, paragraph length, and wording manageable?
+- Are there places where the text becomes too dense, abstract, or repetitive?
+
+COGNITIVE LOAD
+- Does the page ask the reader to process too much at once?
+- Are there sections that need better chunking, headings, bullets, or callouts?
+
+JARGON
+- Are unfamiliar terms explained clearly enough?
+- Are there words that may be accurate but still too hard for this audience?
+
+VISUAL READING FLOW
+- Would the page feel approachable on a screen?
+- Are there places where the structure itself makes the content harder to take in?
+
+EMOTIONAL READABILITY
+- Does the page feel steady and manageable, or does it risk overwhelming a
+  worried reader?
+
+Return:
+A. What is easy to read
+B. Sections with high cognitive load
+C. The biggest readability improvements to make first
+D. A short rewritten sample of the hardest section if useful
+
+[paste page URL or content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2h">2h. Content Duplication &amp; Redundancy Audit</h3>
+      <p class="use-desc">Use this to find repeated explanations and overlap between pages. As the site grows, saying the same thing in slightly different places weakens trust and makes content harder to maintain.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following pages or page set from setd5syndrome.live for content
+duplication, repeated explanations, and redundancy.
+
+As this site grows, I want to avoid saying the same thing in too many places,
+especially in slightly different ways that may confuse readers or weaken trust.
+
+Evaluate:
+
+DUPLICATED TOPICS
+- Are the same explanations, intros, disclaimers, or definitions repeated
+  across pages?
+- Which repeated content feels useful, and which feels excessive?
+
+NEAR-DUPLICATE LANGUAGE
+- Are there sections that say almost the same thing with only minor wording
+  changes?
+- Do any repeated explanations risk making the site feel bloated or
+  inconsistent?
+
+ROLE OF EACH PAGE
+- Does each page have a distinct job?
+- Are some pages too similar in scope and better merged or differentiated?
+
+READER EXPERIENCE
+- Would a returning reader feel like they keep seeing the same material?
+- Are there places where repetition makes the site harder to navigate or trust?
+
+EDITORIAL MAINTENANCE
+- Are there sections that will become hard to keep consistent over time because
+  the same idea lives in too many places?
+
+Return:
+A. Useful repetition vs unnecessary repetition
+B. Specific overlap problems
+C. Pages or sections that need clearer differentiation
+D. Consolidation recommendations
+
+[paste page set, URLs, or multiple page texts here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2i">2i. Citation &amp; Source Traceability Check</h3>
+      <p class="use-desc">Use this to verify that factual claims are clearly tied to strong, visible sources and that readers can tell the difference between research-backed facts and parent perspective.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for citation quality and
+source traceability.
+
+This site is meant to be trustworthy, careful, and responsible. Look specifically
+at whether scientific, medical, educational, or descriptive claims are tied
+clearly enough to reliable sources, and whether a reader can tell what is
+research-based versus parent perspective.
+
+Evaluate:
+
+TRACEABILITY
+- Can the reader tell where important factual claims come from?
+- Are sources attached closely enough to the claims they support?
+
+SCIENTIFIC &amp; MEDICAL CLAIMS
+- Which claims clearly need a source?
+- Which claims are sourced weakly, incompletely, or too broadly?
+- Are there claims that overstate what the cited source actually shows?
+
+PARENT EXPERIENCE VS FACT
+- Is it clear what is lived experience, general explanation, practical
+  suggestion, or research-backed fact?
+- Are there areas where those categories blur in a way that could reduce trust?
+
+SOURCE QUALITY
+- Are the likely sources strong and appropriate?
+- Are there signs the page relies too heavily on secondary summaries or
+  vague references instead of primary or reputable sources?
+
+READER CONFIDENCE
+- Would a careful reader understand why they should trust this page?
+- Are there places where clearer sourcing would improve credibility without
+  making the page feel overly academic?
+
+Return:
+A. Claims that are well-supported
+B. Claims that need better sourcing
+C. Claims that need softening even with a source
+D. A practical citation improvement plan for the page
+
+[paste page URL, page content, or research notes here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-2j">2j. FAQ Quality &amp; Gap Analysis</h3>
+      <p class="use-desc">Use this when adding or reviewing an FAQ page or section. Checks whether the questions are the right ones, the answers are appropriately careful, and the FAQ is doing real work rather than collecting random content.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following FAQ page or FAQ section from setd5syndrome.live.
+
+I want to know whether the FAQ is actually useful, not just a place to collect
+random questions. Think like a senior writer and editor for a family-facing
+information site.
+
+Evaluate:
+
+QUESTION QUALITY
+- Are these the right questions?
+- Do they reflect real parent concerns and likely first-time questions?
+- Are any questions too narrow, too obvious, too repetitive, or missing?
+
+ANSWER QUALITY
+- Are the answers clear, calm, and appropriately careful?
+- Are they too long, too vague, too technical, or too absolute?
+
+ORGANIZATION
+- Are the FAQs grouped logically?
+- Would readers be able to scan and find what they need?
+
+REDUNDANCY
+- Does the FAQ repeat what the page or site already explains elsewhere?
+- Are there answers that should instead link out to fuller pages?
+
+TONE &amp; RISK
+- Are there any answers that sound too clinical, too directive, or too definitive?
+- Any that could be mistaken for medical, legal, or educational advice?
+
+Return:
+A. Strong FAQ items
+B. Weak or unnecessary FAQ items
+C. Important missing questions
+D. Revised FAQ structure or wording suggestions
+
+[paste FAQ content here]</div>
     </div>
 
     <!-- ══════════════════════════════════════════ -->
@@ -1213,6 +1404,239 @@ For each issue found:
   3. Suggest a specific fix
 
 [paste page HTML or content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3i">3i. Browser &amp; Device QA Review</h3>
+      <p class="use-desc">Use this to catch layout and usability issues across phones, tablets, desktop, and different browsers. Especially useful after making structural changes to a page.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live as a browser and device QA
+specialist.
+
+This is a family-facing informational website. Identify issues that may appear
+across devices, screen sizes, or browsers — especially issues that make the
+site feel unreliable, awkward, or amateur.
+
+Evaluate:
+
+SCREEN SIZES
+- Does the layout likely hold up on small phones, large phones, tablets, laptops,
+  and wide desktop screens?
+- Are there sections likely to feel cramped, stretched, or poorly spaced?
+
+BROWSER BEHAVIOR
+- Are there patterns that commonly break in Safari, Firefox, or Chrome?
+- Are sticky elements, backdrop blur, viewport units, or custom form styles
+  likely to behave inconsistently?
+
+TEXT &amp; OVERFLOW
+- Is text likely to wrap awkwardly or overflow containers?
+- Are long headings, buttons, cards, or navigation items likely to break on
+  smaller screens?
+- Is there any risk of horizontal scrolling?
+
+TAP TARGETS &amp; INTERACTION
+- Are menus, buttons, links, accordions, or tabs likely too small or too close
+  together on touch devices?
+- Are hover-only interactions being relied on too heavily?
+
+STICKY / FIXED ELEMENTS
+- Could sticky headers or fixed elements overlap content or create layout bugs
+  on mobile?
+
+MEDIA &amp; COMPONENTS
+- Are images, tables, embeds, and cards likely to scale properly?
+- Are there components likely to clip, stack badly, or become hard to use on
+  smaller screens?
+
+Return:
+A. Most likely cross-device or cross-browser issues
+B. High-priority fixes
+C. Medium and low concerns
+D. Specific mobile risks to address first
+
+[paste page URL, HTML, screenshots, or component code here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3j">3j. Page Purpose &amp; CTA Effectiveness</h3>
+      <p class="use-desc">Use this to check whether a page has a clear job and a clear next step. Every page should guide the reader somewhere — even on a non-commercial site.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for page purpose and call-to-
+action effectiveness.
+
+This is not a sales page, but every page should have a clear job. I want to know
+whether the page's purpose is obvious and whether the reader is gently guided
+toward the right next step.
+
+Evaluate:
+
+PRIMARY PURPOSE
+- What appears to be the main goal of this page?
+- Is that goal immediately clear?
+- Does the page stay focused, or does it try to do too many things?
+
+PRIMARY CTA
+- Is there a clear main next step for the reader?
+- Is it specific enough?
+- Is it placed where readers are likely to notice it?
+
+SECONDARY ACTIONS
+- Are there too many competing actions?
+- Are secondary links well prioritized, or do they distract from the main purpose?
+
+READER GUIDANCE
+- Does the page help a confused or stressed reader know what to do next?
+- Are there places where the reader may reach the end and feel stranded?
+
+TONE OF THE CTA
+- Does the CTA feel calm, supportive, and appropriate for this kind of site?
+- Is it too vague, too demanding, too buried, or too generic?
+
+Return:
+A. The page's likely main purpose
+B. Whether the CTA strategy is working
+C. Missed opportunities
+D. Better CTA suggestions if needed
+
+[paste page URL, HTML, or page content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3k">3k. Image &amp; Media Strategy Review</h3>
+      <p class="use-desc">Use this to check whether visuals are building trust and supporting understanding, or just taking up space. Covers emotional tone, comprehension, mobile legibility, and accessibility.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for image and media strategy.
+
+I want to know whether the images, graphics, screenshots, icons, and other media
+are helping the page feel trustworthy, understandable, and emotionally appropriate.
+This is not just about aesthetics — it is about clarity, tone, and usefulness.
+
+Evaluate:
+
+TRUST &amp; HUMAN FEEL
+- Do the images and media help the page feel credible and human?
+- Do they feel generic, stock-heavy, cold, or overly polished?
+
+COMPREHENSION
+- Do the visuals help explain the content?
+- Are there places where an image, diagram, chart, or screenshot would help
+  more than text alone?
+- Are there visuals present that do not add much value?
+
+EMOTIONAL TONE
+- Do the visuals match the seriousness and sensitivity of the topic?
+- Is anything visually too clinical, too cheerful, too sterile, or too heavy?
+
+MOBILE LEGIBILITY
+- If screenshots, diagrams, or text-on-image graphics are used, are they
+  readable on a phone?
+- Are there any visuals that may become useless at small sizes?
+
+CONSISTENCY
+- Do icons, cards, illustrations, and photo choices feel intentional?
+- Are there mismatched styles that may make the site feel less polished?
+
+ACCESSIBILITY
+- Are important visuals described well enough with alt text or surrounding
+  context?
+- Is meaning ever dependent on visuals alone?
+
+Return:
+A. What the current media is doing well
+B. Weak visuals or missed opportunities
+C. High-priority image/media improvements
+D. Suggestions for what types of visuals would help most
+
+[paste page URL, screenshots, or page content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3l">3l. Navigation Label Clarity Review</h3>
+      <p class="use-desc">Use this to check whether menu and navigation labels make immediate sense to a stressed first-time visitor. Covers label clarity, information scent, prioritization, and consistency with page titles.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the navigation labels, menu structure, or page labels for
+setd5syndrome.live.
+
+This is a family-facing informational site. I want to know whether the menu and
+navigation language is intuitive, calm, and immediately understandable to a
+stressed first-time visitor.
+
+Evaluate:
+
+LABEL CLARITY
+- Are the menu labels clear to a non-expert?
+- Are any labels too vague, too technical, too broad, or too similar to each
+  other?
+
+SCANNABILITY
+- Can someone quickly understand where to go?
+- Are the labels easy to scan on desktop and mobile?
+
+INFORMATION SCENT
+- Do the labels give a strong hint about what will be inside each section?
+- Are there labels that sound good but do not actually help users choose?
+
+PRIORITIZATION
+- Are the most important sections surfaced first?
+- Is the menu too crowded or missing obvious categories?
+
+CONSISTENCY
+- Do navigation labels match page titles and internal links?
+- Are there naming mismatches that may confuse users?
+
+Return:
+A. What the current navigation is doing well
+B. Labels that may confuse readers
+C. Better naming options
+D. Structural navigation improvements if needed
+
+[paste menu labels, sitemap, or navigation HTML here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3m">3m. Homepage Messaging Strategy Review</h3>
+      <p class="use-desc">Use this to evaluate the homepage hierarchy, first impression, and visitor pathways. Especially useful after changes to the hero, subheader, or section ordering.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the homepage content or homepage draft for setd5syndrome.live as a
+homepage messaging strategist.
+
+This site serves families looking for information about SETD5 Syndrome. The
+homepage needs to make an immediate, calm, trustworthy impression and help
+different kinds of visitors understand where to go next.
+
+Evaluate:
+
+ABOVE THE FOLD
+- Is the main headline clear, specific, and emotionally appropriate?
+- Does the subheadline quickly explain what the site is and who it is for?
+- Is the first screen strong enough for a first-time visitor who may be anxious
+  or overwhelmed?
+
+MESSAGE HIERARCHY
+- Does the page clearly communicate what the site offers?
+- Are the most important messages in the right order?
+- Is anything crucial missing from the first impression?
+
+TRUST SIGNALS
+- Does the homepage build trust without overstating authority?
+- Are disclaimers, source explanations, parent perspective, and practical value
+  balanced well?
+
+NAVIGATION TO NEXT STEPS
+- Can a newly diagnosed parent quickly find the best place to begin?
+- Can other visitors quickly identify the relevant path for them?
+
+CTA STRATEGY
+- Is there a clear main next step?
+- Are there too many competing priorities on the homepage?
+
+EMOTIONAL TONE
+- Does the homepage feel steady, welcoming, and credible?
+- Is it too dense, too vague, too emotionally heavy, or too generic?
+
+Return:
+A. What is working well
+B. Homepage messaging weaknesses
+C. The most important changes to make first
+D. A stronger homepage content hierarchy if needed
+
+[paste homepage URL, text, or screenshot here]</div>
     </div>
 
     <!-- ══════════════════════════════════════════ -->
@@ -1849,6 +2273,49 @@ Here is the source to evaluate:
 [paste URL or content here]</div>
     </div>
 
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-7c">7c. New Page Opportunity &amp; Content Gap Review</h3>
+      <p class="use-desc">Use this to identify worthwhile missing pages rather than adding filler. Reviews your current content against what families typically need and flags practical, high-value additions worth building.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the current page set, sitemap, or content outline for
+setd5syndrome.live and identify worthwhile missing pages or missing content
+areas.
+
+This is a family-facing informational site about SETD5 Syndrome. I do not want
+filler pages. I want practical, high-value content opportunities that would
+make the site more useful, easier to navigate, and more complete.
+
+Evaluate the following:
+
+CONTENT GAPS
+- What important parent questions or practical topics are not yet covered well?
+- Which missing topics are most worth adding?
+
+USER JOURNEYS
+- Are there stages of the reader journey that feel unsupported, such as newly
+  diagnosed, school-age years, services, daily life, care coordination,
+  adulthood, or emotional support?
+
+SITE COMPLETENESS
+- Are there obvious missing support pages, bridge pages, glossary pages, or
+  practical guides?
+
+PRIORITIZATION
+- Which missing pages would provide the biggest value?
+- Which ones should be added first, and which can wait?
+
+REDUNDANCY CHECK
+- Only recommend new pages that deserve to exist as distinct content, not
+  topics that should simply be folded into existing pages.
+
+Return:
+A. High-value missing pages
+B. Medium-value additions
+C. Topics that should stay integrated rather than become separate pages
+D. Suggested page titles and brief purpose for each new page
+
+[paste sitemap, page list, or content inventory here]</div>
+    </div>
+
     <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 8 -->
     <!-- ══════════════════════════════════════════ -->
@@ -1999,6 +2466,138 @@ For each item flagged:
 [paste content here]</div>
     </div>
 
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-8d">8d. Section-Specific Rewrite</h3>
+      <p class="use-desc">Use this when one section needs improvement but the full page doesn't need to be rewritten. Produces a focused editorial review and a clean rewrite of that section only — with notes on why specific changes were made.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review and rewrite the specific section below from setd5syndrome.live.
+
+I do not want a full-page rewrite. I want a focused editorial review of this
+one section only. Think like a senior writer and editor working on a family-
+facing informational site about SETD5 Syndrome.
+
+Please evaluate the section for:
+
+- clarity
+- factual caution
+- emotional tone
+- readability
+- sentence flow
+- repetition
+- jargon
+- whether it sounds too clinical, too vague, or too absolute
+- whether it fits a calm, trustworthy parent-information site
+
+Then do the following:
+
+1. Briefly explain what is not working well in this section
+2. Identify any factual, tone, readability, or structure concerns
+3. Rewrite the section so it is:
+   - clearer
+   - smoother
+   - better organized
+   - more appropriate for a family audience
+   - careful not to overstate certainty
+4. Keep the meaning intact unless something clearly needs softening or
+   correction
+5. Do not rewrite the whole page or add unrelated content
+
+Return:
+A. Main issues in the original section
+B. Revised section
+C. Notes on why the revision is stronger
+
+[paste the section here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-8e">8e. Page vs Section vs Card — Format Decision</h3>
+      <p class="use-desc">Use this when you're not sure whether a topic deserves its own page or should live as a section, card, FAQ, or note box. Helps you avoid creating unnecessary pages while also avoiding the mistake of burying important content inline.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content ideas, page content, or draft material from
+setd5syndrome.live and help determine the right format for each piece of
+information.
+
+I want to make the site feel organized and easy to use. Not every topic should
+be a full page. Some content may work better as a section, card, FAQ, callout,
+accordion, checklist, or note box. Think like both a UX content strategist
+and an editor.
+
+For each piece of content, determine whether it should be:
+
+- a full standalone page
+- a subsection on an existing page
+- a card within a resource grid
+- a note box or callout
+- an FAQ item
+- an accordion section
+- a checklist
+- a downloadable guide
+- or something else
+
+Evaluate based on:
+- importance
+- complexity
+- likely search value
+- emotional weight
+- how often users will need it
+- whether it needs deep explanation
+- whether it is better as quick-reference content
+- whether it would clutter a page if left inline
+
+Return:
+A. The best format for each content item
+B. Why that format is the best fit
+C. Which items deserve full pages
+D. Which items should stay lightweight to avoid clutter
+
+[paste content ideas, page outline, or draft material here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-8f">8f. Style System &amp; Voice Governance Review</h3>
+      <p class="use-desc">Use this when the site has grown and you want to make sure all pages still feel like they belong together. Identifies terminology drift, tone inconsistencies, and formatting differences — and produces a draft list of style guide rules to lock things in going forward.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following pages or page content from setd5syndrome.live to identify
+what should be standardized in a site-wide style and voice guide.
+
+This site needs to feel consistent, calm, trustworthy, and professionally
+edited, even as pages are created over time. Act like a senior editor building
+a governance system for the whole site.
+
+Evaluate the following:
+
+TERMINOLOGY
+- Are key terms used consistently?
+- Are there places where naming varies in ways that may confuse readers,
+  such as: SETD5 Syndrome, SETD5-related disorder, pathogenic variant,
+  mutation, deletion, diagnosis, or support services?
+
+TONE
+- Is the tone consistently calm, respectful, and clear?
+- Are some sections more clinical, more casual, more emotional, or more
+  formal than others?
+
+FORMAT CONSISTENCY
+- Are headings, lists, note boxes, button labels, links, disclaimers, and
+  callouts handled consistently?
+- Are dates, percentages, references, and definitions styled consistently?
+
+READER EXPECTATIONS
+- Would a reader feel like all pages belong to the same site and editorial
+  standard?
+- Where does the voice drift or become uneven?
+
+GOVERNANCE NEEDS
+- Which recurring style decisions should be locked into a site-wide guide
+  so future pages stay consistent?
+
+Return:
+A. What is already consistent
+B. Style and voice inconsistencies
+C. What should be standardized site-wide
+D. A draft list of style guide rules based on this review
+
+[paste multiple pages, page text, or style samples here]</div>
+    </div>
+
     <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 9 -->
     <!-- ══════════════════════════════════════════ -->
@@ -2126,6 +2725,333 @@ FRESHNESS SIGNALS
   time and may now feel stale
 
 [paste page content here — can be one page or multiple pages at once]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-9c">9c. Technical SEO &amp; Metadata Check</h3>
+      <p class="use-desc">Use this to review page-level technical SEO: title tags, meta descriptions, heading structure, Open Graph tags, structured data, and indexing signals. This is the technical complement to the content discoverability check in 9a.</p>
+      <div class="note-box"><strong>Note:</strong> Run this on one page at a time. Paste in either the full HTML or the page URL plus its metadata. Works well alongside 9a (content discoverability) for a complete picture of how well a page can be found and previewed.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for technical SEO and
+metadata quality.
+
+This is a family information site about SETD5 Syndrome. The goal is for
+families, caregivers, and professionals to be able to find clear, trustworthy
+information through search. I want a page-level technical SEO review, not a
+general marketing plan.
+
+Evaluate the following:
+
+INDEXING &amp; CRAWLABILITY
+- Is there anything that could prevent this page from being indexed properly?
+- Are there signs the page may be duplicative, thin, or unclear to search
+  engines?
+- Does the page appear to have a clear canonical purpose?
+
+TITLE TAG
+- Is the title tag specific, accurate, and likely to perform well in search?
+- Does it clearly reflect what the page is about?
+- Is it too vague, too long, too repetitive, or missing important SETD5 terms?
+
+META DESCRIPTION
+- Does the meta description clearly describe the page?
+- Would it be useful and compelling to a parent scanning search results?
+- Is it too generic, too long, too short, or missing the page's main value?
+
+HEADINGS
+- Is there a clear H1?
+- Do the H2/H3 headings support the page topic logically?
+- Are there heading issues that could weaken clarity for search engines
+  or users?
+
+CANONICAL / DUPLICATION RISK
+- Is there any sign this page may duplicate other pages on the site?
+- If so, what content overlap should be reduced or clarified?
+
+OPEN GRAPH / SOCIAL META
+- Are Open Graph and social preview tags present and appropriate?
+- Would the page preview well if shared in Facebook, Slack, iMessage, or X?
+
+IMAGE SEO
+- Do important images have useful filenames, alt text, and context?
+- Are there missed opportunities for images to reinforce the page topic?
+
+STRUCTURED DATA
+- Would this page benefit from structured data?
+- If so, what type: article, FAQ, breadcrumb, organization, medical web page,
+  or something else?
+- Only recommend schema that is clearly appropriate and not misleading.
+
+URL / SLUG QUALITY
+- Is the URL clear, readable, and descriptive?
+- Does it match what families would expect from the page?
+
+Return:
+A. What is working well
+B. Technical SEO issues or missed opportunities
+C. High-priority fixes first
+D. Revised title tag and meta description suggestions if needed
+
+[paste page URL, HTML, or page content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-9d">9d. Social Sharing &amp; Search Result Preview</h3>
+      <p class="use-desc">Use this to evaluate how a page looks when shared or discovered outside the site. Covers Google search previews, social card previews (Open Graph), and whether the first impression earns a click from a stressed or time-pressed parent.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for how it is likely to
+appear when shared or discovered outside the site.
+
+I want to know whether this page would make a strong, trustworthy first
+impression in Google results and social previews. Think about how a stressed
+parent might react when they first encounter this page.
+
+Evaluate the following:
+
+SEARCH RESULT PREVIEW
+- Would the title and meta description look clear, useful, and trustworthy
+  in Google?
+- Would the result feel specific enough to earn a click?
+- Is the wording too vague, too technical, too flat, or too emotionally heavy?
+
+SOCIAL SHARING PREVIEW
+- If this page were shared in Facebook, Slack, iMessage, or X, would the
+  preview title, description, and image feel credible and helpful?
+- Is the preview likely to be clear even if someone only glances at it?
+
+PREVIEW IMAGE
+- Does the page appear to have an image that would crop well and still look
+  readable?
+- Would any text in the image likely be too small?
+- Would the image feel warm and trustworthy, or generic and weak?
+
+MESSAGE CLARITY
+- Does the preview make clear what kind of page this is?
+- Would a parent know whether the page contains overview information,
+  practical help, a guide, or a personal story?
+
+CONSISTENCY
+- Does the likely preview match the page itself?
+- Is there any risk of a misleading promise or a weak first impression?
+
+Return:
+A. Likely strengths of the preview
+B. Likely weaknesses or missed opportunities
+C. A stronger search result title and description
+D. A better social preview strategy if needed
+
+[paste page URL, metadata, screenshot, or page content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-9e">9e. Search Intent &amp; Keyword Targeting</h3>
+      <p class="use-desc">Use this to check whether a page matches what real users are actually searching for. Evaluates intent alignment, natural keyword presence, and overlap with other site pages — without encouraging keyword stuffing.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for search intent alignment
+and keyword targeting.
+
+I do not want keyword stuffing. I want to know whether the page matches what
+a real parent, caregiver, or professional might actually search for, and
+whether the page clearly satisfies that intent.
+
+Evaluate the following:
+
+SEARCH INTENT
+- What search intent does this page currently seem to target?
+- Is it informational, navigational, practical, explanatory, or mixed?
+- Is that intent clear and appropriate?
+
+KEYWORD ALIGNMENT
+- What phrases is this page most likely trying to rank for?
+- Are those phrases naturally supported in the title, headings, and body?
+- Are there any important SETD5-related search phrases that are missing?
+
+INTENT MATCH
+- Would someone searching for this topic feel satisfied by the page?
+- Does the page answer the likely question clearly enough?
+- Does it drift away from the likely search purpose?
+
+OVERLAP
+- Is this page competing too much with another page on the same site?
+- Should the topic targeting be narrowed or clarified?
+
+NATURAL LANGUAGE
+- Does the page sound natural and human, or too optimized and repetitive?
+- Are there places where small wording changes would improve relevance
+  without harming quality?
+
+Return:
+A. Likely search intent of the page
+B. Targeting strengths
+C. Gaps or mismatches
+D. Better keyword/topic alignment suggestions
+
+[paste page URL, content, or headings here]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 10 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-10"></div>
+    <h2 class="section-title"><span class="sec-num">10</span> Technical &amp; Performance</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-10a">10a. Core Web Vitals &amp; Performance Review</h3>
+      <p class="use-desc">Use this to identify likely speed, layout stability, and mobile performance problems. Works best when you paste the page HTML or a screenshot — Claude will identify the most likely causes of slow load times, layout shifts, and mobile friction without needing a full audit tool.</p>
+      <div class="note-box"><strong>Note:</strong> This is a review of likely issues, not a replacement for running PageSpeed Insights or Lighthouse on the live site. Use this to get a quick read on where to look, then verify with real tools.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for performance and user-
+perceived loading quality.
+
+This is not a code-style review. I want you to think like a front-end
+performance reviewer and identify what may be slowing the page down, causing
+layout shifts, or making the experience feel sluggish or unstable.
+
+Evaluate the following:
+
+CORE WEB VITALS RISKS
+- What are the likely LCP risks?
+- What are the likely CLS risks?
+- What are the likely INP or responsiveness risks?
+
+IMAGES
+- Are hero images, cards, icons, or other images likely too large?
+- Should any images be compressed, resized, lazy-loaded, or replaced?
+- Are there decorative images that may not justify their performance cost?
+
+FONTS
+- Are custom fonts likely slowing the page or causing visual shifts?
+- Is there risk from too many font weights, font files, or render-blocking
+  font loads?
+
+CSS / JAVASCRIPT
+- Does the page appear overly dependent on JS for things that could be
+  simpler?
+- Are there likely render-blocking assets?
+- Is there unnecessary complexity in the way the page is built?
+
+LAYOUT STABILITY
+- Could content jump while loading?
+- Are image containers, embeds, buttons, or banners missing reserved space?
+- Are sticky elements likely to create jank or overlap issues?
+
+MOBILE PERFORMANCE
+- Would this page feel heavy or frustrating on a phone?
+- Are there sections that are too long, too dense, or too expensive to load
+  on mobile?
+
+EMBEDS / THIRD-PARTY COST
+- Are videos, widgets, analytics, font services, or social embeds likely
+  adding too much overhead?
+- Which ones are worth keeping, and which may be hurting performance more
+  than they help?
+
+Return:
+A. Likely high-impact performance problems
+B. Medium and low concerns
+C. The 5 best fixes to make first
+D. Anything that may especially hurt mobile users
+
+[paste page URL, HTML, screenshot, or code here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-10b">10b. Broken Links, Buttons &amp; Asset Check</h3>
+      <p class="use-desc">Use this to catch pages, files, buttons, or in-page links that may not actually work. Covers internal links, external links, anchor links, CTAs, downloads, and redirect risks — all in one pass.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page or site content from setd5syndrome.live for link,
+button, anchor, redirect, and asset integrity.
+
+I want a functional QA review focused on whether users can successfully move
+through the page and access what is promised. This is not about visual design
+or wording unless it directly affects usability.
+
+Check for the following:
+
+LINKS
+- Any internal links that may be broken, incorrect, outdated, or misleading
+- External links that may be dead, redirected poorly, or no longer match
+  the text around them
+- Links that appear to go to one thing but actually go somewhere else
+
+BUTTONS &amp; CTAS
+- Buttons that may not work
+- Buttons that may be visually clickable but are not actually interactive
+- Calls to action that may lead to the wrong destination or a weak
+  destination
+
+ANCHOR LINKS
+- Jump links that may not land correctly
+- Table-of-contents links that may not align with the correct section
+- Duplicate IDs or missing anchors that may break in-page navigation
+
+FILES &amp; DOWNLOADS
+- PDF, document, image, or media links that may be missing or mislinked
+- Downloads that appear promised but may not exist
+- File names or paths that may be fragile or inconsistent
+
+REDIRECTS &amp; URL CLEANLINESS
+- Links likely to trigger unnecessary redirects
+- Old URLs that should be updated to final destination URLs
+- Any risk of 404s, mixed destinations, or inconsistent slash usage
+
+TRUST &amp; MAINTENANCE RISK
+- Places where users may lose trust because something appears broken
+- Areas that may become harder to maintain as the site grows
+
+Return:
+A. Likely broken or risky items
+B. Medium-risk issues
+C. Quick wins to fix first
+D. Any patterns suggesting broader maintenance problems
+
+[paste page URL, full page list, HTML, or navigation structure here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-10c">10c. Internal Linking &amp; Site Architecture</h3>
+      <p class="use-desc">Use this to assess whether pages connect well and guide overwhelmed visitors toward the right next step. Evaluates how pages link to each other, whether any pages feel isolated, and whether the overall structure makes sense for a growing site.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page or page set from setd5syndrome.live for internal
+linking and site architecture.
+
+This site is meant to help families find information clearly and calmly,
+especially when they are overwhelmed. I want to know whether the site
+structure and internal links guide people well, reduce dead ends, and support
+both readability and discoverability.
+
+Evaluate the following:
+
+PAGE PURPOSE IN THE SITE
+- What role does this page appear to play in the broader site?
+- Is its place in the site structure clear?
+
+INTERNAL LINKS
+- Does the page link to the most relevant next pages?
+- Are there important related pages that should be linked but are not?
+- Are there too many links, too few links, or poorly prioritized links?
+
+USER PATHWAYS
+- Can a newly diagnosed parent move logically from this page to the next
+  most useful page?
+- Can a returning visitor quickly find deeper or more specific information?
+
+ORPHAN / WEAK PAGES
+- Does this page feel isolated?
+- Are there signs that some pages may be hard to discover unless someone
+  already knows they exist?
+
+HIERARCHY
+- Is the content grouped in a way that makes sense?
+- Should some pages be combined, split, elevated, or moved?
+
+SEO SUPPORT
+- Does the internal linking help search engines understand which pages
+  are most important?
+- Are there missed opportunities to reinforce topical relationships
+  between pages?
+
+Return:
+A. What the current structure is doing well
+B. Internal linking gaps
+C. Architecture issues or confusion points
+D. The best next structural improvements
+
+[paste page URL, navigation, sitemap, or page list here]</div>
     </div>
 
     <!-- ══════════════════════════════════════════ -->
