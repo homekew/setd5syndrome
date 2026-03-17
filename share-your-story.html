@@ -426,25 +426,37 @@
     <div class="form-section-title">Your Story</div>
 
     <div class="form-group">
-      <label for="diagnosis_journey">How did you arrive at the SETD5 Syndrome diagnosis? <span class="required-star">*</span></label>
-      <span class="label-hint">How long did it take? What led to testing? What was that journey like?</span>
+      <label for="diagnosis_journey" id="diagnosis-journey-label">How did you find out? <span class="required-star">*</span></label>
+      <span class="label-hint" id="diagnosis-journey-hint">Whether it took years or happened quickly — share as much or as little as feels right</span>
       <textarea id="diagnosis_journey" name="diagnosis_journey" placeholder="Share as much or as little as you'd like..." required></textarea>
     </div>
 
     <div class="form-group">
-      <label for="wish_known">What advice would you give someone right after diagnosis?</label>
-      <span class="label-hint">Practical tips, reassurance, things you've learned along the way</span>
+      <label for="about_person" id="about-person-label">Tell us about your child. <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <span class="label-hint" id="about-person-hint">What do they love? What makes them laugh? What are they good at? We want readers to know them as a person.</span>
+      <textarea id="about_person" name="about_person" placeholder="Share as much or as little as you'd like..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="surprise">What has surprised you most? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <span class="label-hint" id="surprise-hint">About your child, about yourself, or about this journey — it doesn't have to be a big thing</span>
+      <textarea id="surprise" name="surprise" placeholder="Share as much or as little as you'd like..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="wish_known">If you could give advice to someone recently diagnosed with SETD5 Syndrome, what would it be? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <span class="label-hint">Practical tips, reassurance, things you've learned — whatever you wish someone had told you</span>
       <textarea id="wish_known" name="wish_known" placeholder="Share as much or as little as you'd like..."></textarea>
     </div>
 
     <div class="form-group">
-      <label for="joy">What brings you joy or hope? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
-      <span class="label-hint" id="joy-hint">Something about your child, a moment, a milestone, anything...</span>
-      <textarea id="joy" name="joy" placeholder="Something about your child, a moment, a milestone, anything..."></textarea>
+      <label for="daily_life" id="daily-life-label">What does life look like for your family now? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <span class="label-hint" id="daily-life-hint">School, therapies, daily routines, what works — whatever feels right to share</span>
+      <textarea id="daily_life" name="daily_life" placeholder="Share as much or as little as you'd like..."></textarea>
     </div>
 
     <div class="form-group">
-      <label for="anything_else">Anything else you'd like to share? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
+      <label for="anything_else">Is there anything else you'd like other SETD5 families to know? <span style="font-weight:400;color:var(--muted);font-size:0.85rem;">(optional)</span></label>
       <textarea id="anything_else" name="anything_else" placeholder="Open space for anything we didn't ask..."></textarea>
     </div>
 
@@ -502,20 +514,32 @@
 
   const text = {
     self: {
-      sectionTitle:   'Your SETD5 Syndrome Details',
-      nameLabel:      null,
-      ageNow:         'Your current age',
-      ageDiagnosis:   'Your age at diagnosis',
-      howDiagnosed:   'How were you diagnosed?',
-      joyHint:        'A moment, a milestone, a person, anything...',
+      sectionTitle:        'Your SETD5 Syndrome Details',
+      nameLabel:           null,
+      ageNow:              'Your current age',
+      ageDiagnosis:        'Your age at diagnosis',
+      howDiagnosed:        'How were you diagnosed?',
+      diagnosisLabel:      'How did you find out?',
+      diagnosisHint:       'Whether it took years or happened quickly — share as much or as little as feels right',
+      aboutPersonLabel:    'Tell us about yourself.',
+      aboutPersonHint:     'What do you love? What makes you laugh? What are you good at? We want readers to know you as a person.',
+      surpriseHint:        'About yourself or about this journey — it doesn\'t have to be a big thing',
+      dailyLifeLabel:      'What does your daily life look like now?',
+      dailyLifeHint:       'Work, routines, what helps, what\'s hard — whatever feels right to share',
     },
     other: {
-      sectionTitle:   'About the Person with SETD5 Syndrome',
-      nameLabel:      'Their first name',
-      ageNow:         'Their current age',
-      ageDiagnosis:   'Their age at diagnosis',
-      howDiagnosed:   'How were they diagnosed?',
-      joyHint:        'Something about your child, a moment, a milestone, anything...',
+      sectionTitle:        'About the Person with SETD5 Syndrome',
+      nameLabel:           'Their first name',
+      ageNow:              'Their current age',
+      ageDiagnosis:        'Their age at diagnosis',
+      howDiagnosed:        'How were they diagnosed?',
+      diagnosisLabel:      'How did you find out?',
+      diagnosisHint:       'Whether it took years or happened quickly — share as much or as little as feels right',
+      aboutPersonLabel:    'Tell us about your child.',
+      aboutPersonHint:     'What do they love? What makes them laugh? What are they good at? We want readers to know them as a person.',
+      surpriseHint:        'About your child, about yourself, or about this journey — it doesn\'t have to be a big thing',
+      dailyLifeLabel:      'What does life look like for your family now?',
+      dailyLifeHint:       'School, therapies, daily routines, what works — whatever feels right to share',
     }
   };
 
@@ -532,10 +556,15 @@
       document.getElementById('setd5-name-label').innerHTML = t.nameLabel + opt;
     }
 
-    document.getElementById('age-now-label').innerHTML       = t.ageNow + opt;
-    document.getElementById('age-diagnosis-label').innerHTML = t.ageDiagnosis + opt;
-    document.getElementById('how-diagnosed-label').innerHTML = t.howDiagnosed + opt;
-    document.getElementById('joy-hint').textContent          = t.joyHint;
+    document.getElementById('age-now-label').innerHTML          = t.ageNow + opt;
+    document.getElementById('age-diagnosis-label').innerHTML    = t.ageDiagnosis + opt;
+    document.getElementById('how-diagnosed-label').innerHTML    = t.howDiagnosed + opt;
+    document.getElementById('diagnosis-journey-hint').textContent = t.diagnosisHint;
+    document.getElementById('about-person-label').innerHTML     = t.aboutPersonLabel + opt;
+    document.getElementById('about-person-hint').textContent    = t.aboutPersonHint;
+    document.getElementById('surprise-hint').textContent        = t.surpriseHint;
+    document.getElementById('daily-life-label').innerHTML       = t.dailyLifeLabel + opt;
+    document.getElementById('daily-life-hint').textContent      = t.dailyLifeHint;
   }
 
   roleSelect.addEventListener('change', updateForm);

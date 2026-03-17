@@ -380,6 +380,7 @@
     <a class="nav-sub" href="#p-3e">3e · Visual Design</a>
     <a class="nav-sub" href="#p-3f">3f · Full Visual Design</a>
     <a class="nav-sub" href="#p-3g">3g · Formatting Consistency</a>
+    <a class="nav-sub" href="#p-3h">3h · Technical Accessibility</a>
 
     <a class="nav-item" href="#section-4"><span class="num">4</span> Site Protection</a>
     <a class="nav-sub" href="#p-4-master" style="font-weight:600;color:rgba(255,255,255,0.75);">★ Full (all subsections)</a>
@@ -396,6 +397,19 @@
     <a class="nav-sub" href="#p-5d">5d · New Visitor Pathway</a>
 
     <a class="nav-item" href="#section-6"><span class="num">6</span> Full Page Audit</a>
+
+    <a class="nav-item" href="#section-7"><span class="num">7</span> Information Requests</a>
+    <a class="nav-sub" href="#p-7a">7a · What to Add to the Site</a>
+    <a class="nav-sub" href="#p-7b">7b · Evaluate an External Source</a>
+
+    <a class="nav-item" href="#section-8"><span class="num">8</span> Writing &amp; Editing</a>
+    <a class="nav-sub" href="#p-8a">8a · Research Summary Card</a>
+    <a class="nav-sub" href="#p-8b">8b · Draft New Page Content</a>
+    <a class="nav-sub" href="#p-8c">8c · De-AI Writing Check</a>
+
+    <a class="nav-item" href="#section-9"><span class="num">9</span> Discoverability &amp; Maintenance</a>
+    <a class="nav-sub" href="#p-9a">9a · SEO &amp; Discoverability</a>
+    <a class="nav-sub" href="#p-9b">9b · Periodic Maintenance Review</a>
   </nav>
 
   <!-- MAIN -->
@@ -1147,6 +1161,60 @@ Important instructions:
 - Recommend standards that are realistic and easy to apply across the full site</div>
     </div>
 
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-3h">3h. Technical Accessibility Check</h3>
+      <p class="use-desc">Use this to catch technical accessibility issues — alt text, heading structure, link text, and color contrast. Distinct from the accessibility language check (5c): this is about whether the page works for people using assistive technology, not about the words used to describe disability.</p>
+      <div class="note-box"><strong>Note:</strong> Many SETD5 families include people with disabilities, and some parents read this site while managing significant stress or fatigue. Accessibility matters for your audience beyond just compliance.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page code or content from setd5syndrome.live for
+technical accessibility issues.
+
+Check for the following:
+
+IMAGE ACCESSIBILITY
+- Do all images have alt text?
+- Is the alt text descriptive and meaningful — not just a file name or "image"?
+- Are decorative images marked appropriately (empty alt="" attribute)?
+- Does any alt text duplicate surrounding visible text unnecessarily?
+
+HEADING STRUCTURE
+- Is there exactly one H1 per page?
+- Do headings follow a logical hierarchy (H1 → H2 → H3, never skipping
+  a level)?
+- Are headings used to structure content, not just for visual styling?
+- Would a screen reader user understand the page structure from the
+  headings alone?
+
+LINK TEXT
+- Does every link clearly describe where it goes or what it does?
+- Are there any "click here", "read more", or "learn more" links that
+  don't say what you'll find?
+- Are there any links where the visible text is just a URL?
+- Do links that open in a new tab indicate that clearly?
+
+BUTTONS AND INTERACTIVE ELEMENTS
+- Are any buttons or interactive elements labeled clearly?
+- Do any icons used as buttons have text labels or ARIA labels?
+- Are any form inputs labeled?
+
+COLOR AND CONTRAST
+- Is text readable against its background? (WCAG AA minimum: 4.5:1 for
+  normal text, 3:1 for large text)
+- Is color ever used as the only way to convey information (e.g. a
+  colored label with no other indicator of meaning)?
+
+GENERAL
+- Would a keyboard-only user be able to navigate this page logically?
+- Is the page language declared in the HTML (&lt;html lang="en"&gt;)?
+- Are there any elements that might cause problems for screen readers?
+
+For each issue found:
+  1. Identify the specific element or section
+  2. Describe the problem
+  3. Suggest a specific fix
+
+[paste page HTML or content here]</div>
+    </div>
+
     <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 4 -->
     <!-- ══════════════════════════════════════════ -->
@@ -1701,6 +1769,367 @@ by section. For each issue found, indicate: Minor / Moderate / Important
 
     <!-- ══════════════════════════════════════════ -->
     <!-- SECTION 7 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-7"></div>
+    <h2 class="section-title"><span class="sec-num">7</span> Information Request Prompts</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-7a">7a. What Should I Add to the Site?</h3>
+      <p class="use-desc">Use this when you want suggestions for new pages or content areas the site doesn't currently cover. Gives Claude enough context about what the site already has to produce targeted, useful recommendations.</p>
+      <div class="note-box"><strong>Note:</strong> This prompt is open-ended by design. You can steer it by adding instructions at the end — for example: "Focus on content that doesn't require ongoing maintenance" or "I'm most interested in practical, non-medical topics."</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>I run a free, independently built website called setd5syndrome.live for families
+navigating SETD5 Syndrome — a rare genetic condition caused by variants in the
+SETD5 gene, characterized by intellectual disability, speech and language delays,
+behavioral features (including autism and ADHD traits), and various physical
+characteristics.
+
+The site currently has these pages:
+
+- Home — overview and navigation
+- Symptoms & Features — a comprehensive breakdown of the clinical presentation:
+  cognitive/learning, behavioral, neurological, physical characteristics, feeding
+  history, and other medical considerations
+- Research Library — plain-language summaries of 40+ published studies, from
+  2013 through 2026, each with a PubMed link
+- About This Site — the story of how and why it was built (by a parent of a
+  child with SETD5 Syndrome)
+
+The site's purpose is to be a practical, trustworthy resource for families —
+not a medical reference, not a fundraising platform. Everything is free. It has
+no affiliation with any organization or research group.
+
+Given what the site currently covers, what additional pages or sections would
+be most useful to families navigating this diagnosis? Think about what families
+typically need across the arc of a rare disease journey — from initial diagnosis
+through school age and beyond. Please be specific about what each suggested page
+would contain and why it would be valuable.</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-7b">7b. Should I Add This External Source?</h3>
+      <p class="use-desc">Use this when you've found a webpage, article, or resource and want to decide whether it adds enough value to link from your site. Covers content overlap, audience fit, credibility, and whether it belongs on the site at all.</p>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>I run setd5syndrome.live, a parent-built resource site for SETD5 Syndrome families.
+I have found an external page and I want to decide whether to link to it from my
+site, or whether the information it contains should be added to my site directly.
+
+Please evaluate whether this source:
+
+1. ADDS SOMETHING NEW
+   Does it contain information that my site does not already cover, or that
+   meaningfully expands on what I already have? Be specific about what, if
+   anything, is new.
+
+2. FITS MY AUDIENCE
+   Is the content appropriate for families — parents, caregivers, educators —
+   rather than primarily for clinicians or researchers? Is it accessible to
+   someone without a medical background?
+
+3. IS CREDIBLE
+   Is this a trustworthy source? (Peer-reviewed research, established medical
+   institutions, recognized patient organizations, government health agencies.)
+   Or is it a commercial site, an individual opinion, or something where
+   credibility is unclear?
+
+4. IS CURRENT
+   Is the information recent enough to be reliable, given that SETD5 research
+   is still actively developing?
+
+5. BELONGS ON MY SITE
+   Is the connection to SETD5 Syndrome direct and clear? Or is it tangentially
+   related in a way that might dilute the focus of the site?
+
+Give a recommendation:
+  LINK TO IT — worth adding as an external resource
+  ADD TO SITE — contains information worth incorporating directly into my pages
+  SKIP — does not add enough value or is not a good fit
+
+Explain your reasoning for each point.
+
+Here is the source to evaluate:
+[paste URL or content here]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 8 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-8"></div>
+    <h2 class="section-title"><span class="sec-num">8</span> Writing &amp; Editing Prompts</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-8a">8a. Write a Research Summary Card</h3>
+      <p class="use-desc">Use this when you want to add a new study to the Research Library. Paste in the abstract or key findings and get back a plain-language card in the site's format — consistent structure, appropriate hedging, and no jargon without explanation.</p>
+      <div class="note-box"><strong>Note:</strong> The card format has five parts: title, what was studied, what was found, why it matters, and an optional limitations note. The prompt produces all five in one pass. Review the output carefully — check that findings match what the study actually reported before publishing.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>I am adding a new research summary to the Research Library at setd5syndrome.live.
+Please write a plain-language summary card using the format below.
+
+ABOUT THE SITE:
+This is a parent-run resource for SETD5 Syndrome families. Summaries are
+written for parents with no medical background. The tone is informative
+and calm — not alarming, not overly optimistic.
+
+CARD FORMAT:
+
+CARD TITLE
+A short, plain-language title (8–12 words) that describes what the study
+found, not just what it studied. Should be informative, not neutral.
+Example: "Seizure Patterns Documented in Children with SETD5 Syndrome"
+
+WHAT WAS STUDIED
+1–2 sentences. Plain language. What did researchers look at, and why?
+
+WHAT WAS FOUND
+3–6 bullet points. Each bullet is a complete sentence. No jargon without
+explanation. Focus on findings that are meaningful to families — not
+methodology details.
+
+WHY THIS MATTERS
+1–2 sentences. What does this mean practically for families or for
+understanding SETD5 Syndrome?
+
+IMPORTANT CONTEXT (include only if relevant)
+Use this section only if the study has meaningful limitations families
+should know about: small sample size, early-stage research, findings that
+need replication, or context that changes how to interpret results.
+Omit this section if there are no significant caveats.
+
+WRITING RULES:
+- Write for a parent with no medical background
+- Explain any clinical term in plain language on first use
+- Do not make claims beyond what the study actually found
+- Do not recommend or discourage any intervention or treatment
+- Use hedging language for preliminary findings: "the study suggests",
+  "researchers found", "this early work indicates"
+- No em dashes
+- No AI-sounding openers or vocabulary
+
+Here is the study to summarize:
+[paste abstract, full text, or key findings here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-8b">8b. Draft New Page Content</h3>
+      <p class="use-desc">Use this when you need to write content for a new page or section and want it to match the site's established voice. Fill in the page details at the bottom before sending.</p>
+      <div class="note-box"><strong>Note:</strong> The more specific you are about the key points to cover and the audience, the better the draft. You can also paste in rough notes or bullet points and ask Claude to turn them into flowing prose in the site's voice.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>I need to write new content for a page on setd5syndrome.live. Please draft
+this content in the site's established voice and style.
+
+ABOUT THE SITE AND ITS VOICE:
+- Run by a parent of a child with SETD5 Syndrome
+- The author is not a medical, educational, or legal professional
+- Tone is warm, personal, and parent-to-parent — like a knowledgeable
+  fellow parent sharing what they have learned, not a clinician
+- Language should be plain and accessible to families with no medical
+  background
+- Content should be honest and realistic without being alarming or
+  falsely optimistic
+- Claims should be appropriately hedged: "many families find",
+  "research suggests", "you may want to discuss with your team"
+- No medical advice, no legal guidance, no guarantees about outcomes
+
+STYLE RULES:
+- No em dashes
+- No AI-sounding openers ("Navigating X can be...", "When it comes to...")
+- No formulaic vocabulary: avoid "comprehensive", "nuanced", "delve",
+  "it's worth noting", "it's important to understand", "in conclusion"
+- Write in short to medium-length sentences
+- Prefer active voice
+- Use second person ("you", "your child") to speak directly to families
+
+PAGE DETAILS:
+Topic: [describe the topic of the page]
+Audience: [who will read this — newly diagnosed families? Parents of
+  older children? Everyone?]
+Key points to cover: [list the main things the page should address]
+Tone notes: [anything specific — more personal? More clinical? Both?]
+Length: [roughly how long — a few paragraphs? A full page?]
+Additional context or notes: [anything else useful to know]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-8c">8c. De-AI Writing Check</h3>
+      <p class="use-desc">Use this to flag AI-generated writing patterns in content you've drafted with AI assistance. Catches formulaic openers, AI vocabulary, em dash overuse, and structural tells that make text sound like it was generated rather than written by a person.</p>
+      <div class="note-box"><strong>Note:</strong> This is separate from the tone check (5a). Tone checks whether writing sounds clinical vs. warm. This checks whether writing sounds human vs. machine-generated. Content can pass a tone check and still read like AI copy.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following content for AI-generated writing patterns. This content
+is for setd5syndrome.live and should sound like a real parent wrote it —
+thoughtful, direct, and human, not generated.
+
+Flag and suggest replacements for:
+
+FORMULAIC OPENERS
+- Sentences beginning with "Navigating [topic] can be..."
+- "When it comes to..."
+- "Understanding [topic] is..."
+- "One of the most [adjective] aspects of..."
+- "It is important to note that..."
+- "It is worth noting that..."
+- Any opener that starts with an abstract observation rather than a
+  direct statement
+
+AI VOCABULARY
+Flag overuse of these words and phrases, which are common in AI-generated
+text and rarely appear in natural human writing:
+- comprehensive, nuanced, delve, underscore, robust, pivotal,
+  transformative
+- leverage (as a verb), streamline, optimize (in non-technical contexts)
+- at its core, in essence, it is clear that, rest assured
+- foster, empower, facilitate (in vague or abstract contexts)
+- multifaceted, intricate (used loosely)
+- in conclusion, in summary (especially at the end of paragraphs)
+- "it's important to/that", "it's worth noting/mentioning"
+
+PUNCTUATION PATTERNS
+- Em dashes used for parenthetical asides — like this — (replace with
+  commas, parentheses, or rewrite the sentence)
+- Colons introducing lists where prose would flow more naturally
+
+STRUCTURAL PATTERNS
+- Lists where prose would be more personal and readable
+- Paragraph conclusions that restate what was just said
+- Topic sentence → explanation → restatement structure that feels robotic
+
+OVER-HEDGING
+- Compound hedges: "may potentially", "might possibly", "could perhaps"
+- Excessive qualifications that make sentences feel bureaucratic
+
+For each item flagged:
+  1. Quote the original text
+  2. Identify which pattern it matches
+  3. Suggest a natural-sounding rewrite
+
+[paste content here]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 9 -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-anchor" id="section-9"></div>
+    <h2 class="section-title"><span class="sec-num">9</span> Discoverability &amp; Maintenance</h2>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-9a">9a. SEO &amp; Discoverability Check</h3>
+      <p class="use-desc">Use this to check whether a page will be found by families searching for SETD5 information. This is a content-focused review — not technical SEO. It evaluates whether the right terms appear in the right places and whether the page actually answers what families are searching for.</p>
+      <div class="note-box"><strong>Note:</strong> Many families find this site right after a diagnosis, often searching terms they've just encountered for the first time. The page has to match both the clinical language (SETD5, SETD5 Syndrome, SETD5 variant) and the plain-language terms families use before they know the vocabulary.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>Review the following page from setd5syndrome.live for search discoverability.
+The site's goal is to be found by SETD5 Syndrome families searching for
+information — often right after a diagnosis, often before they know the
+full clinical vocabulary.
+
+This is a content-focused review only. I am not looking for advice on
+backlinks, meta tags, or technical site structure — I want to know whether
+the content itself will help families find this page through search.
+
+Evaluate:
+
+SEARCH INTENT MATCH
+- What search terms would most likely bring a family to this page?
+- Does the page content actually answer what those families are looking for?
+- Does the page focus clearly on one topic, or is it spread too thin?
+
+TERMINOLOGY COVERAGE
+- Does the page use the terms families are likely to search for?
+  Consider: SETD5, SETD5 Syndrome, SETD5 mutation, SETD5 variant, SETD5
+  gene, plus condition-specific terms like "speech delay genetic cause",
+  "intellectual disability SETD5", "autism rare genetic", "IEP rare
+  condition" and similar plain-language combinations
+- Are there important related terms that are missing entirely?
+- Does the page explain clinical terms in plain language that matches
+  how families actually describe these things before learning the
+  medical vocabulary?
+
+TITLE AND HEADING CLARITY
+- Does the page title or H1 clearly describe what the page is about?
+- Would a family scanning search results understand from the heading
+  alone whether this page is relevant to them?
+- Are section headings (H2, H3) descriptive enough to help someone
+  quickly find what they need?
+
+OPENING CONTENT
+- Do the first 1–2 paragraphs clearly establish what the page covers?
+- Does the most important information appear early — not buried?
+- Would a family immediately know they are in the right place?
+
+CONTENT GAPS
+- Are there questions families commonly search about this topic that
+  the page does not answer?
+- Is there anything implied but not explained?
+
+Return:
+  A. What is working well for discoverability
+  B. What is missing or unclear
+  C. Specific suggestions for headings, terminology, or content
+     additions that would help families find and use this page
+
+[paste page content here]</div>
+    </div>
+
+    <div class="prompt-block">
+      <h3 class="prompt-title" id="p-9b">9b. Periodic Maintenance Review</h3>
+      <p class="use-desc">Use this every 6–12 months to find content that may have become stale. SETD5 research is still developing, terminology evolves, and resources change. This prompt is a structured review of what may need updating — not a full content audit.</p>
+      <div class="note-box"><strong>Note:</strong> Run this on one page at a time, or paste content from multiple pages. It works well as an annual review prompt — paste your full site content and get a prioritized list of what to check or update.</div>
+      <div class="prompt-box"><button class="copy-btn" onclick="copyPrompt(this)">Copy</button>I need to review content from setd5syndrome.live for anything that may have
+become outdated, inaccurate, or in need of updating.
+
+SETD5 Syndrome is a rare genetic condition where research is still actively
+developing. New studies are published regularly. Terminology evolves.
+Resources appear and disappear. What was accurate two years ago may need
+updating today.
+
+For each item you flag, give:
+  - What specifically needs attention
+  - Why it may be outdated or in need of review
+  - A suggested action: UPDATE / VERIFY / REMOVE / ADD DATE NOTE
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESEARCH &amp; SCIENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- Claims about the number of known SETD5 cases or diagnosed individuals
+- Statements about what is or is not yet known about the condition
+- References to studies that may have been followed up, expanded, or
+  contradicted by newer research
+- Statistics, percentages, or counts that were current at time of writing
+  but may have changed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EXTERNAL RESOURCES &amp; ORGANIZATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- Links to external websites (do they still exist and go to the right place?)
+- References to registries, research programs, or patient advocacy groups
+  that may have changed, merged, or ended
+- References to clinical trials or studies that may have concluded
+- Mentions of specific tools, apps, or programs that may have changed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LANGUAGE &amp; TERMINOLOGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- Diagnostic labels or classifications that may have been revised
+  (DSM changes, ICD updates, evolving SETD5 naming conventions)
+- Disability or community language that may have shifted in preference
+- Terminology that was standard at time of writing but may feel dated
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+POLICY &amp; SERVICES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- References to insurance policies, coverage rules, or benefit programs
+  that may have changed
+- References to educational policies (IDEA reauthorization, state law
+  changes) that may be outdated
+- Guidance about accessing services that may no longer reflect current
+  reality
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FRESHNESS SIGNALS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- Phrases like "recently", "new research", "emerging evidence" that may
+  now be several years old
+- Date references that have passed and should be updated
+- Content that implies the site was last updated at a specific point in
+  time and may now feel stale
+
+[paste page content here — can be one page or multiple pages at once]</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- FOOTER -->
     <!-- ══════════════════════════════════════════ -->
     <div class="doc-footer">
       setd5syndrome.live &nbsp;·&nbsp; Site Audit Prompt Library &nbsp;·&nbsp; For internal use
