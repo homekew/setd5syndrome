@@ -120,6 +120,42 @@
   .tab-btn.active { color: #fff; border-bottom-color: #c9893a; }
   .tab-nav.is-slim .tab-btn{ padding: 6px 22px; }
 
+  /* ── SYMPTOM FILTER BAR ── */
+  .symptom-filter-bar {
+    position: sticky; top: 0; z-index: 89;
+    background: var(--cream); padding: 16px 0 14px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .symptom-search-wrap {
+    position: relative; margin-bottom: 10px;
+  }
+  .symptom-search-wrap::before {
+    content: '\2315'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    font-size: 16px; color: var(--muted); pointer-events: none;
+  }
+  .symptom-search {
+    width: 100%; padding: 9px 14px 9px 34px;
+    border: 1px solid var(--border); border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 14px;
+    background: #fff; outline: none; transition: border-color 0.15s;
+  }
+  .symptom-search:focus { border-color: var(--teal); }
+  .symptom-search::placeholder { color: #b0a898; }
+  .symptom-pills {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .symptom-pill {
+    background: #fff; border: 1px solid var(--border); border-radius: 20px;
+    padding: 5px 14px; font-family: 'Inter', sans-serif; font-size: 12px;
+    color: var(--muted); cursor: pointer; transition: all 0.15s;
+    white-space: nowrap; line-height: 1.3;
+  }
+  .symptom-pill:hover { border-color: var(--teal); color: var(--teal); }
+  .symptom-pill.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .feature-card.filter-hidden { display: none !important; }
+  .feature-card li.search-hidden { display: none !important; }
+
   /* ── LAYOUT ── */
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
@@ -626,6 +662,25 @@
     <p>This list describes features that have been reported in people with SETD5 Syndrome. <strong>It is not a prediction of what your child or you will experience.</strong> Every person with SETD5 Syndrome is different, and no single feature shows up in everyone. How much any feature affects daily life can vary a great deal, even between people with the same type of genetic change. Some individuals have very few challenges; others face more. This list covers many features found in published research, but it may not include everything. Researchers are still learning, and new features may be described over time that are not yet here. Bring any specific questions to your care team.</p>
   </div>
 
+  <div class="symptom-filter-bar" id="symptom-filter-bar">
+    <div class="symptom-search-wrap">
+      <input type="text" class="symptom-search" id="symptom-search" placeholder="Search features..." aria-label="Search symptoms and features">
+    </div>
+    <div class="symptom-pills" id="symptom-pills">
+      <button class="symptom-pill active" data-filter="all">All</button>
+      <button class="symptom-pill" data-filter="learning">Learning</button>
+      <button class="symptom-pill" data-filter="speech">Speech</button>
+      <button class="symptom-pill" data-filter="behavior">Behavior</button>
+      <button class="symptom-pill" data-filter="social">Social</button>
+      <button class="symptom-pill" data-filter="neurological">Neurological</button>
+      <button class="symptom-pill" data-filter="facial">Facial</button>
+      <button class="symptom-pill" data-filter="eyes">Eyes</button>
+      <button class="symptom-pill" data-filter="mouth">Mouth &amp; Teeth</button>
+      <button class="symptom-pill" data-filter="feeding">Feeding &amp; Growth</button>
+      <button class="symptom-pill" data-filter="medical">Medical</button>
+    </div>
+  </div>
+
   <p class="section-label">Core features</p>
   <h2 class="section-title" id="sec-neuro-beh">Neurodevelopmental &amp; Behavioral</h2>
 
@@ -637,17 +692,13 @@
         <li>Global developmental delay</li>
         <li>Difficulties with reading, writing, and numeracy</li>
         <li>Cognitive profile can vary; some individuals show relative strengths in certain areas alongside challenges in others, while others have more global delays</li>
-        <li>Working memory and short-term memory difficulties</li>
-        <li>Executive function difficulties: planning, organization, task initiation, and flexible thinking</li>
       </ul>
     </div>
     <div class="feature-card amber-top">
       <h4>Speech &amp; Language</h4>
       <ul>
         <li>Speech and language delay</li>
-        <li>Expressive language often reported as more affected than receptive</li>
         <li>Some individuals are minimally verbal or nonverbal</li>
-        <li>Speech dysfluency (may resemble a stammer)</li>
         <li>Articulation and pronunciation difficulties</li>
       </ul>
     </div>
@@ -655,13 +706,10 @@
       <h4>Behavior &amp; Emotional Regulation</h4>
       <ul>
         <li>ADHD features: inattention, hyperactivity, impulsivity</li>
-        <li>Anxiety and difficulty with transitions or change</li>
+        <li>Anxiety reported in some</li>
         <li>Behavioral rigidity; preference for routine</li>
         <li>Autism spectrum disorder features in some</li>
         <li>Repetitive movements or behaviors (sometimes called stereotypies), such as hand flapping or body rocking</li>
-        <li>Obsessive compulsive behaviors in some</li>
-        <li>Sensory processing differences and sensory sensitivities reported in some</li>
-        <li>Irritability, mood instability, or emotional dysregulation in some</li>
         <li>Aggressive behavior or self-injurious behaviors reported in some</li>
       </ul>
     </div>
@@ -669,7 +717,6 @@
       <h4>Social &amp; Adaptive</h4>
       <ul>
         <li>Social understanding and communication challenges</li>
-        <li>Difficulty with awareness of danger or personal safety</li>
         <li>Limited independence with daily living skills in some</li>
       </ul>
     </div>
@@ -688,7 +735,6 @@
         <li>Gait abnormalities, including tip-toe walking</li>
         <li>Coordination difficulties and clumsiness (sometimes described as developmental coordination disorder or dyspraxia)</li>
         <li>Epilepsy or seizures in some</li>
-        <li>EEG abnormalities in some without clinical seizures</li>
         <li>Motor development delays (gross and fine motor)</li>
         <li>Sleep difficulties, including trouble falling asleep, frequent night waking, and irregular sleep patterns</li>
         <li>Brain MRI abnormalities reported in some, most commonly involving the corpus callosum (the structure connecting the brain's two halves); white matter differences also documented in some</li>
@@ -699,7 +745,7 @@
       <ul>
         <li>Triangular-shaped face</li>
         <li>Broad or prominent forehead in some</li>
-        <li>Head size varies; a smaller-than-average head (microcephaly) is the most commonly reported finding. Some have an average or larger head, and the shape may also vary, such as flat at the back (brachycephaly). Head circumference is one measurement care teams may track over time.</li>
+        <li>Head size varies; a smaller-than-average head (microcephaly) is among the more commonly reported findings. Some have an average or larger head, and the shape may also vary, such as flat at the back (brachycephaly). Head circumference is one measurement care teams may track over time.</li>
         <li>Prominent eyebrows that meet or nearly meet (synophrys)</li>
         <li>Low-set or unusual ears</li>
         <li>Depressed nasal bridge</li>
@@ -722,8 +768,6 @@
       <ul>
         <li>Thin upper lip</li>
         <li>High-arched palate; cleft palate reported in some</li>
-        <li>Dental anomalies including enamel hypoplasia (thin or weakened tooth enamel) and sometimes delayed or irregular tooth eruption</li>
-        <li>Extra fingers or toes (polydactyly) reported in some</li>
       </ul>
     </div>
     <div class="feature-card amber-top">
@@ -731,27 +775,17 @@
       <ul>
         <li>Feeding difficulties in infancy (sucking, swallowing weakly)</li>
         <li>Failure to thrive in some infants</li>
-        <li>Gastroesophageal reflux in some; in severe cases some families have needed additional medical management; discuss options with your child's doctor</li>
-        <li>Chewing difficulties reported in some older children</li>
         <li>Short stature reported in some; growth trajectories vary and are worth monitoring with your child's care team</li>
-        <li>Weight gain or obesity reported in some older children</li>
-        <li>Constipation or other bowel difficulties in some</li>
-        <li>Webbed or tight neck (pterygium colli) reported in some</li>
-        <li>Reduced bone mineral density has been reported in some individuals</li>
       </ul>
     </div>
     <div class="feature-card rose-top">
       <h4>Other Medical Features</h4>
       <ul>
         <li>Congenital heart defects reported in some; various types have been documented.<span class="li-note">Outcomes depend on the specific defect and are best discussed with a cardiologist.</span></li>
-        <li>Eye and vision anomalies reported in many, including strabismus, nystagmus (involuntary eye movements), long- or short-sightedness, and ptosis (drooping eyelid)</li>
+        <li>Eye and vision anomalies reported in some, including nystagmus (involuntary eye movements), long- or short-sightedness, and ptosis (drooping eyelid)</li>
         <li>Hearing impairment (temporary or permanent) in some.<span class="li-note">Hearing difficulties may impact speech and language development, which is worth discussing with your care team.</span></li>
         <li>Cryptorchidism (undescended testes) and/or hypospadias in some males</li>
-        <li>Inguinal hernia or umbilical hernia in some</li>
-        <li>Kidney or urinary tract anomalies reported in some</li>
         <li>Musculoskeletal issues including scoliosis, kyphosis, and joint laxity</li>
-        <li>Gastrointestinal anomalies in some, including abdominal wall defects</li>
-        <li>Fragile or reduced-density bones have been noted in a small number of individuals in published case reports; more research is needed to understand how common this is</li>
       </ul>
     </div>
   </div>
@@ -937,8 +971,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var threshold = 60;
   var ticking = false;
 
+  var filterBar = document.getElementById('symptom-filter-bar');
   function setNavTop() {
     if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
+    if (filterBar && tabNav) filterBar.style.top = (header.offsetHeight + tabNav.offsetHeight) + 'px';
   }
 
   var wasCollapsed = false;
@@ -992,6 +1028,81 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+</script>
+
+<script>
+(function(){
+  var searchInput = document.getElementById('symptom-search');
+  var pillsWrap   = document.getElementById('symptom-pills');
+  var panel       = document.getElementById('tab-symptoms');
+  if (!searchInput || !panel) return;
+
+  var cards = panel.querySelectorAll('.feature-card');
+  var pills = pillsWrap.querySelectorAll('.symptom-pill');
+  var activePill = 'all';
+
+  var filterMap = {
+    learning:'Learning', speech:'Speech', behavior:'Behavior',
+    social:'Social', neurological:'Neurological', facial:'Facial',
+    eyes:'Eyes', mouth:'Mouth', feeding:'Feeding', medical:'Other Medical'
+  };
+
+  function applyFilters(){
+    var q = searchInput.value.toLowerCase().trim();
+
+    cards.forEach(function(card){
+      var h4 = card.querySelector('h4');
+      var heading = h4 ? h4.textContent : '';
+
+      /* pill filter */
+      var pillOk = activePill === 'all' || heading.indexOf(filterMap[activePill]) !== -1;
+      if(!pillOk){ card.classList.add('filter-hidden'); return; }
+
+      /* search filter */
+      if(q === ''){
+        card.classList.remove('filter-hidden');
+        card.querySelectorAll('li').forEach(function(li){ li.classList.remove('search-hidden'); });
+        return;
+      }
+
+      var vis = 0;
+      card.querySelectorAll('li').forEach(function(li){
+        if(li.textContent.toLowerCase().indexOf(q) !== -1){
+          li.classList.remove('search-hidden'); vis++;
+        } else {
+          li.classList.add('search-hidden');
+        }
+      });
+      card.classList.toggle('filter-hidden', vis === 0);
+    });
+
+    /* hide section labels / dividers when all cards in a grid are hidden */
+    panel.querySelectorAll('.feature-grid').forEach(function(grid){
+      var any = false;
+      grid.querySelectorAll('.feature-card').forEach(function(c){
+        if(!c.classList.contains('filter-hidden')) any = true;
+      });
+      var el = grid.previousElementSibling;
+      while(el && !el.classList.contains('feature-grid') && !el.classList.contains('amber-callout') && el.id !== 'symptom-filter-bar'){
+        if(el.classList.contains('section-label') || el.classList.contains('section-title') || el.classList.contains('section-divider')){
+          el.style.display = any ? '' : 'none';
+        }
+        el = el.previousElementSibling;
+      }
+    });
+  }
+
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      pills.forEach(function(p){ p.classList.remove('active'); });
+      pill.classList.add('active');
+      activePill = pill.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+})();
 </script>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
