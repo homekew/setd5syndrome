@@ -105,9 +105,22 @@
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     position: sticky; top: 0; z-index: 100;
+    align-items: stretch;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
-  .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
+  .tab-nav-inner { display: flex; flex: 1; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
+  .tab-link-out {
+    flex-shrink: 0; display: flex; align-items: center;
+    padding: 0 18px; font-size: 13px; font-family: 'Inter', sans-serif;
+    color: rgba(255,255,255,0.6); text-decoration: none !important;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    font-style: italic; white-space: nowrap;
+    transition: color 0.18s;
+    background: #5a9186;
+    position: sticky; right: 0;
+  }
+  .tab-link-out:hover { color: rgba(255,255,255,0.9) !important; }
+  @media (max-width: 600px) { .tab-link-out { display: none; } }
   .tab-btn{
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,0.9); font-family: 'Inter', sans-serif;
@@ -130,7 +143,7 @@
     font-size: 12px; font-weight: 600; letter-spacing: .12em;
     text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
   }
-  .section-label::before { content: ''; display: block; width: 18px; height: 2px; background: var(--amber); }
+  .section-label::before { content: ''; display: block; width: 22px; height: 3px; background: var(--amber); }
   .section-title{
     font-family: 'Lora', serif;
     font-size: clamp(21px, 3.5vw, 29px); font-weight: 400;
@@ -140,7 +153,7 @@
   .section-divider { border: none; border-top: 2px solid var(--border); margin: 44px 0 40px; }
 
   /* ── PROSE ── */
-  .prose{ font-size: 16px; line-height: 1.78; margin-bottom: 18px; }
+  .prose{ font-size: 16px; line-height: 1.78; margin-bottom: 18px; max-width: 68ch; }
   .prose + .prose{ margin-top: 0; }
 
   /* ── STAT STRIP ── */
@@ -166,7 +179,8 @@
   .question-group-label {
     font-size: 11px; font-weight: 600; letter-spacing: .12em;
     text-transform: uppercase; color: var(--muted);
-    margin: 24px 0 8px; display: block;
+    margin: 36px 0 8px; display: block;
+    border-top: 1px solid var(--border); padding-top: 16px;
   }
 
   /* ── INFO CALLOUT ── */
@@ -295,8 +309,8 @@
     background: #fff; border: 1px solid var(--border); border-radius: 8px;
     padding: 14px 16px;
   }
-  .specialist-card h5 { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-  .specialist-card p { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+  .specialist-card h5 { font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .specialist-card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
 
     /* ── FOOTER ── */
   footer {
@@ -446,8 +460,8 @@
     <button class="tab-btn" data-tab="tab-genetics" onclick="showTab('tab-genetics')">Genetics &amp; Variants</button>
     <button class="tab-btn" data-tab="tab-symptoms" onclick="showTab('tab-symptoms')">Symptoms &amp; Features</button>
     <button class="tab-btn" data-tab="tab-nextsteps" onclick="showTab('tab-nextsteps')">Next Steps</button>
-    <a href="family-toolkit.html" class="tab-btn" style="text-decoration:none; opacity:0.75; font-style:italic;">Resources &amp; Support &#8594;</a>
   </div>
+  <a href="family-toolkit.html" class="tab-link-out">Family Toolkit &#8594;</a>
 </nav>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -638,7 +652,7 @@
         <li>Articulation and pronunciation difficulties</li>
       </ul>
     </div>
-    <div class="feature-card rose-top">
+    <div class="feature-card teal-top">
       <h4>Behavior &amp; Emotional Regulation</h4>
       <ul>
         <li>ADHD features: inattention, hyperactivity, impulsivity</li>
@@ -652,7 +666,7 @@
         <li>Aggressive behavior or self-injurious behaviors reported in some</li>
       </ul>
     </div>
-    <div class="feature-card sage-top">
+    <div class="feature-card amber-top">
       <h4>Social &amp; Adaptive</h4>
       <ul>
         <li>Social understanding and communication challenges</li>
@@ -681,27 +695,36 @@
         <li>Brain MRI abnormalities reported in some, most commonly involving the corpus callosum (the structure connecting the brain's two halves); white matter differences also documented in some</li>
       </ul>
     </div>
-    <div class="feature-card two-col-list">
-      <h4>Craniofacial &amp; Physical Features</h4>
+    <div class="feature-card teal-top">
+      <h4>Facial Structure &amp; Head</h4>
       <ul>
         <li>Triangular-shaped face</li>
         <li>Broad or prominent forehead in some</li>
         <li>Head size varies; a smaller-than-average head (microcephaly) is the most commonly reported finding. Some have an average or larger head, and the shape may also vary, such as flat at the back (brachycephaly). Head circumference is one measurement care teams may track over time.</li>
         <li>Prominent eyebrows that meet or nearly meet (synophrys)</li>
-        <li>Widely spaced eyes (hypertelorism)</li>
-        <li>Epicanthal folds (small skin folds at the inner corners of the eyes) in some</li>
-        <li>Up-slanting or down-slanting eye openings (palpebral fissures)</li>
-        <li>Strabismus (crossed or misaligned eyes)</li>
         <li>Low-set or unusual ears</li>
         <li>Depressed nasal bridge</li>
         <li>Nose with a wide base and tip</li>
         <li>Long and smooth philtrum (groove between nose and upper lip)</li>
         <li>Small jaw (micrognathia) in some</li>
+      </ul>
+    </div>
+    <div class="feature-card blue-top">
+      <h4>Eyes &amp; Vision</h4>
+      <ul>
+        <li>Widely spaced eyes (hypertelorism)</li>
+        <li>Epicanthal folds (small skin folds at the inner corners of the eyes) in some</li>
+        <li>Up-slanting or down-slanting eye openings (palpebral fissures)</li>
+        <li>Strabismus (crossed or misaligned eyes)</li>
+      </ul>
+    </div>
+    <div class="feature-card sage-top">
+      <h4>Mouth, Teeth &amp; Hands</h4>
+      <ul>
         <li>Thin upper lip</li>
         <li>High-arched palate; cleft palate reported in some</li>
         <li>Dental anomalies including enamel hypoplasia (thin or weakened tooth enamel) and sometimes delayed or irregular tooth eruption</li>
         <li>Extra fingers or toes (polydactyly) reported in some</li>
-
       </ul>
     </div>
     <div class="feature-card amber-top">
