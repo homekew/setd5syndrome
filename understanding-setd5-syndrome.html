@@ -181,6 +181,27 @@
     text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
   }
   .section-label::before { content: ''; display: block; width: 22px; height: 3px; background: var(--amber); }
+
+  /* ── GUIDES-STYLE LABEL (matches index page intro) ── */
+  .guides-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .guides-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
   .section-title{
     font-family: 'Lora', serif;
     font-size: clamp(21px, 3.5vw, 29px); font-weight: 400;
@@ -667,7 +688,7 @@
 <div id="tab-symptoms" class="tab-panel">
 <div class="page-body">
 
-  <p class="section-label">What to know</p>
+  <div class="guides-label">What to know</div>
   <h2 class="section-title" id="sec-symptoms">Symptoms &amp; Features</h2>
 
   <div class="amber-callout">
