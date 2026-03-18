@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resources & Organizations | SETD5 Syndrome</title>
+<title>Community &amp; Links | SETD5 Syndrome</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/helpful-links.html">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
-<meta property="og:title" content="Resources & Organizations | SETD5 Syndrome">
+<meta property="og:title" content="Community &amp; Links | SETD5 Syndrome">
 <meta property="og:description" content="Curated links to genetics databases, rare disease organizations, and US benefit programs for families living with SETD5 Syndrome.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Resources & Organizations | SETD5 Syndrome">
+<meta name="twitter:title" content="Community &amp; Links | SETD5 Syndrome">
 <meta name="twitter:description" content="Curated links to genetics databases, rare disease organizations, and US benefit programs for families living with SETD5 Syndrome.">
 <meta name="description" content="Curated links to genetics databases, rare disease organizations, family communities, and US benefit programs.">
 <link rel="canonical" href="https://setd5syndrome.live/helpful-links.html">
@@ -241,9 +241,57 @@
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
+
+  /* ── GLOBAL NAV ── */
+  .global-nav {
+    background: #1B2A4A;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .global-nav-home {
+    color: rgba(255,255,255,0.88);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .global-nav-home:hover { color: #fff; }
+  .global-nav-links {
+    display: flex;
+    gap: 22px;
+  }
+  .global-nav-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.15s;
+  }
+  .global-nav-links a:hover { color: rgba(255,255,255,0.9); }
+  @media (max-width: 640px) {
+    .global-nav-links { display: none; }
+  }
 </style>
 </head>
 <body>
+<nav class="global-nav" aria-label="Site navigation">
+  <a class="global-nav-home" href="index.html">SETD5 Syndrome</a>
+  <div class="global-nav-links">
+    <a href="understanding-setd5-syndrome.html">Understanding SETD5</a>
+    <a href="family-toolkit.html">Family Toolkit</a>
+    <a href="research.html">Research</a>
+    <a href="helpful-links.html">Community &amp; Links</a>
+  </div>
+</nav>
 
 
 
@@ -255,7 +303,7 @@
   </div>
   <div class="header-inner">
     <p class="header-eyebrow"><a href="family-toolkit.html" style="color:rgba(255,255,255,0.75);text-decoration:none;">← Family Toolkit</a></p>
-    <h1 class="header-title">Resources &amp; <em>Organizations</em></h1>
+    <h1 class="header-title">Community &amp; <em>Links</em></h1>
   </div>
 </header>
 
@@ -359,7 +407,7 @@
     </ul>
   </div>
 
-  <h2>Organizations &amp; Programs</h2>
+  <h2>Community &amp; Links</h2>
   <div class="section">
     <ul class="link-list">
       <li class="link-item">
@@ -460,6 +508,7 @@
 </div>
 
 <footer class="site-footer">  <div class="footer-nav">
+    <a href="index.html">Home</a><span class="sep">&middot;</span>
     <a href="about.html">About</a><span class="sep">&middot;</span>
     <a href="sources-references.html">Sources &amp; References</a><span class="sep">&middot;</span>
     <a href="suggest-a-resource.html">Contact</a><span class="sep">&middot;</span>

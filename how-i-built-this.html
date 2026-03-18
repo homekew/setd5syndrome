@@ -336,9 +336,57 @@
     .tech-grid { grid-template-columns: 1fr 1fr; }
     .color-grid { grid-template-columns: repeat(3, 1fr); }
   }
+
+  /* ── GLOBAL NAV ── */
+  .global-nav {
+    background: #1B2A4A;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .global-nav-home {
+    color: rgba(255,255,255,0.88);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .global-nav-home:hover { color: #fff; }
+  .global-nav-links {
+    display: flex;
+    gap: 22px;
+  }
+  .global-nav-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.15s;
+  }
+  .global-nav-links a:hover { color: rgba(255,255,255,0.9); }
+  @media (max-width: 640px) {
+    .global-nav-links { display: none; }
+  }
 </style>
 </head>
 <body>
+<nav class="global-nav" aria-label="Site navigation">
+  <a class="global-nav-home" href="index.html">SETD5 Syndrome</a>
+  <div class="global-nav-links">
+    <a href="understanding-setd5-syndrome.html">Understanding SETD5</a>
+    <a href="family-toolkit.html">Family Toolkit</a>
+    <a href="research.html">Research</a>
+    <a href="helpful-links.html">Community &amp; Links</a>
+  </div>
+</nav>
 
 <header class="site-header" id="site-header">
   <div class="header-inner">
