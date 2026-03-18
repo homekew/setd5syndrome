@@ -127,6 +127,15 @@
     margin-bottom: 28px;
     border-bottom: 1px solid var(--border);
   }
+  /* Fade hint on right edge indicates more pills can be scrolled into view */
+  .symptom-pills-wrap {
+    position: relative;
+  }
+  .symptom-pills-wrap::after {
+    content: ''; position: absolute; right: 0; top: 0; bottom: 0;
+    width: 40px; pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--cream));
+  }
   .symptom-search-wrap {
     position: relative; margin-top: 10px;
   }
@@ -667,17 +676,19 @@
   </div>
 
   <div class="symptom-filter-bar" id="symptom-filter-bar">
-    <div class="symptom-pills" id="symptom-pills">
-      <button class="symptom-pill active" data-filter="all">All</button>
-      <button class="symptom-pill" data-filter="learning">Learning</button>
-      <button class="symptom-pill" data-filter="speech">Speech</button>
-      <button class="symptom-pill" data-filter="behavior">Behavior</button>
-      <button class="symptom-pill" data-filter="neurological">Neurological</button>
-      <button class="symptom-pill" data-filter="facial">Facial</button>
-      <button class="symptom-pill" data-filter="eyes">Eyes</button>
-      <button class="symptom-pill" data-filter="mouth">Mouth &amp; Teeth</button>
-      <button class="symptom-pill" data-filter="feeding">Feeding &amp; Growth</button>
-      <button class="symptom-pill" data-filter="medical">Medical</button>
+    <div class="symptom-pills-wrap">
+      <div class="symptom-pills" id="symptom-pills">
+        <button class="symptom-pill active" data-filter="all">All</button>
+        <button class="symptom-pill" data-filter="learning">Learning</button>
+        <button class="symptom-pill" data-filter="speech">Speech</button>
+        <button class="symptom-pill" data-filter="behavior">Behavior</button>
+        <button class="symptom-pill" data-filter="neurological">Neurological</button>
+        <button class="symptom-pill" data-filter="facial">Facial</button>
+        <button class="symptom-pill" data-filter="eyes">Eyes</button>
+        <button class="symptom-pill" data-filter="mouth">Mouth &amp; Teeth</button>
+        <button class="symptom-pill" data-filter="feeding">Feeding &amp; Growth</button>
+        <button class="symptom-pill" data-filter="medical">Medical</button>
+      </div>
     </div>
     <div class="symptom-search-wrap">
       <input type="text" class="symptom-search" id="symptom-search" placeholder="Search features..." aria-label="Search symptoms and features">
