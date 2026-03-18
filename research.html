@@ -474,46 +474,19 @@
   }
   .year-jump a:hover { background: var(--sage-lt, #edf5ef); border-color: var(--teal, #2a7a6a); }
 
-  /* ── GLOBAL NAV ── */
-  .global-nav {
-    background: #1B2A4A;
-    padding: 0 24px;
-    display: flex;
+
+  /* ── BREADCRUMB ── */
+  .header-eyebrow {
+    display: flex !important;
     align-items: center;
-    justify-content: space-between;
-    height: 40px;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-wrap: wrap;
+    gap: 3px 8px;
+    margin-bottom: 20px;
   }
-  .global-nav-home {
-    color: rgba(255,255,255,0.88);
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 12.5px;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-  }
-  .global-nav-home:hover { color: #fff; }
-  .global-nav-links {
-    display: flex;
-    gap: 22px;
-  }
-  .global-nav-links a {
-    color: rgba(255,255,255,0.55);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    white-space: nowrap;
-    transition: color 0.15s;
-  }
-  .global-nav-links a:hover { color: rgba(255,255,255,0.9); }
-  @media (max-width: 640px) {
-    .global-nav-links { display: none; }
-  }
-  /* Push site-header below global nav so they don't overlap */
-  .site-header { top: 40px; }
+  .breadcrumb-sep { opacity: 0.3; font-size: 14px; font-weight: 300; letter-spacing: 0; text-transform: none; }
+  .breadcrumb-current { opacity: 0.45; }
+  .header-eyebrow a { color: rgba(255,255,255,0.7) !important; text-decoration: none !important; transition: color 0.15s; letter-spacing: inherit; text-transform: inherit; font-size: inherit; }
+  .header-eyebrow a:hover { color: rgba(255,255,255,1) !important; }
 </style>
 <script>
   // Safari print fix: force desktop-width viewport before printing
@@ -529,15 +502,6 @@
 <link rel="canonical" href="https://setd5syndrome.live/research.html">
 </head>
 <body>
-<nav class="global-nav" aria-label="Site navigation">
-  <a class="global-nav-home" href="index.html">SETD5 Syndrome</a>
-  <div class="global-nav-links">
-    <a href="understanding-setd5-syndrome.html">Understanding SETD5</a>
-    <a href="family-toolkit.html">Family Toolkit</a>
-    <a href="research.html">Research</a>
-    <a href="helpful-links.html">Community &amp; Links</a>
-  </div>
-</nav>
 
 
 <!-- HEADER -->
@@ -546,7 +510,11 @@
     <div id="google_translate_element"></div>
   </div>
   <div class="header-inner">
-    <p class="header-eyebrow"><a href="index.html" style="color:rgba(255,255,255,0.45);text-decoration:none;">← SETD5 Syndrome Research &amp; Resources</a></p>
+    <nav class="header-eyebrow" aria-label="Breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-current">Research</span>
+</nav>
     <h1 class="header-title">SETD5 Syndrome <em>Research</em></h1>
     <p class="header-subtitle">A plain-language summary of published research on SETD5 Syndrome, from foundational studies through the present, written for families.</p>
   </div>
