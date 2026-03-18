@@ -128,7 +128,7 @@
     border-bottom: 1px solid var(--border);
   }
   .symptom-search-wrap {
-    position: relative; margin-bottom: 10px;
+    position: relative; margin-top: 10px;
   }
   .symptom-search-wrap::before {
     content: '\2315'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
@@ -143,8 +143,12 @@
   .symptom-search:focus { border-color: var(--teal); }
   .symptom-search::placeholder { color: #b0a898; }
   .symptom-pills {
-    display: flex; flex-wrap: wrap; gap: 6px;
+    display: flex; flex-wrap: nowrap; gap: 6px;
+    overflow-x: auto; padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .symptom-pills::-webkit-scrollbar { display: none; }
   .symptom-pill {
     background: #fff; border: 1px solid var(--border); border-radius: 20px;
     padding: 5px 14px; font-family: 'Inter', sans-serif; font-size: 12px;
@@ -659,19 +663,15 @@
 
   <div class="amber-callout">
     <span class="callout-label">Important note</span>
-    <p>This list describes features that have been reported in people with SETD5 Syndrome. <strong>It is not a prediction of what your child or you will experience.</strong> Every person with SETD5 Syndrome is different, and no single feature shows up in everyone. How much any feature affects daily life can vary a great deal, even between people with the same type of genetic change. Some individuals have very few challenges; others face more. This list covers many features found in published research, but it may not include everything. Researchers are still learning, and new features may be described over time that are not yet here. Bring any specific questions to your care team.</p>
+    <p>This list describes features that have been reported in people with SETD5 Syndrome. <strong style="font-size:1.15em;color:#c9893a;">It is not a prediction of what your child or you will experience. Every person with SETD5 Syndrome is different, and no single feature shows up in everyone.</strong></p>
   </div>
 
   <div class="symptom-filter-bar" id="symptom-filter-bar">
-    <div class="symptom-search-wrap">
-      <input type="text" class="symptom-search" id="symptom-search" placeholder="Search features..." aria-label="Search symptoms and features">
-    </div>
     <div class="symptom-pills" id="symptom-pills">
       <button class="symptom-pill active" data-filter="all">All</button>
       <button class="symptom-pill" data-filter="learning">Learning</button>
       <button class="symptom-pill" data-filter="speech">Speech</button>
       <button class="symptom-pill" data-filter="behavior">Behavior</button>
-      <button class="symptom-pill" data-filter="social">Social</button>
       <button class="symptom-pill" data-filter="neurological">Neurological</button>
       <button class="symptom-pill" data-filter="facial">Facial</button>
       <button class="symptom-pill" data-filter="eyes">Eyes</button>
@@ -679,10 +679,10 @@
       <button class="symptom-pill" data-filter="feeding">Feeding &amp; Growth</button>
       <button class="symptom-pill" data-filter="medical">Medical</button>
     </div>
+    <div class="symptom-search-wrap">
+      <input type="text" class="symptom-search" id="symptom-search" placeholder="Search features..." aria-label="Search symptoms and features">
+    </div>
   </div>
-
-  <p class="section-label">Core features</p>
-  <h2 class="section-title" id="sec-neuro-beh">Neurodevelopmental &amp; Behavioral</h2>
 
   <div class="feature-grid">
     <div class="feature-card">
@@ -700,32 +700,23 @@
         <li>Speech and language delay</li>
         <li>Some individuals are minimally verbal or nonverbal</li>
         <li>Articulation and pronunciation difficulties</li>
+        <li>Stammer or speech dysfluency reported in some</li>
       </ul>
     </div>
-    <div class="feature-card teal-top">
+    <div class="feature-card teal-top two-col-list">
       <h4>Behavior &amp; Emotional Regulation</h4>
       <ul>
         <li>ADHD features: inattention, hyperactivity, impulsivity</li>
         <li>Anxiety reported in some</li>
         <li>Behavioral rigidity; preference for routine</li>
         <li>Autism spectrum disorder features in some</li>
+        <li>Obsessive compulsive behaviors reported in some</li>
         <li>Repetitive movements or behaviors (sometimes called stereotypies), such as hand flapping or body rocking</li>
         <li>Aggressive behavior or self-injurious behaviors reported in some</li>
-      </ul>
-    </div>
-    <div class="feature-card amber-top">
-      <h4>Social &amp; Adaptive</h4>
-      <ul>
-        <li>Social understanding and communication challenges</li>
-        <li>Limited independence with daily living skills in some</li>
+        <li>Many children are described by families as having a happy, social disposition; behavioral features vary widely and can coexist in different combinations</li>
       </ul>
     </div>
   </div>
-
-  <hr class="section-divider">
-
-  <p class="section-label" style="margin-top: 12px;">Physical features</p>
-  <h2 class="section-title" id="sec-neuro-phys">Neurological, Physical &amp; Growth Features</h2>
 
   <div class="feature-grid">
     <div class="feature-card blue-top">
@@ -735,9 +726,10 @@
         <li>Gait abnormalities, including tip-toe walking</li>
         <li>Coordination difficulties and clumsiness (sometimes described as developmental coordination disorder or dyspraxia)</li>
         <li>Epilepsy or seizures in some</li>
+        <li>Hyperkinetic movement disorders, including chorea (involuntary, jerky movements), reported in some</li>
         <li>Motor development delays (gross and fine motor)</li>
         <li>Sleep difficulties, including trouble falling asleep, frequent night waking, and irregular sleep patterns</li>
-        <li>Brain MRI abnormalities reported in some, most commonly involving the corpus callosum (the structure connecting the brain's two halves); white matter differences also documented in some</li>
+        <li>Brain MRI abnormalities reported in some, most commonly involving the corpus callosum (the structure that connects and allows the two halves of the brain to communicate); white matter differences (changes in the neural pathways that help different parts of the brain communicate) also documented in some</li>
       </ul>
     </div>
     <div class="feature-card teal-top">
@@ -761,6 +753,21 @@
         <li>Epicanthal folds (small skin folds at the inner corners of the eyes) in some</li>
         <li>Up-slanting or down-slanting eye openings (palpebral fissures)</li>
         <li>Strabismus (crossed or misaligned eyes)</li>
+        <li>Nystagmus (involuntary eye movements) in some</li>
+        <li>Long-sightedness or short-sightedness</li>
+        <li>Ptosis (drooping eyelid) in some; can affect one or both eyes</li>
+      </ul>
+    </div>
+    <div class="feature-card amber-top">
+      <h4>Feeding &amp; Growth</h4>
+      <ul>
+        <li>Feeding difficulties in infancy (sucking, swallowing weakly)</li>
+        <li>Gastro-oesophageal reflux reported in some</li>
+        <li>Chewing and swallowing difficulties in older children reported in some</li>
+        <li>Failure to thrive in some infants</li>
+        <li>Low blood sugar (hypoglycemia) reported in some children</li>
+        <li>Short stature reported in some; growth trajectories vary and are worth monitoring with your child's care team</li>
+        <li>Limb length differences reported in some</li>
       </ul>
     </div>
     <div class="feature-card sage-top">
@@ -768,28 +775,24 @@
       <ul>
         <li>Thin upper lip</li>
         <li>High-arched palate; cleft palate reported in some</li>
-      </ul>
-    </div>
-    <div class="feature-card amber-top">
-      <h4>Feeding &amp; Growth</h4>
-      <ul>
-        <li>Feeding difficulties in infancy (sucking, swallowing weakly)</li>
-        <li>Failure to thrive in some infants</li>
-        <li>Short stature reported in some; growth trajectories vary and are worth monitoring with your child's care team</li>
+        <li>Teeth anomalies reported in some</li>
+        <li>Extra fingers or toes (polydactyly) reported in some</li>
       </ul>
     </div>
     <div class="feature-card rose-top">
       <h4>Other Medical Features</h4>
       <ul>
-        <li>Congenital heart defects reported in some; various types have been documented.<span class="li-note">Outcomes depend on the specific defect and are best discussed with a cardiologist.</span></li>
-        <li>Eye and vision anomalies reported in some, including nystagmus (involuntary eye movements), long- or short-sightedness, and ptosis (drooping eyelid)</li>
+        <li>Congenital heart defects reported in some; various types have been documented, including atrioventricular septal defects (a hole in the wall between heart chambers).<span class="li-note">Outcomes depend on the specific defect and are best discussed with a cardiologist.</span></li>
         <li>Hearing impairment (temporary or permanent) in some.<span class="li-note">Hearing difficulties may impact speech and language development, which is worth discussing with your care team.</span></li>
         <li>Cryptorchidism (undescended testes) and/or hypospadias in some males</li>
-        <li>Musculoskeletal issues including scoliosis, kyphosis, and joint laxity</li>
+        <li>Inguinal hernia (a bulge in the groin area) reported in some</li>
+        <li>Musculoskeletal issues including scoliosis (sideways spine curvature), kyphosis (excessive forward rounding of the spine), and joint laxity (excessive looseness or flexibility in joints)</li>
+        <li>Fragile bones reported in a small number of children</li>
       </ul>
     </div>
   </div>
 
+  <p class="prose-note" style="margin-top: 8px; max-width: 72ch;">How much any feature affects daily life can vary a great deal, even between people with the same type of genetic change. Some individuals have very few challenges; others face more. This list covers features found in published research and may not include everything — researchers are still learning. Bring any specific questions to your care team.</p>
 
 </div>
 </div>
@@ -829,12 +832,12 @@
     <div class="step-item">
       <div class="step-number">5</div>
       <h4>Early intervention and school-based services</h4>
-      <p>Children under age 3 may qualify for early intervention services through their state. School-age children may qualify for an IEP (Individualized Education Program) or 504 Plan. Many families have found services including speech, occupational, and physical therapy valuable when available through the school system, which typically provides them at no cost.</p>
+      <p>Children under age 3 may be eligible for early intervention services in many states, though eligibility and available services vary by location. School-age children may be evaluated for an IEP (Individualized Education Program) or 504 Plan; eligibility is determined after evaluation by the school team. When included in a child's IEP, speech, occupational, and physical therapy are often provided through the school at no cost to families, though the specific services offered vary by district and your child's documented needs.</p>
     </div>
     <div class="step-item">
       <div class="step-number">6</div>
       <h4>Patient registry</h4>
-      <p><a href="https://simonssearchlight.org/research/what-we-study/setd5/" target="_blank" rel="noopener">Simons Searchlight</a> is a well-known patient registry that includes SETD5 Syndrome and is free to join. They study genes that cause rare neurodevelopmental disorders; the program is international and available in several languages. Enrolling connects your family with researchers, helps build the evidence base that benefits future families, and includes perks for completing studies. Many SETD5 Syndrome families, including ours, have found this program valuable and encourage others to consider it.</p>
+      <p><a href="https://simonssearchlight.org/research/what-we-study/setd5/" target="_blank" rel="noopener">Simons Searchlight</a> is a well-known patient registry that includes SETD5 Syndrome and is free to join. They study genes that cause rare neurodevelopmental disorders; the program is international and available in several languages. Enrolling connects your family with researchers and helps build the evidence base that benefits future families. Many SETD5 Syndrome families, including ours, have found this program valuable and encourage others to consider it.</p>
       <p>There are also two other registries currently open to families with SETD5-related disorder: the Brain Gene Registry and GenomeConnect. Families can enroll in more than one. See the <a href="research-registries.html">Research Registries guide</a> for an overview of all three and why each one is relevant.</p>
     </div>
   </div>
@@ -929,7 +932,7 @@
 
   <span class="question-group-label">School &amp; services</span>
   <ul class="question-list">
-    <li>What does this diagnosis mean for school services and IEP eligibility?</li>
+    <li>Would you recommend an evaluation for school services, such as an IEP or 504 Plan?</li>
   </ul>
 
   <span class="question-group-label">Research &amp; community</span>
@@ -1043,7 +1046,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var filterMap = {
     learning:'Learning', speech:'Speech', behavior:'Behavior',
-    social:'Social', neurological:'Neurological', facial:'Facial',
+    neurological:'Neurological', facial:'Facial',
     eyes:'Eyes', mouth:'Mouth', feeding:'Feeding', medical:'Other Medical'
   };
 
