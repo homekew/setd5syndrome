@@ -255,6 +255,12 @@
   .breadcrumb-current { opacity: 0.45; }
   .header-eyebrow a { color: rgba(255,255,255,0.7) !important; text-decoration: none !important; transition: color 0.15s; letter-spacing: inherit; text-transform: inherit; font-size: inherit; }
   .header-eyebrow a:hover { color: rgba(255,255,255,1) !important; }
+  /* Keep breadcrumb visible when header collapses on scroll */
+  .site-header.collapsed .header-eyebrow {
+    opacity: 1 !important;
+    max-height: 30px !important;
+    margin-bottom: 6px !important;
+  }
 </style>
 </head>
 <body>
