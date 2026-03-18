@@ -109,18 +109,6 @@
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner { display: flex; flex: 1; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
-  .tab-link-out {
-    flex-shrink: 0; display: flex; align-items: center;
-    padding: 0 18px; font-size: 13px; font-family: 'Inter', sans-serif;
-    color: rgba(255,255,255,0.6); text-decoration: none !important;
-    border-left: 1px solid rgba(255,255,255,0.15);
-    font-style: italic; white-space: nowrap;
-    transition: color 0.18s;
-    background: #5a9186;
-    position: sticky; right: 0;
-  }
-  .tab-link-out:hover { color: rgba(255,255,255,0.9) !important; }
-  @media (max-width: 600px) { .tab-link-out { display: none; } }
   .tab-btn{
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,0.9); font-family: 'Inter', sans-serif;
@@ -461,7 +449,6 @@
     <button class="tab-btn" data-tab="tab-symptoms" onclick="showTab('tab-symptoms')">Symptoms &amp; Features</button>
     <button class="tab-btn" data-tab="tab-nextsteps" onclick="showTab('tab-nextsteps')">Next Steps</button>
   </div>
-  <a href="family-toolkit.html" class="tab-link-out">Family Toolkit &#8594;</a>
 </nav>
 
 <!-- ══════════════════════════════════════════════ -->
