@@ -407,6 +407,32 @@
   }
 </style>
 <script>
+  var TAB_LABELS = {
+    'tab-what':      null,
+    'tab-genetics':  'Genetics &amp; Variants',
+    'tab-symptoms':  'Symptoms &amp; Features',
+    'tab-nextsteps': 'Next Steps'
+  };
+
+  function updateBreadcrumb(tabId) {
+    var crumb = document.querySelector('.header-eyebrow');
+    if (!crumb) return;
+    var label = TAB_LABELS[tabId];
+    if (label) {
+      crumb.innerHTML =
+        '<a href="index.html">Home</a>' +
+        '<span class="breadcrumb-sep">›</span>' +
+        '<span class="breadcrumb-current">Understanding SETD5 Syndrome</span>' +
+        '<span class="breadcrumb-sep">›</span>' +
+        '<span class="breadcrumb-current">' + label + '</span>';
+    } else {
+      crumb.innerHTML =
+        '<a href="index.html">Home</a>' +
+        '<span class="breadcrumb-sep">›</span>' +
+        '<span class="breadcrumb-current">Understanding SETD5 Syndrome</span>';
+    }
+  }
+
   function showTab(id) {
     document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
     document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
@@ -414,6 +440,7 @@
     document.querySelector('[data-tab="' + id + '"]').classList.add('active');
     history.replaceState(null, '', '#' + id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateBreadcrumb(id);
   }
 
   // Restore tab from URL hash on page load -- must run after DOM is ready
@@ -423,6 +450,8 @@
     if (hash && validTabs.indexOf(hash) !== -1) {
       showTab(hash);
       setTimeout(function() { window.scrollTo(0, 0); }, 0);
+    } else {
+      updateBreadcrumb('tab-what');
     }
   });
 </script>
