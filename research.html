@@ -1757,38 +1757,12 @@
 
 <script>
   // ── TAB SWITCHING ──
-  var RESEARCH_TAB_LABELS = {
-    'tab-research':    null,
-    'tab-management':  'Current Management',
-    'tab-gaps':        'Open Questions'
-  };
-
-  function updateResearchBreadcrumb(tabId) {
-    var crumb = document.querySelector('.header-eyebrow');
-    if (!crumb) return;
-    var label = RESEARCH_TAB_LABELS[tabId];
-    if (label) {
-      crumb.innerHTML =
-        '<a href="index.html">Home</a>' +
-        '<span class="breadcrumb-sep">›</span>' +
-        '<span class="breadcrumb-current">Research</span>' +
-        '<span class="breadcrumb-sep">›</span>' +
-        '<span class="breadcrumb-current">' + label + '</span>';
-    } else {
-      crumb.innerHTML =
-        '<a href="index.html">Home</a>' +
-        '<span class="breadcrumb-sep">›</span>' +
-        '<span class="breadcrumb-current">Research</span>';
-    }
-  }
-
   function showResearchTab(id, btn) {
     document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
     document.querySelectorAll('#research-tab-nav .tab-btn').forEach(function(b) { b.classList.remove('active'); });
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
     window.scrollTo(0, 0);
-    updateResearchBreadcrumb(id);
   }
 
   // ── COLLAPSE HEADER ON SCROLL + SYNC TAB NAV & SEARCH BAR ──
