@@ -195,7 +195,6 @@
   }
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
-  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:0.85; min-width:130px; min-height:24px; }
 
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
@@ -269,9 +268,6 @@
 
 
 <header class="site-header">
-  <div class="translate-widget">
-    <div id="google_translate_element"></div>
-  </div>
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
@@ -656,14 +652,7 @@ if (history.scrollRestoration) {
 }
 window.scrollTo(0, 0);
 
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false
-  }, 'google_translate_element');
-}
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
 (function(){

@@ -48,19 +48,7 @@ body{
 }
 
 /* ── GOOGLE TRANSLATE ── */
-.translate-widget {
-  position: absolute;
-  top: 8px; right: 12px;
-  z-index: 9999;
-  transform: scale(0.78);
-  transform-origin: top right;
-  opacity: 0.85;
-  min-width: 130px;
-  min-height: 24px;
-  overflow: hidden;
-}
 
-@media (max-width: 400px) { .translate-widget { transform: scale(0.65); } }
 
 /* ── SITE HEADER ── */
 .site-header {
@@ -473,9 +461,6 @@ main {
 </head>
 <body>
 
-<div class="translate-widget">
-  <div id="google_translate_element"></div>
-</div>
 
 <header class="site-header">
   <div class="header-inner">
@@ -668,15 +653,6 @@ main {
   });
 })();
 </script>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
 
