@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SETD5 Syndrome Research &amp; Resources</title>
+<title>SETD5 Syndrome Guides &amp; Support</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/">
-<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
-<meta property="og:title" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:site_name" content="SETD5 Syndrome Guides &amp; Support">
+<meta property="og:title" content="SETD5 Syndrome Guides &amp; Support">
 <meta property="og:description" content="Guides for families living with SETD5 Syndrome: newly diagnosed, published research, medical terms, and disability resources. Created by a parent, for families like ours.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SETD5 Syndrome Research &amp; Resources">
+<meta name="twitter:title" content="SETD5 Syndrome Guides &amp; Support">
 <meta name="twitter:description" content="Guides for families living with SETD5 Syndrome: newly diagnosed, published research, medical terms, and disability resources.">
 <meta name="description" content="Family resource for SETD5 Syndrome: plain-language research summaries, medical term definitions, family guides, and community stories for parents and caregivers.">
 <link rel="canonical" href="https://setd5syndrome.live/">
@@ -129,18 +129,55 @@
     width: 100%;
   }
 
-  /* INTRO BAR */
-  .intro-bar { background: var(--cream); color: var(--text); padding: 36px 2.5rem 32px; border-bottom: 1px solid var(--border); text-align: center; }
-  .intro-heading { font-family: 'Lora', serif; font-size: 1.45rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin: 0 auto 0.75rem; max-width: 600px; }
-  .intro-body { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 auto; max-width: 580px; }
-
-  /* STATS BAR */
-  .stats-bar { background: #e0d9cf; padding: 20px 2.5rem; display: flex; justify-content: center; gap: 0; border-bottom: 3px solid var(--amber); }
-  .stats-bar-item { text-align: center; padding: 0 2.5rem; border-right: 1px solid var(--border); }
-  .stats-bar-item:last-child { border-right: none; }
-  .stats-bar-num { display: block; font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--navy); line-height: 1; }
-  .stats-bar-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
-  @media (max-width: 600px) { .stats-bar { flex-wrap: wrap; gap: 16px; } .stats-bar-item { border-right: none; padding: 0 1.5rem; } }
+  /* HERO BAND (merged intro + stats) */
+  .hero-band {
+    background: var(--cream);
+    color: var(--text);
+    padding: 2.75rem 2.5rem 2.25rem;
+    border-bottom: 3px solid var(--amber);
+    text-align: center;
+  }
+  .hero-heading {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0 auto 0.6rem;
+    max-width: 600px;
+  }
+  .hero-body {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0 auto 1.25rem;
+    max-width: 540px;
+  }
+  .hero-stats {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    margin-bottom: 1.25rem;
+  }
+  .hero-dot {
+    color: var(--border);
+    margin: 0 0.6rem;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--amber);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .hero-cta:hover { background: #b87c2e; }
 
   /* GUIDES ZONE */
   .guides-zone {
@@ -479,9 +516,9 @@
   <div class="translate-widget">
     <div id="google_translate_element"></div>
   </div>
-  <h1><a href="/" style="color:inherit;text-decoration:none;">SETD5 Syndrome<br><em>Research &amp; Resources</em></a></h1>
+  <h1><a href="/" style="color:inherit;text-decoration:none;">SETD5 Syndrome<br><em>Guides &amp; Support</em></a></h1>
   <div class="header-rule"></div>
-  <p class="header-sub">A peer resource for SETD5 Syndrome families</p>
+  <p class="header-sub">Built by a parent, for families like ours</p>
 </header>
 
 <nav class="site-nav">
@@ -495,26 +532,14 @@
   </div>
 </nav>
 
-<!-- Welcome intro band -->
-<div class="intro-bar">
-  <h2 class="intro-heading">You're not navigating this alone.</h2>
-  <p class="intro-body">This site was built by a SETD5 Syndrome parent who wanted plain-language, evidence-based guides written for families. Everything here is free, sourced from published research, and updated regularly.</p>
-</div>
-
-<!-- Stats bar -->
-<div class="stats-bar">
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">50+</span>
-    <span class="stats-bar-label">Research papers summarized</span>
+<!-- Hero band (merged intro + stats) -->
+<div class="hero-band">
+  <h2 class="hero-heading">You're not navigating this alone.</h2>
+  <p class="hero-body">Plain-language, evidence-based guides written by a SETD5 Syndrome parent. Free, sourced from published research, and updated regularly.</p>
+  <div class="hero-stats">
+    <span>50+ papers</span><span class="hero-dot">&middot;</span><span>6 guides</span><span class="hero-dot">&middot;</span><span>0 paywalls</span>
   </div>
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">6</span>
-    <span class="stats-bar-label">Guides &amp; toolkits</span>
-  </div>
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">0</span>
-    <span class="stats-bar-label">Paywalls. Ever.</span>
-  </div>
+  <a href="understanding-setd5-syndrome.html" class="hero-cta">Just diagnosed? Start here &rarr;</a>
 </div>
 
 <main>
