@@ -59,7 +59,9 @@
   }
 
   /* ── HEADER ── */
-  .site-header { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 1000;}
+  .site-header { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 1000;
+    overflow: hidden;
+  }
   .site-header::before {
     content: '';
     position: absolute;
@@ -308,6 +310,9 @@
 
 
 <header class="site-header">
+<!-- dna-helix-injected -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;right:3%;top:0;height:100%;width:auto;opacity:0.10;z-index:1;pointer-events:none;" viewBox="0 0 90 140" xmlns="http://www.w3.org/2000/svg"><g stroke="white" fill="none" stroke-linecap="round"><path d="M 45 0 C 10 18,80 18,45 35 C 10 52,80 52,45 70 C 10 87,80 87,45 105 C 10 122,80 122,45 140" stroke-width="2"/><path d="M 45 0 C 80 18,10 18,45 35 C 80 52,10 52,45 70 C 80 87,10 87,45 105 C 80 122,10 122,45 140" stroke-width="2"/><line x1="22" y1="9"   x2="68" y2="9"   stroke-width="1.2"/><line x1="22" y1="26"  x2="68" y2="26"  stroke-width="1.2"/><line x1="22" y1="44"  x2="68" y2="44"  stroke-width="1.2"/><line x1="22" y1="61"  x2="68" y2="61"  stroke-width="1.2"/><line x1="22" y1="79"  x2="68" y2="79"  stroke-width="1.2"/><line x1="22" y1="96"  x2="68" y2="96"  stroke-width="1.2"/><line x1="22" y1="113" x2="68" y2="113" stroke-width="1.2"/><line x1="22" y1="131" x2="68" y2="131" stroke-width="1.2"/><circle cx="45" cy="0"   r="2.5" fill="white" stroke="none"/><circle cx="45" cy="35"  r="2.5" fill="white" stroke="none"/><circle cx="45" cy="70"  r="2.5" fill="white" stroke="none"/><circle cx="45" cy="105" r="2.5" fill="white" stroke="none"/><circle cx="45" cy="140" r="2.5" fill="white" stroke="none"/><circle cx="10" cy="18"  r="2"   fill="white" stroke="none"/><circle cx="80" cy="18"  r="2"   fill="white" stroke="none"/><circle cx="10" cy="52"  r="2"   fill="white" stroke="none"/><circle cx="80" cy="52"  r="2"   fill="white" stroke="none"/><circle cx="10" cy="87"  r="2"   fill="white" stroke="none"/><circle cx="80" cy="87"  r="2"   fill="white" stroke="none"/><circle cx="10" cy="122" r="2"   fill="white" stroke="none"/><circle cx="80" cy="122" r="2"   fill="white" stroke="none"/></g></svg>
+
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
