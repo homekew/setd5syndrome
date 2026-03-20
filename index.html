@@ -134,9 +134,9 @@
   .intro-heading { font-family: 'Lora', serif; font-size: 1.45rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin: 0 auto 0.75rem; max-width: 600px; }
   .intro-body { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 auto; max-width: 580px; }
 
-  /* STATS BAR */
-  .stats-bar { background: #edf5ef; padding: 20px 2.5rem; display: flex; justify-content: center; gap: 0; border-bottom: 3px solid var(--amber); }
-  .stats-bar-item { text-align: center; padding: 0 2.5rem; border-right: 1px solid var(--border); }
+  /* STATS CARD */
+  .stats-bar { background: #edf5ef; padding: 22px 2rem; display: flex; justify-content: center; gap: 0; border: 1px solid #c8dece; border-radius: 10px; margin-top: 2rem; }
+  .stats-bar-item { text-align: center; padding: 0 2rem; border-right: 1px solid #c8dece; }
   .stats-bar-item:last-child { border-right: none; }
   .stats-bar-num { display: block; font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--navy); line-height: 1; }
   .stats-bar-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
@@ -501,23 +501,23 @@
   <p class="intro-body">This site was built by a SETD5 Syndrome parent who wanted plain-language, evidence-based guides written for families — not specialists. Everything here is free, sourced from published research, and updated regularly.</p>
 </div>
 
-<!-- Stats bar -->
-<div class="stats-bar">
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">50+</span>
-    <span class="stats-bar-label">Research papers summarized</span>
-  </div>
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">6</span>
-    <span class="stats-bar-label">Guides &amp; toolkits</span>
-  </div>
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">0</span>
-    <span class="stats-bar-label">Paywalls. Ever.</span>
-  </div>
-</div>
-
 <main>
+
+  <!-- Stats card -->
+  <div class="stats-bar">
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">50+</span>
+      <span class="stats-bar-label">Research papers summarized</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">6</span>
+      <span class="stats-bar-label">Guides &amp; toolkits</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">0</span>
+      <span class="stats-bar-label">Paywalls. Ever.</span>
+    </div>
+  </div>
 
   <!-- Guides zone -->
   <div class="guides-zone">
