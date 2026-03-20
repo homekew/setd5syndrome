@@ -32,7 +32,7 @@
     --sage-lt: #edf5ef;
     --border: #e0d9cf;
     --muted: #6b6b6b;
-    --nav-bg: var(--cream);
+    --nav-bg: #5a9186;
   }
 
   html, body{ height: 100%; }
@@ -135,11 +135,11 @@
   .intro-body { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 auto; max-width: 580px; }
 
   /* STATS BAR */
-  .stats-bar { background: var(--navy); padding: 20px 2.5rem; display: flex; justify-content: center; gap: 0; border-bottom: 3px solid var(--amber); }
-  .stats-bar-item { text-align: center; padding: 0 2.5rem; border-right: 1px solid rgba(255,255,255,0.15); }
+  .stats-bar { background: #e0d9cf; padding: 20px 2.5rem; display: flex; justify-content: center; gap: 0; border-bottom: 3px solid var(--amber); }
+  .stats-bar-item { text-align: center; padding: 0 2.5rem; border-right: 1px solid var(--border); }
   .stats-bar-item:last-child { border-right: none; }
-  .stats-bar-num { display: block; font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--amber); line-height: 1; }
-  .stats-bar-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 5px; }
+  .stats-bar-num { display: block; font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--navy); line-height: 1; }
+  .stats-bar-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
   @media (max-width: 600px) { .stats-bar { flex-wrap: wrap; gap: 16px; } .stats-bar-item { border-right: none; padding: 0 1.5rem; } }
 
   /* GUIDES ZONE */
@@ -421,7 +421,7 @@
     gap: 0;
   }
   .site-nav a {
-    color: var(--navy);
+    color: rgba(255,255,255,0.92);
     text-decoration: none;
     padding: 10px 15px;
     font-size: 15px;
@@ -432,8 +432,8 @@
     transition: color 0.15s, background 0.15s;
   }
   .site-nav a:hover {
-    color: var(--teal);
-    background: var(--amber-lt);
+    color: #fff;
+    background: rgba(255,255,255,0.15);
   }
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
