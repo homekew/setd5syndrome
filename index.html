@@ -32,7 +32,7 @@
     --sage-lt: #edf5ef;
     --border: #e0d9cf;
     --muted: #6b6b6b;
-    --nav-bg: #5a9186;
+    --nav-bg: #ffffff;
   }
 
   html, body{ height: 100%; }
@@ -91,7 +91,7 @@
 
   h1{
     font-family: 'Lora', serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: clamp(2.2rem, 6vw, 4rem);
     line-height: 1.08;
     letter-spacing: -0.02em;
@@ -130,10 +130,17 @@
   }
 
   /* INTRO BAR */
-  .intro-bar { background: var(--cream); color: var(--text); padding: 28px 0 36px; max-width: 860px; margin: 0 auto; border-top: 3px solid var(--amber); text-align: center; }
-  .intro-heading { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 400; color: var(--navy); line-height: 1.4; margin: 0 auto 0.75rem; max-width: 600px; }
-  .intro-body { font-size: 15.5px; line-height: 1.75; color: var(--text); margin: 0 auto 0.85rem; max-width: 600px; }
-  .intro-attr { font-size: 13px; line-height: 1.5; color: var(--muted); font-style: italic; margin: 0 auto; }
+  .intro-bar { background: #fff; color: var(--text); padding: 36px 2.5rem 32px; border-bottom: 1px solid var(--border); text-align: center; }
+  .intro-heading { font-family: 'Lora', serif; font-size: 1.45rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin: 0 auto 0.75rem; max-width: 600px; }
+  .intro-body { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 auto; max-width: 580px; }
+
+  /* STATS BAR */
+  .stats-bar { background: var(--navy); padding: 20px 2.5rem; display: flex; justify-content: center; gap: 0; border-bottom: 3px solid var(--amber); }
+  .stats-bar-item { text-align: center; padding: 0 2.5rem; border-right: 1px solid rgba(255,255,255,0.15); }
+  .stats-bar-item:last-child { border-right: none; }
+  .stats-bar-num { display: block; font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--amber); line-height: 1; }
+  .stats-bar-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 5px; }
+  @media (max-width: 600px) { .stats-bar { flex-wrap: wrap; gap: 16px; } .stats-bar-item { border-right: none; padding: 0 1.5rem; } }
 
   /* GUIDES ZONE */
   .guides-zone {
@@ -235,7 +242,7 @@
 
   .card h2{
     font-family: 'Lora', serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 22px;
     color: var(--navy);
     margin-bottom: 0.65rem;
@@ -252,13 +259,18 @@
 
   .card-link {
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     color: var(--card-accent, var(--teal));
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+    border: 1.5px solid var(--card-accent, var(--teal));
+    padding: 7px 14px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    align-self: flex-start;
   }
 
   .card-link::after {
@@ -266,8 +278,13 @@
     transition: transform 0.2s;
   }
 
+  .card:hover .card-link {
+    background: var(--card-accent, var(--teal));
+    color: #fff;
+  }
+
   .card:hover .card-link::after {
-    transform: translateX(4px);
+    transform: translateX(3px);
   }
 
   /* Card variants */
@@ -390,6 +407,8 @@
   /* ── SITE NAV ── */
   .site-nav {
     background: var(--nav-bg);
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 1px 6px rgba(26,39,68,0.05);
     padding: 0;
     text-align: center;
   }
@@ -402,16 +421,19 @@
     gap: 0;
   }
   .site-nav a {
-    color: rgba(255,255,255,0.9);
+    color: var(--navy);
     text-decoration: none;
     padding: 10px 15px;
     font-size: 15px;
     font-family: 'Inter', sans-serif;
     display: inline-block;
     white-space: nowrap;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
   }
   .site-nav a:hover {
-    color: #fff;
+    color: var(--teal);
+    background: var(--amber-lt);
   }
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
@@ -472,6 +494,28 @@
     <a href="about.html">About</a>
   </div>
 </nav>
+
+<!-- Welcome intro band -->
+<div class="intro-bar">
+  <h2 class="intro-heading">You're not navigating this alone.</h2>
+  <p class="intro-body">This site was built by a SETD5 Syndrome parent who wanted plain-language, evidence-based guides written for families — not specialists. Everything here is free, sourced from published research, and updated regularly.</p>
+</div>
+
+<!-- Stats bar -->
+<div class="stats-bar">
+  <div class="stats-bar-item">
+    <span class="stats-bar-num">50+</span>
+    <span class="stats-bar-label">Research papers summarized</span>
+  </div>
+  <div class="stats-bar-item">
+    <span class="stats-bar-num">6</span>
+    <span class="stats-bar-label">Guides &amp; toolkits</span>
+  </div>
+  <div class="stats-bar-item">
+    <span class="stats-bar-num">1</span>
+    <span class="stats-bar-label">SETD5 parent · built for families</span>
+  </div>
+</div>
 
 <main>
 
