@@ -70,7 +70,7 @@
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(32px, 4.5vw, 44px); font-weight: 400;
+    font-size: clamp(32px, 4.5vw, 44px); font-weight: 600;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
@@ -96,7 +96,9 @@
 
   /* ── TAB NAV ── */
   .tab-nav {
-    background: #5a9186;
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 1px 6px rgba(26,39,68,0.05);
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     position: sticky; top: 0; z-index: 100;
@@ -105,13 +107,13 @@
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
   .tab-btn{
     background: none; border: none; cursor: pointer;
-    color: rgba(255,255,255,0.9); font-family: 'Inter', sans-serif;
+    color: var(--navy); font-family: 'Inter', sans-serif;
     font-size: 15px; font-weight: 400; padding: 10px 22px;
     white-space: nowrap; border-bottom: 3px solid transparent;
     transition: color .18s, border-color .18s, padding 0.175s ease;
   }
-  .tab-btn:hover { color: rgba(255,255,255,.85); }
-  .tab-btn.active { color: #fff; border-bottom-color: #c9893a; }
+  .tab-btn:hover { color: var(--teal); background: var(--amber-lt); border-radius: 4px; }
+  .tab-btn.active { color: var(--navy); font-weight: 600; border-bottom-color: var(--amber); }
   .tab-nav.is-slim .tab-btn{ padding: 6px 22px; }
 
   /* ── PANELS / LAYOUT ── */
@@ -142,7 +144,7 @@
   h2{
     font-family: 'Lora', serif;
     font-size: clamp(21px, 3.5vw, 28px);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--navy);
     border-left: 4px solid var(--amber);
     padding-left: 14px;
