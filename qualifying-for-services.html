@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support Programs Overview | SETD5 Syndrome</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23262626'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/qualifying-for-services.html">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
@@ -19,22 +19,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream:     #faf7f2;
-    --cream2:    #f2ede4;
-    --navy:      #1a2744;
-    --deep:      #2a627a;
-    --teal:      #2a7a6a;
-    --amber:     #c9893a;
-    --amber-lt:  #fdf4e7;
-    --rose:      #b05a5a;
-    --rose-lt:   #fdf0ef;
-    --sage:      #4e7c5f;
-    --sage-lt:   #edf5ef;
-    --blue:      #5a80a8;
-    --blue-lt:   #e8eff7;
-    --text:      #2c2c2c;
-    --muted:     #6b6b6b;
-    --border:    #e0d9cf;
+    --cream:     #F2F1EB;
+    --cream2:    #EEEBE4;
+    --navy:      #262626;
+    --linen:     #EEEBE4;
+    --caramel:   #D9AC84;
+    --caramel-lt:#FAF3EB;
+    --caramel-mid:#EDD8BB;
+    --peach:     #F2B199;
+    --peach-lt:  #FEF0EB;
+    --peach-mid: #F8D3C8;
+    --sage-mid:  #C8D8D6;
+    --charcoal:  #262626;
+    --deep:      #AEBFBE;
+    --teal:      #AEBFBE;
+    --amber:     #D9AC84;
+    --amber-lt:  #FAF3EB;
+    --rose:      #F2B199;
+    --rose-lt:   #FEF0EB;
+    --sage:      #AEBFBE;
+    --sage-lt:   #E8EFEE;
+    --blue:      #AEBFBE;
+    --blue-lt:   #E8EFEE;
+    --text:      #404040;
+    --muted:     #737370;
+    --border:    #D4D4D2;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,14 +61,14 @@
   }
 
   /* -- HEADER -- */
-  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; }
+  .site-header { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 1000; }
   .site-header::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
+      radial-gradient(ellipse at 20% 50%, rgba(174,191,190,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(217,172,132,0.2) 0%, transparent 55%);
     pointer-events: none;
     z-index: 0;
   }
@@ -169,7 +178,7 @@
   }
   .amber-callout .callout-label {
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
-    text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
+    text-transform: uppercase; color: #9E7545; display: block; margin-bottom: 6px;
   }
   .amber-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
@@ -253,7 +262,7 @@
   .section-nav {
     background: #fff;
     border-bottom: 2px solid var(--border);
-    box-shadow: 0 1px 6px rgba(26,39,68,0.05);
+    box-shadow: 0 1px 6px rgba(38,38,38,0.05);
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none; position: sticky; top: 0; z-index: 100;
   }
@@ -271,7 +280,7 @@
     transition: color .18s, border-color .18s;
   }
   .section-link:hover { color: #fff; text-decoration: none; }
-  .section-link.active { color: #fff; border-bottom-color: #c9893a; }
+  .section-link.active { color: #fff; border-bottom-color: #D9AC84; }
 
   /* ── STATE FINDER WIDGET ── */
   .state-finder {
@@ -287,8 +296,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse at 85% 30%, rgba(42,98,122,0.22) 0%, transparent 55%);
+      radial-gradient(ellipse at 20% 50%, rgba(174,191,190,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 30%, rgba(217,172,132,0.22) 0%, transparent 55%);
     pointer-events: none;
   }
   .state-finder-label {
@@ -729,7 +738,7 @@ window.scrollTo(0, 0);
 </script>
 
 
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#262626;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(38,38,38,0.25);transition:opacity .2s;">&#8593;</button>
 
 <script>
 (function(){
