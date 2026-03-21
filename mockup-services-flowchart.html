@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup — Services Eligibility Flowchart</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2; --navy: #1a2744; --teal: #2a7a6a; --amber: #c9893a;
+    --amber-lt: #fdf4e7; --sage: #4e7c5f; --sage-lt: #edf5ef; --blue: #5a80a8;
+    --blue-lt: #e8eff7; --border: #e0d9cf; --muted: #6b6b6b; --text: #2c2c2c;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'Inter', sans-serif; color: var(--text); font-size: 16px; line-height: 1.7; padding: 2rem 1.5rem 4rem; }
+  .page-wrap { max-width: 680px; margin: 0 auto; }
+
+  .mockup-label {
+    display: inline-block; background: var(--amber-lt); color: #8a5a1a;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 4px; margin-bottom: 1rem;
+  }
+  h1 { font-family: 'Lora', serif; font-size: clamp(24px, 4vw, 36px); color: var(--navy); margin-bottom: 0.5rem; }
+  .subtitle { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.65; margin-bottom: 2rem; }
+
+  /* FLOW CONTAINER */
+  .flow-container {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 2rem 1.5rem;
+    box-shadow: 0 2px 20px rgba(26,39,68,0.06);
+  }
+
+  /* QUESTION NODE */
+  .flow-question {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: 1.2rem;
+  }
+  .flow-question .q-number {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 6px;
+  }
+
+  /* ANSWER BUTTONS */
+  .flow-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+  }
+  .flow-btn {
+    flex: 1;
+    max-width: 220px;
+    padding: 14px 20px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .flow-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .flow-btn.selected { background: var(--sage-lt); border-color: var(--teal); color: var(--teal); font-weight: 600; }
+
+  /* CONNECTOR LINE */
+  .flow-connector {
+    width: 2px;
+    height: 24px;
+    background: var(--border);
+    margin: 0 auto 1.2rem;
+  }
+
+  /* RESULT CARD */
+  .flow-result {
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 1rem;
+    display: none;
+  }
+  .flow-result.visible { display: block; }
+  .flow-result h3 {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .flow-result p { font-size: 14.5px; line-height: 1.7; margin-bottom: 8px; }
+  .flow-result .result-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 4px;
+  }
+
+  .result-teal { background: var(--sage-lt); border-left: 4px solid var(--teal); }
+  .result-teal h3 { color: var(--teal); }
+  .result-teal .result-link { color: var(--teal); }
+
+  .result-amber { background: var(--amber-lt); border-left: 4px solid var(--amber); }
+  .result-amber h3 { color: #8a5a1a; }
+  .result-amber .result-link { color: var(--amber); }
+
+  .result-blue { background: var(--blue-lt); border-left: 4px solid var(--blue); }
+  .result-blue h3 { color: var(--blue); }
+  .result-blue .result-link { color: var(--blue); }
+
+  /* ALSO EXPLORE */
+  .also-explore {
+    background: #f8f6f1;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 1.2rem;
+    display: none;
+  }
+  .also-explore.visible { display: block; }
+  .also-explore-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.11em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  .also-explore-items { display: flex; flex-direction: column; gap: 6px; }
+  .also-explore-item {
+    font-size: 14px; color: var(--teal);
+    text-decoration: none; font-weight: 500;
+    cursor: pointer;
+  }
+  .also-explore-item:hover { text-decoration: underline; }
+
+  /* RESTART */
+  .restart-btn {
+    display: none;
+    margin: 1.5rem auto 0;
+    padding: 10px 24px;
+    background: none;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .restart-btn.visible { display: block; }
+  .restart-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* STEP VISIBILITY */
+  .flow-step { display: none; }
+  .flow-step.visible { display: block; }
+
+  .disclaimer {
+    font-size: 12px; color: var(--muted); text-align: center;
+    margin-top: 1.5rem; line-height: 1.55; max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+
+  @media (max-width: 500px) {
+    .flow-options { flex-direction: column; align-items: center; }
+    .flow-btn { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="mockup-label">Mockup — Interactive Component</div>
+  <h1>Find Support Programs</h1>
+  <p class="subtitle">Answer a few questions to see which programs may be relevant to your family. This is an overview, not a determination of eligibility.</p>
+
+  <div class="flow-container">
+
+    <!-- STEP 1: AGE -->
+    <div class="flow-step visible" id="step-age">
+      <div class="flow-question">
+        <span class="q-number">Question 1</span>
+        How old is your child?
+      </div>
+      <div class="flow-options">
+        <button class="flow-btn" onclick="selectAge('under3')">Under 3</button>
+        <button class="flow-btn" onclick="selectAge('3to21')">3 – 21</button>
+        <button class="flow-btn" onclick="selectAge('over18')">18+ / Transition</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: WHAT KIND OF HELP -->
+    <div class="flow-step" id="step-help">
+      <div class="flow-connector"></div>
+      <div class="flow-question">
+        <span class="q-number">Question 2</span>
+        What kind of support are you looking for?
+      </div>
+      <div class="flow-options" id="help-options">
+        <!-- populated dynamically -->
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="flow-step" id="step-results">
+      <div class="flow-connector"></div>
+      <div id="results-container"></div>
+      <div class="also-explore" id="also-explore">
+        <div class="also-explore-label">You may also want to explore</div>
+        <div class="also-explore-items" id="also-items"></div>
+      </div>
+    </div>
+
+    <button class="restart-btn" id="restart" onclick="restart()">Start Over</button>
+
+  </div>
+
+  <p class="disclaimer">This tool provides general information about publicly available programs. It is not legal or financial advice, and does not determine eligibility. Program availability varies by state. Consult the relevant program office for your specific situation.</p>
+
+</div>
+
+<script>
+const programs = {
+  ei: {
+    title: 'Early Intervention (Part C)',
+    desc: 'Federally mandated program for children birth to age 3 with developmental delays or diagnosed conditions. Services may include speech, OT, PT, and developmental therapy. Evaluation is generally free.',
+    link: '#sec-early-intervention',
+    linkText: 'Read more about Early Intervention →',
+    style: 'result-teal'
+  },
+  school: {
+    title: 'School Services (IDEA Part B)',
+    desc: 'After age 3, children may receive services through the public school district including special education, speech therapy, OT, PT, and behavioral supports through an IEP.',
+    link: '#sec-school-services',
+    linkText: 'Read more about school services →',
+    style: 'result-teal'
+  },
+  iep: {
+    title: 'IEP Guide',
+    desc: 'A detailed walkthrough of the IEP process — how to prepare for meetings, understand your rights, and advocate for your child.',
+    link: 'school-iep-guide.html',
+    linkText: 'Go to the IEP Guide →',
+    style: 'result-blue'
+  },
+  ssi: {
+    title: 'Supplemental Security Income (SSI)',
+    desc: 'Federal program providing financial assistance to some children with disabilities whose families meet income and resource limits. Eligibility is based on both financial and medical criteria.',
+    link: '#sec-ssi',
+    linkText: 'Read more about SSI →',
+    style: 'result-amber'
+  },
+  medicaid: {
+    title: 'Medicaid',
+    desc: 'Health coverage that can help cover medical care, therapies, and long-term services. Some states offer waiver programs that allow children to qualify regardless of parental income.',
+    link: '#sec-medicaid',
+    linkText: 'Read more about Medicaid →',
+    style: 'result-amber'
+  },
+  hcbs: {
+    title: 'HCBS Waivers',
+    desc: 'State-run programs funding in-home support, respite care, behavioral supports, and community services. Availability and wait times vary by state. Some families apply early due to long waiting lists.',
+    link: '#sec-hcbs',
+    linkText: 'Read more about HCBS waivers →',
+    style: 'result-teal'
+  },
+  dac: {
+    title: 'Disabled Adult Child (DAC) Benefits',
+    desc: 'Adults with childhood-onset disabilities may qualify for Social Security benefits based on a parent\'s work record. Documentation showing the disability began before age 22 is generally needed.',
+    link: '#sec-dac',
+    linkText: 'Read more about DAC benefits →',
+    style: 'result-blue'
+  },
+  transition: {
+    title: 'Transition to Adulthood Guide',
+    desc: 'A roadmap for families navigating the shift from childhood to adult systems — healthcare, legal decisions, benefits, and adult services.',
+    link: 'transition-to-adulthood.html',
+    linkText: 'Go to the Transition Guide →',
+    style: 'result-blue'
+  }
+};
+
+let selectedAge = null;
+
+function selectAge(age) {
+  selectedAge = age;
+  // Highlight button
+  document.querySelectorAll('#step-age .flow-btn').forEach(b => b.classList.remove('selected'));
+  event.target.classList.add('selected');
+
+  // Show step 2
+  const step2 = document.getElementById('step-help');
+  step2.classList.add('visible');
+  const opts = document.getElementById('help-options');
+
+  if (age === 'under3') {
+    opts.innerHTML = `
+      <button class="flow-btn" onclick="showResults('under3','therapy')">Therapy & Development</button>
+      <button class="flow-btn" onclick="showResults('under3','financial')">Financial Help</button>
+    `;
+  } else if (age === '3to21') {
+    opts.innerHTML = `
+      <button class="flow-btn" onclick="showResults('3to21','school')">School Services</button>
+      <button class="flow-btn" onclick="showResults('3to21','financial')">Financial Help</button>
+      <button class="flow-btn" onclick="showResults('3to21','homecare')">Home & Community</button>
+    `;
+  } else {
+    opts.innerHTML = `
+      <button class="flow-btn" onclick="showResults('over18','benefits')">Adult Benefits</button>
+      <button class="flow-btn" onclick="showResults('over18','services')">Adult Services</button>
+      <button class="flow-btn" onclick="showResults('over18','planning')">Planning Ahead</button>
+    `;
+  }
+
+  // Hide results if showing
+  document.getElementById('step-results').classList.remove('visible');
+  document.getElementById('restart').classList.remove('visible');
+
+  // Scroll to step 2
+  setTimeout(() => step2.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+function showResults(age, need) {
+  // Highlight button
+  document.querySelectorAll('#step-help .flow-btn').forEach(b => b.classList.remove('selected'));
+  event.target.classList.add('selected');
+
+  const container = document.getElementById('results-container');
+  const alsoDiv = document.getElementById('also-explore');
+  const alsoItems = document.getElementById('also-items');
+  let primary = [];
+  let also = [];
+
+  if (age === 'under3' && need === 'therapy') {
+    primary = ['ei'];
+    also = [{ label: 'SSI (financial assistance)', key: 'ssi' }, { label: 'Medicaid (health coverage)', key: 'medicaid' }];
+  } else if (age === 'under3' && need === 'financial') {
+    primary = ['ssi', 'medicaid'];
+    also = [{ label: 'Early Intervention (therapy services)', key: 'ei' }];
+  } else if (age === '3to21' && need === 'school') {
+    primary = ['school', 'iep'];
+    also = [{ label: 'HCBS Waivers (home services)', key: 'hcbs' }];
+  } else if (age === '3to21' && need === 'financial') {
+    primary = ['ssi', 'medicaid'];
+    also = [{ label: 'HCBS Waivers (home services)', key: 'hcbs' }, { label: 'School services', key: 'school' }];
+  } else if (age === '3to21' && need === 'homecare') {
+    primary = ['hcbs', 'medicaid'];
+    also = [{ label: 'SSI (financial assistance)', key: 'ssi' }];
+  } else if (age === 'over18' && need === 'benefits') {
+    primary = ['dac', 'ssi'];
+    also = [{ label: 'Transition Guide', key: 'transition' }];
+  } else if (age === 'over18' && need === 'services') {
+    primary = ['hcbs', 'medicaid'];
+    also = [{ label: 'DAC Benefits', key: 'dac' }, { label: 'Transition Guide', key: 'transition' }];
+  } else if (age === 'over18' && need === 'planning') {
+    primary = ['transition', 'dac'];
+    also = [{ label: 'HCBS Waivers', key: 'hcbs' }, { label: 'Medicaid', key: 'medicaid' }];
+  }
+
+  container.innerHTML = primary.map(key => {
+    const p = programs[key];
+    return `<div class="flow-result visible ${p.style}">
+      <h3>${p.title}</h3>
+      <p>${p.desc}</p>
+      <a href="${p.link}" class="result-link">${p.linkText}</a>
+    </div>`;
+  }).join('');
+
+  if (also.length) {
+    alsoItems.innerHTML = also.map(a =>
+      `<a class="also-explore-item" href="${programs[a.key].link}">${a.label}</a>`
+    ).join('');
+    alsoDiv.classList.add('visible');
+  } else {
+    alsoDiv.classList.remove('visible');
+  }
+
+  const stepResults = document.getElementById('step-results');
+  stepResults.classList.add('visible');
+  document.getElementById('restart').classList.add('visible');
+
+  setTimeout(() => stepResults.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+function restart() {
+  selectedAge = null;
+  document.querySelectorAll('.flow-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('step-help').classList.remove('visible');
+  document.getElementById('step-results').classList.remove('visible');
+  document.getElementById('restart').classList.remove('visible');
+  document.getElementById('also-explore').classList.remove('visible');
+  document.getElementById('results-container').innerHTML = '';
+  document.getElementById('also-items').innerHTML = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

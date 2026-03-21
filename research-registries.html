@@ -478,7 +478,7 @@
 
 
   /* ── Site navigation ─────────────────────────────────── */
-  .site-nav{background:#f2ede4;border-bottom:1px solid var(--border);}
+  .site-nav{position:sticky;top:0;z-index:900;background:#f2ede4;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
@@ -530,6 +530,56 @@
   }
   .section-link:hover { color: #fff; text-decoration: none; background: none; }
   .section-link.active { color: #fff; font-weight: 500; border-bottom-color: var(--amber); }
+
+  /* ── PAGE LAYOUT: sidebar + content ── */
+  .page-layout { display: flex; align-items: flex-start; }
+  .page-sidebar {
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 49px;
+    height: calc(100vh - 49px);
+    overflow-y: auto;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .page-sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0 20px; margin-bottom: 6px;
+  }
+  .sidebar-link {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    background: none; border-top: none; border-right: none; border-bottom: none;
+    width: 100%; text-align: left; cursor: pointer;
+    font-family: 'Inter', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+  }
+  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+  .page-main { flex: 1; min-width: 0; }
+  @media (max-width: 768px) {
+    .page-layout { flex-direction: column; }
+    .page-sidebar {
+      width: 100%; height: auto; position: static;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 0; display: flex; flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar-hd { display: none; }
+    .sidebar-divider { display: none; }
+    .sidebar-link {
+      padding: 10px 16px; white-space: nowrap;
+      border-left: none; border-bottom: 3px solid transparent;
+      flex-shrink: 0;
+    }
+    .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -547,6 +597,7 @@
     <h1 class="header-title"><em>Research</em> Registries</h1>
     <p class="header-subtitle">How joining a research registry helps build the foundation for future studies, and an overview of three registries open to families with SETD5 Syndrome.</p>
   </div>
+</header>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="site-nav-inner">
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
@@ -594,21 +645,21 @@
     </div>
   </div>
 </nav>
-<nav class="section-nav" id="section-nav" aria-label="Page sections">
-  <div class="section-nav-inner">
-    <a class="section-link" href="#sec-why">Why Registries?</a>
-    <a class="section-link" href="#sec-participation">What to Expect</a>
-    <a class="section-link" href="#sec-simons">Simons Searchlight</a>
-    <a class="section-link" href="#sec-bgr">Brain Gene Registry</a>
-    <a class="section-link" href="#sec-genomeconnect">GenomeConnect</a>
-    <a class="section-link" href="#sec-get-started">Get Started</a>
-  </div>
-</nav>
-</header>
 
 <!-- SECTION NAV -->
 
 
+<div class="page-layout">
+<aside class="page-sidebar">
+  <div class="sidebar-hd">On this page</div>
+    <a class="sidebar-link active" href="#sec-why">Why Registries?</a>
+    <a class="sidebar-link" href="#sec-participation">What to Expect</a>
+    <a class="sidebar-link" href="#sec-simons">Simons Searchlight</a>
+    <a class="sidebar-link" href="#sec-bgr">Brain Gene Registry</a>
+    <a class="sidebar-link" href="#sec-genomeconnect">GenomeConnect</a>
+    <a class="sidebar-link" href="#sec-get-started">Get Started</a>
+</aside>
+<div class="page-main">
 <main>
 
 <div class="content-band intro-band">
@@ -896,6 +947,8 @@ Thank you for your help.
 </div>
 
 </main>
+</div>
+</div>
 
 <footer class="site-footer">  <div class="footer-nav">
     <a href="index.html">Home</a><span class="sep">&middot;</span>
@@ -917,12 +970,9 @@ window.scrollTo(0, 0);
 
 (function(){
   var header = document.querySelector('.site-header');
-  var sectionNav = document.getElementById('section-nav');
   var ticking = false;
 
   function updateNavTop() {
-    if (sectionNav) sectionNav.style.top = header.offsetHeight + 'px';
-  }
 
   updateNavTop();
   window.addEventListener('resize', updateNavTop);
@@ -957,8 +1007,7 @@ window.scrollTo(0, 0);
 <script>
 (function(){
   var header = document.querySelector('.site-header');
-  var sectionNav = document.getElementById('section-nav');
-  var links = document.querySelectorAll('.section-link');
+  var links = document.querySelectorAll('.sidebar-link');
   var sections = Array.from(links).map(function(l){
     return document.querySelector(l.getAttribute('href'));
   }).filter(Boolean);

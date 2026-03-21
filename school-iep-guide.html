@@ -374,7 +374,7 @@
 
 
   /* ── Site navigation ─────────────────────────────────── */
-  .site-nav{background:#f2ede4;border-bottom:1px solid var(--border);}
+  .site-nav{position:sticky;top:0;z-index:900;background:#f2ede4;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
@@ -426,6 +426,56 @@
   }
   .tab-btn:hover { color: #fff; text-decoration: none; background: none; }
   .tab-btn.active { color: #fff; font-weight: 500; border-bottom-color: var(--amber); }
+
+  /* ── PAGE LAYOUT: sidebar + content ── */
+  .page-layout { display: flex; align-items: flex-start; }
+  .page-sidebar {
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 49px;
+    height: calc(100vh - 49px);
+    overflow-y: auto;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .page-sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0 20px; margin-bottom: 6px;
+  }
+  .sidebar-link {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    background: none; border-top: none; border-right: none; border-bottom: none;
+    width: 100%; text-align: left; cursor: pointer;
+    font-family: 'Inter', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+  }
+  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+  .page-main { flex: 1; min-width: 0; }
+  @media (max-width: 768px) {
+    .page-layout { flex-direction: column; }
+    .page-sidebar {
+      width: 100%; height: auto; position: static;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 0; display: flex; flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar-hd { display: none; }
+    .sidebar-divider { display: none; }
+    .sidebar-link {
+      padding: 10px 16px; white-space: nowrap;
+      border-left: none; border-bottom: 3px solid transparent;
+      flex-shrink: 0;
+    }
+    .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
+  }
+
 </style>
 <script>
   // Scroll to top on page load
@@ -437,19 +487,13 @@
   /* ── HEADER COLLAPSE ON SCROLL ── */
   document.addEventListener('DOMContentLoaded', function() {
     var header = document.querySelector('.site-header');
-    var tabNav = document.querySelector('.tab-nav');
     if (!header) return;
-
-    function setNavTop() {
-      if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
-    }
 
     var wasCollapsed = false;
     var trackingRaf  = null;
     function trackDuringTransition() {
       var start = performance.now();
       function tick(now) {
-        setNavTop();
         if (now - start < 250) { trackingRaf = requestAnimationFrame(tick); }
       }
       if (trackingRaf) cancelAnimationFrame(trackingRaf);
@@ -460,10 +504,8 @@
       if (isCollapsed !== wasCollapsed) {
         wasCollapsed = isCollapsed;
         header.classList.toggle('collapsed', isCollapsed);
-        if (tabNav) tabNav.classList.toggle('is-slim', isCollapsed);
         trackDuringTransition();
       }
-      setNavTop();
     }
 
     var ticking = false;
@@ -476,11 +518,6 @@
         ticking = true;
       }
     });
-
-    window.addEventListener('resize', function() {
-      setNavTop();
-    });
-    setNavTop();
   });
 
   function showTab(id) {
@@ -509,6 +546,7 @@
     <h1 class="header-title">School &amp; <em>IEP Guide</em></h1>
     <p class="header-subtitle">What to know before, during, and after your child&#39;s IEP meeting.</p>
   </div>
+</header>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="site-nav-inner">
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
@@ -556,15 +594,6 @@
     </div>
   </div>
 </nav>
-<nav class="tab-nav">
-  <div class="tab-nav-inner">
-    <button class="tab-btn active" data-tab="tab-rights" onclick="showTab('tab-rights')">Your Rights</button>
-    <button class="tab-btn" data-tab="tab-plans" onclick="showTab('tab-plans')">IEP vs 504</button>
-    <button class="tab-btn" data-tab="tab-process" onclick="showTab('tab-process')">The Process</button>
-    <button class="tab-btn" data-tab="tab-advocacy" onclick="showTab('tab-advocacy')">Advocacy &amp; Tips</button>
-  </div>
-</nav>
-</header>
 
 <!-- TAB NAV -->
 
@@ -582,14 +611,24 @@
 <!-- ══════════════════════════════════════════════ -->
 <!-- TAB 1: YOUR RIGHTS -->
 <!-- ══════════════════════════════════════════════ -->
+<div class="page-layout">
+<aside class="page-sidebar">
+  <div class="sidebar-hd">On this page</div>
+    <button class="sidebar-link active" data-tab="tab-rights" onclick="showTab('tab-rights')">Your Rights</button>
+    <button class="sidebar-link" data-tab="tab-plans" onclick="showTab('tab-plans')">IEP vs 504</button>
+    <button class="sidebar-link" data-tab="tab-process" onclick="showTab('tab-process')">The Process</button>
+    <button class="sidebar-link" data-tab="tab-advocacy" onclick="showTab('tab-advocacy')">Advocacy</button>
+</aside>
+<div class="page-main">
 <div id="tab-rights" class="tab-panel active">
 <div class="page-body">
 
   <div style="background:#fff8e8;border-left:4px solid #C47B00;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:32px;font-size:14px;line-height:1.6;color:#1a1a1a;">
     This guide reflects our family's research and experience navigating special education and is for informational purposes only. Laws, procedures, and rights vary by state and individual circumstances. For guidance specific to your child's situation, consider connecting with your state's Parent Training and Information Center (PTI) or a special education advocate.
   </div>
-
-  <p class="section-label">The foundation</p>
+</div>
+</div>
+<p class="section-label">The foundation</p>
   <h2 class="section-title">Your Child's Rights in School</h2>
 
   <p class="prose">Children with disabilities in the United States have federally protected rights to a free, appropriate public education. These rights exist whether your child is in public school, a public charter school, or a publicly funded preschool.</p>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Syndrome — Symptom Category Prevalence</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:    #1C2B28;
+    --linen:     #EEEBE4;
+    --caramel:   #D9AC84;
+    --caramel-lt:#FAF3EB;
+    --caramel-mid:#EDD8BB;
+    --peach:     #F2B199;
+    --peach-lt:  #FEF0EB;
+    --peach-mid: #F8D3C8;
+    --sage-mid:  #C8D8D6;
+    --charcoal:  #262626;
+    --teal:    #5A9E8F;
+    --amber:   #C4694A;
+    --deep:    #5A9E8F;
+    --sage:    #5A9E8F;
+    --rose:    #a04a5e;
+    --slate:   #4a6080;
+    --plum:    #6b4f7a;
+    --moss:    #5a7245;
+    --cream:   #F8F6F1;
+    --border:  #D3CDC3;
+    --muted:   #728A84;
+    --text:    #3A4A46;
+  }
+  body {
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  .page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.6rem;
+  }
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+  .subtitle {
+    font-size: 14.5px;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .chart-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem 2rem 1.5rem;
+    box-shadow: 0 2px 16px rgba(28,43,40,0.07);
+  }
+  .chart-layout {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .chart-wrap {
+    flex: 0 0 340px;
+    max-width: 340px;
+    position: relative;
+  }
+  @media (max-width: 700px) {
+    .chart-wrap { flex: 0 0 100%; max-width: 100%; }
+  }
+  .legend-wrap {
+    flex: 1;
+    min-width: 220px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #f0ece5;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.15s;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .legend-item:last-child { border-bottom: none; }
+  .legend-item:hover { background: #f8f5f0; }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    flex: 1;
+  }
+  .legend-pct {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .tooltip-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    pointer-events: none;
+  }
+  .tooltip-label { font-weight: 600; margin-bottom: 2px; }
+  .tooltip-value { color: rgba(255,255,255,0.75); font-size: 12px; }
+  .disclaimer {
+    margin-top: 1.5rem;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+  .center-label {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    width: 55%;
+  }
+  .center-label-num {
+    font-family: 'Lora', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .center-label-text {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 5px;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  /* Info strip shown on hover */
+  .hover-strip {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    background: #f4f0ea;
+    border-radius: 8px;
+    text-align: center;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: background 0.15s;
+  }
+  .hover-strip-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .hover-strip-pct {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .hover-strip-default {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="page-header">
+    <h1>SETD5 Syndrome<br>Symptom Category Prevalence</h1>
+    <p class="subtitle">Approximate reported prevalence across symptom categories, based on published research. Slices reflect relative frequency — categories overlap; most individuals have features in multiple areas.</p>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-layout">
+      <div class="chart-wrap">
+        <canvas id="pieChart"></canvas>
+        <div class="center-label" id="centerLabel">
+          <div class="center-label-num" id="centerNum">14</div>
+          <div class="center-label-text">Categories</div>
+        </div>
+      </div>
+      <div class="legend-wrap" id="legend"></div>
+    </div>
+    <div class="hover-strip" id="hoverStrip">
+      <span class="hover-strip-default">Hover over a slice or category to see details</span>
+    </div>
+    <p class="disclaimer">Prevalence estimates drawn from published SETD5 Syndrome research (2014–2024). Individual experience varies significantly — these figures describe reported rates across studied populations, not predictions for any individual. Categories are not mutually exclusive.</p>
+  </div>
+
+</div>
+
+<script>
+const data = [
+  { label: 'Learning & Cognition',         pct: 100, color: '#1C2B28' },
+  { label: 'Speech & Language',            pct: 90,  color: '#5A9E8F' },
+  { label: 'Facial Structure & Head',      pct: 85,  color: '#5A9E8F' },
+  { label: 'Behavior & Emotional Reg.',    pct: 75,  color: '#C4694A' },
+  { label: 'Neurological & Motor',         pct: 65,  color: '#5A9E8F' },
+  { label: 'Eyes & Vision',                pct: 55,  color: '#6b4f7a' },
+  { label: 'Feeding & Growth',             pct: 45,  color: '#4a6080' },
+  { label: 'Musculoskeletal',              pct: 20,  color: '#7a4a2a' },
+  { label: 'Hearing Impairment',           pct: 18,  color: '#a04a5e' },
+  { label: 'Congenital Heart Defects',     pct: 15,  color: '#b05a30' },
+  { label: 'Mouth, Teeth & Hands',         pct: 25,  color: '#5a7245' },
+  { label: 'Cryptorchidism / Hypospadias', pct: 10,  color: '#8a6a3a' },
+  { label: 'Inguinal Hernia',              pct: 8,   color: '#6a4a6a' },
+  { label: 'Fragile Bones',               pct: 5,   color: '#4a7a7a' },
+];
+
+function setHover(i) {
+  document.getElementById('centerNum').textContent = `~${data[i].pct}%`;
+  document.getElementById('centerLabel').querySelector('.center-label-text').textContent = data[i].label;
+  chart.data.datasets[0].backgroundColor = data.map((dd, ii) =>
+    ii === i ? dd.color : dd.color + '38'
+  );
+  chart.update('none');
+  const strip = document.getElementById('hoverStrip');
+  strip.innerHTML = `<span class="hover-strip-name" style="color:${data[i].color}">${data[i].label}</span><span class="hover-strip-pct">~${data[i].pct}% of reported cases</span>`;
+}
+
+function clearHover() {
+  document.getElementById('centerNum').textContent = String(data.length);
+  document.getElementById('centerLabel').querySelector('.center-label-text').textContent = 'Categories';
+  chart.data.datasets[0].backgroundColor = data.map(dd => dd.color);
+  chart.update('none');
+  document.getElementById('hoverStrip').innerHTML = '<span class="hover-strip-default">Hover over a slice or category to see details</span>';
+}
+
+// Build legend
+const legend = document.getElementById('legend');
+data.forEach((d, i) => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  item.innerHTML = `
+    <div class="legend-dot" style="background:${d.color}"></div>
+    <span class="legend-label">${d.label}</span>
+    <span class="legend-pct">~${d.pct}%</span>
+  `;
+  item.addEventListener('mouseenter', () => setHover(i));
+  item.addEventListener('mouseleave', clearHover);
+  legend.appendChild(item);
+});
+
+const ctx = document.getElementById('pieChart').getContext('2d');
+const chart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: data.map(d => d.label),
+    datasets: [{
+      data: data.map(d => d.pct),
+      backgroundColor: data.map(d => d.color),
+      borderColor: '#F8F6F1',
+      borderWidth: 3,
+      hoverOffset: 8,
+    }]
+  },
+  options: {
+    cutout: '62%',
+    responsive: true,
+    animation: { animateRotate: true, duration: 800 },
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false }
+    },
+    onHover: (event, elements) => {
+      if (elements.length) {
+        setHover(elements[0].index);
+      } else {
+        clearHover();
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

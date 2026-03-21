@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Syndrome — Interior Page Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal:    #262626;
+    --sage:        #AEBFBE;
+    --cream:       #F2F1EB;
+    --caramel:     #D9AC84;
+    --peach:       #F2B199;
+
+    --sage-lt:     #E8EFEE;
+    --sage-mid:    #C8D8D6;
+    --caramel-lt:  #FAF3EB;
+    --caramel-mid: #EDD8BB;
+    --peach-lt:    #FEF0EB;
+    --peach-mid:   #F8D3C8;
+    --charcoal-80: #404040;
+    --charcoal-50: #737370;
+    --charcoal-20: #D4D4D2;
+    --linen:       #EEEBE4;
+    --white:       #FFFFFF;
+  }
+
+  html, body { height: 100%; }
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.72;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* PREVIEW BAR */
+  .preview-bar {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 9px 16px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+  .preview-bar-swatches { display: flex; gap: 6px; }
+  .swatch { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.25); }
+
+  /* HEADER */
+  .site-header {
+    background: var(--charcoal);
+    color: #fff;
+    padding: 1.5rem 2rem 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 60%, rgba(174,191,190,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 25%, rgba(217,172,132,0.07) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .site-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+  .header-inner { position: relative; z-index: 1; }
+  .header-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .header-eyebrow a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .header-eyebrow a:hover { color: rgba(255,255,255,0.9); }
+  .bc-sep { color: rgba(255,255,255,0.2); font-size: 13px; }
+  .site-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.65rem, 4vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+  .site-header h1 em { font-style: italic; color: var(--caramel); }
+  .header-accent-line {
+    width: 36px; height: 2px;
+    background: var(--peach); opacity: 0.8;
+    margin: 0.85rem auto 0.7rem;
+    border-radius: 2px;
+  }
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.04em;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 4px; }
+
+  /* NAV */
+  .site-nav {
+    background: var(--linen);
+    border-bottom: 1px solid var(--charcoal-20);
+    text-align: center;
+    padding: 0;
+  }
+  .site-nav a {
+    color: var(--charcoal-80);
+    text-decoration: none;
+    padding: 11px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    transition: color 0.15s;
+    position: relative;
+  }
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 16px; right: 16px;
+    height: 2px; background: var(--caramel);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+    border-radius: 2px;
+  }
+  .site-nav a:hover { color: var(--charcoal); }
+  .site-nav a:hover::after { transform: scaleX(1); }
+
+  /* PAGE BODY */
+  .page-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 6rem;
+    width: 100%;
+    flex: 1;
+  }
+
+  /* INTRO CALLOUT */
+  .intro-callout {
+    background: var(--peach-lt);
+    border: 1px solid var(--peach-mid);
+    border-left: 4px solid var(--peach);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+    margin-bottom: 2.75rem;
+  }
+  .callout-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--charcoal-50);
+    margin-bottom: 8px;
+  }
+  .intro-callout p {
+    font-size: 15.5px;
+    line-height: 1.74;
+    color: var(--charcoal);
+    margin: 0;
+  }
+
+  /* SECTION HEADERS */
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .section-h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 3.2vw, 28px);
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.25;
+  }
+  .section-intro {
+    font-size: 15px;
+    color: var(--charcoal-50);
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--charcoal-20);
+    margin: 3rem 0 2.75rem;
+  }
+
+  /* ── REPORT CARD ── */
+  .report-card {
+    background: var(--white);
+    border: 1px solid var(--charcoal-20);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(38,38,38,0.07);
+    margin-bottom: 0.75rem;
+  }
+  .report-header {
+    background: var(--charcoal);
+    padding: 20px 28px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 30%, rgba(217,172,132,0.12) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .rh-left, .rh-right { position: relative; z-index: 1; }
+  .rh-left strong { display: block; font-family: 'Lora', serif; font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+  .rh-left span { font-size: 12px; color: rgba(255,255,255,0.45); }
+  .rh-right { text-align: right; font-size: 11.5px; color: rgba(255,255,255,0.38); line-height: 1.7; }
+
+  .report-meta {
+    background: var(--linen);
+    padding: 9px 28px;
+    font-size: 12px;
+    color: var(--charcoal-50);
+    border-bottom: 1px solid var(--charcoal-20);
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+  }
+  .report-meta .lbl { font-weight: 600; color: var(--charcoal-80); margin-right: 4px; }
+
+  .report-rows { padding: 0; }
+
+  .row-group { border-bottom: 1px solid #EEEBE4; }
+  .row-group:last-child { border-bottom: none; }
+
+  .report-row {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .report-row:hover { background: #FAFAF8; }
+  .row-group.open .report-row { background: var(--caramel-lt); }
+
+  .r-field {
+    flex: 0 0 175px;
+    padding: 15px 18px 15px 26px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--charcoal-50);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #EEEBE4;
+  }
+  .r-value {
+    flex: 1;
+    padding: 15px 14px 15px 20px;
+    font-size: 14.5px;
+    font-family: 'Courier New', monospace;
+    color: var(--charcoal);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  .r-toggle {
+    flex: 0 0 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .r-toggle-circle {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--caramel-lt);
+    border: 1.5px solid var(--caramel-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--caramel);
+    transition: all 0.2s;
+    line-height: 1;
+  }
+  .report-row:hover .r-toggle-circle { background: var(--caramel); border-color: var(--caramel); color: #fff; }
+  .row-group.open .r-toggle-circle { background: var(--caramel); border-color: var(--caramel); color: #fff; transform: rotate(45deg); }
+
+  .row-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    background: var(--caramel-lt);
+  }
+  .row-group.open .row-panel { max-height: 900px; }
+
+  .panel-inner { padding: 2px 26px 22px; }
+  .panel-body {
+    font-size: 14.5px;
+    line-height: 1.74;
+    color: var(--charcoal-80);
+    padding-top: 4px;
+    margin-bottom: 16px;
+  }
+
+  .opts-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--charcoal-50); margin-bottom: 10px;
+  }
+  .opts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 10px;
+  }
+  .opt {
+    background: var(--white);
+    border: 1.5px solid var(--charcoal-20);
+    border-radius: 8px;
+    padding: 13px 15px;
+    position: relative;
+  }
+  .opt.active {
+    border-color: var(--caramel);
+    background: #fff;
+  }
+  .opt.active::after {
+    content: 'THIS REPORT';
+    position: absolute;
+    top: 8px; right: 10px;
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: var(--caramel);
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+  .opt h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+    line-height: 1.3;
+    padding-right: 68px;
+  }
+  .opt.active h4 { color: var(--charcoal); }
+  .opt p { font-size: 12.5px; line-height: 1.55; color: var(--charcoal-50); margin: 0; }
+
+  .report-footer-hint {
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    color: var(--charcoal-50);
+    background: var(--linen);
+    border-top: 1px solid var(--charcoal-20);
+    letter-spacing: 0.01em;
+  }
+  .report-footer-hint span { color: var(--caramel); font-weight: 600; }
+
+  .report-disclaimer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--charcoal-50);
+    margin: 0.75rem 0 2.5rem;
+    line-height: 1.55;
+  }
+
+  /* ── CLASSIFICATION CARDS ── */
+  .classify-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+    gap: 16px;
+    margin-bottom: 2rem;
+  }
+  .classify-card {
+    background: var(--white);
+    border: 1px solid var(--charcoal-20);
+    border-radius: 10px;
+    padding: 1.35rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .classify-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+  }
+  .cc-sage::before { background: var(--sage); }
+  .cc-caramel::before { background: var(--caramel); }
+  .cc-peach::before { background: var(--peach); }
+  .cc-charcoal::before { background: var(--charcoal); }
+
+  .classify-card h4 {
+    font-family: 'Lora', serif;
+    font-size: 15.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .cc-sage h4 { color: #627F7E; }
+  .cc-caramel h4 { color: #9E7545; }
+  .cc-peach h4 { color: #B06B50; }
+  .cc-charcoal h4 { color: var(--charcoal); }
+
+  .classify-card p { font-size: 14px; color: var(--charcoal-50); line-height: 1.62; margin: 0; }
+
+  /* ── BOTTOM CALLOUT ── */
+  .bottom-callout {
+    background: var(--sage-lt);
+    border: 1px solid var(--sage-mid);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .bc-icon { font-size: 22px; flex-shrink: 0; }
+  .bc-body strong { display: block; font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 4px; }
+  .bc-body p { font-size: 14.5px; color: var(--charcoal-50); line-height: 1.65; margin: 0; }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--charcoal-80);
+    border: 1.5px solid var(--charcoal-20);
+    padding: 9px 18px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .back-link::before { content: '←'; }
+  .back-link:hover { border-color: var(--charcoal); color: var(--charcoal); }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .footer-accent-bar { width: 36px; height: 2px; background: var(--caramel); opacity: 0.5; margin: 0 auto 1.5rem; border-radius: 2px; }
+  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 0.6rem; margin-bottom: 0.75rem; font-size: 13.5px; }
+  .footer-nav a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-nav a:hover { color: rgba(255,255,255,0.9); }
+  .footer-sep { color: rgba(255,255,255,0.18); }
+  .footer-email { font-size: 12.5px; color: rgba(255,255,255,0.4); margin-bottom: 0.65rem; }
+  .footer-email a { color: var(--caramel); opacity: 0.75; text-decoration: none; }
+  .footer-email a:hover { opacity: 1; }
+  .footer-legal { font-size: 12px; color: rgba(255,255,255,0.25); max-width: 480px; margin: 0 auto; line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    .r-field { flex: 0 0 100px; font-size: 10px; padding: 13px 10px 13px 14px; }
+    .r-value { font-size: 12px; padding: 13px 10px; }
+    .r-toggle { flex: 0 0 36px; }
+    .opts-grid { grid-template-columns: 1fr; }
+    .opt h4 { padding-right: 0; }
+    .opt.active::after { position: static; display: inline-block; margin-bottom: 4px; }
+    .report-header { flex-direction: column; gap: 6px; }
+    .rh-right { text-align: left; }
+    .report-meta { flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <span>Interior Page Preview</span>
+  <div class="preview-bar-swatches">
+    <div class="swatch" style="background:#262626"></div>
+    <div class="swatch" style="background:#AEBFBE"></div>
+    <div class="swatch" style="background:#F2F1EB"></div>
+    <div class="swatch" style="background:#D9AC84"></div>
+    <div class="swatch" style="background:#F2B199"></div>
+  </div>
+  <span>Not Live</span>
+</div>
+
+<!-- HEADER -->
+<div class="site-header">
+  <div class="header-inner">
+    <div class="header-eyebrow">
+      <a href="#">Home</a>
+      <span class="bc-sep">/</span>
+      <a href="#">Family Toolkit</a>
+      <span class="bc-sep">/</span>
+      <span style="color:rgba(255,255,255,0.35);">Genetic Report</span>
+    </div>
+    <h1>Understanding Your <em>Genetic Report</em></h1>
+    <div class="header-accent-line"></div>
+    <div class="header-meta">
+      <span>Family Toolkit</span>
+      <span>·</span>
+      <span>Updated 2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="#">Understanding SETD5 Syndrome</a>
+  <a href="#">Family Toolkit</a>
+  <a href="#">Medical Terms</a>
+  <a href="#">Research</a>
+  <a href="#">Community &amp; Links</a>
+  <a href="#">About</a>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page-body">
+
+  <div class="intro-callout">
+    <span class="callout-tag">For parents and caregivers</span>
+    <p>Your child's genetic test report is full of specialized language. This page breaks down each section of a typical SETD5 report so you know exactly what you're looking at — no science background needed.</p>
+  </div>
+
+  <!-- WALKTHROUGH -->
+  <div style="text-align:center; margin-bottom:1.75rem;">
+    <p class="section-tag">Interactive guide</p>
+    <h2 class="section-h2">Walk Through a Sample Report</h2>
+    <p class="section-intro">Click any row to see what it means in plain language. Fields with multiple possible values show all the options your report might contain.</p>
+  </div>
+
+  <div class="report-card">
+
+    <div class="report-header">
+      <div class="rh-left">
+        <strong>Sample Genetic Test Report</strong>
+        <span>Clinical Whole Exome Sequencing</span>
+      </div>
+      <div class="rh-right">
+        Report Date: XX/XX/XXXX<br>
+        Accession: SAMPLE-00000
+      </div>
+    </div>
+
+    <div class="report-meta">
+      <span><span class="lbl">Patient:</span>[Sample]</span>
+      <span><span class="lbl">DOB:</span>XX/XX/XXXX</span>
+      <span><span class="lbl">Ordering Physician:</span>[Sample], MD</span>
+    </div>
+
+    <div class="report-rows">
+
+      <!-- GENE -->
+      <div class="row-group" id="rg-gene">
+        <div class="report-row" onclick="rToggle('gene')">
+          <div class="r-field">Gene</div>
+          <div class="r-value">SETD5</div>
+          <div class="r-toggle"><div class="r-toggle-circle">+</div></div>
+        </div>
+        <div class="row-panel">
+          <div class="panel-inner">
+            <p class="panel-body">This is the gene where the lab found a change. SETD5 provides instructions for making a protein involved in brain development and gene regulation. It sits on chromosome 3 at position 3p25.3. Changes in this gene are associated with intellectual disability and developmental delays - a condition sometimes called SETD5 Syndrome or MRD23.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VARIANT -->
+      <div class="row-group" id="rg-variant">
+        <div class="report-row" onclick="rToggle('variant')">
+          <div class="r-field">Variant</div>
+          <div class="r-value">c.2025_2026delAG (p.Gly676Valfs*2)</div>
+          <div class="r-toggle"><div class="r-toggle-circle">+</div></div>
+        </div>
+        <div class="row-panel">
+          <div class="panel-inner">
+            <p class="panel-body">The exact "address" of the change in the DNA. The <strong>c.</strong> notation tells the lab <em>where</em> in the gene the change occurred. The <strong>p.</strong> notation describes <em>how the protein is affected</em>. This is the key identifier when talking to a genetic counselor or searching databases like ClinVar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VARIANT TYPE - open by default -->
+      <div class="row-group open" id="rg-type">
+        <div class="report-row" onclick="rToggle('type')">
+          <div class="r-field">Variant Type</div>
+          <div class="r-value">Frameshift (deletion)</div>
+          <div class="r-toggle"><div class="r-toggle-circle">+</div></div>
+        </div>
+        <div class="row-panel">
+          <div class="panel-inner">
+            <p class="panel-body">What <em>kind</em> of change happened to the DNA. Different types affect the gene in different ways. Your report will list one of the following:</p>
+            <div class="opts-label">Types of genetic changes seen in SETD5</div>
+            <div class="opts-grid">
+              <div class="opt active">
+                <h4>Frameshift</h4>
+                <p>A letter added or deleted, scrambling all instructions that follow. Like removing one letter from a sentence so every word after becomes garbled.</p>
+              </div>
+              <div class="opt">
+                <h4>Nonsense</h4>
+                <p>One letter changed to create a premature stop signal. The protein gets cut short and usually cannot function.</p>
+              </div>
+              <div class="opt">
+                <h4>Missense</h4>
+                <p>One letter changed, swapping one protein building block for another. The protein is still made but may not work correctly.</p>
+              </div>
+              <div class="opt">
+                <h4>Splice-site</h4>
+                <p>A change at the boundary where the gene's instructions are edited together. Can disrupt how the protein is assembled.</p>
+              </div>
+              <div class="opt">
+                <h4>Deletion</h4>
+                <p>A piece of the genetic code is missing - small (a few letters) or large (a section of chromosome).</p>
+              </div>
+              <div class="opt">
+                <h4>Duplication</h4>
+                <p>A section of genetic code is copied, appearing twice instead of once.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASSIFICATION -->
+      <div class="row-group" id="rg-class">
+        <div class="report-row" onclick="rToggle('class')">
+          <div class="r-field">Classification</div>
+          <div class="r-value">Likely Pathogenic</div>
+          <div class="r-toggle"><div class="r-toggle-circle">+</div></div>
+        </div>
+        <div class="row-panel">
+          <div class="panel-inner">
+            <p class="panel-body">The lab's assessment of whether this change is responsible for your child's condition. Labs use a five-tier system defined by the ACMG (American College of Medical Genetics).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INHERITANCE -->
+      <div class="row-group" id="rg-inherit">
+        <div class="report-row" onclick="rToggle('inherit')">
+          <div class="r-field">Inheritance</div>
+          <div class="r-value">De novo (autosomal dominant)</div>
+          <div class="r-toggle"><div class="r-toggle-circle">+</div></div>
+        </div>
+        <div class="row-panel">
+          <div class="panel-inner">
+            <p class="panel-body">Where the change came from and how it's passed through families. Most SETD5 cases are de novo - the change happened new in your child and was not inherited from either parent.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZYGOSITY -->
+      <div class="row-group" id="rg-zyg">
+        <div class="report-row" onclick="rToggle('zyg')">
+          <div class="r-field">Zygosity</div>
+          <div class="r-value">Heterozygous</div>
+          <div class="r-toggle"><div class="r-toggle-circle">+</div></div>
+        </div>
+        <div class="row-panel">
+          <div class="panel-inner">
+            <p class="panel-body">How many copies of the gene are affected. You have two copies of most genes. Heterozygous means one is changed, one is working. This is expected for SETD5 Syndrome.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACMG -->
+      <div class="row-group" id="rg-acmg">
+        <div class="report-row" onclick="rToggle('acmg')">
+          <div class="r-field">ACMG Criteria</div>
+          <div class="r-value">PVS1, PM2, PP3</div>
+          <div class="r-toggle"><div class="r-toggle-circle">+</div></div>
+        </div>
+        <div class="row-panel">
+          <div class="panel-inner">
+            <p class="panel-body">The specific evidence codes the lab used to arrive at the classification above. Each code represents one piece of evidence. These are primarily for clinicians and genetic counselors.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="report-footer-hint"><span>&#8593;</span> Click any row to expand</div>
+  </div>
+
+  <p class="report-disclaimer">This is a sample report for educational purposes only. It does not represent any individual's actual genetic test results.</p>
+
+  <hr class="section-rule">
+
+  <!-- CLASSIFICATION SECTION -->
+  <p class="section-tag">Interpreting your results</p>
+  <h2 class="section-h2">What the Classification Means</h2>
+
+  <div class="classify-grid">
+    <div class="classify-card cc-sage">
+      <h4>Pathogenic</h4>
+      <p>This change is known to cause disease. Strong evidence from multiple sources. The clearest result a genetic test can give.</p>
+    </div>
+    <div class="classify-card cc-caramel">
+      <h4>Likely Pathogenic</h4>
+      <p>Strong evidence this change causes disease, but seen in fewer people. Most clinicians treat this the same as Pathogenic.</p>
+    </div>
+    <div class="classify-card cc-peach">
+      <h4>Variant of Uncertain Significance</h4>
+      <p>Not enough evidence yet. Doesn't confirm or rule out a diagnosis. Can be reclassified as more data becomes available.</p>
+    </div>
+    <div class="classify-card cc-charcoal">
+      <h4>Likely Benign / Benign</h4>
+      <p>Evidence suggests this change does not cause disease. Common in the general population and not associated with your child's condition.</p>
+    </div>
+  </div>
+
+  <div class="bottom-callout">
+    <span class="bc-icon">🧬</span>
+    <div class="bc-body">
+      <strong>Free genetic counseling may be available</strong>
+      <p>Families enrolled in Simons Searchlight may have access to board-certified genetic counselors at no cost. A genetic counselor can walk you through your child's specific report and answer questions no website can. Check the Simons Searchlight website for current availability.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <a href="#" class="back-link">Back to Family Toolkit</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-accent-bar"></div>
+  <div class="footer-nav">
+    <a href="#">Home</a><span class="footer-sep">·</span>
+    <a href="#">About</a><span class="footer-sep">·</span>
+    <a href="#">Sources &amp; References</a><span class="footer-sep">·</span>
+    <a href="#">Contact</a><span class="footer-sep">·</span>
+    <a href="#">Terms of Use</a>
+  </div>
+  <p class="footer-email">Questions? <a href="#">info@setd5syndrome.live</a></p>
+  <p class="footer-legal">Content is for informational purposes only and is not medical, legal, or educational advice. Always consult qualified professionals for decisions about your child's care, education, or benefits.</p>
+</footer>
+
+<script>
+function rToggle(key) {
+  var group = document.getElementById('rg-' + key);
+  var wasOpen = group.classList.contains('open');
+  document.querySelectorAll('.row-group').forEach(function(g) { g.classList.remove('open'); });
+  if (!wasOpen) {
+    group.classList.add('open');
+    setTimeout(function() { group.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+  }
+}
+</script>
+</body>
+</html>

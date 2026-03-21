@@ -321,7 +321,7 @@
 
 
   /* ── Site navigation ─────────────────────────────────── */
-  .site-nav{background:#f2ede4;border-bottom:1px solid var(--border);}
+  .site-nav{position:sticky;top:0;z-index:900;background:#f2ede4;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
@@ -371,6 +371,7 @@
     <h1 class="header-title">Medical Terms <em>in Plain Language</em></h1>
     <p class="header-subtitle">Plain-language definitions of terms found in SETD5 Syndrome reports, appointments, and research. Not medical advice.</p>
   </div>
+</header>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="site-nav-inner">
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
@@ -418,7 +419,6 @@
     </div>
   </div>
 </nav>
-</header>
 
 
 <div class="sticky-nav">

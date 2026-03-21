@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Syndrome — Palette Preview 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal:   #262626;   /* near-black: header, footer, nav, body text */
+    --sage:       #AEBFBE;   /* sage blue-gray: secondary accent, borders, tags */
+    --cream:      #F2F1EB;   /* warm off-white: page background */
+    --caramel:    #D9AC84;   /* warm tan: primary accent, buttons, CTAs */
+    --peach:      #F2B199;   /* soft peach: callouts, badges, highlights */
+
+    /* Derived tints */
+    --sage-lt:    #E8EFEE;   /* sage at ~15% */
+    --sage-mid:   #C8D8D6;   /* sage at 40% */
+    --caramel-lt: #FAF3EB;   /* caramel at ~12% */
+    --caramel-mid:#EDD8BB;   /* caramel at 40% */
+    --peach-lt:   #FEF0EB;   /* peach at ~12% */
+    --peach-mid:  #F8D3C8;   /* peach at 40% */
+    --charcoal-80:#404040;   /* slightly lighter for secondary headings */
+    --charcoal-50:#737370;   /* muted text */
+    --charcoal-20:#D4D4D2;   /* borders, dividers */
+    --charcoal-06:#F7F6F4;   /* very subtle alt background */
+    --linen:      #EEEBE4;   /* nav/zone backgrounds */
+  }
+
+  html, body { height: 100%; }
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.72;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─────────────────────────────────────────────
+     PREVIEW BANNER
+  ───────────────────────────────────────────── */
+  .preview-bar {
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align: center;
+    padding: 9px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+  .preview-bar-swatches { display: flex; gap: 6px; align-items: center; }
+  .swatch { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3); }
+
+  /* ─────────────────────────────────────────────
+     HEADER
+  ───────────────────────────────────────────── */
+  header {
+    background: var(--charcoal);
+    color: #fff;
+    text-align: center;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 60%, rgba(174,191,190,0.1) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 25%, rgba(217,172,132,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Subtle texture dots */
+  header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+
+  .header-inner { position: relative; z-index: 1; }
+
+  .header-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .eyebrow-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--caramel);
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5.5vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 0;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--caramel);
+  }
+
+  .header-accent-line {
+    width: 48px;
+    height: 2px;
+    background: var(--peach);
+    margin: 1.1rem auto 1rem;
+    border-radius: 2px;
+    opacity: 0.85;
+  }
+
+  .header-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* ─────────────────────────────────────────────
+     NAV
+  ───────────────────────────────────────────── */
+  .site-nav {
+    background: var(--linen);
+    border-bottom: 1px solid var(--charcoal-20);
+    padding: 0;
+    text-align: center;
+  }
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .site-nav a {
+    color: var(--charcoal-80);
+    text-decoration: none;
+    padding: 11px 16px;
+    font-size: 14.5px;
+    font-weight: 500;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 16px; right: 16px;
+    height: 2px;
+    background: var(--caramel);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+  }
+  .site-nav a:hover { color: var(--charcoal); }
+  .site-nav a:hover::after { transform: scaleX(1); }
+
+  /* ─────────────────────────────────────────────
+     MAIN
+  ───────────────────────────────────────────── */
+  main {
+    flex: 1;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 24px 6rem;
+    width: 100%;
+  }
+
+  /* ─────────────────────────────────────────────
+     INTRO BAND
+  ───────────────────────────────────────────── */
+  .intro-band {
+    text-align: center;
+    padding: 3rem 2rem 2.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .intro-band h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.35;
+    margin-bottom: 0.85rem;
+  }
+  .intro-band h2 em { font-style: italic; color: var(--charcoal-80); }
+  .intro-band p {
+    font-size: 15.5px;
+    color: var(--charcoal-50);
+    line-height: 1.78;
+    margin-bottom: 2rem;
+  }
+
+  /* ─────────────────────────────────────────────
+     STATS BAR
+  ───────────────────────────────────────────── */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--charcoal-20);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 640px;
+    margin: 0 auto;
+    background: #fff;
+  }
+  .stats-item {
+    flex: 1;
+    text-align: center;
+    padding: 18px 20px;
+    border-right: 1px solid var(--charcoal-20);
+  }
+  .stats-item:last-child { border-right: none; }
+  .stats-num {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stats-label {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal-50);
+  }
+
+  /* ─────────────────────────────────────────────
+     GUIDES ZONE
+  ───────────────────────────────────────────── */
+  .guides-zone {
+    background: var(--linen);
+    margin: 2.5rem -1.5rem 0;
+    padding: 2.5rem 2rem 3rem;
+    border-top: 1px solid var(--charcoal-20);
+  }
+  .zone-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-50);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .zone-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--charcoal-20);
+  }
+
+  /* ─────────────────────────────────────────────
+     FEATURED CARD
+  ───────────────────────────────────────────── */
+  .card-featured {
+    background: #fff;
+    border: 1px solid var(--charcoal-20);
+    border-radius: 12px;
+    padding: 2.25rem 2.5rem 2rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 16px rgba(38,38,38,0.05);
+  }
+  .card-featured::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: var(--caramel);
+    border-radius: 12px 0 0 12px;
+  }
+  .card-featured:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(38,38,38,0.1);
+  }
+  .card-featured-icon {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    background: var(--caramel-lt);
+    border-radius: 12px;
+    border: 1px solid var(--caramel-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  .card-featured-body { flex: 1; }
+  .card-badge {
+    display: inline-block;
+    background: var(--peach);
+    color: var(--charcoal);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .card-featured h2 {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+    line-height: 1.25;
+  }
+  .card-featured p {
+    font-size: 15px;
+    color: var(--charcoal-50);
+    line-height: 1.68;
+    margin-bottom: 1.25rem;
+    max-width: 520px;
+  }
+
+  /* ─────────────────────────────────────────────
+     CALLOUT BANNER
+  ───────────────────────────────────────────── */
+  .callout-banner {
+    border: 1px solid var(--sage-mid);
+    border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    background: var(--sage-lt);
+    padding: 1.1rem 1.5rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .callout-text strong {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 3px;
+  }
+  .callout-text p {
+    font-size: 13.5px;
+    color: var(--charcoal-50);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .callout-btn {
+    white-space: nowrap;
+    background: var(--charcoal);
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    transition: background 0.15s;
+  }
+  .callout-btn:hover { background: var(--charcoal-80); }
+
+  /* ─────────────────────────────────────────────
+     CARD GRID
+  ───────────────────────────────────────────── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .card-grid .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.625rem);
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--charcoal-20);
+    border-radius: 10px;
+    padding: 1.6rem 1.75rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 8px rgba(38,38,38,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--sage));
+    border-radius: 10px 10px 0 0;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(38,38,38,0.1);
+    border-color: var(--card-accent, var(--sage));
+  }
+  .card h2 {
+    font-family: 'Lora', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.55rem;
+    line-height: 1.28;
+  }
+  .card p {
+    font-size: 14.5px;
+    color: var(--charcoal-50);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.75rem;
+  }
+  .card-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--card-accent, var(--sage));
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1.5px solid var(--card-accent, var(--sage));
+    padding: 6px 14px;
+    border-radius: 6px;
+    align-self: flex-start;
+    transition: background 0.18s, color 0.18s;
+    letter-spacing: 0.02em;
+  }
+  .card-cta::after { content: '→'; }
+  .card:hover .card-cta {
+    background: var(--card-accent, var(--sage));
+    color: #fff;
+  }
+
+  /* Card accent variants */
+  .c-caramel { --card-accent: var(--caramel); }
+  .c-sage     { --card-accent: var(--sage); }
+  .c-peach    { --card-accent: var(--peach); }
+  .c-charcoal { --card-accent: var(--charcoal); }
+
+  /* Featured CTA button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--caramel);
+    color: var(--charcoal);
+    font-weight: 700;
+    font-size: 13.5px;
+    letter-spacing: 0.03em;
+    padding: 10px 22px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: background 0.18s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary::after { content: '→'; }
+  .btn-primary:hover { background: #C99A6E; transform: translateY(-1px); }
+
+  /* ─────────────────────────────────────────────
+     INTERNATIONAL NOTE
+  ───────────────────────────────────────────── */
+  .intl-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid var(--charcoal-20);
+    border-left: 4px solid var(--caramel);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 2.5rem;
+    font-size: 14px;
+    color: var(--charcoal-50);
+    line-height: 1.6;
+  }
+  .intl-note strong { color: var(--charcoal); font-weight: 600; }
+  .intl-globe { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ─────────────────────────────────────────────
+     FOOTER
+  ───────────────────────────────────────────── */
+  footer {
+    background: var(--charcoal);
+    text-align: center;
+    padding: 2.25rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem 0.6rem;
+    margin-bottom: 0.85rem;
+    font-size: 13.5px;
+  }
+  .footer-nav a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .footer-nav a:hover { color: rgba(255,255,255,0.9); }
+  .footer-sep { color: rgba(255,255,255,0.2); }
+  .footer-email {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.75rem;
+  }
+  .footer-email a { color: var(--caramel); opacity: 0.8; text-decoration: none; }
+  .footer-email a:hover { opacity: 1; }
+  .footer-legal {
+    font-size: 12px;
+    color: rgba(255,255,255,0.28);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .footer-accent-bar {
+    width: 40px;
+    height: 2px;
+    background: var(--caramel);
+    opacity: 0.5;
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .card-grid .card:last-child:nth-child(odd) { max-width: none; }
+    .card-featured { flex-direction: column; gap: 1rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Preview label -->
+<div class="preview-bar">
+  <span>Palette Preview</span>
+  <div class="preview-bar-swatches">
+    <div class="swatch" style="background:#262626"></div>
+    <div class="swatch" style="background:#AEBFBE"></div>
+    <div class="swatch" style="background:#F2F1EB"></div>
+    <div class="swatch" style="background:#D9AC84"></div>
+    <div class="swatch" style="background:#F2B199"></div>
+  </div>
+  <span>Not Live</span>
+</div>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-inner">
+    <div class="header-eyebrow">
+      <div class="eyebrow-dot"></div>
+      Family Resource
+      <div class="eyebrow-dot"></div>
+    </div>
+    <h1>SETD5 Syndrome<br><em>Research &amp; Resources</em></h1>
+    <div class="header-accent-line"></div>
+    <p class="header-sub">A peer resource for SETD5 Syndrome families</p>
+  </div>
+</header>
+
+<!-- ─── NAV ─── -->
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="#">Understanding SETD5 Syndrome</a>
+    <a href="#">Family Toolkit</a>
+    <a href="#">Medical Terms</a>
+    <a href="#">Research</a>
+    <a href="#">Community &amp; Links</a>
+    <a href="#">About</a>
+  </div>
+</nav>
+
+<div class="intro-band">
+  <h2>You're not navigating<br><em>this alone.</em></h2>
+  <p>Plain-language guides written by a SETD5 parent for fellow families. Everything here is free, sourced from published research, and updated regularly.</p>
+
+  <div class="stats-bar">
+    <div class="stats-item">
+      <span class="stats-num">50+</span>
+      <span class="stats-label">Research papers</span>
+    </div>
+    <div class="stats-item">
+      <span class="stats-num">6</span>
+      <span class="stats-label">Guides &amp; toolkits</span>
+    </div>
+    <div class="stats-item">
+      <span class="stats-num">0</span>
+      <span class="stats-label">Paywalls. Ever.</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="guides-zone">
+    <div class="zone-eyebrow">Explore the Site</div>
+
+    <!-- Featured card -->
+    <a href="#" class="card-featured">
+      <div class="card-featured-icon">📘</div>
+      <div class="card-featured-body">
+        <span class="card-badge">Start Here</span>
+        <h2>Understanding SETD5 Syndrome</h2>
+        <p>A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</p>
+        <span class="btn-primary">View Guide</span>
+      </div>
+    </a>
+
+    <!-- Genetic report callout -->
+    <div class="callout-banner">
+      <div class="callout-text">
+        <strong>Got your genetic report?</strong>
+        <p>Walk through a sample report line by line — every field explained in plain language.</p>
+      </div>
+      <a href="#" class="callout-btn">Read the Report Guide</a>
+    </div>
+
+    <!-- Card grid -->
+    <div class="card-grid">
+
+      <a href="#" class="card c-sage">
+        <h2>Family Toolkit</h2>
+        <p>Printable handouts, appointment guides, school and education resources, qualifying for services, disability discounts, and more.</p>
+        <span class="card-cta">View Family Toolkit</span>
+      </a>
+
+      <a href="#" class="card c-sage">
+        <h2>Medical Terms Guide</h2>
+        <p>A plain-language glossary of medical, genetic, and service-related terms that appear in SETD5-related reports, appointments, and research.</p>
+        <span class="card-cta">View Medical Terms Guide</span>
+      </a>
+
+      <a href="#" class="card c-charcoal">
+        <h2>SETD5 Syndrome Research</h2>
+        <p>Published research on SETD5 Syndrome from 2013 to present, summarized for families and caregivers.</p>
+        <span class="card-cta">View Research Guide</span>
+      </a>
+
+      <a href="#" class="card c-caramel">
+        <h2>About This Site</h2>
+        <p>This site was built by a SETD5 Syndrome parent, for SETD5 Syndrome families. Here's the story behind it and why it exists.</p>
+        <span class="card-cta">Read More</span>
+      </a>
+
+      <a href="#" class="card c-peach">
+        <h2>Community &amp; Links</h2>
+        <p>Curated links to SETD5 community groups, research registries, rare disease databases, and clinical resources.</p>
+        <span class="card-cta">View Community &amp; Links</span>
+      </a>
+
+    </div>
+
+    <!-- International note -->
+    <div class="intl-note">
+      <span class="intl-globe">🌍</span>
+      <span><strong>A note for international readers:</strong> Most content on this site applies globally. Some sections cover US-specific programs — please check your country for equivalent support systems.</span>
+    </div>
+
+  </div>
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-accent-bar"></div>
+  <div class="footer-nav">
+    <a href="#">Home</a><span class="footer-sep">·</span>
+    <a href="#">About</a><span class="footer-sep">·</span>
+    <a href="#">Sources &amp; References</a><span class="footer-sep">·</span>
+    <a href="#">Contact</a><span class="footer-sep">·</span>
+    <a href="#">Terms of Use</a>
+  </div>
+  <p class="footer-email">Questions? <a href="#">info@setd5syndrome.live</a></p>
+  <p class="footer-legal">Content is for informational purposes only and is not medical, legal, or educational advice. Always consult qualified professionals for decisions about your child's care, education, or benefits.</p>
+</footer>
+
+</body>
+</html>

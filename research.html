@@ -501,7 +501,7 @@
 
 
   /* ── Site navigation ─────────────────────────────────── */
-  .site-nav{background:#f2ede4;border-bottom:1px solid var(--border);}
+  .site-nav{position:sticky;top:0;z-index:900;background:#f2ede4;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
@@ -553,6 +553,56 @@
   }
   .tab-btn:hover { color: #fff; text-decoration: none; background: none; }
   .tab-btn.active { color: #fff; font-weight: 500; border-bottom-color: var(--amber); }
+
+  /* ── PAGE LAYOUT: sidebar + content ── */
+  .page-layout { display: flex; align-items: flex-start; }
+  .page-sidebar {
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 49px;
+    height: calc(100vh - 49px);
+    overflow-y: auto;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .page-sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0 20px; margin-bottom: 6px;
+  }
+  .sidebar-link {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    background: none; border-top: none; border-right: none; border-bottom: none;
+    width: 100%; text-align: left; cursor: pointer;
+    font-family: 'Inter', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+  }
+  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+  .page-main { flex: 1; min-width: 0; }
+  @media (max-width: 768px) {
+    .page-layout { flex-direction: column; }
+    .page-sidebar {
+      width: 100%; height: auto; position: static;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 0; display: flex; flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar-hd { display: none; }
+    .sidebar-divider { display: none; }
+    .sidebar-link {
+      padding: 10px 16px; white-space: nowrap;
+      border-left: none; border-bottom: 3px solid transparent;
+      flex-shrink: 0;
+    }
+    .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
+  }
+
 </style>
 <script>
   // Safari print fix: force desktop-width viewport before printing
@@ -582,6 +632,7 @@
     <h1 class="header-title">SETD5 Syndrome <em>Research</em></h1>
     <p class="header-subtitle">A plain-language summary of published research on SETD5 Syndrome, from foundational studies through the present, written for families.</p>
   </div>
+</header>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="site-nav-inner">
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
@@ -629,26 +680,27 @@
     </div>
   </div>
 </nav>
-<nav class="tab-nav" id="research-tab-nav">
-  <div class="tab-nav-inner">
-    <button class="tab-btn active" data-tab="tab-research" onclick="showResearchTab('tab-research', this)">Research</button>
-    <button class="tab-btn" data-tab="tab-management" onclick="showResearchTab('tab-management', this)">Current Management</button>
-    <button class="tab-btn" data-tab="tab-gaps" onclick="showResearchTab('tab-gaps', this)">Open Questions</button>
-  </div>
-</nav>
-</header>
 
 <!-- TAB NAV -->
 
 
 <!-- TAB PANEL: RESEARCH -->
+<div class="page-layout">
+<aside class="page-sidebar">
+  <div class="sidebar-hd">On this page</div>
+    <button class="sidebar-link active" data-tab="tab-research" onclick="showResearchTab('tab-research', this)">Research</button>
+    <button class="sidebar-link" data-tab="tab-management" onclick="showResearchTab('tab-management', this)">Current Management</button>
+    <button class="sidebar-link" data-tab="tab-gaps" onclick="showResearchTab('tab-gaps', this)">Open Questions</button>
+</aside>
+<div class="page-main">
 <div id="tab-research" class="tab-panel active">
 
 <!-- INTRO BAR -->
 <div class="intro-bar" id="intro-bar">
   <p class="intro-bar-inner">Each paper includes a plain-language summary and a note on what it means for families. Coverage is limited to SETD5 Syndrome (haploinsufficiency) and is not exhaustive. All sources are linked. This is not medical advice. This page is reviewed and updated regularly. If you'd like to suggest a study that hasn't been included, <a href="suggest-a-resource.html" style="color:#D9AC84;">let us know</a>. Last updated: March 4, 2026</p>
 </div>
-
+</div>
+</div>
 <!-- SEARCH BAR -->
 <div class="search-bar-wrap" id="search-bar-wrap">
   <div class="search-bar-inner">
@@ -1865,7 +1917,7 @@
   // ── TAB SWITCHING ──
   function showResearchTab(id, btn) {
     document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-    document.querySelectorAll('#research-tab-nav .tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.sidebar-link').forEach(function(b) { b.classList.remove('active'); });
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
     window.scrollTo(0, 0);
@@ -1878,21 +1930,11 @@
     var searchWrap = document.getElementById('search-bar-wrap');
     var collapseThreshold = 50;
     var tickingCollapse = false;
-
-    function setNavTop() {
-      var h = siteHeader.offsetHeight;
-      if (tabNav) tabNav.style.top = h + 'px';
-      if (searchWrap) {
-        var navH = tabNav ? tabNav.offsetHeight : 0;
-        searchWrap.style.top = (h + navH) + 'px';
-      }
     }
 
     function updateLayout() {
       var isCollapsed = window.scrollY > collapseThreshold;
       siteHeader.classList.toggle('collapsed', isCollapsed);
-      if (tabNav) tabNav.classList.toggle('is-slim', isCollapsed);
-      setNavTop();
     }
 
     window.addEventListener('scroll', function() {
@@ -1904,11 +1946,6 @@
         tickingCollapse = true;
       }
     });
-
-    window.addEventListener('resize', function() {
-      setNavTop();
-    });
-    setNavTop();
   });
 </script>
 

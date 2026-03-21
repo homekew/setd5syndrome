@@ -299,7 +299,7 @@
 
 
   /* ── Site navigation ─────────────────────────────────── */
-  .site-nav{background:#f2ede4;border-bottom:1px solid var(--border);}
+  .site-nav{position:sticky;top:0;z-index:900;background:#f2ede4;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
@@ -351,6 +351,56 @@
   }
   .tab-btn:hover { color: #fff; text-decoration: none; background: none; }
   .tab-btn.active { color: #fff; font-weight: 500; border-bottom-color: var(--amber); }
+
+  /* ── PAGE LAYOUT: sidebar + content ── */
+  .page-layout { display: flex; align-items: flex-start; }
+  .page-sidebar {
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 49px;
+    height: calc(100vh - 49px);
+    overflow-y: auto;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .page-sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0 20px; margin-bottom: 6px;
+  }
+  .sidebar-link {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    background: none; border-top: none; border-right: none; border-bottom: none;
+    width: 100%; text-align: left; cursor: pointer;
+    font-family: 'Inter', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+  }
+  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+  .page-main { flex: 1; min-width: 0; }
+  @media (max-width: 768px) {
+    .page-layout { flex-direction: column; }
+    .page-sidebar {
+      width: 100%; height: auto; position: static;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 0; display: flex; flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar-hd { display: none; }
+    .sidebar-divider { display: none; }
+    .sidebar-link {
+      padding: 10px 16px; white-space: nowrap;
+      border-left: none; border-bottom: 3px solid transparent;
+      flex-shrink: 0;
+    }
+    .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
+  }
+
 </style>
 <link rel="canonical" href="https://setd5syndrome.live/disability-discounts-guide.html">
 </head>
@@ -370,6 +420,7 @@
     <h1 class="header-title">Disability <em>Discounts Guide</em></h1>
     <p class="header-subtitle">Discounts, waivers, and financial programs available to families raising a child with a disability.</p>
   </div>
+</header>
 <nav class="site-nav" aria-label="Main navigation">
   <div class="site-nav-inner">
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
@@ -417,27 +468,28 @@
     </div>
   </div>
 </nav>
-<nav class="tab-nav">
-  <div class="tab-nav-inner">
-    <button class="tab-btn active" onclick="showTab('discounts', this)">Nationwide Discounts</button>
-    <button class="tab-btn" onclick="showTab('state', this)">State Discounts</button>
-    <button class="tab-btn" onclick="showTab('documentation', this)">Proof of Disability</button>
-  </div>
-</nav>
-</header>
 
 
 
 
 <!-- TAB 1: DISCOUNTS -->
+<div class="page-layout">
+<aside class="page-sidebar">
+  <div class="sidebar-hd">On this page</div>
+    <button class="sidebar-link active" data-tab="discounts" onclick="showTab('discounts', this)">Nationwide Discounts</button>
+    <button class="sidebar-link" data-tab="state" onclick="showTab('state', this)">State Discounts</button>
+    <button class="sidebar-link" data-tab="documentation" onclick="showTab('documentation', this)">Proof of Disability</button>
+</aside>
+<div class="page-main">
 <div class="tab-panel active" id="tab-discounts">
 <div class="container">
 
   <div class="intro-box">
     <strong>About this guide:</strong> This resource was compiled for families and caregivers affected by SETD5 Syndrome and related intellectual and developmental disabilities. Look for <span style="background:#FAF3EB;color:#9E7545;padding:0 4px;border-radius:3px;font-size:0.8rem;font-weight:bold;">KIDS</span> badges for children's programs, <span style="background:#E8EFEE;color:#627F7E;padding:0 4px;border-radius:3px;font-size:0.8rem;font-weight:bold;">BOTH</span> for all ages, and unlabeled items that apply to adults. When accessing any discount or program, always ask ahead of time what documentation is required as proof of disability; requirements vary by program. <strong>All programs listed are specific to the United States.</strong>
   </div>
-
-  <h2>Parks &amp; Recreation</h2>
+</div>
+</div>
+<h2>Parks &amp; Recreation</h2>
   <div class="section">
     <h3><a href="https://www.nps.gov/planyourvisit/passes.htm" target="_blank">America the Beautiful Access Pass</a> <span class="badge both">Both</span></h3>
     <p>Free lifetime pass to over 2,000 federal recreation sites (National Parks, forests, wildlife refuges). Available to U.S. citizens or permanent residents with permanent disabilities. Apply in person at any federal site for free, or <a href="https://store.usgs.gov/access-pass" target="_blank">online via USGS</a> for $12.50 ($5 processing + $7.50 handling).</p>
@@ -784,27 +836,22 @@ Sincerely,
 
   function showTab(name, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.sidebar-link').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
-    btn.classList.add('active');
+    var sl = document.querySelector('.sidebar-link[data-tab="' + name + '"]');
+    if (sl) sl.classList.add('active');
   }
 
   /* ── HEADER + TAB NAV COLLAPSE ON SCROLL ── */
   document.addEventListener('DOMContentLoaded', function() {
     var header = document.querySelector('.site-header');
-    var tabNav = document.querySelector('.tab-nav');
     if (!header) return;
-
-    function setNavTop() {
-      if (tabNav) tabNav.style.top = header.offsetHeight + 'px';
-    }
 
     var wasCollapsed = false;
     var trackingRaf  = null;
     function trackDuringTransition() {
       var start = performance.now();
       function tick(now) {
-        setNavTop();
         if (now - start < 250) { trackingRaf = requestAnimationFrame(tick); }
       }
       if (trackingRaf) cancelAnimationFrame(trackingRaf);
@@ -815,10 +862,8 @@ Sincerely,
       if (isCollapsed !== wasCollapsed) {
         wasCollapsed = isCollapsed;
         header.classList.toggle('collapsed', isCollapsed);
-        if (tabNav) tabNav.classList.toggle('is-slim', isCollapsed);
         trackDuringTransition();
       }
-      setNavTop();
     }
 
     var ticking = false;
@@ -831,11 +876,6 @@ Sincerely,
         ticking = true;
       }
     });
-
-    window.addEventListener('resize', function() {
-      setNavTop();
-    });
-    setNavTop();
   });
 </script>
 
