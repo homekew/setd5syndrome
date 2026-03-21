@@ -9,24 +9,24 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --charcoal:   #262626;   /* near-black: header, footer, nav, body text */
-    --sage:       #AEBFBE;   /* sage blue-gray: secondary accent, borders, tags */
-    --cream:      #F2F1EB;   /* warm off-white: page background */
-    --caramel:    #D9AC84;   /* warm tan: primary accent, buttons, CTAs */
+    --charcoal:   #162544;   /* near-black: header, footer, nav, body text */
+    --sage:       #C2DED8;   /* sage blue-gray: secondary accent, borders, tags */
+    --cream:      #F7F4EE;   /* warm off-white: page background */
+    --caramel:    #C6A27E;   /* warm tan: primary accent, buttons, CTAs */
     --peach:      #F2B199;   /* soft peach: callouts, badges, highlights */
 
     /* Derived tints */
-    --sage-lt:    #E8EFEE;   /* sage at ~15% */
-    --sage-mid:   #C8D8D6;   /* sage at 40% */
-    --caramel-lt: #FAF3EB;   /* caramel at ~12% */
-    --caramel-mid:#EDD8BB;   /* caramel at 40% */
+    --sage-lt:    #E4F0EE;   /* sage at ~15% */
+    --sage-mid:   #BAD4CE;   /* sage at 40% */
+    --caramel-lt: #F5EDE0;   /* caramel at ~12% */
+    --caramel-mid:#E8CCA8;   /* caramel at 40% */
     --peach-lt:   #FEF0EB;   /* peach at ~12% */
     --peach-mid:  #F8D3C8;   /* peach at 40% */
     --charcoal-80:#404040;   /* slightly lighter for secondary headings */
     --charcoal-50:#737370;   /* muted text */
     --charcoal-20:#D4D4D2;   /* borders, dividers */
     --charcoal-06:#F7F6F4;   /* very subtle alt background */
-    --linen:      #EEEBE4;   /* nav/zone backgrounds */
+    --linen:      #EDE9E0;   /* nav/zone backgrounds */
   }
 
   html, body { height: 100%; }
@@ -298,7 +298,7 @@
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 16px rgba(38,38,38,0.05);
+    box-shadow: 0 2px 16px rgba(22,37,68,0.05);
   }
   .card-featured::before {
     content: '';
@@ -310,7 +310,7 @@
   }
   .card-featured:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(38,38,38,0.1);
+    box-shadow: 0 8px 32px rgba(22,37,68,0.1);
   }
   .card-featured-icon {
     flex-shrink: 0;
@@ -418,7 +418,7 @@
     color: inherit;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 1px 8px rgba(38,38,38,0.04);
+    box-shadow: 0 1px 8px rgba(22,37,68,0.04);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     position: relative;
     overflow: hidden;
@@ -433,7 +433,7 @@
   }
   .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(38,38,38,0.1);
+    box-shadow: 0 8px 24px rgba(22,37,68,0.1);
     border-color: var(--card-accent, var(--sage));
   }
   .card h2 {
@@ -574,10 +574,10 @@
 <div class="preview-bar">
   <span>Palette Preview</span>
   <div class="preview-bar-swatches">
-    <div class="swatch" style="background:#262626"></div>
+    <div class="swatch" style="background:#162544"></div>
     <div class="swatch" style="background:#AEBFBE"></div>
-    <div class="swatch" style="background:#F2F1EB"></div>
-    <div class="swatch" style="background:#D9AC84"></div>
+    <div class="swatch" style="background:#F7F4EE"></div>
+    <div class="swatch" style="background:#C6A27E"></div>
     <div class="swatch" style="background:#F2B199"></div>
   </div>
   <span>Not Live</span>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Handout Builders & Downloads | SETD5 Syndrome</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23262626'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/printable-handouts.html">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
@@ -18,30 +18,30 @@
   :root {
     --bg:       #F2F1EB;
     --ink:      #404040;
-    --navy:     #262626;
-    --linen:     #EEEBE4;
-    --caramel:   #D9AC84;
-    --caramel-lt:#FAF3EB;
-    --caramel-mid:#EDD8BB;
+    --navy:     #162544;
+    --linen:     #EDE9E0;
+    --caramel:   #C6A27E;
+    --caramel-lt:#F5EDE0;
+    --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
-    --sage-mid:  #C8D8D6;
-    --charcoal:  #262626;
+    --sage-mid:  #BAD4CE;
+    --charcoal:  #162544;
     --deep:     #AEBFBE;
-    --teal:     #AEBFBE;
-    --amber:    #D9AC84;
-    --amber-lt: #FAF3EB;
-    --sage:     #AEBFBE;
-    --sage-lt:  #E8EFEE;
-    --border:   #D4D4D2;
-    --muted:    #737370;
+    --teal:     #C2DED8;
+    --amber:    #C6A27E;
+    --amber-lt: #F5EDE0;
+    --sage:     #C2DED8;
+    --sage-lt:  #E4F0EE;
+    --border:   #DDD7CC;
+    --muted:    #66707A;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body{
-    background: rgba(255,255,255,0.45);
+    background: #F7F4EE;
     color: var(--ink);
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -54,7 +54,7 @@
 
   /* ── HEADER ── */
   .site-header {
-    background: #161F30;
+    background: #162544;
     color: #fff;
     position:sticky;top:0;z-index:920;
     }
@@ -85,7 +85,7 @@
     text-decoration: none;
     transition: color 0.15s;
   }
-  .header-eyebrow a:hover { color: #a8cfc8; }
+  .header-eyebrow a:hover { color: #C2DED8; }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-eyebrow .sep { margin: 0 8px; opacity: 0.35; }
   .header-title{
@@ -96,7 +96,7 @@
     color: #fff;
     margin-bottom: 14px;
   }
-  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-title em { font-style: italic; color: #C2DED8; }
   .header-subtitle{
     font-size: 17.5px;
     font-weight: 400;
@@ -145,7 +145,7 @@
     font-weight: 700;
     letter-spacing: .08em;
     text-transform: uppercase;
-    color: #AEBFBE;
+    color: #C2DED8;
     margin-bottom: 5px;
   }
   .handout-box-title {
@@ -192,7 +192,7 @@
 
     /* ── FOOTER ── */
   footer {
-    background: #161F30;
+    background: #162544;
     text-align: center;
     padding: 2rem 1.5rem;
     font-family: 'Inter', sans-serif;
@@ -263,14 +263,14 @@ footer a { text-decoration: underline; }
 
 
   /* ── Site navigation ─────────────────────────────────── */
-  .site-nav{position:sticky;top:0;z-index:900;background:#f2ede4;border-bottom:1px solid var(--border);}
+  .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
   .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:center;}
   .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
   .nav-menu>a:hover{color:var(--teal);}
-  @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#f2ede4;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
+  @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
 </style>
 <link rel="canonical" href="https://setd5syndrome.live/printable-handouts.html">
 </head>
@@ -326,27 +326,27 @@ footer a { text-decoration: underline; }
 
   <div class="section-label">Medical Appointments</div>
 
-  <div style="background:#262626; border-radius:10px; padding:22px 24px; margin-bottom:20px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+  <div style="background:#162544; border-radius:10px; padding:22px 24px; margin-bottom:20px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
     <div style="flex:1; min-width:220px;">
-      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#a8cfc8; margin-bottom:6px;">Medical Appointment Handout Builder</div>
+      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#C2DED8; margin-bottom:6px;">Medical Appointment Handout Builder</div>
       <div style="font-family:'Lora',serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for medical visits</div>
       <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin:0; line-height:1.65;">Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout to bring to any medical appointment, whether primary care, specialist, or otherwise.</p>
     </div>
-    <a href="medical-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#D9AC84; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
+    <a href="medical-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#C6A27E; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
   </div>
 
   <div class="section-label">School &amp; IEP Meetings</div>
 
-  <div style="background:#262626; border-radius:10px; padding:22px 24px; margin-bottom:20px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+  <div style="background:#162544; border-radius:10px; padding:22px 24px; margin-bottom:20px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
     <div style="flex:1; min-width:220px;">
-      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#a8cfc8; margin-bottom:6px;">School Meeting Handout Builder</div>
+      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#C2DED8; margin-bottom:6px;">School Meeting Handout Builder</div>
       <div style="font-family:'Lora',serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for educational meetings</div>
       <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin:0; line-height:1.65;">Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout for IEP meetings, evaluations, or introducing your child to a new teacher at the start of the year.</p>
     </div>
-    <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#D9AC84; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
+    <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#C6A27E; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
   </div>
 
-  <div style="background:#eef7f5; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:16px 20px; margin-top:36px;">
+  <div style="background:#e8f4f2; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:16px 20px; margin-top:36px;">
     <p style="font-size:14.5px; color:var(--ink); margin:0;">These handouts are updated as the site is updated. All content is drawn from published research and the broader SETD5 Syndrome community. <a href="sources-references.html">Sources &amp; references</a> are available on the site.</p>
   </div>
 

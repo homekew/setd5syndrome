@@ -7,20 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #F2F1EB; font-family: 'Inter', sans-serif; padding: 2rem; color: #262626; }
+  body { background: #F7F4EE; font-family: 'Inter', sans-serif; padding: 2rem; color: #162544; }
 
   .preview-label {
     font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-    color: #737370; margin-bottom: 0.6rem; margin-top: 2.5rem;
+    color: #66707A; margin-bottom: 0.6rem; margin-top: 2.5rem;
   }
   .preview-label:first-child { margin-top: 0; }
   .preview-note {
-    font-size: 13px; color: #737370; margin-bottom: 1rem; line-height: 1.6;
+    font-size: 13px; color: #66707A; margin-bottom: 1rem; line-height: 1.6;
   }
 
   /* ── SHARED HEADER BASE ── */
   .demo-header {
-    background: #262626;
+    background: #162544;
     color: #fff;
     text-align: center;
     padding: 2.5rem 2rem 2rem;
@@ -37,7 +37,7 @@
     font-weight: 600; line-height: 1.15;
     margin-bottom: 0.5rem;
   }
-  .demo-header h1 em { color: #D9AC84; font-style: italic; }
+  .demo-header h1 em { color: #C6A27E; font-style: italic; }
   .header-rule { width: 36px; height: 2px; background: #F2B199; opacity: 0.7; margin: 0.7rem auto; border-radius: 2px; }
   .demo-header p { font-size: 14px; color: rgba(255,255,255,0.55); }
   /* interior-style header */
@@ -48,8 +48,8 @@
 
   /* also show the nav below */
   .demo-nav {
-    background: #EEEBE4;
-    border-bottom: 1px solid #D4D4D2;
+    background: #EDE9E0;
+    border-bottom: 1px solid #DDD7CC;
     text-align: center;
     padding: 0;
     border-radius: 0 0 10px 10px;
@@ -58,7 +58,7 @@
     overflow: hidden;
   }
   .demo-nav a {
-    color: #404040; text-decoration: none; padding: 10px 14px;
+    color: #2A2E35; text-decoration: none; padding: 10px 14px;
     font-size: 14px; display: inline-block; font-weight: 500;
   }
 
@@ -106,7 +106,7 @@
   }
 
   .section-divider {
-    border: none; border-top: 1px solid #D4D4D2;
+    border: none; border-top: 1px solid #DDD7CC;
     margin: 3rem 0;
   }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -116,8 +116,8 @@
 <body>
 
 <h1 style="font-family:'Lora',serif; font-size:1.6rem; margin-bottom:0.4rem;">Header Graphic Options</h1>
-<p style="color:#737370; font-size:14px; margin-bottom:0.5rem;">Four transparent overlay options for the homepage hero and interior sticky headers. All use inline SVG — no image files needed.</p>
-<p style="color:#737370; font-size:13px; margin-bottom:2.5rem;">Opacity is intentionally subtle so text always reads clearly on the charcoal background.</p>
+<p style="color:#66707A; font-size:14px; margin-bottom:0.5rem;">Four transparent overlay options for the homepage hero and interior sticky headers. All use inline SVG — no image files needed.</p>
+<p style="color:#66707A; font-size:13px; margin-bottom:2.5rem;">Opacity is intentionally subtle so text always reads clearly on the charcoal background.</p>
 
 <!-- ══════════════════════════════════════════ -->
 <!-- OPTION 1: DNA DOUBLE HELIX                 -->
@@ -128,7 +128,7 @@
 <div class="grid-2">
   <!-- Homepage version -->
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Homepage hero</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Homepage hero</p>
     <div class="demo-header">
       <!-- DNA helix RIGHT -->
       <svg class="opt1-graphic" viewBox="0 0 90 240" xmlns="http://www.w3.org/2000/svg">
@@ -189,7 +189,7 @@
   </div>
   <!-- Interior version -->
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Interior sticky header</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Interior sticky header</p>
     <div class="demo-header interior">
       <svg style="position:absolute; right:3%; top:0; height:100%; width:auto; opacity:0.1; z-index:1; pointer-events:none;" viewBox="0 0 90 140" xmlns="http://www.w3.org/2000/svg">
         <g stroke="white" fill="none" stroke-linecap="round">
@@ -237,7 +237,7 @@
 
 <div class="grid-2">
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Homepage hero</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Homepage hero</p>
     <div class="demo-header">
       <!-- Chromosome cluster -->
       <svg style="position:absolute; right:-20px; top:50%; transform:translateY(-50%); width:260px; height:auto; opacity:0.07; z-index:1; pointer-events:none;" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
@@ -300,7 +300,7 @@
     </div>
   </div>
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Interior sticky header</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Interior sticky header</p>
     <div class="demo-header interior">
       <svg style="position:absolute; right:0; top:50%; transform:translateY(-50%); width:180px; height:auto; opacity:0.08; z-index:1; pointer-events:none;" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(60,60) rotate(-10)">
@@ -338,7 +338,7 @@
 
 <div class="grid-2">
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Homepage hero</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Homepage hero</p>
     <div class="demo-header" style="overflow:hidden;">
       <div class="opt3-bg">
         <svg viewBox="0 0 900 160" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
@@ -369,7 +369,7 @@
     </div>
   </div>
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Interior sticky header</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Interior sticky header</p>
     <div class="demo-header interior" style="overflow:hidden;">
       <div class="opt3-bg">
         <svg viewBox="0 0 900 120" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
@@ -401,7 +401,7 @@
 
 <div class="grid-2">
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Homepage hero</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Homepage hero</p>
     <div class="demo-header" style="overflow:hidden;">
       <svg style="position:absolute; right:-30px; bottom:-20px; width:320px; height:auto; opacity:0.09; z-index:1; pointer-events:none;" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
         <g stroke="white" stroke-width="1" fill="none">
@@ -474,7 +474,7 @@
     </div>
   </div>
   <div>
-    <p style="font-size:12px; color:#737370; margin-bottom:6px;">Interior sticky header</p>
+    <p style="font-size:12px; color:#66707A; margin-bottom:6px;">Interior sticky header</p>
     <div class="demo-header interior" style="overflow:hidden;">
       <svg style="position:absolute; right:-10px; bottom:-10px; width:200px; height:auto; opacity:0.1; z-index:1; pointer-events:none;" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
         <g stroke="white" stroke-width="1" fill="none">
@@ -507,7 +507,7 @@
 </div>
 
 <hr class="section-divider">
-<p style="font-size:13px; color:#737370; text-align:center; padding-bottom:3rem;">
+<p style="font-size:13px; color:#66707A; text-align:center; padding-bottom:3rem;">
   All four options use inline SVG — zero extra files, no external requests, works on every page instantly.<br>
   Tell me which one (or combination) you'd like and I'll apply it across all pages.
 </p>
