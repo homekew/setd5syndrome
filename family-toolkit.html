@@ -358,12 +358,10 @@
 
   /* ── SECTION NAV ── */
   .section-nav {
-    background: #fff;
-    border-bottom: 2px solid var(--border);
-    box-shadow: 0 1px 6px rgba(38,38,38,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: transparent;
+    border-top: 1px solid rgba(255,255,255,0.13); border-bottom: none;
+    box-shadow: none;
+    
     
   }
   .section-nav-inner {
@@ -381,7 +379,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--navy);
+    color: rgba(255,255,255,0.70);
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     font-weight: 400;
@@ -394,7 +392,7 @@
     transition: color .18s, border-color .18s, padding 0.175s ease, min-height 0.175s ease;
   }
   .section-nav-btn:hover { color: rgba(255,255,255,.9); text-decoration: none; }
-  .section-nav-btn.active { color: var(--navy); font-weight: 600; border-bottom: 3px solid var(--amber); background: var(--amber-lt); border-radius: 4px 4px 0 0; }
+  .section-nav-btn.active { color: rgba(255,255,255,0.70); font-weight: 600; border-bottom: 3px solid var(--amber); background: var(--amber-lt); border-radius: 4px 4px 0 0; }
   .section-nav.is-slim .section-nav-btn{ padding: 6px 22px; min-height: 32px; }
 
   /* ── HELPFUL LINKS SECTION ── */
@@ -637,8 +635,6 @@
     </div>
   </div>
 </nav>
-</header>
-
 <nav class="section-nav" id="section-nav">
   <div class="section-nav-inner">
     <a href="#community" class="section-nav-btn active">Community</a>
@@ -647,6 +643,9 @@
     <a href="#reference" class="section-nav-btn">Reference</a>
   </div>
 </nav>
+</header>
+
+
 
 <main>
 

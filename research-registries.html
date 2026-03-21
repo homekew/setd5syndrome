@@ -291,11 +291,11 @@
 
   /* ── SECTION NAV ── */
   .section-nav {
-    background: #fff;
-    border-bottom: 2px solid var(--border);
-    box-shadow: 0 1px 6px rgba(38,38,38,0.05);
+    background: transparent;
+    border-top: 1px solid rgba(255,255,255,0.13); border-bottom: none;
+    box-shadow: none;
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; position: sticky; top: 0; z-index: 100;
+    scrollbar-width: none; 
   }
   .section-nav::-webkit-scrollbar { display: none; }
   .section-nav-inner {
@@ -585,9 +585,6 @@
     </div>
   </div>
 </nav>
-</header>
-
-<!-- SECTION NAV -->
 <nav class="section-nav" id="section-nav" aria-label="Page sections">
   <div class="section-nav-inner">
     <a class="section-link" href="#sec-why">Why Registries?</a>
@@ -598,6 +595,10 @@
     <a class="section-link" href="#sec-get-started">Get Started</a>
   </div>
 </nav>
+</header>
+
+<!-- SECTION NAV -->
+
 
 <main>
 
