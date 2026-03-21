@@ -585,20 +585,7 @@
   .page-main { flex: 1; min-width: 0; }
   @media (max-width: 768px) {
     .page-layout { flex-direction: column; }
-    .page-sidebar {
-      width: 100%; height: auto; position: static;
-      border-right: none; border-bottom: 1px solid var(--border);
-      padding: 0; display: flex; flex-direction: row;
-      overflow-x: auto;
-    }
-    .sidebar-hd { display: none; }
-    .sidebar-divider { display: none; }
-    .sidebar-link {
-      padding: 10px 16px; white-space: nowrap;
-      border-left: none; border-bottom: 3px solid transparent;
-      flex-shrink: 0;
-    }
-    .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
+    .page-sidebar { display: none; }
   }
 
 </style>
