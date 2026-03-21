@@ -91,11 +91,11 @@
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: flex-start; }
-  .tab-nav.is-slim .tab-btn{ padding: 6px 22px; }
+  .tab-nav.is-slim .tab-btn{ padding: 6px 22px; min-height: 44px; }
 
   @media (max-width: 520px) {
     .tab-nav-inner { justify-content: flex-start; padding: 0 8px; }
-      .tab-nav.is-slim .tab-btn { padding: 6px 14px; }
+      .tab-nav.is-slim .tab-btn { padding: 6px 14px; min-height: 44px; }
   }
 
   /* ── LAYOUT ── */
@@ -635,6 +635,7 @@
 
   <p class="prose">Two federal laws create two different types of plans for students with disabilities. For children with SETD5 Syndrome, some children may qualify for an IEP based on the results of a comprehensive evaluation. Understanding both plans helps you know what to ask for. For sample IEPs and 504 plans, see <a href="https://www.understood.org/en/topics/school-supports" target="_blank">Understood.org</a> and <a href="https://www.pacer.org/parent/php/PHP-c127.pdf" target="_blank">PACER Center</a>.</p>
 
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
   <table class="compare-table">
     <tr>
       <th style="width:28%"></th>
@@ -677,6 +678,7 @@
       <td>A child can access the general curriculum with accommodations alone</td>
     </tr>
   </table>
+  </div>
 
   <div class="teal-callout">
     <span class="callout-label">For children with SETD5 Syndrome</span>
