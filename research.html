@@ -65,7 +65,7 @@
 
 
   /* ── HEADER ── */
-  .site-header { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 1000; transition: box-shadow 0.2s;
+  .site-header { background: var(--navy); color: #fff; transition: box-shadow 0.2s;
 }
   .site-header::before {
     content: '';
@@ -109,10 +109,7 @@
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
 
   /* ── TAB NAV ── */
-  .tab-nav {
-    background: #fff;
-    border-bottom: 2px solid var(--border);
-    box-shadow: 0 1px 6px rgba(38,38,38,0.05);
+  .tab-nav { background: transparent; border-top: 1px solid rgba(255,255,255,0.13); border-bottom: none; box-shadow: none;
     display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     position: sticky; top: 0; z-index: 100;
@@ -121,13 +118,13 @@
   .tab-nav-inner { display: flex; max-width: 860px; margin: 0 auto; padding: 0 16px; justify-content: center; }
   .tab-btn{
     background: none; border: none; cursor: pointer;
-    color: var(--navy); font-family: 'Inter', sans-serif;
+    color: rgba(255,255,255,0.70); font-family: 'Inter', sans-serif;
     font-size: 15px; font-weight: 400; padding: 10px 22px;
     white-space: nowrap; border-bottom: 3px solid transparent;
     transition: color .18s, border-color .18s;
   }
   .tab-btn:hover { color: var(--teal); background: var(--amber-lt); border-radius: 4px; }
-  .tab-btn.active { color: var(--navy); font-weight: 600; border-bottom-color: var(--amber); }
+  .tab-btn.active { color: #ffffff; font-weight: 600; border-bottom-color: var(--amber); }
   .tab-nav.is-slim .tab-btn{ padding: 6px 22px; }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
@@ -622,9 +619,6 @@
     </div>
   </div>
 </nav>
-</header>
-
-<!-- TAB NAV -->
 <nav class="tab-nav" id="research-tab-nav">
   <div class="tab-nav-inner">
     <button class="tab-btn active" data-tab="tab-research" onclick="showResearchTab('tab-research', this)">Research</button>
@@ -632,6 +626,10 @@
     <button class="tab-btn" data-tab="tab-gaps" onclick="showResearchTab('tab-gaps', this)">Open Questions</button>
   </div>
 </nav>
+</header>
+
+<!-- TAB NAV -->
+
 
 <!-- TAB PANEL: RESEARCH -->
 <div id="tab-research" class="tab-panel active">
