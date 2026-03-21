@@ -367,8 +367,7 @@
     }
 
     .site-header {
-      width: 100% !important; position: sticky; top: 0; z-index: 1000;
-}
+      width: 100% !important; }
 
     .header-inner {
       padding: 24pt 0 18pt 0 !important;
@@ -508,31 +507,11 @@
   .nav-menu{display:flex;align-items:stretch;flex:1;}
   .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size:0.86rem;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
   .nav-menu>a:hover{color:var(--teal);}
-  .nav-item{position:relative;display:flex;align-items:stretch;}
-  .nav-parent{display:flex;align-items:center;gap:0.22rem;padding:0.65rem 0.85rem;font-size:0.86rem;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
-  .nav-parent:hover,.nav-item.open>.nav-parent{color:var(--teal);}
-  .nav-caret{transition:transform 0.2s;flex-shrink:0;}
-  .nav-item:hover>.nav-parent .nav-caret,.nav-item.open>.nav-parent .nav-caret{transform:rotate(180deg);}
-  .nav-panel{display:none;position:absolute;top:calc(100% + 1px);left:0;background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 6px 24px rgba(38,38,38,0.12);padding:1rem 1.25rem;z-index:1001;}
-  .nav-item:hover>.nav-panel,.nav-item.open>.nav-panel{display:flex;}
-  .nav-panel-lg{gap:2rem;min-width:510px;}
-  .nav-panel-sm{flex-direction:column;min-width:195px;padding:0.4rem 0;}
-  .nav-col{display:flex;flex-direction:column;min-width:148px;}
-  .nav-group-hd{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin:0 0 0.4rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border);}
-  .nav-panel a{font-size:0.84rem;color:var(--text);text-decoration:none;padding:0.28rem 0.4rem;border-radius:4px;transition:background 0.12s,color 0.12s;line-height:1.4;}
-  .nav-panel a:hover{background:var(--cream);color:var(--teal);}
-  .nav-panel-sm a{padding:0.45rem 0.9rem;}
   @media(max-width:768px){
     .nav-toggle{display:flex;}
     .nav-menu{display:none;flex-direction:column;width:100%;border-top:1px solid var(--border);}
     .nav-menu.open{display:flex;}
     .nav-menu>a{padding:0.8rem 1.2rem;border-bottom:1px solid var(--border);}
-    .nav-item{flex-direction:column;align-items:stretch;border-bottom:1px solid var(--border);}
-    .nav-parent{padding:0.8rem 1.2rem;justify-content:space-between;}
-    .nav-panel{position:static;box-shadow:none;border:none;border-top:1px solid var(--border);border-radius:0;padding:0.25rem 0 0.5rem 1.2rem;background:var(--cream);flex-direction:column!important;gap:0.1rem;min-width:unset;width:100%;}
-    .nav-panel-lg,.nav-panel-sm{min-width:unset;}
-    .nav-col{min-width:unset;}
-    .nav-group-hd{margin-top:0.5rem;margin-bottom:0.2rem;}
   }
 
   .tab-btn {
@@ -640,41 +619,10 @@
     </button>
     <div class="nav-menu" id="nav-menu">
       <a href="understanding-setd5-syndrome.html">Understanding SETD5</a>
-      <div class="nav-item has-dropdown">
-        <a href="family-toolkit.html" class="nav-parent" aria-haspopup="true">Family Toolkit <svg class="nav-caret" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M2 4L5.5 7.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="nav-panel nav-panel-lg">
-          <div class="nav-col">
-            <p class="nav-group-hd">Getting Started</p>
-            <a href="setd5-at-a-glance.html">SETD5 At a Glance</a>
-            <a href="understanding-genetic-report.html">Genetic Report Guide</a>
-          </div>
-          <div class="nav-col">
-            <p class="nav-group-hd">Guides</p>
-            <a href="school-iep-guide.html">School &amp; IEP</a>
-            <a href="qualifying-for-services.html">Qualifying for Services</a>
-            <a href="disability-discounts-guide.html">Disability Discounts</a>
-            <a href="transition-to-adulthood.html">Planning for Adulthood</a>
-            <a href="medical-emergency-summary.html">Medical Emergency</a>
-          </div>
-          <div class="nav-col">
-            <p class="nav-group-hd">Tools</p>
-            <a href="printable-handouts.html">Handouts &amp; Builders</a>
-            <p class="nav-group-hd" style="margin-top:0.85rem;">Community</p>
-            <a href="family-stories.html">Family Stories</a>
-            <a href="share-your-story.html">Share Your Story</a>
-            <a href="setd5-global-families-map.html">Families Map</a>
-            <a href="research-registries.html">Research Registries</a>
-          </div>
-        </div>
+      <a href="family-toolkit.html">Family Toolkit</a>
       </div>
       <a href="setd5-medical-terms-guide.html">Medical Terms</a>
-      <div class="nav-item has-dropdown">
-        <a href="research.html" class="nav-parent" aria-haspopup="true">Research <svg class="nav-caret" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M2 4L5.5 7.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="nav-panel nav-panel-sm">
-          <a href="research.html">Research Summary</a>
-          <a href="research-registries.html">Research Registries</a>
-        </div>
-      </div>
+      <a href="research.html">Research</a>
       <a href="helpful-links.html">Community &amp; Links</a>
       <a href="about.html">About</a>
     </div>
@@ -2029,22 +1977,13 @@
 </footer>
 
 
-<script>/* site-nav dropdowns */
+<script>/* site-nav hamburger */
 (function(){
   var t=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-menu');
-  if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
-  document.querySelectorAll('.nav-item.has-dropdown .nav-parent').forEach(function(el){
-    el.addEventListener('click',function(e){
-      var item=el.closest('.nav-item');
-      if(window.innerWidth<=768){
-        e.preventDefault();
-        var isOpen=item.classList.toggle('open');
-        el.setAttribute('aria-expanded',isOpen);
-        item.closest('.nav-menu').querySelectorAll('.nav-item.has-dropdown').forEach(function(s){if(s!==item){s.classList.remove('open');}});
-      }
-    });
-  });
-  document.addEventListener('click',function(e){if(!e.target.closest('.nav-item')){document.querySelectorAll('.nav-item.open').forEach(function(i){i.classList.remove('open');});}});
+  if(t&&m){
+    t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!e.target.closest('.site-nav')){m.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  }
 })();
 </script>
 </body>
