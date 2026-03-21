@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header Design Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #e8e4dc;
+    padding: 40px 24px 80px;
+  }
+  .page-title {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #66707A;
+    margin-bottom: 48px;
+  }
+
+  /* ── EACH OPTION ── */
+  .option {
+    max-width: 900px;
+    margin: 0 auto 56px;
+  }
+  .option-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #66707A;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .option-label span {
+    display: inline-block;
+    background: #162544;
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+  .option-name {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #162544;
+    margin-bottom: 4px;
+  }
+  .option-desc {
+    font-size: 13px;
+    color: #66707A;
+    margin-bottom: 14px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER SHELL ── */
+  .hdr {
+    position: relative;
+    background: #162544;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+  }
+  .hdr-inner {
+    position: relative;
+    z-index: 2;
+    padding: 30px 36px 26px;
+    max-width: 760px;
+  }
+  .hdr-eye {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 14px;
+  }
+  .hdr-title {
+    font-family: 'Lora', serif;
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.18;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .hdr-title em {
+    font-style: italic;
+    color: #C2DED8;
+  }
+  .hdr-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,.72);
+    max-width: 460px;
+    line-height: 1.6;
+  }
+  .hdr-chips {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.13);
+    flex-wrap: wrap;
+  }
+  .chip {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,.72);
+  }
+  /* ── NAV STRIP ── */
+  .nav-strip {
+    background: #F7F4EE;
+    border-bottom: 1px solid #DDD7CC;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 14px rgba(22,37,68,0.1);
+  }
+  .nav-strip a {
+    font-size: 13px;
+    font-weight: 500;
+    color: #2A2E35;
+    padding: 11px 14px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    display: block;
+    white-space: nowrap;
+  }
+  .nav-strip a.active {
+    color: #162544;
+    font-weight: 600;
+    border-bottom-color: #C6A27E;
+  }
+
+  /* ── SVG LAYER ── */
+  .hdr svg {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<p class="page-title">Header Design Options — SETD5 Syndrome</p>
+
+
+<!-- ══════════════════════════════════════════════
+     OPTION 1 — THE SUBTLE NETWORK
+════════════════════════════════════════════════ -->
+<div class="option">
+  <div class="option-label"><span>Option 1</span></div>
+  <div class="option-name">The Subtle Network</div>
+  <div class="option-desc">Interconnected nodes and threads — scientific precision meets the sense of a connected community. Concentrated on the right, clean on the left.</div>
+
+  <div class="hdr" style="min-height:200px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="n-blur" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="1.2"/>
+        </filter>
+      </defs>
+
+      <!-- Connection lines -->
+      <g stroke="rgba(194,222,216,0.18)" stroke-width="1" fill="none">
+        <line x1="620" y1="30"  x2="680" y2="70"/>
+        <line x1="680" y1="70"  x2="750" y2="45"/>
+        <line x1="750" y1="45"  x2="820" y2="80"/>
+        <line x1="820" y1="80"  x2="870" y2="50"/>
+        <line x1="750" y1="45"  x2="790" y2="110"/>
+        <line x1="790" y1="110" x2="860" y2="130"/>
+        <line x1="860" y1="130" x2="890" y2="90"/>
+        <line x1="680" y1="70"  x2="720" y2="130"/>
+        <line x1="720" y1="130" x2="790" y2="110"/>
+        <line x1="720" y1="130" x2="740" y2="175"/>
+        <line x1="740" y1="175" x2="810" y2="165"/>
+        <line x1="810" y1="165" x2="860" y2="130"/>
+        <line x1="620" y1="30"  x2="660" y2="15"/>
+        <line x1="820" y1="80"  x2="850" y2="30"/>
+        <!-- lighter outer threads -->
+        <line x1="560" y1="60"  x2="620" y2="30"  stroke="rgba(194,222,216,0.10)"/>
+        <line x1="560" y1="60"  x2="580" y2="120" stroke="rgba(194,222,216,0.10)"/>
+        <line x1="580" y1="120" x2="620" y2="170" stroke="rgba(194,222,216,0.10)"/>
+        <line x1="620" y1="170" x2="680" y2="170" stroke="rgba(194,222,216,0.10)"/>
+        <line x1="680" y1="170" x2="720" y2="130" stroke="rgba(194,222,216,0.10)"/>
+        <line x1="870" y1="160" x2="890" y2="90"  stroke="rgba(194,222,216,0.10)"/>
+        <line x1="860" y1="130" x2="880" y2="175" stroke="rgba(194,222,216,0.10)"/>
+      </g>
+
+      <!-- Nodes — primary cluster -->
+      <g fill="rgba(194,222,216,0.55)">
+        <circle cx="620" cy="30"  r="3.5"/>
+        <circle cx="680" cy="70"  r="4"/>
+        <circle cx="750" cy="45"  r="3"/>
+        <circle cx="820" cy="80"  r="4.5"/>
+        <circle cx="870" cy="50"  r="3"/>
+        <circle cx="790" cy="110" r="3.5"/>
+        <circle cx="860" cy="130" r="4"/>
+        <circle cx="890" cy="90"  r="2.5"/>
+        <circle cx="720" cy="130" r="3.5"/>
+        <circle cx="740" cy="175" r="3"/>
+        <circle cx="810" cy="165" r="3.5"/>
+        <circle cx="660" cy="15"  r="2.5"/>
+        <circle cx="850" cy="30"  r="2.5"/>
+        <circle cx="880" cy="175" r="2.5"/>
+      </g>
+      <!-- Nodes — secondary cluster (dimmer, left-leaning) -->
+      <g fill="rgba(194,222,216,0.22)">
+        <circle cx="560" cy="60"  r="3"/>
+        <circle cx="580" cy="120" r="2.5"/>
+        <circle cx="620" cy="170" r="2.5"/>
+        <circle cx="680" cy="170" r="2"/>
+        <circle cx="870" cy="160" r="2"/>
+        <circle cx="530" cy="95"  r="2"/>
+        <circle cx="545" cy="150" r="1.8"/>
+      </g>
+      <!-- Node halos (glow rings) on key nodes -->
+      <g fill="none" stroke="rgba(194,222,216,0.12)" stroke-width="1">
+        <circle cx="680" cy="70"  r="8"/>
+        <circle cx="820" cy="80"  r="9"/>
+        <circle cx="860" cy="130" r="8"/>
+      </g>
+    </svg>
+
+    <div class="hdr-inner">
+      <div class="hdr-eye">SETD5 Syndrome · A Guide for Families</div>
+      <div class="hdr-title">Published <em>Research</em></div>
+      <div class="hdr-sub">Plain-language summaries of peer-reviewed studies, organized chronologically.</div>
+      <div class="hdr-chips">
+        <span class="chip">48 studies</span>
+        <span class="chip">2013–2026</span>
+        <span class="chip">Updated March 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="nav-strip">
+    <a href="#">Home</a>
+    <a href="#" class="active">Research</a>
+    <a href="#">Family Toolkit</a>
+    <a href="#">Resources</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     OPTION 2 — THE SOFT HORIZON
+════════════════════════════════════════════════ -->
+<div class="option">
+  <div class="option-label"><span>Option 2</span></div>
+  <div class="option-name">The Soft Horizon</div>
+  <div class="option-desc">A warm, luminous glow rises from the lower-right — grounding and hopeful. Calming rather than clinical, with a sense of quiet optimism.</div>
+
+  <div class="hdr" style="min-height:200px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <!-- Warm amber horizon glow -->
+        <radialGradient id="hor-warm" cx="85%" cy="100%" r="65%">
+          <stop offset="0%"   stop-color="#C6A27E" stop-opacity="0.28"/>
+          <stop offset="40%"  stop-color="#C6A27E" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#C6A27E" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Soft sage upper glow -->
+        <radialGradient id="hor-sage" cx="90%" cy="0%" r="55%">
+          <stop offset="0%"   stop-color="#C2DED8" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Horizon band -->
+        <linearGradient id="hor-band" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="#C2DED8" stop-opacity="0"/>
+          <stop offset="55%"  stop-color="#C2DED8" stop-opacity="0"/>
+          <stop offset="75%"  stop-color="#C2DED8" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#C2DED8" stop-opacity="0.13"/>
+        </linearGradient>
+        <filter id="hor-blur" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="18"/>
+        </filter>
+      </defs>
+
+      <!-- Warm amber glow from bottom-right -->
+      <ellipse cx="820" cy="210" rx="320" ry="180" fill="url(#hor-warm)" filter="url(#hor-blur)"/>
+      <!-- Sage cool glow from top-right -->
+      <ellipse cx="870" cy="-20" rx="260" ry="140" fill="url(#hor-sage)" filter="url(#hor-blur)"/>
+      <!-- Subtle horizon band -->
+      <rect x="0" y="0" width="900" height="200" fill="url(#hor-band)"/>
+
+      <!-- Thin horizon line -->
+      <line x1="460" y1="162" x2="900" y2="148" stroke="rgba(194,222,216,0.18)" stroke-width="0.75"/>
+      <!-- Very faint secondary horizon lines -->
+      <line x1="530" y1="175" x2="900" y2="168" stroke="rgba(198,162,126,0.12)" stroke-width="0.5"/>
+      <line x1="600" y1="148" x2="900" y2="135" stroke="rgba(194,222,216,0.08)" stroke-width="0.5"/>
+    </svg>
+
+    <div class="hdr-inner">
+      <div class="hdr-eye">SETD5 Syndrome · A Guide for Families</div>
+      <div class="hdr-title">Published <em>Research</em></div>
+      <div class="hdr-sub">Plain-language summaries of peer-reviewed studies, organized chronologically.</div>
+      <div class="hdr-chips">
+        <span class="chip">48 studies</span>
+        <span class="chip">2013–2026</span>
+        <span class="chip">Updated March 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="nav-strip">
+    <a href="#">Home</a>
+    <a href="#" class="active">Research</a>
+    <a href="#">Family Toolkit</a>
+    <a href="#">Resources</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     OPTION 3 — THE GENTLE GRADIENT
+════════════════════════════════════════════════ -->
+<div class="option">
+  <div class="option-label"><span>Option 3</span></div>
+  <div class="option-name">The Gentle Gradient</div>
+  <div class="option-desc">The cleanest option. A seamless diagonal shift — deep navy at the text, softening to a barely-perceptible sage warmth on the right. Zero distraction.</div>
+
+  <div class="hdr" style="min-height:200px; background: linear-gradient(118deg, #162544 0%, #162544 40%, #183050 65%, #1a3858 85%, #1c4060 100%);">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="gg-sage" cx="88%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#C2DED8" stop-opacity="0.09"/>
+          <stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="gg-warm" cx="100%" cy="100%" r="40%">
+          <stop offset="0%"   stop-color="#C6A27E" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#C6A27E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect x="0" y="0" width="900" height="200" fill="url(#gg-sage)"/>
+      <rect x="0" y="0" width="900" height="200" fill="url(#gg-warm)"/>
+    </svg>
+
+    <div class="hdr-inner">
+      <div class="hdr-eye">SETD5 Syndrome · A Guide for Families</div>
+      <div class="hdr-title">Published <em>Research</em></div>
+      <div class="hdr-sub">Plain-language summaries of peer-reviewed studies, organized chronologically.</div>
+      <div class="hdr-chips">
+        <span class="chip">48 studies</span>
+        <span class="chip">2013–2026</span>
+        <span class="chip">Updated March 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="nav-strip">
+    <a href="#">Home</a>
+    <a href="#" class="active">Research</a>
+    <a href="#">Family Toolkit</a>
+    <a href="#">Resources</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     OPTION 4 — THE ABSTRACT BOTANICAL
+════════════════════════════════════════════════ -->
+<div class="option">
+  <div class="option-label"><span>Option 4</span></div>
+  <div class="option-name">The Abstract Botanical</div>
+  <div class="option-desc">Soft organic fronds and leaf arcs — earthy and human. Steers deliberately away from a clinical medical feel, toward something restorative and warm.</div>
+
+  <div class="hdr" style="min-height:200px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="bot-blur" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3"/>
+        </filter>
+        <filter id="bot-soft" x="-10%" y="-10%" width="120%" height="120%">
+          <feGaussianBlur stdDeviation="1"/>
+        </filter>
+        <!-- Warm background tint -->
+        <radialGradient id="bot-bg" cx="80%" cy="100%" r="60%">
+          <stop offset="0%"   stop-color="#C6A27E" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="#C6A27E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Warm ambient background -->
+      <rect x="0" y="0" width="900" height="200" fill="url(#bot-bg)"/>
+
+      <!-- Large frond 1 — sweeping right arc, sage -->
+      <path d="M 900 40 Q 780 20 700 80 Q 760 30 900 40 Z"
+            fill="rgba(194,222,216,0.12)" filter="url(#bot-soft)"/>
+      <!-- Large frond 2 — lower right, sand-toned -->
+      <path d="M 900 200 Q 820 140 730 160 Q 810 120 900 200 Z"
+            fill="rgba(198,162,126,0.14)" filter="url(#bot-soft)"/>
+
+      <!-- Stem curves -->
+      <path d="M 900 120 Q 840 100 800 60 Q 820 90 860 85 Q 830 95 900 120 Z"
+            fill="rgba(194,222,216,0.08)" filter="url(#bot-blur)"/>
+
+      <!-- Delicate leaf strokes -->
+      <g fill="none" stroke="rgba(194,222,216,0.22)" stroke-width="1.2" stroke-linecap="round" filter="url(#bot-soft)">
+        <!-- Central stem -->
+        <path d="M 760 200 Q 790 160 820 110 Q 840 75 870 45"/>
+        <!-- Left leaflets off stem -->
+        <path d="M 790 155 Q 755 138 740 115"/>
+        <path d="M 805 135 Q 768 112 755 88"/>
+        <path d="M 818 115 Q 785 94  775 70"/>
+        <!-- Right leaflets -->
+        <path d="M 793 150 Q 820 132 835 112"/>
+        <path d="M 808 130 Q 833 112 845 90"/>
+        <path d="M 820 110 Q 845 95  852 72"/>
+      </g>
+
+      <!-- Second smaller botanical element, bottom right -->
+      <g fill="none" stroke="rgba(198,162,126,0.18)" stroke-width="1" stroke-linecap="round" filter="url(#bot-soft)">
+        <path d="M 900 175 Q 875 150 855 130"/>
+        <path d="M 858 145 Q 842 135 836 120"/>
+        <path d="M 862 140 Q 875 125 878 108"/>
+      </g>
+
+      <!-- Faint background frond mass -->
+      <path d="M 900 0 Q 860 30 830 80 Q 860 40 900 30 Q 890 15 900 0 Z"
+            fill="rgba(194,222,216,0.06)" filter="url(#bot-blur)"/>
+
+      <!-- Small floating leaf dots -->
+      <g fill="rgba(194,222,216,0.2)">
+        <ellipse cx="735" cy="108" rx="4" ry="2.5" transform="rotate(-30,735,108)"/>
+        <ellipse cx="752" cy="84"  rx="3" ry="2"   transform="rotate(-25,752,84)"/>
+        <ellipse cx="770" cy="65"  rx="3.5" ry="2" transform="rotate(-20,770,65)"/>
+      </g>
+    </svg>
+
+    <div class="hdr-inner">
+      <div class="hdr-eye">SETD5 Syndrome · A Guide for Families</div>
+      <div class="hdr-title">Published <em>Research</em></div>
+      <div class="hdr-sub">Plain-language summaries of peer-reviewed studies, organized chronologically.</div>
+      <div class="hdr-chips">
+        <span class="chip">48 studies</span>
+        <span class="chip">2013–2026</span>
+        <span class="chip">Updated March 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="nav-strip">
+    <a href="#">Home</a>
+    <a href="#" class="active">Research</a>
+    <a href="#">Family Toolkit</a>
+    <a href="#">Resources</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     OPTION 5 — THE MINIMALIST HELIX
+════════════════════════════════════════════════ -->
+<div class="option">
+  <div class="option-label"><span>Option 5</span></div>
+  <div class="option-name">The Minimalist Helix</div>
+  <div class="option-desc">A large, barely-visible double helix watermark — genetics made approachable. Authoritative without being intimidating. Right-weighted so the left text stays pristine.</div>
+
+  <div class="hdr" style="min-height:200px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="hx-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2"/>
+        </filter>
+        <radialGradient id="hx-bg" cx="82%" cy="50%" r="45%">
+          <stop offset="0%"   stop-color="#C2DED8" stop-opacity="0.07"/>
+          <stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Ambient glow behind helix -->
+      <rect x="0" y="0" width="900" height="200" fill="url(#hx-bg)"/>
+
+      <!-- DOUBLE HELIX — two sine-wave backbones, centred around x=760, full height -->
+      <!-- Strand A: phase 0 — peaks right -->
+      <path d="
+        M 760 -10
+        C 800 10,  800 35,  760 50
+        C 720 65,  720 90,  760 105
+        C 800 120, 800 145, 760 160
+        C 720 175, 720 200, 760 215
+      " fill="none" stroke="rgba(194,222,216,0.30)" stroke-width="1.8"
+        stroke-linecap="round" filter="url(#hx-glow)"/>
+
+      <!-- Strand B: phase 180 — peaks left -->
+      <path d="
+        M 760 -10
+        C 720 10,  720 35,  760 50
+        C 800 65,  800 90,  760 105
+        C 720 120, 720 145, 760 160
+        C 800 175, 800 200, 760 215
+      " fill="none" stroke="rgba(194,222,216,0.20)" stroke-width="1.5"
+        stroke-linecap="round" filter="url(#hx-glow)"/>
+
+      <!-- Rungs — cross-bars connecting the two strands at regular intervals -->
+      <!-- Rungs are at the midpoints where strands cross -->
+      <g stroke="rgba(194,222,216,0.18)" stroke-width="1" stroke-linecap="round">
+        <!-- Rung at y=5 (top, strands close together) -->
+        <line x1="748" y1="5"   x2="772" y2="5"/>
+        <!-- Rung at y=28 -->
+        <line x1="790" y1="22"  x2="730" y2="38" stroke="rgba(194,222,216,0.12)"/>
+        <!-- Rung at y=50 (crossing point) -->
+        <line x1="754" y1="50"  x2="766" y2="50"/>
+        <!-- Rung at y=77 -->
+        <line x1="728" y1="70"  x2="792" y2="84" stroke="rgba(194,222,216,0.12)"/>
+        <!-- Rung at y=105 (crossing point) -->
+        <line x1="754" y1="105" x2="766" y2="105"/>
+        <!-- Rung at y=132 -->
+        <line x1="790" y1="125" x2="730" y2="138" stroke="rgba(194,222,216,0.12)"/>
+        <!-- Rung at y=160 (crossing point) -->
+        <line x1="754" y1="160" x2="766" y2="160"/>
+        <!-- Rung at y=187 -->
+        <line x1="728" y1="178" x2="792" y2="192" stroke="rgba(194,222,216,0.12)"/>
+      </g>
+
+      <!-- Node dots at crossing points -->
+      <g fill="rgba(194,222,216,0.35)">
+        <circle cx="760" cy="50"  r="3"/>
+        <circle cx="760" cy="105" r="3"/>
+        <circle cx="760" cy="160" r="3"/>
+      </g>
+      <!-- Smaller dots at half-points -->
+      <g fill="rgba(194,222,216,0.18)">
+        <circle cx="798" cy="10"  r="2"/>
+        <circle cx="722" cy="10"  r="2"/>
+        <circle cx="722" cy="77"  r="2"/>
+        <circle cx="798" cy="77"  r="2"/>
+        <circle cx="798" cy="132" r="2"/>
+        <circle cx="722" cy="132" r="2"/>
+        <circle cx="722" cy="185" r="2"/>
+        <circle cx="798" cy="185" r="2"/>
+      </g>
+
+      <!-- Second helix — smaller, offset right, even more ghostly -->
+      <path d="
+        M 850 -10
+        C 875 15,  875 40,  850 55
+        C 825 70,  825 95,  850 110
+        C 875 125, 875 150, 850 165
+        C 825 180, 825 205, 850 220
+      " fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2"
+        stroke-linecap="round"/>
+      <path d="
+        M 850 -10
+        C 825 15,  825 40,  850 55
+        C 875 70,  875 95,  850 110
+        C 825 125, 825 150, 850 165
+        C 875 180, 875 205, 850 220
+      " fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1"
+        stroke-linecap="round"/>
+    </svg>
+
+    <div class="hdr-inner">
+      <div class="hdr-eye">SETD5 Syndrome · A Guide for Families</div>
+      <div class="hdr-title">Published <em>Research</em></div>
+      <div class="hdr-sub">Plain-language summaries of peer-reviewed studies, organized chronologically.</div>
+      <div class="hdr-chips">
+        <span class="chip">48 studies</span>
+        <span class="chip">2013–2026</span>
+        <span class="chip">Updated March 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="nav-strip">
+    <a href="#">Home</a>
+    <a href="#" class="active">Research</a>
+    <a href="#">Family Toolkit</a>
+    <a href="#">Resources</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+</body>
+</html>
