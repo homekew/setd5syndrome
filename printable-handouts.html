@@ -56,7 +56,7 @@
   .site-header {
     background: var(--navy);
     color: #fff;
-    position: relative;
+    position:sticky;top:0;z-index:920;
     }
   .header-inner { transition: padding 0.175s ease; }
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
@@ -297,7 +297,7 @@ footer a { text-decoration: underline; }
 
 <header class="site-header">
 <!-- dna-helix-injected -->
-<svg aria-hidden="true" focusable="false" style="position:absolute;right:0;top:0;height:115%;width:auto;opacity:0.2;z-index:1;pointer-events:none;overflow:visible;" viewBox="0 0 660 180" preserveAspectRatio="xMaxYMid meet" xmlns="http://www.w3.org/2000/svg"><line x1="458" y1="58" x2="528" y2="106" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="528" y1="106" x2="596" y2="72" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="596" y1="72" x2="645" y2="116" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="458" y1="58" x2="488" y2="30" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="596" y1="72" x2="674" y2="66" stroke="white" stroke-width="0.75" opacity="0.5"/><circle cx="596" cy="72" r="24.75" fill="white" opacity="0.05"/><circle cx="596" cy="72" r="13.75" fill="white" opacity="0.04"/><circle cx="596" cy="72" r="5.5" fill="white"/><circle cx="458" cy="58" r="3.5" fill="white"/><circle cx="528" cy="106" r="3.0" fill="white"/><circle cx="645" cy="116" r="3.0" fill="white"/><circle cx="488" cy="30" r="2.0" fill="white"/><circle cx="614" cy="150" r="2.0" fill="white"/><circle cx="674" cy="66" r="1.5" fill="white"/><circle cx="402" cy="90" r="1.5" fill="white"/><circle cx="432" cy="150" r="1.5" fill="white"/></svg>
+<svg aria-hidden="true" focusable="false" style="position:absolute;right:-10px;top:-8px;width:660px;height:180px;opacity:0.2;z-index:1;pointer-events:none;" viewBox="0 0 660 180" xmlns="http://www.w3.org/2000/svg"><line x1="458" y1="58" x2="528" y2="106" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="528" y1="106" x2="596" y2="72" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="596" y1="72" x2="645" y2="116" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="458" y1="58" x2="488" y2="30" stroke="white" stroke-width="0.75" opacity="0.5"/><line x1="596" y1="72" x2="674" y2="66" stroke="white" stroke-width="0.75" opacity="0.5"/><circle cx="596" cy="72" r="24.75" fill="white" opacity="0.05"/><circle cx="596" cy="72" r="13.75" fill="white" opacity="0.04"/><circle cx="596" cy="72" r="5.5" fill="white"/><circle cx="458" cy="58" r="3.5" fill="white"/><circle cx="528" cy="106" r="3.0" fill="white"/><circle cx="645" cy="116" r="3.0" fill="white"/><circle cx="488" cy="30" r="2.0" fill="white"/><circle cx="614" cy="150" r="2.0" fill="white"/><circle cx="674" cy="66" r="1.5" fill="white"/><circle cx="402" cy="90" r="1.5" fill="white"/><circle cx="432" cy="150" r="1.5" fill="white"/></svg>
 
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
@@ -412,6 +412,18 @@ window.scrollTo(0, 0);
     t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});
     document.addEventListener('click',function(e){if(!e.target.closest('.site-nav')){m.classList.remove('open');t.setAttribute('aria-expanded','false');}});
   }
+})();
+</script>
+
+<script>
+(function(){
+  var hdr = document.querySelector('.site-header');
+  var nav = document.querySelector('.site-nav');
+  if (!hdr || !nav) return;
+  function syncNavTop() { nav.style.top = hdr.offsetHeight + 'px'; }
+  syncNavTop();
+  window.addEventListener('scroll', syncNavTop, {passive:true});
+  window.addEventListener('resize', syncNavTop);
 })();
 </script>
 </body>
