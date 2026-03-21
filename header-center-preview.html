@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header Alignment Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #262626;
+    --teal: #AEBFBE;
+    --amber: #D9AC84;
+    --muted: #737370;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #e8e6e0; }
+
+  .label {
+    text-align: center;
+    padding: 32px 20px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .label:first-child { padding-top: 40px; }
+
+  .site-header {
+    position: relative;
+    background: #161F30;
+    overflow: hidden;
+  }
+
+  /* ── LEFT-ALIGNED (current) ── */
+  .left .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 32px 24px;
+    text-align: left;
+  }
+
+  /* ── CENTERED ── */
+  .centered .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 32px 28px;
+    text-align: center;
+  }
+  .centered .header-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+    margin-bottom: 12px;
+  }
+  .header-eyebrow a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  .header-eyebrow a:hover { color: rgba(255,255,255,0.7); }
+
+  .header-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.15;
+  }
+  .header-title em {
+    font-style: italic;
+    color: #a8cfc8;
+  }
+
+  .header-subtitle {
+    font-size: 17.5px;
+    font-weight: 400;
+    color: rgba(255,255,255,.72);
+    max-width: 580px;
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 1px;
+    background: #ccc;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Pages grid */
+  .pages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+  .page-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .page-label {
+    padding: 8px 16px;
+    background: #f4f3ef;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="label">Current — Left-Aligned</div>
+
+<div class="pages">
+  <!-- Home -->
+  <div class="page-card">
+    <div class="page-label">Home</div>
+    <header class="site-header left">
+      <div class="header-inner">
+        <h1 class="header-title">Understanding <em>SETD5 Syndrome</em></h1>
+        <p class="header-subtitle">A resource hub for families, caregivers, and medical professionals navigating a SETD5 diagnosis.</p>
+      </div>
+    </header>
+  </div>
+
+  <!-- Research -->
+  <div class="page-card">
+    <div class="page-label">Research</div>
+    <header class="site-header left">
+      <div class="header-inner">
+        <nav class="header-eyebrow"><a href="#">Home</a></nav>
+        <h1 class="header-title">Research <em>&amp; Findings</em></h1>
+        <p class="header-subtitle">A plain-language summary of published research on SETD5 Syndrome, from foundational studies through the present, written for families.</p>
+      </div>
+    </header>
+  </div>
+
+  <!-- Family Toolkit -->
+  <div class="page-card">
+    <div class="page-label">Family Toolkit</div>
+    <header class="site-header left">
+      <div class="header-inner">
+        <nav class="header-eyebrow"><a href="#">Home</a></nav>
+        <h1 class="header-title">Family <em>Toolkit</em></h1>
+        <p class="header-subtitle">Practical guides, templates, and community resources for families navigating SETD5 Syndrome.</p>
+      </div>
+    </header>
+  </div>
+
+  <!-- About -->
+  <div class="page-card">
+    <div class="page-label">About</div>
+    <header class="site-header left">
+      <div class="header-inner">
+        <nav class="header-eyebrow"><a href="#">Home</a></nav>
+        <h1 class="header-title">About <em>This Site</em></h1>
+        <p class="header-subtitle">Why this project exists, who it's for, and how it's maintained.</p>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="label">Centered</div>
+
+<div class="pages">
+  <!-- Home -->
+  <div class="page-card">
+    <div class="page-label">Home</div>
+    <header class="site-header centered">
+      <div class="header-inner">
+        <h1 class="header-title">Understanding <em>SETD5 Syndrome</em></h1>
+        <p class="header-subtitle">A resource hub for families, caregivers, and medical professionals navigating a SETD5 diagnosis.</p>
+      </div>
+    </header>
+  </div>
+
+  <!-- Research -->
+  <div class="page-card">
+    <div class="page-label">Research</div>
+    <header class="site-header centered">
+      <div class="header-inner">
+        <nav class="header-eyebrow"><a href="#">Home</a></nav>
+        <h1 class="header-title">Research <em>&amp; Findings</em></h1>
+        <p class="header-subtitle">A plain-language summary of published research on SETD5 Syndrome, from foundational studies through the present, written for families.</p>
+      </div>
+    </header>
+  </div>
+
+  <!-- Family Toolkit -->
+  <div class="page-card">
+    <div class="page-label">Family Toolkit</div>
+    <header class="site-header centered">
+      <div class="header-inner">
+        <nav class="header-eyebrow"><a href="#">Home</a></nav>
+        <h1 class="header-title">Family <em>Toolkit</em></h1>
+        <p class="header-subtitle">Practical guides, templates, and community resources for families navigating SETD5 Syndrome.</p>
+      </div>
+    </header>
+  </div>
+
+  <!-- About -->
+  <div class="page-card">
+    <div class="page-label">About</div>
+    <header class="site-header centered">
+      <div class="header-inner">
+        <nav class="header-eyebrow"><a href="#">Home</a></nav>
+        <h1 class="header-title">About <em>This Site</em></h1>
+        <p class="header-subtitle">Why this project exists, who it's for, and how it's maintained.</p>
+      </div>
+    </header>
+  </div>
+</div>
+
+</body>
+</html>
