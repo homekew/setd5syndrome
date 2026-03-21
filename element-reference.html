@@ -1,933 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SETD5 Site — Element Reference Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Site — Style & Element Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:      #162544;
+  --sage:      #C2DED8;
+  --sage-dark: #2a7068;
+  --sage-lt:   #E4F0EE;
+  --sage-mid:  #BAD4CE;
+  --teal-soft: #a8cfc8;
+  --amber:     #C6A27E;
+  --amber-lt:  #F5EDE0;
+  --ivory:     #F7F4EE;
+  --linen:     #EDE9E0;
+  --charcoal:  #2A2E35;
+  --muted:     #66707A;
+  --border:    #DDD7CC;
+  --text:      #2A2E35;
+  --font-serif:'Lora', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+html,body{min-height:100%;}
+body{font-family:var(--font-sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--ivory);}
 
-    :root {
-      --navy:     #1a2744;
-      --teal:     #2a7a6a;
-      --teal-soft:#a8cfc8;
-      --amber:    #c9893a;
-      --amber-lt: #fdf4e7;
-      --sage:     #4e7c5f;
-      --deep:     #2a627a;
-      --blue:     #5a80a8;
-      --text:     #2c2c2c;
-      --muted:    #6b6b6b;
-      --border:   #e0d9cf;
-    }
+.ref-header{background:var(--navy);color:#fff;padding:48px 40px 40px;border-bottom:3px solid var(--teal-soft);position:relative;overflow:hidden;}
+.ref-header h1{font-family:var(--font-serif);font-weight:600;font-size:clamp(26px,4vw,38px);line-height:1.1;margin-bottom:10px;}
+.ref-header h1 em{color:var(--teal-soft);font-style:italic;}
+.ref-header p{color:rgba(255,255,255,.7);font-size:15.5px;max-width:560px;line-height:1.6;}
+.ref-header .meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;color:rgba(255,255,255,.45);}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      color: var(--text);
-      background: #f5f3ef;
-      line-height: 1.65;
-    }
+.ref-body{display:flex;min-height:calc(100vh - 160px);}
 
-    /* ── Page header ── */
-    .page-header {
-      background: var(--navy);
-      color: #fff;
-      padding: 48px 40px 44px;
-      border-bottom: 3px solid var(--teal-soft);
-    }
-    .page-header h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 10px;
-    }
-    .page-header h1 em { font-style: italic; color: var(--teal-soft); }
-    .page-header p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.7);
-      max-width: 600px;
-    }
+.ref-sidebar{width:220px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--border);padding:24px 0 40px;}
+.ref-sidebar::-webkit-scrollbar{width:4px;} .ref-sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.ref-nav-section{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:16px 20px 4px;}
+.ref-nav-link{display:block;font-size:13px;color:var(--charcoal);text-decoration:none;padding:6px 20px;border-left:3px solid transparent;transition:background .1s,color .1s;}
+.ref-nav-link:hover{background:#f7f5f0;color:var(--navy);}
+.ref-nav-link.active{color:var(--navy);font-weight:600;border-left-color:var(--amber);background:#fdf8f2;}
 
-    /* ── Layout ── */
-    .content { max-width: 960px; margin: 0 auto; padding: 48px 32px 80px; }
+.ref-main{flex:1;min-width:0;padding:0 0 80px;}
 
-    /* ── Section headings ── */
-    .ref-section { margin-bottom: 64px; }
-    .ref-section-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
-    }
+.ref-section{padding:48px 48px 40px;border-bottom:1px solid var(--border);scroll-margin-top:20px;}
+.ref-section:last-child{border-bottom:none;}
+.ref-section.bg-alt{background:var(--linen);}
 
-    /* ── Element cards ── */
-    .element-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-    .element-card-header {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      padding: 18px 24px 14px;
-      border-bottom: 1px solid #f0ece5;
-      flex-wrap: wrap;
-    }
-    .element-name {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--navy);
-    }
-    .element-selector {
-      font-family: 'Courier New', monospace;
-      font-size: 12px;
-      color: var(--teal);
-      background: #e8f4f2;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-    .element-desc {
-      font-size: 13.5px;
-      color: var(--muted);
-      margin-left: auto;
-      max-width: 340px;
-      text-align: right;
-      line-height: 1.5;
-    }
-    .element-preview {
-      padding: 28px 28px;
-      background: #fafaf8;
-    }
-    .element-preview.dark {
-      background: var(--navy);
-    }
-    .element-meta {
-      padding: 12px 24px;
-      background: #fff;
-      border-top: 1px solid #f0ece5;
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .meta-item {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .meta-item strong {
-      color: var(--text);
-      font-weight: 600;
-    }
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.sec-label::before{content:'';width:20px;height:2px;background:var(--amber);border-radius:2px;}
+.sec-label.on-dark{color:var(--teal-soft);}
+.sec-label.on-dark::before{background:var(--teal-soft);}
 
-    /* ── Color swatches ── */
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 14px;
-    }
-    .color-swatch {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .swatch-block { height: 64px; }
-    .swatch-info {
-      padding: 10px 12px;
-      background: #fff;
-    }
-    .swatch-name { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
-    .swatch-hex { font-family: 'Courier New', monospace; font-size: 12px; color: var(--muted); }
-    .swatch-use { font-size: 11.5px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.ref-section h2{font-family:var(--font-serif);font-size:26px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.2;}
+.ref-section.bg-dark h2{color:#fff;}
+.ref-desc{font-size:14.5px;color:var(--muted);margin-bottom:28px;max-width:620px;line-height:1.65;}
 
-    /* ── Font pair display ── */
-    .font-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    @media (max-width: 640px) { .font-pair { grid-template-columns: 1fr; } }
-    .font-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 24px;
-    }
-    .font-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-    .font-specimen-lora {
-      font-family: 'Lora', serif;
-      font-size: 32px;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-    .font-specimen-inter {
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .font-use {
-      font-size: 12.5px;
-      color: var(--muted);
-      margin-top: 10px;
-      border-top: 1px solid var(--border);
-      padding-top: 10px;
-    }
+.sub-div{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--border);margin:32px 0 18px;}
+.sub-div:first-of-type{margin-top:0;}
 
-    /* ── Live preview styles matching actual site ── */
+.code-box{background:#1e2535;color:#c9d4e0;font-family:'SF Mono','Fira Code',monospace;font-size:12px;line-height:1.65;border-radius:8px;padding:16px 20px;overflow-x:auto;margin-top:16px;}
+.ct{color:#88c0d0;} .ca{color:#8fbcbb;} .cv{color:#a3be8c;} .cm{color:#616e88;font-style:italic;} .cl{color:#81a1c1;} .cp{color:#b48ead;}
 
-    /* Header elements */
-    .preview-header-eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.45);
-    }
-    .preview-header-title {
-      font-family: 'Lora', serif;
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.15;
-      margin-top: 6px;
-    }
-    .preview-header-title em { font-style: italic; color: var(--teal-soft); }
-    .preview-header-subtitle {
-      font-family: 'Inter', sans-serif;
-      font-size: 15.5px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.72);
-      margin-top: 8px;
-      line-height: 1.6;
-    }
+.rule{background:var(--amber-lt);border:1px solid #e5cba8;border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:12px 16px;font-size:13.5px;line-height:1.6;margin-top:14px;color:var(--charcoal);}
+.rule strong{color:var(--navy);}
+.rule.do{background:#edf5ee;border-left-color:#3a8a5a;border-color:#b5d8bc;}
+.rule.dont{background:#fdf0ee;border-left-color:#c05040;border-color:#e8c0bb;}
 
-    /* Section label */
-    .preview-section-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-    .preview-section-label::before {
-      content: '';
-      display: block;
-      width: 18px;
-      height: 2px;
-      background: var(--amber);
-      margin-bottom: 6px;
-    }
+/* Palette */
+.palette-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin-bottom:8px;}
+.swatch{border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 8px rgba(22,37,68,.06);}
+.swatch-block{height:68px;}
+.swatch-info{background:#fff;padding:10px 14px;}
+.swatch-name{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px;}
+.swatch-hex{font-family:'SF Mono',monospace;font-size:11.5px;color:var(--muted);}
+.swatch-note{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.4;}
 
-    /* Section heading h2 */
-    .preview-h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(21px, 3.5vw, 29px);
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.25;
-    }
+/* Contrast */
+.contrast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.contrast-card{border-radius:8px;padding:16px 18px;border:1px solid var(--border);}
+.contrast-sample{font-size:17px;font-weight:500;margin-bottom:8px;}
+.contrast-info{font-size:12px;color:var(--muted);}
+.c-ratio{font-weight:700;}
+.verdict{font-size:11px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:4px;}
+.pass{background:#d4f0d8;color:#1f6b33;} .fail{background:#fad8d8;color:#9b2020;}
 
-    /* Prose body */
-    .preview-prose {
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.65;
-    }
+/* Type samples */
+.type-sample{padding:18px 22px;background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;}
+.type-meta{font-size:11px;font-family:'SF Mono',monospace;color:var(--muted);margin-bottom:8px;display:flex;gap:12px;flex-wrap:wrap;}
+.type-meta span{background:var(--linen);padding:2px 8px;border-radius:4px;}
 
-    /* Card */
-    .preview-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 22px;
-      max-width: 320px;
-    }
-    .preview-card-title {
-      font-family: 'Lora', serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-    .preview-card-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 18px;
-    }
-    .preview-card-link {
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--teal);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-    }
-    .preview-card-link::after { content: ' →'; }
+/* Usage table */
+.usage-tbl{width:100%;border-collapse:collapse;font-size:13.5px;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff;}
+.usage-tbl th{background:var(--navy);color:#fff;text-align:left;padding:9px 14px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+.usage-tbl td{padding:9px 14px;border-top:1px solid var(--border);vertical-align:top;}
+.usage-tbl tr:nth-child(even) td{background:var(--ivory);}
+.usage-tbl code{font-family:'SF Mono',monospace;font-size:11.5px;background:var(--linen);padding:2px 5px;border-radius:3px;color:var(--charcoal);}
 
-    /* Tab buttons */
-    .preview-tabs {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .preview-tab-btn {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      padding: 10px 18px;
-      border: none;
-      border-bottom: 3px solid transparent;
-      background: none;
-      color: rgba(255,255,255,0.65);
-      cursor: pointer;
-    }
-    .preview-tab-btn.active {
-      color: #fff;
-      border-bottom-color: var(--amber);
-    }
-    .preview-tabs-wrap {
-      background: var(--navy);
-      padding: 8px 12px 0;
-      border-radius: 8px;
-    }
+/* Demo: site header */
+.demo-hdr{background:var(--navy);color:#fff;padding:0;overflow:hidden;position:relative;border-radius:10px;}
+.demo-hdr-inner{padding:26px 30px 22px;position:relative;z-index:2;}
+.demo-eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px;}
+.demo-h1{font-family:var(--font-serif);font-weight:600;font-size:34px;line-height:1.08;letter-spacing:-.02em;color:#fff;margin-bottom:8px;}
+.demo-h1 em{color:var(--teal-soft);}
+.demo-sub{font-size:15px;color:rgba(255,255,255,.72);line-height:1.6;}
 
-    /* Section nav buttons */
-    .preview-section-nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .preview-section-nav-btn {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      padding: 9px 18px;
-      border-radius: 20px;
-      border: 1.5px solid var(--border);
-      background: #fff;
-      color: var(--navy);
-      cursor: pointer;
-    }
-    .preview-section-nav-btn.active {
-      background: var(--navy);
-      color: #fff;
-      border-color: var(--navy);
-    }
+/* Demo: site nav */
+.demo-nav{background:var(--ivory);border:1px solid var(--border);border-radius:8px;}
+.demo-nav-row{display:flex;align-items:stretch;padding:0 12px;}
+.demo-nav-a{display:flex;align-items:center;padding:.6rem .8rem;font-size:14px;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;}
+.demo-nav-a.cur{color:var(--navy);font-weight:600;}
 
-    /* Guides / homepage label */
-    .preview-guides-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-    }
+/* Demo: cards */
+.demo-card{background:var(--ivory);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.4rem 1.2rem;box-shadow:0 2px 12px rgba(22,37,68,.06);position:relative;overflow:hidden;display:flex;flex-direction:column;}
+.demo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--card-accent,var(--sage));border-radius:10px 10px 0 0;}
+.demo-card h3{font-family:var(--font-serif);font-weight:600;font-size:18px;color:var(--navy);margin-bottom:.5rem;line-height:1.25;}
+.demo-card p{font-size:14px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:1.1rem;}
+.demo-card-link{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--card-accent,var(--navy));display:inline-flex;align-items:center;gap:.3rem;border:1.5px solid var(--card-accent,var(--sage));padding:5px 12px;border-radius:6px;align-self:flex-start;}
+.demo-card-link::after{content:'→';}
 
-    /* Footer */
-    .preview-footer {
-      background: var(--navy);
-      padding: 20px 24px;
-      border-radius: 8px;
-    }
-    .preview-footer-nav {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 6px;
-    }
-    .preview-footer-legal {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: rgba(255,255,255,0.4);
-    }
+/* Callouts */
+.cta-sand{background:var(--amber-lt);border:1px solid #e5cba8;border-left:4px solid var(--amber);border-radius:0 8px 8px 0;padding:14px 18px;font-size:15px;line-height:1.65;}
+.cta-sage{background:var(--sage-lt);border:1px solid var(--sage-mid);border-left:4px solid #2a7068;border-radius:0 8px 8px 0;padding:14px 18px;font-size:15px;line-height:1.65;}
+.cta-navy{background:var(--navy);color:#fff;border-radius:10px;padding:20px 24px;}
+.cta-navy .lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-soft);display:block;margin-bottom:6px;}
+.cta-navy h4{font-family:var(--font-serif);font-size:19px;font-weight:600;margin-bottom:6px;line-height:1.3;}
+.cta-navy p{font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.65;margin:0;}
+.cta-navy a{color:var(--sage);}
 
-    /* Homepage H1 */
-    .preview-homepage-h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-    }
-    .preview-homepage-h1 em { font-style: italic; color: var(--teal-soft); }
-  </style>
+/* Badges */
+.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:4px;}
+.b-amber{background:var(--amber);color:#fff;}
+.b-navy{background:var(--navy);color:#fff;}
+.b-sage{background:var(--sage-lt);color:var(--sage-dark);border:1px solid var(--sage-mid);}
+.b-muted{background:var(--linen);color:var(--muted);border:1px solid var(--border);}
+.b-new{background:#e8f3eb;color:#1f6b33;border:1px solid #b5d8bc;}
+
+.pill{font-size:12.5px;color:var(--navy);text-decoration:none;padding:3px 10px;border:1px solid var(--border);border-radius:20px;background:#fff;display:inline-block;}
+
+/* Stats bar */
+.stats-bar{background:var(--sage-lt);padding:18px 2rem;display:flex;justify-content:center;border:1px solid var(--sage-mid);border-radius:10px;}
+.s-item{text-align:center;padding:0 2rem;border-right:1px solid var(--sage-mid);}
+.s-item:last-child{border-right:none;}
+.s-num{display:block;font-family:var(--font-serif);font-size:1.4rem;font-weight:600;color:var(--navy);line-height:1;}
+.s-lbl{display:block;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+/* Resource & gap items */
+.res-item{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 16px;display:flex;align-items:flex-start;gap:12px;}
+.res-icon{width:32px;height:32px;flex-shrink:0;background:var(--linen);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;}
+.res-name{font-weight:600;font-size:13.5px;color:var(--navy);margin-bottom:2px;}
+.res-name a{color:var(--navy);text-decoration:none;}
+.res-desc{font-size:13.5px;color:var(--muted);line-height:1.45;}
+.gap-item{background:#fff;border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:10px 14px;font-size:14.5px;line-height:1.6;}
+.gap-item strong{color:var(--navy);}
+
+/* Sidebar demo */
+.demo-sb{background:#fff;border:1px solid var(--border);border-radius:8px;width:180px;padding:14px 0;flex-shrink:0;}
+.demo-sb-hd{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:0 16px;margin-bottom:6px;}
+.demo-sb-a{display:block;font-size:13px;color:var(--text);text-decoration:none;padding:6px 16px;border-left:3px solid transparent;transition:background .12s;}
+.demo-sb-a:hover{background:#f7f5f0;color:var(--navy);}
+.demo-sb-a.cur{color:var(--navy);font-weight:600;border-left-color:var(--amber);background:#fdf8f2;}
+
+/* Section tag & divider */
+.sec-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.sec-tag.dk{color:var(--teal-soft);}
+.sec-div{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.sec-div::before{content:'';display:block;width:28px;height:3px;background:var(--amber);border-radius:2px;flex-shrink:0;}
+.sec-div::after{content:'';display:block;flex:1;height:1px;background:var(--border);}
+
+/* Footer demo */
+.demo-footer{background:var(--navy);text-align:center;padding:24px 20px;border-radius:10px;}
+.demo-footer .fl{font-size:12.5px;color:rgba(255,255,255,.65);margin-bottom:.65rem;}
+.demo-footer .fn{display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem .6rem;margin-bottom:.65rem;font-size:13px;}
+.demo-footer .fn a{color:rgba(255,255,255,.6);text-decoration:none;}
+.demo-footer .fleg{font-size:12px;color:rgba(255,255,255,.35);max-width:480px;margin:0 auto;line-height:1.55;}
+
+.two-up{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.three-up{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:800px){.two-up,.three-up{grid-template-columns:1fr;}}
+
+.demo-row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;margin-bottom:20px;}
+</style>
 </head>
 <body>
 
-<div class="page-header">
-  <h1>SETD5 Site — <em>Element Reference</em></h1>
-  <p>A guide to every named element on the site — what it's called, where it appears, and its current styling.</p>
+<div class="ref-header">
+  <h1>SETD5 Site<br><em>Style &amp; Element Reference</em></h1>
+  <p>The canonical design guide for setd5syndrome.live. All new pages should use these colors, type styles, and components exactly.</p>
+  <div class="meta">
+    <span>Fonts: Lora + Inter</span>
+    <span>Base: 17px / 1.7 line-height</span>
+    <span>Max width: 860px</span>
+    <span>Updated March 2026</span>
+  </div>
 </div>
 
-<div class="content">
+<div class="ref-body">
 
+<nav class="ref-sidebar">
+  <div class="ref-nav-section">Foundation</div>
+  <a class="ref-nav-link active" href="#colors">Color Palette</a>
+  <a class="ref-nav-link" href="#contrast">Contrast Rules</a>
+  <a class="ref-nav-link" href="#typography">Typography</a>
+  <div class="ref-nav-section">Layout</div>
+  <a class="ref-nav-link" href="#header">Site Header</a>
+  <a class="ref-nav-link" href="#nav">Navigation</a>
+  <a class="ref-nav-link" href="#sidebar">Page Sidebar</a>
+  <a class="ref-nav-link" href="#footer">Footer</a>
+  <div class="ref-nav-section">Components</div>
+  <a class="ref-nav-link" href="#cards">Cards</a>
+  <a class="ref-nav-link" href="#callouts">Callouts</a>
+  <a class="ref-nav-link" href="#badges">Badges &amp; Chips</a>
+  <a class="ref-nav-link" href="#stats">Stats Bar</a>
+  <a class="ref-nav-link" href="#sections">Section Elements</a>
+  <a class="ref-nav-link" href="#lists">List Patterns</a>
+  <a class="ref-nav-link" href="#helix">Helix Watermark</a>
+  <div class="ref-nav-section">Patterns</div>
+  <a class="ref-nav-link" href="#template">Page Template</a>
+  <a class="ref-nav-link" href="#donts">Do's &amp; Don'ts</a>
+</nav>
 
-  <!-- ─── FONTS ─────────────────────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Typefaces</div>
+<main class="ref-main">
 
-    <div class="font-pair">
-      <div class="font-card">
-        <div class="font-label">Lora — Heading font</div>
-        <div class="font-specimen-lora">SETD5 Syndrome</div>
-        <div style="font-family:'Lora',serif;font-size:18px;font-style:italic;color:#1a2744;margin-bottom:4px;">Italic accent style</div>
-        <div class="font-use">Used on: page titles, section headings, card titles. All Lora text uses weight 400.</div>
+<!-- § 1 COLORS -->
+<section class="ref-section" id="colors">
+  <div class="sec-label">Foundation</div>
+  <h2>Color Palette</h2>
+  <p class="ref-desc">Every color on the site, with hex values, CSS variable names, and usage rules. Variables are defined in <code style="font-family:monospace;font-size:13px;background:var(--linen);padding:1px 6px;border-radius:3px;">:root</code> on every page.</p>
+
+  <div class="sub-div">Primary Colors</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-block" style="background:#162544;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Navy</div>
+        <div class="swatch-hex">#162544 · <code style="font-size:11px;font-family:monospace;">--navy</code></div>
+        <div class="swatch-note">Headers, headings, nav bg, dark sections. The dominant brand color.</div>
       </div>
-      <div class="font-card">
-        <div class="font-label">Inter — Body &amp; UI font</div>
-        <div class="font-specimen-inter">For families navigating a rare genetic diagnosis — plain-language guides, published research, and practical tools.</div>
-        <div class="font-use">Used on: body text, navigation, labels, subtitles, footers, buttons.</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#C6A27E;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sand (Amber)</div>
+        <div class="swatch-hex">#C6A27E · <code style="font-size:11px;font-family:monospace;">--amber</code></div>
+        <div class="swatch-note">CTAs, dividers, active states, card top accents. The warm call-to-action color.</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#C2DED8;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sage</div>
+        <div class="swatch-hex">#C2DED8 · <code style="font-size:11px;font-family:monospace;">--sage / --teal</code></div>
+        <div class="swatch-note"><strong>Text on dark bg only.</strong> Also: borders, bg tints, helix SVG. Never as text on ivory/white.</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#F7F4EE;border-bottom:1px solid #e0dbd2;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Ivory</div>
+        <div class="swatch-hex">#F7F4EE · <code style="font-size:11px;font-family:monospace;">--ivory / --cream</code></div>
+        <div class="swatch-note">Default page background and card backgrounds.</div>
       </div>
     </div>
   </div>
 
-
-  <!-- ─── COLORS ────────────────────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Color Palette</div>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#1a2744;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Navy</div>
-          <div class="swatch-hex">--navy / #1a2744</div>
-          <div class="swatch-use">Page headers, headings, card titles, footer background</div>
-        </div>
+  <div class="sub-div">Support Colors</div>
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-block" style="background:#2A2E35;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Charcoal</div>
+        <div class="swatch-hex">#2A2E35 · <code style="font-size:11px;font-family:monospace;">--text / --charcoal</code></div>
+        <div class="swatch-note">Primary body text color.</div>
       </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#2a7a6a;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Teal</div>
-          <div class="swatch-hex">--teal / #2a7a6a</div>
-          <div class="swatch-use">Card links, callout borders, icon accents, active states</div>
-        </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#66707A;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Muted</div>
+        <div class="swatch-hex">#66707A · <code style="font-size:11px;font-family:monospace;">--muted</code></div>
+        <div class="swatch-note">Secondary text, captions, labels on light backgrounds.</div>
       </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#a8cfc8;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Soft Teal</div>
-          <div class="swatch-hex">#a8cfc8</div>
-          <div class="swatch-use">Italic accent in page titles (the em text)</div>
-        </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#DDD7CC;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Border</div>
+        <div class="swatch-hex">#DDD7CC · <code style="font-size:11px;font-family:monospace;">--border</code></div>
+        <div class="swatch-note">All card borders, dividers, rule lines.</div>
       </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#c9893a;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Amber</div>
-          <div class="swatch-hex">--amber / #c9893a</div>
-          <div class="swatch-use">Active tab underline, section-label accent bar</div>
-        </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#EDE9E0;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Linen</div>
+        <div class="swatch-hex">#EDE9E0 · <code style="font-size:11px;font-family:monospace;">--linen</code></div>
+        <div class="swatch-note">Alternate section background, slightly warmer than ivory.</div>
       </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#4e7c5f;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Sage</div>
-          <div class="swatch-hex">--sage / #4e7c5f</div>
-          <div class="swatch-use">Sage callout boxes, some card top borders</div>
-        </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#a8cfc8;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Teal Soft</div>
+        <div class="swatch-hex">#a8cfc8 · <code style="font-size:11px;font-family:monospace;">--teal-soft</code></div>
+        <div class="swatch-note">Header <code style="font-size:11px;font-family:monospace;">em</code> italic text color only. "Research &amp; Resources" subtitle.</div>
       </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#2a627a;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Deep Blue</div>
-          <div class="swatch-hex">--deep / #2a627a</div>
-          <div class="swatch-use">Some card top borders and accents</div>
-        </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#2a7068;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sage Dark</div>
+        <div class="swatch-hex">#2a7068 · <code style="font-size:11px;font-family:monospace;">#2a7068</code></div>
+        <div class="swatch-note">Sage-family text on light backgrounds. Use instead of #C2DED8 wherever text is on light bg.</div>
       </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#5a80a8;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Blue</div>
-          <div class="swatch-hex">--blue / #5a80a8</div>
-          <div class="swatch-use">Blue card top borders and accents</div>
-        </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#E4F0EE;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sage Light</div>
+        <div class="swatch-hex">#E4F0EE · <code style="font-size:11px;font-family:monospace;">--sage-lt</code></div>
+        <div class="swatch-note">Sage-tinted backgrounds: callout boxes, stats bar, hover states.</div>
       </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#2c2c2c;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Text</div>
-          <div class="swatch-hex">--text / #2c2c2c</div>
-          <div class="swatch-use">All standard body text</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#6b6b6b;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Muted</div>
-          <div class="swatch-hex">--muted / #6b6b6b</div>
-          <div class="swatch-use">Secondary text, card descriptions, labels</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="swatch-block" style="background:#e0d9cf;border-bottom:1px solid #ccc;"></div>
-        <div class="swatch-info">
-          <div class="swatch-name">Border</div>
-          <div class="swatch-hex">--border / #e0d9cf</div>
-          <div class="swatch-use">Card borders, dividers, table lines</div>
-        </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block" style="background:#F5EDE0;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Sand Light</div>
+        <div class="swatch-hex">#F5EDE0 · <code style="font-size:11px;font-family:monospace;">--amber-lt</code></div>
+        <div class="swatch-note">Sand-tinted backgrounds: callout boxes, "start here" banners.</div>
       </div>
     </div>
   </div>
 
+  <div class="sub-div">Variable Reference Table</div>
+  <table class="usage-tbl">
+    <thead><tr><th>Variable</th><th>Hex</th><th>Use for</th></tr></thead>
+    <tbody>
+      <tr><td><code>--navy</code></td><td>#162544</td><td>Headers, h1–h3, dark bg sections, nav bg</td></tr>
+      <tr><td><code>--amber</code></td><td>#C6A27E</td><td>CTAs, accents, active nav, card top bar</td></tr>
+      <tr><td><code>--sage / --teal</code></td><td>#C2DED8</td><td>Borders, bg tints, text on dark bg ONLY</td></tr>
+      <tr><td><code>--ivory / --cream</code></td><td>#F7F4EE</td><td>Page background, card backgrounds</td></tr>
+      <tr><td><code>--text / --charcoal</code></td><td>#2A2E35</td><td>Body text</td></tr>
+      <tr><td><code>--muted</code></td><td>#66707A</td><td>Secondary text, captions</td></tr>
+      <tr><td><code>--border</code></td><td>#DDD7CC</td><td>All borders and dividers</td></tr>
+      <tr><td><code>--linen</code></td><td>#EDE9E0</td><td>Alternate section bg</td></tr>
+      <tr><td><code>--teal-soft</code></td><td>#a8cfc8</td><td>Header em italic text only</td></tr>
+      <tr><td><code>--sage-lt</code></td><td>#E4F0EE</td><td>Sage-tinted bg</td></tr>
+      <tr><td><code>--amber-lt</code></td><td>#F5EDE0</td><td>Sand-tinted bg</td></tr>
+      <tr><td><em>(no var)</em></td><td>#2a7068</td><td>Sage-family text on light backgrounds</td></tr>
+    </tbody>
+  </table>
+</section>
 
-  <!-- ─── HEADER ELEMENTS ───────────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Header Elements — appear inside the navy page header</div>
+<!-- § 2 CONTRAST -->
+<section class="ref-section bg-alt" id="contrast">
+  <div class="sec-label">Foundation</div>
+  <h2>Contrast Rules</h2>
+  <p class="ref-desc">WCAG 2.1 AA requires 4.5:1 for normal text, 3:1 for large text (18px+ bold or 24px+). These are the approved pairings.</p>
 
-    <!-- Header Eyebrow -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Header Eyebrow</div>
-        <div class="element-selector">.header-eyebrow</div>
-        <div class="element-desc">The back-navigation link at the very top of every subpage header. Takes users back to the homepage.</div>
-      </div>
-      <div class="element-preview dark">
-        <p class="preview-header-eyebrow">← SETD5 Syndrome Research &amp; Resources</p>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Inter</div>
-        <div class="meta-item"><strong>Size:</strong> 11px</div>
-        <div class="meta-item"><strong>Weight:</strong> 600</div>
-        <div class="meta-item"><strong>Case:</strong> Uppercase</div>
-        <div class="meta-item"><strong>Color:</strong> rgba(255,255,255, 0.45) — dimmed white</div>
+  <div class="sub-div">Approved Pairings</div>
+  <div class="contrast-grid">
+    <div class="contrast-card" style="background:#F7F4EE;">
+      <div class="contrast-sample" style="color:#162544;">Navy on Ivory</div>
+      <div class="contrast-info"><span class="c-ratio">12.4:1</span><span class="verdict pass">AA Pass</span></div>
+      <div class="contrast-info" style="margin-top:3px;">Headings, key text on page bg</div>
+    </div>
+    <div class="contrast-card" style="background:#F7F4EE;">
+      <div class="contrast-sample" style="color:#2A2E35;">Charcoal on Ivory</div>
+      <div class="contrast-info"><span class="c-ratio">10.2:1</span><span class="verdict pass">AA Pass</span></div>
+      <div class="contrast-info" style="margin-top:3px;">Body text</div>
+    </div>
+    <div class="contrast-card" style="background:#F7F4EE;">
+      <div class="contrast-sample" style="color:#66707A;">Muted on Ivory</div>
+      <div class="contrast-info"><span class="c-ratio">4.8:1</span><span class="verdict pass">AA Pass</span></div>
+      <div class="contrast-info" style="margin-top:3px;">Secondary text, captions</div>
+    </div>
+    <div class="contrast-card" style="background:#162544;">
+      <div class="contrast-sample" style="color:#ffffff;">White on Navy</div>
+      <div class="contrast-info" style="color:rgba(255,255,255,.6);"><span class="c-ratio" style="color:#fff;">14.9:1</span><span class="verdict pass">AA Pass</span></div>
+      <div class="contrast-info" style="color:rgba(255,255,255,.5);margin-top:3px;">Header titles, body on dark</div>
+    </div>
+    <div class="contrast-card" style="background:#162544;">
+      <div class="contrast-sample" style="color:#a8cfc8;">Teal Soft on Navy</div>
+      <div class="contrast-info" style="color:rgba(255,255,255,.6);"><span class="c-ratio" style="color:#fff;">4.6:1</span><span class="verdict pass">AA Pass</span></div>
+      <div class="contrast-info" style="color:rgba(255,255,255,.5);margin-top:3px;">Header em italic only</div>
+    </div>
+    <div class="contrast-card" style="background:#F7F4EE;">
+      <div class="contrast-sample" style="color:#2a7068;">Sage Dark on Ivory</div>
+      <div class="contrast-info"><span class="c-ratio">5.2:1</span><span class="verdict pass">AA Pass</span></div>
+      <div class="contrast-info" style="margin-top:3px;">Sage-tone text on light bg</div>
+    </div>
+  </div>
+
+  <div class="sub-div" style="margin-top:28px;">Failing Pairing — Never Use</div>
+  <div class="contrast-grid">
+    <div class="contrast-card" style="background:#F7F4EE;">
+      <div class="contrast-sample" style="color:#C2DED8;">Sage on Ivory ✗</div>
+      <div class="contrast-info"><span class="c-ratio">1.6:1</span><span class="verdict fail">AA Fail</span></div>
+      <div class="contrast-info" style="margin-top:3px;">Never use sage as text on light backgrounds</div>
+    </div>
+  </div>
+  <div class="rule dont" style="margin-top:16px;">❌ <strong>Never:</strong> <code style="font-family:monospace;">color: #C2DED8</code> on ivory, white, or linen. Use <code style="font-family:monospace;">#2a7068</code> instead.</div>
+  <div class="rule do">✓ <strong>Sage text rule:</strong> <code style="font-family:monospace;">#C2DED8</code> is allowed as text color only inside elements with <code style="font-family:monospace;">background: #162544</code> (navy) or equally dark backgrounds.</div>
+</section>
+
+<!-- § 3 TYPOGRAPHY -->
+<section class="ref-section" id="typography">
+  <div class="sec-label">Foundation</div>
+  <h2>Typography</h2>
+  <p class="ref-desc">Two typefaces only. <strong>Lora</strong> for headings and editorial warmth. <strong>Inter</strong> for UI text, body copy, and all functional elements.</p>
+
+  <div class="sub-div">Lora — Serif Display</div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Lora 600</span><span>clamp(36px–52px)</span><span>letter-spacing: -0.02em</span><span>H1 page title</span></div>
+    <div style="font-family:var(--font-serif);font-weight:600;font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:-.02em;color:var(--navy);">Page Title H1</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Lora 600</span><span>clamp(21px–29px)</span><span>H2 section heading</span></div>
+    <div style="font-family:var(--font-serif);font-weight:600;font-size:clamp(21px,3.5vw,29px);line-height:1.25;color:var(--navy);">Section Heading H2</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Lora 600</span><span>20px</span><span>H3 subsection</span></div>
+    <div style="font-family:var(--font-serif);font-weight:600;font-size:20px;line-height:1.3;color:var(--navy);">Subsection Heading H3</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Lora 400 italic</span><span>18–19px</span><span>Pull quotes, blockquotes</span></div>
+    <div style="font-family:var(--font-serif);font-style:italic;font-size:18px;line-height:1.7;color:var(--charcoal);">"An editorial pull quote rendered in Lora italic for warmth and emphasis."</div>
+  </div>
+
+  <div class="sub-div">Inter — Sans-Serif UI</div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Inter 400</span><span>17px</span><span>line-height: 1.7</span><span>Body text</span></div>
+    <div style="font-family:var(--font-sans);font-size:17px;line-height:1.7;color:var(--text);">Standard body text at 17px. Used for all paragraph copy throughout the site with generous line-height for readability.</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Inter 400</span><span>17px</span><span>color: var(--muted)</span><span>Secondary body</span></div>
+    <div style="font-family:var(--font-sans);font-size:17px;line-height:1.75;color:var(--muted);">Secondary or introductory text in muted color. Page intros, descriptions, supplementary content.</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Inter 600</span><span>11–12px</span><span>letter-spacing: 0.12–0.18em</span><span>uppercase</span><span>Section labels</span></div>
+    <div style="font-family:var(--font-sans);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);">Section Label / Eyebrow Text</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta"><span>Inter 500</span><span>15.5px</span><span>Nav links</span></div>
+    <div style="font-family:var(--font-sans);font-weight:500;font-size:15.5px;color:var(--text);">SETD5 Syndrome · Family Toolkit · Research · About</div>
+  </div>
+
+  <div class="sub-div">Type Scale</div>
+  <table class="usage-tbl">
+    <thead><tr><th>Element</th><th>Font</th><th>Size</th><th>Weight</th><th>Color</th></tr></thead>
+    <tbody>
+      <tr><td>H1 page title</td><td>Lora</td><td>clamp(36–52px)</td><td>600</td><td>#fff on navy / navy on light</td></tr>
+      <tr><td>H2 section</td><td>Lora</td><td>clamp(21–29px)</td><td>600</td><td>var(--navy)</td></tr>
+      <tr><td>H3 subsection</td><td>Lora</td><td>20px</td><td>600</td><td>var(--navy)</td></tr>
+      <tr><td>h1 em italic</td><td>Lora italic</td><td>inherits</td><td>—</td><td>#a8cfc8 (teal-soft)</td></tr>
+      <tr><td>Body</td><td>Inter</td><td>17px</td><td>400</td><td>var(--text)</td></tr>
+      <tr><td>Body muted</td><td>Inter</td><td>17px</td><td>400</td><td>var(--muted)</td></tr>
+      <tr><td>Card body</td><td>Inter</td><td>15–16px</td><td>400</td><td>var(--muted)</td></tr>
+      <tr><td>Section label</td><td>Inter</td><td>11–12px</td><td>600 uppercase</td><td>var(--muted)</td></tr>
+      <tr><td>Nav link</td><td>Inter</td><td>15.5px</td><td>500</td><td>var(--text)</td></tr>
+      <tr><td>Eyebrow/breadcrumb</td><td>Inter</td><td>12–13px</td><td>600 uppercase</td><td>rgba(255,255,255,.45)</td></tr>
+      <tr><td>Footer</td><td>Inter</td><td>12.5–13.5px</td><td>400</td><td>rgba(255,255,255,.35–.65)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- § 4 HEADER -->
+<section class="ref-section bg-alt" id="header">
+  <div class="sec-label">Layout</div>
+  <h2>Site Header</h2>
+  <p class="ref-desc">Interior pages use a sticky header that collapses on scroll. The home page uses a centered hero. The helix SVG watermark lives inside every header.</p>
+
+  <div class="sub-div">Interior Header (standard)</div>
+  <div class="demo-hdr" style="margin-bottom:8px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-r" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-r)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round"/><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g></svg>
+    <div class="demo-hdr-inner">
+      <div class="demo-eyebrow"><a href="#" style="color:rgba(255,255,255,.45);text-decoration:none;">Home</a> / Page Name</div>
+      <h1 class="demo-h1">Page Title <em>Subtitle</em></h1>
+      <p class="demo-sub">Short description of what this page contains.</p>
+    </div>
+  </div>
+
+  <div class="code-box">
+<span class="ct">&lt;header</span> <span class="ca">class</span>=<span class="cv">"site-header"</span><span class="ct">&gt;</span>
+  <span class="cm">&lt;!-- Helix SVG (see §Helix) --&gt;</span>
+  <span class="ct">&lt;div</span> <span class="ca">class</span>=<span class="cv">"header-inner"</span><span class="ct">&gt;</span>   <span class="cm">&lt;!-- z-index: 2 required --&gt;</span>
+    <span class="ct">&lt;nav</span> <span class="ca">class</span>=<span class="cv">"header-eyebrow"</span><span class="ct">&gt;</span><span class="ct">&lt;a</span> <span class="ca">href</span>=<span class="cv">"index.html"</span><span class="ct">&gt;</span>Home<span class="ct">&lt;/a&gt;&lt;/nav&gt;</span>
+    <span class="ct">&lt;h1</span> <span class="ca">class</span>=<span class="cv">"header-title"</span><span class="ct">&gt;</span>Title <span class="ct">&lt;em&gt;</span>Subtitle<span class="ct">&lt;/em&gt;&lt;/h1&gt;</span>
+    <span class="ct">&lt;p</span> <span class="ca">class</span>=<span class="cv">"header-subtitle"</span><span class="ct">&gt;</span>Description.<span class="ct">&lt;/p&gt;</span>
+  <span class="ct">&lt;/div&gt;</span>
+<span class="ct">&lt;/header&gt;</span></div>
+
+  <table class="usage-tbl" style="margin-top:20px;">
+    <thead><tr><th>Selector</th><th>Key CSS</th></tr></thead>
+    <tbody>
+      <tr><td><code>.site-header</code></td><td>background: #162544; position: sticky; top: 0; z-index: 920; padding: 0; overflow: hidden</td></tr>
+      <tr><td><code>.header-inner</code></td><td>max-width: 860px; margin: 0 auto; padding: 32px 32px 24px; position: relative; <strong>z-index: 2</strong></td></tr>
+      <tr><td><code>.header-eyebrow</code></td><td>Inter 600 12–13px uppercase; letter-spacing: .14em; color: rgba(255,255,255,.45)</td></tr>
+      <tr><td><code>.header-title</code></td><td>Lora 600 clamp(36–52px); color: #fff; letter-spacing: -.02em</td></tr>
+      <tr><td><code>.header-title em</code></td><td>color: #a8cfc8; font-style: italic</td></tr>
+      <tr><td><code>.header-subtitle</code></td><td>Inter 17.5px; color: rgba(255,255,255,.72)</td></tr>
+      <tr><td><code>.site-header.collapsed</code></td><td>Hides eyebrow + subtitle, reduces title to 20px. Added via JS at scrollY &gt; 60</td></tr>
+    </tbody>
+  </table>
+  <div class="rule">⚠️ <strong>z-index:</strong> The helix SVG uses <code style="font-family:monospace;">z-index: 1</code>. The <code style="font-family:monospace;">.header-inner</code> must be <code style="font-family:monospace;">z-index: 2</code> so text renders above the watermark.</div>
+</section>
+
+<!-- § 5 NAV -->
+<section class="ref-section" id="nav">
+  <div class="sec-label">Layout</div>
+  <h2>Navigation</h2>
+  <p class="ref-desc">The site nav sits below the header, sticky at top. Left-aligned on all interior pages; centered on home only. Collapses to a hamburger at 768px.</p>
+
+  <div class="demo-nav" style="margin-bottom:16px;">
+    <div class="demo-nav-row">
+      <a class="demo-nav-a" href="#">SETD5 Syndrome</a>
+      <a class="demo-nav-a" href="#">Family Toolkit</a>
+      <a class="demo-nav-a" href="#">Medical Terms</a>
+      <a class="demo-nav-a cur" href="#">Research</a>
+      <a class="demo-nav-a" href="#">Community &amp; Links</a>
+      <a class="demo-nav-a" href="#">About</a>
+    </div>
+  </div>
+
+  <div class="rule">Interior pages: <code style="font-family:monospace;">.nav-menu { justify-content: flex-start; }</code> &nbsp;·&nbsp; Home page only: <code style="font-family:monospace;">justify-content: center</code></div>
+</section>
+
+<!-- § 6 SIDEBAR -->
+<section class="ref-section bg-alt" id="sidebar">
+  <div class="sec-label">Layout</div>
+  <h2>Page Sidebar</h2>
+  <p class="ref-desc">In-page navigation for content-heavy pages. Sticky on desktop (200px wide), horizontal scrollable strip on mobile.</p>
+
+  <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+    <div class="demo-sb">
+      <div class="demo-sb-hd">On this page</div>
+      <a class="demo-sb-a cur" href="#">Overview</a>
+      <a class="demo-sb-a" href="#">Features</a>
+      <a class="demo-sb-a" href="#">Diagnosis</a>
+      <a class="demo-sb-a" href="#">Treatment</a>
+      <a class="demo-sb-a" href="#">Resources</a>
+    </div>
+    <table class="usage-tbl" style="flex:1;min-width:260px;">
+      <thead><tr><th>State</th><th>Style</th></tr></thead>
+      <tbody>
+        <tr><td>Default</td><td>13.5px Inter, color: var(--text), border-left: 3px transparent</td></tr>
+        <tr><td>Hover</td><td>background: #f7f5f0, color: var(--navy)</td></tr>
+        <tr><td>Active</td><td>color: var(--navy), font-weight: 600, border-left: 3px solid var(--amber), background: #fdf8f2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- § 7 FOOTER -->
+<section class="ref-section" id="footer">
+  <div class="sec-label">Layout</div>
+  <h2>Footer</h2>
+  <p class="ref-desc">Full-width navy footer. Three tiers: credit line → nav links → legal disclaimer.</p>
+
+  <div class="demo-footer">
+    <div class="fl">Made with care for the SETD5 Syndrome community.</div>
+    <div class="fn">
+      <a href="#">Home</a><span style="color:rgba(255,255,255,.25);">·</span>
+      <a href="#">About</a><span style="color:rgba(255,255,255,.25);">·</span>
+      <a href="#">Research</a><span style="color:rgba(255,255,255,.25);">·</span>
+      <a href="#">Terms</a>
+    </div>
+    <div class="fleg">Content is for informational purposes only. Always consult your child's medical team. Created by a parent, for families like ours.</div>
+  </div>
+</section>
+
+<!-- § 8 CARDS -->
+<section class="ref-section bg-alt" id="cards">
+  <div class="sec-label">Components</div>
+  <h2>Cards</h2>
+  <p class="ref-desc">Navigation and resource cards. Each card has a colored top bar set via <code style="font-family:monospace;">--card-accent</code>. The entire card is a link.</p>
+
+  <div class="two-up">
+    <div class="demo-card" style="--card-accent:var(--amber);">
+      <div style="margin-bottom:.75rem;"><span class="badge b-amber">Featured</span></div>
+      <h3>Newly Diagnosed Guide</h3>
+      <p>A plain-language starting point for families who just received a SETD5 diagnosis. What it means and where to begin.</p>
+      <span class="demo-card-link">Read the guide</span>
+    </div>
+    <div class="demo-card" style="--card-accent:var(--sage);">
+      <h3>Published Research</h3>
+      <p>Summaries of published case studies and papers on SETD5 Syndrome in accessible language.</p>
+      <span class="demo-card-link">Browse papers</span>
+    </div>
+    <div class="demo-card" style="--card-accent:var(--muted);">
+      <h3>Medical Terms Guide</h3>
+      <p>Definitions of clinical and genetic terms you'll encounter in reports and specialist conversations.</p>
+      <span class="demo-card-link">View glossary</span>
+    </div>
+    <div class="demo-card" style="--card-accent:#AEBFBE;">
+      <h3>Disability Discounts</h3>
+      <p>Programs, subsidies, and discount resources for families navigating disability-related costs.</p>
+      <span class="demo-card-link">See resources</span>
+    </div>
+  </div>
+
+  <div class="code-box" style="margin-top:16px;">
+<span class="ct">&lt;a</span> <span class="ca">class</span>=<span class="cv">"card card-newly-diagnosed"</span> <span class="ca">href</span>=<span class="cv">"..."</span><span class="ct">&gt;</span>
+  <span class="ct">&lt;h2&gt;</span>Card Title<span class="ct">&lt;/h2&gt;</span>
+  <span class="ct">&lt;p&gt;</span>Description.<span class="ct">&lt;/p&gt;</span>
+  <span class="ct">&lt;span</span> <span class="ca">class</span>=<span class="cv">"card-link"</span><span class="ct">&gt;</span>Link text<span class="ct">&lt;/span&gt;</span>
+<span class="ct">&lt;/a&gt;</span>
+
+<span class="cm">/* Accent variants */</span>
+<span class="cl">.card-research</span>        { <span class="cp">--card-accent</span>: var(--deep); }
+<span class="cl">.card-newly-diagnosed</span>  { <span class="cp">--card-accent</span>: var(--amber); }
+<span class="cl">.card-discounts</span>        { <span class="cp">--card-accent</span>: var(--teal); }</div>
+</section>
+
+<!-- § 9 CALLOUTS -->
+<section class="ref-section" id="callouts">
+  <div class="sec-label">Components</div>
+  <h2>Callouts &amp; Banners</h2>
+  <p class="ref-desc">Three callout styles for different tones and contexts.</p>
+
+  <div class="sub-div">Sand Callout — Warm / Action</div>
+  <div class="cta-sand" style="margin-bottom:20px;"><strong>Start here if you're newly diagnosed.</strong> This guide walks through what to know in the first few weeks. <a href="#" style="color:var(--navy);font-weight:600;">Read the guide →</a></div>
+
+  <div class="sub-div">Sage Callout — Informational / Neutral</div>
+  <div class="cta-sage" style="margin-bottom:20px;"><strong>About this page:</strong> All research summaries are based on published literature and updated as new studies are released.</div>
+
+  <div class="sub-div">Navy Callout — Featured / Watch</div>
+  <div class="cta-navy" style="margin-bottom:4px;max-width:520px;">
+    <span class="lbl">Research Watch</span>
+    <h4>New study on SETD5 and seizure outcomes</h4>
+    <p>A 2024 paper analyzed seizure patterns across 47 individuals. <a href="#">Read the summary</a></p>
+  </div>
+
+  <div class="rule">Navy callout links use <code style="font-family:monospace;">color: #C2DED8</code> — this is correct because the background is dark navy (#162544).</div>
+</section>
+
+<!-- § 10 BADGES -->
+<section class="ref-section bg-alt" id="badges">
+  <div class="sec-label">Components</div>
+  <h2>Badges &amp; Chips</h2>
+  <p class="ref-desc">Small labels for status, category, and metadata.</p>
+
+  <div class="sub-div">Solid Badges</div>
+  <div class="demo-row">
+    <span class="badge b-amber">Featured</span>
+    <span class="badge b-navy">New</span>
+    <span class="badge b-sage">Research</span>
+    <span class="badge b-muted">Archive</span>
+    <span class="badge b-new">Updated</span>
+  </div>
+
+  <div class="sub-div">Year / Filter Pills</div>
+  <div class="demo-row">
+    <a class="pill" href="#">2024</a>
+    <a class="pill" href="#">2023</a>
+    <a class="pill" href="#">2022</a>
+    <a class="pill" href="#">All years</a>
+  </div>
+
+  <div class="sub-div">Meta Chips (header area, dark bg)</div>
+  <div class="demo-row" style="background:var(--navy);padding:16px;border-radius:8px;">
+    <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:13px;color:rgba(255,255,255,.8);">Genetics</span>
+    <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:13px;color:rgba(255,255,255,.8);">Rare Disease</span>
+  </div>
+</section>
+
+<!-- § 11 STATS -->
+<section class="ref-section" id="stats">
+  <div class="sec-label">Components</div>
+  <h2>Stats Bar</h2>
+  <p class="ref-desc">3–5 key numbers in a horizontal sage-tinted band. Home page intro and similar contexts.</p>
+
+  <div class="stats-bar">
+    <div class="s-item"><span class="s-num">50+</span><span class="s-lbl">Research papers</span></div>
+    <div class="s-item"><span class="s-num">6</span><span class="s-lbl">Guides &amp; toolkits</span></div>
+    <div class="s-item"><span class="s-num">0</span><span class="s-lbl">Paywalls. Ever.</span></div>
+  </div>
+</section>
+
+<!-- § 12 SECTION ELEMENTS -->
+<section class="ref-section bg-alt" id="sections">
+  <div class="sec-label">Components</div>
+  <h2>Section Elements</h2>
+  <p class="ref-desc">Decorative and organizational elements that introduce sections and create visual rhythm.</p>
+
+  <div class="sub-div">Section Tag (eyebrow)</div>
+  <div class="demo-row" style="gap:24px;align-items:flex-start;flex-wrap:wrap;">
+    <div>
+      <div class="sec-tag">On Light Background</div>
+      <div style="font-family:var(--font-serif);font-weight:600;font-size:22px;color:var(--navy);">Section Heading</div>
+    </div>
+    <div style="background:var(--navy);padding:16px 22px;border-radius:8px;">
+      <div class="sec-tag dk">On Dark Background</div>
+      <div style="font-family:var(--font-serif);font-weight:600;font-size:22px;color:#fff;">Section Heading</div>
+    </div>
+  </div>
+
+  <div class="sub-div">Section Divider</div>
+  <div>
+    <div class="sec-div">
+      <span style="font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Subsection Name</span>
+    </div>
+    <p style="font-size:13.5px;color:var(--muted);">28px amber rule on left + full-width faint border. Used for subsections within content areas.</p>
+  </div>
+</section>
+
+<!-- § 13 LIST PATTERNS -->
+<section class="ref-section" id="lists">
+  <div class="sec-label">Components</div>
+  <h2>List Patterns</h2>
+  <p class="ref-desc">Two common repeating list patterns across the site.</p>
+
+  <div class="sub-div">Resource List</div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;max-width:540px;">
+    <div class="res-item">
+      <div class="res-icon">🧬</div>
+      <div>
+        <div class="res-name"><a href="#">Simons Searchlight Registry</a></div>
+        <div class="res-desc">A research registry for rare genetic neurodevelopmental conditions.</div>
       </div>
     </div>
-
-    <!-- Header Title -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Header Title</div>
-        <div class="element-selector">.header-title</div>
-        <div class="element-desc">The main page title on every subpage. The last phrase is wrapped in &lt;em&gt; to get the soft teal italic accent.</div>
-      </div>
-      <div class="element-preview dark">
-        <h1 class="preview-header-title">Understanding <em>SETD5 Syndrome</em></h1>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Lora (serif)</div>
-        <div class="meta-item"><strong>Size:</strong> clamp(36px, 5vw, 52px)</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>em accent color:</strong> #a8cfc8 (Soft Teal), italic</div>
-      </div>
-    </div>
-
-    <!-- Header Subtitle -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Header Subtitle</div>
-        <div class="element-selector">.header-subtitle</div>
-        <div class="element-desc">A short description directly under the page title. Gives context about the page content.</div>
-      </div>
-      <div class="element-preview dark">
-        <p class="preview-header-subtitle">A guide for families, caregivers, and adults navigating SETD5 Syndrome.</p>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Inter</div>
-        <div class="meta-item"><strong>Size:</strong> 15.5px</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>Color:</strong> rgba(255,255,255, 0.72) — soft white</div>
-      </div>
-    </div>
-
-    <!-- Full header example -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Full Header (combined)</div>
-        <div class="element-selector">.site-header</div>
-        <div class="element-desc">How all three header elements look together on a subpage.</div>
-      </div>
-      <div class="element-preview dark" style="padding:28px 32px 32px;">
-        <p class="preview-header-eyebrow" style="margin-bottom:10px;">← SETD5 Syndrome Research &amp; Resources</p>
-        <h1 class="preview-header-title">Family <em>Toolkit</em></h1>
-        <p class="preview-header-subtitle">Guides, tools, and resources organized by topic for families living with SETD5 Syndrome.</p>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Background:</strong> #1a2744 (Navy)</div>
-        <div class="meta-item"><strong>Position:</strong> Sticky — stays at top when scrolling</div>
+    <div class="res-item">
+      <div class="res-icon">📄</div>
+      <div>
+        <div class="res-name"><a href="#">OMIM Entry #615761</a></div>
+        <div class="res-desc">The official OMIM catalog entry for SETD5 Syndrome (MRD23).</div>
       </div>
     </div>
   </div>
 
+  <div class="sub-div">Gap Items</div>
+  <div style="display:flex;flex-direction:column;gap:8px;max-width:540px;">
+    <div class="gap-item"><strong>Adult natural history:</strong> Very little is known about long-term outcomes for adults with SETD5 Syndrome.</div>
+    <div class="gap-item"><strong>Genotype-phenotype:</strong> The relationship between variant type and severity is not well characterized.</div>
+  </div>
+</section>
 
-  <!-- ─── HOMEPAGE HEADER ───────────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Homepage Hero — index.html only</div>
+<!-- § 14 HELIX -->
+<section class="ref-section bg-alt" id="helix">
+  <div class="sec-label">Components</div>
+  <h2>Helix Watermark</h2>
+  <p class="ref-desc">A minimalist DNA double-helix injected into every page header. Right-pinned, barely visible, decorative only.</p>
 
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Homepage H1</div>
-        <div class="element-selector">h1 (index only)</div>
-        <div class="element-desc">The large hero title on the homepage. Uses a bigger clamp range than subpage titles.</div>
-      </div>
-      <div class="element-preview dark" style="padding:32px;">
-        <div class="preview-homepage-h1">SETD5 Syndrome<br><em>Research &amp; Resources</em></div>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Lora (serif)</div>
-        <div class="meta-item"><strong>Size:</strong> clamp(2.2rem, 6vw, 4rem)</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>em accent:</strong> Soft Teal #a8cfc8, italic</div>
-      </div>
+  <div style="background:var(--navy);border-radius:10px;padding:22px 30px;position:relative;overflow:hidden;min-height:110px;margin-bottom:16px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx3" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx3)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round"/><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g></svg>
+    <div style="position:relative;z-index:2;color:#fff;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.4;margin-bottom:12px;">Helix visible at right →</div>
+      <div style="font-family:var(--font-serif);font-size:24px;font-weight:600;">Page Title <em style="color:#a8cfc8;">Subtitle</em></div>
     </div>
   </div>
 
+  <table class="usage-tbl">
+    <thead><tr><th>Attribute</th><th>Value</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>viewBox</td><td>"0 0 1200 240"</td><td>Defines the helix coordinate space</td></tr>
+      <tr><td>preserveAspectRatio</td><td>"xMaxYMid slice"</td><td>Pins helix to the right edge at any header width</td></tr>
+      <tr><td>position</td><td>absolute; inset: 0</td><td>Fills the header container</td></tr>
+      <tr><td>z-index</td><td>1</td><td>Below the header-inner (which is z-index: 2)</td></tr>
+      <tr><td>pointer-events</td><td>none</td><td>Doesn't block clicks</td></tr>
+      <tr><td>aria-hidden</td><td>true</td><td>Hidden from screen readers (decorative)</td></tr>
+    </tbody>
+  </table>
 
-  <!-- ─── CONTENT ELEMENTS ─────────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Page Content Elements — appear in the main body of pages</div>
+  <div class="rule">Parent <code style="font-family:monospace;">.site-header</code> must have <code style="font-family:monospace;">overflow: hidden</code>. The <code style="font-family:monospace;">.header-inner</code> must have <code style="font-family:monospace;">position: relative; z-index: 2</code>. See <code style="font-family:monospace;">inject_helix.py</code> for the full SVG path data.</div>
+</section>
 
-    <!-- Section Label -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Section Label</div>
-        <div class="element-selector">.section-label &nbsp;/&nbsp; .guides-label &nbsp;/&nbsp; .header-eyebrow</div>
-        <div class="element-desc">Small uppercase label that introduces a section. Has a short amber bar above it. Used throughout subpages and on the homepage.</div>
-      </div>
-      <div class="element-preview">
-        <div class="preview-section-label">Featured Guides</div>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Inter</div>
-        <div class="meta-item"><strong>Size:</strong> 11px</div>
-        <div class="meta-item"><strong>Weight:</strong> 600</div>
-        <div class="meta-item"><strong>Case:</strong> Uppercase with letter-spacing</div>
-        <div class="meta-item"><strong>Accent bar:</strong> 18px wide, 2px tall, Amber color</div>
-      </div>
-    </div>
+<!-- § 15 TEMPLATE -->
+<section class="ref-section" id="template">
+  <div class="sec-label">Patterns</div>
+  <h2>Page Template</h2>
+  <p class="ref-desc">Standard shell for every interior page. The <code style="font-family:monospace;">:root</code> block, font imports, and JS snippets should be copied verbatim from an existing live page.</p>
 
-    <!-- Section Heading H2 -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Section Heading</div>
-        <div class="element-selector">h2 &nbsp;/&nbsp; .section-title</div>
-        <div class="element-desc">Main heading for a content section within a page. Larger than a card title, smaller than the page title.</div>
-      </div>
-      <div class="element-preview">
-        <h2 class="preview-h2">Genetics &amp; Inheritance</h2>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Lora (serif)</div>
-        <div class="meta-item"><strong>Size:</strong> clamp(21px, 3.5vw, 29px)</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>Color:</strong> Navy #1a2744</div>
-      </div>
-    </div>
+  <div class="code-box" style="font-size:11.5px;">
+<span class="cm">&lt;!DOCTYPE html&gt;</span>
+<span class="ct">&lt;html</span> <span class="ca">lang</span>=<span class="cv">"en"</span><span class="ct">&gt;&lt;head&gt;</span>
+  <span class="ct">&lt;meta</span> <span class="ca">charset</span>=<span class="cv">"UTF-8"</span><span class="ct">&gt;</span>
+  <span class="ct">&lt;meta</span> <span class="ca">name</span>=<span class="cv">"viewport"</span> <span class="ca">content</span>=<span class="cv">"width=device-width, initial-scale=1.0"</span><span class="ct">&gt;</span>
+  <span class="ct">&lt;title&gt;</span>Page Name - SETD5 Syndrome Resources<span class="ct">&lt;/title&gt;</span>
+  <span class="cm">&lt;!-- Favicon, OG meta, canonical — copy from existing page --&gt;</span>
+  <span class="ct">&lt;link</span> <span class="ca">href</span>=<span class="cv">"https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap"</span> <span class="ca">rel</span>=<span class="cv">"stylesheet"</span><span class="ct">&gt;</span>
+  <span class="ct">&lt;style&gt;</span>
+    <span class="cm">/* Copy :root block + all standard CSS from about.html or research.html */</span>
+  <span class="ct">&lt;/style&gt;</span>
+<span class="ct">&lt;/head&gt;&lt;body&gt;</span>
 
-    <!-- Prose / Body Text -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Body Text / Prose</div>
-        <div class="element-selector">body &nbsp;/&nbsp; p &nbsp;/&nbsp; .prose</div>
-        <div class="element-desc">Standard paragraph text used throughout the site. All pages use the same size for consistency.</div>
-      </div>
-      <div class="element-preview">
-        <p class="preview-prose">SETD5 Syndrome is caused by a variant in the <em>SETD5</em> gene, which plays a role in regulating how other genes are expressed. Most variants occur de novo, meaning they are not inherited from a parent but arise spontaneously.</p>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Inter</div>
-        <div class="meta-item"><strong>Size:</strong> 17px</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>Line height:</strong> 1.65</div>
-        <div class="meta-item"><strong>Color:</strong> #2c2c2c (Text)</div>
-      </div>
-    </div>
-  </div>
+  <span class="ct">&lt;header</span> <span class="ca">class</span>=<span class="cv">"site-header"</span><span class="ct">&gt;</span>
+    <span class="cm">&lt;!-- HELIX SVG (copy from any live page's &lt;header&gt;) --&gt;</span>
+    <span class="ct">&lt;div</span> <span class="ca">class</span>=<span class="cv">"header-inner"</span><span class="ct">&gt;</span>
+      <span class="ct">&lt;nav</span> <span class="ca">class</span>=<span class="cv">"header-eyebrow"</span><span class="ct">&gt;</span><span class="ct">&lt;a</span> <span class="ca">href</span>=<span class="cv">"index.html"</span><span class="ct">&gt;</span>Home<span class="ct">&lt;/a&gt;&lt;/nav&gt;</span>
+      <span class="ct">&lt;h1</span> <span class="ca">class</span>=<span class="cv">"header-title"</span><span class="ct">&gt;</span>Title <span class="ct">&lt;em&gt;</span>Subtitle<span class="ct">&lt;/em&gt;&lt;/h1&gt;</span>
+      <span class="ct">&lt;p</span> <span class="ca">class</span>=<span class="cv">"header-subtitle"</span><span class="ct">&gt;</span>Description<span class="ct">&lt;/p&gt;</span>
+    <span class="ct">&lt;/div&gt;</span>
+  <span class="ct">&lt;/header&gt;</span>
 
+  <span class="ct">&lt;nav</span> <span class="ca">class</span>=<span class="cv">"site-nav"</span><span class="ct">&gt;</span>
+    <span class="cm">&lt;!-- .site-nav-inner > button.nav-toggle + div.nav-menu > links --&gt;</span>
+  <span class="ct">&lt;/nav&gt;</span>
 
-  <!-- ─── CARD ELEMENTS ────────────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Card Elements — the clickable guide cards on homepage &amp; toolkit</div>
+  <span class="ct">&lt;main&gt;</span>
+    <span class="cm">&lt;!-- Content here --&gt;</span>
+  <span class="ct">&lt;/main&gt;</span>
 
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Full Card (combined)</div>
-        <div class="element-selector">.card</div>
-        <div class="element-desc">A card has three parts: a title (.card h2), a description (.card p), and a link (.card-link). Each is styled separately.</div>
-      </div>
-      <div class="element-preview">
-        <div class="preview-card">
-          <h3 class="preview-card-title">Understanding SETD5 Syndrome</h3>
-          <p class="preview-card-desc">Genetics, symptoms, and features explained for families and caregivers in plain language.</p>
-          <a href="#" class="preview-card-link">View Guide</a>
-        </div>
-      </div>
-      <div class="element-meta" style="flex-direction:column;gap:8px;">
-        <div style="display:flex;gap:24px;flex-wrap:wrap;">
-          <div class="meta-item"><strong>Card title (.card h2):</strong> Lora · 22px · 400 · Navy</div>
-          <div class="meta-item"><strong>Card description (.card p):</strong> Inter · 16px · 400 · Muted gray</div>
-          <div class="meta-item"><strong>Card link (.card-link):</strong> Inter · 15px · 500 · Teal</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <span class="ct">&lt;footer&gt;</span><span class="cm">&lt;!-- footer content --&gt;</span><span class="ct">&lt;/footer&gt;</span>
 
+  <span class="cm">&lt;!-- Standard JS: scroll-collapse, mobile nav, back-to-top --&gt;</span>
+  <span class="cm">&lt;!-- Copy from research.html or about.html script block --&gt;</span>
+<span class="ct">&lt;/body&gt;&lt;/html&gt;</span></div>
+</section>
 
-  <!-- ─── NAVIGATION ELEMENTS ───────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Navigation Elements</div>
+<!-- § 16 DO'S & DON'TS -->
+<section class="ref-section bg-alt" id="donts">
+  <div class="sec-label">Patterns</div>
+  <h2>Do's &amp; Don'ts</h2>
+  <p class="ref-desc">The most important rules — the ones most likely to be broken accidentally.</p>
 
-    <!-- Tab Buttons -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Tab Navigation Buttons</div>
-        <div class="element-selector">.tab-btn</div>
-        <div class="element-desc">The row of section tabs inside a page — used on pages like Understanding SETD5 Syndrome. The active tab has an amber underline.</div>
-      </div>
-      <div class="element-preview" style="padding:0;">
-        <div class="preview-tabs-wrap">
-          <div class="preview-tabs">
-            <button class="preview-tab-btn active">Overview</button>
-            <button class="preview-tab-btn">Genetics &amp; Variants</button>
-            <button class="preview-tab-btn">Symptoms</button>
-            <button class="preview-tab-btn">Next Steps</button>
-          </div>
-        </div>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Inter</div>
-        <div class="meta-item"><strong>Size:</strong> 14px</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>Active underline:</strong> 3px Amber</div>
-        <div class="meta-item"><strong>Background:</strong> Navy</div>
-      </div>
-    </div>
+  <div class="rule do">✓ <strong>Sage text on light bg:</strong> Use <code style="font-family:monospace;">#2a7068</code> (dark sage) whenever you want a teal/sage-tone for text on ivory, white, or linen.</div>
+  <div class="rule dont" style="margin-top:10px;">❌ <strong>Never:</strong> <code style="font-family:monospace;">color: #C2DED8</code> on any light background — contrast is 1.6:1, far below WCAG AA.</div>
+  <div class="rule do" style="margin-top:10px;">✓ <strong>Header italic:</strong> Keep <code style="font-family:monospace;">.header-title em { color: #a8cfc8 }</code> — this is the "Research &amp; Resources" color. Don't change it.</div>
+  <div class="rule dont" style="margin-top:10px;">❌ <strong>No purple text.</strong> Purple was the old palette. Replace any purple text with <code style="font-family:monospace;">var(--navy)</code> or <code style="font-family:monospace;">var(--charcoal)</code>.</div>
+  <div class="rule do" style="margin-top:10px;">✓ <strong>Nav alignment:</strong> Interior pages use <code style="font-family:monospace;">justify-content: flex-start</code> on .nav-menu. Home page only: <code style="font-family:monospace;">center</code>.</div>
+  <div class="rule dont" style="margin-top:10px;">❌ <strong>No third typeface.</strong> Lora + Inter only. Do not add any additional font family.</div>
+  <div class="rule do" style="margin-top:10px;">✓ <strong>header-inner z-index:</strong> Always set <code style="font-family:monospace;">z-index: 2</code> on <code style="font-family:monospace;">.header-inner</code> so text renders above the helix SVG (z-index: 1).</div>
+  <div class="rule do" style="margin-top:10px;">✓ <strong>Max content width:</strong> All main content constrained to 860px via <code style="font-family:monospace;">max-width: 860px; margin: 0 auto</code>.</div>
+  <div class="rule dont" style="margin-top:10px;">❌ <strong>Don't use a shared .css file.</strong> All styles are inline per-page. This is intentional for GitHub Pages simplicity.</div>
+  <div class="rule do" style="margin-top:10px;">✓ <strong>Sand for CTAs:</strong> Use <code style="font-family:monospace;">var(--amber)</code> (#C6A27E) for all buttons, active states, and call-to-action elements.</div>
+</section>
 
-    <!-- Section Nav Buttons -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Section Nav Buttons</div>
-        <div class="element-selector">.section-nav-btn</div>
-        <div class="element-desc">Pill-shaped filter/navigation buttons used on the Family Toolkit page to filter cards by topic (All, Diagnosis, Medical, etc.).</div>
-      </div>
-      <div class="element-preview">
-        <div class="preview-section-nav">
-          <button class="preview-section-nav-btn active">All</button>
-          <button class="preview-section-nav-btn">Diagnosis</button>
-          <button class="preview-section-nav-btn">Medical</button>
-          <button class="preview-section-nav-btn">School</button>
-          <button class="preview-section-nav-btn">Daily Life</button>
-        </div>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Inter</div>
-        <div class="meta-item"><strong>Size:</strong> 14px</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>Shape:</strong> Pill (border-radius: 20px)</div>
-        <div class="meta-item"><strong>Active state:</strong> Navy fill, white text</div>
-      </div>
-    </div>
-
-    <!-- Homepage Nav Links -->
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Homepage Navigation Links</div>
-        <div class="element-selector">header nav a (inline style)</div>
-        <div class="element-desc">The five main navigation links in the homepage hero header (Understanding SETD5, Family Toolkit, Research, Medical Terms, Our Story).</div>
-      </div>
-      <div class="element-preview dark" style="padding:14px 20px;">
-        <div style="display:flex;gap:4px;flex-wrap:wrap;">
-          <span style="color:rgba(255,255,255,0.9);padding:10px 22px;font-family:'Inter',sans-serif;font-size:15px;">Understanding SETD5 Syndrome</span>
-          <span style="color:rgba(255,255,255,0.9);padding:10px 22px;font-family:'Inter',sans-serif;font-size:15px;">Family Toolkit</span>
-          <span style="color:rgba(255,255,255,0.9);padding:10px 22px;font-family:'Inter',sans-serif;font-size:15px;">Research</span>
-        </div>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Font:</strong> Inter</div>
-        <div class="meta-item"><strong>Size:</strong> 15px</div>
-        <div class="meta-item"><strong>Weight:</strong> 400</div>
-        <div class="meta-item"><strong>Color:</strong> rgba(255,255,255, 0.9)</div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ─── FOOTER ELEMENTS ───────────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Footer Elements</div>
-
-    <div class="element-card">
-      <div class="element-card-header">
-        <div class="element-name">Footer</div>
-        <div class="element-selector">.footer-nav &nbsp;/&nbsp; .footer-legal</div>
-        <div class="element-desc">The footer has two text levels: navigation links and small legal/disclaimer text below.</div>
-      </div>
-      <div class="element-preview" style="padding:0;">
-        <div class="preview-footer">
-          <div class="preview-footer-nav">Home · Understanding SETD5 · Family Toolkit · Research · Medical Terms · Our Story</div>
-          <div class="preview-footer-legal">For informational purposes only. Not medical, legal, or professional advice. © 2024 SETD5 Syndrome Research &amp; Resources.</div>
-        </div>
-      </div>
-      <div class="element-meta">
-        <div class="meta-item"><strong>Nav links (.footer-nav):</strong> Inter · 14px · 400</div>
-        <div class="meta-item"><strong>Legal text (.footer-legal):</strong> Inter · 13px · 400</div>
-        <div class="meta-item"><strong>Background:</strong> Navy #1a2744</div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ─── QUICK REFERENCE TABLE ─────────────────────────── -->
-  <div class="ref-section">
-    <div class="ref-section-title">Quick Reference — All Elements at a Glance</div>
-
-    <div class="element-card">
-      <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;font-size:14px;">
-          <thead>
-            <tr style="background:#f5f3ef;border-bottom:2px solid var(--border);">
-              <th style="text-align:left;padding:12px 16px;font-weight:600;color:var(--navy);">Element Name</th>
-              <th style="text-align:left;padding:12px 16px;font-weight:600;color:var(--navy);">CSS Selector</th>
-              <th style="text-align:left;padding:12px 16px;font-weight:600;color:var(--navy);">Font</th>
-              <th style="text-align:left;padding:12px 16px;font-weight:600;color:var(--navy);">Size</th>
-              <th style="text-align:left;padding:12px 16px;font-weight:600;color:var(--navy);">Weight</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--border);background:#fffdf9;">
-              <td style="padding:11px 16px;font-weight:500;">Homepage H1</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">h1</td>
-              <td style="padding:11px 16px;">Lora</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">clamp(2.2rem, 6vw, 4rem)</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:11px 16px;font-weight:500;">Header Eyebrow</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.header-eyebrow</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">11px</td>
-              <td style="padding:11px 16px;">600</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fffdf9;">
-              <td style="padding:11px 16px;font-weight:500;">Header Title (subpages)</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.header-title</td>
-              <td style="padding:11px 16px;">Lora</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">clamp(36px, 5vw, 52px)</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:11px 16px;font-weight:500;">Header Subtitle</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.header-subtitle</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">15.5px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fffdf9;">
-              <td style="padding:11px 16px;font-weight:500;">Section Label</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.section-label / .guides-label</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">11px</td>
-              <td style="padding:11px 16px;">600</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:11px 16px;font-weight:500;">Section Heading</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">h2 / .section-title</td>
-              <td style="padding:11px 16px;">Lora</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">clamp(21px, 3.5vw, 29px)</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fffdf9;">
-              <td style="padding:11px 16px;font-weight:500;">Body Text / Prose</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">body / p / .prose</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">17px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:11px 16px;font-weight:500;">Card Title</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.card h2</td>
-              <td style="padding:11px 16px;">Lora</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">22px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fffdf9;">
-              <td style="padding:11px 16px;font-weight:500;">Card Description</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.card p</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">16px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:11px 16px;font-weight:500;">Card Link</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.card-link</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">15px</td>
-              <td style="padding:11px 16px;">500</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fffdf9;">
-              <td style="padding:11px 16px;font-weight:500;">Tab Nav Buttons</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.tab-btn</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">14px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:11px 16px;font-weight:500;">Section Filter Buttons</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.section-nav-btn</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">14px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);background:#fffdf9;">
-              <td style="padding:11px 16px;font-weight:500;">Homepage Nav Links</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">header nav a</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">15px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:11px 16px;font-weight:500;">Footer Nav Links</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);">.footer-nav</td>
-              <td style="padding:11px 16px;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;">14px</td>
-              <td style="padding:11px 16px;">400</td>
-            </tr>
-            <tr>
-              <td style="padding:11px 16px;font-weight:500;background:#fffdf9;">Footer Legal Text</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;color:var(--teal);background:#fffdf9;">.footer-legal</td>
-              <td style="padding:11px 16px;background:#fffdf9;">Inter</td>
-              <td style="padding:11px 16px;font-family:monospace;font-size:12px;background:#fffdf9;">13px</td>
-              <td style="padding:11px 16px;background:#fffdf9;">400</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <p style="font-size:13px;color:var(--muted);text-align:center;">SETD5 Syndrome Research &amp; Resources — Element Reference Guide</p>
-
+</main>
 </div>
+
+<script>
+const secs = document.querySelectorAll('.ref-section[id]');
+const links = document.querySelectorAll('.ref-nav-link');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 60) cur = s.id; });
+  links.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + cur); });
+}, { passive: true });
+</script>
 </body>
 </html>
