@@ -57,23 +57,15 @@
 
   /* Header */
   .site-header { background: var(--navy); color: #fff; position:relative; }
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 45% 35%, rgba(217,172,132,0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 70%, rgba(174,191,190,0.16) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
   /* ── HEADER COLLAPSE ── */
-  .header-inner { transition: padding 0.175s ease; max-width: 860px; margin: 0 auto; padding: 24px 32px 30px; }
+  .header-inner { transition: padding 0.175s ease; max-width: 860px; margin: 0 auto; padding: 34px 32px 40px; }
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.1em;}
+  
+  .header-rule { display:block; width:50px; height:3px; background:var(--amber); border-radius:2px; margin:0.75rem 0 0; }
   .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
@@ -312,6 +304,7 @@
   <a href="index.html">Home</a>
 </nav>
     <h1 class="header-title">Suggest a <em>Resource</em></h1>
+    <div class="header-rule"></div>
     <p class="header-subtitle">Know a helpful resource? Help us keep this site useful for other families.</p>
     <a href="family-toolkit.html" class="back-link">← Back to Family Toolkit</a>
   </div>

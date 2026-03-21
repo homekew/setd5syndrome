@@ -70,6 +70,8 @@
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.1em;}
+  
+  .header-rule { display:block; width:50px; height:3px; background:var(--amber); border-radius:2px; margin:0.75rem 0 0; }
   .header-subtitle{ max-height:100px; overflow:hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner{ padding: 8px 32px 10px; }
@@ -79,16 +81,6 @@
     letter-spacing: 0.1em;}
   .site-header.collapsed .header-subtitle{ opacity:0; max-height:0; margin:0; }
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom:0; }
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 70% 25%, rgba(174,191,190,0.20) 0%, transparent 55%),
-      radial-gradient(ellipse at 15% 70%, rgba(217,172,132,0.15) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
   .header-inner{ max-width:860px; margin:0 auto; padding:24px 32px 30px; }
   .header-eyebrow{
@@ -349,6 +341,7 @@
   <a href="index.html">Home</a>
 </nav>
     <h1 class="header-title">Medical Terms <em>in Plain Language</em></h1>
+    <div class="header-rule"></div>
     <p class="header-subtitle">Plain-language definitions of terms found in SETD5 Syndrome reports, appointments, and research. Not medical advice.</p>
   </div>
 </header>

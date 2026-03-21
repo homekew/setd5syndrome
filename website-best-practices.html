@@ -42,17 +42,7 @@
   /* ── HEADER ── */
   .site-header { background: #1a2744; color: #fff;
     position: relative; }
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .header-inner { max-width: 860px; margin: 0 auto; padding: 24px 32px 30px; position: relative; z-index: 1; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 34px 32px 40px; position: relative; z-index: 1; }
   .header-eyebrow {
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 22px;
@@ -65,6 +55,8 @@
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
+
+  .header-rule { display:block; width:50px; height:3px; background:var(--amber); border-radius:2px; margin:0.75rem 0 0; }
   .header-subtitle { font-size: 15.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
 
   /* Header collapse */
@@ -305,6 +297,7 @@
       &nbsp;&rsaquo;&nbsp; Internal Reference
     </div>
     <h1 class="header-title">Building a Site <em>Like This One</em></h1>
+    <div class="header-rule"></div>
     <p class="header-subtitle">Best practices for efficiency, consistency, and sanity when building a static HTML website with AI assistance.</p>
   </div>
 </header>

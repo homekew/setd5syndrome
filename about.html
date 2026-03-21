@@ -99,6 +99,8 @@
 
   /* ── HEADER COLLAPSE ── */
   .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+
+  .header-rule { display:block; width:50px; height:3px; background:var(--amber); border-radius:2px; margin:0.75rem 0 0; }
   .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-meta { max-height: 80px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
@@ -107,17 +109,6 @@
   .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-meta { opacity: 0; max-height: 0; margin: 0; padding: 0; }
   .site-header.collapsed .header-title { font-size: 20px; margin-bottom: 0; }
-
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 50% 30%, rgba(174,191,190,0.16) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 75%, rgba(217,172,132,0.18) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
   .site-header .header-eyebrow,
   .site-header .header-title,
@@ -690,6 +681,7 @@
   <a href="index.html">Home</a>
 </nav>
     <h1 class="header-title">About This <em>Site</em></h1>
+    <div class="header-rule"></div>
     <p class="header-subtitle">How this site was made, who it's for, and the family behind it.</p>
   </div>
 </header>

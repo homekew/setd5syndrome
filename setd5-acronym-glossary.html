@@ -67,18 +67,13 @@
   /* ── HEADER ── */
   .site-header{ background: var(--navy); color:#fff;
     position: relative; }
-  .site-header::before{
-    content:''; position:absolute; inset:0;
-    background:
-      radial-gradient(ellipse at 55% 25%, rgba(174,191,190,0.16) 0%, transparent 55%),
-      radial-gradient(ellipse at 20% 70%, rgba(217,172,132,0.18) 0%, transparent 50%);
-    pointer-events:none; z-index:0;
-  }
   .header-inner{ max-width:860px; margin:0 auto; padding:24px 32px 30px; position:relative; z-index:1; transition:padding 0.175s ease; }
   .header-eyebrow{ font-size: 11px; font-weight: 600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:22px; max-height:30px; overflow:hidden; transition:opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-eyebrow a:visited{ color:rgba(255,255,255,0.45); text-decoration:none; }
   .header-title{ font-family:'Lora',serif; font-size: clamp(32px, 4.5vw, 44px); font-weight: 600; line-height:1.18; color:#fff; margin-bottom:16px; transition:font-size 0.175s ease, margin 0.175s ease; }
   .header-title em{ font-style:italic; color:#a8cfc8; }
+  
+  .header-rule { display:block; width:50px; height:3px; background:var(--amber); border-radius:2px; margin:0.75rem 0 0; }
   .header-subtitle{ font-size: 15.5px; font-weight:400; color:rgba(255,255,255,.72); max-width:580px; line-height:1.6; max-height:100px; overflow:hidden; transition:opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .site-header.collapsed .header-inner{ padding:8px 32px 10px; }
   .site-header.collapsed .header-eyebrow{ opacity:0; max-height:0; margin-bottom:0; }
@@ -266,6 +261,7 @@
   <a href="setd5-medical-terms-guide.html">Medical Terms</a>
 </nav>
     <h1 class="header-title">Acronym <em>Glossary</em></h1>
+    <div class="header-rule"></div>
     <p class="header-subtitle">Common acronyms from schools, therapy, and medical settings, decoded for families.</p>
   </div>
 </header>

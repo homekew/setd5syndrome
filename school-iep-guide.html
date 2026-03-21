@@ -66,18 +66,8 @@
 
   /* ── HEADER ── */
   .site-header { background: var(--navy); color: #fff; position:relative; }
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 25%, rgba(217,172,132,0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 70%, rgba(174,191,190,0.16) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
-  .header-inner { max-width: 860px; margin: 0 auto; padding: 24px 32px 30px; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 34px 32px 40px; }
   .header-eyebrow{
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 22px;
@@ -89,6 +79,8 @@
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
+  
+  .header-rule { display:block; width:50px; height:3px; background:var(--amber); border-radius:2px; margin:0.75rem 0 0; }
   .header-subtitle{ font-size: 15.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.175s ease; }
@@ -523,6 +515,7 @@
   <a href="family-toolkit.html">Family Toolkit</a>
 </nav>
     <h1 class="header-title">School &amp; <em>IEP Guide</em></h1>
+    <div class="header-rule"></div>
     <p class="header-subtitle">What to know before, during, and after your child&#39;s IEP meeting.</p>
   </div>
 </header>

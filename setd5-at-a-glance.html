@@ -65,19 +65,10 @@ body{
   color: #fff;
     position: relative;
   }
-.site-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(174,191,190,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 30%, rgba(217,172,132,0.2) 0%, transparent 55%);
-  pointer-events: none;
-}
 .header-inner {
   max-width: 860px;
   margin: 0 auto;
-  padding: 24px 32px 30px;
+  padding: 34px 32px 40px;
   position: relative;
   z-index: 1;
   transition: padding 0.175s ease;
@@ -106,7 +97,9 @@ body{
   transition: font-size 0.175s ease, margin 0.175s ease;
 }
 .header-title em { font-style: italic; color: #a8cfc8; }
-.header-subtitle{
+
+  .header-rule { display:block; width:50px; height:3px; background:var(--amber); border-radius:2px; margin:0.75rem 0 0; }
+  .header-subtitle{
   font-size: 15.5px;
   font-weight: 400;
   color: rgba(255,255,255,0.65);
@@ -502,6 +495,7 @@ main {
   <a href="family-toolkit.html">Family Toolkit</a>
 </nav>
     <h1 class="header-title">SETD5 Syndrome: <em>At a Glance</em></h1>
+    <div class="header-rule"></div>
     <p class="header-subtitle">A quick-reference overview of SETD5 Syndrome for families, educators, and care teams.</p>
   </div>
 </header>
