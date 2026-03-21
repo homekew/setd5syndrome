@@ -151,11 +151,49 @@
     padding: 0 2rem;
   }
 
-  /* ── PAGE INTRO + NAV SHARED CONTAINER ── */
-  .about-lead {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 3rem 2rem 0;
+  /* ── PAGE LAYOUT: sidebar + content ── */
+  .page-layout { display: flex; align-items: flex-start; }
+  .page-sidebar {
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .page-sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0 20px; margin-bottom: 6px;
+  }
+  .sidebar-link {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    font-family: 'Inter', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+  }
+  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .page-main { flex: 1; min-width: 0; }
+  @media (max-width: 768px) {
+    .page-layout { flex-direction: column; }
+    .page-sidebar {
+      width: 100%; height: auto; position: static;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 0; display: flex; flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar-hd { display: none; }
+    .sidebar-link {
+      padding: 10px 16px; white-space: nowrap;
+      border-left: none; border-bottom: 3px solid transparent;
+      flex-shrink: 0;
+    }
+    .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
   }
 
   .page-intro {
@@ -165,51 +203,11 @@
     margin-bottom: 2rem;
   }
 
-  /* ── PAGE NAV (On This Page) ── */
-  .page-nav-wrap {
-    background: var(--amber-lt);
-    border-left: 4px solid var(--amber);
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 2.5rem;
-    padding: 0 2rem;
-  }
-
-  .page-nav {
-    padding: 1.5rem 0;
-  }
-
-  .page-nav-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #9E7545;
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  .page-nav ol {
-    list-style: decimal;
-    padding-left: 1.25rem;
-    margin: 0;
-  }
-
-  .page-nav ol li {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    padding: 2px 0;
-    color: var(--text);
-  }
-
-  .page-nav ol li a { color: var(--teal); text-decoration: none; }
-  .page-nav ol li a:hover { text-decoration: underline; }
-
   /* ── SECTION WRAPPERS (alternating backgrounds) ── */
   .section-wrap {
     padding: 56px 0 48px;
     border-bottom: 1px solid var(--border);
+    scroll-margin-top: 100px;
   }
 
   .section-wrap.bg-alt {
@@ -674,25 +672,20 @@
   </div>
 </nav>
 
-<main>
+<div class="page-layout">
+<aside class="page-sidebar">
+  <div class="sidebar-hd">On this page</div>
+  <a class="sidebar-link active" href="#why-this-site">Why This Site Exists</a>
+  <a class="sidebar-link" href="#what-you-find">What You'll Find Here</a>
+  <a class="sidebar-link" href="#what-this-is-not">What This Site Is Not</a>
+  <a class="sidebar-link" href="#how-information">How Information Is Collected</a>
+  <a class="sidebar-link" href="#contact">Contact</a>
+</aside>
+<div class="page-main">
 
-  <!-- ── PAGE INTRO + ON THIS PAGE ── -->
-  <div class="about-lead">
+  <div class="about-lead" style="max-width:860px;padding:3rem 2rem 0;">
     <p class="page-intro">A diagnosis like SETD5 Syndrome arrives with a lot of questions. Even with a great care team, it can take time to find resources written for families rather than specialists. I built this site as a parent who has sat in that waiting room and pieced things together slowly over time. Everything here is what I've gathered for my own family, offered freely to yours. Below you'll find the full story, what the site includes, and a few important things to keep in mind as you use it.</p>
-
-    <div class="page-nav-wrap">
-    <nav class="page-nav" aria-label="On this page">
-      <span class="page-nav-label">On this page</span>
-      <ol>
-        <li><a href="#why-this-site">Why This Site Exists</a></li>
-        <li><a href="#what-you-find">What You'll Find Here</a></li>
-        <li><a href="#what-this-is-not">What This Site Is Not</a></li>
-        <li><a href="#how-information">How Information Is Collected</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ol>
-    </nav>
   </div>
-  </div><!-- /about-lead -->
 
   <!-- ── WHY THIS SITE EXISTS (Kate story — dark, elevated) ── -->
   <div class="section-wrap bg-story" id="why-this-site">
@@ -765,7 +758,8 @@
   </div>
 
 
-</main>
+</div><!-- /page-main -->
+</div><!-- /page-layout -->
 
 <footer class="site-footer">  <div class="footer-nav">
     <a href="index.html">Home</a><span class="sep">&middot;</span>
@@ -837,11 +831,40 @@ function toggleFaq(id) {
 (function(){
   var hdr = document.querySelector('.site-header');
   var nav = document.querySelector('.site-nav');
+  var sidebar = document.querySelector('.page-sidebar');
   if (!hdr || !nav) return;
-  function syncNavTop() { nav.style.top = hdr.offsetHeight + 'px'; }
-  syncNavTop();
-  window.addEventListener('scroll', syncNavTop, {passive:true});
-  window.addEventListener('resize', syncNavTop);
+  function syncPositions() {
+    var offset = hdr.offsetHeight + nav.offsetHeight;
+    nav.style.top = hdr.offsetHeight + 'px';
+    if (sidebar) {
+      sidebar.style.top = offset + 'px';
+      sidebar.style.height = 'calc(100vh - ' + offset + 'px)';
+    }
+  }
+  syncPositions();
+  window.addEventListener('scroll', syncPositions, {passive:true});
+  window.addEventListener('resize', syncPositions);
+
+  /* Highlight active sidebar link on scroll */
+  var sections = document.querySelectorAll('[id]');
+  var sidebarLinks = document.querySelectorAll('.sidebar-link');
+  function updateActiveSidebar() {
+    var scrollY = window.scrollY + 120;
+    var current = '';
+    sections.forEach(function(sec) {
+      if (sec.offsetTop <= scrollY) current = sec.id;
+    });
+    sidebarLinks.forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (href && href === '#' + current) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', updateActiveSidebar, {passive:true});
+  updateActiveSidebar();
 })();
 </script>
 </body>
