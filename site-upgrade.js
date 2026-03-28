@@ -279,7 +279,12 @@
     logoWrap.href = 'index.html';
     logoWrap.setAttribute('aria-label', 'SETD5 Syndrome Resources — home');
     logoWrap.innerHTML = `
-      <img src="logo.png" alt="SETD5 Syndrome Resources">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="38" height="38" aria-hidden="true" style="flex-shrink:0;">
+        <rect width="40" height="40" rx="8" fill="#162544"/>
+        <path d="M20 11 C16 11 10 13 9 16 L9 29 C10 26.5 16 25 20 25 Z" fill="#F7F4EF"/>
+        <path d="M20 11 C24 11 30 13 31 16 L31 29 C30 26.5 24 25 20 25 Z" fill="#AEBFBE"/>
+        <rect x="19.5" y="11" width="1" height="14" fill="#162544"/>
+      </svg>
       <div class="su-name-block">
         <span class="su-site-name">SETD5 Syndrome</span>
         <span class="su-site-tagline">Family Resources &amp; Guides</span>
