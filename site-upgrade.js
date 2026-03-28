@@ -279,6 +279,7 @@
     logoWrap.href = 'index.html';
     logoWrap.setAttribute('aria-label', 'SETD5 Syndrome Resources — home');
     logoWrap.innerHTML = `
+      <img src="/SD5-recolored.png" alt="SETD5 Syndrome logo" style="height:42px;width:42px;object-fit:contain;flex-shrink:0;" />
       <div class="su-name-block">
         <span class="su-site-name">SETD5 Syndrome</span>
         <span class="su-site-tagline">Family Resources &amp; Guides</span>
