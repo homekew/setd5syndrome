@@ -181,7 +181,7 @@
     ──────────────────────────────────────────────────────────────────── */
 
     .site-nav {
-      background: #FFFFFF !important;
+      background: #fafafa !important;
       border-top: none !important;        /* no seam between header and nav */
       border-bottom: 1px solid #E0D9CE !important;
       box-shadow: none !important;
