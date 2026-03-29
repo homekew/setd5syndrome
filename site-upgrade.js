@@ -634,9 +634,7 @@
     }
 
     /* Individual cell backgrounds */
-    .intro-unified .stats-bar-item:nth-child(1) { background: rgba(160,125,84,0.10) !important; }
-    .intro-unified .stats-bar-item:nth-child(2) { background: #FFFFFF !important; }
-    .intro-unified .stats-bar-item:nth-child(3) { background: #FFFFFF !important; }
+    .intro-unified .stats-bar-item { background: rgba(160,125,84,0.10) !important; }
 
     .stats-bar-num {
       font-family: 'Spectral', Georgia, serif !important;
