@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v31
+ * site-upgrade.js  v32
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -113,7 +113,7 @@
        Adjust this value if the text needs to shift more or less. */
     .su-header-wordmark {
       display: block;
-      height: 130px;
+      height: 160px;
       width: auto;
       max-width: 100%;
       margin-left: -5rem;
