@@ -97,12 +97,25 @@
       .site-nav-inner { height: 56px !important; }
     }
 
-    /* ── Main site header: navy background, logo flush left ── */
+    /* ── Main site header: warm white, logo flush left ── */
     header {
-      background: #162544 !important;
-      color: #fff !important;
+      background: #EEEAE2 !important;
+      color: #5D5646 !important;
       text-align: left !important;
       padding: 2rem 0 1.75rem !important;
+      border-bottom: 1px solid #D4CCBF !important;
+    }
+
+    header h1, header h1 a {
+      color: #5D5646 !important;
+      font-size: 2.4rem !important;
+      line-height: 1.2 !important;
+    }
+
+    header h1 em {
+      color: #A07D54 !important;
+      font-size: 1.6rem !important;
+      font-weight: 400 !important;
     }
 
     .header-hero-inner {
@@ -124,18 +137,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-
-    header h1, header h1 a {
-      color: #fff !important;
-      font-size: 2.4rem !important;
-      line-height: 1.2 !important;
-    }
-
-    header h1 em {
-      color: #AEBFBE !important;
-      font-size: 1.6rem !important;
-      font-weight: 400 !important;
     }
 
     .header-rule {
