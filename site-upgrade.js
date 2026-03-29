@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v30
+ * site-upgrade.js  v31
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -29,7 +29,7 @@
   'use strict';
 
   /* ─── DESIGN TOKENS ──────────────────────────────────────────────────────
-     --bg:          #EEEAE2   warm linen page ground
+     --bg:          #E8EAE3   warm linen page ground
      --bg-alt:      #D2CECA   muted tan — footer, alt bands, borders
      --surface:     #FFFFFF   header, elevated cards
      --heading:     #5D5646   primary heading
@@ -102,18 +102,21 @@
       max-width: 1160px !important;
       display: flex !important;
       align-items: center !important;
-      justify-content: flex-start !important;   /* left-aligned within the column */
+      justify-content: center !important;
       padding: 1.25rem 2rem 1rem !important;
       margin: 0 auto !important;
     }
 
     /* Wordmark: the full site identity as a single designed image.
-       Scales by height with auto width; max-width prevents overflow. */
+       Negative margin-left shifts the whole banner left so the text
+       portion (not the compass icon) reads as visually centered.
+       Adjust this value if the text needs to shift more or less. */
     .su-header-wordmark {
       display: block;
       height: 130px;
       width: auto;
       max-width: 100%;
+      margin-left: -5rem;
     }
 
     /* Visually-hidden h1: present in DOM for screen readers and SEO,
@@ -134,12 +137,13 @@
     header:not(.site-header) .header-rule { display: none !important; }
     header:not(.site-header) .header-sub  { display: none !important; }
 
-    /* Responsive: mobile wordmark */
+    /* Responsive: mobile wordmark — remove offset on small screens */
     @media (max-width: 640px) {
       .su-header-wordmark {
         height: auto;
         width: 90%;
         max-width: 400px;
+        margin-left: 0;
       }
       header:not(.site-header) .header-hero-inner {
         padding: 1rem 1.25rem 0.875rem !important;
@@ -476,7 +480,7 @@
        ═══════════════════════════════════════════════════════════════
        Zone 1: header + nav  →  white  (already handled above)
        Zone 2: .intro-bar    →  tan #D2CECA  (warm break, distinct)
-       Zone 3: main content  →  linen #EEEAE2  (grounded content zone)
+       Zone 3: main content  →  linen #E8EAE3  (grounded content zone)
        Zone 4: footer        →  tan #D2CECA  (already handled above)
 
        White cards sit on linen → natural contrast, no trickery needed.
@@ -485,7 +489,7 @@
 
     /* ── Zone 1: Page ground — linen ── */
     body {
-      background: #EEEAE2 !important;
+      background: #E8EAE3 !important;
       color: #4D4C4B !important;
     }
 
@@ -569,7 +573,7 @@
 
     /* ── Zone 3: Content zone — linen, white cards float on it ──────── */
     .guides-zone {
-      background: #EEEAE2 !important;
+      background: #E8EAE3 !important;
     }
 
     /* Section label / eyebrow: warm accent + rule that extends to right edge */
@@ -789,7 +793,7 @@
 
     /* ── Page layout: linen ground ── */
     .page-layout {
-      background: #EEEAE2 !important;
+      background: #E8EAE3 !important;
     }
 
     /* ── Sidebar: white card on linen ── */
