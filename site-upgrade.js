@@ -115,8 +115,8 @@
 
     .su-header-logo {
       flex-shrink: 0;
-      height: 90px;
-      width: 90px;
+      height: 120px;
+      width: 120px;
       object-fit: contain;
     }
 
@@ -134,6 +134,8 @@
 
     header h1 em {
       color: #AEBFBE !important;
+      font-size: 1.6rem !important;
+      font-weight: 400 !important;
     }
 
     .header-rule {
@@ -141,15 +143,13 @@
     }
 
     .header-sub {
-      color: rgba(255,255,255,0.65) !important;
-      font-size: 0.95rem !important;
-      margin-top: 0.5rem !important;
-      text-align: left !important;
+      display: none !important;
     }
 
     @media (max-width: 640px) {
-      .su-header-logo { height: 64px; width: 64px; }
+      .su-header-logo { height: 80px; width: 80px; }
       header h1 { font-size: 1.6rem !important; }
+      header h1 em { font-size: 1.1rem !important; }
       .header-hero-inner { gap: 1.25rem !important; }
     }
 
