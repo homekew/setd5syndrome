@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v22
+ * site-upgrade.js  v23
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -1208,11 +1208,7 @@
     });
     const strong = intlNote.querySelector('strong');
     if (strong) strong.style.color = '#5D5646';
-    // Update translate widget location reference — widget is now in the footer
-    intlNote.innerHTML = intlNote.innerHTML.replace(
-      /in the top corner of most pages/gi,
-      'in the footer of each page'
-    );
+    // Text already corrected in HTML source — no replacement needed
   }
 
 
