@@ -565,7 +565,7 @@
       font-size: 0.925rem !important;
       line-height: 1.75 !important;
       color: #3D3C3B !important;
-      text-align: left !important;
+      text-align: center !important;
       width: 100% !important;
       max-width: none !important;
       margin: 0 !important;
