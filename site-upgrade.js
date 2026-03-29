@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v103
+ * site-upgrade.js  v104
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -76,7 +76,7 @@
       border-top: 3px solid #9E7E42 !important;
       border-bottom: none !important;
       /* Soft shadow lifts the hero off the page as its own surface */
-      box-shadow: 0 4px 28px rgba(30,58,79,0.07) !important;
+      box-shadow: 0 6px 40px rgba(30,58,79,0.14) !important;
       position: relative;
       z-index: 10;
     }
