@@ -101,7 +101,9 @@
       padding: 0 !important;              /* inner handles all spacing */
       border-top: 3px solid #2a627a !important;   /* structural anchor */
       border-bottom: none !important;     /* no seam — merges with nav */
-      box-shadow: none !important;        /* shadow lives on nav bottom */
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.06),
+        0 16px 40px rgba(42,98,122,0.10) !important;
       position: relative;
       z-index: 10;
     }
@@ -184,7 +186,9 @@
       background: #FFFFFF !important;
       border-top: none !important;        /* no seam between header and nav */
       border-bottom: 1px solid #E0D9CE !important;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07) !important;
+      box-shadow:
+        0 6px 20px rgba(0,0,0,0.09),
+        0 20px 50px rgba(42,98,122,0.12) !important;
       position: sticky !important;
       top: 0 !important;
       z-index: 900 !important;
