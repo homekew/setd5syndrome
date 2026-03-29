@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v37
+ * site-upgrade.js  v38
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -177,8 +177,9 @@
       border-top: none !important;        /* no seam between header and nav */
       border-bottom: 1px solid #E0D9CE !important;
       box-shadow: 0 2px 16px rgba(0,0,0,0.07) !important;
-      /* Intentionally NOT overriding position or z-index:
-         original is position:sticky; top:0; z-index:900 — keep that intact */
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 900 !important;
     }
 
     /* ── Desktop nav layout: scoped to min-width 640px so tablets
@@ -547,21 +548,21 @@
       display: block !important;
     }
 
-    /* Stats bar: teal-tinted — sits below intro card as supporting data layer */
+    /* Stats bar: white with clear dividers and layered shadow */
     .stats-bar {
-      background: #CCDCE0 !important;
-      border: 1px solid #B0CACF !important;
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
       border-radius: 8px !important;
       max-width: 560px !important;
       width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.08) !important;
     }
 
     .stats-bar-item {
       padding: 1.375rem 1.5rem !important;
-      border-right: 1px solid #A0BCC2 !important;
+      border-right: 1px solid #C8BFB0 !important;
     }
 
     .stats-bar-item:last-child {
@@ -657,6 +658,15 @@
       color: #FFFFFF !important;
     }
 
+    /* Filled/solid buttons: ensure white text regardless of which class is used.
+       Covers .btn-primary, .download-btn, .btn-teal, .resource-btn, etc. */
+    [class*="btn"]:not([class*="btn-outline"]):not([class*="btn-ghost"]) {
+      color: #FFFFFF !important;
+    }
+    .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark {
+      color: #FFFFFF !important;
+    }
+
     .card-link:focus-visible {
       outline: 2px solid #2a627a !important;
       outline-offset: 2px !important;
@@ -736,10 +746,9 @@
       border-top: 3px solid #2a627a !important;  /* matches homepage accent */
       border-bottom: none !important;             /* merges with nav below */
       box-shadow: none !important;                /* shadow lives on nav */
-      position: sticky !important;
-      top: 0 !important;
-      z-index: 920 !important;
-      padding: 1.125rem 0 0.875rem !important;    /* slightly tighter */
+      position: relative !important;              /* not sticky — nav handles that */
+      z-index: 1 !important;
+      padding: 1.125rem 0 0.875rem !important;
     }
 
     header.site-header::before {
