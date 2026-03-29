@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v21
+ * site-upgrade.js  v22
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -93,8 +93,8 @@
        cream book pages don't vanish against the white header background. */
     .su-header-logo {
       flex-shrink: 0;
-      height: 72px;
-      width: 72px;
+      height: 96px;
+      width: 96px;
       object-fit: contain;
       filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));
     }
@@ -111,7 +111,7 @@
     header:not(.site-header) h1 a {
       font-family: 'Spectral', Georgia, serif !important;
       color: #5D5646 !important;
-      font-size: 3.2rem !important;
+      font-size: 2.2rem !important;
       font-weight: 600 !important;
       letter-spacing: -0.02em !important;
       line-height: 1.1 !important;
@@ -145,7 +145,7 @@
 
     /* Responsive: mobile header layout */
     @media (max-width: 640px) {
-      .su-header-logo { height: 52px; width: 52px; }
+      .su-header-logo { height: 68px; width: 68px; }
       header:not(.site-header) h1 { font-size: 2rem !important; }
       header:not(.site-header) .header-hero-inner {
         gap: 0.875rem !important;
