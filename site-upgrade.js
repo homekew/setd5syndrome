@@ -517,7 +517,7 @@
 
     /* ── Zone 1: Page ground ── */
     body {
-      background: #fafafa !important;
+      background: #EFEFEA !important;
       color: #4D4C4B !important;
     }
 
@@ -527,7 +527,7 @@
        calc(50% - 398px) = half viewport minus (430px - 32px padding)
     ──────────────────────────────────────────────────────────────── */
     .intro-bar {
-      background: #FDFDFD !important;
+      background: #EFEFEA !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
@@ -567,7 +567,7 @@
 
     /* ── Zone 3: Content zone — cards float on near-white ──────── */
     .guides-zone {
-      background: #fafafa !important;
+      background: #EFEFEA !important;
     }
 
     /* Section label / eyebrow: warm accent + rule that extends to right edge */
@@ -851,7 +851,7 @@
 
     /* ── Page layout: near-white ground ── */
     .page-layout {
-      background: #fafafa !important;
+      background: #EFEFEA !important;
     }
 
     /* ── Sidebar: white card on linen ── */
