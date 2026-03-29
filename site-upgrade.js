@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v28
+ * site-upgrade.js  v29
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -10,11 +10,11 @@
  *   ┌─────────────────────────────┐
  *   │ HEADER + NAV   — WHITE      │  elevated cap, clean structure
  *   ├─────────────────────────────┤
- *   │ INTRO / HERO   — TAN #e3ddcc│  warm break, white cards inside
+ *   │ INTRO / HERO   — TAN #D2CECA│  warm break, white cards inside
  *   ├─────────────────────────────┤
  *   │ CONTENT / CARDS— LINEN      │  grounded zone, white cards float on linen
  *   ├─────────────────────────────┤
- *   │ FOOTER         — TAN #e3ddcc│  bookend matches intro zone
+ *   │ FOOTER         — TAN #D2CECA│  bookend matches intro zone
  *   └─────────────────────────────┘
  *
  *   Additional improvements:
@@ -30,7 +30,7 @@
 
   /* ─── DESIGN TOKENS ──────────────────────────────────────────────────────
      --bg:          #EEEAE2   warm linen page ground
-     --bg-alt:      #e3ddcc   muted tan — footer, alt bands, borders
+     --bg-alt:      #D2CECA   muted tan — footer, alt bands, borders
      --surface:     #FFFFFF   header, elevated cards
      --heading:     #5D5646   primary heading
      --body:        #4D4C4B   body / UI text
@@ -102,7 +102,7 @@
       max-width: 1160px !important;
       display: flex !important;
       align-items: center !important;
-      justify-content: center !important;       /* center the wordmark */
+      justify-content: flex-start !important;   /* left-aligned within the column */
       padding: 1.25rem 2rem 1rem !important;
       margin: 0 auto !important;
     }
@@ -111,7 +111,7 @@
        Scales by height with auto width; max-width prevents overflow. */
     .su-header-wordmark {
       display: block;
-      height: 110px;
+      height: 130px;
       width: auto;
       max-width: 100%;
     }
@@ -274,8 +274,8 @@
       /* Dropdown panel: white, full-width, elevated */
       .nav-menu {
         background: #FFFFFF !important;
-        border-top: 1px solid #e3ddcc !important;
-        border-bottom: 1px solid #e3ddcc !important;
+        border-top: 1px solid #D2CECA !important;
+        border-bottom: 1px solid #D2CECA !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
         margin-left: 0 !important;
         flex-direction: column !important;
@@ -295,7 +295,7 @@
         font-size: 0.93rem !important;
         font-weight: 500 !important;
         color: #4D4C4B !important;
-        border-bottom: 1px solid #e3ddcc !important;
+        border-bottom: 1px solid #D2CECA !important;
         border-left: 3px solid transparent !important;
       }
 
@@ -308,7 +308,7 @@
         color: #2a627a !important;
         font-weight: 600 !important;
         border-left-color: #2a627a !important;
-        border-bottom-color: #e3ddcc !important;
+        border-bottom-color: #D2CECA !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
 
@@ -323,7 +323,7 @@
     /* ── FOOTER: warm earth-tone palette ────────────────────────────────── */
 
     .site-footer {
-      background: #e3ddcc !important;
+      background: #D2CECA !important;
       padding: 0 !important;
       text-align: left !important;
       border-top: 1px solid #D4CCBF !important;
@@ -475,9 +475,9 @@
        PAGE BODY OVERRIDES  —  Zone-based visual rhythm
        ═══════════════════════════════════════════════════════════════
        Zone 1: header + nav  →  white  (already handled above)
-       Zone 2: .intro-bar    →  tan #e3ddcc  (warm break, distinct)
+       Zone 2: .intro-bar    →  tan #D2CECA  (warm break, distinct)
        Zone 3: main content  →  linen #EEEAE2  (grounded content zone)
-       Zone 4: footer        →  tan #e3ddcc  (already handled above)
+       Zone 4: footer        →  tan #D2CECA  (already handled above)
 
        White cards sit on linen → natural contrast, no trickery needed.
        The tan zones bookend the linen content, creating real rhythm.
@@ -495,7 +495,7 @@
        calc(50% - 398px) = half viewport minus (430px - 32px padding)
     ──────────────────────────────────────────────────────────────── */
     .intro-bar {
-      background: #e3ddcc !important;
+      background: #D2CECA !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
@@ -542,7 +542,7 @@
 
     .stats-bar-item {
       padding: 1.375rem 1.5rem !important;
-      border-right: 1px solid #e3ddcc !important;
+      border-right: 1px solid #D2CECA !important;
     }
 
     .stats-bar-item:last-child {
@@ -815,7 +815,7 @@
       text-transform: uppercase !important;
       color: #A07D54 !important;
       padding: 0 1.125rem 0.625rem !important;
-      border-bottom: 1px solid #e3ddcc !important;
+      border-bottom: 1px solid #D2CECA !important;
       margin-bottom: 0.375rem !important;
     }
 
@@ -863,7 +863,7 @@
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #e3ddcc !important;
+      border-bottom: 1px solid #D2CECA !important;
     }
 
     .page-body h3,
@@ -955,7 +955,7 @@
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #e3ddcc !important;
+      border-bottom: 1px solid #D2CECA !important;
     }
 
     .page-layout h3,
@@ -1134,8 +1134,8 @@
     /* Tab nav (in-page section tabs) */
     .tab-nav {
       background: #FFFFFF !important;
-      border-top: 1px solid #e3ddcc !important;
-      border-bottom: 1px solid #e3ddcc !important;
+      border-top: 1px solid #D2CECA !important;
+      border-bottom: 1px solid #D2CECA !important;
     }
 
     .tab-btn {
