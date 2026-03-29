@@ -549,11 +549,8 @@
 
     /* ── Unified intro + stats card ─────────────────────────────────── */
     .intro-unified {
-      background:
-        linear-gradient(135deg, rgba(42,98,122,0.06) 0%, rgba(255,255,255,0) 45%, rgba(160,125,84,0.05) 100%),
-        #FFFFFF;
+      background: #FFFFFF !important;
       border: 1px solid #BDD0D6 !important;
-      border-left: 4px solid #2a627a !important;
       border-radius: 12px !important;
       max-width: 760px !important;
       width: 100% !important;
@@ -602,7 +599,7 @@
       display: block !important;
     }
 
-    /* Stats bar inside unified card: flush, no own box */
+    /* Stats bar inside unified card: flush, full-width flex row */
     .intro-unified .stats-bar {
       background: transparent !important;
       border: none !important;
@@ -612,6 +609,10 @@
       margin: 0 !important;
       padding: 0 !important;
       box-shadow: none !important;
+      display: flex !important;
+    }
+    .intro-unified .stats-bar .stats-bar-item {
+      flex: 1 1 0 !important;
     }
 
     /* Fallback: standalone .stats-bar */
