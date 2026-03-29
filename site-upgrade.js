@@ -87,11 +87,11 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: #2a627a !important;
-      color: rgba(255,255,255,0.92) !important;
+      background: #FFFFFF !important;
+      color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
-      border-top: 3px solid rgba(255,255,255,0.18) !important;   /* structural anchor */
+      border-top: 3px solid #2a627a !important;   /* structural anchor */
       border-bottom: none !important;     /* no seam — merges with nav */
       box-shadow: none !important;
       position: relative;
@@ -115,7 +115,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, transparent 65%, rgba(0,0,0,0.15) 100%);
+      background: radial-gradient(ellipse at center, transparent 65%, rgba(42,98,122,0.10) 100%);
       pointer-events: none;
       z-index: 0;
     }
@@ -141,7 +141,6 @@
       width: auto;
       max-width: 100%;
       margin-left: -5rem;
-      filter: brightness(0) invert(1);
     }
 
     /* Visually-hidden h1: present in DOM for screen readers and SEO,
