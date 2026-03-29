@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v98
+ * site-upgrade.js  v99
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -737,34 +737,34 @@
       letter-spacing: 0.1em !important;
     }
 
-    /* Start-here banners: gold accent */
+    /* Start-here banners: translucent gold tint */
     .start-here {
-      background: #9E7E42 !important;
-      border-color: #7A6535 !important;
-      border-left-color: #7A6535 !important;
+      background: rgba(158,126,66,0.1) !important;
+      border-color: rgba(158,126,66,0.3) !important;
+      border-left-color: #9E7E42 !important;
       border-left-width: 3px !important;
-      box-shadow: 0 2px 12px rgba(158,126,66,0.25) !important;
+      box-shadow: none !important;
     }
 
     .start-here-text strong {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      color: #FFFFFF !important;
+      color: #1E2D4F !important;
     }
 
     .start-here-text p {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      color: rgba(255,255,255,0.85) !important;
+      color: #1C1B18 !important;
     }
 
     .start-here-btn {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      background: #FFFFFF !important;
-      color: #9E7E42 !important;
+      background: #1E2D4F !important;
+      color: #FFFFFF !important;
     }
 
     .start-here-btn:hover {
-      background: #F2EDD6 !important;
-      color: #9E7E42 !important;
+      background: #16243F !important;
+      color: #FFFFFF !important;
     }
 
     .start-here-btn:focus-visible {
