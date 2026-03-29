@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v17
+ * site-upgrade.js  v18
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -170,10 +170,13 @@
          original is position:sticky; top:0; z-index:900 — keep that intact */
     }
 
-    /* ── Desktop nav layout: scoped to min-width 769px so we never
-       override the mobile menu's display:none or flex-direction.
+    /* ── Desktop nav layout: scoped to min-width 640px so tablets
+       keep the horizontal bar; only true mobile gets the hamburger.
        ─────────────────────────────────────────────────────────── */
-    @media (min-width: 769px) {
+    @media (min-width: 640px) {
+      /* Hide hamburger button — original site shows it at ≤768px */
+      .nav-toggle { display: none !important; }
+
       .site-nav .site-nav-inner {
         height: 40px !important;         /* slightly slimmer — more editorial */
         min-height: 40px !important;
@@ -225,7 +228,7 @@
     }
 
     /* Shrink link padding at intermediate widths before hamburger kicks in */
-    @media (min-width: 769px) and (max-width: 920px) {
+    @media (min-width: 640px) and (max-width: 920px) {
       .nav-menu > a {
         font-size: 0.7rem !important;
         padding: 0 0.45rem !important;
@@ -266,7 +269,7 @@
        must not apply inside the mobile dropdown. These rules win because
        they are more specific AND come later in the cascade.
     ──────────────────────────────────────────────────────────────────── */
-    @media (max-width: 768px) {
+    @media (max-width: 639px) {
       /* Nav inner: auto height so the hamburger button fits */
       .site-nav .site-nav-inner {
         height: auto !important;
@@ -1103,6 +1106,14 @@
   }
 
 
+  /* ─── 2b. RENAME NAV LABEL: Community & Links → Community ───────────── */
+  document.querySelectorAll('.nav-menu a').forEach(a => {
+    if (a.textContent.trim() === 'Community & Links') {
+      a.textContent = 'Community';
+    }
+  });
+
+
   /* ─── 3. RESTRUCTURE HOME PAGE HEADER ONLY ──────────────────────────── */
   // Interior pages use <header class="site-header"> — we must not touch those.
   // Home page uses a plain <header> with no class and a .header-hero-inner inside.
@@ -1125,6 +1136,17 @@
       // Insert subtitle span (Public Sans label) after the h1
       const h1 = textBlock.querySelector('h1');
       if (h1) {
+        // Update the visible title text to the new site name
+        const h1Link = h1.querySelector('a') || h1;
+        Array.from(h1Link.childNodes).forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+            node.textContent = 'The SETD5 Syndrome Companion';
+          }
+        });
+        // Remove the <br> — no longer needed with single-line title
+        const br = h1Link.querySelector('br');
+        if (br) br.remove();
+
         // Ensure the em text is correct (CSS hides it but we keep it in DOM)
         const emEl = h1.querySelector('em');
         if (emEl) emEl.textContent = 'A Peer Resource';
@@ -1193,7 +1215,7 @@
       <div id="su-footer-grid">
 
         <div class="su-footer-col">
-          <span class="su-footer-brand-name">SETD5 Syndrome</span>
+          <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A Peer Resource</span>
           <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome. Built by a parent, for families like ours.</p>
           <ul>
@@ -1208,7 +1230,7 @@
             <li><a href="family-toolkit.html">Family Toolkit</a></li>
             <li><a href="setd5-medical-terms-guide.html">Medical Terms Guide</a></li>
             <li><a href="research.html">Research</a></li>
-            <li><a href="helpful-links.html">Community &amp; Links</a></li>
+            <li><a href="helpful-links.html">Community</a></li>
           </ul>
         </div>
 
@@ -1230,7 +1252,7 @@
       </div>
 
       <div id="su-footer-bottom">
-        <p>&copy; 2026 SETD5 Syndrome: A Peer Resource &mdash; Built by a parent, for families</p>
+        <p>&copy; 2026 The SETD5 Syndrome Companion &mdash; Built by a parent, for families</p>
         <div id="su-footer-bottom-links">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
