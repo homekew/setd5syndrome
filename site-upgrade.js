@@ -88,21 +88,12 @@
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
       background:
-        repeating-linear-gradient(
-          60deg,
-          rgba(160,125,84,0.06) 0px, rgba(160,125,84,0.06) 1px,
-          transparent 1px, transparent 40px
-        ),
-        repeating-linear-gradient(
-          -60deg,
-          rgba(160,125,84,0.06) 0px, rgba(160,125,84,0.06) 1px,
-          transparent 1px, transparent 40px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          rgba(160,125,84,0.04) 0px, rgba(160,125,84,0.04) 1px,
-          transparent 1px, transparent 40px
-        ),
+        radial-gradient(ellipse 70% 80% at 10% 30%, rgba(160,125,84,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 85% 20%, rgba(98,146,158,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 90% at 60% 80%, rgba(42,98,122,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 30% 70%, rgba(98,146,158,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 70% at 90% 65%, rgba(160,125,84,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 45% at 50% 15%, rgba(42,98,122,0.05) 0%, transparent 60%),
         #FFFFFF !important;
       color: #5D5646 !important;
       text-align: left !important;
