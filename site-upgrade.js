@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v20
+ * site-upgrade.js  v21
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -88,12 +88,15 @@
       margin: 0 auto !important;
     }
 
-    /* Logo: balanced against the title weight */
+    /* Logo: balanced against the title weight.
+       Drop-shadow follows the actual shape (not the bounding box) so the
+       cream book pages don't vanish against the white header background. */
     .su-header-logo {
       flex-shrink: 0;
       height: 72px;
       width: 72px;
       object-fit: contain;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));
     }
 
     .su-header-text {
