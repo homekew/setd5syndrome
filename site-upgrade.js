@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v95
+ * site-upgrade.js  v96
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -450,11 +450,11 @@
 
     #su-footer-grid {
       display: grid;
-      grid-template-columns: 1.75fr 1fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
       max-width: 1160px;
       margin: 0 auto;
-      padding: 2.5rem 2rem 2rem;
+      padding: 2.25rem 2rem 2rem;
     }
 
     .su-footer-col h4 {
@@ -533,11 +533,6 @@
       padding: 0.875rem 2rem;
       max-width: 1160px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
     }
 
     #su-footer-bottom p {
@@ -1345,6 +1340,12 @@
       // Replace all existing content with Counsel hero layout
       heroInner.innerHTML = '';
 
+      // Tag pill
+      const tag = document.createElement('span');
+      tag.className = 'su-hero-tag';
+      tag.textContent = 'Rare Genetic Condition \u00B7 Family Resource';
+      heroInner.appendChild(tag);
+
       // H1 with gold italic em
       const h1 = document.createElement('h1');
       h1.className = 'su-hero-h1';
@@ -1402,6 +1403,18 @@
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
           <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome. Built by a parent, for families like ours.</p>
+          <p class="su-footer-brand-desc" style="margin-top:0;">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
+        </div>
+
+        <div class="su-footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="setd5-syndrome-overview.html">SETD5 Syndrome</a></li>
+            <li><a href="family-toolkit.html">Family Toolkit</a></li>
+            <li><a href="setd5-medical-terms-guide.html">Medical Terms</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="helpful-links.html">Community</a></li>
+          </ul>
         </div>
 
         <div class="su-footer-col">
@@ -1409,7 +1422,7 @@
           <ul>
             <li><a href="about.html">About This Site</a></li>
             <li><a href="share-your-story.html">Share Your Story</a></li>
-            <li><a href="suggest-a-resource.html">Contact / Suggest a Resource</a></li>
+            <li><a href="suggest-a-resource.html">Contact</a></li>
             <li><a href="sources-references.html">Sources &amp; References</a></li>
             <li><a href="terms-of-use.html">Terms of Use</a></li>
           </ul>
@@ -1422,20 +1435,8 @@
       </div>
 
       <div id="su-footer-bottom">
-        <p>&copy; 2026 The SETD5 Syndrome Companion &mdash; Built by a parent, for families</p>
-        <div id="su-footer-bottom-links">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="terms-of-use.html">Terms of Use</a>
-          <a href="sources-references.html">Sources</a>
-          <a href="suggest-a-resource.html">Contact</a>
-        </div>
+        <p>&copy; 2026 The SETD5 Syndrome Companion &mdash; Built by a parent, for families like ours</p>
       </div>
-
-      <p id="su-footer-disclaimer">
-        Content on this site is for informational purposes only and does not constitute medical, legal, or educational advice.
-        Always consult qualified professionals for decisions about your child&rsquo;s care, education, or benefits.
-      </p>
     `;
   }
 
