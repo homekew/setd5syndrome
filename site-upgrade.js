@@ -115,7 +115,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, transparent 35%, rgba(42,98,122,0.10) 100%);
+      background: radial-gradient(ellipse at center, transparent 65%, rgba(42,98,122,0.10) 100%);
       pointer-events: none;
       z-index: 0;
     }
@@ -549,110 +549,28 @@
       align-items: center !important;
     }
 
-    /* ── Unified intro + stats card ─────────────────────────────────── */
-    .intro-unified {
-      background: #FFFFFF !important;
-      border: 2.5px solid #BDD0D6 !important;
-      border-radius: 12px !important;
-      max-width: 760px !important;
-      width: 100% !important;
-      overflow: hidden !important;
-      box-shadow: none !important;
-    }
-
-    /* Intro text inside unified card */
-    .intro-unified .intro-body {
+    /* Intro text */
+    .intro-body {
       font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.925rem !important;
       line-height: 1.75 !important;
       color: #3D3C3B !important;
       text-align: center !important;
       width: 100% !important;
-      max-width: none !important;
-      margin: 0 !important;
-      background: transparent !important;
-      border: none !important;
-      border-bottom: 1px solid rgba(42,98,122,0.10) !important;
-      border-radius: 0 !important;
-      padding: 1.5rem 1.75rem 1.375rem !important;
-      box-shadow: none !important;
-      display: block !important;
-    }
-
-    /* Fallback: standalone .intro-body (no unified card) */
-    .intro-body {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 0.925rem !important;
-      line-height: 1.75 !important;
-      color: #3D3C3B !important;
-      text-align: left !important;
-      width: 100% !important;
       max-width: 760px !important;
       margin: 0 0 1.75rem !important;
-      background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #2a627a !important;
-      border-radius: 0 8px 8px 0 !important;
-      padding: 1.25rem 1.625rem !important;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.08) !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
       display: block !important;
     }
 
-    /* Stats bar inside unified card: flush, full-width flex row */
-    .intro-unified .stats-bar {
-      background: transparent !important;
-      border: none !important;
-      border-radius: 0 !important;
-      max-width: none !important;
+    /* Start-here box in intro section */
+    .intro-bar .start-here {
+      max-width: 760px !important;
       width: 100% !important;
       margin: 0 !important;
-      padding: 0 !important;
-      box-shadow: none !important;
-      display: flex !important;
-    }
-    .intro-unified .stats-bar .stats-bar-item {
-      flex: 1 1 0 !important;
-    }
-
-    /* Fallback: standalone .stats-bar */
-    .stats-bar {
-      background: #FFFFFF !important;
-      border: 1.5px solid #CCDCE0 !important;
-      border-radius: 8px !important;
-      max-width: 560px !important;
-      width: 100% !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.08) !important;
-    }
-
-    .stats-bar-item {
-      padding: 1.375rem 1.5rem !important;
-      border-right: 1px solid rgba(42,98,122,0.10) !important;
-    }
-    .stats-bar-item:last-child {
-      border-right: none !important;
-    }
-
-    /* Individual cell backgrounds */
-    .intro-unified .stats-bar-item { background: rgba(160,125,84,0.10) !important; }
-
-    .stats-bar-num {
-      font-family: 'Spectral', Georgia, serif !important;
-      font-size: 2.125rem !important;
-      font-weight: 700 !important;
-      color: #A07D54 !important;
-      line-height: 1 !important;
-    }
-
-    .stats-bar-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 0.68rem !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.09em !important;
-      text-transform: uppercase !important;
-      color: #A07D54 !important;
-      margin-top: 0.4rem !important;
     }
 
     /* ── Zone 3: Content zone — cards float on near-white ──────── */
@@ -1362,16 +1280,7 @@
   }
 
 
-  /* ─── 2b. WRAP INTRO + STATS INTO UNIFIED CARD ─────────────────────── */
-  const introBody  = document.querySelector('.intro-bar .intro-body');
-  const statsBar   = document.querySelector('.intro-bar .stats-bar');
-  if (introBody && statsBar) {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'intro-unified';
-    introBody.parentNode.insertBefore(wrapper, introBody);
-    wrapper.appendChild(introBody);
-    wrapper.appendChild(statsBar);
-  }
+  /* ─── 2b. (stats bar removed) ───────────────────────────────────────── */
 
 
   /* ─── 2c. RENAME NAV LABEL: Community & Links → Community ───────────── */
