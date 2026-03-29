@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v14
+ * site-upgrade.js  v15
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -471,7 +471,7 @@
     ──────────────────────────────────────────────────────────────── */
     .intro-bar {
       background: #DFD4C3 !important;
-      text-align: left !important;
+      text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
       padding-top: 2.5rem !important;
@@ -479,16 +479,20 @@
       padding-left: max(2rem, calc(50% - 398px)) !important;
       padding-right: max(2rem, calc(50% - 398px)) !important;
       border-bottom: 1px solid #C8BFB0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
     }
 
-    /* Intro text: white card on tan — creates real surface contrast */
+    /* Intro text: white card on tan — centered, full column width */
     .intro-body {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.925rem !important;
       line-height: 1.75 !important;
       color: #4D4C4B !important;
       text-align: left !important;
-      max-width: 620px !important;
+      width: 100% !important;
+      max-width: 760px !important;
       margin: 0 0 1.75rem !important;
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
@@ -499,12 +503,13 @@
       display: block !important;
     }
 
-    /* Stats bar: white on tan — clear separation from hero background */
+    /* Stats bar: white on tan — centered below intro card */
     .stats-bar {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
       border-radius: 8px !important;
-      max-width: 520px !important;
+      max-width: 560px !important;
+      width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
