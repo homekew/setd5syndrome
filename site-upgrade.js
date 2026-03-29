@@ -184,7 +184,7 @@
       background: #FFFFFF !important;
       border-top: none !important;        /* no seam between header and nav */
       border-bottom: 1px solid #E0D9CE !important;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07) !important;
+      box-shadow: none !important;
       position: sticky !important;
       top: 0 !important;
       z-index: 900 !important;
