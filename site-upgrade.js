@@ -133,15 +133,35 @@
        Negative margin-left shifts the whole banner left so the text
        portion (not the compass icon) reads as visually centered.
        Adjust this value if the text needs to shift more or less. */
+    /* Wrapper holds the wordmark + glass circle as a positioned unit */
+    .su-wordmark-wrap {
+      position: relative;
+      display: inline-block;
+      margin-left: -5rem;
+    }
+
     .su-header-wordmark {
       display: block;
       height: 160px;
       width: auto;
       max-width: 100%;
-      margin-left: -5rem;
-      filter:
-        drop-shadow(0 6px 18px rgba(42,98,122,0.22))
-        drop-shadow(0 2px 4px rgba(0,0,0,0.10));
+      margin-left: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Magnifying-glass lens: semi-transparent circle behind compass portion */
+    .su-glass-circle {
+      position: absolute;
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.44);
+      right: 3%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 0;
+      box-shadow: inset 0 1px 6px rgba(255,255,255,0.6), 0 2px 8px rgba(42,98,122,0.12);
     }
 
     /* Visually-hidden h1: present in DOM for screen readers and SEO,
@@ -164,11 +184,11 @@
 
     /* Responsive: mobile wordmark — remove offset on small screens */
     @media (max-width: 640px) {
+      .su-wordmark-wrap { margin-left: 0; }
       .su-header-wordmark {
         height: auto;
         width: 90%;
         max-width: 400px;
-        margin-left: 0;
       }
       header:not(.site-header) .header-hero-inner {
         padding: 1rem 1.25rem 0.875rem !important;
@@ -1414,12 +1434,22 @@
       srH1.textContent = 'The SETD5 Syndrome Companion \u2014 A peer resource for families and caregivers';
       heroInner.appendChild(srH1);
 
+      // Wrapper: positions wordmark + glass circle together
+      const wrap = document.createElement('div');
+      wrap.className = 'su-wordmark-wrap';
+      heroInner.appendChild(wrap);
+
+      // Glass circle: sits behind the compass portion of the wordmark
+      const glassCircle = document.createElement('div');
+      glassCircle.className = 'su-glass-circle';
+      wrap.appendChild(glassCircle);
+
       // Wordmark: single designed banner replacing logo + title + subtitle
       const wordmark = document.createElement('img');
       wordmark.src = '/IMG_1238.png';
       wordmark.alt = 'The SETD5 Syndrome Companion \u2014 A peer resource for families and caregivers';
       wordmark.className = 'su-header-wordmark';
-      heroInner.appendChild(wordmark);
+      wrap.appendChild(wordmark);
     }
   }
 
