@@ -87,7 +87,23 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: #FFFFFF !important;
+      background:
+        repeating-linear-gradient(
+          60deg,
+          rgba(160,125,84,0.06) 0px, rgba(160,125,84,0.06) 1px,
+          transparent 1px, transparent 40px
+        ),
+        repeating-linear-gradient(
+          -60deg,
+          rgba(160,125,84,0.06) 0px, rgba(160,125,84,0.06) 1px,
+          transparent 1px, transparent 40px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(160,125,84,0.04) 0px, rgba(160,125,84,0.04) 1px,
+          transparent 1px, transparent 40px
+        ),
+        #FFFFFF !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
