@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v15
+ * site-upgrade.js  v16
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -46,17 +46,32 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap');
 
-    /* ── HOME PAGE HEADER ONLY: white surface, shadow ───────────────────
-       Scoped to header:not(.site-header) so interior pages (which use
-       <header class="site-header">) are completely untouched.
-    ──────────────────────────────────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════════
+       UNIFIED HEADER SYSTEM
+       ─────────────────────────────────────────────────────────────
+       The header (title area) and nav (link strip) are separate HTML
+       elements but must read as a single designed surface. Strategy:
+
+       • 3px blue accent stripe at the very top of the header — structural
+         entry point, the only non-white element in the header block.
+       • No border between header and nav — they share one continuous
+         white surface. The seam is replaced by a ghost hairline inside
+         the nav-inner that reads as internal articulation, not division.
+       • Single shadow lives on the nav — one drop at the bottom of the
+         combined unit, lifting the whole block off the page.
+       • Title hierarchy tightened: h1 dominates, subtitle becomes a
+         clearly subordinate eyebrow label at reduced weight and size.
+    ═══════════════════════════════════════════════════════════════ */
+
+    /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
       background: #FFFFFF !important;
       color: #5D5646 !important;
       text-align: left !important;
-      padding: 1.375rem 0 !important;
-      border-bottom: 1px solid #D4CCBF !important;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.055) !important;
+      padding: 0 !important;              /* inner handles all spacing */
+      border-top: 3px solid #3E5974 !important;   /* structural anchor */
+      border-bottom: none !important;     /* no seam — merges with nav */
+      box-shadow: none !important;        /* shadow lives on nav bottom */
       position: relative;
       z-index: 10;
     }
@@ -65,37 +80,37 @@
       max-width: 1160px !important;
       display: flex !important;
       align-items: center !important;
-      gap: 1.5rem !important;
-      padding: 0 2rem !important;
+      gap: 1.25rem !important;
+      padding: 1.125rem 2rem 1rem !important;   /* slightly tighter vertical */
       margin: 0 auto !important;
     }
 
-    /* Logo */
+    /* Logo: balanced against the title weight */
     .su-header-logo {
       flex-shrink: 0;
-      height: 82px;
-      width: 82px;
+      height: 72px;
+      width: 72px;
       object-fit: contain;
-      margin-top: 2px;
     }
 
     .su-header-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      line-height: 1;
+      gap: 0;
     }
 
-    /* Site title: Spectral, deep brown — home page h1 only */
+    /* Site title: Spectral, dominant — unchanged font/color, refined sizing */
     header:not(.site-header) h1,
     header:not(.site-header) h1 a {
       font-family: 'Spectral', Georgia, serif !important;
       color: #5D5646 !important;
-      font-size: 2rem !important;
+      font-size: 1.875rem !important;
       font-weight: 700 !important;
-      letter-spacing: -0.015em !important;
+      letter-spacing: -0.02em !important;
       line-height: 1.1 !important;
       text-shadow: none !important;
+      margin: 0 !important;
     }
 
     /* Hide original em on home page only — subtitle replaced by span */
@@ -103,17 +118,19 @@
       display: none !important;
     }
 
-    /* Subtitle: Public Sans label, warm accent */
+    /* Subtitle: clearly secondary — smaller, wider tracking, lower weight.
+       Reads as an eyebrow label beneath the title, not a co-equal element. */
     .su-site-subtitle {
       display: block;
       font-family: 'Public Sans', system-ui, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.155em;
       text-transform: uppercase;
       color: #A07D54;
       margin-top: 0.5rem;
       line-height: 1;
+      opacity: 0.82;   /* slightly receded — subordinate to title */
     }
 
     /* Home page decorative elements to remove */
@@ -122,22 +139,27 @@
 
     /* Responsive: mobile header layout */
     @media (max-width: 640px) {
-      .su-header-logo { height: 56px; width: 56px; }
-      header:not(.site-header) h1 { font-size: 1.4rem !important; }
+      .su-header-logo { height: 52px; width: 52px; }
+      header:not(.site-header) h1 { font-size: 1.35rem !important; }
       header:not(.site-header) .header-hero-inner {
-        gap: 1rem !important;
-        padding: 0 1.25rem !important;
+        gap: 0.875rem !important;
+        padding: 0.875rem 1.25rem 0.75rem !important;
       }
-      .su-site-subtitle { font-size: 0.65rem; }
+      .su-site-subtitle { font-size: 0.575rem; letter-spacing: 0.13em; }
     }
 
 
-    /* ── NAV: editorial, restrained, text-only ──────────────────────────── */
+    /* ── NAV: completes the unified header block ──────────────────────────
+       No top border — the nav surface continues directly from the header.
+       Internal hairline added inside nav-inner for subtle articulation.
+       Shadow lives here, anchoring the full header block to the page.
+    ──────────────────────────────────────────────────────────────────── */
 
     .site-nav {
       background: #FFFFFF !important;
-      border-top: 1px solid #DFD4C3 !important;
-      border-bottom: 1px solid #DFD4C3 !important;
+      border-top: none !important;        /* no seam between header and nav */
+      border-bottom: 1px solid #E0D9CE !important;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07) !important;
       /* Intentionally NOT overriding position or z-index:
          original is position:sticky; top:0; z-index:900 — keep that intact */
     }
@@ -147,12 +169,14 @@
        ─────────────────────────────────────────────────────────── */
     @media (min-width: 769px) {
       .site-nav .site-nav-inner {
-        height: 46px !important;
-        min-height: 46px !important;
+        height: 40px !important;         /* slightly slimmer — more editorial */
+        min-height: 40px !important;
         max-width: 1160px !important;
         padding: 0 2rem !important;
         justify-content: flex-start !important;
         margin: 0 auto !important;
+        /* Ghost hairline: internal articulation, not a structural divide */
+        border-top: 1px solid rgba(212, 204, 191, 0.55) !important;
       }
 
       .nav-menu {
@@ -171,7 +195,7 @@
         box-shadow: none !important;
       }
 
-      /* Desktop link: horizontal pill-free tab style */
+      /* Desktop link: editorial underline-only active state, no pill/box */
       .nav-menu > a {
         display: flex !important;
         align-items: center !important;
@@ -183,7 +207,7 @@
         background: transparent !important;
         box-shadow: none !important;
         width: auto !important;
-        font-size: 0.78rem !important;
+        font-size: 0.75rem !important;   /* refined, slightly tighter */
       }
 
       .nav-menu > a.su-active {
@@ -197,7 +221,7 @@
     /* Shrink link padding at intermediate widths before hamburger kicks in */
     @media (min-width: 769px) and (max-width: 920px) {
       .nav-menu > a {
-        font-size: 0.72rem !important;
+        font-size: 0.7rem !important;
         padding: 0 0.45rem !important;
       }
       .nav-menu > a.su-active {
@@ -682,15 +706,18 @@
        All interior pages use this header class; homepage does not.
     ═══════════════════════════════════════════════════════════════ */
 
-    /* ── Interior header: white surface matching homepage header ── */
+    /* ── Interior header: same unified treatment as homepage header ──
+       Blue top stripe, no bottom seam, no shadow (shadow is on nav).
+    ──────────────────────────────────────────────────────────────── */
     header.site-header {
       background: #FFFFFF !important;
-      border-bottom: 1px solid #D4CCBF !important;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.055) !important;
+      border-top: 3px solid #3E5974 !important;  /* matches homepage accent */
+      border-bottom: none !important;             /* merges with nav below */
+      box-shadow: none !important;                /* shadow lives on nav */
       position: sticky !important;
       top: 0 !important;
       z-index: 920 !important;
-      padding: 1.375rem 0 !important;
+      padding: 1.125rem 0 0.875rem !important;    /* slightly tighter */
     }
 
     header.site-header .header-inner {
