@@ -1,13 +1,13 @@
 /**
- * site-upgrade.js  v99
+ * site-upgrade.js  v100
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
  *
  *   Design tokens (The Counsel):
  *   ┌────────────────────────────────────────────────────┐
- *   │ Midnight Indigo  #1E2D4F   nav, headings, btns     │
- *   │ Steel Indigo     #455C7C   labels, links, chips     │
+ *   │ Midnight Indigo  #1E3A4F   nav, headings, btns     │
+ *   │ Steel Indigo     #456A7C   labels, links, chips     │
  *   │ Antique Gold     #9E7E42   accent, active, CTA      │
  *   │ Gold Dark        #7A6535   hover dark accent         │
  *   │ Cream            #F5F4F1   page bg, hero bg          │
@@ -40,7 +40,7 @@
 
   const css = `
 
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
     /* ═══════════════════════════════════════════════════════════════
        CSS VARIABLE REMAPPING
@@ -51,13 +51,13 @@
        the new palette without needing individual element overrides.
     ═══════════════════════════════════════════════════════════════ */
     :root {
-      --navy:      #1E2D4F;   /* was #162544 dark navy  → midnight indigo  */
-      --charcoal:  #1E2D4F;   /* alias used on some pages                  */
-      --teal:      #455C7C;   /* was #C2DED8 pale teal  → steel indigo     */
+      --navy:      #1E3A4F;   /* was #162544 dark navy  → midnight indigo  */
+      --charcoal:  #1E3A4F;   /* alias used on some pages                  */
+      --teal:      #456A7C;   /* was #C2DED8 pale teal  → steel indigo     */
       --teal-lt:   #C5CDD6;   /* light teal bg          → steel tint       */
-      --sage:      #455C7C;   /* sage accent            → steel indigo     */
+      --sage:      #456A7C;   /* sage accent            → steel indigo     */
       --sage-lt:   #C5CDD6;   /* sage light bg          → steel tint       */
-      --sage-mid:  #455C7C;   /* sage mid border        → steel indigo     */
+      --sage-mid:  #456A7C;   /* sage mid border        → steel indigo     */
       --amber:     #9E7E42;   /* warm amber             → antique gold     */
     }
 
@@ -128,7 +128,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #455C7C;
+      color: #456A7C;
       background: #E8E6DF;
       border: 1px solid #D0CCC2;
       border-radius: 100px;
@@ -138,10 +138,10 @@
 
     /* ── Hero H1 ── */
     .su-hero-h1 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: clamp(2rem, 4vw, 2.75rem) !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
       margin: 0 0 1rem !important;
@@ -180,17 +180,17 @@
       display: inline-flex;
       align-items: center;
       padding: 0.6875rem 1.375rem;
-      background: #1E2D4F !important;
+      background: #1E3A4F !important;
       color: #FFFFFF !important;
-      border: 2px solid #1E2D4F !important;
+      border: 2px solid #1E3A4F !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s, border-color 0.15s;
     }
 
     .su-btn-primary:hover {
-      background: #16243F !important;
-      border-color: #16243F !important;
+      background: #163043 !important;
+      border-color: #163043 !important;
       color: #FFFFFF !important;
     }
 
@@ -240,7 +240,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-nav {
-      background: #1E2D4F !important;
+      background: #1E3A4F !important;
       border-top: none !important;
       border-bottom: 1px solid rgba(255,255,255,0.08) !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
@@ -251,7 +251,7 @@
 
     /* ── Text logo ── */
     .su-nav-logo {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       font-weight: 700 !important;
       color: #FFFFFF !important;
@@ -431,7 +431,7 @@
       }
 
       .nav-menu > a:hover {
-        color: #1E2D4F !important;
+        color: #1E3A4F !important;
         background: #F5F4F1 !important;
       }
     }
@@ -442,7 +442,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-footer {
-      background: #1E2D4F !important;
+      background: #1E3A4F !important;
       padding: 0 !important;
       text-align: left !important;
       border-top: none !important;
@@ -470,7 +470,7 @@
     }
 
     .su-footer-brand-name {
-      font-family: 'Libre Baskerville', Georgia, serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: #FFFFFF;
@@ -667,10 +667,10 @@
     }
 
     .card h2 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.05rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.3 !important;
       margin-bottom: 0.5rem !important;
     }
@@ -718,7 +718,7 @@
     }
     .back-btn,
     .restart-btn {
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
     }
 
     .card-link:focus-visible {
@@ -732,7 +732,7 @@
 
     .featured-badge {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      background: #455C7C !important;
+      background: #456A7C !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
@@ -748,7 +748,7 @@
 
     .start-here-text strong {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
     }
 
     .start-here-text p {
@@ -758,12 +758,12 @@
 
     .start-here-btn {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      background: #1E2D4F !important;
+      background: #1E3A4F !important;
       color: #FFFFFF !important;
     }
 
     .start-here-btn:hover {
-      background: #16243F !important;
+      background: #163043 !important;
       color: #FFFFFF !important;
     }
 
@@ -774,7 +774,7 @@
 
     /* Main content links */
     main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
-      color: #455C7C !important;
+      color: #456A7C !important;
     }
 
     .card-link i,
@@ -849,16 +849,16 @@
     }
 
     .header-eyebrow a:hover {
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       text-decoration: underline !important;
     }
 
     /* Page title */
     .header-title {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
       text-shadow: none !important;
@@ -885,8 +885,8 @@
       font-size: 0.67rem !important;
       font-weight: 600 !important;
       background: #C5CDD6 !important;
-      color: #455C7C !important;
-      border: 1px solid #455C7C !important;
+      color: #456A7C !important;
+      border: 1px solid #456A7C !important;
       border-radius: 4px !important;
     }
 
@@ -952,10 +952,10 @@
     /* Interior page content typography */
     .page-body h2,
     .page-main h2 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 2rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
@@ -965,10 +965,10 @@
 
     .page-body h3,
     .page-main h3 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.35rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -984,7 +984,7 @@
 
     .page-body a,
     .page-main a {
-      color: #455C7C !important;
+      color: #456A7C !important;
     }
 
     .page-body ul li,
@@ -1028,7 +1028,7 @@
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
     .intro-box strong {
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
@@ -1037,10 +1037,10 @@
     .page-content h2,
     .page-body h2,
     .page-main h2 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 2rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
@@ -1052,10 +1052,10 @@
     .page-content h3,
     .page-body h3,
     .page-main h3 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.35rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -1065,10 +1065,10 @@
     .page-content h4,
     .page-body h4,
     .page-main h4 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.975rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
       line-height: 1.3 !important;
       margin-top: 1.25rem !important;
       margin-bottom: 0.375rem !important;
@@ -1092,7 +1092,7 @@
 
     /* ── Dark-background sections (about.html bg-story) ── */
     .bg-story {
-      background: #1E2D4F !important;
+      background: #1E3A4F !important;
     }
     .bg-story h2,
     .bg-story .section-tag {
@@ -1196,10 +1196,10 @@
     .feature-card.blue-top  { border-top-color: #9E7E42 !important; }
 
     .feature-card h4 {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #1E2D4F !important;
+      color: #1E3A4F !important;
     }
 
     .feature-card li,
@@ -1223,8 +1223,8 @@
     }
 
     .section-title {
-      font-family: 'Libre Baskerville', Georgia, serif !important;
-      color: #1E2D4F !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      color: #1E3A4F !important;
     }
 
     .symptom-pill {
@@ -1377,7 +1377,7 @@
     Object.assign(intlNote.style, {
       background: '#FFFFFF',
       border: '1px solid #D0CCC2',
-      borderLeft: '3px solid #455C7C',
+      borderLeft: '3px solid #456A7C',
       borderRadius: '8px',
       color: '#1C1B18',
       fontSize: '1rem',
@@ -1386,7 +1386,7 @@
       boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
     });
     const strong = intlNote.querySelector('strong');
-    if (strong) strong.style.color = '#1E2D4F';
+    if (strong) strong.style.color = '#1E3A4F';
   }
 
 
