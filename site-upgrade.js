@@ -89,11 +89,12 @@
     header:not(.site-header) {
       background:
         linear-gradient(145deg, rgba(255,255,255,0.52) 0%, rgba(255,255,255,0.28) 100%),
-        radial-gradient(ellipse 80% 130% at 4% 40%,  rgba(160,125,84,0.32)  0%, transparent 72%),
-        radial-gradient(ellipse 75% 120% at 92% 65%, rgba(98,146,158,0.30)  0%, transparent 70%),
-        radial-gradient(ellipse 45% 70%  at 62% 12%, rgba(42,98,122,0.14)   0%, transparent 65%),
-        radial-gradient(ellipse 40% 60%  at 30% 92%, rgba(42,98,122,0.09)   0%, transparent 62%),
-        radial-gradient(ellipse 55% 50%  at 98% 95%, rgba(160,125,84,0.18)  0%, transparent 65%),
+        radial-gradient(ellipse 75% 120% at 5%  42%,  rgba(160,125,84,0.26)  0%, transparent 70%),
+        radial-gradient(ellipse 55% 90%  at 72% 22%,  rgba(98,146,158,0.16)  0%, transparent 68%),
+        radial-gradient(ellipse 50% 80%  at 95% 68%,  rgba(160,125,84,0.18)  0%, transparent 68%),
+        radial-gradient(ellipse 48% 75%  at 38% 90%,  rgba(98,146,158,0.15)  0%, transparent 65%),
+        radial-gradient(ellipse 35% 55%  at 22% 12%,  rgba(98,146,158,0.12)  0%, transparent 62%),
+        radial-gradient(ellipse 30% 50%  at 58% 80%,  rgba(160,125,84,0.12)  0%, transparent 60%),
         #fafafa !important;
       color: #5D5646 !important;
       text-align: left !important;
