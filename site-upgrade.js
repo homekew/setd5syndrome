@@ -560,10 +560,7 @@
       max-width: 760px !important;
       width: 100% !important;
       overflow: hidden !important;
-      box-shadow:
-        0 2px 6px rgba(42,98,122,0.09),
-        0 10px 30px rgba(0,0,0,0.07),
-        inset 0 1px 0 rgba(255,255,255,0.95) !important;
+      box-shadow: none !important;
     }
 
     /* Intro text inside unified card */
