@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v19
+ * site-upgrade.js  v20
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -22,7 +22,7 @@
  *   - Stats: white-on-tan creates real contrast
  *   - Intro card: white-on-tan with blue left border
  *   - International note: restyled to palette via DOM
- *   - Accent #3E5974 consistently on all interactive elements
+ *   - Accent #2a627a consistently on all interactive elements
  */
 
 (function () {
@@ -35,7 +35,7 @@
      --heading:     #5D5646   primary heading
      --body:        #4D4C4B   body / UI text
      --muted:       #7A756D   secondary labels, meta
-     --accent-blue: #3E5974   interaction: links, active states, buttons, focus
+     --accent-blue: #2a627a   interaction: links, active states, buttons, focus
      --accent-warm: #A07D54   warm accent: labels, tags, subtitle, section marks
      --border:      #D4CCBF   card and section borders
   ────────────────────────────────────────────────────────────────────────── */
@@ -43,10 +43,7 @@
 
   /* ─── 1. INJECT STYLES ───────────────────────────────────────────────── */
 
-  /* Header wash: Wash 2 diagonal (rose → cream → teal → blue) from logo colors
-     + SVG fractalNoise paper grain at ~4% opacity, tiling at 200px.
-     Defined once, reused on homepage header, interior header, and nav strip. */
-  const WASH = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") 0 0 / 200px 200px repeat, linear-gradient(130deg, #FBF1F0 0%, #F8F4EF 30%, #EDF4F5 65%, #ECF1F6 100%)`;
+  /* Header background: clean white surface for header and nav. */
 
   const css = `
 
@@ -71,11 +68,11 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: ${WASH} !important;
+      background: #FFFFFF !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
-      border-top: 3px solid #3E5974 !important;   /* structural anchor */
+      border-top: 3px solid #2a627a !important;   /* structural anchor */
       border-bottom: none !important;     /* no seam — merges with nav */
       box-shadow: none !important;        /* shadow lives on nav bottom */
       position: relative;
@@ -106,13 +103,13 @@
       gap: 0;
     }
 
-    /* Site title: Spectral, dominant — unchanged font/color, refined sizing */
+    /* Site title: Spectral, hero scale */
     header:not(.site-header) h1,
     header:not(.site-header) h1 a {
       font-family: 'Spectral', Georgia, serif !important;
       color: #5D5646 !important;
-      font-size: 1.875rem !important;
-      font-weight: 700 !important;
+      font-size: 3.2rem !important;
+      font-weight: 600 !important;
       letter-spacing: -0.02em !important;
       line-height: 1.1 !important;
       text-shadow: none !important;
@@ -129,14 +126,14 @@
     .su-site-subtitle {
       display: block;
       font-family: 'Public Sans', system-ui, sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.155em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #A07D54;
+      color: #5a9186;
       margin-top: 0.5rem;
       line-height: 1;
-      opacity: 0.82;   /* slightly receded — subordinate to title */
+      opacity: 0.9;
     }
 
     /* Home page decorative elements to remove */
@@ -146,12 +143,12 @@
     /* Responsive: mobile header layout */
     @media (max-width: 640px) {
       .su-header-logo { height: 52px; width: 52px; }
-      header:not(.site-header) h1 { font-size: 1.35rem !important; }
+      header:not(.site-header) h1 { font-size: 2rem !important; }
       header:not(.site-header) .header-hero-inner {
         gap: 0.875rem !important;
         padding: 0.875rem 1.25rem 0.75rem !important;
       }
-      .su-site-subtitle { font-size: 0.575rem; letter-spacing: 0.13em; }
+      .su-site-subtitle { font-size: 0.65rem; letter-spacing: 0.12em; }
     }
 
 
@@ -162,7 +159,7 @@
     ──────────────────────────────────────────────────────────────────── */
 
     .site-nav {
-      background: ${WASH} !important;
+      background: #FFFFFF !important;
       border-top: none !important;        /* no seam between header and nav */
       border-bottom: 1px solid #E0D9CE !important;
       box-shadow: 0 2px 16px rgba(0,0,0,0.07) !important;
@@ -216,11 +213,11 @@
         background: transparent !important;
         box-shadow: none !important;
         width: auto !important;
-        font-size: 0.75rem !important;   /* refined, slightly tighter */
+        font-size: 0.93rem !important;
       }
 
       .nav-menu > a.su-active {
-        border-bottom-color: #3E5974 !important;
+        border-bottom-color: #2a627a !important;
         border-left-color: transparent !important;
         padding-left: 0.75rem !important;
         background: transparent !important;
@@ -230,11 +227,11 @@
     /* Shrink link padding at intermediate widths before hamburger kicks in */
     @media (min-width: 640px) and (max-width: 920px) {
       .nav-menu > a {
-        font-size: 0.7rem !important;
-        padding: 0 0.45rem !important;
+        font-size: 0.8rem !important;
+        padding: 0 0.5rem !important;
       }
       .nav-menu > a.su-active {
-        padding-left: 0.45rem !important;
+        padding-left: 0.5rem !important;
       }
     }
 
@@ -250,17 +247,17 @@
     }
 
     .nav-menu > a:hover {
-      color: #3E5974 !important;
+      color: #2a627a !important;
       text-decoration: none !important;
     }
 
     .nav-menu > a.su-active {
-      color: #3E5974 !important;
+      color: #2a627a !important;
       font-weight: 600 !important;
     }
 
     .nav-menu > a:focus-visible {
-      outline: 2px solid #3E5974 !important;
+      outline: 2px solid #2a627a !important;
       outline-offset: -2px;
     }
 
@@ -300,7 +297,7 @@
         height: auto !important;
         width: 100% !important;
         padding: 0.875rem 1.5rem !important;
-        font-size: 0.875rem !important;
+        font-size: 0.93rem !important;
         font-weight: 500 !important;
         color: #4D4C4B !important;
         border-bottom: 1px solid #DFD4C3 !important;
@@ -313,16 +310,16 @@
 
       /* Active state: left border instead of bottom border */
       .nav-menu > a.su-active {
-        color: #3E5974 !important;
+        color: #2a627a !important;
         font-weight: 600 !important;
-        border-left-color: #3E5974 !important;
+        border-left-color: #2a627a !important;
         border-bottom-color: #DFD4C3 !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
 
       /* Hover */
       .nav-menu > a:hover {
-        color: #3E5974 !important;
+        color: #2a627a !important;
         background: #F8F6F2 !important;
       }
     }
@@ -348,7 +345,7 @@
 
     .su-footer-col h4 {
       font-family: 'Public Sans', system-ui, sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -370,11 +367,11 @@
 
     .su-footer-brand-tag {
       font-family: 'Public Sans', system-ui, sans-serif;
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.09em;
-      color: #A07D54;
+      color: #5a9186;
       display: block;
       margin-bottom: 0.875rem;
     }
@@ -407,7 +404,7 @@
     }
 
     .su-footer-col ul li a:hover {
-      color: #3E5974;
+      color: #2a627a;
     }
 
     #su-footer-translate {
@@ -529,7 +526,7 @@
       margin: 0 0 1.75rem !important;
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #3E5974 !important;
+      border-left: 3px solid #2a627a !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
@@ -561,13 +558,13 @@
       font-family: 'Spectral', Georgia, serif !important;
       font-size: 1.875rem !important;
       font-weight: 700 !important;
-      color: #3E5974 !important;
+      color: #5a9186 !important;
       line-height: 1 !important;
     }
 
     .stats-bar-label {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      font-size: 0.62rem !important;
+      font-size: 0.72rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.09em !important;
       text-transform: uppercase !important;
@@ -580,12 +577,12 @@
       background: #EEEAE2 !important;
     }
 
-    /* Section label: warm accent + rule that extends to right edge */
+    /* Section label / eyebrow: warm accent + rule that extends to right edge */
     .guides-label {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      font-size: 0.62rem !important;
+      font-size: 0.75rem !important;
       font-weight: 700 !important;
-      letter-spacing: 0.13em !important;
+      letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
       color: #A07D54 !important;
       margin-bottom: 1.375rem !important;
@@ -594,7 +591,7 @@
     /* Cards: white on linen — the contrast is real and intentional.
        Stronger shadow than v8 so cards genuinely float off the surface. */
     .card {
-      --card-accent: #3E5974;
+      --card-accent: #2a627a;
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
@@ -607,16 +604,16 @@
       border-color: #C2B9AC !important;
     }
 
-    /* Card top accent stripe: warm accent, consistent across all cards */
+    /* Card top accent stripe: teal accent */
     .card::before {
-      background: #A07D54 !important;
+      background: #5a9186 !important;
       height: 3px !important;
     }
 
     /* Card headings: Spectral, deep brown — clear hierarchy */
     .card h2 {
       font-family: 'Spectral', Georgia, serif !important;
-      font-size: 1.1rem !important;
+      font-size: 1.05rem !important;
       font-weight: 600 !important;
       color: #5D5646 !important;
       line-height: 1.3 !important;
@@ -631,23 +628,23 @@
       line-height: 1.65 !important;
     }
 
-    /* Card link button: #3E5974 blue — the one interaction signal */
+    /* Card link button: #2a627a blue — the one interaction signal */
     .card-link {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.775rem !important;
       font-weight: 600 !important;
-      color: #3E5974 !important;
-      border: 1.5px solid #3E5974 !important;
+      color: #2a627a !important;
+      border: 1.5px solid #2a627a !important;
       letter-spacing: 0.01em !important;
     }
 
     .card:hover .card-link {
-      background: #3E5974 !important;
+      background: #2a627a !important;
       color: #FFFFFF !important;
     }
 
     .card-link:focus-visible {
-      outline: 2px solid #3E5974 !important;
+      outline: 2px solid #2a627a !important;
       outline-offset: 2px !important;
     }
 
@@ -656,10 +653,10 @@
       background: #FFFFFF !important;
     }
 
-    /* Featured badge: warm accent */
+    /* Featured badge: teal accent */
     .featured-badge {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      background: #A07D54 !important;
+      background: #5a9186 !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
@@ -668,7 +665,7 @@
     .start-here {
       background: #FFFFFF !important;
       border-color: #D4CCBF !important;
-      border-left-color: #3E5974 !important;
+      border-left-color: #2a627a !important;
       border-left-width: 3px !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
     }
@@ -685,7 +682,7 @@
 
     .start-here-btn {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      background: #3E5974 !important;
+      background: #2a627a !important;
     }
 
     .start-here-btn:hover {
@@ -693,13 +690,13 @@
     }
 
     .start-here-btn:focus-visible {
-      outline: 2px solid #3E5974 !important;
+      outline: 2px solid #2a627a !important;
       outline-offset: 2px !important;
     }
 
     /* ── Main content typography ── */
     main a:not(.card):not(.card-link):not(.start-here-btn) {
-      color: #3E5974 !important;
+      color: #2a627a !important;
     }
 
     main p,
@@ -719,8 +716,8 @@
        Blue top stripe, no bottom seam, no shadow (shadow is on nav).
     ──────────────────────────────────────────────────────────────── */
     header.site-header {
-      background: ${WASH} !important;
-      border-top: 3px solid #3E5974 !important;  /* matches homepage accent */
+      background: #FFFFFF !important;
+      border-top: 3px solid #2a627a !important;  /* matches homepage accent */
       border-bottom: none !important;             /* merges with nav below */
       box-shadow: none !important;                /* shadow lives on nav */
       position: sticky !important;
@@ -782,14 +779,14 @@
       margin: 0 !important;
     }
 
-    /* Meta chips: blue-tinted */
+    /* Meta chips: teal-tinted */
     .meta-chip {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
-      background: #EBF0F5 !important;
-      color: #3E5974 !important;
-      border: 1px solid #C5D3DF !important;
+      background: #EAF4F2 !important;
+      color: #5a9186 !important;
+      border: 1px solid #B8D8D4 !important;
       border-radius: 4px !important;
     }
 
@@ -805,12 +802,17 @@
       border-radius: 8px !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
       padding: 1.25rem 0 !important;
+      /* Fix sticky positioning: account for sticky header + nav height (~155px)
+         so the sidebar doesn't hide behind the header when position:sticky fires. */
+      top: 155px !important;
+      max-height: calc(100vh - 155px) !important;
+      overflow-y: auto !important;
     }
 
     /* Sidebar heading: warm accent label */
     .sidebar-hd {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      font-size: 0.6rem !important;
+      font-size: 0.72rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
@@ -838,7 +840,7 @@
     }
 
     .sidebar-link:hover {
-      color: #3E5974 !important;
+      color: #2a627a !important;
       background: #F4F1EC !important;
     }
 
@@ -846,9 +848,9 @@
     .sidebar-link.active,
     .sidebar-link[aria-current],
     .sidebar-link[aria-selected="true"] {
-      color: #3E5974 !important;
+      color: #2a627a !important;
       font-weight: 600 !important;
-      border-left-color: #3E5974 !important;
+      border-left-color: #2a627a !important;
       background: #EBF0F5 !important;
       padding-left: calc(1.125rem - 3px) !important;
     }
@@ -857,7 +859,7 @@
     .page-body h2,
     .page-main h2 {
       font-family: 'Spectral', Georgia, serif !important;
-      font-size: 1.35rem !important;
+      font-size: 2rem !important;
       font-weight: 600 !important;
       color: #5D5646 !important;
       line-height: 1.25 !important;
@@ -870,7 +872,7 @@
     .page-body h3,
     .page-main h3 {
       font-family: 'Spectral', Georgia, serif !important;
-      font-size: 1.1rem !important;
+      font-size: 1.35rem !important;
       font-weight: 600 !important;
       color: #5D5646 !important;
       line-height: 1.3 !important;
@@ -881,14 +883,14 @@
     .page-body p,
     .page-main p {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      font-size: 0.9375rem !important;
+      font-size: 1rem !important;
       line-height: 1.75 !important;
       color: #4D4C4B !important;
     }
 
     .page-body a,
     .page-main a {
-      color: #3E5974 !important;
+      color: #2a627a !important;
     }
 
     .page-body ul li,
@@ -896,7 +898,7 @@
     .page-main ul li,
     .page-main ol li {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      font-size: 0.9375rem !important;
+      font-size: 1rem !important;
       line-height: 1.7 !important;
       color: #4D4C4B !important;
     }
@@ -908,7 +910,7 @@
     .page-main .callout {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #3E5974 !important;
+      border-left: 3px solid #2a627a !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
@@ -925,14 +927,14 @@
     .teal-callout {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #3E5974 !important;
+      border-left: 3px solid #2a627a !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
 
     .teal-callout .callout-label {
-      color: #3E5974 !important;
+      color: #2a627a !important;
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -999,8 +1001,8 @@
 
     .feature-card.amber-top { border-top-color: #A07D54 !important; }
     .feature-card.rose-top  { border-top-color: #A07D54 !important; }
-    .feature-card.sage-top  { border-top-color: #3E5974 !important; }
-    .feature-card.blue-top  { border-top-color: #3E5974 !important; }
+    .feature-card.sage-top  { border-top-color: #5a9186 !important; }
+    .feature-card.blue-top  { border-top-color: #2a627a !important; }
 
     .feature-card h4 {
       font-family: 'Spectral', Georgia, serif !important;
@@ -1019,8 +1021,11 @@
     /* Section labels in page content */
     .section-label {
       font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
       color: #7A756D !important;
       letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
     }
 
     .section-label::before {
@@ -1043,8 +1048,8 @@
 
     .symptom-pill:hover,
     .symptom-pill.active {
-      background: #3E5974 !important;
-      border-color: #3E5974 !important;
+      background: #2a627a !important;
+      border-color: #2a627a !important;
       color: #FFFFFF !important;
     }
 
@@ -1055,7 +1060,7 @@
     }
 
     .symptom-search:focus {
-      border-color: #3E5974 !important;
+      border-color: #2a627a !important;
     }
 
     /* Stat boxes in content area */
@@ -1080,9 +1085,9 @@
 
     .tab-btn.active,
     .tab-btn[aria-selected="true"] {
-      color: #3E5974 !important;
+      color: #2a627a !important;
       font-weight: 600 !important;
-      border-bottom-color: #3E5974 !important;
+      border-bottom-color: #2a627a !important;
     }
   `;
 
@@ -1183,24 +1188,28 @@
 
 
   /* ─── 4. RESTYLE INTERNATIONAL NOTE ─────────────────────────────────── */
-  // The international note has inline styles from the old palette.
-  // Target it via JS so we can override inline styles cleanly.
-  const intlNote = document.querySelector('main div[style*="sage-lt"], main div[style*="e8f4f2"], main div[style*="E4F0EE"]');
+  // The note has inline styles from the old palette. Selector does not use
+  // 'main' prefix because some pages have no <main> element.
+  const intlNote = document.querySelector('div[style*="sage-lt"], div[style*="e8f4f2"], div[style*="E4F0EE"], div[style*="eaf5f3"]');
   if (intlNote) {
     Object.assign(intlNote.style, {
       background: '#FFFFFF',
       border: '1px solid #D4CCBF',
-      borderLeft: '3px solid #A07D54',
+      borderLeft: '3px solid #5a9186',
       borderRadius: '8px',
       color: '#4D4C4B',
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: '1.7',
       fontFamily: "'Public Sans', system-ui, sans-serif",
       boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
     });
-    // Restyle the strong tag inside
     const strong = intlNote.querySelector('strong');
     if (strong) strong.style.color = '#5D5646';
+    // Update translate widget location reference — widget is now in the footer
+    intlNote.innerHTML = intlNote.innerHTML.replace(
+      /in the top corner of most pages/gi,
+      'in the footer of each page'
+    );
   }
 
 
@@ -1218,9 +1227,6 @@
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
           <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome. Built by a parent, for families like ours.</p>
-          <ul>
-            <li><a href="mailto:info@setd5syndrome.live">info@setd5syndrome.live</a></li>
-          </ul>
         </div>
 
         <div class="su-footer-col">
