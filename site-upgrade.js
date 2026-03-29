@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v93
+ * site-upgrade.js  v94
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -1363,23 +1363,6 @@
       sub.textContent = 'Plain-language guides for families navigating SETD5 Syndrome \u2014 built by a parent, for families like ours.';
       heroInner.appendChild(sub);
 
-      // Button row
-      const btns = document.createElement('div');
-      btns.className = 'su-hero-btns';
-
-      const btnPrimary = document.createElement('a');
-      btnPrimary.href = 'index.html';
-      btnPrimary.className = 'su-btn-primary';
-      btnPrimary.textContent = 'Explore the guides';
-
-      const btnSecondary = document.createElement('a');
-      btnSecondary.href = 'about.html';
-      btnSecondary.className = 'su-btn-secondary';
-      btnSecondary.textContent = 'About this site';
-
-      btns.appendChild(btnPrimary);
-      btns.appendChild(btnSecondary);
-      heroInner.appendChild(btns);
     }
   }
 
