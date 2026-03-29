@@ -1,13 +1,13 @@
 /**
- * site-upgrade.js  v103
+ * site-upgrade.js  v99
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
  *
  *   Design tokens (The Counsel):
  *   ┌────────────────────────────────────────────────────┐
- *   │ Midnight Indigo  #1E3A4F   nav, headings, btns     │
- *   │ Steel Indigo     #456A7C   labels, links, chips     │
+ *   │ Midnight Indigo  #1E2D4F   nav, headings, btns     │
+ *   │ Steel Indigo     #455C7C   labels, links, chips     │
  *   │ Antique Gold     #9E7E42   accent, active, CTA      │
  *   │ Gold Dark        #7A6535   hover dark accent         │
  *   │ Cream            #F5F4F1   page bg, hero bg          │
@@ -19,7 +19,7 @@
  *
  *   Fonts:
  *   Display / headings — Libre Baskerville (serif)
- *   Body / UI          — Poppins (sans-serif)
+ *   Body / UI          — Source Sans 3 (sans-serif)
  *
  *   Zone strategy:
  *   ┌─────────────────────────────┐
@@ -40,7 +40,7 @@
 
   const css = `
 
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
     /* ═══════════════════════════════════════════════════════════════
        CSS VARIABLE REMAPPING
@@ -51,13 +51,13 @@
        the new palette without needing individual element overrides.
     ═══════════════════════════════════════════════════════════════ */
     :root {
-      --navy:      #1E3A4F;   /* was #162544 dark navy  → midnight indigo  */
-      --charcoal:  #1E3A4F;   /* alias used on some pages                  */
-      --teal:      #456A7C;   /* was #C2DED8 pale teal  → steel indigo     */
+      --navy:      #1E2D4F;   /* was #162544 dark navy  → midnight indigo  */
+      --charcoal:  #1E2D4F;   /* alias used on some pages                  */
+      --teal:      #455C7C;   /* was #C2DED8 pale teal  → steel indigo     */
       --teal-lt:   #C5CDD6;   /* light teal bg          → steel tint       */
-      --sage:      #456A7C;   /* sage accent            → steel indigo     */
+      --sage:      #455C7C;   /* sage accent            → steel indigo     */
       --sage-lt:   #C5CDD6;   /* sage light bg          → steel tint       */
-      --sage-mid:  #456A7C;   /* sage mid border        → steel indigo     */
+      --sage-mid:  #455C7C;   /* sage mid border        → steel indigo     */
       --amber:     #9E7E42;   /* warm amber             → antique gold     */
     }
 
@@ -75,8 +75,7 @@
       padding: 0 !important;
       border-top: 3px solid #9E7E42 !important;
       border-bottom: none !important;
-      /* Soft shadow lifts the hero off the page as its own surface */
-      box-shadow: 0 4px 28px rgba(30,58,79,0.07) !important;
+      box-shadow: none !important;
       position: relative;
       z-index: 10;
     }
@@ -98,7 +97,7 @@
       flex-direction: column !important;
       align-items: flex-start !important;
       justify-content: center !important;
-      padding: 4rem 2rem 3.5rem !important;
+      padding: 3rem 2rem 2rem !important;
       margin: 0 auto !important;
       position: relative;
       z-index: 1;
@@ -124,28 +123,28 @@
     /* ── Hero tag pill ── */
     .su-hero-tag {
       display: inline-block;
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #456A7C;
+      color: #455C7C;
       background: #E8E6DF;
       border: 1px solid #D0CCC2;
       border-radius: 100px;
       padding: 0.3rem 0.875rem;
-      margin-bottom: 1.75rem;   /* more air — sets the pill apart as an entry label */
+      margin-bottom: 1.125rem;
     }
 
     /* ── Hero H1 ── */
     .su-hero-h1 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: clamp(2rem, 4vw, 2.75rem) !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
-      margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
+      margin: 0 0 1rem !important;
       max-width: 700px;
     }
 
@@ -156,14 +155,13 @@
 
     /* ── Hero subheading ── */
     .su-hero-sub {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;        /* smaller than H1, clearly secondary */
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 1.0625rem !important;
       font-weight: 300 !important;
       line-height: 1.7 !important;
-      letter-spacing: 0.02em !important; /* slightly open — editorial, calm */
       color: #5A5850 !important;
-      margin: 0 0 0 !important;          /* hero inner bottom padding handles spacing */
-      max-width: 520px;
+      margin: 0 0 2rem !important;
+      max-width: 560px;
     }
 
     /* ── Hero button row ── */
@@ -175,30 +173,30 @@
     }
 
     .su-btn-primary {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.01em !important;
       display: inline-flex;
       align-items: center;
       padding: 0.6875rem 1.375rem;
-      background: #1E3A4F !important;
+      background: #1E2D4F !important;
       color: #FFFFFF !important;
-      border: 2px solid #1E3A4F !important;
+      border: 2px solid #1E2D4F !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s, border-color 0.15s;
     }
 
     .su-btn-primary:hover {
-      background: #163043 !important;
-      border-color: #163043 !important;
+      background: #16243F !important;
+      border-color: #16243F !important;
       color: #FFFFFF !important;
     }
 
     .su-btn-secondary {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.01em !important;
       display: inline-flex;
@@ -220,7 +218,7 @@
     /* Responsive hero */
     @media (max-width: 640px) {
       header:not(.site-header) .header-hero-inner {
-        padding: 2.5rem 1.25rem 2rem !important;
+        padding: 2rem 1.25rem 2.5rem !important;
       }
       .su-hero-h1 {
         font-size: 1.75rem !important;
@@ -242,7 +240,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-nav {
-      background: #1E3A4F !important;
+      background: #1E2D4F !important;
       border-top: none !important;
       border-bottom: 1px solid rgba(255,255,255,0.08) !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
@@ -253,8 +251,8 @@
 
     /* ── Text logo ── */
     .su-nav-logo {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-size: 0.875rem !important;
       font-weight: 700 !important;
       color: #FFFFFF !important;
       text-decoration: none !important;
@@ -310,14 +308,14 @@
         display: flex !important;
         align-items: center !important;
         height: 100% !important;
-        padding: 0 1rem !important;
+        padding: 0 0.75rem !important;
         border-bottom: none !important;
         border-left: none !important;
         border-radius: 0 !important;
         background: transparent !important;
         box-shadow: none !important;
         width: auto !important;
-        font-size: 16px !important;
+        font-size: 15px !important;
         position: relative !important;
       }
 
@@ -327,8 +325,8 @@
         content: '' !important;
         position: absolute !important;
         bottom: 6px !important;
-        left: 1rem !important;
-        right: 1rem !important;
+        left: 0.75rem !important;
+        right: 0.75rem !important;
         height: 2px !important;
         background: #9E7E42 !important;
         border-radius: 2px !important;
@@ -338,7 +336,7 @@
     /* Shrink link padding at intermediate widths */
     @media (min-width: 640px) and (max-width: 920px) {
       .nav-menu > a {
-        font-size: 14px !important;
+        font-size: 13px !important;
         padding: 0 0.5rem !important;
       }
       .nav-menu > a.su-active::after,
@@ -350,7 +348,7 @@
 
     /* ── Nav link typography: applies at all widths ───────────── */
     .nav-menu > a {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-weight: 500 !important;
       color: rgba(255,255,255,0.82) !important;
       text-decoration: none !important;
@@ -412,7 +410,7 @@
         height: auto !important;
         width: 100% !important;
         padding: 0.875rem 1.5rem !important;
-        font-size: 1.125rem !important;
+        font-size: 0.93rem !important;
         font-weight: 500 !important;
         color: #1C1B18 !important;
         border-bottom: 1px solid #D0CCC2 !important;
@@ -433,7 +431,7 @@
       }
 
       .nav-menu > a:hover {
-        color: #1E3A4F !important;
+        color: #1E2D4F !important;
         background: #F5F4F1 !important;
       }
     }
@@ -444,7 +442,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-footer {
-      background: #1E3A4F !important;
+      background: #1E2D4F !important;
       padding: 0 !important;
       text-align: left !important;
       border-top: none !important;
@@ -460,7 +458,7 @@
     }
 
     .su-footer-col h4 {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -472,7 +470,7 @@
     }
 
     .su-footer-brand-name {
-      font-family: 'DM Sans', system-ui, sans-serif;
+      font-family: 'Libre Baskerville', Georgia, serif;
       font-size: 1rem;
       font-weight: 700;
       color: #FFFFFF;
@@ -482,7 +480,7 @@
     }
 
     .su-footer-brand-tag {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -493,8 +491,8 @@
     }
 
     .su-footer-brand-desc {
-      font-family: 'Poppins', system-ui, sans-serif;
-      font-size: 1rem;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      font-size: 0.9375rem;
       line-height: 1.65;
       color: rgba(255,255,255,0.65);
       margin: 0 0 0.9rem;
@@ -512,8 +510,8 @@
     }
 
     .su-footer-col ul li a {
-      font-family: 'Poppins', system-ui, sans-serif;
-      font-size: 1rem;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      font-size: 0.9375rem;
       color: rgba(255,255,255,0.72);
       text-decoration: none;
       transition: color 0.1s;
@@ -538,7 +536,7 @@
     }
 
     #su-footer-bottom p {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
       color: rgba(255,255,255,0.42);
       margin: 0;
@@ -551,7 +549,7 @@
     }
 
     #su-footer-bottom-links a {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
       color: rgba(255,255,255,0.42);
       text-decoration: none;
@@ -567,7 +565,7 @@
       padding: 0.85rem 2rem;
       max-width: 1160px;
       margin: 0 auto;
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.73rem;
       color: rgba(255,255,255,0.38);
       line-height: 1.55;
@@ -601,8 +599,8 @@
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
-      padding-top: 4.5rem !important;
-      padding-bottom: 4rem !important;
+      padding-top: 3.25rem !important;
+      padding-bottom: 2.25rem !important;
       padding-left: max(2rem, calc(50% - 398px)) !important;
       padding-right: max(2rem, calc(50% - 398px)) !important;
       border-bottom: 1px solid #D0CCC2 !important;
@@ -612,14 +610,14 @@
     }
 
     .intro-body {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 1.0625rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
       text-align: center !important;
       width: 100% !important;
-      max-width: 600px !important;
-      margin: 0 0 2.25rem !important;
+      max-width: 760px !important;
+      margin: 0 0 1.75rem !important;
       background: transparent !important;
       border: none !important;
       padding: 0 !important;
@@ -628,18 +626,17 @@
     }
 
     .su-intro-featured {
-      max-width: 640px !important;
+      max-width: 760px !important;
       width: 100% !important;
       margin: 0 !important;
     }
 
     .guides-zone {
       background: #F5F4F1 !important;
-      padding-top: 4rem !important;
     }
 
     .guides-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
@@ -670,24 +667,24 @@
     }
 
     .card h2 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-size: 1.05rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-bottom: 0.5rem !important;
     }
 
     .card p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9375rem !important;
       color: #5A5850 !important;
       line-height: 1.65 !important;
     }
 
     .card-link {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.825rem !important;
       font-weight: 600 !important;
       color: #9E7E42 !important;
       border: 1.5px solid #9E7E42 !important;
@@ -721,7 +718,7 @@
     }
     .back-btn,
     .restart-btn {
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
     }
 
     .card-link:focus-visible {
@@ -734,8 +731,8 @@
     }
 
     .featured-badge {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      background: #456A7C !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      background: #455C7C !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
@@ -750,23 +747,23 @@
     }
 
     .start-here-text strong {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      color: #1E3A4F !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      color: #1E2D4F !important;
     }
 
     .start-here-text p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       color: #1C1B18 !important;
     }
 
     .start-here-btn {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      background: #1E3A4F !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      background: #1E2D4F !important;
       color: #FFFFFF !important;
     }
 
     .start-here-btn:hover {
-      background: #163043 !important;
+      background: #16243F !important;
       color: #FFFFFF !important;
     }
 
@@ -777,7 +774,7 @@
 
     /* Main content links */
     main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
-      color: #456A7C !important;
+      color: #455C7C !important;
     }
 
     .card-link i,
@@ -793,8 +790,8 @@
 
     main p,
     main li {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 1.0625rem !important;
       color: #1C1B18 !important;
     }
 
@@ -837,7 +834,7 @@
 
     /* Breadcrumb eyebrow */
     .header-eyebrow {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 500 !important;
       letter-spacing: 0.06em !important;
@@ -852,16 +849,16 @@
     }
 
     .header-eyebrow a:hover {
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       text-decoration: underline !important;
     }
 
     /* Page title */
     .header-title {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
       text-shadow: none !important;
@@ -875,7 +872,7 @@
 
     /* Page subtitle */
     .header-subtitle {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1rem !important;
       color: #5A5850 !important;
       line-height: 1.5 !important;
@@ -884,12 +881,12 @@
 
     /* Meta chips */
     .meta-chip {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
       background: #C5CDD6 !important;
-      color: #456A7C !important;
-      border: 1px solid #456A7C !important;
+      color: #455C7C !important;
+      border: 1px solid #455C7C !important;
       border-radius: 4px !important;
     }
 
@@ -910,7 +907,7 @@
     }
 
     .sidebar-hd {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
@@ -922,8 +919,8 @@
     }
 
     .sidebar-link {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9375rem !important;
       font-weight: 400 !important;
       color: #1C1B18 !important;
       background: transparent !important;
@@ -955,10 +952,10 @@
     /* Interior page content typography */
     .page-body h2,
     .page-main h2 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 2rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
@@ -968,10 +965,10 @@
 
     .page-body h3,
     .page-main h3 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1.35rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -979,23 +976,23 @@
 
     .page-body p,
     .page-main p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 1.0625rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
 
     .page-body a,
     .page-main a {
-      color: #456A7C !important;
+      color: #455C7C !important;
     }
 
     .page-body ul li,
     .page-body ol li,
     .page-main ul li,
     .page-main ol li {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 1.0625rem !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
     }
@@ -1024,15 +1021,15 @@
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
     .intro-box strong {
-      color: #1E3A4F !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #1E2D4F !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
     /* ── Broader heading overrides ── */
@@ -1040,10 +1037,10 @@
     .page-content h2,
     .page-body h2,
     .page-main h2 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 2rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
@@ -1055,10 +1052,10 @@
     .page-content h3,
     .page-body h3,
     .page-main h3 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1.35rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -1068,10 +1065,10 @@
     .page-content h4,
     .page-body h4,
     .page-main h4 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 0.975rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-top: 1.25rem !important;
       margin-bottom: 0.375rem !important;
@@ -1079,15 +1076,15 @@
 
     .page-layout p,
     .page-content p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 1.0625rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
 
     .page-intro,
     .about-lead p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       line-height: 1.8 !important;
       color: #1C1B18 !important;
@@ -1095,7 +1092,7 @@
 
     /* ── Dark-background sections (about.html bg-story) ── */
     .bg-story {
-      background: #1E3A4F !important;
+      background: #1E2D4F !important;
     }
     .bg-story h2,
     .bg-story .section-tag {
@@ -1132,7 +1129,7 @@
 
     .teal-callout .callout-label {
       color: #9E7E42 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1141,7 +1138,7 @@
 
     .teal-callout p {
       color: #1C1B18 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
     .info-callout {
@@ -1155,7 +1152,7 @@
 
     .info-callout .callout-label {
       color: #9E7E42 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1164,7 +1161,7 @@
 
     .info-callout p {
       color: #1C1B18 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
     .amber-callout {
@@ -1178,7 +1175,7 @@
 
     .amber-callout .callout-label {
       color: #9E7E42 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1199,21 +1196,21 @@
     .feature-card.blue-top  { border-top-color: #9E7E42 !important; }
 
     .feature-card h4 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #1E2D4F !important;
     }
 
     .feature-card li,
     .feature-card p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9375rem !important;
       color: #1C1B18 !important;
     }
 
     .section-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 600 !important;
       color: #5A5850 !important;
@@ -1226,15 +1223,15 @@
     }
 
     .section-title {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #1E3A4F !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      color: #1E2D4F !important;
     }
 
     .symptom-pill {
       background: #FFFFFF !important;
       border-color: #D0CCC2 !important;
       color: #5A5850 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
     .symptom-pill:hover,
@@ -1246,7 +1243,7 @@
 
     .symptom-search {
       border-color: #D0CCC2 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
     .symptom-search:focus {
@@ -1265,8 +1262,8 @@
     }
 
     .tab-btn {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9375rem !important;
       font-weight: 500 !important;
       color: #5A5850 !important;
     }
@@ -1359,7 +1356,7 @@
       // Subheading
       const sub = document.createElement('p');
       sub.className = 'su-hero-sub';
-      sub.textContent = 'Plain-language resources for families navigating SETD5 Syndrome \u2014 built by a parent, for families like ours.';
+      sub.textContent = 'Plain-language guides for families navigating SETD5 Syndrome \u2014 built by a parent, for families like ours.';
       heroInner.appendChild(sub);
 
     }
@@ -1380,16 +1377,16 @@
     Object.assign(intlNote.style, {
       background: '#FFFFFF',
       border: '1px solid #D0CCC2',
-      borderLeft: '3px solid #456A7C',
+      borderLeft: '3px solid #455C7C',
       borderRadius: '8px',
       color: '#1C1B18',
       fontSize: '1rem',
       lineHeight: '1.7',
-      fontFamily: "'Poppins', system-ui, sans-serif",
+      fontFamily: "'Source Sans 3', system-ui, sans-serif",
       boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
     });
     const strong = intlNote.querySelector('strong');
-    if (strong) strong.style.color = '#1E3A4F';
+    if (strong) strong.style.color = '#1E2D4F';
   }
 
 
