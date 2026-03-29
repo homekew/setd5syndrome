@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v48
+ * site-upgrade.js  v49
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -87,7 +87,7 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: #EAE1D7 !important;
+      background: #EFE2D5 !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
