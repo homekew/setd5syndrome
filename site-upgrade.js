@@ -87,14 +87,7 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background:
-        radial-gradient(ellipse 70% 80% at 10% 30%, rgba(160,125,84,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 85% 20%, rgba(98,146,158,0.07) 0%, transparent 65%),
-        radial-gradient(ellipse 60% 90% at 60% 80%, rgba(149,79,46,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 50% at 30% 70%, rgba(98,146,158,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 55% 70% at 90% 65%, rgba(160,125,84,0.07) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 45% at 50% 15%, rgba(149,79,46,0.05) 0%, transparent 60%),
-        #FFFFFF !important;
+      background: #DEE6E8 !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
