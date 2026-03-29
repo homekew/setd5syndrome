@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v42
+ * site-upgrade.js  v43
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -216,37 +216,46 @@
         box-shadow: none !important;
       }
 
-      /* Desktop link: editorial underline-only active state, no pill/box */
+      /* Desktop link: positioned so ::after underline can sit below */
       .nav-menu > a {
         display: flex !important;
         align-items: center !important;
         height: 100% !important;
         padding: 0 0.75rem !important;
-        border-bottom: 2px solid transparent !important;
+        border-bottom: none !important;
         border-left: none !important;
         border-radius: 0 !important;
         background: transparent !important;
         box-shadow: none !important;
         width: auto !important;
-        font-size: 0.93rem !important;
+        font-size: 14px !important;
+        position: relative !important;
       }
 
-      .nav-menu > a.su-active {
-        border-bottom-color: #2a627a !important;
-        border-left-color: transparent !important;
-        padding-left: 0.75rem !important;
-        background: transparent !important;
+      /* Active underline: ::after pill sits 6px below the text baseline */
+      .nav-menu > a.su-active::after,
+      .nav-menu > a[aria-current="page"]::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: 6px !important;
+        left: 0.75rem !important;
+        right: 0.75rem !important;
+        height: 2px !important;
+        background: #3E5974 !important;
+        border-radius: 2px !important;
       }
     }
 
     /* Shrink link padding at intermediate widths before hamburger kicks in */
     @media (min-width: 640px) and (max-width: 920px) {
       .nav-menu > a {
-        font-size: 0.8rem !important;
+        font-size: 13px !important;
         padding: 0 0.5rem !important;
       }
-      .nav-menu > a.su-active {
-        padding-left: 0.5rem !important;
+      .nav-menu > a.su-active::after,
+      .nav-menu > a[aria-current="page"]::after {
+        left: 0.5rem !important;
+        right: 0.5rem !important;
       }
     }
 
@@ -256,23 +265,24 @@
       font-weight: 500 !important;
       color: #4D4C4B !important;
       text-decoration: none !important;
-      transition: color 0.12s ease, border-color 0.12s ease !important;
+      transition: color 0.12s ease !important;
       white-space: nowrap;
       letter-spacing: 0.01em;
     }
 
     .nav-menu > a:hover {
-      color: #2a627a !important;
+      color: #3E5974 !important;
       text-decoration: none !important;
     }
 
-    .nav-menu > a.su-active {
-      color: #2a627a !important;
+    .nav-menu > a.su-active,
+    .nav-menu > a[aria-current="page"] {
+      color: #3E5974 !important;
       font-weight: 600 !important;
     }
 
     .nav-menu > a:focus-visible {
-      outline: 2px solid #2a627a !important;
+      outline: 2px solid #3E5974 !important;
       outline-offset: -2px;
     }
 
@@ -324,17 +334,18 @@
       }
 
       /* Active state: left border instead of bottom border */
-      .nav-menu > a.su-active {
-        color: #2a627a !important;
+      .nav-menu > a.su-active,
+      .nav-menu > a[aria-current="page"] {
+        color: #3E5974 !important;
         font-weight: 600 !important;
-        border-left-color: #2a627a !important;
+        border-left-color: #3E5974 !important;
         border-bottom-color: #D2CECA !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
 
       /* Hover */
       .nav-menu > a:hover {
-        color: #2a627a !important;
+        color: #3E5974 !important;
         background: #F8F6F2 !important;
       }
     }
@@ -1260,6 +1271,7 @@
       const href = a.getAttribute('href');
       if (href === pathname || (href && pathname.startsWith(href.replace('.html', '')))) {
         a.classList.add('su-active');
+        a.setAttribute('aria-current', 'page');
       }
     });
   }
