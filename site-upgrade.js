@@ -29,7 +29,7 @@
       max-width: 1160px !important;
       padding: 0 2rem !important;
       justify-content: space-between !important;
-      height: 54px;
+      height: 82px !important;
     }
 
     .nav-menu {
@@ -46,13 +46,13 @@
     .su-logo-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
       text-decoration: none;
       flex-shrink: 0;
     }
 
     .su-logo-wrap img {
-      height: 38px;
+      height: 62px;
       width: auto;
       display: block;
     }
@@ -60,34 +60,36 @@
     .su-name-block {
       display: flex;
       flex-direction: column;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .su-site-name {
       font-family: 'Lora', Georgia, serif;
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: 1.45rem;
+      font-weight: 700;
       color: #162544;
       letter-spacing: -0.01em;
     }
 
     .su-site-tagline {
       font-family: 'Inter', system-ui, sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.72rem;
       font-weight: 500;
       color: #AEBFBE;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
+      text-transform: lowercase;
+      letter-spacing: 0.04em;
     }
 
     @media (max-width: 820px) {
       .su-site-tagline { display: none; }
-      .su-logo-wrap img { height: 32px; }
-      .su-site-name { font-size: 0.9rem; }
+      .su-logo-wrap img { height: 44px; }
+      .su-site-name { font-size: 1.1rem; }
+      .site-nav-inner { height: 64px !important; }
     }
 
     @media (max-width: 480px) {
-      .su-logo-wrap img { height: 28px; }
+      .su-logo-wrap img { height: 36px; }
+      .site-nav-inner { height: 56px !important; }
     }
 
     /* ── Active nav link ── */
@@ -279,10 +281,10 @@
     logoWrap.href = 'index.html';
     logoWrap.setAttribute('aria-label', 'SETD5 Syndrome Resources — home');
     logoWrap.innerHTML = `
-      <img src="/SD5-recolored.png" alt="SETD5 Syndrome logo" style="height:42px;width:42px;object-fit:contain;flex-shrink:0;" />
+      <img src="/SD5-recolored.png" alt="SETD5 Syndrome logo" style="height:62px;width:62px;object-fit:contain;flex-shrink:0;" />
       <div class="su-name-block">
         <span class="su-site-name">SETD5 Syndrome</span>
-        <span class="su-site-tagline">Family Resources &amp; Guides</span>
+        <span class="su-site-tagline">family resources &middot; guides &middot; community</span>
       </div>
     `;
 
