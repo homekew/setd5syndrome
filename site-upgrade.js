@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v12
+ * site-upgrade.js  v13
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -138,8 +138,15 @@
       background: #FFFFFF !important;
       border-top: 1px solid #DFD4C3 !important;
       border-bottom: 1px solid #DFD4C3 !important;
-      position: relative !important;
-      z-index: 100 !important;
+      /* Intentionally NOT overriding position or z-index:
+         original is position:sticky; top:0; z-index:900 — keep that intact */
+    }
+
+    /* Ensure mobile dropdown floats above all page content */
+    @media (max-width: 768px) {
+      .nav-menu {
+        z-index: 999 !important;
+      }
     }
 
     .site-nav .site-nav-inner {
@@ -848,6 +855,177 @@
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       OLD-PALETTE ELEMENT OVERRIDES
+       Interior pages use teal/sage/amber CSS variables from the dark
+       theme. These rules remap them to the warm editorial palette.
+    ═══════════════════════════════════════════════════════════════ */
+
+    /* Teal callout → white card with blue left border */
+    .teal-callout {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-left: 3px solid #3E5974 !important;
+      border-radius: 0 8px 8px 0 !important;
+      padding: 1.125rem 1.375rem !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+    }
+
+    .teal-callout .callout-label {
+      color: #3E5974 !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.67rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+    }
+
+    .teal-callout p {
+      color: #4D4C4B !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+    }
+
+    /* Info callout → white card with warm left border */
+    .info-callout {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-left: 3px solid #A07D54 !important;
+      border-radius: 0 8px 8px 0 !important;
+      padding: 1.125rem 1.375rem !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+    }
+
+    .info-callout .callout-label {
+      color: #A07D54 !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.67rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+    }
+
+    .info-callout p {
+      color: #4D4C4B !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+    }
+
+    /* Amber callout → white card with caramel left border */
+    .amber-callout {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-left: 3px solid #A07D54 !important;
+      border-radius: 0 8px 8px 0 !important;
+      padding: 1.125rem 1.375rem !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+    }
+
+    .amber-callout .callout-label {
+      color: #A07D54 !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.67rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+    }
+
+    /* Feature cards (symptom grid) → white on linen, warm top stripe */
+    .feature-card {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-top: 3px solid #A07D54 !important;
+      border-radius: 8px !important;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06) !important;
+    }
+
+    .feature-card.amber-top { border-top-color: #A07D54 !important; }
+    .feature-card.rose-top  { border-top-color: #A07D54 !important; }
+    .feature-card.sage-top  { border-top-color: #3E5974 !important; }
+    .feature-card.blue-top  { border-top-color: #3E5974 !important; }
+
+    .feature-card h4 {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      color: #5D5646 !important;
+    }
+
+    .feature-card li,
+    .feature-card p {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.875rem !important;
+      color: #4D4C4B !important;
+    }
+
+    /* Section labels in page content */
+    .section-label {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      color: #7A756D !important;
+      letter-spacing: 0.12em !important;
+    }
+
+    .section-label::before {
+      background: #A07D54 !important;
+    }
+
+    /* Section titles in page content */
+    .section-title {
+      font-family: 'Spectral', Georgia, serif !important;
+      color: #5D5646 !important;
+    }
+
+    /* Symptom pills: keep subtle but remap to warm palette */
+    .symptom-pill {
+      background: #FFFFFF !important;
+      border-color: #D4CCBF !important;
+      color: #7A756D !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+    }
+
+    .symptom-pill:hover,
+    .symptom-pill.active {
+      background: #3E5974 !important;
+      border-color: #3E5974 !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Symptom search input */
+    .symptom-search {
+      border-color: #D4CCBF !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+    }
+
+    .symptom-search:focus {
+      border-color: #3E5974 !important;
+    }
+
+    /* Stat boxes in content area */
+    .stat-box {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+    }
+
+    /* Tab nav (in-page section tabs) */
+    .tab-nav {
+      background: #FFFFFF !important;
+      border-top: 1px solid #DFD4C3 !important;
+      border-bottom: 1px solid #DFD4C3 !important;
+    }
+
+    .tab-btn {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.825rem !important;
+      font-weight: 500 !important;
+      color: #7A756D !important;
+    }
+
+    .tab-btn.active,
+    .tab-btn[aria-selected="true"] {
+      color: #3E5974 !important;
+      font-weight: 600 !important;
+      border-bottom-color: #3E5974 !important;
     }
   `;
 
