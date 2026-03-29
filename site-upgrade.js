@@ -724,8 +724,21 @@
     }
 
     /* ── Main content typography ── */
-    main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]) {
+    main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
       color: #2a627a !important;
+    }
+
+    /* Lucide icons inside card-link inherit text color */
+    .card-link i,
+    .card-link svg {
+      color: inherit !important;
+      stroke: currentColor !important;
+    }
+
+    /* Featured card in intro: card-link always filled */
+    .su-intro-featured .card-link {
+      background: #2a627a !important;
+      color: #FFFFFF !important;
     }
 
     main p,
