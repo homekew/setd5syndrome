@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v101
+ * site-upgrade.js  v102
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -156,7 +156,7 @@
     /* ── Hero subheading ── */
     .su-hero-sub {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 1.0625rem !important;
+      font-size: 1.125rem !important;
       font-weight: 300 !important;
       line-height: 1.7 !important;
       color: #5A5850 !important;
@@ -174,7 +174,7 @@
 
     .su-btn-primary {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 0.9rem !important;
+      font-size: 1rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.01em !important;
       display: inline-flex;
@@ -196,7 +196,7 @@
 
     .su-btn-secondary {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 0.9rem !important;
+      font-size: 1rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.01em !important;
       display: inline-flex;
@@ -252,7 +252,7 @@
     /* ── Text logo ── */
     .su-nav-logo {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 0.875rem !important;
+      font-size: 1rem !important;
       font-weight: 700 !important;
       color: #FFFFFF !important;
       text-decoration: none !important;
@@ -315,7 +315,7 @@
         background: transparent !important;
         box-shadow: none !important;
         width: auto !important;
-        font-size: 15px !important;
+        font-size: 16px !important;
         position: relative !important;
       }
 
@@ -336,7 +336,7 @@
     /* Shrink link padding at intermediate widths */
     @media (min-width: 640px) and (max-width: 920px) {
       .nav-menu > a {
-        font-size: 13px !important;
+        font-size: 14px !important;
         padding: 0 0.5rem !important;
       }
       .nav-menu > a.su-active::after,
@@ -410,7 +410,7 @@
         height: auto !important;
         width: 100% !important;
         padding: 0.875rem 1.5rem !important;
-        font-size: 0.93rem !important;
+        font-size: 1.125rem !important;
         font-weight: 500 !important;
         color: #1C1B18 !important;
         border-bottom: 1px solid #D0CCC2 !important;
@@ -492,7 +492,7 @@
 
     .su-footer-brand-desc {
       font-family: 'Source Sans 3', system-ui, sans-serif;
-      font-size: 0.9375rem;
+      font-size: 1rem;
       line-height: 1.65;
       color: rgba(255,255,255,0.65);
       margin: 0 0 0.9rem;
@@ -511,7 +511,7 @@
 
     .su-footer-col ul li a {
       font-family: 'Source Sans 3', system-ui, sans-serif;
-      font-size: 0.9375rem;
+      font-size: 1rem;
       color: rgba(255,255,255,0.72);
       text-decoration: none;
       transition: color 0.1s;
@@ -611,7 +611,7 @@
 
     .intro-body {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 1.0625rem !important;
+      font-size: 1.125rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
       text-align: center !important;
@@ -668,7 +668,7 @@
 
     .card h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.05rem !important;
+      font-size: 1.125rem !important;
       font-weight: 700 !important;
       color: #1E3A4F !important;
       line-height: 1.3 !important;
@@ -677,14 +677,14 @@
 
     .card p {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 0.9375rem !important;
+      font-size: 1rem !important;
       color: #5A5850 !important;
       line-height: 1.65 !important;
     }
 
     .card-link {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 0.825rem !important;
+      font-size: 1rem !important;
       font-weight: 600 !important;
       color: #9E7E42 !important;
       border: 1.5px solid #9E7E42 !important;
@@ -791,7 +791,7 @@
     main p,
     main li {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 1.0625rem !important;
+      font-size: 1.125rem !important;
       color: #1C1B18 !important;
     }
 
@@ -920,7 +920,7 @@
 
     .sidebar-link {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 0.9375rem !important;
+      font-size: 1rem !important;
       font-weight: 400 !important;
       color: #1C1B18 !important;
       background: transparent !important;
@@ -977,7 +977,7 @@
     .page-body p,
     .page-main p {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 1.0625rem !important;
+      font-size: 1.125rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
@@ -992,7 +992,7 @@
     .page-main ul li,
     .page-main ol li {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 1.0625rem !important;
+      font-size: 1.125rem !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
     }
@@ -1077,7 +1077,7 @@
     .page-layout p,
     .page-content p {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 1.0625rem !important;
+      font-size: 1.125rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
@@ -1205,7 +1205,7 @@
     .feature-card li,
     .feature-card p {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 0.9375rem !important;
+      font-size: 1rem !important;
       color: #1C1B18 !important;
     }
 
@@ -1263,7 +1263,7 @@
 
     .tab-btn {
       font-family: 'Source Sans 3', system-ui, sans-serif !important;
-      font-size: 0.9375rem !important;
+      font-size: 1rem !important;
       font-weight: 500 !important;
       color: #5A5850 !important;
     }
