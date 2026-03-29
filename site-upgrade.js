@@ -370,7 +370,9 @@
       while (heroInner.firstChild) {
         textBlock.appendChild(heroInner.firstChild);
       }
-      // Update tagline text
+      // Update h1 subtitle and tagline text
+      const h1Em = textBlock.querySelector('h1 em');
+      if (h1Em) h1Em.textContent = "A Parent\u2019s Guide";
       const headerSub = textBlock.querySelector('.header-sub');
       if (headerSub) headerSub.textContent = 'A peer resource for families';
 
