@@ -111,6 +111,15 @@
       z-index: 0;
     }
 
+    header:not(.site-header)::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 35%, rgba(42,98,122,0.10) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     header:not(.site-header) .header-hero-inner {
       max-width: 1160px !important;
       display: flex !important;
