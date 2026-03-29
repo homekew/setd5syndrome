@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v27
+ * site-upgrade.js  v28
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -102,75 +102,48 @@
       max-width: 1160px !important;
       display: flex !important;
       align-items: center !important;
-      gap: 1.25rem !important;
-      padding: 1.125rem 2rem 1rem !important;   /* slightly tighter vertical */
+      justify-content: center !important;       /* center the wordmark */
+      padding: 1.25rem 2rem 1rem !important;
       margin: 0 auto !important;
     }
 
-    /* Logo: balanced against the title weight.
-       Drop-shadow follows the actual shape (not the bounding box) so the
-       cream book pages don't vanish against the white header background. */
-    .su-header-logo {
-      flex-shrink: 0;
-      height: 96px;
-      width: 96px;
-      object-fit: contain;
-      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));
-    }
-
-    .su-header-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0;
-    }
-
-    /* Site title: Spectral, hero scale */
-    header:not(.site-header) h1,
-    header:not(.site-header) h1 a {
-      font-family: 'Spectral', Georgia, serif !important;
-      color: #5D5646 !important;
-      font-size: 2.2rem !important;
-      font-weight: 600 !important;
-      letter-spacing: -0.02em !important;
-      line-height: 1.1 !important;
-      text-shadow: none !important;
-      margin: 0 !important;
-    }
-
-    /* Hide original em on home page only — subtitle replaced by span */
-    header:not(.site-header) h1 em {
-      display: none !important;
-    }
-
-    /* Subtitle: clearly secondary — smaller, wider tracking, lower weight.
-       Reads as an eyebrow label beneath the title, not a co-equal element. */
-    .su-site-subtitle {
+    /* Wordmark: the full site identity as a single designed image.
+       Scales by height with auto width; max-width prevents overflow. */
+    .su-header-wordmark {
       display: block;
-      font-family: 'Public Sans', system-ui, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #5a9186;
-      margin-top: 0.5rem;
-      line-height: 1;
-      opacity: 0.9;
+      height: 110px;
+      width: auto;
+      max-width: 100%;
+    }
+
+    /* Visually-hidden h1: present in DOM for screen readers and SEO,
+       invisible to sighted users (the wordmark image serves them). */
+    .su-sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0,0,0,0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
     }
 
     /* Home page decorative elements to remove */
     header:not(.site-header) .header-rule { display: none !important; }
     header:not(.site-header) .header-sub  { display: none !important; }
 
-    /* Responsive: mobile header layout */
+    /* Responsive: mobile wordmark */
     @media (max-width: 640px) {
-      .su-header-logo { height: 68px; width: 68px; }
-      header:not(.site-header) h1 { font-size: 2rem !important; }
-      header:not(.site-header) .header-hero-inner {
-        gap: 0.875rem !important;
-        padding: 0.875rem 1.25rem 0.75rem !important;
+      .su-header-wordmark {
+        height: auto;
+        width: 90%;
+        max-width: 400px;
       }
-      .su-site-subtitle { font-size: 0.65rem; letter-spacing: 0.12em; }
+      header:not(.site-header) .header-hero-inner {
+        padding: 1rem 1.25rem 0.875rem !important;
+      }
     }
 
 
@@ -1220,50 +1193,22 @@
 
     const heroInner = siteHeader.querySelector('.header-hero-inner');
     if (heroInner) {
-      // Wrap existing content in .su-header-text
-      const textBlock = document.createElement('div');
-      textBlock.className = 'su-header-text';
-      while (heroInner.firstChild) {
-        textBlock.appendChild(heroInner.firstChild);
-      }
+      // Replace all existing content with wordmark image
+      heroInner.innerHTML = '';
 
-      // Insert subtitle span (Public Sans label) after the h1
-      const h1 = textBlock.querySelector('h1');
-      if (h1) {
-        // Update the visible title text to the new site name
-        const h1Link = h1.querySelector('a') || h1;
-        Array.from(h1Link.childNodes).forEach(node => {
-          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-            node.textContent = 'The SETD5 Syndrome Companion';
-          }
-        });
-        // Remove the <br> — no longer needed with single-line title
-        const br = h1Link.querySelector('br');
-        if (br) br.remove();
+      // Visually-hidden h1: keeps a text heading in the DOM for screen
+      // readers and search engines — the wordmark image serves sighted users.
+      const srH1 = document.createElement('h1');
+      srH1.className = 'su-sr-only';
+      srH1.textContent = 'The SETD5 Syndrome Companion \u2014 A peer resource for families and caregivers';
+      heroInner.appendChild(srH1);
 
-        // Ensure the em text is correct (CSS hides it but we keep it in DOM)
-        const emEl = h1.querySelector('em');
-        if (emEl) emEl.textContent = 'A peer resource for families and caregivers';
-
-        // Create the visible subtitle span
-        const subtitle = document.createElement('span');
-        subtitle.className = 'su-site-subtitle';
-        subtitle.textContent = 'A peer resource for families and caregivers';
-        h1.insertAdjacentElement('afterend', subtitle);
-      }
-
-      // Remove old tagline element
-      const headerSub = textBlock.querySelector('.header-sub');
-      if (headerSub) headerSub.remove();
-
-      // Build and prepend logo
-      const logoImg = document.createElement('img');
-      logoImg.src = '/SD5-recolored.png';
-      logoImg.alt = 'SETD5 Syndrome site logo';
-      logoImg.className = 'su-header-logo';
-
-      heroInner.appendChild(logoImg);
-      heroInner.appendChild(textBlock);
+      // Wordmark: single designed banner replacing logo + title + subtitle
+      const wordmark = document.createElement('img');
+      wordmark.src = '/IMG_1238.png';
+      wordmark.alt = 'The SETD5 Syndrome Companion \u2014 A peer resource for families and caregivers';
+      wordmark.className = 'su-header-wordmark';
+      heroInner.appendChild(wordmark);
     }
   }
 
