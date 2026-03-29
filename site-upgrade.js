@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v24
+ * site-upgrade.js  v25
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -626,9 +626,9 @@
       border-color: #C2B9AC !important;
     }
 
-    /* Card top accent stripe: teal accent */
+    /* Card top accent stripe: deep teal */
     .card::before {
-      background: #5a9186 !important;
+      background: #2a627a !important;
       height: 3px !important;
     }
 
@@ -1077,18 +1077,18 @@
       text-transform: uppercase !important;
     }
 
-    /* Feature cards (symptom grid) → white on linen, warm top stripe */
+    /* Feature cards (symptom grid) → white on linen, deep teal top stripe */
     .feature-card {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-top: 3px solid #A07D54 !important;
+      border-top: 3px solid #2a627a !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 8px rgba(0,0,0,0.06) !important;
     }
 
-    .feature-card.amber-top { border-top-color: #A07D54 !important; }
-    .feature-card.rose-top  { border-top-color: #A07D54 !important; }
-    .feature-card.sage-top  { border-top-color: #5a9186 !important; }
+    .feature-card.amber-top { border-top-color: #2a627a !important; }
+    .feature-card.rose-top  { border-top-color: #2a627a !important; }
+    .feature-card.sage-top  { border-top-color: #2a627a !important; }
     .feature-card.blue-top  { border-top-color: #2a627a !important; }
 
     .feature-card h4 {
