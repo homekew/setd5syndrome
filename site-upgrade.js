@@ -139,6 +139,9 @@
       width: auto;
       max-width: 100%;
       margin-left: -5rem;
+      filter:
+        drop-shadow(0 6px 18px rgba(42,98,122,0.22))
+        drop-shadow(0 2px 4px rgba(0,0,0,0.10));
     }
 
     /* Visually-hidden h1: present in DOM for screen readers and SEO,
