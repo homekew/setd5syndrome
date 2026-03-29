@@ -97,6 +97,61 @@
       .site-nav-inner { height: 56px !important; }
     }
 
+    /* ── Main site header: transparent color wash + left-aligned logo layout ── */
+    header {
+      background: linear-gradient(135deg, rgba(22,37,68,0.07) 0%, rgba(174,191,190,0.10) 100%) !important;
+      color: #162544 !important;
+      text-align: left !important;
+      padding: 2rem 0 1.75rem !important;
+    }
+
+    .header-hero-inner {
+      max-width: 1160px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 2rem !important;
+      padding: 0 2rem !important;
+    }
+
+    .su-header-logo {
+      flex-shrink: 0;
+      height: 90px;
+      width: 90px;
+      object-fit: contain;
+    }
+
+    .su-header-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1, header h1 a {
+      color: #162544 !important;
+      font-size: 2.4rem !important;
+      line-height: 1.2 !important;
+    }
+
+    header h1 em {
+      color: #AEBFBE !important;
+    }
+
+    .header-rule {
+      background: #C6A27E !important;
+      margin: 0.6rem 0 !important;
+    }
+
+    .header-sub {
+      color: #4a5568 !important;
+      font-size: 0.95rem !important;
+    }
+
+    @media (max-width: 640px) {
+      .su-header-logo { height: 64px; width: 64px; }
+      header h1 { font-size: 1.6rem !important; }
+      .header-hero-inner { gap: 1.25rem !important; }
+    }
+
     /* ── Active nav link ── */
     .nav-menu > a.su-active {
       color: #162544 !important;
@@ -298,7 +353,36 @@
   }
 
 
-  /* ─── 3. REPLACE THE FOOTER ──────────────────────────────────────────── */
+  /* ─── 3. RESTRUCTURE THE MAIN SITE HEADER ────────────────────────────── */
+  const siteHeader = document.querySelector('header');
+
+  if (siteHeader) {
+    // Remove the decorative helix SVG overlay
+    const helixSvg = siteHeader.querySelector('svg');
+    if (helixSvg) helixSvg.remove();
+
+    // Find the inner content wrapper
+    const heroInner = siteHeader.querySelector('.header-hero-inner');
+    if (heroInner) {
+      // Wrap existing content in a text block
+      const textBlock = document.createElement('div');
+      textBlock.className = 'su-header-text';
+      while (heroInner.firstChild) {
+        textBlock.appendChild(heroInner.firstChild);
+      }
+      // Build logo img
+      const logoImg = document.createElement('img');
+      logoImg.src = '/SD5-recolored.png';
+      logoImg.alt = 'SETD5 Syndrome';
+      logoImg.className = 'su-header-logo';
+
+      heroInner.appendChild(logoImg);
+      heroInner.appendChild(textBlock);
+    }
+  }
+
+
+  /* ─── 4. REPLACE THE FOOTER ──────────────────────────────────────────── */
   const existingFooter = document.querySelector('footer.site-footer');
 
   if (existingFooter) {
