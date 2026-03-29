@@ -533,7 +533,7 @@
        calc(50% - 398px) = half viewport minus (430px - 32px padding)
     ──────────────────────────────────────────────────────────────── */
     .intro-bar {
-      background: linear-gradient(160deg, #e3eaed 0%, #eae6e2 100%) !important;
+      background: #e9e8e6 !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
