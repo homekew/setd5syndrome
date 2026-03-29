@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v16
+ * site-upgrade.js  v17
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -42,6 +42,12 @@
 
 
   /* ─── 1. INJECT STYLES ───────────────────────────────────────────────── */
+
+  /* Header wash: Wash 2 diagonal (rose → cream → teal → blue) from logo colors
+     + SVG fractalNoise paper grain at ~4% opacity, tiling at 200px.
+     Defined once, reused on homepage header, interior header, and nav strip. */
+  const WASH = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") 0 0 / 200px 200px repeat, linear-gradient(130deg, #FBF1F0 0%, #F8F4EF 30%, #EDF4F5 65%, #ECF1F6 100%)`;
+
   const css = `
 
     @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap');
@@ -65,7 +71,7 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: #FFFFFF !important;
+      background: ${WASH} !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
@@ -156,7 +162,7 @@
     ──────────────────────────────────────────────────────────────────── */
 
     .site-nav {
-      background: #FFFFFF !important;
+      background: ${WASH} !important;
       border-top: none !important;        /* no seam between header and nav */
       border-bottom: 1px solid #E0D9CE !important;
       box-shadow: 0 2px 16px rgba(0,0,0,0.07) !important;
@@ -710,7 +716,7 @@
        Blue top stripe, no bottom seam, no shadow (shadow is on nav).
     ──────────────────────────────────────────────────────────────── */
     header.site-header {
-      background: #FFFFFF !important;
+      background: ${WASH} !important;
       border-top: 3px solid #3E5974 !important;  /* matches homepage accent */
       border-bottom: none !important;             /* merges with nav below */
       box-shadow: none !important;                /* shadow lives on nav */
@@ -1121,12 +1127,12 @@
       if (h1) {
         // Ensure the em text is correct (CSS hides it but we keep it in DOM)
         const emEl = h1.querySelector('em');
-        if (emEl) emEl.textContent = 'A Parent\u2019s Guide';
+        if (emEl) emEl.textContent = 'A Peer Resource';
 
         // Create the visible subtitle span
         const subtitle = document.createElement('span');
         subtitle.className = 'su-site-subtitle';
-        subtitle.textContent = 'A Parent\u2019s Guide';
+        subtitle.textContent = 'A Peer Resource';
         h1.insertAdjacentElement('afterend', subtitle);
       }
 
@@ -1188,7 +1194,7 @@
 
         <div class="su-footer-col">
           <span class="su-footer-brand-name">SETD5 Syndrome</span>
-          <span class="su-footer-brand-tag">A Parent&rsquo;s Guide</span>
+          <span class="su-footer-brand-tag">A Peer Resource</span>
           <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome. Built by a parent, for families like ours.</p>
           <ul>
             <li><a href="mailto:info@setd5syndrome.live">info@setd5syndrome.live</a></li>
@@ -1224,7 +1230,7 @@
       </div>
 
       <div id="su-footer-bottom">
-        <p>&copy; 2026 SETD5 Syndrome: A Parent&rsquo;s Guide &mdash; Built by a parent, for families</p>
+        <p>&copy; 2026 SETD5 Syndrome: A Peer Resource &mdash; Built by a parent, for families</p>
         <div id="su-footer-bottom-links">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
