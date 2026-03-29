@@ -124,7 +124,7 @@
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      padding: 1.25rem 2rem 1rem !important;
+      padding: 0.625rem 2rem 0.5rem !important;
       margin: 0 auto !important;
       position: relative;
       z-index: 1;   /* sits above ::before grain layer */
