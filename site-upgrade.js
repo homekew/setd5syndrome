@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v49
+ * site-upgrade.js  v50
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
