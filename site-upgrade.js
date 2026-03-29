@@ -88,6 +88,7 @@
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
       background:
+        linear-gradient(145deg, rgba(255,255,255,0.52) 0%, rgba(255,255,255,0.28) 100%),
         radial-gradient(ellipse 55% 90% at 6% 35%,  rgba(160,125,84,0.22)  0%, transparent 65%),
         radial-gradient(ellipse 50% 80% at 88% 60%, rgba(98,146,158,0.20)  0%, transparent 62%),
         radial-gradient(ellipse 38% 60% at 62% 12%, rgba(42,98,122,0.14)   0%, transparent 58%),
