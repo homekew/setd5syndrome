@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v36
+ * site-upgrade.js  v37
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -60,11 +60,11 @@
     :root {
       --navy:      #5D5646;   /* was #162544 dark navy  → heading brown  */
       --charcoal:  #5D5646;   /* alias used on some pages               */
-      --teal:      #5a9186;   /* was #C2DED8 pale teal  → sage-teal      */
-      --teal-lt:   #EAF4F2;   /* light teal bg          → teal tint      */
-      --sage:      #5a9186;   /* sage accent            → sage-teal      */
-      --sage-lt:   #EAF4F2;   /* sage light bg          → teal tint      */
-      --sage-mid:  #B8D8D4;   /* sage mid border        → teal mid       */
+      --teal:      #62929E;   /* was #C2DED8 pale teal  → sage-teal      */
+      --teal-lt:   #CCDCE0;   /* light teal bg          → teal tint      */
+      --sage:      #62929E;   /* sage accent            → sage-teal      */
+      --sage-lt:   #CCDCE0;   /* sage light bg          → teal tint      */
+      --sage-mid:  #81A8B1;   /* sage mid border        → teal mid       */
       --amber:     #A07D54;   /* keep warm amber as-is                  */
     }
 
@@ -96,7 +96,6 @@
       box-shadow: none !important;        /* shadow lives on nav bottom */
       position: relative;
       z-index: 10;
-      overflow: hidden;
     }
 
     /* Paper grain texture — SVG noise overlay at low opacity.
@@ -386,7 +385,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.09em;
-      color: #5a9186;
+      color: #62929E;
       display: block;
       margin-bottom: 0.875rem;
     }
@@ -519,7 +518,7 @@
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
-      padding-top: 2.5rem !important;
+      padding-top: 3.25rem !important;
       padding-bottom: 2.25rem !important;
       padding-left: max(2rem, calc(50% - 398px)) !important;
       padding-right: max(2rem, calc(50% - 398px)) !important;
@@ -534,7 +533,7 @@
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.925rem !important;
       line-height: 1.75 !important;
-      color: #4D4C4B !important;
+      color: #3D3C3B !important;
       text-align: left !important;
       width: 100% !important;
       max-width: 760px !important;
@@ -544,14 +543,14 @@
       border-left: 3px solid #2a627a !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.08) !important;
       display: block !important;
     }
 
-    /* Stats bar: white on tan — centered below intro card */
+    /* Stats bar: teal-tinted — sits below intro card as supporting data layer */
     .stats-bar {
-      background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
+      background: #CCDCE0 !important;
+      border: 1px solid #B0CACF !important;
       border-radius: 8px !important;
       max-width: 560px !important;
       width: 100% !important;
@@ -562,7 +561,7 @@
 
     .stats-bar-item {
       padding: 1.375rem 1.5rem !important;
-      border-right: 1px solid #D2CECA !important;
+      border-right: 1px solid #A0BCC2 !important;
     }
 
     .stats-bar-item:last-child {
@@ -573,7 +572,7 @@
       font-family: 'Spectral', Georgia, serif !important;
       font-size: 1.875rem !important;
       font-weight: 700 !important;
-      color: #5a9186 !important;
+      color: #62929E !important;
       line-height: 1 !important;
     }
 
@@ -671,7 +670,7 @@
     /* Featured badge: teal accent */
     .featured-badge {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      background: #5a9186 !important;
+      background: #62929E !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
@@ -702,7 +701,7 @@
     }
 
     .start-here-btn:hover {
-      background: #EAF4F2 !important;
+      background: #CCDCE0 !important;
       color: #2a627a !important;
     }
 
@@ -741,7 +740,6 @@
       top: 0 !important;
       z-index: 920 !important;
       padding: 1.125rem 0 0.875rem !important;    /* slightly tighter */
-      overflow: hidden;
     }
 
     header.site-header::before {
@@ -814,9 +812,9 @@
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
-      background: #EAF4F2 !important;
-      color: #5a9186 !important;
-      border: 1px solid #B8D8D4 !important;
+      background: #CCDCE0 !important;
+      color: #62929E !important;
+      border: 1px solid #81A8B1 !important;
       border-radius: 4px !important;
     }
 
@@ -956,7 +954,7 @@
     .intro-box {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #5a9186 !important;
+      border-left: 3px solid #62929E !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
@@ -1262,7 +1260,7 @@
     Object.assign(intlNote.style, {
       background: '#FFFFFF',
       border: '1px solid #D4CCBF',
-      borderLeft: '3px solid #5a9186',
+      borderLeft: '3px solid #62929E',
       borderRadius: '8px',
       color: '#4D4C4B',
       fontSize: '1rem',
