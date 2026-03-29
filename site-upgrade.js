@@ -22,7 +22,7 @@
  *   - Stats: white-on-tan creates real contrast
  *   - Intro card: white-on-tan with blue left border
  *   - International note: restyled to palette via DOM
- *   - Accent #2a627a consistently on all interactive elements
+ *   - Accent #954F2E consistently on all interactive elements
  */
 
 (function () {
@@ -35,7 +35,7 @@
      --heading:     #5D5646   primary heading
      --body:        #4D4C4B   body / UI text
      --muted:       #7A756D   secondary labels, meta
-     --accent-blue: #2a627a   interaction: links, active states, buttons, focus
+     --accent-blue: #954F2E   interaction: links, active states, buttons, focus
      --accent-warm: #A07D54   warm accent: labels, tags, subtitle, section marks
      --border:      #D4CCBF   card and section borders
   ────────────────────────────────────────────────────────────────────────── */
@@ -90,15 +90,15 @@
       background:
         radial-gradient(ellipse 70% 80% at 10% 30%, rgba(160,125,84,0.08) 0%, transparent 70%),
         radial-gradient(ellipse 50% 60% at 85% 20%, rgba(98,146,158,0.07) 0%, transparent 65%),
-        radial-gradient(ellipse 60% 90% at 60% 80%, rgba(42,98,122,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 90% at 60% 80%, rgba(149,79,46,0.06) 0%, transparent 70%),
         radial-gradient(ellipse 40% 50% at 30% 70%, rgba(98,146,158,0.06) 0%, transparent 60%),
         radial-gradient(ellipse 55% 70% at 90% 65%, rgba(160,125,84,0.07) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 45% at 50% 15%, rgba(42,98,122,0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 45% at 50% 15%, rgba(149,79,46,0.05) 0%, transparent 60%),
         #FFFFFF !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
-      border-top: 3px solid #2a627a !important;   /* structural anchor */
+      border-top: 3px solid #954F2E !important;   /* structural anchor */
       border-bottom: none !important;     /* no seam — merges with nav */
       box-shadow: none !important;
       position: relative;
@@ -438,7 +438,7 @@
     }
 
     .su-footer-col ul li a:hover {
-      color: #2a627a;
+      color: #954F2E;
     }
 
     #su-footer-translate {
@@ -591,7 +591,7 @@
     /* Cards: white on linen — the contrast is real and intentional.
        Stronger shadow than v8 so cards genuinely float off the surface. */
     .card {
-      --card-accent: #2a627a;
+      --card-accent: #954F2E;
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
@@ -606,7 +606,7 @@
 
     /* Card top accent stripe: deep teal */
     .card::before {
-      background: #2a627a !important;
+      background: #954F2E !important;
       height: 3px !important;
     }
 
@@ -628,18 +628,18 @@
       line-height: 1.65 !important;
     }
 
-    /* Card link button: #2a627a blue — the one interaction signal */
+    /* Card link button: #954F2E blue — the one interaction signal */
     .card-link {
       font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.775rem !important;
       font-weight: 600 !important;
-      color: #2a627a !important;
-      border: 1.5px solid #2a627a !important;
+      color: #954F2E !important;
+      border: 1.5px solid #954F2E !important;
       letter-spacing: 0.01em !important;
     }
 
     .card:hover .card-link {
-      background: #2a627a !important;
+      background: #954F2E !important;
       color: #FFFFFF !important;
     }
 
@@ -658,7 +658,7 @@
 
     /* Light-background / outline buttons: dark text */
     .start-here-btn {
-      color: #2a627a !important;   /* white button inside teal banner */
+      color: #954F2E !important;   /* white button inside teal banner */
     }
     .btn-secondary,
     .flow-btn,
@@ -671,7 +671,7 @@
     }
 
     .card-link:focus-visible {
-      outline: 2px solid #2a627a !important;
+      outline: 2px solid #954F2E !important;
       outline-offset: 2px !important;
     }
 
@@ -690,11 +690,11 @@
 
     /* Start-here banners: deep teal background */
     .start-here {
-      background: #2a627a !important;
-      border-color: #1e4f63 !important;
-      border-left-color: #1e4f63 !important;
+      background: #954F2E !important;
+      border-color: #7A3F24 !important;
+      border-left-color: #7A3F24 !important;
       border-left-width: 3px !important;
-      box-shadow: 0 2px 12px rgba(42,98,122,0.25) !important;
+      box-shadow: 0 2px 12px rgba(149,79,46,0.25) !important;
     }
 
     .start-here-text strong {
@@ -710,12 +710,12 @@
     .start-here-btn {
       font-family: 'Poppins', system-ui, sans-serif !important;
       background: #FFFFFF !important;
-      color: #2a627a !important;
+      color: #954F2E !important;
     }
 
     .start-here-btn:hover {
-      background: #CCDCE0 !important;
-      color: #2a627a !important;
+      background: #E8D5CC !important;
+      color: #954F2E !important;
     }
 
     .start-here-btn:focus-visible {
@@ -725,7 +725,7 @@
 
     /* ── Main content typography ── */
     main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
-      color: #2a627a !important;
+      color: #954F2E !important;
     }
 
     /* Lucide icons inside card-link inherit text color */
@@ -737,7 +737,7 @@
 
     /* Featured card in intro: card-link always filled */
     .su-intro-featured .card-link {
-      background: #2a627a !important;
+      background: #954F2E !important;
       color: #FFFFFF !important;
     }
 
@@ -761,7 +761,7 @@
       background: rgba(255,255,255,0.92) !important;
       backdrop-filter: blur(4px) !important;
       -webkit-backdrop-filter: blur(4px) !important;   /* Safari */
-      border-top: 3px solid #2a627a !important;
+      border-top: 3px solid #954F2E !important;
       border-bottom: 1px solid #DFD4C3 !important;
       box-shadow: 0 6px 18px rgba(0,0,0,0.04) !important;
       position: relative !important;              /* not sticky — nav handles that */
@@ -906,7 +906,7 @@
     }
 
     .sidebar-link:hover {
-      color: #2a627a !important;
+      color: #954F2E !important;
       background: #F4F1EC !important;
     }
 
@@ -914,10 +914,10 @@
     .sidebar-link.active,
     .sidebar-link[aria-current],
     .sidebar-link[aria-selected="true"] {
-      color: #2a627a !important;
+      color: #954F2E !important;
       font-weight: 600 !important;
-      border-left-color: #2a627a !important;
-      background: #EBF0F5 !important;
+      border-left-color: #954F2E !important;
+      background: #F5EBE7 !important;
       padding-left: calc(1.125rem - 3px) !important;
     }
 
@@ -956,7 +956,7 @@
 
     .page-body a,
     .page-main a {
-      color: #2a627a !important;
+      color: #954F2E !important;
     }
 
     .page-body ul li,
@@ -976,7 +976,7 @@
     .page-main .callout {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #2a627a !important;
+      border-left: 3px solid #954F2E !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
@@ -992,7 +992,7 @@
     .intro-box {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #2a627a !important;   /* unified with other callout boxes */
+      border-left: 3px solid #954F2E !important;   /* unified with other callout boxes */
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
@@ -1107,14 +1107,14 @@
     .teal-callout {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #2a627a !important;
+      border-left: 3px solid #954F2E !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
 
     .teal-callout .callout-label {
-      color: #2a627a !important;
+      color: #954F2E !important;
       font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1174,15 +1174,15 @@
     .feature-card {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-top: 3px solid #2a627a !important;
+      border-top: 3px solid #954F2E !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 8px rgba(0,0,0,0.06) !important;
     }
 
-    .feature-card.amber-top { border-top-color: #2a627a !important; }
-    .feature-card.rose-top  { border-top-color: #2a627a !important; }
-    .feature-card.sage-top  { border-top-color: #2a627a !important; }
-    .feature-card.blue-top  { border-top-color: #2a627a !important; }
+    .feature-card.amber-top { border-top-color: #954F2E !important; }
+    .feature-card.rose-top  { border-top-color: #954F2E !important; }
+    .feature-card.sage-top  { border-top-color: #954F2E !important; }
+    .feature-card.blue-top  { border-top-color: #954F2E !important; }
 
     .feature-card h4 {
       font-family: 'Spectral', Georgia, serif !important;
@@ -1228,8 +1228,8 @@
 
     .symptom-pill:hover,
     .symptom-pill.active {
-      background: #2a627a !important;
-      border-color: #2a627a !important;
+      background: #954F2E !important;
+      border-color: #954F2E !important;
       color: #FFFFFF !important;
     }
 
@@ -1240,7 +1240,7 @@
     }
 
     .symptom-search:focus {
-      border-color: #2a627a !important;
+      border-color: #954F2E !important;
     }
 
     /* Stat boxes in content area */
@@ -1265,9 +1265,9 @@
 
     .tab-btn.active,
     .tab-btn[aria-selected="true"] {
-      color: #2a627a !important;
+      color: #954F2E !important;
       font-weight: 600 !important;
-      border-bottom-color: #2a627a !important;
+      border-bottom-color: #954F2E !important;
     }
   `;
 
