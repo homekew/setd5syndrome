@@ -1,53 +1,46 @@
 /**
- * site-upgrade.js  v51
- * SETD5 Syndrome (.com) — editorial redesign
+ * site-upgrade.js  v92
+ * SETD5 Syndrome (.com) — The Counsel design system
  *
- * v7: Header, nav, footer redesign
- * v8: Full page body overrides
- * v9: Zone-based visual rhythm — three distinct tonal layers
+ * v92: Full Counsel palette + typography applied site-wide
  *
- *   Zone strategy (top to bottom):
+ *   Design tokens (The Counsel):
+ *   ┌────────────────────────────────────────────────────┐
+ *   │ Midnight Indigo  #1E2D4F   nav, headings, btns     │
+ *   │ Steel Indigo     #455C7C   labels, links, chips     │
+ *   │ Antique Gold     #9E7E42   accent, active, CTA      │
+ *   │ Gold Dark        #7A6535   hover dark accent         │
+ *   │ Cream            #F5F4F1   page bg, hero bg          │
+ *   │ Parchment        #E8E6DF   cards / surfaces          │
+ *   │ Parchment-D      #D0CCC2   borders                   │
+ *   │ Ink              #1C1B18   body text                 │
+ *   │ Ink-Muted        #5A5850   secondary / meta text     │
+ *   └────────────────────────────────────────────────────┘
+ *
+ *   Fonts:
+ *   Display / headings — Libre Baskerville (serif)
+ *   Body / UI          — Source Sans 3 (sans-serif)
+ *
+ *   Zone strategy:
  *   ┌─────────────────────────────┐
- *   │ HEADER + NAV   — WHITE      │  elevated cap, clean structure
+ *   │ HERO HEADER  — Cream        │  text logo hero layout
  *   ├─────────────────────────────┤
- *   │ INTRO / HERO   — TAN #D2CECA│  warm break, white cards inside
+ *   │ STICKY NAV   — Indigo       │  dark bar, white links
  *   ├─────────────────────────────┤
- *   │ CONTENT / CARDS— LINEN      │  grounded zone, white cards float on linen
+ *   │ CONTENT      — Cream        │  cards float on cream
  *   ├─────────────────────────────┤
- *   │ FOOTER         — TAN #D2CECA│  bookend matches intro zone
+ *   │ FOOTER       — Indigo       │  dark bookend
  *   └─────────────────────────────┘
- *
- *   Additional improvements:
- *   - Cards: stronger shadow (0 2px 12px), more visible borders
- *   - Stats: white-on-tan creates real contrast
- *   - Intro card: white-on-tan with blue left border
- *   - International note: restyled to palette via DOM
- *   - Accent #954F2E consistently on all interactive elements
  */
 
 (function () {
   'use strict';
 
-  /* ─── DESIGN TOKENS ──────────────────────────────────────────────────────
-     --bg:          #e9e8e6   warm linen page ground
-     --bg-alt:      #D2CECA   muted tan — footer, alt bands, borders
-     --surface:     #FFFFFF   header, elevated cards
-     --heading:     #5D5646   primary heading
-     --body:        #4D4C4B   body / UI text
-     --muted:       #7A756D   secondary labels, meta
-     --accent-blue: #954F2E   interaction: links, active states, buttons, focus
-     --accent-warm: #A07D54   warm accent: labels, tags, subtitle, section marks
-     --border:      #D4CCBF   card and section borders
-  ────────────────────────────────────────────────────────────────────────── */
-
-
   /* ─── 1. INJECT STYLES ───────────────────────────────────────────────── */
-
-  /* Header background: clean white surface for header and nav. */
 
   const css = `
 
-    @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
     /* ═══════════════════════════════════════════════════════════════
        CSS VARIABLE REMAPPING
@@ -58,85 +51,59 @@
        the new palette without needing individual element overrides.
     ═══════════════════════════════════════════════════════════════ */
     :root {
-      --navy:      #5D5646;   /* was #162544 dark navy  → heading brown  */
-      --charcoal:  #5D5646;   /* alias used on some pages               */
-      --teal:      #62929E;   /* was #C2DED8 pale teal  → sage-teal      */
-      --teal-lt:   #CCDCE0;   /* light teal bg          → teal tint      */
-      --sage:      #62929E;   /* sage accent            → sage-teal      */
-      --sage-lt:   #CCDCE0;   /* sage light bg          → teal tint      */
-      --sage-mid:  #81A8B1;   /* sage mid border        → teal mid       */
-      --amber:     #A07D54;   /* keep warm amber as-is                  */
+      --navy:      #1E2D4F;   /* was #162544 dark navy  → midnight indigo  */
+      --charcoal:  #1E2D4F;   /* alias used on some pages                  */
+      --teal:      #455C7C;   /* was #C2DED8 pale teal  → steel indigo     */
+      --teal-lt:   #C5CDD6;   /* light teal bg          → steel tint       */
+      --sage:      #455C7C;   /* sage accent            → steel indigo     */
+      --sage-lt:   #C5CDD6;   /* sage light bg          → steel tint       */
+      --sage-mid:  #455C7C;   /* sage mid border        → steel indigo     */
+      --amber:     #9E7E42;   /* warm amber             → antique gold     */
     }
 
     /* ═══════════════════════════════════════════════════════════════
-       UNIFIED HEADER SYSTEM
-       ─────────────────────────────────────────────────────────────
-       The header (title area) and nav (link strip) are separate HTML
-       elements but must read as a single designed surface. Strategy:
-
-       • 3px blue accent stripe at the very top of the header — structural
-         entry point, the only non-white element in the header block.
-       • No border between header and nav — they share one continuous
-         white surface. The seam is replaced by a ghost hairline inside
-         the nav-inner that reads as internal articulation, not division.
-       • Single shadow lives on the nav — one drop at the bottom of the
-         combined unit, lifting the whole block off the page.
-       • Title hierarchy tightened: h1 dominates, subtitle becomes a
-         clearly subordinate eyebrow label at reduced weight and size.
+       HOMEPAGE HERO HEADER
+       Cream background with Counsel hero text layout.
+       Tag pill → H1 (Libre Baskerville, gold em) → sub → buttons.
+       Gold top stripe as structural entry point.
     ═══════════════════════════════════════════════════════════════ */
 
-    /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: #DEE6E8 !important;
-      color: #5D5646 !important;
+      background: #F5F4F1 !important;
+      color: #1C1B18 !important;
       text-align: left !important;
-      padding: 0 !important;              /* inner handles all spacing */
-      border-top: 3px solid #954F2E !important;   /* structural anchor */
-      border-bottom: none !important;     /* no seam — merges with nav */
+      padding: 0 !important;
+      border-top: 3px solid #9E7E42 !important;
+      border-bottom: none !important;
       box-shadow: none !important;
       position: relative;
       z-index: 10;
     }
 
-    /* Paper grain texture — SVG noise overlay at low opacity.
-       position:absolute + inset:0 tiles the grain across the full header.
-       z-index:0 keeps it behind the content (hero-inner is z-index:1). */
+    /* Paper grain texture */
     header:not(.site-header)::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
       background-repeat: repeat;
       pointer-events: none;
       z-index: 0;
     }
 
-
     header:not(.site-header) .header-hero-inner {
       max-width: 1160px !important;
       display: flex !important;
-      align-items: center !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
       justify-content: center !important;
-      padding: 0.625rem 2rem 0.5rem !important;
+      padding: 3rem 2rem 3.5rem !important;
       margin: 0 auto !important;
       position: relative;
-      z-index: 1;   /* sits above ::before grain layer */
+      z-index: 1;
     }
 
-    /* Wordmark: the full site identity as a single designed image.
-       Negative margin-left shifts the whole banner left so the text
-       portion (not the compass icon) reads as visually centered.
-       Adjust this value if the text needs to shift more or less. */
-    .su-header-wordmark {
-      display: block;
-      height: 160px;
-      width: auto;
-      max-width: 100%;
-      margin-left: -5rem;
-    }
-
-    /* Visually-hidden h1: present in DOM for screen readers and SEO,
-       invisible to sighted users (the wordmark image serves them). */
+    /* Visually-hidden h1 for screen readers when wordmark is active */
     .su-sr-only {
       position: absolute !important;
       width: 1px !important;
@@ -149,56 +116,176 @@
       border: 0 !important;
     }
 
-    /* Home page decorative elements to remove */
+    /* Home page original elements to suppress */
     header:not(.site-header) .header-rule { display: none !important; }
     header:not(.site-header) .header-sub  { display: none !important; }
 
-    /* Responsive: mobile wordmark — remove offset on small screens */
+    /* ── Hero tag pill ── */
+    .su-hero-tag {
+      display: inline-block;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #455C7C;
+      background: #E8E6DF;
+      border: 1px solid #D0CCC2;
+      border-radius: 100px;
+      padding: 0.3rem 0.875rem;
+      margin-bottom: 1.125rem;
+    }
+
+    /* ── Hero H1 ── */
+    .su-hero-h1 {
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-size: clamp(2rem, 4vw, 2.75rem) !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+      margin: 0 0 1rem !important;
+      max-width: 700px;
+    }
+
+    .su-hero-h1 em {
+      font-style: italic !important;
+      color: #9E7E42 !important;
+    }
+
+    /* ── Hero subheading ── */
+    .su-hero-sub {
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 1.0625rem !important;
+      font-weight: 300 !important;
+      line-height: 1.7 !important;
+      color: #5A5850 !important;
+      margin: 0 0 2rem !important;
+      max-width: 560px;
+    }
+
+    /* ── Hero button row ── */
+    .su-hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .su-btn-primary {
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.01em !important;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6875rem 1.375rem;
+      background: #1E2D4F !important;
+      color: #FFFFFF !important;
+      border: 2px solid #1E2D4F !important;
+      border-radius: 6px;
+      text-decoration: none !important;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .su-btn-primary:hover {
+      background: #16243F !important;
+      border-color: #16243F !important;
+      color: #FFFFFF !important;
+    }
+
+    .su-btn-secondary {
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.01em !important;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6875rem 1.375rem;
+      background: transparent !important;
+      color: #9E7E42 !important;
+      border: 2px solid #9E7E42 !important;
+      border-radius: 6px;
+      text-decoration: none !important;
+      transition: background 0.15s;
+    }
+
+    .su-btn-secondary:hover {
+      background: rgba(158,126,66,0.08) !important;
+      color: #9E7E42 !important;
+    }
+
+    /* Responsive hero */
     @media (max-width: 640px) {
-      .su-header-wordmark {
-        height: auto;
-        width: 90%;
-        max-width: 400px;
-        margin-left: 0;
-      }
       header:not(.site-header) .header-hero-inner {
-        padding: 1rem 1.25rem 0.875rem !important;
+        padding: 2rem 1.25rem 2.5rem !important;
+      }
+      .su-hero-h1 {
+        font-size: 1.75rem !important;
+      }
+      .su-hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .su-btn-primary,
+      .su-btn-secondary {
+        width: 100%;
+        justify-content: center;
       }
     }
 
 
-    /* ── NAV: completes the unified header block ──────────────────────────
-       No top border — the nav surface continues directly from the header.
-       Internal hairline added inside nav-inner for subtle articulation.
-       Shadow lives here, anchoring the full header block to the page.
-    ──────────────────────────────────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════════
+       NAV — Sticky midnight indigo bar, white links, gold CTA
+    ═══════════════════════════════════════════════════════════════ */
 
     .site-nav {
-      background: #fafafa !important;
-      border-top: none !important;        /* no seam between header and nav */
-      border-bottom: 1px solid #E0D9CE !important;
-      box-shadow: none !important;
+      background: #1E2D4F !important;
+      border-top: none !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
       position: sticky !important;
       top: 0 !important;
       z-index: 900 !important;
     }
 
-    /* ── Desktop nav layout: scoped to min-width 640px so tablets
-       keep the horizontal bar; only true mobile gets the hamburger.
-       ─────────────────────────────────────────────────────────── */
+    /* ── Text logo ── */
+    .su-nav-logo {
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      font-size: 0.875rem !important;
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+      text-decoration: none !important;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-right: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .su-nav-logo .su-nav-logo-light {
+      font-weight: 400;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .su-nav-logo:hover {
+      color: #FFFFFF !important;
+      opacity: 0.85;
+    }
+
+    /* ── Desktop nav layout ─────────────────────────────────────── */
     @media (min-width: 640px) {
-      /* Hide hamburger button — original site shows it at ≤768px */
       .nav-toggle { display: none !important; }
 
       .site-nav .site-nav-inner {
-        height: 40px !important;         /* slightly slimmer — more editorial */
-        min-height: 40px !important;
+        height: 44px !important;
+        min-height: 44px !important;
         max-width: 1160px !important;
         padding: 0 2rem !important;
-        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
         margin: 0 auto !important;
-        /* Ghost hairline: internal articulation, not a structural divide */
-        border-top: 1px solid rgba(212, 204, 191, 0.55) !important;
+        border-top: none !important;
       }
 
       .nav-menu {
@@ -207,7 +294,7 @@
         align-items: stretch !important;
         height: 100% !important;
         gap: 0 !important;
-        flex: unset !important;
+        flex: 1 !important;
         justify-content: center !important;
         margin-left: 0 !important;
         position: static !important;
@@ -217,7 +304,6 @@
         box-shadow: none !important;
       }
 
-      /* Desktop link: positioned so ::after underline can sit below */
       .nav-menu > a {
         display: flex !important;
         align-items: center !important;
@@ -233,7 +319,7 @@
         position: relative !important;
       }
 
-      /* Active underline: ::after pill sits 6px below the text baseline */
+      /* Active underline: gold pill */
       .nav-menu > a.su-active::after,
       .nav-menu > a[aria-current="page"]::after {
         content: '' !important;
@@ -242,12 +328,12 @@
         left: 0.75rem !important;
         right: 0.75rem !important;
         height: 2px !important;
-        background: #3E5974 !important;
+        background: #9E7E42 !important;
         border-radius: 2px !important;
       }
     }
 
-    /* Shrink link padding at intermediate widths before hamburger kicks in */
+    /* Shrink link padding at intermediate widths */
     @media (min-width: 640px) and (max-width: 920px) {
       .nav-menu > a {
         font-size: 13px !important;
@@ -260,11 +346,11 @@
       }
     }
 
-    /* ── Typography / color: applies at all widths ──────────────── */
+    /* ── Nav link typography: applies at all widths ───────────── */
     .nav-menu > a {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-weight: 500 !important;
-      color: #4D4C4B !important;
+      color: rgba(255,255,255,0.82) !important;
       text-decoration: none !important;
       transition: color 0.12s ease !important;
       white-space: nowrap;
@@ -272,42 +358,43 @@
     }
 
     .nav-menu > a:hover {
-      color: #3E5974 !important;
+      color: #FFFFFF !important;
       text-decoration: none !important;
     }
 
     .nav-menu > a.su-active,
     .nav-menu > a[aria-current="page"] {
-      color: #3E5974 !important;
+      color: #FFFFFF !important;
       font-weight: 600 !important;
     }
 
     .nav-menu > a:focus-visible {
-      outline: 2px solid #3E5974 !important;
+      outline: 2px solid #9E7E42 !important;
       outline-offset: -2px;
     }
 
-    /* ── Mobile nav: restore dropdown layout ──────────────────────────────
-       Desktop overrides (negative margin, height:100%, small padding)
-       must not apply inside the mobile dropdown. These rules win because
-       they are more specific AND come later in the cascade.
-    ──────────────────────────────────────────────────────────────────── */
+    /* ── Mobile nav ────────────────────────────────────────────── */
     @media (max-width: 639px) {
-      /* Nav inner: auto height so the hamburger button fits */
       .site-nav .site-nav-inner {
         height: auto !important;
-        min-height: 46px !important;
+        min-height: 50px !important;
         flex-wrap: wrap !important;
         padding: 0 1.25rem !important;
-        justify-content: flex-end !important;
+        justify-content: space-between !important;
       }
 
-      /* Dropdown panel: white, full-width, elevated */
+      /* Hamburger button: white on indigo */
+      .nav-toggle {
+        color: #FFFFFF !important;
+        border-color: rgba(255,255,255,0.3) !important;
+      }
+
+      /* Dropdown panel: white for readability */
       .nav-menu {
         background: #FFFFFF !important;
-        border-top: 1px solid #D2CECA !important;
-        border-bottom: 1px solid #D2CECA !important;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+        border-top: 1px solid #D0CCC2 !important;
+        border-bottom: 1px solid #D0CCC2 !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
         margin-left: 0 !important;
         flex-direction: column !important;
         width: 100% !important;
@@ -317,7 +404,7 @@
         right: 0 !important;
       }
 
-      /* Mobile link items: block, full-width, readable tap targets */
+      /* Mobile links: dark text on white */
       .nav-menu > a {
         display: block !important;
         height: auto !important;
@@ -325,8 +412,8 @@
         padding: 0.875rem 1.5rem !important;
         font-size: 0.93rem !important;
         font-weight: 500 !important;
-        color: #4D4C4B !important;
-        border-bottom: 1px solid #D2CECA !important;
+        color: #1C1B18 !important;
+        border-bottom: 1px solid #D0CCC2 !important;
         border-left: 3px solid transparent !important;
       }
 
@@ -334,31 +421,31 @@
         border-bottom: none !important;
       }
 
-      /* Active state: left border instead of bottom border */
       .nav-menu > a.su-active,
       .nav-menu > a[aria-current="page"] {
-        color: #3E5974 !important;
+        color: #9E7E42 !important;
         font-weight: 600 !important;
-        border-left-color: #3E5974 !important;
-        border-bottom-color: #D2CECA !important;
+        border-left-color: #9E7E42 !important;
+        border-bottom-color: #D0CCC2 !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
 
-      /* Hover */
       .nav-menu > a:hover {
-        color: #3E5974 !important;
-        background: #F8F6F2 !important;
+        color: #1E2D4F !important;
+        background: #F5F4F1 !important;
       }
     }
 
 
-    /* ── FOOTER: warm earth-tone palette ────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER — Midnight indigo, white text, gold headings
+    ═══════════════════════════════════════════════════════════════ */
 
     .site-footer {
-      background: #e9e8e6 !important;
+      background: #1E2D4F !important;
       padding: 0 !important;
       text-align: left !important;
-      border-top: 1px solid #D4CCBF !important;
+      border-top: none !important;
     }
 
     #su-footer-grid {
@@ -371,43 +458,43 @@
     }
 
     .su-footer-col h4 {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #A07D54;
+      color: #9E7E42;
       margin: 0 0 0.875rem;
       padding-bottom: 0.5rem;
-      border-bottom: 1px solid #D4CCBF;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .su-footer-brand-name {
-      font-family: 'Spectral', Georgia, serif;
+      font-family: 'Libre Baskerville', Georgia, serif;
       font-size: 1rem;
-      font-weight: 600;
-      color: #5D5646;
+      font-weight: 700;
+      color: #FFFFFF;
       display: block;
       margin-bottom: 0.15rem;
       line-height: 1.2;
     }
 
     .su-footer-brand-tag {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.09em;
-      color: #62929E;
+      color: rgba(255,255,255,0.45);
       display: block;
       margin-bottom: 0.875rem;
     }
 
     .su-footer-brand-desc {
-      font-family: 'Poppins', system-ui, sans-serif;
-      font-size: 0.825rem;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      font-size: 0.875rem;
       line-height: 1.65;
-      color: #7A756D;
+      color: rgba(255,255,255,0.65);
       margin: 0 0 0.9rem;
       max-width: 260px;
     }
@@ -423,26 +510,26 @@
     }
 
     .su-footer-col ul li a {
-      font-family: 'Poppins', system-ui, sans-serif;
-      font-size: 0.825rem;
-      color: #4D4C4B;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.72);
       text-decoration: none;
       transition: color 0.1s;
     }
 
     .su-footer-col ul li a:hover {
-      color: #954F2E;
+      color: #FFFFFF;
     }
 
     #su-footer-translate {
-      border-top: 1px solid #D4CCBF;
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding: 1rem 2rem;
       max-width: 1160px;
       margin: 0 auto;
     }
 
     #su-footer-bottom {
-      border-top: 1px solid #D4CCBF;
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding: 0.875rem 2rem;
       max-width: 1160px;
       margin: 0 auto;
@@ -454,9 +541,9 @@
     }
 
     #su-footer-bottom p {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
-      color: #7A756D;
+      color: rgba(255,255,255,0.42);
       margin: 0;
     }
 
@@ -467,25 +554,25 @@
     }
 
     #su-footer-bottom-links a {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.72rem;
-      color: #7A756D;
+      color: rgba(255,255,255,0.42);
       text-decoration: none;
       transition: color 0.12s;
     }
 
     #su-footer-bottom-links a:hover {
-      color: #4D4C4B;
+      color: rgba(255,255,255,0.85);
     }
 
     #su-footer-disclaimer {
-      border-top: 1px solid #D4CCBF;
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding: 0.85rem 2rem;
       max-width: 1160px;
       margin: 0 auto;
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
       font-size: 0.73rem;
-      color: #7A756D;
+      color: rgba(255,255,255,0.38);
       line-height: 1.55;
     }
 
@@ -504,30 +591,16 @@
 
 
     /* ═══════════════════════════════════════════════════════════════
-       PAGE BODY OVERRIDES  —  Zone-based visual rhythm
-       ═══════════════════════════════════════════════════════════════
-       Zone 1: header + nav  →  white  (already handled above)
-       Zone 2: .intro-bar    →  tan #D2CECA  (warm break, distinct)
-       Zone 3: main content  →  linen #e9e8e6  (grounded content zone)
-       Zone 4: footer        →  tan #D2CECA  (already handled above)
-
-       White cards sit on linen → natural contrast, no trickery needed.
-       The tan zones bookend the linen content, creating real rhythm.
+       PAGE BODY — Cream ground, white cards
     ═══════════════════════════════════════════════════════════════ */
 
-    /* ── Zone 1: Page ground ── */
     body {
-      background: #EFEFEA !important;
-      color: #4D4C4B !important;
+      background: #F5F4F1 !important;
+      color: #1C1B18 !important;
     }
 
-    /* ── Zone 2: Intro / hero band — full-width tan ──────────────────
-       Uses max() to center content within the 860px column while
-       letting the tan background extend edge-to-edge.
-       calc(50% - 398px) = half viewport minus (430px - 32px padding)
-    ──────────────────────────────────────────────────────────────── */
     .intro-bar {
-      background: #EFEFEA !important;
+      background: #F5F4F1 !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
@@ -535,18 +608,17 @@
       padding-bottom: 2.25rem !important;
       padding-left: max(2rem, calc(50% - 398px)) !important;
       padding-right: max(2rem, calc(50% - 398px)) !important;
-      border-bottom: 1px solid #C0CDD2 !important;
+      border-bottom: 1px solid #D0CCC2 !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
     }
 
-    /* Intro text */
     .intro-body {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.925rem !important;
       line-height: 1.75 !important;
-      color: #3D3C3B !important;
+      color: #1C1B18 !important;
       text-align: center !important;
       width: 100% !important;
       max-width: 760px !important;
@@ -558,86 +630,78 @@
       display: block !important;
     }
 
-    /* Featured card in intro section */
     .su-intro-featured {
       max-width: 760px !important;
       width: 100% !important;
       margin: 0 !important;
     }
 
-    /* ── Zone 3: Content zone — cards float on near-white ──────── */
     .guides-zone {
-      background: #EFEFEA !important;
+      background: #F5F4F1 !important;
     }
 
-    /* Section label / eyebrow: warm accent + rule that extends to right edge */
     .guides-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #A07D54 !important;
+      color: #9E7E42 !important;
       margin-bottom: 1.375rem !important;
     }
 
-    /* Cards: white on linen — the contrast is real and intentional.
-       Stronger shadow than v8 so cards genuinely float off the surface. */
+    /* Cards: white on cream */
     .card {
-      --card-accent: #954F2E;
+      --card-accent: #9E7E42;
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+      border: 1px solid #D0CCC2 !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
     }
 
     .card:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.11) !important;
-      border-color: #C2B9AC !important;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1) !important;
+      border-color: #B8B4AC !important;
     }
 
-    /* Card top accent stripe: deep teal */
+    /* Card top accent stripe: gold */
     .card::before {
-      background: #954F2E !important;
+      background: #9E7E42 !important;
       height: 3px !important;
     }
 
-    /* Card headings: Spectral, deep brown — clear hierarchy */
     .card h2 {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1.05rem !important;
-      font-weight: 600 !important;
-      color: #5D5646 !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-bottom: 0.5rem !important;
     }
 
-    /* Card body: Public Sans, muted — subordinate to heading */
     .card p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
-      color: #7A756D !important;
+      color: #5A5850 !important;
       line-height: 1.65 !important;
     }
 
-    /* Card link button: #954F2E blue — the one interaction signal */
     .card-link {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.775rem !important;
       font-weight: 600 !important;
-      color: #954F2E !important;
-      border: 1.5px solid #954F2E !important;
+      color: #9E7E42 !important;
+      border: 1.5px solid #9E7E42 !important;
       letter-spacing: 0.01em !important;
     }
 
     .card:hover .card-link {
-      background: #954F2E !important;
+      background: #9E7E42 !important;
       color: #FFFFFF !important;
     }
 
-    /* Filled/solid buttons: white text. Excludes light-background and
-       outline/ghost buttons that need dark text to remain legible. */
+    /* Filled/solid buttons */
     [class*="btn"]:not([class*="btn-outline"]):not([class*="btn-ghost"])
                   :not(.start-here-btn):not(.btn-secondary):not(.flow-btn)
                   :not(.restart-btn):not(.back-btn):not(.tpl-btn) {
@@ -649,66 +713,63 @@
       color: #FFFFFF !important;
     }
 
-    /* Light-background / outline buttons: dark text */
     .start-here-btn {
-      color: #954F2E !important;   /* white button inside teal banner */
+      color: #9E7E42 !important;
     }
     .btn-secondary,
     .flow-btn,
     .tpl-btn {
-      color: #4D4C4B !important;   /* dark text on white/transparent surface */
+      color: #1C1B18 !important;
     }
     .back-btn,
     .restart-btn {
-      color: #5D5646 !important;   /* outline/ghost — inherits page text color */
+      color: #1E2D4F !important;
     }
 
     .card-link:focus-visible {
-      outline: 2px solid #954F2E !important;
+      outline: 2px solid #9E7E42 !important;
       outline-offset: 2px !important;
     }
 
-    /* Featured card: white (overrides inline amber-lt background) */
     .card-featured {
       background: #FFFFFF !important;
     }
 
-    /* Featured badge: teal accent */
     .featured-badge {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      background: #62929E !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      background: #455C7C !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
 
-    /* Start-here banners: deep teal background */
+    /* Start-here banners: gold accent */
     .start-here {
-      background: #954F2E !important;
-      border-color: #7A3F24 !important;
-      border-left-color: #7A3F24 !important;
+      background: #9E7E42 !important;
+      border-color: #7A6535 !important;
+      border-left-color: #7A6535 !important;
       border-left-width: 3px !important;
-      box-shadow: 0 2px 12px rgba(149,79,46,0.25) !important;
+      box-shadow: 0 2px 12px rgba(158,126,66,0.25) !important;
     }
 
     .start-here-text strong {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       color: #FFFFFF !important;
     }
 
     .start-here-text p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       color: rgba(255,255,255,0.85) !important;
     }
 
     .start-here-btn {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       background: #FFFFFF !important;
-      color: #954F2E !important;
+      color: #9E7E42 !important;
     }
 
     .start-here-btn:hover {
-      background: #E8D5CC !important;
-      color: #954F2E !important;
+      background: #F2EDD6 !important;
+      color: #9E7E42 !important;
     }
 
     .start-here-btn:focus-visible {
@@ -716,69 +777,53 @@
       outline-offset: 2px !important;
     }
 
-    /* ── Main content typography ── */
+    /* Main content links */
     main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
-      color: #954F2E !important;
+      color: #455C7C !important;
     }
 
-    /* Lucide icons inside card-link inherit text color */
     .card-link i,
     .card-link svg {
       color: inherit !important;
       stroke: currentColor !important;
     }
 
-    /* Featured card in intro: card-link always filled */
     .su-intro-featured .card-link {
-      background: #954F2E !important;
+      background: #9E7E42 !important;
       color: #FFFFFF !important;
     }
 
     main p,
     main li {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      color: #4D4C4B !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
+      color: #1C1B18 !important;
     }
 
 
     /* ═══════════════════════════════════════════════════════════════
        INTERIOR PAGE OVERRIDES
-       Targets <header class="site-header"> + sidebar + content body.
-       All interior pages use this header class; homepage does not.
+       header.site-header + sidebar + content body
     ═══════════════════════════════════════════════════════════════ */
 
-    /* ── Interior header: same unified treatment as homepage header ──
-       Blue top stripe, no bottom seam, no shadow (shadow is on nav).
-    ──────────────────────────────────────────────────────────────── */
     header.site-header {
-      background: rgba(255,255,255,0.92) !important;
+      background: rgba(245,244,241,0.94) !important;
       backdrop-filter: blur(4px) !important;
-      -webkit-backdrop-filter: blur(4px) !important;   /* Safari */
-      border-top: 3px solid #954F2E !important;
-      border-bottom: 1px solid #DFD4C3 !important;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04) !important;
-      position: relative !important;              /* not sticky — nav handles that */
+      -webkit-backdrop-filter: blur(4px) !important;
+      border-top: 3px solid #9E7E42 !important;
+      border-bottom: 1px solid #D0CCC2 !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
+      position: relative !important;
       z-index: 1 !important;
       padding: 1.125rem 0 0.875rem !important;
-      clip-path: none !important;                 /* remove clip-path from page CSS */
+      clip-path: none !important;
     }
 
     header.site-header::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
       background-repeat: repeat;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    header.site-header::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('/textures/noise.png');
-      opacity: 0.04;
       pointer-events: none;
       z-index: 0;
     }
@@ -788,36 +833,36 @@
       margin: 0 auto !important;
       padding: 0 2rem !important;
       position: relative;
-      z-index: 1;   /* sits above ::before grain layer */
+      z-index: 1;
     }
 
-    /* Breadcrumb eyebrow: warm accent */
+    /* Breadcrumb eyebrow */
     .header-eyebrow {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 500 !important;
       letter-spacing: 0.06em !important;
       text-transform: uppercase !important;
-      color: #A07D54 !important;
+      color: #9E7E42 !important;
       margin-bottom: 0.4rem !important;
     }
 
     .header-eyebrow a {
-      color: #A07D54 !important;
+      color: #9E7E42 !important;
       text-decoration: none !important;
     }
 
     .header-eyebrow a:hover {
-      color: #5D5646 !important;
+      color: #1E2D4F !important;
       text-decoration: underline !important;
     }
 
-    /* Page title: Spectral, deep brown; italic em in caramel */
+    /* Page title */
     .header-title {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
-      color: #5D5646 !important;
+      color: #1E2D4F !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
       text-shadow: none !important;
@@ -826,67 +871,62 @@
 
     .header-title em {
       font-style: italic !important;
-      color: #A07D54 !important;
+      color: #9E7E42 !important;
     }
 
-    /* Page subtitle: muted, Public Sans */
+    /* Page subtitle */
     .header-subtitle {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
-      color: #7A756D !important;
+      color: #5A5850 !important;
       line-height: 1.5 !important;
       margin: 0 !important;
     }
 
-    /* Meta chips: teal-tinted */
+    /* Meta chips */
     .meta-chip {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
-      background: #CCDCE0 !important;
-      color: #62929E !important;
-      border: 1px solid #81A8B1 !important;
+      background: #C5CDD6 !important;
+      color: #455C7C !important;
+      border: 1px solid #455C7C !important;
       border-radius: 4px !important;
     }
 
-    /* ── Page layout: near-white ground ── */
     .page-layout {
-      background: #EFEFEA !important;
+      background: #F5F4F1 !important;
     }
 
-    /* ── Sidebar: white card on linen ── */
+    /* Sidebar */
     .page-sidebar {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
+      border: 1px solid #D0CCC2 !important;
       border-radius: 8px !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
       padding: 1.25rem 0 !important;
-      /* Sticky offset: only the nav is sticky now (~40px), so 56px gives the
-         nav height plus a small breathing room before the sidebar locks. */
-      top: 56px !important;
-      max-height: calc(100vh - 56px) !important;
+      top: 60px !important;
+      max-height: calc(100vh - 60px) !important;
       overflow-y: auto !important;
     }
 
-    /* Sidebar heading: warm accent label */
     .sidebar-hd {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #A07D54 !important;
+      color: #9E7E42 !important;
       padding: 0 1.125rem 0.625rem !important;
-      border-bottom: 1px solid #D2CECA !important;
+      border-bottom: 1px solid #D0CCC2 !important;
       margin-bottom: 0.375rem !important;
     }
 
-    /* Sidebar nav buttons */
     .sidebar-link {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.825rem !important;
       font-weight: 400 !important;
-      color: #4D4C4B !important;
+      color: #1C1B18 !important;
       background: transparent !important;
       border: none !important;
       border-left: 3px solid transparent !important;
@@ -899,41 +939,40 @@
     }
 
     .sidebar-link:hover {
-      color: #954F2E !important;
-      background: #F4F1EC !important;
+      color: #9E7E42 !important;
+      background: #F5F4F1 !important;
     }
 
-    /* Active sidebar link: left border in blue */
     .sidebar-link.active,
     .sidebar-link[aria-current],
     .sidebar-link[aria-selected="true"] {
-      color: #954F2E !important;
+      color: #9E7E42 !important;
       font-weight: 600 !important;
-      border-left-color: #954F2E !important;
-      background: #F5EBE7 !important;
+      border-left-color: #9E7E42 !important;
+      background: #F7F3E8 !important;
       padding-left: calc(1.125rem - 3px) !important;
     }
 
-    /* ── Interior page content body typography ── */
+    /* Interior page content typography */
     .page-body h2,
     .page-main h2 {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 2rem !important;
-      font-weight: 600 !important;
-      color: #5D5646 !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #D2CECA !important;
+      border-bottom: 1px solid #D0CCC2 !important;
     }
 
     .page-body h3,
     .page-main h3 {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1.35rem !important;
-      font-weight: 600 !important;
-      color: #5D5646 !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -941,107 +980,99 @@
 
     .page-body p,
     .page-main p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
-      color: #4D4C4B !important;
+      color: #1C1B18 !important;
     }
 
     .page-body a,
     .page-main a {
-      color: #954F2E !important;
+      color: #455C7C !important;
     }
 
     .page-body ul li,
     .page-body ol li,
     .page-main ul li,
     .page-main ol li {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
-      color: #4D4C4B !important;
+      color: #1C1B18 !important;
     }
 
-    /* Callout / note boxes inside content */
+    /* Callout / note boxes */
     .page-body .note,
     .page-body .callout,
     .page-main .note,
     .page-main .callout {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #954F2E !important;
+      border: 1px solid #D0CCC2 !important;
+      border-left: 3px solid #9E7E42 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
 
     /* ═══════════════════════════════════════════════════════════════
-       INTRO-BOX: used on 5+ interior pages (disability-discounts,
-       helpful-links, transition-to-adulthood, share-your-story,
-       school-iep-guide, printable-handouts). Old style: sage-green
-       background. New: white card with teal left border.
+       INTRO-BOX — interior pages
     ═══════════════════════════════════════════════════════════════ */
     .intro-box {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #954F2E !important;   /* unified with other callout boxes */
+      border: 1px solid #D0CCC2 !important;
+      border-left: 3px solid #9E7E42 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
-      color: #4D4C4B !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
+      color: #1C1B18 !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
     .intro-box strong {
-      color: #5D5646 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #1E2D4F !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
-    /* ── Broader heading overrides: catches h2 outside .page-body ──
-       Some pages have h2 directly in .page-layout or .page-content,
-       not wrapped in .page-body. Also overrides Lora font used on
-       several pages with Spectral for consistency.
-    ──────────────────────────────────────────────────────────────── */
+    /* ── Broader heading overrides ── */
     .page-layout h2,
     .page-content h2,
     .page-body h2,
     .page-main h2 {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 2rem !important;
-      font-weight: 600 !important;
-      color: #5D5646 !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #D2CECA !important;
+      border-bottom: 1px solid #D0CCC2 !important;
     }
 
     .page-layout h3,
     .page-content h3,
     .page-body h3,
     .page-main h3 {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1.35rem !important;
-      font-weight: 600 !important;
-      color: #5D5646 !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
     }
 
-    /* h4: Spectral, subordinate to h3 but above body text */
     .page-layout h4,
     .page-content h4,
     .page-body h4,
     .page-main h4 {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 0.975rem !important;
-      font-weight: 600 !important;
-      color: #5D5646 !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
       line-height: 1.3 !important;
       margin-top: 1.25rem !important;
       margin-bottom: 0.375rem !important;
@@ -1049,27 +1080,23 @@
 
     .page-layout p,
     .page-content p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
-      color: #4D4C4B !important;
+      color: #1C1B18 !important;
     }
 
-    /* Lead / intro paragraphs: slightly larger, full-color body text */
     .page-intro,
     .about-lead p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 1.05rem !important;
       line-height: 1.8 !important;
-      color: #4D4C4B !important;
+      color: #1C1B18 !important;
     }
 
-    /* ── Dark-background sections (about.html bg-story) ───────────────
-       Our global h2/p !important overrides would turn white text dark.
-       These more-specific rules restore the original white-on-dark look.
-    ──────────────────────────────────────────────────────────────── */
+    /* ── Dark-background sections (about.html bg-story) ── */
     .bg-story {
-      background: #1e3251 !important;   /* slightly warmer than old #162544 */
+      background: #1E2D4F !important;
     }
     .bg-story h2,
     .bg-story .section-tag {
@@ -1090,25 +1117,23 @@
       color: rgba(255,255,255,0.65) !important;
     }
 
+
     /* ═══════════════════════════════════════════════════════════════
        OLD-PALETTE ELEMENT OVERRIDES
-       Interior pages use teal/sage/amber CSS variables from the dark
-       theme. These rules remap them to the warm editorial palette.
     ═══════════════════════════════════════════════════════════════ */
 
-    /* Teal callout → white card with blue left border */
     .teal-callout {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #954F2E !important;
+      border: 1px solid #D0CCC2 !important;
+      border-left: 3px solid #9E7E42 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .teal-callout .callout-label {
-      color: #954F2E !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #9E7E42 !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1116,23 +1141,22 @@
     }
 
     .teal-callout p {
-      color: #4D4C4B !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #1C1B18 !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
-    /* Info callout → white card with warm left border */
     .info-callout {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #A07D54 !important;
+      border: 1px solid #D0CCC2 !important;
+      border-left: 3px solid #9E7E42 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .info-callout .callout-label {
-      color: #A07D54 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #9E7E42 !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1140,127 +1164,119 @@
     }
 
     .info-callout p {
-      color: #4D4C4B !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #1C1B18 !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
-    /* Amber callout → white card with caramel left border */
     .amber-callout {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #A07D54 !important;
+      border: 1px solid #D0CCC2 !important;
+      border-left: 3px solid #9E7E42 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .amber-callout .callout-label {
-      color: #A07D54 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #9E7E42 !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
       text-transform: uppercase !important;
     }
 
-    /* Feature cards (symptom grid) → white on linen, deep teal top stripe */
     .feature-card {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
-      border-top: 3px solid #954F2E !important;
+      border: 1px solid #D0CCC2 !important;
+      border-top: 3px solid #9E7E42 !important;
       border-radius: 8px !important;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.06) !important;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.05) !important;
     }
 
-    .feature-card.amber-top { border-top-color: #954F2E !important; }
-    .feature-card.rose-top  { border-top-color: #954F2E !important; }
-    .feature-card.sage-top  { border-top-color: #954F2E !important; }
-    .feature-card.blue-top  { border-top-color: #954F2E !important; }
+    .feature-card.amber-top { border-top-color: #9E7E42 !important; }
+    .feature-card.rose-top  { border-top-color: #9E7E42 !important; }
+    .feature-card.sage-top  { border-top-color: #9E7E42 !important; }
+    .feature-card.blue-top  { border-top-color: #9E7E42 !important; }
 
     .feature-card h4 {
-      font-family: 'Spectral', Georgia, serif !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
       font-size: 1rem !important;
-      font-weight: 600 !important;
-      color: #5D5646 !important;
+      font-weight: 700 !important;
+      color: #1E2D4F !important;
     }
 
     .feature-card li,
     .feature-card p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
-      color: #4D4C4B !important;
+      color: #1C1B18 !important;
     }
 
-    /* Section labels in page content */
     .section-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 600 !important;
-      color: #7A756D !important;
+      color: #5A5850 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
     }
 
     .section-label::before {
-      background: #A07D54 !important;
+      background: #9E7E42 !important;
     }
 
-    /* Section titles in page content */
     .section-title {
-      font-family: 'Spectral', Georgia, serif !important;
-      color: #5D5646 !important;
+      font-family: 'Libre Baskerville', Georgia, serif !important;
+      color: #1E2D4F !important;
     }
 
-    /* Symptom pills: keep subtle but remap to warm palette */
     .symptom-pill {
       background: #FFFFFF !important;
-      border-color: #D4CCBF !important;
-      color: #7A756D !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      border-color: #D0CCC2 !important;
+      color: #5A5850 !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
     .symptom-pill:hover,
     .symptom-pill.active {
-      background: #954F2E !important;
-      border-color: #954F2E !important;
+      background: #9E7E42 !important;
+      border-color: #9E7E42 !important;
       color: #FFFFFF !important;
     }
 
-    /* Symptom search input */
     .symptom-search {
-      border-color: #D4CCBF !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      border-color: #D0CCC2 !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
     }
 
     .symptom-search:focus {
-      border-color: #954F2E !important;
+      border-color: #9E7E42 !important;
     }
 
-    /* Stat boxes in content area */
     .stat-box {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
+      border: 1px solid #D0CCC2 !important;
     }
 
-    /* Tab nav (in-page section tabs) */
     .tab-nav {
       background: #FFFFFF !important;
-      border-top: 1px solid #D2CECA !important;
-      border-bottom: 1px solid #D2CECA !important;
+      border-top: 1px solid #D0CCC2 !important;
+      border-bottom: 1px solid #D0CCC2 !important;
     }
 
     .tab-btn {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Source Sans 3', system-ui, sans-serif !important;
       font-size: 0.825rem !important;
       font-weight: 500 !important;
-      color: #7A756D !important;
+      color: #5A5850 !important;
     }
 
     .tab-btn.active,
     .tab-btn[aria-selected="true"] {
-      color: #954F2E !important;
+      color: #9E7E42 !important;
       font-weight: 600 !important;
-      border-bottom-color: #954F2E !important;
+      border-bottom-color: #9E7E42 !important;
     }
   `;
 
@@ -1270,10 +1286,11 @@
   document.head.appendChild(styleEl);
 
 
-  /* ─── 2. MARK ACTIVE NAV LINK ────────────────────────────────────────── */
+  /* ─── 2. NAV: MARK ACTIVE LINK + INJECT TEXT LOGO ───────────────────── */
   const navInner = document.querySelector('.site-nav-inner');
 
   if (navInner) {
+    // Mark active page link
     const pathname = window.location.pathname.split('/').pop() || 'index.html';
     navInner.querySelectorAll('.nav-menu a').forEach(a => {
       const href = a.getAttribute('href');
@@ -1282,13 +1299,20 @@
         a.setAttribute('aria-current', 'page');
       }
     });
+
+    // Inject text logo before the nav-menu
+    const navMenu = navInner.querySelector('.nav-menu');
+    if (navMenu && !navInner.querySelector('.su-nav-logo')) {
+      const logo = document.createElement('a');
+      logo.href = '/index.html';
+      logo.className = 'su-nav-logo';
+      logo.innerHTML = 'The SETD5 Syndrome <span class="su-nav-logo-light">Companion</span>';
+      navInner.insertBefore(logo, navMenu);
+    }
   }
 
 
-  /* ─── 2b. (stats bar removed) ───────────────────────────────────────── */
-
-
-  /* ─── 2c. RENAME NAV LABEL: Community & Links → Community ───────────── */
+  /* ─── 2c. RENAME NAV LABEL ───────────────────────────────────────────── */
   document.querySelectorAll('.nav-menu a').forEach(a => {
     if (a.textContent.trim() === 'Community & Links') {
       a.textContent = 'Community';
@@ -1296,9 +1320,9 @@
   });
 
 
-  /* ─── 3. RESTRUCTURE HOME PAGE HEADER ONLY ──────────────────────────── */
-  // Interior pages use <header class="site-header"> — we must not touch those.
-  // Home page uses a plain <header> with no class and a .header-hero-inner inside.
+  /* ─── 3. RESTRUCTURE HOME PAGE HERO ─────────────────────────────────── */
+  // Interior pages use <header class="site-header"> — do not touch those.
+  // Home page uses a plain <header> with .header-hero-inner inside.
   const siteHeader = document.querySelector('header:not(.site-header)');
 
   if (siteHeader) {
@@ -1308,22 +1332,44 @@
 
     const heroInner = siteHeader.querySelector('.header-hero-inner');
     if (heroInner) {
-      // Replace all existing content with wordmark image
+      // Replace all existing content with Counsel hero layout
       heroInner.innerHTML = '';
 
-      // Visually-hidden h1: keeps a text heading in the DOM for screen
-      // readers and search engines — the wordmark image serves sighted users.
-      const srH1 = document.createElement('h1');
-      srH1.className = 'su-sr-only';
-      srH1.textContent = 'The SETD5 Syndrome Companion \u2014 A peer resource for families and caregivers';
-      heroInner.appendChild(srH1);
+      // Tag pill
+      const tag = document.createElement('span');
+      tag.className = 'su-hero-tag';
+      tag.textContent = 'Family Resource \u00B7 SETD5 Syndrome';
+      heroInner.appendChild(tag);
 
-      // Wordmark: single designed banner replacing logo + title + subtitle
-      const wordmark = document.createElement('img');
-      wordmark.src = '/IMG_1238.png';
-      wordmark.alt = 'The SETD5 Syndrome Companion \u2014 A peer resource for families and caregivers';
-      wordmark.className = 'su-header-wordmark';
-      heroInner.appendChild(wordmark);
+      // H1 with gold italic em
+      const h1 = document.createElement('h1');
+      h1.className = 'su-hero-h1';
+      h1.innerHTML = 'The <em>SETD5 Syndrome</em> Companion';
+      heroInner.appendChild(h1);
+
+      // Subheading
+      const sub = document.createElement('p');
+      sub.className = 'su-hero-sub';
+      sub.textContent = 'Plain-language guides for families navigating SETD5 Syndrome \u2014 built by a parent, for families like ours.';
+      heroInner.appendChild(sub);
+
+      // Button row
+      const btns = document.createElement('div');
+      btns.className = 'su-hero-btns';
+
+      const btnPrimary = document.createElement('a');
+      btnPrimary.href = 'index.html';
+      btnPrimary.className = 'su-btn-primary';
+      btnPrimary.textContent = 'Explore the guides';
+
+      const btnSecondary = document.createElement('a');
+      btnSecondary.href = 'about.html';
+      btnSecondary.className = 'su-btn-secondary';
+      btnSecondary.textContent = 'About this site';
+
+      btns.appendChild(btnPrimary);
+      btns.appendChild(btnSecondary);
+      heroInner.appendChild(btns);
     }
   }
 
@@ -1337,24 +1383,21 @@
 
 
   /* ─── 4. RESTYLE INTERNATIONAL NOTE ─────────────────────────────────── */
-  // The note has inline styles from the old palette. Selector does not use
-  // 'main' prefix because some pages have no <main> element.
   const intlNote = document.querySelector('div[style*="sage-lt"], div[style*="e8f4f2"], div[style*="E4F0EE"], div[style*="eaf5f3"]');
   if (intlNote) {
     Object.assign(intlNote.style, {
       background: '#FFFFFF',
-      border: '1px solid #D4CCBF',
-      borderLeft: '3px solid #62929E',
+      border: '1px solid #D0CCC2',
+      borderLeft: '3px solid #455C7C',
       borderRadius: '8px',
-      color: '#4D4C4B',
+      color: '#1C1B18',
       fontSize: '1rem',
       lineHeight: '1.7',
-      fontFamily: "'Poppins', system-ui, sans-serif",
-      boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
+      fontFamily: "'Source Sans 3', system-ui, sans-serif",
+      boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
     });
     const strong = intlNote.querySelector('strong');
-    if (strong) strong.style.color = '#5D5646';
-    // Text already corrected in HTML source — no replacement needed
+    if (strong) strong.style.color = '#1E2D4F';
   }
 
 
