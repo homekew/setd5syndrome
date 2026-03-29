@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v39
+ * site-upgrade.js  v40
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -749,6 +749,7 @@
       position: relative !important;              /* not sticky — nav handles that */
       z-index: 1 !important;
       padding: 1.125rem 0 0.875rem !important;
+      clip-path: none !important;                 /* remove clip-path from page CSS */
     }
 
     header.site-header::before {
@@ -839,10 +840,10 @@
       border-radius: 8px !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
       padding: 1.25rem 0 !important;
-      /* Fix sticky positioning: account for sticky header + nav height (~155px)
-         so the sidebar doesn't hide behind the header when position:sticky fires. */
-      top: 155px !important;
-      max-height: calc(100vh - 155px) !important;
+      /* Sticky offset: only the nav is sticky now (~40px), so 56px gives the
+         nav height plus a small breathing room before the sidebar locks. */
+      top: 56px !important;
+      max-height: calc(100vh - 56px) !important;
       overflow-y: auto !important;
     }
 
@@ -963,7 +964,7 @@
     .intro-box {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      border-left: 3px solid #62929E !important;
+      border-left: 3px solid #2a627a !important;   /* unified with other callout boxes */
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
@@ -1011,12 +1012,61 @@
       margin-bottom: 0.5rem !important;
     }
 
+    /* h4: Spectral, subordinate to h3 but above body text */
+    .page-layout h4,
+    .page-content h4,
+    .page-body h4,
+    .page-main h4 {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 0.975rem !important;
+      font-weight: 600 !important;
+      color: #5D5646 !important;
+      line-height: 1.3 !important;
+      margin-top: 1.25rem !important;
+      margin-bottom: 0.375rem !important;
+    }
+
     .page-layout p,
     .page-content p {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
       color: #4D4C4B !important;
+    }
+
+    /* Lead / intro paragraphs: slightly larger, full-color body text */
+    .page-intro,
+    .about-lead p {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 1.05rem !important;
+      line-height: 1.8 !important;
+      color: #4D4C4B !important;
+    }
+
+    /* ── Dark-background sections (about.html bg-story) ───────────────
+       Our global h2/p !important overrides would turn white text dark.
+       These more-specific rules restore the original white-on-dark look.
+    ──────────────────────────────────────────────────────────────── */
+    .bg-story {
+      background: #1e3251 !important;   /* slightly warmer than old #162544 */
+    }
+    .bg-story h2,
+    .bg-story .section-tag {
+      color: #ffffff !important;
+    }
+    .bg-story p,
+    .bg-story p.on-dark {
+      color: rgba(255,255,255,0.85) !important;
+    }
+    .bg-story .section-divider::before {
+      background: rgba(255,255,255,0.3) !important;
+    }
+    .bg-story .kate-quote {
+      color: rgba(255,255,255,0.78) !important;
+      border-left-color: rgba(255,255,255,0.25) !important;
+    }
+    .bg-story .closing-note {
+      color: rgba(255,255,255,0.65) !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
