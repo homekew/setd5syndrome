@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v33
+ * site-upgrade.js  v34
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -87,7 +87,7 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: #FFFFFF !important;
+      background: #D2CECA !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
@@ -487,9 +487,9 @@
        The tan zones bookend the linen content, creating real rhythm.
     ═══════════════════════════════════════════════════════════════ */
 
-    /* ── Zone 1: Page ground — linen ── */
+    /* ── Zone 1: Page ground ── */
     body {
-      background: #e9e8e6 !important;
+      background: #fafafa !important;
       color: #4D4C4B !important;
     }
 
@@ -499,7 +499,7 @@
        calc(50% - 398px) = half viewport minus (430px - 32px padding)
     ──────────────────────────────────────────────────────────────── */
     .intro-bar {
-      background: #D2CECA !important;
+      background: #e9e8e6 !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
@@ -571,9 +571,9 @@
       margin-top: 0.4rem !important;
     }
 
-    /* ── Zone 3: Content zone — linen, white cards float on it ──────── */
+    /* ── Zone 3: Content zone — cards float on near-white ──────── */
     .guides-zone {
-      background: #e9e8e6 !important;
+      background: #fafafa !important;
     }
 
     /* Section label / eyebrow: warm accent + rule that extends to right edge */
@@ -717,7 +717,7 @@
        Blue top stripe, no bottom seam, no shadow (shadow is on nav).
     ──────────────────────────────────────────────────────────────── */
     header.site-header {
-      background: #FFFFFF !important;
+      background: #D2CECA !important;
       border-top: 3px solid #2a627a !important;  /* matches homepage accent */
       border-bottom: none !important;             /* merges with nav below */
       box-shadow: none !important;                /* shadow lives on nav */
@@ -791,9 +791,9 @@
       border-radius: 4px !important;
     }
 
-    /* ── Page layout: linen ground ── */
+    /* ── Page layout: near-white ground ── */
     .page-layout {
-      background: #e9e8e6 !important;
+      background: #fafafa !important;
     }
 
     /* ── Sidebar: white card on linen ── */
