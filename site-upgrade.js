@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v92
+ * site-upgrade.js  v93
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -1286,7 +1286,17 @@
   document.head.appendChild(styleEl);
 
 
-  /* ─── 2. NAV: MARK ACTIVE LINK + INJECT TEXT LOGO ───────────────────── */
+  /* ─── 2. NAV: MOVE TO TOP + MARK ACTIVE LINK + INJECT TEXT LOGO ──────── */
+
+  // On the homepage the hero header renders before the nav in the DOM.
+  // Move .site-nav before header:not(.site-header) so the nav is always
+  // the topmost element on the page.
+  const homeNav = document.querySelector('.site-nav');
+  const homeHero = document.querySelector('header:not(.site-header)');
+  if (homeNav && homeHero && homeHero.parentNode) {
+    homeHero.parentNode.insertBefore(homeNav, homeHero);
+  }
+
   const navInner = document.querySelector('.site-nav-inner');
 
   if (navInner) {
