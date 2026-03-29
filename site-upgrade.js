@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v45
+ * site-upgrade.js  v46
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -673,13 +673,31 @@
       color: #FFFFFF !important;
     }
 
-    /* Filled/solid buttons: ensure white text regardless of which class is used.
-       Covers .btn-primary, .download-btn, .btn-teal, .resource-btn, etc. */
-    [class*="btn"]:not([class*="btn-outline"]):not([class*="btn-ghost"]) {
+    /* Filled/solid buttons: white text. Excludes light-background and
+       outline/ghost buttons that need dark text to remain legible. */
+    [class*="btn"]:not([class*="btn-outline"]):not([class*="btn-ghost"])
+                  :not(.start-here-btn):not(.btn-secondary):not(.flow-btn)
+                  :not(.restart-btn):not(.back-btn):not(.tpl-btn) {
       color: #FFFFFF !important;
     }
-    .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark {
+    .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
+    .handout-box-btn, .cta-banner-btn, .generate-btn, .print-btn,
+    .submit-btn, .state-go-btn {
       color: #FFFFFF !important;
+    }
+
+    /* Light-background / outline buttons: dark text */
+    .start-here-btn {
+      color: #2a627a !important;   /* white button inside teal banner */
+    }
+    .btn-secondary,
+    .flow-btn,
+    .tpl-btn {
+      color: #4D4C4B !important;   /* dark text on white/transparent surface */
+    }
+    .back-btn,
+    .restart-btn {
+      color: #5D5646 !important;   /* outline/ghost — inherits page text color */
     }
 
     .card-link:focus-visible {
