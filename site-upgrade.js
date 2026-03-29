@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v23
+ * site-upgrade.js  v24
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -48,6 +48,25 @@
   const css = `
 
     @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap');
+
+    /* ═══════════════════════════════════════════════════════════════
+       CSS VARIABLE REMAPPING
+       Interior pages define old-palette variables (--navy, --teal,
+       --sage-lt, etc.) in their own :root blocks. By re-declaring
+       them here — in a stylesheet appended after the page CSS —
+       every element using those variables automatically inherits
+       the new palette without needing individual element overrides.
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --navy:      #5D5646;   /* was #162544 dark navy  → heading brown  */
+      --charcoal:  #5D5646;   /* alias used on some pages               */
+      --teal:      #5a9186;   /* was #C2DED8 pale teal  → sage-teal      */
+      --teal-lt:   #EAF4F2;   /* light teal bg          → teal tint      */
+      --sage:      #5a9186;   /* sage accent            → sage-teal      */
+      --sage-lt:   #EAF4F2;   /* sage light bg          → teal tint      */
+      --sage-mid:  #B8D8D4;   /* sage mid border        → teal mid       */
+      --amber:     #A07D54;   /* keep warm amber as-is                  */
+    }
 
     /* ═══════════════════════════════════════════════════════════════
        UNIFIED HEADER SYSTEM
@@ -919,6 +938,71 @@
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
 
+
+    /* ═══════════════════════════════════════════════════════════════
+       INTRO-BOX: used on 5+ interior pages (disability-discounts,
+       helpful-links, transition-to-adulthood, share-your-story,
+       school-iep-guide, printable-handouts). Old style: sage-green
+       background. New: white card with teal left border.
+    ═══════════════════════════════════════════════════════════════ */
+    .intro-box {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-left: 3px solid #5a9186 !important;
+      border-radius: 0 8px 8px 0 !important;
+      padding: 1.25rem 1.625rem !important;
+      margin-bottom: 2rem !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 1rem !important;
+      line-height: 1.7 !important;
+      color: #4D4C4B !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
+    }
+    .intro-box strong {
+      color: #5D5646 !important;
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+    }
+
+    /* ── Broader heading overrides: catches h2 outside .page-body ──
+       Some pages have h2 directly in .page-layout or .page-content,
+       not wrapped in .page-body. Also overrides Lora font used on
+       several pages with Spectral for consistency.
+    ──────────────────────────────────────────────────────────────── */
+    .page-layout h2,
+    .page-content h2,
+    .page-body h2,
+    .page-main h2 {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 2rem !important;
+      font-weight: 600 !important;
+      color: #5D5646 !important;
+      line-height: 1.25 !important;
+      margin-top: 2rem !important;
+      margin-bottom: 0.75rem !important;
+      padding-bottom: 0.375rem !important;
+      border-bottom: 1px solid #DFD4C3 !important;
+    }
+
+    .page-layout h3,
+    .page-content h3,
+    .page-body h3,
+    .page-main h3 {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 1.35rem !important;
+      font-weight: 600 !important;
+      color: #5D5646 !important;
+      line-height: 1.3 !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .page-layout p,
+    .page-content p {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 1rem !important;
+      line-height: 1.75 !important;
+      color: #4D4C4B !important;
+    }
 
     /* ═══════════════════════════════════════════════════════════════
        OLD-PALETTE ELEMENT OVERRIDES
