@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v44
+ * site-upgrade.js  v45
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -87,7 +87,11 @@
 
     /* ── HOME PAGE HEADER: blue entry stripe, no bottom seam ─────────── */
     header:not(.site-header) {
-      background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%) !important;
+      background:
+        radial-gradient(ellipse 90% 150% at 50% 110%, rgba(210,200,202,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 90% at 15% 50%, rgba(160,125,84,0.05) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 90% at 85% 50%, rgba(98,146,158,0.05) 0%, transparent 55%),
+        linear-gradient(to bottom, #ffffff 0%, #f8f7f5 100%) !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
