@@ -25,11 +25,16 @@
   /* ─── 1. INJECT OVERRIDE STYLES ──────────────────────────────────────── */
   const css = `
     /* ── Nav: wider container, logo layout ── */
+    .site-nav,
+    .site-nav .site-nav-inner {
+      height: 82px !important;
+      min-height: 82px !important;
+    }
+
     .site-nav-inner {
       max-width: 1160px !important;
       padding: 0 2rem !important;
       justify-content: space-between !important;
-      height: 82px !important;
     }
 
     .nav-menu {
