@@ -1,13 +1,17 @@
 /**
- * site-upgrade.js  v7
+ * site-upgrade.js  v8
  * SETD5 Syndrome (.com) — editorial redesign
  *
- * v7 changes:
- *   - Header: white surface, box-shadow, Public Sans subtitle label
- *   - Nav: editorial active state (2px underline, no pill/box)
- *   - Full warm earth-tone palette throughout (no dark navy)
- *   - Footer: warm #DFD4C3 background, #5D5646 headings, #4D4C4B links
- *   - Fonts: Spectral (headings) + Public Sans (body/UI)
+ * v7: Header, nav, footer redesign
+ * v8: Full page body overrides — intro, stats, cards, guides zone
+ *   - Page background: #EEEAE2 (warm linen)
+ *   - Intro bar: left-aligned, white pull-card with blue left border
+ *   - Stats bar: white surface, Spectral numerals in #3E5974, warm labels
+ *   - Cards: white surface, unified #3E5974 accent, Spectral h2, shadow
+ *   - Guides label: warm accent color + extending rule
+ *   - Featured badge: warm accent #A07D54
+ *   - Start-here banners: white surface, blue left border
+ *   - Card link buttons: blue accent throughout
  */
 
 (function () {
@@ -332,6 +336,206 @@
         align-items: flex-start;
       }
       #su-footer-bottom-links { gap: 0.85rem; }
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       PAGE BODY OVERRIDES
+       Targets the site's existing HTML classes to bring them into
+       the new warm editorial design system.
+    ═══════════════════════════════════════════════════════════════ */
+
+    /* ── Page ground ── */
+    body {
+      background: #EEEAE2 !important;
+      color: #4D4C4B !important;
+    }
+
+    /* ── Intro bar: left-aligned, blends with page ── */
+    .intro-bar {
+      background: #EEEAE2 !important;
+      text-align: left !important;
+      padding: 2.25rem 2rem 1.75rem !important;
+      max-width: 860px !important;
+      margin: 0 auto !important;
+    }
+
+    /* Intro body text: white pull-card with blue left accent bar */
+    .intro-body {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.925rem !important;
+      line-height: 1.75 !important;
+      color: #4D4C4B !important;
+      text-align: left !important;
+      max-width: 620px !important;
+      margin: 0 0 1.75rem !important;
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-left: 3px solid #3E5974 !important;
+      border-radius: 0 8px 8px 0 !important;
+      padding: 1.25rem 1.625rem !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.055) !important;
+      display: block !important;
+    }
+
+    /* ── Stats bar: white surface, Spectral numerals, warm labels ── */
+    .stats-bar {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-radius: 8px !important;
+      max-width: 520px !important;
+      margin: 0 !important;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05) !important;
+      padding: 0 !important;
+    }
+
+    .stats-bar-item {
+      padding: 1.375rem 1.5rem !important;
+      border-right: 1px solid #DFD4C3 !important;
+    }
+
+    .stats-bar-item:last-child {
+      border-right: none !important;
+    }
+
+    .stats-bar-num {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 1.875rem !important;
+      font-weight: 700 !important;
+      color: #3E5974 !important;
+      line-height: 1 !important;
+    }
+
+    .stats-bar-label {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.62rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.09em !important;
+      text-transform: uppercase !important;
+      color: #A07D54 !important;
+      margin-top: 0.4rem !important;
+    }
+
+    /* ── Guides zone: transparent so page linen shows through ── */
+    .guides-zone {
+      background: transparent !important;
+    }
+
+    /* Section label: warm accent + extending rule */
+    .guides-label {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.62rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.13em !important;
+      text-transform: uppercase !important;
+      color: #A07D54 !important;
+      margin-bottom: 1.375rem !important;
+    }
+
+    /* ── Cards: white surface, shadow, unified blue accent ── */
+    .card {
+      --card-accent: #3E5974;
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.055) !important;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.09) !important;
+      border-color: #C2B9AC !important;
+    }
+
+    /* Card top accent stripe: unified warm accent */
+    .card::before {
+      background: #A07D54 !important;
+      height: 3px !important;
+    }
+
+    /* Card heading: Spectral, brown */
+    .card h2 {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 1.1rem !important;
+      font-weight: 600 !important;
+      color: #5D5646 !important;
+      line-height: 1.3 !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* Card body text: muted, Public Sans */
+    .card p {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.875rem !important;
+      color: #7A756D !important;
+      line-height: 1.65 !important;
+    }
+
+    /* Card link button: blue accent */
+    .card-link {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.775rem !important;
+      font-weight: 600 !important;
+      color: #3E5974 !important;
+      border: 1.5px solid #3E5974 !important;
+      letter-spacing: 0.01em !important;
+    }
+
+    .card:hover .card-link {
+      background: #3E5974 !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Featured card: white, not amber-lt (overrides inline style) */
+    .card-featured {
+      background: #FFFFFF !important;
+    }
+
+    /* Featured badge: warm accent instead of caramel */
+    .featured-badge {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      background: #A07D54 !important;
+      font-size: 0.58rem !important;
+      letter-spacing: 0.1em !important;
+    }
+
+    /* ── Start-here banners: white surface, blue left border ── */
+    .start-here {
+      background: #FFFFFF !important;
+      border-color: #D4CCBF !important;
+      border-left-color: #3E5974 !important;
+      border-left-width: 3px !important;
+    }
+
+    .start-here-text strong {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      color: #5D5646 !important;
+    }
+
+    .start-here-text p {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      color: #7A756D !important;
+    }
+
+    .start-here-btn {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      background: #3E5974 !important;
+    }
+
+    .start-here-btn:hover {
+      background: #314c64 !important;
+    }
+
+    /* ── Main content links: blue, no underline on cards ── */
+    main a:not(.card):not(.card-link):not(.start-here-btn) {
+      color: #3E5974 !important;
+    }
+
+    /* ── Body text inside main ── */
+    main p,
+    main li {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      color: #4D4C4B !important;
     }
   `;
 
