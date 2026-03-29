@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The SETD5 Syndrome Companion  |  Style Guide v24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Public Sans', sans-serif;
+    background: #EEEAE2;
+    color: #4D4C4B;
+    line-height: 1.6;
+  }
+
+  /* ── PAGE HEADER ── */
+  .sg-header {
+    background: #FFFFFF;
+    border-top: 3px solid #2a627a;
+    border-bottom: 1px solid #D4CCBF;
+    padding: 2rem 3rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  }
+  .sg-header h1 {
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #5D5646;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.01em;
+  }
+  .sg-header p { font-size: 0.8rem; color: #7A756D; }
+  .sg-header .version-badge {
+    display: inline-block;
+    background: #EAF4F2;
+    color: #5a9186;
+    border: 1px solid #B8D8D4;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+  }
+
+  /* ── LAYOUT ── */
+  .sg-body { max-width: 1040px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+  /* ── SECTIONS ── */
+  .sg-section { margin-bottom: 4rem; }
+  .sg-section-title {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #A07D54;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #D4CCBF;
+    margin-bottom: 1.5rem;
+  }
+  .sg-subsection-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7A756D;
+    margin: 1.75rem 0 0.875rem;
+  }
+
+  /* ── COLOR SWATCHES ── */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .swatch-color { height: 68px; }
+  .swatch-info { background: #fff; padding: 10px 12px; }
+  .swatch-name { font-size: 0.75rem; font-weight: 600; color: #5D5646; margin-bottom: 2px; }
+  .swatch-hex { font-size: 0.69rem; font-family: monospace; color: #7A756D; }
+  .swatch-role { font-size: 0.65rem; color: #A07D54; margin-top: 3px; font-family: monospace; }
+
+  /* ── TYPE TABLE ── */
+  .type-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #D4CCBF; }
+  .type-table th {
+    font-size: 0.69rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7A756D; padding: 0.625rem 1rem;
+    text-align: left; border-bottom: 1px solid #D4CCBF; background: #F8F5F0;
+  }
+  .type-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #EEE8DF; vertical-align: middle; }
+  .type-table tr:last-child td { border-bottom: none; }
+  .type-table td:nth-child(2) { font-family: monospace; font-size: 0.75rem; color: #2a627a; white-space: nowrap; }
+  .type-table td:nth-child(3) { font-family: monospace; font-size: 0.75rem; color: #7A756D; }
+  .type-table td:nth-child(4) { font-size: 0.8rem; color: #7A756D; }
+
+  /* ── SPECIMEN ── */
+  .specimen {
+    background: #fff;
+    border: 1px solid #D4CCBF;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+  .specimen-label {
+    background: #F8F5F0;
+    border-bottom: 1px solid #D4CCBF;
+    padding: 0.5rem 1rem;
+    font-size: 0.69rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: #7A756D;
+  }
+  .specimen-body { padding: 1.375rem 1.5rem; }
+
+  /* ── ZONE DIAGRAM ── */
+  .zone-stack { display: flex; flex-direction: column; gap: 3px; border-radius: 10px; overflow: hidden; border: 1px solid #D4CCBF; }
+  .zone {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.8rem;
+  }
+  .zone-dot { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); }
+  .zone-name { font-weight: 600; color: #5D5646; font-size: 0.8rem; }
+  .zone-detail { color: #7A756D; font-size: 0.75rem; margin-top: 1px; }
+
+  /* ── COMPONENT CARDS ── */
+  .component-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 680px) { .component-grid { grid-template-columns: 1fr; } }
+  .comp-card {
+    background: #fff;
+    border: 1px solid #D4CCBF;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .comp-label {
+    background: #F8F5F0;
+    border-bottom: 1px solid #D4CCBF;
+    padding: 0.5rem 1rem;
+    font-size: 0.69rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: #7A756D;
+  }
+  .comp-preview { padding: 1.25rem; }
+  .comp-spec { padding: 0.625rem 1rem; background: #FAFAF8; border-top: 1px solid #EEE8DF; font-size: 0.69rem; color: #7A756D; font-family: monospace; line-height: 1.7; }
+
+  /* ── COMPONENT DEMOS ── */
+
+  /* Card demo */
+  .demo-card {
+    background: #FFFFFF;
+    border: 1px solid #D4CCBF;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 1.125rem 0.875rem;
+  }
+  .demo-card::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: #5a9186;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+  }
+  .demo-card h3 {
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #5D5646;
+    margin-bottom: 0.35rem;
+  }
+  .demo-card p { font-size: 0.875rem; color: #7A756D; line-height: 1.6; margin-bottom: 0.75rem; }
+  .demo-card-link {
+    display: inline-block;
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: #2a627a;
+    border: 1.5px solid #2a627a;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  /* Intro box demo */
+  .demo-intro-box {
+    background: #FFFFFF;
+    border: 1px solid #D4CCBF;
+    border-left: 3px solid #5a9186;
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.375rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #4D4C4B;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .demo-intro-box strong { color: #5D5646; }
+
+  /* Callout demo */
+  .demo-callout {
+    background: #FFFFFF;
+    border: 1px solid #D4CCBF;
+    border-left: 3px solid #2a627a;
+    border-radius: 0 8px 8px 0;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.875rem;
+    color: #4D4C4B;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+  .demo-callout .callout-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2a627a;
+    margin-bottom: 0.35rem;
+  }
+
+  /* Button demos */
+  .demo-btn-primary {
+    display: inline-block;
+    background: #2a627a;
+    color: #fff;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.6rem 1.375rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.625rem;
+    margin-bottom: 0.5rem;
+  }
+  .demo-btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: #2a627a;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.6rem 1.375rem;
+    border-radius: 6px;
+    border: 1.5px solid #2a627a;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 0.625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Meta chip */
+  .demo-chip {
+    display: inline-block;
+    background: #EAF4F2;
+    color: #5a9186;
+    border: 1px solid #B8D8D4;
+    border-radius: 4px;
+    font-size: 0.67rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    margin-right: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .demo-badge {
+    display: inline-block;
+    background: #5a9186;
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 4px;
+  }
+  .demo-stat-num {
+    font-family: 'Spectral', serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #5a9186;
+    display: block;
+    line-height: 1;
+  }
+  .demo-stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #A07D54;
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* Sidebar link demo */
+  .demo-sidebar {
+    background: #fff;
+    border: 1px solid #D4CCBF;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .demo-sidebar-hd {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #A07D54;
+    padding: 0.75rem 1.125rem 0.5rem;
+    border-bottom: 1px solid #DFD4C3;
+  }
+  .demo-sidebar-link {
+    display: block;
+    font-size: 0.825rem;
+    color: #4D4C4B;
+    padding: 0.5rem 1.125rem;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+  }
+  .demo-sidebar-link.active {
+    color: #2a627a;
+    font-weight: 600;
+    border-left-color: #2a627a;
+    background: #EBF0F5;
+    padding-left: calc(1.125rem - 3px);
+  }
+
+  /* Spacing tokens */
+  .spacing-grid { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-end; }
+  .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .spacing-bar { background: #5a9186; border-radius: 3px; width: 28px; }
+  .spacing-val { font-size: 0.65rem; font-family: monospace; color: #7A756D; }
+
+  /* Nav demo */
+  .demo-nav {
+    background: #fff;
+    border: 1px solid #D4CCBF;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .demo-nav-inner { display: flex; height: 40px; align-items: stretch; padding: 0 1rem; border-top: 1px solid rgba(212,204,191,0.55); }
+  .demo-nav-link {
+    display: flex; align-items: center; padding: 0 0.75rem;
+    font-size: 0.93rem; font-weight: 500; color: #4D4C4B;
+    text-decoration: none; border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  .demo-nav-link.active { color: #2a627a; font-weight: 600; border-bottom-color: #2a627a; }
+</style>
+</head>
+<body>
+
+<div class="sg-header">
+  <h1>The SETD5 Syndrome Companion <span class="version-badge">v24</span></h1>
+  <p>Design tokens, typography, and component patterns — setd5syndrome.live &nbsp;·&nbsp; Updated March 2026</p>
+</div>
+
+<div class="sg-body">
+
+
+  <!-- ═══ 1. COLOR PALETTE ═══ -->
+  <div class="sg-section">
+    <div class="sg-section-title">Color Palette</div>
+
+    <div class="sg-subsection-title">Surfaces &amp; Backgrounds</div>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EEEAE2;border-bottom:1px solid #D4CCBF"></div>
+        <div class="swatch-info"><div class="swatch-name">Linen</div><div class="swatch-hex">#EEEAE2</div><div class="swatch-role">Page background</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#DFD4C3;border-bottom:1px solid #C8BFB0"></div>
+        <div class="swatch-info"><div class="swatch-name">Tan Alt</div><div class="swatch-hex">#DFD4C3</div><div class="swatch-role">Footer, intro band</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #D4CCBF"></div>
+        <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-role">Header, cards, surface</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EAF4F2;border-bottom:1px solid #B8D8D4"></div>
+        <div class="swatch-info"><div class="swatch-name">Teal Tint</div><div class="swatch-hex">#EAF4F2</div><div class="swatch-role">Meta chip bg, light areas</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D4CCBF"></div>
+        <div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#D4CCBF</div><div class="swatch-role">Cards, section dividers</div></div>
+      </div>
+    </div>
+
+    <div class="sg-subsection-title">Text Colors</div>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5D5646"></div>
+        <div class="swatch-info"><div class="swatch-name">Heading Brown</div><div class="swatch-hex">#5D5646</div><div class="swatch-role">h1, h2, h3, brand name</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#4D4C4B"></div>
+        <div class="swatch-info"><div class="swatch-name">Body</div><div class="swatch-hex">#4D4C4B</div><div class="swatch-role">Body text, UI text</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7A756D"></div>
+        <div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-hex">#7A756D</div><div class="swatch-role">Secondary labels, meta, footer</div></div>
+      </div>
+    </div>
+
+    <div class="sg-subsection-title">Accent Colors</div>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2a627a"></div>
+        <div class="swatch-info"><div class="swatch-name">Deep Teal</div><div class="swatch-hex">#2a627a</div><div class="swatch-role">Links, buttons, active states, focus, callout borders</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5a9186"></div>
+        <div class="swatch-info"><div class="swatch-name">Sage Teal</div><div class="swatch-hex">#5a9186</div><div class="swatch-role">Card stripes, stats, badges, subtitle, meta chips, intro-box border</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#A07D54"></div>
+        <div class="swatch-info"><div class="swatch-name">Caramel</div><div class="swatch-hex">#A07D54</div><div class="swatch-role">Section labels, eyebrows, tags, footer col h4</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#B8D8D4"></div>
+        <div class="swatch-info"><div class="swatch-name">Teal Mid</div><div class="swatch-hex">#B8D8D4</div><div class="swatch-role">Meta chip borders</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ 2. PAGE ZONES ═══ -->
+  <div class="sg-section">
+    <div class="sg-section-title">Page Zone System</div>
+    <p style="font-size:0.875rem;color:#7A756D;margin-bottom:1.25rem;line-height:1.65;">The page is divided into four tonal bands from top to bottom. The alternation between white → tan → linen → tan creates rhythm and prevents a flat, single-tone appearance.</p>
+    <div class="zone-stack">
+      <div class="zone" style="background:#FFFFFF;">
+        <div class="zone-dot" style="background:#FFFFFF;border-color:#D4CCBF"></div>
+        <div><div class="zone-name">Zone 1 — Header + Nav</div><div class="zone-detail">White #FFFFFF · 3px deep-teal top stripe · single drop-shadow anchors block to page</div></div>
+      </div>
+      <div class="zone" style="background:#DFD4C3;">
+        <div class="zone-dot" style="background:#DFD4C3;border-color:#C8BFB0"></div>
+        <div><div class="zone-name">Zone 2 — Intro / Hero Band</div><div class="zone-detail">Tan #DFD4C3 · warm entry point · white intro card + stats bar float on it</div></div>
+      </div>
+      <div class="zone" style="background:#EEEAE2;">
+        <div class="zone-dot" style="background:#EEEAE2;border-color:#D4CCBF"></div>
+        <div><div class="zone-name">Zone 3 — Content / Cards</div><div class="zone-detail">Linen #EEEAE2 · white cards float visibly on the linen ground</div></div>
+      </div>
+      <div class="zone" style="background:#DFD4C3;">
+        <div class="zone-dot" style="background:#DFD4C3;border-color:#C8BFB0"></div>
+        <div><div class="zone-name">Zone 4 — Footer</div><div class="zone-detail">Tan #DFD4C3 · bookend matches Zone 2, closes the page symmetrically</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ 3. TYPOGRAPHY ═══ -->
+  <div class="sg-section">
+    <div class="sg-section-title">Typography</div>
+
+    <div class="specimen" style="margin-bottom:1rem;">
+      <div class="specimen-label">Spectral — All headings, site title, card titles, stats numbers &nbsp;·&nbsp; Google Fonts</div>
+      <div class="specimen-body">
+        <div style="font-family:'Spectral',serif;font-size:2.2rem;font-weight:600;color:#5D5646;line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.75rem;">The SETD5 Syndrome Companion</div>
+        <div style="font-family:'Spectral',serif;font-size:2rem;font-weight:600;color:#5D5646;line-height:1.15;margin-bottom:0.625rem;">Section Heading — h2 / 600 / 2rem</div>
+        <div style="font-family:'Spectral',serif;font-size:1.65rem;font-weight:700;color:#5D5646;line-height:1.2;margin-bottom:0.625rem;">Page Title Banner — .header-title / 700 / 1.65rem</div>
+        <div style="font-family:'Spectral',serif;font-size:1.35rem;font-weight:600;color:#5D5646;line-height:1.3;margin-bottom:0.5rem;">Sub-section — h3 / 600 / 1.35rem</div>
+        <div style="font-family:'Spectral',serif;font-size:1.05rem;font-weight:600;color:#5D5646;line-height:1.3;">Card Title — .card h2 / 600 / 1.05rem</div>
+      </div>
+    </div>
+
+    <div class="specimen">
+      <div class="specimen-label">Public Sans — Body text, UI, navigation, footer, labels &nbsp;·&nbsp; Google Fonts</div>
+      <div class="specimen-body">
+        <div style="font-family:'Public Sans',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#A07D54;margin-bottom:0.75rem;">GUIDES &amp; RESOURCES — Eyebrow / Section Label / 700 / 0.75rem</div>
+        <div style="font-family:'Public Sans',sans-serif;font-size:0.93rem;font-weight:500;color:#4D4C4B;margin-bottom:0.625rem;">Nav / Button — 500 / 0.93rem — SETD5 Syndrome &nbsp; Family Toolkit &nbsp; Medical Terms</div>
+        <div style="font-family:'Public Sans',sans-serif;font-size:1rem;font-weight:400;color:#4D4C4B;line-height:1.75;margin-bottom:0.625rem;">Body text — 400 / 1rem (16px) — Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome.</div>
+        <div style="font-family:'Public Sans',sans-serif;font-size:0.875rem;font-weight:400;color:#7A756D;line-height:1.65;margin-bottom:0.625rem;">Secondary body — 400 / 0.875rem — Card descriptions, footer body, header subtitle on interior pages.</div>
+        <div style="font-family:'Public Sans',sans-serif;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:#5a9186;margin-bottom:0.5rem;">A PEER RESOURCE FOR FAMILIES AND CAREGIVERS — Site subtitle / 600 / 0.72rem</div>
+        <div style="font-family:'Public Sans',sans-serif;font-size:0.72rem;font-weight:500;color:#7A756D;">Labels / Metadata / Footer — 500–700 / 0.72rem</div>
+      </div>
+    </div>
+
+    <div class="sg-subsection-title">Type Scale Reference</div>
+    <table class="type-table">
+      <thead>
+        <tr><th>Role</th><th>Size</th><th>Weight</th><th>Where used</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Site title (h1)</td><td>2.2rem</td><td>600</td><td>Homepage header — Spectral</td></tr>
+        <tr><td>Page banner title</td><td>1.65rem</td><td>700</td><td>.header-title on interior pages — Spectral</td></tr>
+        <tr><td>Section h2</td><td>2rem</td><td>600</td><td>.page-body h2, .page-main h2 — Spectral</td></tr>
+        <tr><td>Sub-section h3</td><td>1.35rem</td><td>600</td><td>.page-body h3, .page-main h3 — Spectral</td></tr>
+        <tr><td>Card title (h2/h3)</td><td>1.05rem</td><td>600</td><td>.card h2 — Spectral</td></tr>
+        <tr><td>Body</td><td>1rem (16px)</td><td>400</td><td>All body paragraphs — Public Sans</td></tr>
+        <tr><td>Nav / button</td><td>0.93rem</td><td>400–500</td><td>.nav-menu &gt; a, buttons — Public Sans</td></tr>
+        <tr><td>Secondary body</td><td>0.875rem</td><td>400</td><td>Card descriptions, .header-subtitle, footer body — Public Sans</td></tr>
+        <tr><td>Subhead / Eyebrow</td><td>0.75rem</td><td>600–700</td><td>.guides-label, .section-label — uppercase, tracked — Public Sans</td></tr>
+        <tr><td>Labels / Metadata</td><td>0.72rem</td><td>500–700</td><td>.su-footer-col h4, .sidebar-hd, .su-site-subtitle, footer bottom — Public Sans</td></tr>
+        <tr><td>Micro labels</td><td>0.67–0.69rem</td><td>600–700</td><td>.meta-chip, .callout-label, .featured-badge — uppercase — Public Sans</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- ═══ 4. COMPONENTS ═══ -->
+  <div class="sg-section">
+    <div class="sg-section-title">Components</div>
+    <div class="component-grid">
+
+      <!-- Content Card -->
+      <div class="comp-card">
+        <div class="comp-label">Content Card</div>
+        <div class="comp-preview" style="background:#EEEAE2;">
+          <div class="demo-card">
+            <h3>Understanding Genetics</h3>
+            <p>A plain-language guide to what a genetic report means for your family and next steps.</p>
+            <a href="#" class="demo-card-link">Read guide →</a>
+          </div>
+        </div>
+        <div class="comp-spec">bg: #FFFFFF · border: 1px #D4CCBF · top stripe: 3px #5a9186<br>shadow: 0 2px 12px rgba(0,0,0,0.08) · hover: translateY(-2px)</div>
+      </div>
+
+      <!-- Intro Box -->
+      <div class="comp-card">
+        <div class="comp-label">Intro Box (.intro-box)</div>
+        <div class="comp-preview">
+          <div class="demo-intro-box"><strong>About this guide:</strong> This resource applies globally. Some sections cover US-specific programs — please check your country for equivalent support systems.</div>
+        </div>
+        <div class="comp-spec">bg: #FFFFFF · border: 1px #D4CCBF<br>border-left: 3px #5a9186 · radius: 0 8px 8px 0</div>
+      </div>
+
+      <!-- Callout / Note -->
+      <div class="comp-card">
+        <div class="comp-label">Callout / Note (.teal-callout)</div>
+        <div class="comp-preview">
+          <div class="demo-callout">
+            <div class="callout-label">Clinical note</div>
+            Prevalence and severity of features varies widely between individuals. No two presentations are identical.
+          </div>
+        </div>
+        <div class="comp-spec">bg: #FFFFFF · border: 1px #D4CCBF<br>border-left: 3px #2a627a · radius: 0 8px 8px 0</div>
+      </div>
+
+      <!-- Sidebar Nav -->
+      <div class="comp-card">
+        <div class="comp-label">Sidebar Navigation</div>
+        <div class="comp-preview" style="background:#EEEAE2;">
+          <div class="demo-sidebar">
+            <div class="demo-sidebar-hd">On this page</div>
+            <a href="#" class="demo-sidebar-link active">Overview</a>
+            <a href="#" class="demo-sidebar-link">Genetics</a>
+            <a href="#" class="demo-sidebar-link">Features</a>
+            <a href="#" class="demo-sidebar-link">Research</a>
+          </div>
+        </div>
+        <div class="comp-spec">bg: #FFFFFF · active: border-left 3px #2a627a<br>active bg: #EBF0F5 · hd color: #A07D54 / 0.72rem</div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="comp-card">
+        <div class="comp-label">Buttons</div>
+        <div class="comp-preview">
+          <a href="#" class="demo-btn-primary">Primary Button</a>
+          <a href="#" class="demo-btn-outline">Outline Button</a>
+        </div>
+        <div class="comp-spec">primary: bg #2a627a · color #fff · radius 6px<br>outline: border 1.5px #2a627a · color #2a627a</div>
+      </div>
+
+      <!-- Inline Elements -->
+      <div class="comp-card">
+        <div class="comp-label">Inline Elements</div>
+        <div class="comp-preview">
+          <div style="margin-bottom:0.875rem;">
+            <span class="demo-badge">Featured</span>
+            <span class="demo-chip">Genetics</span>
+            <span class="demo-chip">Research</span>
+          </div>
+          <div>
+            <span class="demo-stat-num">50+</span>
+            <span class="demo-stat-label">Research Papers</span>
+          </div>
+        </div>
+        <div class="comp-spec">badge: bg #5a9186 · chip: bg #EAF4F2 / border #B8D8D4<br>stat num: Spectral 1.875rem 700 #5a9186</div>
+      </div>
+
+    </div>
+
+    <!-- Nav demo full width -->
+    <div style="margin-top:1rem;">
+      <div class="comp-card">
+        <div class="comp-label">Site Navigation Bar (Desktop — ≥640px)</div>
+        <div class="comp-preview" style="padding:0;">
+          <div class="demo-nav">
+            <div class="demo-nav-inner">
+              <a href="#" class="demo-nav-link active">SETD5 Syndrome</a>
+              <a href="#" class="demo-nav-link">Family Toolkit</a>
+              <a href="#" class="demo-nav-link">Medical Terms</a>
+              <a href="#" class="demo-nav-link">Research</a>
+              <a href="#" class="demo-nav-link">Community</a>
+              <a href="#" class="demo-nav-link">About</a>
+            </div>
+          </div>
+        </div>
+        <div class="comp-spec">height: 40px · bg: #FFFFFF · active: border-bottom 2px #2a627a · font: 0.93rem / 500<br>hamburger threshold: ≤639px · intermediate (640–920px): 0.8rem to prevent wrapping</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ 5. SPACING & RADIUS ═══ -->
+  <div class="sg-section">
+    <div class="sg-section-title">Spacing &amp; Radius</div>
+    <div style="background:#fff;border:1px solid #D4CCBF;border-radius:8px;padding:1.25rem;">
+      <div class="sg-subsection-title" style="margin-top:0;">Border Radius</div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+        <div style="text-align:center;">
+          <div style="width:40px;height:40px;background:#5a9186;border-radius:4px;margin:0 auto 4px;"></div>
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">4px<br>chips, tags</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:40px;height:40px;background:#5a9186;border-radius:6px;margin:0 auto 4px;"></div>
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">6px<br>buttons</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:40px;height:40px;background:#5a9186;border-radius:8px;margin:0 auto 4px;"></div>
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">8px<br>cards, boxes</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:40px;height:40px;background:#5a9186;border-radius:10px;margin:0 auto 4px;"></div>
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">10px<br>stats bar</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:40px;height:40px;background:#5a9186;border-radius:0 8px 8px 0;margin:0 auto 4px;"></div>
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">0 8 8 0<br>callouts</div>
+        </div>
+      </div>
+
+      <div class="sg-subsection-title">Box Shadows</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;">
+        <div style="background:#fff;border:1px solid #D4CCBF;border-radius:8px;padding:0.875rem;box-shadow:0 1px 6px rgba(0,0,0,0.06);">
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">0 1px 6px rgba(0,0,0,0.06)</div>
+          <div style="font-size:0.75rem;color:#5D5646;margin-top:4px;">Subtle — sidebar, intro box, note</div>
+        </div>
+        <div style="background:#fff;border:1px solid #D4CCBF;border-radius:8px;padding:0.875rem;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">0 2px 12px rgba(0,0,0,0.08)</div>
+          <div style="font-size:0.75rem;color:#5D5646;margin-top:4px;">Standard — content cards</div>
+        </div>
+        <div style="background:#fff;border:1px solid #D4CCBF;border-radius:8px;padding:0.875rem;box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">0 2px 16px rgba(0,0,0,0.07)</div>
+          <div style="font-size:0.75rem;color:#5D5646;margin-top:4px;">Navigation bar</div>
+        </div>
+        <div style="background:#fff;border:1px solid #D4CCBF;border-radius:8px;padding:0.875rem;box-shadow:0 6px 24px rgba(0,0,0,0.11);">
+          <div style="font-size:0.69rem;font-family:monospace;color:#7A756D;">0 6px 24px rgba(0,0,0,0.11)</div>
+          <div style="font-size:0.75rem;color:#5D5646;margin-top:4px;">Hover state — cards</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ 6. CSS VARIABLE MAP ═══ -->
+  <div class="sg-section">
+    <div class="sg-section-title">CSS Variable Remapping (site-upgrade.js)</div>
+    <p style="font-size:0.875rem;color:#7A756D;margin-bottom:1rem;line-height:1.65;">Each interior page defines old-palette variables. The JS-injected stylesheet re-declares them so every page inherits the current palette automatically.</p>
+    <table class="type-table">
+      <thead>
+        <tr><th>Variable</th><th>Old Value</th><th>New Value</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>--navy</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#162544</td><td><span style="display:inline-block;width:12px;height:12px;background:#5D5646;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#5D5646</td><td style="font-size:0.8rem;color:#7A756D;">Dark navy → heading brown</td></tr>
+        <tr><td><code>--charcoal</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#162544</td><td><span style="display:inline-block;width:12px;height:12px;background:#5D5646;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#5D5646</td><td style="font-size:0.8rem;color:#7A756D;">Alias of --navy on some pages</td></tr>
+        <tr><td><code>--teal</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#C2DED8</td><td><span style="display:inline-block;width:12px;height:12px;background:#5a9186;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#5a9186</td><td style="font-size:0.8rem;color:#7A756D;">Pale teal → sage-teal</td></tr>
+        <tr><td><code>--teal-lt</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#eaf5f3</td><td><span style="display:inline-block;width:12px;height:12px;background:#EAF4F2;border:1px solid #B8D8D4;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#EAF4F2</td><td style="font-size:0.8rem;color:#7A756D;">Light teal bg → teal tint</td></tr>
+        <tr><td><code>--sage</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#C2DED8</td><td><span style="display:inline-block;width:12px;height:12px;background:#5a9186;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#5a9186</td><td style="font-size:0.8rem;color:#7A756D;">Old sage accent → sage-teal</td></tr>
+        <tr><td><code>--sage-lt</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#E4F0EE</td><td><span style="display:inline-block;width:12px;height:12px;background:#EAF4F2;border:1px solid #B8D8D4;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#EAF4F2</td><td style="font-size:0.8rem;color:#7A756D;">Sage light bg → teal tint</td></tr>
+        <tr><td><code>--sage-mid</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#BAD4CE</td><td><span style="display:inline-block;width:12px;height:12px;background:#B8D8D4;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#B8D8D4</td><td style="font-size:0.8rem;color:#7A756D;">Mid-teal border</td></tr>
+        <tr><td><code>--amber</code></td><td style="font-family:monospace;font-size:0.75rem;color:#7A756D;">#A07D54</td><td><span style="display:inline-block;width:12px;height:12px;background:#A07D54;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>#A07D54</td><td style="font-size:0.8rem;color:#7A756D;">Unchanged — warm caramel kept</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div><!-- /sg-body -->
+</body>
+</html>
