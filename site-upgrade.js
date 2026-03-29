@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v35
+ * site-upgrade.js  v36
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -96,6 +96,20 @@
       box-shadow: none !important;        /* shadow lives on nav bottom */
       position: relative;
       z-index: 10;
+      overflow: hidden;
+    }
+
+    /* Paper grain texture — SVG noise overlay at low opacity.
+       position:absolute + inset:0 tiles the grain across the full header.
+       z-index:0 keeps it behind the content (hero-inner is z-index:1). */
+    header:not(.site-header)::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      pointer-events: none;
+      z-index: 0;
     }
 
     header:not(.site-header) .header-hero-inner {
@@ -105,6 +119,8 @@
       justify-content: center !important;
       padding: 1.25rem 2rem 1rem !important;
       margin: 0 auto !important;
+      position: relative;
+      z-index: 1;   /* sits above ::before grain layer */
     }
 
     /* Wordmark: the full site identity as a single designed image.
@@ -725,12 +741,25 @@
       top: 0 !important;
       z-index: 920 !important;
       padding: 1.125rem 0 0.875rem !important;    /* slightly tighter */
+      overflow: hidden;
+    }
+
+    header.site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      pointer-events: none;
+      z-index: 0;
     }
 
     header.site-header .header-inner {
       max-width: 1160px !important;
       margin: 0 auto !important;
       padding: 0 2rem !important;
+      position: relative;
+      z-index: 1;   /* sits above ::before grain layer */
     }
 
     /* Breadcrumb eyebrow: warm accent */
