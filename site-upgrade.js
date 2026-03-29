@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v32
+ * site-upgrade.js  v33
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -29,7 +29,7 @@
   'use strict';
 
   /* ─── DESIGN TOKENS ──────────────────────────────────────────────────────
-     --bg:          #E8EAE3   warm linen page ground
+     --bg:          #e9e8e6   warm linen page ground
      --bg-alt:      #D2CECA   muted tan — footer, alt bands, borders
      --surface:     #FFFFFF   header, elevated cards
      --heading:     #5D5646   primary heading
@@ -480,7 +480,7 @@
        ═══════════════════════════════════════════════════════════════
        Zone 1: header + nav  →  white  (already handled above)
        Zone 2: .intro-bar    →  tan #D2CECA  (warm break, distinct)
-       Zone 3: main content  →  linen #E8EAE3  (grounded content zone)
+       Zone 3: main content  →  linen #e9e8e6  (grounded content zone)
        Zone 4: footer        →  tan #D2CECA  (already handled above)
 
        White cards sit on linen → natural contrast, no trickery needed.
@@ -489,7 +489,7 @@
 
     /* ── Zone 1: Page ground — linen ── */
     body {
-      background: #E8EAE3 !important;
+      background: #e9e8e6 !important;
       color: #4D4C4B !important;
     }
 
@@ -573,7 +573,7 @@
 
     /* ── Zone 3: Content zone — linen, white cards float on it ──────── */
     .guides-zone {
-      background: #E8EAE3 !important;
+      background: #e9e8e6 !important;
     }
 
     /* Section label / eyebrow: warm accent + rule that extends to right edge */
@@ -793,7 +793,7 @@
 
     /* ── Page layout: linen ground ── */
     .page-layout {
-      background: #E8EAE3 !important;
+      background: #e9e8e6 !important;
     }
 
     /* ── Sidebar: white card on linen ── */
