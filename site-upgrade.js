@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v43
+ * site-upgrade.js  v44
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -771,6 +771,16 @@
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
       background-repeat: repeat;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header.site-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/textures/noise.png');
+      opacity: 0.04;
       pointer-events: none;
       z-index: 0;
     }
