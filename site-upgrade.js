@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v11
+ * site-upgrade.js  v12
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -138,6 +138,8 @@
       background: #FFFFFF !important;
       border-top: 1px solid #DFD4C3 !important;
       border-bottom: 1px solid #DFD4C3 !important;
+      position: relative !important;
+      z-index: 100 !important;
     }
 
     .site-nav .site-nav-inner {
@@ -644,6 +646,209 @@
       font-family: 'Public Sans', system-ui, sans-serif !important;
       color: #4D4C4B !important;
     }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       INTERIOR PAGE OVERRIDES
+       Targets <header class="site-header"> + sidebar + content body.
+       All interior pages use this header class; homepage does not.
+    ═══════════════════════════════════════════════════════════════ */
+
+    /* ── Interior header: white surface matching homepage header ── */
+    header.site-header {
+      background: #FFFFFF !important;
+      border-bottom: 1px solid #D4CCBF !important;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.055) !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 920 !important;
+      padding: 1.375rem 0 !important;
+    }
+
+    header.site-header .header-inner {
+      max-width: 1160px !important;
+      margin: 0 auto !important;
+      padding: 0 2rem !important;
+    }
+
+    /* Breadcrumb eyebrow: warm accent */
+    .header-eyebrow {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.72rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      color: #A07D54 !important;
+      margin-bottom: 0.4rem !important;
+    }
+
+    .header-eyebrow a {
+      color: #A07D54 !important;
+      text-decoration: none !important;
+    }
+
+    .header-eyebrow a:hover {
+      color: #5D5646 !important;
+      text-decoration: underline !important;
+    }
+
+    /* Page title: Spectral, deep brown; italic em in caramel */
+    .header-title {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 1.65rem !important;
+      font-weight: 700 !important;
+      color: #5D5646 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.01em !important;
+      text-shadow: none !important;
+      margin: 0 0 0.35rem !important;
+    }
+
+    .header-title em {
+      font-style: italic !important;
+      color: #A07D54 !important;
+    }
+
+    /* Page subtitle: muted, Public Sans */
+    .header-subtitle {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.875rem !important;
+      color: #7A756D !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    /* Meta chips: blue-tinted */
+    .meta-chip {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.67rem !important;
+      font-weight: 600 !important;
+      background: #EBF0F5 !important;
+      color: #3E5974 !important;
+      border: 1px solid #C5D3DF !important;
+      border-radius: 4px !important;
+    }
+
+    /* ── Page layout: linen ground ── */
+    .page-layout {
+      background: #EEEAE2 !important;
+    }
+
+    /* ── Sidebar: white card on linen ── */
+    .page-sidebar {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-radius: 8px !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
+      padding: 1.25rem 0 !important;
+    }
+
+    /* Sidebar heading: warm accent label */
+    .sidebar-hd {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.6rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      color: #A07D54 !important;
+      padding: 0 1.125rem 0.625rem !important;
+      border-bottom: 1px solid #DFD4C3 !important;
+      margin-bottom: 0.375rem !important;
+    }
+
+    /* Sidebar nav buttons */
+    .sidebar-link {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.825rem !important;
+      font-weight: 400 !important;
+      color: #4D4C4B !important;
+      background: transparent !important;
+      border: none !important;
+      border-left: 3px solid transparent !important;
+      padding: 0.5rem 1.125rem !important;
+      text-align: left !important;
+      cursor: pointer !important;
+      display: block !important;
+      width: 100% !important;
+      transition: color 0.12s, background 0.12s !important;
+    }
+
+    .sidebar-link:hover {
+      color: #3E5974 !important;
+      background: #F4F1EC !important;
+    }
+
+    /* Active sidebar link: left border in blue */
+    .sidebar-link.active,
+    .sidebar-link[aria-current],
+    .sidebar-link[aria-selected="true"] {
+      color: #3E5974 !important;
+      font-weight: 600 !important;
+      border-left-color: #3E5974 !important;
+      background: #EBF0F5 !important;
+      padding-left: calc(1.125rem - 3px) !important;
+    }
+
+    /* ── Interior page content body typography ── */
+    .page-body h2,
+    .page-main h2 {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 1.35rem !important;
+      font-weight: 600 !important;
+      color: #5D5646 !important;
+      line-height: 1.25 !important;
+      margin-top: 2rem !important;
+      margin-bottom: 0.75rem !important;
+      padding-bottom: 0.375rem !important;
+      border-bottom: 1px solid #DFD4C3 !important;
+    }
+
+    .page-body h3,
+    .page-main h3 {
+      font-family: 'Spectral', Georgia, serif !important;
+      font-size: 1.1rem !important;
+      font-weight: 600 !important;
+      color: #5D5646 !important;
+      line-height: 1.3 !important;
+      margin-top: 1.5rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .page-body p,
+    .page-main p {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.9375rem !important;
+      line-height: 1.75 !important;
+      color: #4D4C4B !important;
+    }
+
+    .page-body a,
+    .page-main a {
+      color: #3E5974 !important;
+    }
+
+    .page-body ul li,
+    .page-body ol li,
+    .page-main ul li,
+    .page-main ol li {
+      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-size: 0.9375rem !important;
+      line-height: 1.7 !important;
+      color: #4D4C4B !important;
+    }
+
+    /* Callout / note boxes inside content */
+    .page-body .note,
+    .page-body .callout,
+    .page-main .note,
+    .page-main .callout {
+      background: #FFFFFF !important;
+      border: 1px solid #D4CCBF !important;
+      border-left: 3px solid #3E5974 !important;
+      border-radius: 0 8px 8px 0 !important;
+      padding: 1rem 1.375rem !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+    }
   `;
 
   const styleEl = document.createElement('style');
@@ -712,6 +917,14 @@
       heroInner.appendChild(logoImg);
       heroInner.appendChild(textBlock);
     }
+  }
+
+
+  /* ─── 3b. REMOVE HELIX SVG FROM INTERIOR PAGE HEADERS ──────────────── */
+  const interiorHeader = document.querySelector('header.site-header');
+  if (interiorHeader) {
+    const helixSvg = interiorHeader.querySelector('svg');
+    if (helixSvg) helixSvg.remove();
   }
 
 
