@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v25
+ * site-upgrade.js  v26
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -683,36 +683,38 @@
       letter-spacing: 0.1em !important;
     }
 
-    /* Start-here banners: white on linen, blue structural left border */
+    /* Start-here banners: deep teal background */
     .start-here {
-      background: #FFFFFF !important;
-      border-color: #D4CCBF !important;
-      border-left-color: #2a627a !important;
+      background: #2a627a !important;
+      border-color: #1e4f63 !important;
+      border-left-color: #1e4f63 !important;
       border-left-width: 3px !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
+      box-shadow: 0 2px 12px rgba(42,98,122,0.25) !important;
     }
 
     .start-here-text strong {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      color: #5D5646 !important;
+      color: #FFFFFF !important;
     }
 
     .start-here-text p {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      color: #7A756D !important;
+      color: rgba(255,255,255,0.85) !important;
     }
 
     .start-here-btn {
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      background: #2a627a !important;
+      background: #FFFFFF !important;
+      color: #2a627a !important;
     }
 
     .start-here-btn:hover {
-      background: #314c64 !important;
+      background: #EAF4F2 !important;
+      color: #2a627a !important;
     }
 
     .start-here-btn:focus-visible {
-      outline: 2px solid #2a627a !important;
+      outline: 2px solid #FFFFFF !important;
       outline-offset: 2px !important;
     }
 
