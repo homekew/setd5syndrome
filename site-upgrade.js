@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v40
+ * site-upgrade.js  v41
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -721,7 +721,7 @@
     }
 
     /* ── Main content typography ── */
-    main a:not(.card):not(.card-link):not(.start-here-btn) {
+    main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]) {
       color: #2a627a !important;
     }
 
