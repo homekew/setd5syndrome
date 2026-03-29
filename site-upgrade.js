@@ -551,7 +551,7 @@
     /* ── Unified intro + stats card ─────────────────────────────────── */
     .intro-unified {
       background: #FFFFFF !important;
-      border: 1px solid #BDD0D6 !important;
+      border: 2.5px solid #BDD0D6 !important;
       border-radius: 12px !important;
       max-width: 760px !important;
       width: 100% !important;
