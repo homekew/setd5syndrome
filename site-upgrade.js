@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v9
+ * site-upgrade.js  v10
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -195,6 +195,69 @@
       .nav-menu > a {
         font-size: 0.72rem !important;
         padding: 0 0.55rem !important;
+      }
+    }
+
+    /* ── Mobile nav: restore dropdown layout ──────────────────────────────
+       Desktop overrides (negative margin, height:100%, small padding)
+       must not apply inside the mobile dropdown. These rules win because
+       they are more specific AND come later in the cascade.
+    ──────────────────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      /* Nav inner: auto height so the hamburger button fits */
+      .site-nav .site-nav-inner {
+        height: auto !important;
+        min-height: 46px !important;
+        flex-wrap: wrap !important;
+        padding: 0 1.25rem !important;
+        justify-content: flex-end !important;
+      }
+
+      /* Dropdown panel: white, full-width, elevated */
+      .nav-menu {
+        background: #FFFFFF !important;
+        border-top: 1px solid #DFD4C3 !important;
+        border-bottom: 1px solid #DFD4C3 !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+        margin-left: 0 !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
+
+      /* Mobile link items: block, full-width, readable tap targets */
+      .nav-menu > a {
+        display: block !important;
+        height: auto !important;
+        width: 100% !important;
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+        color: #4D4C4B !important;
+        border-bottom: 1px solid #DFD4C3 !important;
+        border-left: 3px solid transparent !important;
+      }
+
+      .nav-menu > a:last-child {
+        border-bottom: none !important;
+      }
+
+      /* Active state: left border instead of bottom border */
+      .nav-menu > a.su-active {
+        color: #3E5974 !important;
+        font-weight: 600 !important;
+        border-left-color: #3E5974 !important;
+        border-bottom-color: #DFD4C3 !important;
+        padding-left: calc(1.5rem - 3px) !important;
+      }
+
+      /* Hover */
+      .nav-menu > a:hover {
+        color: #3E5974 !important;
+        background: #F8F6F2 !important;
       }
     }
 
