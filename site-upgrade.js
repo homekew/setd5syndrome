@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v18
+ * site-upgrade.js  v19
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -1149,12 +1149,12 @@
 
         // Ensure the em text is correct (CSS hides it but we keep it in DOM)
         const emEl = h1.querySelector('em');
-        if (emEl) emEl.textContent = 'A Peer Resource';
+        if (emEl) emEl.textContent = 'A peer resource for families and caregivers';
 
         // Create the visible subtitle span
         const subtitle = document.createElement('span');
         subtitle.className = 'su-site-subtitle';
-        subtitle.textContent = 'A Peer Resource';
+        subtitle.textContent = 'A peer resource for families and caregivers';
         h1.insertAdjacentElement('afterend', subtitle);
       }
 
@@ -1216,7 +1216,7 @@
 
         <div class="su-footer-col">
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
-          <span class="su-footer-brand-tag">A Peer Resource</span>
+          <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
           <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome. Built by a parent, for families like ours.</p>
           <ul>
             <li><a href="mailto:info@setd5syndrome.live">info@setd5syndrome.live</a></li>
