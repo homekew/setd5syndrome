@@ -336,20 +336,7 @@
       }
     });
 
-    // Build logo element
-    const logoWrap = document.createElement('a');
-    logoWrap.className = 'su-logo-wrap';
-    logoWrap.href = 'index.html';
-    logoWrap.setAttribute('aria-label', 'SETD5 Syndrome Resources — home');
-    logoWrap.innerHTML = `
-      <div class="su-name-block">
-        <span class="su-site-name">SETD5 Syndrome</span>
-        <span class="su-site-tagline">family resources &middot; guides &middot; community</span>
-      </div>
-    `;
-
-    // Insert logo before the hamburger toggle
-    navInner.insertBefore(logoWrap, navInner.firstChild);
+    // Nav is text links only — no logo or site name injected here
   }
 
 
@@ -370,11 +357,11 @@
       while (heroInner.firstChild) {
         textBlock.appendChild(heroInner.firstChild);
       }
-      // Update h1 subtitle and tagline text
+      // Update h1 subtitle, remove tagline
       const h1Em = textBlock.querySelector('h1 em');
       if (h1Em) h1Em.textContent = "A Parent\u2019s Guide";
       const headerSub = textBlock.querySelector('.header-sub');
-      if (headerSub) headerSub.textContent = 'A peer resource for families';
+      if (headerSub) headerSub.remove();
 
       // Build logo img
       const logoImg = document.createElement('img');
