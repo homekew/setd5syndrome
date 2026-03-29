@@ -97,10 +97,10 @@
       .site-nav-inner { height: 56px !important; }
     }
 
-    /* ── Main site header: transparent color wash + left-aligned logo layout ── */
+    /* ── Main site header: navy background, logo flush left ── */
     header {
-      background: linear-gradient(135deg, rgba(22,37,68,0.07) 0%, rgba(174,191,190,0.10) 100%) !important;
-      color: #162544 !important;
+      background: #162544 !important;
+      color: #fff !important;
       text-align: left !important;
       padding: 2rem 0 1.75rem !important;
     }
@@ -127,7 +127,7 @@
     }
 
     header h1, header h1 a {
-      color: #162544 !important;
+      color: #fff !important;
       font-size: 2.4rem !important;
       line-height: 1.2 !important;
     }
@@ -137,13 +137,14 @@
     }
 
     .header-rule {
-      background: #C6A27E !important;
-      margin: 0.6rem 0 !important;
+      display: none !important;
     }
 
     .header-sub {
-      color: #4a5568 !important;
+      color: rgba(255,255,255,0.65) !important;
       font-size: 0.95rem !important;
+      margin-top: 0.5rem !important;
+      text-align: left !important;
     }
 
     @media (max-width: 640px) {
@@ -341,7 +342,6 @@
     logoWrap.href = 'index.html';
     logoWrap.setAttribute('aria-label', 'SETD5 Syndrome Resources — home');
     logoWrap.innerHTML = `
-      <img src="/SD5-recolored.png" alt="SETD5 Syndrome logo" style="height:62px;width:62px;object-fit:contain;flex-shrink:0;" />
       <div class="su-name-block">
         <span class="su-site-name">SETD5 Syndrome</span>
         <span class="su-site-tagline">family resources &middot; guides &middot; community</span>
@@ -370,6 +370,10 @@
       while (heroInner.firstChild) {
         textBlock.appendChild(heroInner.firstChild);
       }
+      // Update tagline text
+      const headerSub = textBlock.querySelector('.header-sub');
+      if (headerSub) headerSub.textContent = 'A peer resource for families';
+
       // Build logo img
       const logoImg = document.createElement('img');
       logoImg.src = '/SD5-recolored.png';
