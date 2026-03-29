@@ -94,7 +94,7 @@
         radial-gradient(ellipse 45% 70%  at 62% 12%, rgba(42,98,122,0.14)   0%, transparent 65%),
         radial-gradient(ellipse 40% 60%  at 30% 92%, rgba(42,98,122,0.09)   0%, transparent 62%),
         radial-gradient(ellipse 55% 50%  at 98% 95%, rgba(160,125,84,0.18)  0%, transparent 65%),
-        #D4E2E6 !important;
+        #fafafa !important;
       color: #5D5646 !important;
       text-align: left !important;
       padding: 0 !important;              /* inner handles all spacing */
