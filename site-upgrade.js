@@ -1,17 +1,28 @@
 /**
- * site-upgrade.js  v8
+ * site-upgrade.js  v9
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
- * v8: Full page body overrides — intro, stats, cards, guides zone
- *   - Page background: #EEEAE2 (warm linen)
- *   - Intro bar: left-aligned, white pull-card with blue left border
- *   - Stats bar: white surface, Spectral numerals in #3E5974, warm labels
- *   - Cards: white surface, unified #3E5974 accent, Spectral h2, shadow
- *   - Guides label: warm accent color + extending rule
- *   - Featured badge: warm accent #A07D54
- *   - Start-here banners: white surface, blue left border
- *   - Card link buttons: blue accent throughout
+ * v8: Full page body overrides
+ * v9: Zone-based visual rhythm — three distinct tonal layers
+ *
+ *   Zone strategy (top to bottom):
+ *   ┌─────────────────────────────┐
+ *   │ HEADER + NAV   — WHITE      │  elevated cap, clean structure
+ *   ├─────────────────────────────┤
+ *   │ INTRO / HERO   — TAN #DFD4C3│  warm break, white cards inside
+ *   ├─────────────────────────────┤
+ *   │ CONTENT / CARDS— LINEN      │  grounded zone, white cards float on linen
+ *   ├─────────────────────────────┤
+ *   │ FOOTER         — TAN #DFD4C3│  bookend matches intro zone
+ *   └─────────────────────────────┘
+ *
+ *   Additional improvements:
+ *   - Cards: stronger shadow (0 2px 12px), more visible borders
+ *   - Stats: white-on-tan creates real contrast
+ *   - Intro card: white-on-tan with blue left border
+ *   - International note: restyled to palette via DOM
+ *   - Accent #3E5974 consistently on all interactive elements
  */
 
 (function () {
@@ -340,27 +351,41 @@
 
 
     /* ═══════════════════════════════════════════════════════════════
-       PAGE BODY OVERRIDES
-       Targets the site's existing HTML classes to bring them into
-       the new warm editorial design system.
+       PAGE BODY OVERRIDES  —  Zone-based visual rhythm
+       ═══════════════════════════════════════════════════════════════
+       Zone 1: header + nav  →  white  (already handled above)
+       Zone 2: .intro-bar    →  tan #DFD4C3  (warm break, distinct)
+       Zone 3: main content  →  linen #EEEAE2  (grounded content zone)
+       Zone 4: footer        →  tan #DFD4C3  (already handled above)
+
+       White cards sit on linen → natural contrast, no trickery needed.
+       The tan zones bookend the linen content, creating real rhythm.
     ═══════════════════════════════════════════════════════════════ */
 
-    /* ── Page ground ── */
+    /* ── Zone 1: Page ground — linen ── */
     body {
       background: #EEEAE2 !important;
       color: #4D4C4B !important;
     }
 
-    /* ── Intro bar: left-aligned, blends with page ── */
+    /* ── Zone 2: Intro / hero band — full-width tan ──────────────────
+       Uses max() to center content within the 860px column while
+       letting the tan background extend edge-to-edge.
+       calc(50% - 398px) = half viewport minus (430px - 32px padding)
+    ──────────────────────────────────────────────────────────────── */
     .intro-bar {
-      background: #EEEAE2 !important;
+      background: #DFD4C3 !important;
       text-align: left !important;
-      padding: 2.25rem 2rem 1.75rem !important;
-      max-width: 860px !important;
-      margin: 0 auto !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding-top: 2.5rem !important;
+      padding-bottom: 2.25rem !important;
+      padding-left: max(2rem, calc(50% - 398px)) !important;
+      padding-right: max(2rem, calc(50% - 398px)) !important;
+      border-bottom: 1px solid #C8BFB0 !important;
     }
 
-    /* Intro body text: white pull-card with blue left accent bar */
+    /* Intro text: white card on tan — creates real surface contrast */
     .intro-body {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.925rem !important;
@@ -374,19 +399,19 @@
       border-left: 3px solid #3E5974 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.055) !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
       display: block !important;
     }
 
-    /* ── Stats bar: white surface, Spectral numerals, warm labels ── */
+    /* Stats bar: white on tan — clear separation from hero background */
     .stats-bar {
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
       border-radius: 8px !important;
       max-width: 520px !important;
       margin: 0 !important;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05) !important;
       padding: 0 !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
     }
 
     .stats-bar-item {
@@ -416,12 +441,12 @@
       margin-top: 0.4rem !important;
     }
 
-    /* ── Guides zone: transparent so page linen shows through ── */
+    /* ── Zone 3: Content zone — linen, white cards float on it ──────── */
     .guides-zone {
-      background: transparent !important;
+      background: #EEEAE2 !important;
     }
 
-    /* Section label: warm accent + extending rule */
+    /* Section label: warm accent + rule that extends to right edge */
     .guides-label {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.62rem !important;
@@ -432,28 +457,29 @@
       margin-bottom: 1.375rem !important;
     }
 
-    /* ── Cards: white surface, shadow, unified blue accent ── */
+    /* Cards: white on linen — the contrast is real and intentional.
+       Stronger shadow than v8 so cards genuinely float off the surface. */
     .card {
       --card-accent: #3E5974;
       background: #FFFFFF !important;
       border: 1px solid #D4CCBF !important;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.055) !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
     }
 
     .card:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.09) !important;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.11) !important;
       border-color: #C2B9AC !important;
     }
 
-    /* Card top accent stripe: unified warm accent */
+    /* Card top accent stripe: warm accent, consistent across all cards */
     .card::before {
       background: #A07D54 !important;
       height: 3px !important;
     }
 
-    /* Card heading: Spectral, brown */
+    /* Card headings: Spectral, deep brown — clear hierarchy */
     .card h2 {
       font-family: 'Spectral', Georgia, serif !important;
       font-size: 1.1rem !important;
@@ -463,7 +489,7 @@
       margin-bottom: 0.5rem !important;
     }
 
-    /* Card body text: muted, Public Sans */
+    /* Card body: Public Sans, muted — subordinate to heading */
     .card p {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
@@ -471,7 +497,7 @@
       line-height: 1.65 !important;
     }
 
-    /* Card link button: blue accent */
+    /* Card link button: #3E5974 blue — the one interaction signal */
     .card-link {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       font-size: 0.775rem !important;
@@ -486,12 +512,17 @@
       color: #FFFFFF !important;
     }
 
-    /* Featured card: white, not amber-lt (overrides inline style) */
+    .card-link:focus-visible {
+      outline: 2px solid #3E5974 !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Featured card: white (overrides inline amber-lt background) */
     .card-featured {
       background: #FFFFFF !important;
     }
 
-    /* Featured badge: warm accent instead of caramel */
+    /* Featured badge: warm accent */
     .featured-badge {
       font-family: 'Public Sans', system-ui, sans-serif !important;
       background: #A07D54 !important;
@@ -499,12 +530,13 @@
       letter-spacing: 0.1em !important;
     }
 
-    /* ── Start-here banners: white surface, blue left border ── */
+    /* Start-here banners: white on linen, blue structural left border */
     .start-here {
       background: #FFFFFF !important;
       border-color: #D4CCBF !important;
       border-left-color: #3E5974 !important;
       border-left-width: 3px !important;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
     }
 
     .start-here-text strong {
@@ -526,12 +558,16 @@
       background: #314c64 !important;
     }
 
-    /* ── Main content links: blue, no underline on cards ── */
+    .start-here-btn:focus-visible {
+      outline: 2px solid #3E5974 !important;
+      outline-offset: 2px !important;
+    }
+
+    /* ── Main content typography ── */
     main a:not(.card):not(.card-link):not(.start-here-btn) {
       color: #3E5974 !important;
     }
 
-    /* ── Body text inside main ── */
     main p,
     main li {
       font-family: 'Public Sans', system-ui, sans-serif !important;
@@ -606,7 +642,29 @@
   }
 
 
-  /* ─── 4. REPLACE FOOTER ──────────────────────────────────────────────── */
+  /* ─── 4. RESTYLE INTERNATIONAL NOTE ─────────────────────────────────── */
+  // The international note has inline styles from the old palette.
+  // Target it via JS so we can override inline styles cleanly.
+  const intlNote = document.querySelector('main div[style*="sage-lt"], main div[style*="e8f4f2"], main div[style*="E4F0EE"]');
+  if (intlNote) {
+    Object.assign(intlNote.style, {
+      background: '#FFFFFF',
+      border: '1px solid #D4CCBF',
+      borderLeft: '3px solid #A07D54',
+      borderRadius: '8px',
+      color: '#4D4C4B',
+      fontSize: '0.875rem',
+      lineHeight: '1.7',
+      fontFamily: "'Public Sans', system-ui, sans-serif",
+      boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
+    });
+    // Restyle the strong tag inside
+    const strong = intlNote.querySelector('strong');
+    if (strong) strong.style.color = '#5D5646';
+  }
+
+
+  /* ─── 5. REPLACE FOOTER ──────────────────────────────────────────────── */
   const existingFooter = document.querySelector('footer.site-footer');
 
   if (existingFooter) {
