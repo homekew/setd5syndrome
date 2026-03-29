@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v38
+ * site-upgrade.js  v39
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -548,10 +548,10 @@
       display: block !important;
     }
 
-    /* Stats bar: white with clear dividers and layered shadow */
+    /* Stats bar: white interior, teal border and dividers */
     .stats-bar {
       background: #FFFFFF !important;
-      border: 1px solid #D4CCBF !important;
+      border: 1.5px solid #CCDCE0 !important;
       border-radius: 8px !important;
       max-width: 560px !important;
       width: 100% !important;
@@ -562,7 +562,7 @@
 
     .stats-bar-item {
       padding: 1.375rem 1.5rem !important;
-      border-right: 1px solid #C8BFB0 !important;
+      border-right: 1.5px solid #CCDCE0 !important;
     }
 
     .stats-bar-item:last-child {
