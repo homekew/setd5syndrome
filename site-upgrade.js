@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v94
+ * site-upgrade.js  v95
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -600,7 +600,7 @@
     }
 
     .intro-bar {
-      background: #F5F4F1 !important;
+      background: #E8E6DF !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
@@ -1344,12 +1344,6 @@
     if (heroInner) {
       // Replace all existing content with Counsel hero layout
       heroInner.innerHTML = '';
-
-      // Tag pill
-      const tag = document.createElement('span');
-      tag.className = 'su-hero-tag';
-      tag.textContent = 'Family Resource \u00B7 SETD5 Syndrome';
-      heroInner.appendChild(tag);
 
       // H1 with gold italic em
       const h1 = document.createElement('h1');
