@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v13
+ * site-upgrade.js  v14
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -142,47 +142,75 @@
          original is position:sticky; top:0; z-index:900 — keep that intact */
     }
 
-    /* Ensure mobile dropdown floats above all page content */
-    @media (max-width: 768px) {
+    /* ── Desktop nav layout: scoped to min-width 769px so we never
+       override the mobile menu's display:none or flex-direction.
+       ─────────────────────────────────────────────────────────── */
+    @media (min-width: 769px) {
+      .site-nav .site-nav-inner {
+        height: 46px !important;
+        min-height: 46px !important;
+        max-width: 1160px !important;
+        padding: 0 2rem !important;
+        justify-content: flex-start !important;
+        margin: 0 auto !important;
+      }
+
       .nav-menu {
-        z-index: 999 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        height: 100% !important;
+        gap: 0 !important;
+        flex: unset !important;
+        justify-content: flex-start !important;
+        margin-left: -0.5rem !important;
+        position: static !important;
+        width: auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Desktop link: horizontal pill-free tab style */
+      .nav-menu > a {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+        padding: 0 0.75rem !important;
+        border-bottom: 2px solid transparent !important;
+        border-left: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        width: auto !important;
+        font-size: 0.78rem !important;
+      }
+
+      .nav-menu > a.su-active {
+        border-bottom-color: #3E5974 !important;
+        border-left-color: transparent !important;
+        padding-left: 0.75rem !important;
+        background: transparent !important;
       }
     }
 
-    .site-nav .site-nav-inner {
-      height: 46px !important;
-      min-height: 46px !important;
-      max-width: 1160px !important;
-      padding: 0 2rem !important;
-      justify-content: flex-start !important;
-      margin: 0 auto !important;
+    /* Shrink link padding at intermediate widths before hamburger kicks in */
+    @media (min-width: 769px) and (max-width: 920px) {
+      .nav-menu > a {
+        font-size: 0.72rem !important;
+        padding: 0 0.45rem !important;
+      }
+      .nav-menu > a.su-active {
+        padding-left: 0.45rem !important;
+      }
     }
 
-    .nav-menu {
-      display: flex !important;
-      align-items: stretch !important;
-      height: 100% !important;
-      gap: 0 !important;
-      flex: unset !important;
-      justify-content: flex-start !important;
-      margin-left: -0.5rem !important;
-    }
-
-    /* Base link: text only, bottom border reserved for active */
+    /* ── Typography / color: applies at all widths ──────────────── */
     .nav-menu > a {
-      display: flex !important;
-      align-items: center !important;
-      height: 100% !important;
       font-family: 'Public Sans', system-ui, sans-serif !important;
-      font-size: 0.78rem !important;
       font-weight: 500 !important;
       color: #4D4C4B !important;
       text-decoration: none !important;
-      padding: 0 0.75rem !important;
-      border-bottom: 2px solid transparent !important;
-      border-radius: 0 !important;
-      background: transparent !important;
-      box-shadow: none !important;
       transition: color 0.12s ease, border-color 0.12s ease !important;
       white-space: nowrap;
       letter-spacing: 0.01em;
@@ -190,29 +218,17 @@
 
     .nav-menu > a:hover {
       color: #3E5974 !important;
-      background: transparent !important;
       text-decoration: none !important;
     }
 
-    /* Active: blue text + 2px bottom border. No pill, no box. */
     .nav-menu > a.su-active {
       color: #3E5974 !important;
       font-weight: 600 !important;
-      border-bottom-color: #3E5974 !important;
-      background: transparent !important;
-      border-radius: 0 !important;
     }
 
     .nav-menu > a:focus-visible {
       outline: 2px solid #3E5974 !important;
       outline-offset: -2px;
-    }
-
-    @media (max-width: 820px) {
-      .nav-menu > a {
-        font-size: 0.72rem !important;
-        padding: 0 0.55rem !important;
-      }
     }
 
     /* ── Mobile nav: restore dropdown layout ──────────────────────────────
