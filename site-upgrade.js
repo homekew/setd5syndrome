@@ -363,7 +363,7 @@
     /* ── FOOTER: warm earth-tone palette ────────────────────────────────── */
 
     .site-footer {
-      background: #D2CECA !important;
+      background: #e9e8e6 !important;
       padding: 0 !important;
       text-align: left !important;
       border-top: 1px solid #D4CCBF !important;
@@ -1367,17 +1367,6 @@
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
           <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome. Built by a parent, for families like ours.</p>
-        </div>
-
-        <div class="su-footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="understanding-setd5-syndrome.html">Understanding SETD5 Syndrome</a></li>
-            <li><a href="family-toolkit.html">Family Toolkit</a></li>
-            <li><a href="setd5-medical-terms-guide.html">Medical Terms Guide</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="helpful-links.html">Community</a></li>
-          </ul>
         </div>
 
         <div class="su-footer-col">
