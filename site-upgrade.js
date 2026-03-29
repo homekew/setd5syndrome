@@ -47,7 +47,7 @@
 
   const css = `
 
-    @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
 
     /* ═══════════════════════════════════════════════════════════════
        CSS VARIABLE REMAPPING
@@ -268,7 +268,7 @@
 
     /* ── Typography / color: applies at all widths ──────────────── */
     .nav-menu > a {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-weight: 500 !important;
       color: #4D4C4B !important;
       text-decoration: none !important;
@@ -377,7 +377,7 @@
     }
 
     .su-footer-col h4 {
-      font-family: 'Public Sans', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -399,7 +399,7 @@
     }
 
     .su-footer-brand-tag {
-      font-family: 'Public Sans', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -410,7 +410,7 @@
     }
 
     .su-footer-brand-desc {
-      font-family: 'Public Sans', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       font-size: 0.825rem;
       line-height: 1.65;
       color: #7A756D;
@@ -429,7 +429,7 @@
     }
 
     .su-footer-col ul li a {
-      font-family: 'Public Sans', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       font-size: 0.825rem;
       color: #4D4C4B;
       text-decoration: none;
@@ -460,7 +460,7 @@
     }
 
     #su-footer-bottom p {
-      font-family: 'Public Sans', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       font-size: 0.72rem;
       color: #7A756D;
       margin: 0;
@@ -473,7 +473,7 @@
     }
 
     #su-footer-bottom-links a {
-      font-family: 'Public Sans', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       font-size: 0.72rem;
       color: #7A756D;
       text-decoration: none;
@@ -489,7 +489,7 @@
       padding: 0.85rem 2rem;
       max-width: 1160px;
       margin: 0 auto;
-      font-family: 'Public Sans', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       font-size: 0.73rem;
       color: #7A756D;
       line-height: 1.55;
@@ -533,7 +533,7 @@
        calc(50% - 398px) = half viewport minus (430px - 32px padding)
     ──────────────────────────────────────────────────────────────── */
     .intro-bar {
-      background: #e9e8e6 !important;
+      background: linear-gradient(160deg, #e3eaed 0%, #eae6e2 100%) !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
@@ -541,15 +541,51 @@
       padding-bottom: 2.25rem !important;
       padding-left: max(2rem, calc(50% - 398px)) !important;
       padding-right: max(2rem, calc(50% - 398px)) !important;
-      border-bottom: 1px solid #C8BFB0 !important;
+      border-bottom: 1px solid #C0CDD2 !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
     }
 
-    /* Intro text: white card on tan — centered, full column width */
+    /* ── Unified intro + stats card ─────────────────────────────────── */
+    .intro-unified {
+      background:
+        linear-gradient(135deg, rgba(42,98,122,0.06) 0%, rgba(255,255,255,0) 45%, rgba(160,125,84,0.05) 100%),
+        #FFFFFF;
+      border: 1px solid #BDD0D6 !important;
+      border-left: 4px solid #2a627a !important;
+      border-radius: 12px !important;
+      max-width: 760px !important;
+      width: 100% !important;
+      overflow: hidden !important;
+      box-shadow:
+        0 2px 6px rgba(42,98,122,0.09),
+        0 10px 30px rgba(0,0,0,0.07),
+        inset 0 1px 0 rgba(255,255,255,0.95) !important;
+    }
+
+    /* Intro text inside unified card */
+    .intro-unified .intro-body {
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-size: 0.925rem !important;
+      line-height: 1.75 !important;
+      color: #3D3C3B !important;
+      text-align: left !important;
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 1px solid rgba(42,98,122,0.10) !important;
+      border-radius: 0 !important;
+      padding: 1.5rem 1.75rem 1.375rem !important;
+      box-shadow: none !important;
+      display: block !important;
+    }
+
+    /* Fallback: standalone .intro-body (no unified card) */
     .intro-body {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.925rem !important;
       line-height: 1.75 !important;
       color: #3D3C3B !important;
@@ -566,7 +602,19 @@
       display: block !important;
     }
 
-    /* Stats bar: white interior, teal border and dividers */
+    /* Stats bar inside unified card: flush, no own box */
+    .intro-unified .stats-bar {
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      max-width: none !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    /* Fallback: standalone .stats-bar */
     .stats-bar {
       background: #FFFFFF !important;
       border: 1.5px solid #CCDCE0 !important;
@@ -580,28 +628,36 @@
 
     .stats-bar-item {
       padding: 1.375rem 1.5rem !important;
-      border-right: 1.5px solid #CCDCE0 !important;
+      border-right: 1px solid rgba(42,98,122,0.10) !important;
     }
-
     .stats-bar-item:last-child {
       border-right: none !important;
     }
 
+    /* Individual cell tints */
+    .intro-unified .stats-bar-item:nth-child(1) { background: rgba(160,125,84,0.07) !important; }
+    .intro-unified .stats-bar-item:nth-child(2) { background: rgba(98,146,158,0.07)  !important; }
+    .intro-unified .stats-bar-item:nth-child(3) { background: rgba(42,98,122,0.07)   !important; }
+
     .stats-bar-num {
       font-family: 'Spectral', Georgia, serif !important;
-      font-size: 1.875rem !important;
+      font-size: 2.125rem !important;
       font-weight: 700 !important;
       color: #62929E !important;
       line-height: 1 !important;
     }
+    /* Each number takes its cell's accent color */
+    .intro-unified .stats-bar-item:nth-child(1) .stats-bar-num { color: #A07D54 !important; }
+    .intro-unified .stats-bar-item:nth-child(2) .stats-bar-num { color: #62929E !important; }
+    .intro-unified .stats-bar-item:nth-child(3) .stats-bar-num { color: #2a627a !important; }
 
     .stats-bar-label {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
-      font-size: 0.72rem !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-size: 0.68rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.09em !important;
       text-transform: uppercase !important;
-      color: #A07D54 !important;
+      color: #6B6560 !important;
       margin-top: 0.4rem !important;
     }
 
@@ -612,7 +668,7 @@
 
     /* Section label / eyebrow: warm accent + rule that extends to right edge */
     .guides-label {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
@@ -655,7 +711,7 @@
 
     /* Card body: Public Sans, muted — subordinate to heading */
     .card p {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       color: #7A756D !important;
       line-height: 1.65 !important;
@@ -663,7 +719,7 @@
 
     /* Card link button: #2a627a blue — the one interaction signal */
     .card-link {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.775rem !important;
       font-weight: 600 !important;
       color: #2a627a !important;
@@ -715,7 +771,7 @@
 
     /* Featured badge: teal accent */
     .featured-badge {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       background: #62929E !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
@@ -731,17 +787,17 @@
     }
 
     .start-here-text strong {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       color: #FFFFFF !important;
     }
 
     .start-here-text p {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       color: rgba(255,255,255,0.85) !important;
     }
 
     .start-here-btn {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       background: #FFFFFF !important;
       color: #2a627a !important;
     }
@@ -763,7 +819,7 @@
 
     main p,
     main li {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       color: #4D4C4B !important;
     }
 
@@ -820,7 +876,7 @@
 
     /* Breadcrumb eyebrow: warm accent */
     .header-eyebrow {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 500 !important;
       letter-spacing: 0.06em !important;
@@ -858,7 +914,7 @@
 
     /* Page subtitle: muted, Public Sans */
     .header-subtitle {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       color: #7A756D !important;
       line-height: 1.5 !important;
@@ -867,7 +923,7 @@
 
     /* Meta chips: teal-tinted */
     .meta-chip {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
       background: #CCDCE0 !important;
@@ -897,7 +953,7 @@
 
     /* Sidebar heading: warm accent label */
     .sidebar-hd {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
@@ -910,7 +966,7 @@
 
     /* Sidebar nav buttons */
     .sidebar-link {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.825rem !important;
       font-weight: 400 !important;
       color: #4D4C4B !important;
@@ -968,7 +1024,7 @@
 
     .page-body p,
     .page-main p {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
       color: #4D4C4B !important;
@@ -983,7 +1039,7 @@
     .page-body ol li,
     .page-main ul li,
     .page-main ol li {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
       color: #4D4C4B !important;
@@ -1016,7 +1072,7 @@
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
       color: #4D4C4B !important;
@@ -1024,7 +1080,7 @@
     }
     .intro-box strong {
       color: #5D5646 !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
     }
 
     /* ── Broader heading overrides: catches h2 outside .page-body ──
@@ -1076,7 +1132,7 @@
 
     .page-layout p,
     .page-content p {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
       color: #4D4C4B !important;
@@ -1085,7 +1141,7 @@
     /* Lead / intro paragraphs: slightly larger, full-color body text */
     .page-intro,
     .about-lead p {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 1.05rem !important;
       line-height: 1.8 !important;
       color: #4D4C4B !important;
@@ -1135,7 +1191,7 @@
 
     .teal-callout .callout-label {
       color: #2a627a !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1144,7 +1200,7 @@
 
     .teal-callout p {
       color: #4D4C4B !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
     }
 
     /* Info callout → white card with warm left border */
@@ -1159,7 +1215,7 @@
 
     .info-callout .callout-label {
       color: #A07D54 !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1168,7 +1224,7 @@
 
     .info-callout p {
       color: #4D4C4B !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
     }
 
     /* Amber callout → white card with caramel left border */
@@ -1183,7 +1239,7 @@
 
     .amber-callout .callout-label {
       color: #A07D54 !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1213,14 +1269,14 @@
 
     .feature-card li,
     .feature-card p {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       color: #4D4C4B !important;
     }
 
     /* Section labels in page content */
     .section-label {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 600 !important;
       color: #7A756D !important;
@@ -1243,7 +1299,7 @@
       background: #FFFFFF !important;
       border-color: #D4CCBF !important;
       color: #7A756D !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
     }
 
     .symptom-pill:hover,
@@ -1256,7 +1312,7 @@
     /* Symptom search input */
     .symptom-search {
       border-color: #D4CCBF !important;
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
     }
 
     .symptom-search:focus {
@@ -1277,7 +1333,7 @@
     }
 
     .tab-btn {
-      font-family: 'Public Sans', system-ui, sans-serif !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.825rem !important;
       font-weight: 500 !important;
       color: #7A756D !important;
@@ -1312,7 +1368,19 @@
   }
 
 
-  /* ─── 2b. RENAME NAV LABEL: Community & Links → Community ───────────── */
+  /* ─── 2b. WRAP INTRO + STATS INTO UNIFIED CARD ─────────────────────── */
+  const introBody  = document.querySelector('.intro-bar .intro-body');
+  const statsBar   = document.querySelector('.intro-bar .stats-bar');
+  if (introBody && statsBar) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'intro-unified';
+    introBody.parentNode.insertBefore(wrapper, introBody);
+    wrapper.appendChild(introBody);
+    wrapper.appendChild(statsBar);
+  }
+
+
+  /* ─── 2c. RENAME NAV LABEL: Community & Links → Community ───────────── */
   document.querySelectorAll('.nav-menu a').forEach(a => {
     if (a.textContent.trim() === 'Community & Links') {
       a.textContent = 'Community';
@@ -1373,7 +1441,7 @@
       color: '#4D4C4B',
       fontSize: '1rem',
       lineHeight: '1.7',
-      fontFamily: "'Public Sans', system-ui, sans-serif",
+      fontFamily: "'Poppins', system-ui, sans-serif",
       boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
     });
     const strong = intlNote.querySelector('strong');
