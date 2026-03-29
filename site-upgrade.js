@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v10
+ * site-upgrade.js  v11
  * SETD5 Syndrome (.com) — editorial redesign
  *
  * v7: Header, nav, footer redesign
@@ -46,8 +46,11 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap');
 
-    /* ── HEADER: white surface, shadow, separated from linen page ──────── */
-    header {
+    /* ── HOME PAGE HEADER ONLY: white surface, shadow ───────────────────
+       Scoped to header:not(.site-header) so interior pages (which use
+       <header class="site-header">) are completely untouched.
+    ──────────────────────────────────────────────────────────────────── */
+    header:not(.site-header) {
       background: #FFFFFF !important;
       color: #5D5646 !important;
       text-align: left !important;
@@ -58,7 +61,7 @@
       z-index: 10;
     }
 
-    .header-hero-inner {
+    header:not(.site-header) .header-hero-inner {
       max-width: 1160px !important;
       display: flex !important;
       align-items: center !important;
@@ -67,7 +70,7 @@
       margin: 0 auto !important;
     }
 
-    /* Logo: sized to span the title block height */
+    /* Logo */
     .su-header-logo {
       flex-shrink: 0;
       height: 82px;
@@ -83,9 +86,9 @@
       line-height: 1;
     }
 
-    /* Site title: Spectral, deep brown */
-    header h1,
-    header h1 a {
+    /* Site title: Spectral, deep brown — home page h1 only */
+    header:not(.site-header) h1,
+    header:not(.site-header) h1 a {
       font-family: 'Spectral', Georgia, serif !important;
       color: #5D5646 !important;
       font-size: 2rem !important;
@@ -95,13 +98,12 @@
       text-shadow: none !important;
     }
 
-    /* Hide the original em — subtitle is now a separate span */
-    header h1 em {
+    /* Hide original em on home page only — subtitle replaced by span */
+    header:not(.site-header) h1 em {
       display: none !important;
     }
 
-    /* Subtitle: Public Sans label, not a heading.
-       Uppercase, small, warm accent — clearly secondary metadata. */
+    /* Subtitle: Public Sans label, warm accent */
     .su-site-subtitle {
       display: block;
       font-family: 'Public Sans', system-ui, sans-serif;
@@ -114,13 +116,19 @@
       line-height: 1;
     }
 
-    .header-rule { display: none !important; }
-    .header-sub  { display: none !important; }
+    /* Home page decorative elements to remove */
+    header:not(.site-header) .header-rule { display: none !important; }
+    header:not(.site-header) .header-sub  { display: none !important; }
 
+    /* Responsive: mobile header layout */
     @media (max-width: 640px) {
-      .su-header-logo { height: 60px; width: 60px; }
-      header h1 { font-size: 1.5rem !important; }
-      .header-hero-inner { gap: 1rem !important; }
+      .su-header-logo { height: 56px; width: 56px; }
+      header:not(.site-header) h1 { font-size: 1.4rem !important; }
+      header:not(.site-header) .header-hero-inner {
+        gap: 1rem !important;
+        padding: 0 1.25rem !important;
+      }
+      .su-site-subtitle { font-size: 0.65rem; }
     }
 
 
@@ -658,8 +666,10 @@
   }
 
 
-  /* ─── 3. RESTRUCTURE MAIN HEADER ─────────────────────────────────────── */
-  const siteHeader = document.querySelector('header');
+  /* ─── 3. RESTRUCTURE HOME PAGE HEADER ONLY ──────────────────────────── */
+  // Interior pages use <header class="site-header"> — we must not touch those.
+  // Home page uses a plain <header> with no class and a .header-hero-inner inside.
+  const siteHeader = document.querySelector('header:not(.site-header)');
 
   if (siteHeader) {
     // Remove decorative helix SVG if present
