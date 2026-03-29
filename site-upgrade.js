@@ -640,22 +640,18 @@
       border-right: none !important;
     }
 
-    /* Individual cell tints */
+    /* Individual cell backgrounds */
     .intro-unified .stats-bar-item:nth-child(1) { background: rgba(160,125,84,0.10) !important; }
-    .intro-unified .stats-bar-item:nth-child(2) { background: rgba(98,146,158,0.10)  !important; }
-    .intro-unified .stats-bar-item:nth-child(3) { background: rgba(42,98,122,0.10)   !important; }
+    .intro-unified .stats-bar-item:nth-child(2) { background: #FFFFFF !important; }
+    .intro-unified .stats-bar-item:nth-child(3) { background: #FFFFFF !important; }
 
     .stats-bar-num {
       font-family: 'Spectral', Georgia, serif !important;
       font-size: 2.125rem !important;
       font-weight: 700 !important;
-      color: #62929E !important;
+      color: #A07D54 !important;
       line-height: 1 !important;
     }
-    /* Each number takes its cell's accent color */
-    .intro-unified .stats-bar-item:nth-child(1) .stats-bar-num { color: #A07D54 !important; }
-    .intro-unified .stats-bar-item:nth-child(2) .stats-bar-num { color: #62929E !important; }
-    .intro-unified .stats-bar-item:nth-child(3) .stats-bar-num { color: #2a627a !important; }
 
     .stats-bar-label {
       font-family: 'Poppins', system-ui, sans-serif !important;
@@ -663,13 +659,9 @@
       font-weight: 600 !important;
       letter-spacing: 0.09em !important;
       text-transform: uppercase !important;
-      color: #6B6560 !important;
+      color: #A07D54 !important;
       margin-top: 0.4rem !important;
     }
-    /* Each label matches its cell's accent color */
-    .intro-unified .stats-bar-item:nth-child(1) .stats-bar-label { color: #A07D54 !important; }
-    .intro-unified .stats-bar-item:nth-child(2) .stats-bar-label { color: #62929E !important; }
-    .intro-unified .stats-bar-item:nth-child(3) .stats-bar-label { color: #2a627a !important; }
 
     /* ── Zone 3: Content zone — cards float on near-white ──────── */
     .guides-zone {
