@@ -566,8 +566,8 @@
       display: block !important;
     }
 
-    /* Start-here box in intro section */
-    .intro-bar .start-here {
+    /* Featured card in intro section */
+    .su-intro-featured {
       max-width: 760px !important;
       width: 100% !important;
       margin: 0 !important;
