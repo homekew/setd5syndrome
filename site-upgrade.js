@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v111
+ * site-upgrade.js  v112
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -79,6 +79,7 @@
       box-shadow: 0 6px 40px rgba(30,58,79,0.14) !important;
       position: relative;
       z-index: 10;
+      overflow: hidden !important; /* clip helix SVG to hero bounds */
     }
 
     /* Paper grain texture */
@@ -775,28 +776,92 @@
       color: #FFFFFF !important;
     }
 
-    /* Filled/solid buttons */
-    [class*="btn"]:not([class*="btn-outline"]):not([class*="btn-ghost"])
-                  :not(.start-here-btn):not(.btn-secondary):not(.flow-btn)
-                  :not(.restart-btn):not(.back-btn):not(.tpl-btn) {
+    /* ── BUTTON SYSTEM ─────────────────────────────────────────────────────
+       All backgrounds set with !important to override inline style= attrs
+       (e.g. style="background:#4a6a8a" or style="background:var(--teal)")
+    ─────────────────────────────────────────────────────────────────────── */
+
+    /* PRIMARY: midnight indigo — utility actions (download, generate, print…) */
+    .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
+    .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
+      background: #1E3A4F !important;
+      color: #FFFFFF !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-weight: 500 !important;
+      border: none !important;
+      border-radius: 7px !important;
+    }
+    .download-btn:hover, .pdf-btn:hover, .resource-btn:hover,
+    .btn-primary:hover, .btn-teal:hover, .btn-dark:hover,
+    .handout-box-btn:hover, .generate-btn:hover, .print-btn:hover,
+    .submit-btn:hover, .state-go-btn:hover:not(:disabled) {
+      background: #163043 !important;
       color: #FFFFFF !important;
     }
-    .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
-    .handout-box-btn, .cta-banner-btn, .generate-btn, .print-btn,
-    .submit-btn, .state-go-btn {
+    .state-go-btn:disabled {
+      background: #D0CCC2 !important;
+      color: #5A5850 !important;
+      cursor: not-allowed !important;
+    }
+
+    /* CTA GOLD: high-emphasis calls to action */
+    .cta-btn, .cta-banner-btn {
+      background: #9E7E42 !important;
+      color: #FFFFFF !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-weight: 600 !important;
+      border: none !important;
+      border-radius: 7px !important;
+    }
+    .cta-btn:hover, .cta-banner-btn:hover {
+      background: #7A6535 !important;
       color: #FFFFFF !important;
     }
 
-    .start-here-btn {
-      color: #9E7E42 !important;
+    /* SECONDARY OUTLINE: same weight as primary but ghost treatment */
+    .btn-secondary {
+      background: transparent !important;
+      color: #1E3A4F !important;
+      border: 1.5px solid #1E3A4F !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-weight: 500 !important;
+      border-radius: 7px !important;
     }
-    .btn-secondary,
-    .flow-btn,
-    .tpl-btn {
+    .btn-secondary:hover {
+      background: #1E3A4F !important;
+      color: #FFFFFF !important;
+    }
+
+    /* TERTIARY / TEMPLATE CHIPS: low-emphasis selectable options */
+    .tpl-btn, .flow-btn {
+      background: #FFFFFF !important;
       color: #1C1B18 !important;
+      border: 1px solid #D0CCC2 !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-weight: 400 !important;
+      border-radius: 6px !important;
     }
-    .back-btn,
-    .restart-btn {
+    .tpl-btn:hover, .flow-btn:hover {
+      background: #F5F4F1 !important;
+      border-color: #B8B4AC !important;
+    }
+    .tpl-btn.active, .flow-btn.active {
+      background: #1E3A4F !important;
+      color: #FFFFFF !important;
+      border-color: #1E3A4F !important;
+    }
+
+    /* GHOST / BACK: navigation-style, no fill */
+    .back-btn, .restart-btn {
+      background: transparent !important;
+      color: #456A7C !important;
+      border: 1.5px solid #D0CCC2 !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-weight: 500 !important;
+      border-radius: 7px !important;
+    }
+    .back-btn:hover, .restart-btn:hover {
+      border-color: #456A7C !important;
       color: #1E3A4F !important;
     }
 
