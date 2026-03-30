@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v105
+ * site-upgrade.js  v106
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -847,6 +847,44 @@
       clip-path: none !important;
     }
 
+    /* Neutralise the JS-driven collapse: override every .collapsed rule so the
+       header never visually shrinks or hides content on scroll */
+    header.site-header.collapsed {
+      position: relative !important;
+      padding: 1.125rem 0 0.875rem !important;
+    }
+
+    header.site-header.collapsed .header-inner {
+      padding: 1.125rem 2rem 0.875rem !important;
+    }
+
+    header.site-header.collapsed .header-eyebrow {
+      opacity: 1 !important;
+      max-height: none !important;
+      margin-bottom: 0.4rem !important;
+      overflow: visible !important;
+    }
+
+    header.site-header.collapsed .header-subtitle,
+    header.site-header.collapsed .header-meta {
+      opacity: 1 !important;
+      max-height: none !important;
+      margin: revert !important;
+      padding: revert !important;
+      overflow: visible !important;
+    }
+
+    header.site-header.collapsed .header-title {
+      font-size: 1.65rem !important;
+      margin-bottom: revert !important;
+    }
+
+    /* Interior pages: site-nav is static (not sticky) — nav bar sits in flow */
+    .su-interior .site-nav {
+      position: relative !important;
+      top: auto !important;
+    }
+
     header.site-header::before {
       content: '';
       position: absolute;
@@ -1396,9 +1434,13 @@
   }
 
 
-  /* ─── 3b. REMOVE HELIX SVG FROM INTERIOR PAGE HEADERS ──────────────── */
+  /* ─── 3b. INTERIOR PAGE SETUP ───────────────────────────────────────── */
   const interiorHeader = document.querySelector('header.site-header');
   if (interiorHeader) {
+    // Mark <html> so CSS can scope interior-only overrides (e.g. static nav)
+    document.documentElement.classList.add('su-interior');
+
+    // Remove decorative helix SVG
     const helixSvg = interiorHeader.querySelector('svg');
     if (helixSvg) helixSvg.remove();
   }
