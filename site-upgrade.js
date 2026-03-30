@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v108
+ * site-upgrade.js  v109
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -613,18 +613,63 @@
 
     .intro-body {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-size: 1rem !important;
       line-height: 1.75 !important;
-      color: #1C1B18 !important;
+      color: #5A5850 !important;
       text-align: center !important;
       width: 100% !important;
-      max-width: 520px !important;
-      margin: 0 0 2.25rem !important;
+      max-width: 480px !important;
+      margin: 0 0 1.5rem !important;
       background: transparent !important;
       border: none !important;
       padding: 0 !important;
       box-shadow: none !important;
       display: block !important;
+    }
+
+    /* Intro section: large personal headline above the body copy */
+    .su-intro-headline {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 1.625rem !important;
+      font-weight: 600 !important;
+      color: #1E3A4F !important;
+      line-height: 1.25 !important;
+      letter-spacing: -0.01em !important;
+      text-align: center !important;
+      max-width: 520px !important;
+      margin: 0 0 0.75rem !important;
+    }
+
+    /* Three trust-signal badges */
+    .su-trust-row {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 0.625rem !important;
+      margin: 0 0 2.5rem !important;
+    }
+
+    .su-trust-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
+      background: #FFFFFF !important;
+      border: 1px solid #D0CCC2 !important;
+      border-radius: 100px !important;
+      padding: 0.45rem 1rem !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-size: 0.875rem !important;
+      font-weight: 500 !important;
+      color: #1E3A4F !important;
+      line-height: 1 !important;
+      white-space: nowrap !important;
+    }
+
+    .su-trust-badge svg {
+      width: 14px !important;
+      height: 14px !important;
+      stroke: #9E7E42 !important;
+      flex-shrink: 0 !important;
     }
 
     .su-intro-featured {
@@ -1524,6 +1569,8 @@
         <p>&copy; 2026 The SETD5 Syndrome Companion &mdash; Built by a parent, for families like ours</p>
       </div>
     `;
+  } // end if (existingFooter)
+
   } // end suInitDOM
 
   if (document.readyState === 'loading') {
