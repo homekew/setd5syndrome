@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v114
+ * site-upgrade.js  v115
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -869,6 +869,19 @@
       color: #1E3A4F !important;
     }
 
+    /* START-HERE CTA: gold, overrides inline style="background:var(--teal)" */
+    .start-here-btn {
+      background: #9E7E42 !important;
+      color: #FFFFFF !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-weight: 500 !important;
+      border-radius: 6px !important;
+    }
+    .start-here-btn:hover {
+      background: #7A6535 !important;
+      color: #FFFFFF !important;
+    }
+
     /* ABOUT PAGE — contact CTA and closing link buttons */
     .contact-cta {
       background: #1E3A4F !important;
@@ -975,6 +988,20 @@
     [style*="background:#eaf5f3"] {
       background: #E8E6DF !important;
       border-left-color: #456A7C !important;
+    }
+
+    /* Old teal-green button (#5a9186) and old muted navy (#4a6a8a) → midnight indigo */
+    [style*="background:#5a9186"],
+    [style*="background: #5a9186"],
+    [style*="background:#4a6a8a"],
+    [style*="background: #4a6a8a"] {
+      background: #1E3A4F !important;
+    }
+
+    /* Old-navy text color used in headings → midnight indigo */
+    [style*="color:#162544"],
+    [style*="color: #162544"] {
+      color: #1E3A4F !important;
     }
 
     /* Inline font-family: Inter → Poppins */
@@ -1806,7 +1833,7 @@
     introBar.insertBefore(headline, introBody);
 
     // 2. Trim the body copy to a tighter supporting line
-    introBody.textContent = 'Plain-language, evidence-based guides — free, sourced from published research, and updated regularly.';
+    introBody.textContent = 'Plain-language, research-sourced guides — free and updated regularly.';
 
     // 3. Three trust-signal badges injected after the body copy
     const trustRow = document.createElement('div');
