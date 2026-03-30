@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v107
+ * site-upgrade.js  v108
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -1352,8 +1352,16 @@
   const styleEl = document.createElement('style');
   styleEl.id = 'su-styles';
   styleEl.textContent = css;
-  document.head.appendChild(styleEl);
+  // Inject CSS immediately — works even when script is in <head> before body exists.
+  // This eliminates FOUC: styles are live before the browser paints any content.
+  (document.head || document.documentElement).appendChild(styleEl);
 
+
+  /* ─── 2–5. DOM WORK ─────────────────────────────────────────────────────
+     Wrapped in DOMContentLoaded so this script can safely live in <head>.
+     CSS above already applied; DOM changes run as soon as the HTML is parsed.
+  ─────────────────────────────────────────────────────────────────────────── */
+  function suInitDOM() {
 
   /* ─── 2. NAV: MOVE TO TOP + MARK ACTIVE LINK + INJECT TEXT LOGO ──────── */
 
@@ -1516,6 +1524,13 @@
         <p>&copy; 2026 The SETD5 Syndrome Companion &mdash; Built by a parent, for families like ours</p>
       </div>
     `;
+  } // end suInitDOM
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', suInitDOM);
+  } else {
+    // DOM already parsed (e.g. script deferred or placed after body)
+    suInitDOM();
   }
 
 })();
