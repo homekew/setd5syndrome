@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v112
+ * site-upgrade.js  v113
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -79,7 +79,6 @@
       box-shadow: 0 6px 40px rgba(30,58,79,0.14) !important;
       position: relative;
       z-index: 10;
-      overflow: hidden !important; /* clip helix SVG to hero bounds */
     }
 
     /* Paper grain texture */
@@ -865,6 +864,77 @@
       color: #1E3A4F !important;
     }
 
+    /* ABOUT PAGE — contact CTA and closing link buttons */
+    .contact-cta {
+      background: #1E3A4F !important;
+      color: #FFFFFF !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-weight: 500 !important;
+      border-radius: 7px !important;
+      text-decoration: none !important;
+    }
+    .contact-cta:hover {
+      background: #163043 !important;
+      color: #FFFFFF !important;
+      text-decoration: none !important;
+    }
+    .cta-link-btn.primary {
+      background: #456A7C !important;
+      color: #FFFFFF !important;
+      border-color: transparent !important;
+    }
+    .cta-link-btn.primary:hover {
+      background: #1E3A4F !important;
+      color: #FFFFFF !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       AT A GLANCE HANDOUT — override hard-coded legacy palette
+       Hard-coded #243147, #2B313C, #C2DED8, #2a7068 → Counsel
+    ═══════════════════════════════════════════════════════════════ */
+    .h-header {
+      background: #1E3A4F !important;
+      border-top: 3px solid #9E7E42 !important;
+    }
+    .h-eyebrow {
+      color: #9E7E42 !important;
+    }
+    .h-title em {
+      color: #9E7E42 !important;
+    }
+    .h-logo {
+      color: rgba(255,255,255,0.45) !important;
+    }
+    .h-facts-bar {
+      background: #E8E6DF !important;
+      border-bottom: 1px solid #D0CCC2 !important;
+    }
+    .h-fact {
+      border-right-color: #D0CCC2 !important;
+    }
+    .h-fact-label {
+      color: #5A5850 !important;
+    }
+    .h-fact-value {
+      color: #1C1B18 !important;
+    }
+    .h-what-is-label {
+      color: #9E7E42 !important;
+    }
+    .h-section-label {
+      color: #456A7C !important;
+      border-bottom-color: #D0CCC2 !important;
+    }
+    .h-feature-list li::before {
+      background: #9E7E42 !important;
+    }
+    .h-feature-group-title {
+      color: #1E3A4F !important;
+    }
+    .print-btn:hover {
+      background: #163043 !important;
+    }
+
     .card-link:focus-visible {
       outline: 2px solid #9E7E42 !important;
       outline-offset: 2px !important;
@@ -1534,6 +1604,14 @@
       // so it grows inward (leftward) without clipping the right edge
       helixSvg.style.transformOrigin = 'right center';
       helixSvg.style.transform = 'translateX(-80px) scale(1.3)';
+      // Wrap in a clipping container so the scaled SVG doesn't bleed into
+      // the section below. The wrapper sits at z-index 0 (behind hero text).
+      const helixWrap = document.createElement('div');
+      helixWrap.style.cssText = 'position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;';
+      helixSvg.parentNode.insertBefore(helixWrap, helixSvg);
+      helixWrap.appendChild(helixSvg);
+      // Lower SVG z-index — wrapper stacking context handles placement
+      helixSvg.style.zIndex = '0';
     }
 
     const heroInner = siteHeader.querySelector('.header-hero-inner');
