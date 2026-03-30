@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v116
+ * site-upgrade.js  v117
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -394,6 +394,16 @@
       .nav-toggle {
         color: #FFFFFF !important;
         border-color: rgba(255,255,255,0.3) !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      /* Hamburger bars: must be white — span background is not inherited from color */
+      .nav-toggle span {
+        background: #FFFFFF !important;
       }
 
       /* Dropdown panel: white for readability */
@@ -1426,6 +1436,40 @@
         border-bottom: 3px solid #9E7E42 !important;
         background: transparent !important;
         padding-left: 16px !important;
+      }
+
+      /* Sidebar tab labels: larger, easier to tap */
+      .sidebar-link {
+        font-size: 0.9375rem !important;
+        min-height: 44px !important;
+      }
+
+      /* Scroll affordance: right-edge fade shows more tabs exist */
+      .page-sidebar {
+        position: relative !important;
+      }
+      .page-sidebar::after {
+        content: '' !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 28px !important;
+        background: linear-gradient(to right, transparent, #F5F4F1) !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+      }
+
+      /* Interior page body: reduce side padding on mobile */
+      .page-body,
+      .page-main {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+      }
+
+      /* Section anchor offset: 150px is desktop-sized; 60px fits mobile */
+      [id] {
+        scroll-margin-top: 60px !important;
       }
     }
 
