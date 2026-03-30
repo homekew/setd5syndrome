@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v109
+ * site-upgrade.js  v110
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -1458,9 +1458,14 @@
   const siteHeader = document.querySelector('header:not(.site-header)');
 
   if (siteHeader) {
-    // Remove decorative helix SVG if present
+    // Recolor helix SVG from original teal → steel indigo (#456A7C = rgb 69,106,124)
+    // so it reads as a soft blue accent on the cream hero background
     const helixSvg = siteHeader.querySelector('svg');
-    if (helixSvg) helixSvg.remove();
+    if (helixSvg) {
+      helixSvg.innerHTML = helixSvg.innerHTML
+        .replace(/rgba\(194,222,216,/g, 'rgba(69,106,124,')
+        .replace(/#C2DED8/gi, '#456A7C');
+    }
 
     const heroInner = siteHeader.querySelector('.header-hero-inner');
     if (heroInner) {
@@ -1498,6 +1503,39 @@
     // Remove decorative helix SVG
     const helixSvg = interiorHeader.querySelector('svg');
     if (helixSvg) helixSvg.remove();
+  }
+
+
+  /* ─── 3c. INTRO BAR: HEADLINE + TRUST BADGES ────────────────────────── */
+  const introBar  = document.querySelector('.intro-bar');
+  const introBody = introBar ? introBar.querySelector('.intro-body') : null;
+  if (introBar && introBody) {
+    // 1. Personal headline above the body copy
+    const headline = document.createElement('p');
+    headline.className = 'su-intro-headline';
+    headline.textContent = 'Built by a parent, for families like ours.';
+    introBar.insertBefore(headline, introBody);
+
+    // 2. Trim the body copy to a tighter supporting line
+    introBody.textContent = 'Plain-language, evidence-based guides — free, sourced from published research, and updated regularly.';
+
+    // 3. Three trust-signal badges injected after the body copy
+    const trustRow = document.createElement('div');
+    trustRow.className = 'su-trust-row';
+    trustRow.innerHTML = `
+      <span class="su-trust-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Always free
+      </span>
+      <span class="su-trust-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Research-sourced
+      </span>
+      <span class="su-trust-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        Updated regularly
+      </span>`;
+    introBody.insertAdjacentElement('afterend', trustRow);
   }
 
 
