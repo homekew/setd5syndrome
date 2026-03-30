@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v110
+ * site-upgrade.js  v111
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -1465,6 +1465,10 @@
       helixSvg.innerHTML = helixSvg.innerHTML
         .replace(/rgba\(194,222,216,/g, 'rgba(69,106,124,')
         .replace(/#C2DED8/gi, '#456A7C');
+      // Scale up and nudge left; transform-origin anchors from the right
+      // so it grows inward (leftward) without clipping the right edge
+      helixSvg.style.transformOrigin = 'right center';
+      helixSvg.style.transform = 'translateX(-80px) scale(1.3)';
     }
 
     const heroInner = siteHeader.querySelector('.header-hero-inner');
