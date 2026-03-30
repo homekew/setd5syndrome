@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v106
+ * site-upgrade.js  v107
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -158,7 +158,7 @@
     .su-hero-sub {
       font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 1rem !important;        /* smaller than H1, clearly secondary */
-      font-weight: 300 !important;
+      font-weight: 400 !important;
       line-height: 1.7 !important;
       letter-spacing: 0.02em !important; /* slightly open — editorial, calm */
       color: #5A5850 !important;
@@ -603,8 +603,8 @@
       margin: 0 !important;
       padding-top: 4.5rem !important;
       padding-bottom: 4rem !important;
-      padding-left: max(2rem, calc(50% - 398px)) !important;
-      padding-right: max(2rem, calc(50% - 398px)) !important;
+      padding-left: max(2rem, calc(50% - 580px)) !important;
+      padding-right: max(2rem, calc(50% - 580px)) !important;
       border-bottom: 1px solid #D0CCC2 !important;
       display: flex !important;
       flex-direction: column !important;
@@ -628,7 +628,7 @@
     }
 
     .su-intro-featured {
-      max-width: 640px !important;
+      max-width: 800px !important;
       width: 100% !important;
       margin: 0 !important;
       align-items: center !important;      /* stop flex-stretch from spanning badge full-width */
@@ -665,6 +665,8 @@
     .guides-zone {
       background: #F5F4F1 !important;
       padding-top: 4rem !important;
+      padding-left: max(2rem, calc(50% - 580px)) !important;
+      padding-right: max(2rem, calc(50% - 580px)) !important;
     }
 
     .guides-label {
