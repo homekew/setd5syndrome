@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v113
+ * site-upgrade.js  v114
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -59,6 +59,11 @@
       --sage-lt:   #C5CDD6;   /* sage light bg          → steel tint       */
       --sage-mid:  #456A7C;   /* sage mid border        → steel indigo     */
       --amber:     #9E7E42;   /* warm amber             → antique gold     */
+      /* v114 additions: unify remaining old-palette variables */
+      --muted:     #5A5850;   /* was #66707A cool grey  → ink-muted warm   */
+      --text:      #1C1B18;   /* was #2A2E35 cool dark  → Counsel ink      */
+      --border:    #D0CCC2;   /* was #DDD7CC grey       → parchment-D      */
+      --ink:       #1C1B18;   /* handout builder pages used #404040        */
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -934,6 +939,143 @@
     .print-btn:hover {
       background: #163043 !important;
     }
+
+    /* ═══════════════════════════════════════════════════════════════
+       INLINE STYLE OVERRIDES — old-palette hard-coded values
+       CSS attribute selectors catch any element whose inline style=
+       contains the legacy hex string, regardless of page or class.
+    ═══════════════════════════════════════════════════════════════ */
+
+    /* Old-teal link/label color → steel indigo */
+    [style*="color:#2a7068"],
+    [style*="color: #2a7068"] {
+      color: #456A7C !important;
+    }
+
+    /* Old-navy backgrounds (back-to-top buttons, promo cards, etc.) */
+    [style*="background:#162544"],
+    [style*="background: #162544"] {
+      background: #1E3A4F !important;
+    }
+    /* Variant found on about.html back-to-top */
+    [style*="background:#2a627a"],
+    [style*="background: #2a627a"] {
+      background: #1E3A4F !important;
+    }
+
+    /* Old caramel CTA buttons → antique gold */
+    [style*="background:#C6A27E"],
+    [style*="background: #C6A27E"] {
+      background: #9E7E42 !important;
+    }
+
+    /* Old pale-teal callout backgrounds → parchment */
+    [style*="background:#e8f4f2"],
+    [style*="background:#E4F0EE"],
+    [style*="background:#eaf5f3"] {
+      background: #E8E6DF !important;
+      border-left-color: #456A7C !important;
+    }
+
+    /* Inline font-family: Inter → Poppins */
+    [style*="'Inter'"],
+    [style*="\"Inter\""] {
+      font-family: 'Poppins', system-ui, sans-serif !important;
+    }
+
+    /* Inline font-family: Lora → DM Sans (promo cards, inline headers) */
+    [style*="'Lora'"],
+    [style*="\"Lora\""] {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SECTION-LABEL + SECTION-TAG — eyebrow label components
+       Used on 14+ pages; page CSS sets Inter/muted-grey.
+    ═══════════════════════════════════════════════════════════════ */
+    .section-label {
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #5A5850 !important;
+      letter-spacing: 0.12em !important;
+    }
+    .section-tag {
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      color: #5A5850 !important;
+    }
+    .section-tag.on-dark {
+      color: rgba(255,255,255,0.65) !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESEARCH PAGE — hard-coded #2a7068 references in page CSS
+       (These are class-level rules so attribute selectors won't work)
+    ═══════════════════════════════════════════════════════════════ */
+    /* Type badges */
+    .card-badge                        { color: #456A7C !important; }
+    .peer-reviewed .card-badge         { background: #C5CDD6 !important; }
+    .dissertation .card-badge          { background: #E8E6DF !important; }
+
+    /* Citation links */
+    .card-citation a                   { color: #456A7C !important; }
+
+    /* Bullet / arrow accent markers */
+    .findings-list li::before,
+    .treatment-card ul li::before,
+    .registry .findings-list li::before { color: #9E7E42 !important; }
+
+    /* Callout labels */
+    .callout-label,
+    .review .family-callout .callout-label { color: #9E7E42 !important; }
+
+    /* Heading labels in cards */
+    .card-section-label                { color: #9E7E42 !important; }
+
+    /* Focus ring: old teal → steel indigo */
+    .search-input:focus {
+      border-color: #456A7C !important;
+      box-shadow: 0 0 0 2px rgba(69,106,124,0.18) !important;
+    }
+
+    /* Stat numbers: Lora → DM Sans */
+    .stat-number {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      color: #1E3A4F !important;
+    }
+
+    /* Overview box h4 headers */
+    .overview-box h4 {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      color: #1E3A4F !important;
+    }
+    .overview-box ul li::before        { color: #9E7E42 !important; }
+
+    /* Watch + monitoring callout headings */
+    .watch-callout h3,
+    .monitoring-box h3 {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      color: #1E3A4F !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       UNDERSTANDING SETD5 SYNDROME PAGE — old-palette in page CSS
+    ═══════════════════════════════════════════════════════════════ */
+    /* Active filter pill: old teal → steel indigo */
+    .symptom-pill:hover {
+      border-color: #456A7C !important;
+      color: #456A7C !important;
+    }
+    .symptom-pill.active {
+      background: #456A7C !important;
+      border-color: #456A7C !important;
+      color: #FFFFFF !important;
+    }
+
+    /* TOC links */
+    .page-toc ol li a                  { color: #456A7C !important; }
+
+    /* Feature card bullet dots */
+    .feature-card ul li::before,
+    .feature-card.sage-top ul li::before { color: #9E7E42 !important; }
 
     .card-link:focus-visible {
       outline: 2px solid #9E7E42 !important;
