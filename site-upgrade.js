@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v115
+ * site-upgrade.js  v116
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -965,6 +965,15 @@
       color: #456A7C !important;
     }
 
+    /* Exception: teal-colored labels inside dark navy card containers
+       become invisible (#456A7C on #1E3A4F). Override to light accent. */
+    [style*="background:#162544"] [style*="color:#2a7068"],
+    [style*="background:#162544"] [style*="color: #2a7068"],
+    [style*="background:#1E3A4F"] [style*="color:#2a7068"],
+    [style*="background:#1E3A4F"] [style*="color: #2a7068"] {
+      color: #9FBBC8 !important;
+    }
+
     /* Old-navy backgrounds (back-to-top buttons, promo cards, etc.) */
     [style*="background:#162544"],
     [style*="background: #162544"] {
@@ -1369,6 +1378,55 @@
       border-left-color: #9E7E42 !important;
       background: #F7F3E8 !important;
       padding-left: calc(1.125rem - 3px) !important;
+    }
+
+    /* ── MOBILE SIDEBAR OVERRIDE ───────────────────────────────────────
+       The sidebar styles above are desktop-only. On mobile (≤768px) the
+       page CSS converts the sidebar to a horizontal scrollable tab strip
+       but the !important rules above override it. Re-assert the mobile
+       tab layout here so the sidebar never appears as a full-height block.
+    ────────────────────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .page-sidebar {
+        height: auto !important;
+        max-height: none !important;
+        width: 100% !important;
+        position: static !important;
+        top: auto !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-bottom: 1px solid #D0CCC2 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+      }
+      .sidebar-hd,
+      .sidebar-divider { display: none !important; }
+      .sidebar-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        width: auto !important;
+        flex-shrink: 0 !important;
+        padding: 10px 16px !important;
+        white-space: nowrap !important;
+        border: none !important;
+        border-left: none !important;
+        border-bottom: 3px solid transparent !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+      }
+      .sidebar-link.active,
+      .sidebar-link[aria-current],
+      .sidebar-link[aria-selected="true"] {
+        border-left: none !important;
+        border-left-color: transparent !important;
+        border-bottom: 3px solid #9E7E42 !important;
+        background: transparent !important;
+        padding-left: 16px !important;
+      }
     }
 
     /* Interior page content typography */
