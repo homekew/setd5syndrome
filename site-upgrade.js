@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v104
+ * site-upgrade.js  v105
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -618,7 +618,7 @@
       color: #1C1B18 !important;
       text-align: center !important;
       width: 100% !important;
-      max-width: 600px !important;
+      max-width: 520px !important;
       margin: 0 0 2.25rem !important;
       background: transparent !important;
       border: none !important;
@@ -631,6 +631,35 @@
       max-width: 640px !important;
       width: 100% !important;
       margin: 0 !important;
+      align-items: center !important;      /* stop flex-stretch from spanning badge full-width */
+      text-align: center !important;
+      background: #F5F4F1 !important;      /* warm cream — not clinical white on parchment */
+      padding: 2.25rem 2.5rem 2rem !important;
+    }
+
+    /* Badge: small centered pill, not a full-width block */
+    .su-intro-featured .featured-badge {
+      align-self: center !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      border-radius: 20px !important;
+      padding: 4px 14px !important;
+      font-size: 0.625rem !important;
+      background: #456A7C !important;      /* steel indigo — label register, not heading register */
+      color: #FFFFFF !important;
+      margin-bottom: 0.875rem !important;
+    }
+
+    /* Featured card h2 and p: centered to match badge and CTA */
+    .su-intro-featured h2 {
+      text-align: center !important;
+      margin-bottom: 0.4rem !important;   /* tight — h2 + p form one unit */
+    }
+
+    .su-intro-featured p {
+      text-align: center !important;
+      max-width: 420px !important;
+      margin-bottom: 1.375rem !important;
     }
 
     .guides-zone {
@@ -789,6 +818,7 @@
     .su-intro-featured .card-link {
       background: #9E7E42 !important;
       color: #FFFFFF !important;
+      align-self: center !important;       /* center the CTA to match the centered layout */
     }
 
     main p,
