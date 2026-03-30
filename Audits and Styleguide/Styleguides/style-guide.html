@@ -180,6 +180,79 @@
     margin-left: 6px;
     vertical-align: middle;
   }
+
+  /* TEXT-ON-BACKGROUND PAIRING CARDS */
+  .pairing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .pairing-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .pairing-preview {
+    padding: 18px 20px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pairing-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .pairing-headline {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .pairing-body {
+    font-size: 12px;
+    line-height: 1.55;
+    opacity: 0.8;
+  }
+  .pairing-meta {
+    background: #fff;
+    padding: 10px 14px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .pairing-name { font-size: 12px; font-weight: 600; color: #1a2744; margin-bottom: 3px; }
+  .pairing-tokens { font-size: 11px; font-family: monospace; color: #6b6b6b; line-height: 1.6; }
+
+  /* RULE TABLE */
+  .rule-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  .rule-table th {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px;
+    color: #6b6b6b; padding: 8px 14px; text-align: left;
+    border-bottom: 1px solid #e0d9cf; background: #fdf9f4;
+  }
+  .rule-table td {
+    padding: 11px 14px; border-bottom: 1px solid #f0ece6;
+    font-size: 13px; vertical-align: middle;
+  }
+  .rule-table tr:last-child td { border-bottom: none; }
+  .rule-ok { color: #2a7a6a; font-weight: 600; }
+  .rule-warn { color: #b05a5a; font-weight: 600; }
+  .rule-note {
+    background: #fdf4e7;
+    border-left: 3px solid #c9893a;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #2c2c2c;
+  }
+  .rule-note strong { color: #8a5a1a; }
 </style>
 </head>
 <body>
@@ -246,7 +319,160 @@
     </div>
   </div>
 
-  <!-- ── 3. TYPEFACES ── -->
+  <!-- ── 3. TEXT COLOR ON BACKGROUNDS ── -->
+  <div class="sg-section">
+    <div class="sg-section-title">Text Color on Backgrounds  --  Contrast Pairing Rules</div>
+
+    <div class="sg-divider">Dark Backgrounds  --  use white or light text</div>
+    <div class="pairing-grid">
+
+      <div class="pairing-card">
+        <div class="pairing-preview" style="background:#1E3A4F;">
+          <div class="pairing-eyebrow" style="color:#9FBBC8;">Section Label / Eyebrow</div>
+          <div class="pairing-headline" style="color:#FFFFFF;">Card or Panel Heading</div>
+          <div class="pairing-body" style="color:rgba(255,255,255,0.72);">Supporting body text on the midnight indigo card background.</div>
+        </div>
+        <div class="pairing-meta">
+          <div class="pairing-name">Midnight Indigo  (#1E3A4F)</div>
+          <div class="pairing-tokens">Eyebrow label: #9FBBC8 (steel tint)<br>Primary text: #FFFFFF<br>Secondary text: rgba(255,255,255,0.72)</div>
+        </div>
+      </div>
+
+      <div class="pairing-card">
+        <div class="pairing-preview" style="background:#1a2744;">
+          <div class="pairing-eyebrow" style="color:#a8cfc8;">Section Label / Eyebrow</div>
+          <div class="pairing-headline" style="color:#FFFFFF;">Card or Panel Heading</div>
+          <div class="pairing-body" style="color:rgba(255,255,255,0.70);">Supporting body text on a dark navy card background.</div>
+        </div>
+        <div class="pairing-meta">
+          <div class="pairing-name">Navy  (#1a2744 / --navy)</div>
+          <div class="pairing-tokens">Eyebrow label: #a8cfc8 (soft teal)<br>Primary text: #FFFFFF<br>Secondary text: rgba(255,255,255,0.70)</div>
+        </div>
+      </div>
+
+      <div class="pairing-card">
+        <div class="pairing-preview" style="background:#9E7E42;">
+          <div class="pairing-eyebrow" style="color:rgba(255,255,255,0.65);">Section Label</div>
+          <div class="pairing-headline" style="color:#FFFFFF;">CTA Heading</div>
+          <div class="pairing-body" style="color:rgba(255,255,255,0.80);">Text on antique gold CTA backgrounds.</div>
+        </div>
+        <div class="pairing-meta">
+          <div class="pairing-name">Antique Gold  (#9E7E42 / --amber)</div>
+          <div class="pairing-tokens">Primary text: #FFFFFF<br>Secondary text: rgba(255,255,255,0.80)</div>
+        </div>
+      </div>
+
+      <div class="pairing-card">
+        <div class="pairing-preview" style="background:#456A7C;">
+          <div class="pairing-eyebrow" style="color:rgba(255,255,255,0.60);">Section Label</div>
+          <div class="pairing-headline" style="color:#FFFFFF;">Secondary Button / Panel</div>
+          <div class="pairing-body" style="color:rgba(255,255,255,0.75);">Text on steel indigo backgrounds.</div>
+        </div>
+        <div class="pairing-meta">
+          <div class="pairing-name">Steel Indigo  (#456A7C / --teal)</div>
+          <div class="pairing-tokens">Primary text: #FFFFFF<br>Secondary text: rgba(255,255,255,0.75)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sg-divider">Light Backgrounds  --  use dark or mid-tone text</div>
+    <div class="pairing-grid">
+
+      <div class="pairing-card">
+        <div class="pairing-preview" style="background:#F5F4F1;">
+          <div class="pairing-eyebrow" style="color:#9E7E42;">Section Label</div>
+          <div class="pairing-headline" style="color:#1E3A4F;">Page or Card Heading</div>
+          <div class="pairing-body" style="color:#1C1B18;">Standard body text on parchment background.</div>
+        </div>
+        <div class="pairing-meta">
+          <div class="pairing-name">Parchment  (#F5F4F1)</div>
+          <div class="pairing-tokens">Label/eyebrow: #9E7E42 (antique gold)<br>Heading: #1E3A4F (midnight indigo)<br>Body: #1C1B18 (ink)</div>
+        </div>
+      </div>
+
+      <div class="pairing-card">
+        <div class="pairing-preview" style="background:#E8E6DF;">
+          <div class="pairing-eyebrow" style="color:#9E7E42;">Section Label</div>
+          <div class="pairing-headline" style="color:#1E3A4F;">Callout Heading</div>
+          <div class="pairing-body" style="color:#1C1B18;">Text inside a callout or tinted box.</div>
+        </div>
+        <div class="pairing-meta">
+          <div class="pairing-name">Warm Parchment  (#E8E6DF)</div>
+          <div class="pairing-tokens">Label: #9E7E42 (antique gold)<br>Heading: #1E3A4F<br>Body: #1C1B18</div>
+        </div>
+      </div>
+
+      <div class="pairing-card">
+        <div class="pairing-preview" style="background:#FFFFFF; border-bottom: 1px solid #e0d9cf;">
+          <div class="pairing-eyebrow" style="color:#456A7C;">Section Label</div>
+          <div class="pairing-headline" style="color:#1E3A4F;">Card Heading</div>
+          <div class="pairing-body" style="color:#5A5850;">Muted supporting text on a white card.</div>
+        </div>
+        <div class="pairing-meta">
+          <div class="pairing-name">White  (#FFFFFF)</div>
+          <div class="pairing-tokens">Label: #456A7C (steel indigo)<br>Heading: #1E3A4F<br>Muted body: #5A5850</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sg-divider">Quick-Reference Rules</div>
+    <table class="rule-table">
+      <thead><tr><th>Background</th><th>Eyebrow / Label</th><th>Heading</th><th>Body / Secondary</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span style="display:inline-block;width:12px;height:12px;background:#1E3A4F;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>Dark navy #1E3A4F</td>
+          <td><span class="rule-ok">#9FBBC8</span> steel tint</td>
+          <td><span class="rule-ok">#FFFFFF</span></td>
+          <td><span class="rule-ok">rgba(255,255,255,0.72)</span></td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:12px;height:12px;background:#1a2744;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>Dark navy #1a2744</td>
+          <td><span class="rule-ok">#a8cfc8</span> soft teal</td>
+          <td><span class="rule-ok">#FFFFFF</span></td>
+          <td><span class="rule-ok">rgba(255,255,255,0.70)</span></td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:12px;height:12px;background:#9E7E42;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>Gold #9E7E42</td>
+          <td><span class="rule-ok">rgba(255,255,255,0.65)</span></td>
+          <td><span class="rule-ok">#FFFFFF</span></td>
+          <td><span class="rule-ok">rgba(255,255,255,0.80)</span></td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:12px;height:12px;background:#456A7C;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>Steel indigo #456A7C</td>
+          <td><span class="rule-ok">rgba(255,255,255,0.65)</span></td>
+          <td><span class="rule-ok">#FFFFFF</span></td>
+          <td><span class="rule-ok">rgba(255,255,255,0.75)</span></td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:12px;height:12px;background:#F5F4F1;border-radius:2px;vertical-align:middle;margin-right:6px;border:1px solid #ccc;"></span>Parchment #F5F4F1</td>
+          <td><span class="rule-ok">#9E7E42</span> antique gold</td>
+          <td><span class="rule-ok">#1E3A4F</span></td>
+          <td><span class="rule-ok">#1C1B18</span> ink</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:12px;height:12px;background:#FFFFFF;border-radius:2px;vertical-align:middle;margin-right:6px;border:1px solid #ccc;"></span>White #FFFFFF</td>
+          <td><span class="rule-ok">#456A7C</span> steel indigo</td>
+          <td><span class="rule-ok">#1E3A4F</span></td>
+          <td><span class="rule-ok">#5A5850</span> muted</td>
+        </tr>
+        <tr style="background:#fdf0ef;">
+          <td><span style="display:inline-block;width:12px;height:12px;background:#1E3A4F;border-radius:2px;vertical-align:middle;margin-right:6px;"></span>Dark navy #1E3A4F</td>
+          <td><span class="rule-warn">✗ #456A7C</span> (steel on navy — invisible)</td>
+          <td><span class="rule-warn">✗ #1C1B18</span> (ink on dark — invisible)</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rule-note">
+      <strong>Rule: eyebrow / label text on dark cards.</strong> When a section label or uppercase eyebrow sits inside a dark navy card (<code>#1E3A4F</code> or <code>#1a2744</code>), never use <code>color: var(--teal)</code> / <code>#456A7C</code> — steel indigo on midnight indigo has near-zero contrast. Use <code>#9FBBC8</code> (steel tint) or <code>#a8cfc8</code> (soft teal) instead. This applies to any element with <code>color:#2a7068</code> or <code>color: var(--teal)</code> that lives inside a dark background container — these need the light override.
+    </div>
+
+  </div>
+
+  <!-- ── 4. TYPEFACES ── -->
   <div class="sg-section">
     <div class="sg-section-title">Typefaces</div>
     <div class="specimen-grid">
