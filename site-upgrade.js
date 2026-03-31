@@ -2128,8 +2128,7 @@
         <div class="su-footer-col">
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
-          <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome.</p>
-          <p class="su-footer-brand-desc" style="margin-top:0;">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
+          <p class="su-footer-brand-desc">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
         </div>
 
         <div class="su-footer-col">
