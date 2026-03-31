@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v125
+ * site-upgrade.js  v126
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -632,13 +632,13 @@
     ═══════════════════════════════════════════════════════════════ */
 
     html {
-      font-size: 14px !important;
+      font-size: 15px !important;
     }
 
     body {
       background: #F5F4F1 !important;
       color: #1C1B18 !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
     }
 
     .intro-bar {
@@ -1168,10 +1168,10 @@
     }
     /* Prose body text */
     .prose {
-      font-size: 14px !important;
+      font-size: 15px !important;
     }
     .prose p, .prose li {
-      font-size: 14px !important;
+      font-size: 15px !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1384,7 +1384,7 @@
     /* Page subtitle */
     .header-subtitle {
       font-family: 'Outfit', system-ui, sans-serif !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
       color: #5A5850 !important;
       line-height: 1.5 !important;
       margin: 0 !important;
@@ -1592,13 +1592,13 @@
     .entry-body p, .entry-body li,
     main p, main li {
       font-family: 'Outfit', system-ui, sans-serif !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
 
     .prose, .content, .entry-body {
-      font-size: 14px !important;
+      font-size: 15px !important;
     }
 
     .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
@@ -1632,7 +1632,7 @@
     .page-main ul li,
     .page-main ol li {
       font-family: 'Outfit', system-ui, sans-serif !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
     }
