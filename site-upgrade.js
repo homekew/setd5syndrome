@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v137
+ * site-upgrade.js  v138
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -533,12 +533,12 @@
     }
 
     .su-footer-brand-desc {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.65);
-      margin: 0 0 0.9rem;
-      max-width: 260px;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 0.875rem !important;
+      line-height: 1.65 !important;
+      color: rgba(255,255,255,0.72) !important;
+      margin: 0 0 0.9rem !important;
+      max-width: 260px !important;
     }
 
     .su-footer-col ul {
@@ -552,10 +552,10 @@
     }
 
     .su-footer-col ul li a {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.72);
-      text-decoration: none;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 0.875rem !important;
+      color: rgba(255,255,255,0.82) !important;
+      text-decoration: none !important;
       transition: color 0.1s;
     }
 
@@ -578,10 +578,10 @@
     }
 
     #su-footer-bottom p {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.42);
-      margin: 0;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 0.72rem !important;
+      color: rgba(255,255,255,0.65) !important;
+      margin: 0 !important;
     }
 
     #su-footer-bottom-links {
@@ -814,7 +814,7 @@
       font-weight: 600 !important;
       color: #456A7C !important;
       line-height: 1.3 !important;
-      margin-bottom: 0.875rem !important;
+      margin-bottom: 1rem !important;
       border-bottom: none !important;
       padding-bottom: 0 !important;
     }
@@ -1134,8 +1134,11 @@
     }
 
     /* Stat numbers: Lora → DM Sans */
-    .stat-number {
+    .stat-number,
+    .stats-bar-num {
       font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 1.15rem !important;
+      font-weight: 600 !important;
       color: #1E3A4F !important;
     }
 
@@ -2125,7 +2128,7 @@
         <div class="su-footer-col">
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
-          <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome. Built by a parent, for families like ours.</p>
+          <p class="su-footer-brand-desc">Plain-language, evidence-based resources for families and caregivers navigating SETD5 Syndrome.</p>
           <p class="su-footer-brand-desc" style="margin-top:0;">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
         </div>
 
@@ -2158,7 +2161,7 @@
       </div>
 
       <div id="su-footer-bottom">
-        <p>&copy; 2026 The SETD5 Syndrome Companion &mdash; Built by a parent, for families like ours</p>
+        <p>&copy; 2026 The SETD5 Syndrome Companion</p>
       </div>
     `;
   } // end if (existingFooter)
