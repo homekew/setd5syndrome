@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v127
+ * site-upgrade.js  v128
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -632,13 +632,26 @@
     ═══════════════════════════════════════════════════════════════ */
 
     html {
-      font-size: 15px !important;
+      font-size: 18px !important;
     }
 
     body {
       background: #F5F4F1 !important;
       color: #1C1B18 !important;
-      font-size: 15px !important;
+      font-size: 18px !important;
+    }
+
+    /* Mobile: 16px body, 14px secondary */
+    @media (max-width: 768px) {
+      html { font-size: 16px !important; }
+      body { font-size: 16px !important; }
+      .page-body p, .page-main p,
+      .prose p, .prose li,
+      .content p, .content li,
+      .entry-body p, .entry-body li,
+      .page-body ul li, .page-body ol li,
+      .page-main ul li, .page-main ol li { font-size: 16px !important; }
+      .header-subtitle { font-size: 14px !important; }
     }
 
     .intro-bar {
@@ -1168,10 +1181,10 @@
     }
     /* Prose body text */
     .prose {
-      font-size: 15px !important;
+      font-size: 18px !important;
     }
     .prose p, .prose li {
-      font-size: 15px !important;
+      font-size: 18px !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1384,7 +1397,7 @@
     /* Page subtitle */
     .header-subtitle {
       font-family: 'Outfit', system-ui, sans-serif !important;
-      font-size: 15px !important;
+      font-size: 16px !important;
       color: #5A5850 !important;
       line-height: 1.5 !important;
       margin: 0 !important;
@@ -1592,13 +1605,13 @@
     .entry-body p, .entry-body li,
     main p, main li {
       font-family: 'Outfit', system-ui, sans-serif !important;
-      font-size: 15px !important;
+      font-size: 18px !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
 
     .prose, .content, .entry-body {
-      font-size: 15px !important;
+      font-size: 18px !important;
     }
 
     .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
@@ -1632,7 +1645,7 @@
     .page-main ul li,
     .page-main ol li {
       font-family: 'Outfit', system-ui, sans-serif !important;
-      font-size: 15px !important;
+      font-size: 18px !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
     }
