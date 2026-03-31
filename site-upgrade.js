@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v118
+ * site-upgrade.js  v119
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -274,6 +274,9 @@
       color: rgba(255,255,255,0.65);
     }
 
+    /* Short logo shown on mobile only; long version shown on desktop */
+    .su-logo-short { display: none; }
+
     .su-nav-logo:hover {
       color: #FFFFFF !important;
       opacity: 0.85;
@@ -390,10 +393,10 @@
         justify-content: space-between !important;
       }
 
-      /* Logo: hide on mobile — hamburger replaces nav, logo overflows on narrow screens */
-      .su-nav-logo {
-        display: none !important;
-      }
+      /* Logo: swap to short version on mobile to prevent overflow */
+      .su-logo-long { display: none !important; }
+      .su-logo-short { display: inline !important; }
+      .su-nav-logo { flex-shrink: 1 !important; }
 
       /* Hamburger button: white on indigo */
       .nav-toggle {
@@ -1869,7 +1872,7 @@
       const logo = document.createElement('a');
       logo.href = '/index.html';
       logo.className = 'su-nav-logo';
-      logo.innerHTML = 'The SETD5 Syndrome <span class="su-nav-logo-light">Companion</span>';
+      logo.innerHTML = '<span class="su-logo-long">The SETD5 Syndrome <span class="su-nav-logo-light">Companion</span></span><span class="su-logo-short">SETD5 Syndrome</span>';
       navInner.insertBefore(logo, navMenu);
     }
   }
