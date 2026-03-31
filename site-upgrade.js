@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v130
+ * site-upgrade.js  v131
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -314,7 +314,7 @@
         height: 100% !important;
         gap: 0 !important;
         flex: 1 !important;
-        justify-content: center !important;
+        justify-content: flex-end !important;
         margin-left: 0 !important;
         position: static !important;
         width: auto !important;
