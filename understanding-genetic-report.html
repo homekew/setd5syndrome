@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Understanding Your Genetic Report</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/understanding-genetic-report.html">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
@@ -17,97 +17,84 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream:     #faf7f2;
-    --cream2:    #f2ede4;
-    --navy:      #1a2744;
-    --deep:      #2a627a;
-    --teal:      #2a7a6a;
-    --amber:     #c9893a;
-    --amber-lt:  #fdf4e7;
-    --rose:      #b05a5a;
-    --rose-lt:   #fdf0ef;
-    --sage:      #4e7c5f;
-    --sage-lt:   #edf5ef;
-    --blue:      #5a80a8;
-    --blue-lt:   #e8eff7;
-    --text:      #2c2c2c;
-    --muted:     #6b6b6b;
-    --border:    #e0d9cf;
+    --cream:     #F7F4EE;
+    --cream2:    #EDE9E0;
+    --navy:      #162544;
+    --linen:     #EDE9E0;
+    --caramel:   #C6A27E;
+    --caramel-lt:#F5EDE0;
+    --caramel-mid:#E8CCA8;
+    --peach:     #F2B199;
+    --peach-lt:  #FEF0EB;
+    --peach-mid: #F8D3C8;
+    --sage-mid:  #BAD4CE;
+    --charcoal:  #162544;
+    --deep:      #AEBFBE;
+    --teal:      #C2DED8;
+    --amber:     #C6A27E;
+    --amber-lt:  #F5EDE0;
+    --rose:      #F2B199;
+    --rose-lt:   #FEF0EB;
+    --sage:      #C2DED8;
+    --sage-lt:   #E4F0EE;
+    --blue:      #C2DED8;
+    --blue-lt:   #E4F0EE;
+    --text:      #2A2E35;
+    --muted:     #66707A;
+    --border:    #DDD7CC;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body{
-    background: var(--cream);
+    background: #F7F4EE;
     color: var(--text);
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
     font-size: 17px;
   }
-  h2{
-    font-family: 'Lora', serif;
-    font-size: clamp(21px, 3.5vw, 29px);
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--navy, #1a2744);
-    margin-bottom: 0.75rem;
-  }
+  h2 { font-family: 'Lora', serif; font-size: clamp(21px, 3.5vw, 29px); font-weight: 600; line-height: 1.25; color: var(--navy); margin-bottom: 0.75rem; }
 
 
   /* -- HEADER -- */
-  .site-header { background: #1a2744; color: #fff; position: sticky; top: 0; z-index: 1000; }
+  .site-header { background: #162544; color: #fff; position:sticky;top:0;z-index:920;overflow:hidden}
   /* -- HEADER COLLAPSE -- */
-  .header-inner { transition: padding 0.175s ease; }
-  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
+  .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
-  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px;position:relative;z-index:2}
   .site-header.collapsed .header-eyebrow{ opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
-  .header-inner { max-width: 860px; margin: 0 auto; padding: 24px 32px 30px; }
+  .header-inner { max-width: 860px; margin: 0 auto; padding: 32px 32px 24px;position:relative;z-index:2}
   .header-eyebrow{
-    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    font-size: 13px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 22px;
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.45); text-decoration: none; }
   .header-title{
     font-family: 'Lora', serif;
-    font-size: clamp(32px, 4.5vw, 44px); font-weight: 600;
+    font-size: clamp(36px, 5vw, 52px); font-weight: 600;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
   .header-title em { font-style: italic; color: #a8cfc8; }
-  .header-subtitle{ font-size: 15.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-subtitle{ font-size: 17.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
   .header-meta {
     display: flex; flex-wrap: wrap; gap: 12px;
     margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15);
   }
   .meta-chip {
     background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-    border-radius: 20px; padding: 4px 14px; font-size: 12px; color: rgba(255,255,255,.8);
+    border-radius: 20px; padding: 4px 14px; font-size: 13px; color: rgba(255,255,255,.8);
   }
 
   /* -- LAYOUT -- */
   .page-body{ max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
 
   /* -- SECTION -- */
-  .section-label{
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 12px; font-weight: 600; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
-  }
+  .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
   .section-label::before { content: ''; display: block; width: 18px; height: 2px; background: var(--amber); }
   .section-title{
     font-family: 'Lora', serif;
@@ -132,12 +119,12 @@
   .info-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .teal-callout {
-    background: #eef7f5; border-left: 4px solid var(--teal);
+    background: #e8f4f2; border-left: 4px solid var(--teal);
     border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
   }
   .teal-callout .callout-label {
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
-    text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px;
+    text-transform: uppercase; color: #2a7068; display: block; margin-bottom: 6px;
   }
   .teal-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
@@ -147,7 +134,7 @@
   }
   .amber-callout .callout-label {
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
-    text-transform: uppercase; color: #8a5a1a; display: block; margin-bottom: 6px;
+    text-transform: uppercase; color: #9E7545; display: block; margin-bottom: 6px;
   }
   .amber-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
@@ -215,7 +202,7 @@
   }
   .resource-info { flex: 1; }
   .resource-name { font-weight: 600; font-size: 15.5px; color: var(--navy); margin-bottom: 3px; }
-  .resource-name a { color: var(--teal); text-decoration: none; }
+  .resource-name a { color: var(--navy); text-decoration: none; }
   .resource-name a:hover { text-decoration: underline; }
   .resource-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
 
@@ -235,7 +222,7 @@
 
     /* ── FOOTER ── */
   footer {
-    background: var(--navy);
+    background: #162544;
     text-align: center;
     padding: 2rem 1.5rem;
     font-family: 'Inter', sans-serif;
@@ -273,6 +260,230 @@
   footer a { text-decoration: underline; }
 
 
+  /* ── INTERACTIVE REPORT WALKTHROUGH ── */
+  .walkthrough-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .walkthrough-intro p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .report-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(22,37,68,0.07);
+    margin-bottom: 2rem;
+  }
+  .report-top {
+    background: var(--navy);
+    padding: 22px 30px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-top::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 30%, rgba(194,222,216,0.2) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .report-top-left, .report-top-right { position: relative; z-index: 1; }
+  .report-top-left strong {
+    display: block; font-family: 'Lora', serif;
+    font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 3px;
+  }
+  .report-top-left span { font-size: 12.5px; color: rgba(255,255,255,0.55); }
+  .report-top-right { text-align: right; font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  .report-subheader {
+    background: #f8f6f2;
+    padding: 10px 30px;
+    font-size: 12.5px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 2rem;
+  }
+  .report-subheader span { display: flex; align-items: center; gap: 5px; }
+  .report-subheader .label { font-weight: 600; color: var(--text); }
+
+  .report-body { padding: 0; }
+  .row-group { border-bottom: 1px solid #f0ece6; }
+  .row-group:last-child { border-bottom: none; }
+
+  .report-row {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .report-row:hover { background: #fdfcfa; }
+  .row-group.active .report-row { background: #f7faf8; }
+
+  .report-field {
+    flex: 0 0 180px;
+    padding: 16px 20px 16px 28px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #f0ece6;
+  }
+  .report-value {
+    flex: 1;
+    padding: 16px 16px 16px 22px;
+    font-size: 15px;
+    font-family: 'Courier New', 'Courier', monospace;
+    color: var(--navy);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  .row-icon {
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+  .row-icon-circle {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--sage-lt);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--teal);
+    transition: all 0.2s;
+  }
+  .report-row:hover .row-icon-circle { background: var(--teal); color: #fff; }
+  .row-group.active .row-icon-circle { background: var(--teal); color: #fff; transform: rotate(45deg); }
+
+  .explain-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    background: #f7faf8;
+  }
+  .row-group.active .explain-panel { max-height: 800px; }
+
+  .explain-inner { padding: 0 28px 24px; }
+  .explain-main {
+    font-size: 14.5px;
+    line-height: 1.72;
+    color: var(--text);
+    padding-top: 4px;
+    margin-bottom: 18px;
+  }
+
+  .options-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+  }
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .option-card {
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid;
+    position: relative;
+  }
+  .option-card.current::after {
+    content: 'THIS REPORT';
+    position: absolute;
+    top: 8px; right: 10px;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: var(--teal);
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+  .option-card h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.3;
+    padding-right: 70px;
+  }
+  .option-card p {
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .opt-sage    { background: var(--sage-lt); border-color: #c8dece; }
+  .opt-sage h4 { color: var(--sage); }
+  .opt-sage p  { color: #3a5a40; }
+  .opt-teal    { background: #e8f4f2; border-color: #b8d8cf; }
+  .opt-teal h4 { color: var(--teal); }
+  .opt-teal p  { color: #1f5e52; }
+  .opt-amber   { background: var(--amber-lt); border-color: #e8d5b8; }
+  .opt-amber h4 { color: #9E7545; }
+  .opt-amber p  { color: #6a4a1a; }
+  .opt-blue    { background: var(--blue-lt); border-color: #c5d5e8; }
+  .opt-blue h4 { color: var(--blue); }
+  .opt-blue p  { color: #3a5a7a; }
+  .opt-rose    { background: var(--rose-lt); border-color: #e8c5c5; }
+  .opt-rose h4 { color: var(--rose); }
+  .opt-rose p  { color: #7a3a3a; }
+  .opt-navy    { background: #eceef2; border-color: #c8ccd5; }
+  .opt-navy h4 { color: var(--navy); }
+  .opt-navy p  { color: #3a3a4a; }
+  .opt-deep    { background: #e8f0f5; border-color: #b8ced8; }
+  .opt-deep h4 { color: var(--deep); }
+  .opt-deep p  { color: #2a4a5a; }
+
+  .tap-hint {
+    text-align: center;
+    padding: 13px;
+    font-size: 12.5px;
+    color: var(--muted);
+    background: #f8f6f2;
+    border-top: 1px solid #f0ece6;
+  }
+  .tap-hint .icon { color: var(--teal); font-weight: 600; }
+
+  .walkthrough-disclaimer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 640px) {
+    .report-field { flex: 0 0 110px; font-size: 10px; padding: 14px 10px 14px 16px; }
+    .report-value { font-size: 12.5px; padding: 14px 10px 14px 14px; }
+    .row-icon { flex: 0 0 38px; }
+    .row-icon-circle { width: 24px; height: 24px; font-size: 11px; }
+    .options-grid { grid-template-columns: 1fr; }
+    .option-card h4 { padding-right: 0; }
+    .option-card.current::after { position: static; display: inline-block; margin-bottom: 4px; }
+    .report-top { flex-direction: column; gap: 8px; }
+    .report-top-right { text-align: left; }
+    .report-subheader { flex-direction: column; gap: 4px; }
+  }
+
   /* ── BREADCRUMB ── */
   .header-eyebrow {
     display: flex !important;
@@ -290,6 +501,23 @@
     max-height: 30px !important;
     margin-bottom: 6px !important;
   }
+
+  /* ── DNA helix: mobile adjustments ── */
+  @media (max-width: 600px) {
+    .helix-left  { display: none; }
+    .helix-right { opacity: 0.06 !important; }
+  }
+
+
+  /* ── Site navigation ─────────────────────────────────── */
+  .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
+  .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
+  .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
+  .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:flex-start;}
+  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-menu>a:hover{color:var(--navy);}
+  @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
 </style>
 <link rel="canonical" href="https://setd5syndrome.live/understanding-genetic-report.html">
 </head>
@@ -298,6 +526,9 @@
 
 <!-- HEADER -->
 <header class="site-header">
+<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
+
+
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
@@ -308,6 +539,21 @@
     <p class="header-subtitle">How to read and make sense of the genetic testing results your family received.</p>
   </div>
 </header>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <a href="understanding-setd5-syndrome.html">SETD5 Syndrome</a>
+      <a href="family-toolkit.html">Family Toolkit</a>
+      <a href="setd5-medical-terms-guide.html">Medical Terms</a>
+      <a href="research.html">Research</a>
+      <a href="helpful-links.html">Community &amp; Links</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
 
 <!-- MAIN CONTENT -->
 <div class="page-body">
@@ -316,6 +562,236 @@
   <div class="teal-callout">
     <p>After receiving a genetic diagnosis, many families want to understand more about what the test found. This page explains the key terms on a genetic test report and introduces the databases where researchers track information about SETD5 variants. You do not need to understand all of this. But if you are someone who feels better with more information, this page is for you.</p>
   </div>
+
+  <!-- INTERACTIVE WALKTHROUGH -->
+  <div class="walkthrough-intro">
+    <p class="section-label">Interactive guide</p>
+    <h2 class="section-title" style="text-align:center;">Walk Through a Sample Report</h2>
+    <p>Click any row to see what it means in plain language. Fields with multiple possible values show all the options your report might contain.</p>
+  </div>
+
+  <div class="report-card">
+
+    <div class="report-top">
+      <div class="report-top-left">
+        <strong>Sample Genetic Test Report</strong>
+        <span>Clinical Whole Exome Sequencing</span>
+      </div>
+      <div class="report-top-right">
+        Report Date: XX/XX/XXXX<br>
+        Accession: SAMPLE-00000
+      </div>
+    </div>
+
+    <div class="report-subheader">
+      <span><span class="label">Patient:</span> [Sample]</span>
+      <span><span class="label">DOB:</span> XX/XX/XXXX</span>
+      <span><span class="label">Ordering Physician:</span> [Sample], MD</span>
+    </div>
+
+    <div class="report-body">
+
+      <!-- GENE -->
+      <div class="row-group" id="row-gene">
+        <div class="report-row" onclick="toggle('gene')">
+          <div class="report-field">Gene</div>
+          <div class="report-value">SETD5</div>
+          <div class="row-icon"><div class="row-icon-circle">+</div></div>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-inner">
+            <p class="explain-main">This is the gene where the lab found a change. SETD5 provides instructions for making a protein involved in brain development and gene regulation. It sits on chromosome 3 at position 3p25.3. Changes in this gene are associated with intellectual disability and developmental delays - a condition sometimes called SETD5 Syndrome or MRD23.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VARIANT -->
+      <div class="row-group" id="row-variant">
+        <div class="report-row" onclick="toggle('variant')">
+          <div class="report-field">Variant</div>
+          <div class="report-value">c.2025_2026delAG (p.Gly676Valfs*2)</div>
+          <div class="row-icon"><div class="row-icon-circle">+</div></div>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-inner">
+            <p class="explain-main">This is the exact "address" of the change in the DNA. The <strong>c.</strong> notation tells the lab <em>where</em> in the gene the change occurred. The <strong>p.</strong> notation describes <em>how the protein is affected</em>. You do not need to memorize this - but it's the key identifier when talking to a genetic counselor or searching databases like ClinVar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VARIANT TYPE -->
+      <div class="row-group" id="row-type">
+        <div class="report-row" onclick="toggle('type')">
+          <div class="report-field">Variant Type</div>
+          <div class="report-value">Frameshift (deletion)</div>
+          <div class="row-icon"><div class="row-icon-circle">+</div></div>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-inner">
+            <p class="explain-main">This describes <em>what kind</em> of change happened to the DNA. Different types of changes affect the gene in different ways. Your report will list one of the following:</p>
+            <div class="options-label">Types of genetic changes seen in SETD5</div>
+            <div class="options-grid">
+              <div class="option-card opt-teal current">
+                <h4>Frameshift</h4>
+                <p>A letter was added or deleted, scrambling all the instructions that follow. Like removing one letter from a sentence so every word after it becomes garbled.</p>
+              </div>
+              <div class="option-card opt-amber">
+                <h4>Nonsense</h4>
+                <p>One letter changed in a way that creates a premature stop signal. The protein gets cut short and usually cannot function.</p>
+              </div>
+              <div class="option-card opt-blue">
+                <h4>Missense</h4>
+                <p>One letter changed, swapping one protein building block for another. The protein is still made but may not work correctly.</p>
+              </div>
+              <div class="option-card opt-sage">
+                <h4>Splice-site</h4>
+                <p>A change at the boundary where the gene's instructions are edited together. Can disrupt how the protein is assembled.</p>
+              </div>
+              <div class="option-card opt-navy">
+                <h4>Deletion</h4>
+                <p>A piece of the genetic code is missing. Can be small (a few letters) or large (a section of chromosome). Larger deletions may include neighboring genes.</p>
+              </div>
+              <div class="option-card opt-deep">
+                <h4>Duplication</h4>
+                <p>A section of genetic code is copied, appearing twice instead of once.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASSIFICATION -->
+      <div class="row-group" id="row-classification">
+        <div class="report-row" onclick="toggle('classification')">
+          <div class="report-field">Classification</div>
+          <div class="report-value">Likely Pathogenic</div>
+          <div class="row-icon"><div class="row-icon-circle">+</div></div>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-inner">
+            <p class="explain-main">This is the lab's assessment of whether this change is responsible for your child's condition. Labs use a five-tier system defined by the ACMG (American College of Medical Genetics):</p>
+            <div class="options-label">The five classification levels</div>
+            <div class="options-grid">
+              <div class="option-card opt-sage">
+                <h4>Pathogenic</h4>
+                <p>This change is known to cause disease. Strong evidence from multiple sources. The clearest result.</p>
+              </div>
+              <div class="option-card opt-teal current">
+                <h4>Likely Pathogenic</h4>
+                <p>Strong evidence this change causes disease, but seen in fewer people. Most clinicians treat this similarly to Pathogenic.</p>
+              </div>
+              <div class="option-card opt-amber">
+                <h4>Variant of Uncertain Significance (VUS)</h4>
+                <p>Not enough evidence yet. Doesn't confirm or rule out a diagnosis. Can be reclassified as more data becomes available.</p>
+              </div>
+              <div class="option-card opt-blue">
+                <h4>Likely Benign</h4>
+                <p>Probably harmless. Evidence suggests this change does not cause disease.</p>
+              </div>
+              <div class="option-card opt-navy">
+                <h4>Benign</h4>
+                <p>Definitely harmless. Common in the general population and not associated with disease.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INHERITANCE -->
+      <div class="row-group" id="row-inheritance">
+        <div class="report-row" onclick="toggle('inheritance')">
+          <div class="report-field">Inheritance</div>
+          <div class="report-value">De novo (autosomal dominant)</div>
+          <div class="row-icon"><div class="row-icon-circle">+</div></div>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-inner">
+            <p class="explain-main">This tells you where the change came from and how it's passed through families. Most SETD5 cases are de novo, but not all reports will say this - it depends on whether parental testing was done.</p>
+            <div class="options-label">Inheritance patterns you may see</div>
+            <div class="options-grid">
+              <div class="option-card opt-teal current">
+                <h4>De novo</h4>
+                <p>The change occurred spontaneously in your child - it was not inherited from either parent. This is how most SETD5 cases happen.</p>
+              </div>
+              <div class="option-card opt-amber">
+                <h4>Inherited (autosomal dominant)</h4>
+                <p>The change was passed from a parent who also carries it. The parent may have milder or no symptoms - this is rare but documented in SETD5.</p>
+              </div>
+              <div class="option-card opt-blue">
+                <h4>Unknown / Not tested</h4>
+                <p>Parental testing hasn't been done yet, so the lab can't determine if it's de novo or inherited. Parental (trio) testing can clarify this.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZYGOSITY -->
+      <div class="row-group" id="row-zygosity">
+        <div class="report-row" onclick="toggle('zygosity')">
+          <div class="report-field">Zygosity</div>
+          <div class="report-value">Heterozygous</div>
+          <div class="row-icon"><div class="row-icon-circle">+</div></div>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-inner">
+            <p class="explain-main">This describes how many copies of the gene are affected. You have two copies of most genes - one from each parent.</p>
+            <div class="options-label">Zygosity options</div>
+            <div class="options-grid">
+              <div class="option-card opt-teal current">
+                <h4>Heterozygous</h4>
+                <p>One copy is changed, one is working. This is expected for SETD5 Syndrome - the condition is caused by haploinsufficiency, meaning one working copy isn't enough.</p>
+              </div>
+              <div class="option-card opt-navy">
+                <h4>Homozygous</h4>
+                <p>Both copies carry the same change. This would be extremely rare for SETD5 and is not typical of this condition.</p>
+              </div>
+              <div class="option-card opt-blue">
+                <h4>Hemizygous</h4>
+                <p>Only one copy of the gene exists (relevant for genes on the X chromosome). SETD5 is on chromosome 3, so this term would not typically apply.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACMG CRITERIA -->
+      <div class="row-group" id="row-acmg">
+        <div class="report-row" onclick="toggle('acmg')">
+          <div class="report-field">ACMG Criteria</div>
+          <div class="report-value">PVS1, PM2, PP3</div>
+          <div class="row-icon"><div class="row-icon-circle">+</div></div>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-inner">
+            <p class="explain-main">These are the specific evidence codes the lab used to arrive at the classification above. Each code represents one piece of evidence. You don't need to understand these - they're primarily for clinicians and genetic counselors. But if you're curious:</p>
+            <div class="options-grid">
+              <div class="option-card opt-sage">
+                <h4>PVS1</h4>
+                <p>The variant causes loss of gene function - a strong indicator of pathogenicity for genes where loss-of-function is a known disease mechanism.</p>
+              </div>
+              <div class="option-card opt-amber">
+                <h4>PM2</h4>
+                <p>The variant is absent or extremely rare in population databases like gnomAD, meaning it's not a common harmless variation.</p>
+              </div>
+              <div class="option-card opt-blue">
+                <h4>PP3</h4>
+                <p>Computer algorithms predict the variant is damaging to the protein. This is supporting evidence, not a standalone determination.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tap-hint"><span class="icon">&#8593;</span> Click any row to expand - fields with multiple options show all possibilities</div>
+
+  </div>
+
+  <p class="walkthrough-disclaimer">This is a sample report for educational purposes only. It does not represent any individual's actual genetic test results.</p>
+
+  <hr class="section-divider">
 
   <!-- SECTION: WHAT THE CLASSIFICATION MEANS -->
   <p class="section-label">Interpreting your results</p>
@@ -463,6 +939,21 @@
 </footer>
 
 <script>
+// Interactive report walkthrough toggle
+function toggle(key) {
+  var group = document.getElementById('row-' + key);
+  var wasActive = group.classList.contains('active');
+  document.querySelectorAll('.row-group').forEach(function(g) { g.classList.remove('active'); });
+  if (!wasActive) {
+    group.classList.add('active');
+    setTimeout(function() {
+      group.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
+  }
+}
+</script>
+
+<script>
 // Scroll to top on page load
 if (history.scrollRestoration) {
   history.scrollRestoration = 'manual';
@@ -490,7 +981,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#162544;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">&#8593;</button>
 
 <script>
 (function(){
@@ -500,6 +991,27 @@ document.addEventListener('DOMContentLoaded', function() {
       btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
     });
   }
+})();
+</script>
+<script>/* site-nav hamburger */
+(function(){
+  var t=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-menu');
+  if(t&&m){
+    t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!e.target.closest('.site-nav')){m.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var hdr = document.querySelector('.site-header');
+  var nav = document.querySelector('.site-nav');
+  if (!hdr || !nav) return;
+  function syncNavTop() { nav.style.top = hdr.offsetHeight + 'px'; }
+  syncNavTop();
+  window.addEventListener('scroll', syncNavTop, {passive:true});
+  window.addEventListener('resize', syncNavTop);
 })();
 </script>
 </body>

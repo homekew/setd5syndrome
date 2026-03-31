@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SETD5 Syndrome Research &amp; Resources</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
@@ -16,31 +16,50 @@
 <meta name="description" content="Family resource for SETD5 Syndrome: plain-language research summaries, medical term definitions, family guides, and community stories for parents and caregivers.">
 <link rel="canonical" href="https://setd5syndrome.live/">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #faf7f2;
-    --text: #2c2c2c;
-    --deep: #2a627a;
-    --navy: #1a2744;
-    --teal: #2a7a6a;
-    --amber: #c9893a;
-    --amber-lt: #fdf4e7;
-    --sage: #4e7c5f;
-    --sage-lt: #edf5ef;
-    --border: #e0d9cf;
-    --muted: #6b6b6b;
-    --nav-bg: #ffffff;
+      /* ── Counsel Palette tokens (style guide) ── */
+      --indigo:       #1E3A4F;
+      --indigo-mid:   #456A7C;
+      --gold:         #9E7E42;
+      --gold-hover:   #C4A362;
+      --parchment:    #E8E6DF;
+      --parchment-d:  #D0CCC2;
+      --ink-muted:    #5A5850;
+      --font-heading: 'DM Sans', system-ui, sans-serif;
+      --font-body:    'Poppins', system-ui, sans-serif;
+    --cream: #F5F4F1;
+    --text: #1C1B18;
+    --deep: #AEBFBE;
+    --navy: #1E3A4F;
+    --linen:     #E8E6DF;
+    --caramel:   #9E7E42;
+    --caramel-lt:#F5EDE0;
+    --caramel-mid:#E8CCA8;
+    --peach:     #F2B199;
+    --peach-lt:  #FEF0EB;
+    --peach-mid: #F8D3C8;
+    --sage-mid:  #BAD4CE;
+    --charcoal:  #1E3A4F;
+    --teal: #C2DED8;
+    --amber: #9E7E42;
+    --amber-lt: #F5EDE0;
+    --sage: #C2DED8;
+    --sage-lt: #E4F0EE;
+    --border: #D0CCC2;
+    --muted: #5A5850;
+    --nav-bg: #EEEBE4;
   }
 
   html, body{ height: 100%; }
 
   body{
-    background: var(--cream);
+    background: #F7F4EE;
     color: var(--text);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 17px;
     line-height: 1.7;
@@ -51,36 +70,20 @@
 
   /* HEADER */
   header {
-    background: var(--navy);
+    background: #162544;
     color: #fff;
     text-align: center;
-    padding: 2rem 2rem 1.5rem;
+    padding: 2rem 0 1.5rem;
     position: relative;
     border-bottom: none;
-  }
+}
 
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .site-label,
-  h1,
-  .header-rule,
-  .header-sub {
-    position: relative;
-    z-index: 1;
-  }
+  .header-hero-inner { max-width:860px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
+  .site-label, h1, .header-rule, .header-sub { position:relative; z-index:1; }
 
   .site-label {
     display: inline-block;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.18em;
@@ -90,7 +93,7 @@
   }
 
   h1{
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: clamp(2.2rem, 6vw, 4rem);
     line-height: 1.08;
@@ -125,28 +128,29 @@
     flex: 1;
     max-width: 860px;
     margin: 0 auto;
-    padding: 0 2.5rem 5rem;
+    padding: 0 32px 5rem;
     width: 100%;
   }
+  .narrow { max-width: 780px; margin-left: auto; margin-right: auto; }
 
   /* INTRO BAR */
-  .intro-bar { background: #fff; color: var(--text); padding: 36px 2.5rem 32px; border-bottom: 1px solid var(--border); text-align: center; }
-  .intro-heading { font-family: 'Lora', serif; font-size: 1.45rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin: 0 auto 0.75rem; max-width: 600px; }
-  .intro-body { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 auto; max-width: 580px; }
+  .intro-bar { background: #F7F4EE; color: var(--text); padding: 36px 2.5rem 32px; text-align: center; }
+  .intro-heading { font-family: 'DM Sans', sans-serif; font-size: 1.45rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin: 0 auto 0.75rem; max-width: 600px; }
+  .intro-body { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 auto 1.5rem; max-width: 580px; }
 
-  /* STATS BAR */
-  .stats-bar { background: var(--navy); padding: 20px 2.5rem; display: flex; justify-content: center; gap: 0; border-bottom: 3px solid var(--amber); }
-  .stats-bar-item { text-align: center; padding: 0 2.5rem; border-right: 1px solid rgba(255,255,255,0.15); }
+  /* STATS CARD */
+  .stats-bar { background: #E4F0EE; padding: 22px 2rem; display: flex; justify-content: center; gap: 0; border: 1px solid #c8dece; border-radius: 10px; max-width: 780px; margin: 0 auto; }
+  .stats-bar-item { text-align: center; padding: 0 2rem; border-right: 1px solid #c8dece; }
   .stats-bar-item:last-child { border-right: none; }
-  .stats-bar-num { display: block; font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 600; color: var(--amber); line-height: 1; }
-  .stats-bar-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 5px; }
+  .stats-bar-num { display: block; font-family: 'DM Sans', sans-serif; font-size: 1.6rem; font-weight: 600; color: var(--navy); line-height: 1; }
+  .stats-bar-label { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
   @media (max-width: 600px) { .stats-bar { flex-wrap: wrap; gap: 16px; } .stats-bar-item { border-right: none; padding: 0 1.5rem; } }
 
   /* GUIDES ZONE */
   .guides-zone {
-    background: #f4efe6;
-    margin: 2rem -1.5rem 0;
-    padding: 2.25rem 1.5rem 2.5rem;
+    background: #F7F4EE;
+    margin: 2rem 0 0;
+    padding: 2.25rem 0 2.5rem;
   }
 
   /* FEATURED CARD */
@@ -170,7 +174,7 @@
   }
 
   .guides-label{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.16em;
@@ -204,7 +208,7 @@
   }
 
   .card {
-    background: #fff;
+    background: #F7F4EE;
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 1.75rem 1.75rem 1.5rem;
@@ -212,7 +216,7 @@
     color: inherit;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 12px rgba(26,39,68,0.06);
+    box-shadow: 0 2px 12px rgba(22,37,68,0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     position: relative;
     overflow: hidden;
@@ -229,8 +233,8 @@
 
   .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(26,39,68,0.12);
-    border-color: var(--card-accent, var(--teal));
+    box-shadow: 0 8px 28px rgba(22,37,68,0.12);
+    border-color: var(--card-accent, var(--navy));
   }
 
   .card-link svg {
@@ -241,7 +245,7 @@
   }
 
   .card h2{
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 22px;
     color: var(--navy);
@@ -258,11 +262,11 @@
   }
 
   .card-link {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 13.5px;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--card-accent, var(--teal));
+    color: var(--card-accent, var(--navy));
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -310,7 +314,7 @@
 
   .card-glossary {
     --card-accent: var(--deep);
-    --card-icon-bg: #e8eff7;
+    --card-icon-bg: #E8EFEE;
   }
 
   /* START HERE BANNER */
@@ -346,7 +350,7 @@
     padding: 0.55rem 1.25rem;
     border-radius: 6px;
     font-size: 0.88rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     transition: background 0.2s;
     flex-shrink: 0;
@@ -358,10 +362,10 @@
 
   /* FOOTER */
   footer {
-    background: var(--navy);
+    background: #162544;
     text-align: center;
     padding: 2rem 1.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   .footer-love {
     font-size: 13px;
@@ -391,7 +395,8 @@
   }
 
   @media (max-width: 600px) {
-    header { padding: 1.5rem 1.5rem 1.25rem; }
+    header { padding: 1.5rem 1.5rem 1.25rem;
+}
     h1{ font-size: clamp(2.2rem, 6vw, 4rem); }
 .card-grid { grid-template-columns: 1fr; }
     .card-grid .card:last-child:nth-child(odd) { max-width: none; margin: 0; }
@@ -405,41 +410,23 @@
   /* (no compact collapse on home page) */
 
   /* ── SITE NAV ── */
-  .site-nav {
-    background: var(--nav-bg);
-    border-bottom: 2px solid var(--border);
-    box-shadow: 0 1px 6px rgba(26,39,68,0.05);
-    padding: 0;
-    text-align: center;
-  }
-  .site-nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 0;
-  }
-  .site-nav a {
-    color: var(--navy);
-    text-decoration: none;
-    padding: 10px 15px;
-    font-size: 15px;
-    font-family: 'Inter', sans-serif;
-    display: inline-block;
-    white-space: nowrap;
-    border-radius: 4px;
-    transition: color 0.15s, background 0.15s;
-  }
-  .site-nav a:hover {
-    color: var(--teal);
-    background: var(--amber-lt);
-  }
+
+  /* ── Site navigation ─────────────────────────────────── */
+
+  /* ── Site navigation ─────────────────────────────────── */
+  .site-nav{background:#F7F4EE;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:900;}
+  .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
+  .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
+  .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:center;}
+  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size:15.5px;font-family: 'Poppins', sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-menu>a:hover{color:var(--navy);}
+  @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
+  
+  
 
   /* ── GOOGLE TRANSLATE WIDGET ── */
-  .translate-widget { position:absolute; top:8px; right:12px; z-index:9999; transform:scale(0.78); transform-origin:top right; opacity:1; min-width:130px; min-height:24px; overflow:hidden; }
 
-  @media (max-width: 400px) { .translate-widget { transform: scale(0.65); } }
 
   /* FEATURED BADGE */
   .featured-badge {
@@ -453,67 +440,73 @@
     padding: 3px 9px;
     border-radius: 4px;
     margin-bottom: 0.9rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   /* Mobile nav: allow wrapping on small phones */
   @media (max-width: 600px) {
-    .site-nav-inner {
-      flex-wrap: wrap;
-    }
-    .site-nav a {
-      font-size: 13px;
-      padding: 9px 10px;
-    }
   }
 
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
+  .footer-translate { margin-bottom: 1rem; display: flex; justify-content: center; }
+  .footer-translate .goog-te-gadget { font-size: 0 !important; }
+  .footer-translate .goog-te-gadget select { font-size: 13px; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border-radius: 4px; cursor: pointer; }
+  .hero-btn-primary:hover { background: #c99a72; box-shadow: 0 3px 10px rgba(198,162,126,0.4); }
+  .hero-btn-ghost:hover { background: rgba(255,255,255,0.1); color: #fff; }
   footer a { text-decoration: underline; }
+
+
 </style>
 </head>
 <body>
 
 
 <header>
-  <div class="translate-widget">
-    <div id="google_translate_element"></div>
-  </div>
+<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
+
+
+  <div class="header-hero-inner">
   <h1><a href="/" style="color:inherit;text-decoration:none;">SETD5 Syndrome<br><em>Research &amp; Resources</em></a></h1>
   <div class="header-rule"></div>
   <p class="header-sub">A peer resource for SETD5 Syndrome families</p>
+
+</div>
 </header>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Main navigation">
   <div class="site-nav-inner">
-    <a href="understanding-setd5-syndrome.html">Understanding SETD5 Syndrome</a>
-    <a href="family-toolkit.html">Family Toolkit</a>
-    <a href="setd5-medical-terms-guide.html">Medical Terms</a>
-    <a href="research.html">Research</a>
-    <a href="helpful-links.html">Community &amp; Links</a>
-    <a href="about.html">About</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <a href="understanding-setd5-syndrome.html">SETD5 Syndrome</a>
+      <a href="family-toolkit.html">Family Toolkit</a>
+      <a href="setd5-medical-terms-guide.html">Medical Terms</a>
+      <a href="research.html">Research</a>
+      <a href="helpful-links.html">Community &amp; Links</a>
+      <a href="about.html">About</a>
+    </div>
   </div>
 </nav>
 
 <!-- Welcome intro band -->
 <div class="intro-bar">
-  <h2 class="intro-heading">You're not navigating this alone.</h2>
-  <p class="intro-body">This site was built by a SETD5 Syndrome parent who wanted plain-language, evidence-based guides written for families — not specialists. Everything here is free, sourced from published research, and updated regularly.</p>
-</div>
-
-<!-- Stats bar -->
-<div class="stats-bar">
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">50+</span>
-    <span class="stats-bar-label">Research papers summarized</span>
-  </div>
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">6</span>
-    <span class="stats-bar-label">Guides &amp; toolkits</span>
-  </div>
-  <div class="stats-bar-item">
-    <span class="stats-bar-num">1</span>
-    <span class="stats-bar-label">SETD5 parent · built for families</span>
+  <h2 class="intro-heading">You are not navigating this alone.</h2>
+  <p class="intro-body">This site was built by a SETD5 Syndrome parent who wanted plain-language, evidence-based guides written for fellow families. Everything here is free, sourced from published research, and updated regularly.</p>
+  <div class="stats-bar">
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">50+</span>
+      <span class="stats-bar-label">Research papers summarized</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">6</span>
+      <span class="stats-bar-label">Guides &amp; toolkits</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">0</span>
+      <span class="stats-bar-label">Paywalls. Ever.</span>
+    </div>
   </div>
 </div>
 
@@ -530,6 +523,15 @@
       <p>A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</p>
       <span class="card-link"><i data-lucide="book-open"></i>View Guide</span>
     </a>
+
+    <!-- Genetic report callout -->
+    <div class="start-here" style="background:#e8f4f2; border-color:#b8d8cf; border-left-color:var(--teal); margin-bottom:1.5rem;">
+      <div class="start-here-text">
+        <strong>Got your genetic report?</strong>
+        <p>Walk through a sample report line by line and see what every field means in plain language.</p>
+      </div>
+      <a href="understanding-genetic-report.html" class="start-here-btn" style="background:var(--teal);">Read the Report Guide</a>
+    </div>
 
     <!-- Supporting cards -->
     <div class="card-grid">
@@ -576,7 +578,11 @@
 
 </main>
 
-<footer class="site-footer">  <div class="footer-nav">
+<footer class="site-footer">
+  <div class="footer-translate">
+    <div id="google_translate_element"></div>
+  </div>
+  <div class="footer-nav">
     <a href="index.html">Home</a><span class="sep">·</span>
     <a href="about.html">About</a><span class="sep">·</span>
     <a href="sources-references.html">Sources &amp; References</a><span class="sep">·</span>
@@ -605,6 +611,15 @@ function googleTranslateElementInit() {
 }
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>/* site-nav hamburger */
+(function(){
+  var t=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-menu');
+  if(t&&m){
+    t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!e.target.closest('.site-nav')){m.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  }
+})();
+</script>
 </body>
 
 </html>

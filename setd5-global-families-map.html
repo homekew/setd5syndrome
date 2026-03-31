@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Syndrome — Families Around the World</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #162544;
+    --linen:     #EDE9E0;
+    --caramel:   #C6A27E;
+    --caramel-lt:#F5EDE0;
+    --caramel-mid:#E8CCA8;
+    --peach:     #F2B199;
+    --peach-lt:  #FEF0EB;
+    --peach-mid: #F8D3C8;
+    --sage-mid:  #BAD4CE;
+    --charcoal:  #162544;
+    --teal:   #C2DED8;
+    --amber:  #C6A27E;
+    --deep:   #AEBFBE;
+    --cream:  #F7F4EE;
+    --border: #DDD7CC;
+    --muted:  #66707A;
+    --text:   #2A2E35;
+  }
+
+  body {
+    background: #F7F4EE;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .page-wrap { max-width: 960px; margin: 0 auto; }
+
+  /* PAGE HEADER */
+  .page-header { text-align: center; margin-bottom: 2rem;
+}
+  .eyebrow {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 0.6rem;
+  }
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 600; color: var(--navy);
+    line-height: 1.25; margin-bottom: 0.6rem;
+  }
+  .subtitle {
+    font-size: 14.5px; color: var(--muted);
+    max-width: 560px; margin: 0 auto; line-height: 1.65;
+  }
+
+  /* MAP CARD */
+  .map-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem 1.5rem 1rem;
+    box-shadow: 0 2px 20px rgba(22,37,68,0.07);
+    overflow: hidden;
+  }
+
+  #map-container {
+    width: 100%;
+    position: relative;
+  }
+
+  svg#world-map {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Country paths */
+  .country {
+    stroke: #e8e2d9;
+    stroke-width: 0.5px;
+    transition: fill 0.15s;
+    cursor: default;
+  }
+  .country-default  { fill: #e8e4dc; }
+  .country-active   { fill: #AEBFBE; cursor: pointer; }
+  .country-active:hover { fill: #1f5e52; }
+  /* Tooltip */
+  .map-tooltip {
+    position: absolute;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 13px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    max-width: 200px;
+    line-height: 1.45;
+    z-index: 10;
+  }
+  .map-tooltip strong { display: block; font-size: 13.5px; margin-bottom: 2px; }
+  .map-tooltip span   { color: rgba(255,255,255,0.7); font-size: 12px; }
+
+  /* Legend + footer */
+  .map-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .legend { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; flex: 1; }
+  .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 12px; color: var(--muted); }
+  .legend-swatch {
+    width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0;
+  }
+  .legend-dot-swatch {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--amber); flex-shrink: 0;
+  }
+  .map-note {
+    font-size: 11.5px; color: var(--muted);
+    line-height: 1.5; max-width: 400px;
+    margin-left: auto; text-align: right;
+  }
+  @media (max-width: 600px) {
+    .map-note { text-align: left; margin-left: 0; max-width: 100%; }
+  }
+
+
+  /* ── Site navigation ─────────────────────────────────── */
+  .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
+  .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
+  .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
+  .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:flex-start;}
+  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-menu>a:hover{color:var(--navy);}
+  .nav-item{position:relative;display:flex;align-items:stretch;}
+  .nav-parent{display:flex;align-items:center;gap:0.22rem;padding:0.65rem 0.85rem;font-size:0.86rem;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-parent:hover,.nav-item.open>.nav-parent{color:var(--teal);}
+  .nav-caret{transition:transform 0.2s;flex-shrink:0;}
+  .nav-item:hover>.nav-parent .nav-caret,.nav-item.open>.nav-parent .nav-caret{transform:rotate(180deg);}
+  .nav-panel{display:none;position:absolute;top:calc(100% + 1px);left:0;background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:0 6px 24px rgba(22,37,68,0.12);padding:1rem 1.25rem;z-index:1001;}
+  .nav-item:hover>.nav-panel,.nav-item.open>.nav-panel{display:flex;}
+  .nav-panel-lg{gap:2rem;min-width:510px;}
+  .nav-panel-sm{flex-direction:column;min-width:195px;padding:0.4rem 0;}
+  .nav-col{display:flex;flex-direction:column;min-width:148px;}
+  .nav-group-hd{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin:0 0 0.4rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border);}
+  .nav-panel a{font-size:0.84rem;color:var(--text);text-decoration:none;padding:0.28rem 0.4rem;border-radius:4px;transition:background 0.12s,color 0.12s;line-height:1.4;}
+  .nav-panel a:hover{background:var(--cream);color:var(--teal);}
+  .nav-panel-sm a{padding:0.45rem 0.9rem;}
+  @media(max-width:768px){
+    .nav-toggle{display:flex;}
+    .nav-menu{display:none;flex-direction:column;width:100%;border-top:1px solid var(--border);}
+    .nav-menu.open{display:flex;}
+    .nav-menu>a{padding:0.8rem 1.2rem;border-bottom:1px solid var(--border);}
+    .nav-item{flex-direction:column;align-items:stretch;border-bottom:1px solid var(--border);}
+    .nav-parent{padding:0.8rem 1.2rem;justify-content:space-between;}
+    .nav-panel{position:static;box-shadow:none;border:none;border-top:1px solid var(--border);border-radius:0;padding:0.25rem 0 0.5rem 1.2rem;background:var(--cream);flex-direction:column!important;gap:0.1rem;min-width:unset;width:100%;}
+    .nav-panel-lg,.nav-panel-sm{min-width:unset;}
+    .nav-col{min-width:unset;}
+    .nav-group-hd{margin-top:0.5rem;margin-bottom:0.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="page-header">
+    <div class="eyebrow">setd5syndrome.live</div>
+    <h1>SETD5 Syndrome Families Around the World</h1>
+    <p class="subtitle">SETD5 Syndrome has been identified in families across every populated continent. This map shows countries where cases have been documented in published research or reported by families.</p>
+  </div>
+
+  <div class="map-card">
+    <div id="map-container">
+      <svg id="world-map" viewBox="0 0 960 500"></svg>
+      <div class="map-tooltip" id="tooltip"></div>
+    </div>
+
+    <div class="map-footer">
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#AEBFBE;"></div>
+          <span>Countries with documented cases</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#e8e4dc;"></div>
+          <span>No documented cases (or data unavailable)</span>
+        </div>
+      </div>
+      <p class="map-note">Each highlighted country has at least one individual with SETD5 Syndrome documented in a published research cohort or peer-reviewed case report. The full global reach of this condition is likely broader than published literature reflects.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Countries with documented SETD5 cases (ISO numeric codes)
+// Sources: published research papers 2014–2025
+const activeCodes = new Set([
+  840,  // United States
+  826,  // United Kingdom
+  276,  // Germany
+  250,  // France
+  528,  // Netherlands
+   56,  // Belgium
+  380,  // Italy
+  724,  // Spain
+   36,  // Australia
+  392,  // Japan
+  792,  // Turkey
+  124,  // Canada
+  376,  // Israel
+  410,  // South Korea
+  156,  // China
+   76,  // Brazil
+  616,  // Poland
+  756,  // Switzerland
+   40,  // Austria
+  578,  // Norway
+  208,  // Denmark
+  752,  // Sweden
+  246,  // Finland
+  620,  // Portugal
+  300,  // Greece
+  356,  // India
+  458,  // Malaysia
+  710,  // South Africa
+  484,  // Mexico
+   32,  // Argentina
+  364,  // Iran
+]);
+
+// Country info for tooltip
+const countryInfo = {
+  840: { name: 'United States' },
+  826: { name: 'United Kingdom' },
+  276: { name: 'Germany' },
+  250: { name: 'France' },
+  528: { name: 'Netherlands' },
+   56: { name: 'Belgium' },
+  380: { name: 'Italy' },
+  724: { name: 'Spain' },
+   36: { name: 'Australia' },
+  392: { name: 'Japan' },
+  792: { name: 'Turkey' },
+  124: { name: 'Canada' },
+  376: { name: 'Israel' },
+  410: { name: 'South Korea' },
+  156: { name: 'China' },
+   76: { name: 'Brazil' },
+  616: { name: 'Poland' },
+  756: { name: 'Switzerland' },
+   40: { name: 'Austria' },
+  578: { name: 'Norway' },
+  208: { name: 'Denmark' },
+  752: { name: 'Sweden' },
+  246: { name: 'Finland' },
+  620: { name: 'Portugal' },
+  300: { name: 'Greece' },
+  356: { name: 'India' },
+  458: { name: 'Malaysia' },
+  710: { name: 'South Africa' },
+  484: { name: 'Mexico' },
+   32: { name: 'Argentina' },
+  364: { name: 'Iran' },
+};
+
+const svg = d3.select('#world-map');
+const width = 960, height = 500;
+const tooltip = document.getElementById('tooltip');
+const container = document.getElementById('map-container');
+
+const projection = d3.geoNaturalEarth1()
+  .scale(153)
+  .translate([width / 2, height / 2]);
+
+const path = d3.geoPath().projection(projection);
+
+// Graticule (grid lines)
+const graticule = d3.geoGraticule();
+svg.append('path')
+  .datum(graticule())
+  .attr('d', path)
+  .attr('fill', 'none')
+  .attr('stroke', '#ddd8cf')
+  .attr('stroke-width', 0.3);
+
+// Ocean background
+svg.insert('path', ':first-child')
+  .datum({type: 'Sphere'})
+  .attr('d', path)
+  .attr('fill', '#ddeef7');
+
+// Load world topology
+d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(world => {
+  const countries = topojson.feature(world, world.objects.countries);
+
+  svg.selectAll('.country')
+    .data(countries.features)
+    .enter()
+    .append('path')
+    .attr('class', d => {
+      const id = +d.id;
+      return activeCodes.has(id) ? 'country country-active' : 'country country-default';
+    })
+    .attr('d', path)
+    .on('mousemove', function(event, d) {
+      const id = +d.id;
+      if (!activeCodes.has(id)) return;
+      const info = countryInfo[id] || { name: 'Country', note: 'Documented cases' };
+      const rect = container.getBoundingClientRect();
+      const [mx, my] = d3.pointer(event, container);
+      tooltip.style.opacity = '1';
+      tooltip.style.left = Math.min(mx + 12, rect.width - 210) + 'px';
+      tooltip.style.top = (my - 10) + 'px';
+      tooltip.innerHTML = `<strong>${info.name}</strong>`;
+    })
+    .on('mouseleave', function() {
+      tooltip.style.opacity = '0';
+    });
+
+  // Country borders
+  svg.append('path')
+    .datum(topojson.mesh(world, world.objects.countries, (a, b) => a !== b))
+    .attr('fill', 'none')
+    .attr('stroke', '#e8e2d9')
+    .attr('stroke-width', 0.5)
+    .attr('d', path);
+
+}).catch(err => {
+  console.error('Map data failed to load:', err);
+  document.getElementById('map-container').innerHTML =
+    '<p style="text-align:center;padding:3rem;color:#66707A;">Map could not be loaded. Please check your connection.</p>';
+});
+</script>
+<script>/* site-nav dropdowns */
+(function(){
+  var t=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-menu');
+  if(t&&m){t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});}
+  document.querySelectorAll('.nav-item.has-dropdown .nav-parent').forEach(function(el){
+    el.addEventListener('click',function(e){
+      var item=el.closest('.nav-item');
+      if(window.innerWidth<=768){
+        e.preventDefault();
+        var isOpen=item.classList.toggle('open');
+        el.setAttribute('aria-expanded',isOpen);
+        item.closest('.nav-menu').querySelectorAll('.nav-item.has-dropdown').forEach(function(s){if(s!==item){s.classList.remove('open');}});
+      }
+    });
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.nav-item')){document.querySelectorAll('.nav-item.open').forEach(function(i){i.classList.remove('open');});}});
+})();
+</script>
+</body>
+</html>

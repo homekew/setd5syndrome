@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About This Site - SETD5 Syndrome Resources</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a2744'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23a8cfc8' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://setd5syndrome.live/about.html">
 <meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
@@ -16,24 +16,43 @@
 <meta name="description" content="About the SETD5 Syndrome resource site: created by a parent for families and communities navigating diagnosis.">
 <link rel="canonical" href="https://setd5syndrome.live/about.html">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #faf7f2;
-    --cream2: #f2ede4;
-    --text: #2c2c2c;
-    --deep: #2a627a;
-    --navy: #1a2744;
-    --teal: #2a7a6a;
+      /* ── Counsel Palette tokens (style guide) ── */
+      --indigo:       #1E3A4F;
+      --indigo-mid:   #456A7C;
+      --gold:         #9E7E42;
+      --gold-hover:   #C4A362;
+      --parchment:    #E8E6DF;
+      --parchment-d:  #D0CCC2;
+      --ink-muted:    #5A5850;
+      --font-heading: 'DM Sans', system-ui, sans-serif;
+      --font-body:    'Poppins', system-ui, sans-serif;
+    --cream: #F5F4F1;
+    --cream2: #E8E6DF;
+    --text: #1C1B18;
+    --deep: #AEBFBE;
+    --navy: #1E3A4F;
+    --linen:     #E8E6DF;
+    --caramel:   #9E7E42;
+    --caramel-lt:#F5EDE0;
+    --caramel-mid:#E8CCA8;
+    --peach:     #F2B199;
+    --peach-lt:  #FEF0EB;
+    --peach-mid: #F8D3C8;
+    --sage-mid:  #BAD4CE;
+    --charcoal:  #1E3A4F;
+    --teal: #C2DED8;
     --teal-soft: #a8cfc8;
-    --amber: #c9893a;
-    --amber-lt: #fdf4e7;
-    --sage: #4e7c5f;
-    --sage-lt: #edf5ef;
-    --border: #e0d9cf;
-    --muted: #6b6b6b;
+    --amber: #9E7E42;
+    --amber-lt: #F5EDE0;
+    --sage: #C2DED8;
+    --sage-lt: #E4F0EE;
+    --border: #D0CCC2;
+    --muted: #5A5850;
   }
 
   html, body {
@@ -41,11 +60,11 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 17px;
     line-height: 1.7;
-    background: var(--cream);
+    background: #F7F4EE;
     color: var(--text);
     min-height: 100vh;
     display: flex;
@@ -54,20 +73,17 @@
 
   /* ── HEADER ── */
   .site-header {
-    background: var(--navy);
+    background: #162544;
     color: #fff;
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+    position:sticky;top:0;z-index:920;
+    padding: 0;overflow:hidden}
 
   .header-inner {
     max-width: 860px;
     margin: 0 auto;
-    padding: 24px 32px 48px;
+    padding: 32px 32px 24px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     transition: padding 0.175s ease;
   }
 
@@ -85,32 +101,20 @@
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 20px;
     padding: 4px 14px;
-    font-size: 12px;
+    font-size: 13px;
     color: rgba(255,255,255,0.8);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   /* ── HEADER COLLAPSE ── */
-  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
-  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
+  .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-meta { max-height: 80px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
-  .site-header.collapsed .header-inner { padding: 8px 32px 10px; }
+  .site-header.collapsed .header-inner { padding: 8px 32px 10px;position:relative;z-index:2}
   .site-header.collapsed .header-eyebrow { opacity: 0; max-height: 0; margin-bottom: 0; }
   .site-header.collapsed .header-subtitle { opacity: 0; max-height: 0; margin: 0; }
   .site-header.collapsed .header-meta { opacity: 0; max-height: 0; margin: 0; padding: 0; }
   .site-header.collapsed .header-title { font-size: 20px; margin-bottom: 0; }
-
-  .site-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(42,122,106,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 30%, rgba(42,98,122,0.2) 0%, transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-  }
 
   .site-header .header-eyebrow,
   .site-header .header-title,
@@ -118,8 +122,8 @@
 
   .header-eyebrow {
     display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -131,9 +135,9 @@
   .header-eyebrow a:hover { color: #fff; }
 
   .header-title {
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    font-size: clamp(32px, 4.5vw, 44px);
+    font-size: clamp(36px, 5vw, 52px);
     line-height: 1.08;
     letter-spacing: -0.02em;
     color: #fff;
@@ -141,7 +145,7 @@
   }
 
   .header-title em { color: #a8cfc8; font-style: italic; }
-  .header-subtitle { font-size: 15.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-subtitle { font-size: 17.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
 
   /* ── MAIN WRAPPER ── */
   main {
@@ -156,11 +160,49 @@
     padding: 0 2rem;
   }
 
-  /* ── PAGE INTRO + NAV SHARED CONTAINER ── */
-  .about-lead {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 3rem 2rem 0;
+  /* ── PAGE LAYOUT: sidebar + content ── */
+  .page-layout { display: flex; align-items: flex-start; }
+  .page-sidebar {
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    -ms-overflow-style: none; scrollbar-width: none;
+  }
+  .page-sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0 20px; margin-bottom: 6px;
+  }
+  .sidebar-link {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    font-family: 'Poppins', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+  }
+  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .page-main { flex: 1; min-width: 0; }
+  @media (max-width: 768px) {
+    .page-layout { flex-direction: column; }
+    .page-sidebar {
+      width: 100%; height: auto; position: static;
+      border-right: none; border-bottom: 1px solid var(--border);
+      padding: 0; display: flex; flex-direction: row;
+      overflow-x: auto;
+    }
+    .sidebar-hd { display: none; }
+    .sidebar-link {
+      padding: 10px 16px; white-space: nowrap;
+      border-left: none; border-bottom: 3px solid transparent;
+      flex-shrink: 0;
+    }
+    .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
   }
 
   .page-intro {
@@ -170,51 +212,11 @@
     margin-bottom: 2rem;
   }
 
-  /* ── PAGE NAV (On This Page) ── */
-  .page-nav-wrap {
-    background: var(--amber-lt);
-    border-left: 4px solid var(--amber);
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 2.5rem;
-    padding: 0 2rem;
-  }
-
-  .page-nav {
-    padding: 1.5rem 0;
-  }
-
-  .page-nav-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #8a5a1a;
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  .page-nav ol {
-    list-style: decimal;
-    padding-left: 1.25rem;
-    margin: 0;
-  }
-
-  .page-nav ol li {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    padding: 2px 0;
-    color: var(--text);
-  }
-
-  .page-nav ol li a { color: var(--teal); text-decoration: none; }
-  .page-nav ol li a:hover { text-decoration: underline; }
-
   /* ── SECTION WRAPPERS (alternating backgrounds) ── */
   .section-wrap {
     padding: 56px 0 48px;
     border-bottom: 1px solid var(--border);
+    scroll-margin-top: 100px;
   }
 
   .section-wrap.bg-alt {
@@ -222,7 +224,7 @@
   }
 
   .section-wrap.bg-story {
-    background: #1a2744;
+    background: #162544;
     border-bottom: none;
   }
 
@@ -232,38 +234,16 @@
   }
 
   /* ── SECTION TAG (small label above h2) ── */
-  .section-tag {
-    display: inline-block;
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 12px;
-  }
+  .section-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
 
   .section-tag.on-dark { color: var(--teal-soft); }
 
   /* ── HEADINGS ── */
-  h2 {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: clamp(21px, 3.5vw, 28px);
-    color: var(--navy);
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
+  h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(21px, 3.5vw, 29px); font-weight: 600; line-height: 1.25; color: var(--navy); margin-bottom: 0.75rem; }
 
   h2.on-dark { color: #fff; }
 
-  h3 {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    font-size: 22px;
-    color: var(--deep);
-    margin: 1.75rem 0 0.75rem;
-  }
+  h3 { font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 600; color: var(--navy); margin: 28px 0 10px; line-height: 1.3; }
 
   /* ── SECTION DIVIDER ── */
   .section-divider {
@@ -303,12 +283,12 @@
 
   p.on-dark { color: rgba(255,255,255,0.82); }
 
-  a { color: var(--teal); text-decoration: none; }
+  a { color: #2a7068; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
   /* ── KATE STORY SECTION ── */
   .kate-quote {
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 19px;
     font-style: italic;
     color: rgba(255,255,255,0.9);
@@ -319,7 +299,7 @@
   }
 
   .closing-note {
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-style: italic;
     font-size: 26px;
     font-weight: 600;
@@ -344,7 +324,7 @@
 
   .about-photo-caption {
     text-align: center;
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
     font-style: italic;
     color: rgba(255,255,255,0.45);
@@ -359,7 +339,7 @@
   }
 
   .about-list li {
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 17px;
     line-height: 1.65;
     padding: 9px 12px 9px 44px;
@@ -393,7 +373,7 @@
     font-size: 11px;
     font-weight: 700;
     color: var(--teal);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 14px;
     text-align: center;
   }
@@ -410,12 +390,12 @@
 
   .not-callout-label {
     display: block;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #8a5a1a;
+    color: #9E7545;
     margin-bottom: 10px;
   }
 
@@ -435,7 +415,7 @@
     text-decoration: none;
     padding: 0.85rem 1.8rem;
     border-radius: 6px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.94rem;
     font-weight: 500;
     transition: background 0.2s;
@@ -468,7 +448,7 @@
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 6px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 500;
     border: 1px solid rgba(255,255,255,0.15);
@@ -492,7 +472,7 @@
   }
 
   .faq-section-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.18em;
@@ -524,14 +504,14 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 12px;
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 16.5px;
     font-weight: 500;
     color: var(--navy);
     line-height: 1.45;
   }
 
-  .faq-question:hover { background: rgba(42,122,106,0.05); }
+  .faq-question:hover { background: rgba(194,222,216,0.05); }
 
   .faq-chevron {
     flex-shrink: 0;
@@ -562,7 +542,7 @@
   }
 
   .faq-answer-inner p {
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     line-height: 1.78;
     color: #374151;
@@ -574,10 +554,10 @@
 
   /* ── FOOTER ── */
   footer {
-    background: var(--navy);
+    background: #162544;
     text-align: center;
     padding: 2rem 1.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   .footer-love {
     font-size: 13px;
@@ -608,12 +588,12 @@
 /* ── GOOGLE TRANSLATE (footer) ── */
 
   @media (max-width: 600px) {
-    .header-inner { padding: 14px 18px 18px; }
-    .site-header.collapsed .header-inner { padding: 8px 18px 9px; }
+    .header-inner { padding: 24px 20px 20px;position:relative;z-index:2}
+    .site-header.collapsed .header-inner { padding: 8px 18px 9px;position:relative;z-index:2}
     .content-inner { padding: 0 1.25rem; }
     .page-intro-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
     .page-nav-wrap { padding: 0 1.25rem; }
-    h2 { font-size: 26px; }
+    h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(21px, 3.5vw, 29px); font-weight: 600; line-height: 1.25; color: var(--navy); margin-bottom: 0.75rem; }
     .faq-question { font-size: 15.5px; padding: 15px 16px; }
     .faq-answer-inner { padding: 0 16px 16px; }
     .closing-cta-section .content-inner { padding: 0 1.25rem; }
@@ -648,11 +628,31 @@
     max-height: 30px !important;
     margin-bottom: 6px !important;
   }
+
+  /* ── DNA helix: mobile adjustments ── */
+  @media (max-width: 600px) {
+    .helix-left  { display: none; }
+    .helix-right { opacity: 0.06 !important; }
+  }
+
+
+  /* ── Site navigation ─────────────────────────────────── */
+  .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
+  .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
+  .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
+  .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:flex-start;}
+  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family: 'Poppins', sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-menu>a:hover{color:var(--navy);}
+  @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
 </style>
 </head>
 <body>
 
 <header class="site-header">
+<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
+
+
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
@@ -661,26 +661,36 @@
     <p class="header-subtitle">How this site was made, who it's for, and the family behind it.</p>
   </div>
 </header>
-
-<main>
-
-  <!-- ── PAGE INTRO + ON THIS PAGE ── -->
-  <div class="about-lead">
-    <p class="page-intro">A diagnosis like SETD5 Syndrome arrives with a lot of questions. Even with a great care team, it can take time to find resources written for families rather than specialists. I built this site as a parent who has sat in that waiting room and pieced things together slowly over time. Everything here is what I've gathered for my own family, offered freely to yours. Below you'll find the full story, what the site includes, and a few important things to keep in mind as you use it.</p>
-
-    <div class="page-nav-wrap">
-    <nav class="page-nav" aria-label="On this page">
-      <span class="page-nav-label">On this page</span>
-      <ol>
-        <li><a href="#why-this-site">Why This Site Exists</a></li>
-        <li><a href="#what-you-find">What You'll Find Here</a></li>
-        <li><a href="#what-this-is-not">What This Site Is Not</a></li>
-        <li><a href="#how-information">How Information Is Collected</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ol>
-    </nav>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <a href="understanding-setd5-syndrome.html">SETD5 Syndrome</a>
+      <a href="family-toolkit.html">Family Toolkit</a>
+      <a href="setd5-medical-terms-guide.html">Medical Terms</a>
+      <a href="research.html">Research</a>
+      <a href="helpful-links.html">Community &amp; Links</a>
+      <a href="about.html">About</a>
+    </div>
   </div>
-  </div><!-- /about-lead -->
+</nav>
+
+<div class="page-layout">
+<aside class="page-sidebar">
+  <div class="sidebar-hd">On this page</div>
+  <a class="sidebar-link active" href="#why-this-site">Why This Site Exists</a>
+  <a class="sidebar-link" href="#what-you-find">What You'll Find Here</a>
+  <a class="sidebar-link" href="#what-this-is-not">What This Site Is Not</a>
+  <a class="sidebar-link" href="#how-information">How Information Is Collected</a>
+  <a class="sidebar-link" href="#contact">Contact</a>
+</aside>
+<div class="page-main">
+
+  <div class="about-lead" style="max-width:860px;padding:3rem 2rem 0;">
+    <p class="page-intro">A diagnosis like SETD5 Syndrome arrives with a lot of questions. Even with a great care team, it can take time to find resources written for families rather than specialists. I built this site as a parent who has sat in that waiting room and pieced things together slowly over time. Everything here is what I've gathered for my own family, offered freely to yours. Below you'll find the full story, what the site includes, and a few important things to keep in mind as you use it.</p>
+  </div>
 
   <!-- ── WHY THIS SITE EXISTS (Kate story — dark, elevated) ── -->
   <div class="section-wrap bg-story" id="why-this-site">
@@ -748,12 +758,13 @@
       <div class="section-divider"></div>
       <p>Questions or corrections? If you notice an error or have a suggestion for improving the site, please reach out. Community input is what makes a resource like this better over time.</p>
       <a href="suggest-a-resource.html" class="contact-cta">Send a suggestion or correction &rarr;</a>
-      <p style="margin-top:1rem; font-size:15px; color:var(--muted);">You can also reach us directly at <a href="mailto:info@setd5syndrome.live" style="color:var(--teal);">info@setd5syndrome.live</a>.</p>
+      <p style="margin-top:1rem; font-size:15px; color:var(--muted);">You can also reach us directly at <a href="mailto:info@setd5syndrome.live" style="color:#2a7068;">info@setd5syndrome.live</a>.</p>
     </div>
   </div>
 
 
-</main>
+</div><!-- /page-main -->
+</div><!-- /page-layout -->
 
 <footer class="site-footer">  <div class="footer-nav">
     <a href="index.html">Home</a><span class="sep">&middot;</span>
@@ -799,7 +810,7 @@ function toggleFaq(id) {
 
 </script>
 
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#1a2744;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(26,39,68,0.25);transition:opacity .2s;">&#8593;</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#162544;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">&#8593;</button>
 
 <script>
 (function(){
@@ -809,6 +820,56 @@ function toggleFaq(id) {
       btt.style.display = window.scrollY > 400 ? 'flex' : 'none';
     });
   }
+})();
+</script>
+<script>/* site-nav hamburger */
+(function(){
+  var t=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-menu');
+  if(t&&m){
+    t.addEventListener('click',function(){var o=m.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+    document.addEventListener('click',function(e){if(!e.target.closest('.site-nav')){m.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var hdr = document.querySelector('.site-header');
+  var nav = document.querySelector('.site-nav');
+  var sidebar = document.querySelector('.page-sidebar');
+  if (!hdr || !nav) return;
+  function syncPositions() {
+    var offset = hdr.offsetHeight + nav.offsetHeight;
+    nav.style.top = hdr.offsetHeight + 'px';
+    if (sidebar) {
+      sidebar.style.top = offset + 'px';
+      sidebar.style.height = 'calc(100vh - ' + offset + 'px)';
+    }
+  }
+  syncPositions();
+  window.addEventListener('scroll', syncPositions, {passive:true});
+  window.addEventListener('resize', syncPositions);
+
+  /* Highlight active sidebar link on scroll */
+  var sections = document.querySelectorAll('[id]');
+  var sidebarLinks = document.querySelectorAll('.sidebar-link');
+  function updateActiveSidebar() {
+    var scrollY = window.scrollY + 120;
+    var current = '';
+    sections.forEach(function(sec) {
+      if (sec.offsetTop <= scrollY) current = sec.id;
+    });
+    sidebarLinks.forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (href && href === '#' + current) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', updateActiveSidebar, {passive:true});
+  updateActiveSidebar();
 })();
 </script>
 </body>
