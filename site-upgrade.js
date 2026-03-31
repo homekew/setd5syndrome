@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v123
+ * site-upgrade.js  v124
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -426,8 +426,13 @@
         background: #FFFFFF !important;
       }
 
-      /* Dropdown panel: white for readability */
+      /* Dropdown panel: hidden by default, shown when .open is toggled by hamburger JS */
       .nav-menu {
+        display: none !important;
+      }
+
+      .nav-menu.open {
+        display: flex !important;
         background: #FFFFFF !important;
         border-top: 1px solid #D0CCC2 !important;
         border-bottom: 1px solid #D0CCC2 !important;
@@ -446,9 +451,9 @@
         display: block !important;
         height: auto !important;
         width: 100% !important;
-        padding: 0.875rem 1.5rem !important;
-        font-size: 1.125rem !important;
-        font-weight: 500 !important;
+        padding: 0.6rem 1.25rem !important;
+        font-size: 0.9375rem !important;
+        font-weight: 400 !important;
         color: #1C1B18 !important;
         border-bottom: 1px solid #D0CCC2 !important;
         border-left: 3px solid transparent !important;
@@ -626,10 +631,14 @@
        PAGE BODY — Cream ground, white cards
     ═══════════════════════════════════════════════════════════════ */
 
+    html {
+      font-size: 14px !important;
+    }
+
     body {
       background: #F5F4F1 !important;
       color: #1C1B18 !important;
-      font-size: 15px !important;
+      font-size: 14px !important;
     }
 
     .intro-bar {
@@ -1125,6 +1134,47 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════
+       MEDICAL TERMS PAGE — old teal palette → Counsel + sticky offset
+    ═══════════════════════════════════════════════════════════════ */
+    /* Alphabet bar: old teal #5a9186 → steel indigo */
+    .alpha-bar {
+      background: #456A7C !important;
+      border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+    }
+    /* Search bar: old dark #1e4f63 → midnight indigo */
+    .search-bar {
+      background: #1E3A4F !important;
+      border-top: 1px solid rgba(255,255,255,0.1) !important;
+    }
+    /* Search input on dark background */
+    .search-input {
+      background: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.2) !important;
+      color: #FFFFFF !important;
+    }
+    /* Sticky nav sits below the fixed main nav bar */
+    .sticky-nav {
+      top: 56px !important;
+    }
+    /* Term label: old teal → steel indigo */
+    .teal-callout .callout-label,
+    .term-setd5 strong {
+      color: #456A7C !important;
+    }
+    /* Tag badges: old teal bg → parchment */
+    .tag-testing {
+      background: #E8E6DF !important;
+      color: #456A7C !important;
+    }
+    /* Prose body text */
+    .prose {
+      font-size: 14px !important;
+    }
+    .prose p, .prose li {
+      font-size: 14px !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
        UNDERSTANDING SETD5 SYNDROME PAGE — old-palette in page CSS
     ═══════════════════════════════════════════════════════════════ */
     /* Active filter pill: old teal → steel indigo */
@@ -1213,14 +1263,6 @@
       align-self: center !important;       /* center the CTA to match the centered layout */
     }
 
-    main p,
-    main li {
-      font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
-      color: #1C1B18 !important;
-    }
-
-
     /* ═══════════════════════════════════════════════════════════════
        INTERIOR PAGE OVERRIDES
        header.site-header + sidebar + content body
@@ -1295,7 +1337,13 @@
       z-index: 1;
     }
 
-    /* Breadcrumb eyebrow */
+    /* Home breadcrumb not needed — nav bar is always visible */
+    .su-interior header.site-header .header-eyebrow,
+    header.site-header .header-eyebrow {
+      display: none !important;
+    }
+
+    /* Breadcrumb eyebrow (kept for any page that uses it for non-Home labels) */
     .header-eyebrow {
       font-family: 'Poppins', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
@@ -1336,7 +1384,7 @@
     /* Page subtitle */
     .header-subtitle {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-size: 14px !important;
       color: #5A5850 !important;
       line-height: 1.5 !important;
       margin: 0 !important;
@@ -1538,12 +1586,19 @@
       margin-bottom: 0.5rem !important;
     }
 
-    .page-body p,
-    .page-main p {
+    .page-body p, .page-main p,
+    .prose p, .prose li,
+    .content p, .content li,
+    .entry-body p, .entry-body li,
+    main p, main li {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-size: 14px !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
+    }
+
+    .prose, .content, .entry-body {
+      font-size: 14px !important;
     }
 
     .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
@@ -1577,7 +1632,7 @@
     .page-main ul li,
     .page-main ol li {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-size: 14px !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
     }
