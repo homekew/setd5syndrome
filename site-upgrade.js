@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v117
+ * site-upgrade.js  v118
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -388,6 +388,11 @@
         flex-wrap: wrap !important;
         padding: 0 1.25rem !important;
         justify-content: space-between !important;
+      }
+
+      /* Logo: hide on mobile — hamburger replaces nav, logo overflows on narrow screens */
+      .su-nav-logo {
+        display: none !important;
       }
 
       /* Hamburger button: white on indigo */
@@ -1015,6 +1020,7 @@
     [style*="background:#4a6a8a"],
     [style*="background: #4a6a8a"] {
       background: #1E3A4F !important;
+      color: #FFFFFF !important;  /* restore white text — .page-body a rule overrides inline color:#fff */
     }
 
     /* Old-navy text color used in headings → midnight indigo */
@@ -1465,6 +1471,25 @@
       .page-main {
         padding-left: 1.25rem !important;
         padding-right: 1.25rem !important;
+      }
+
+      /* Interior page header padding: reduce on mobile (matches printable-handouts pattern) */
+      .header-inner {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+      }
+
+      /* Make site-nav sticky on mobile interior pages — overrides the su-interior
+         position:relative rule so users have persistent nav while reading long pages */
+      .su-interior .site-nav {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 900 !important;
+      }
+
+      /* Medical terms page search bar: push below sticky site-nav */
+      .sticky-nav {
+        top: 44px !important;
       }
 
       /* Section anchor offset: 150px is desktop-sized; 60px fits mobile */
