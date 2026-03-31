@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v120
+ * site-upgrade.js  v121
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -251,9 +251,16 @@
       border-top: none !important;
       border-bottom: 1px solid rgba(255,255,255,0.08) !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
-      position: sticky !important;
+      position: fixed !important;
       top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
       z-index: 900 !important;
+    }
+
+    body {
+      padding-top: 50px !important;
     }
 
     /* ── Text logo ── */
@@ -620,6 +627,7 @@
     body {
       background: #F5F4F1 !important;
       color: #1C1B18 !important;
+      font-size: 15px !important;
     }
 
     .intro-bar {
@@ -1261,10 +1269,10 @@
       margin-bottom: revert !important;
     }
 
-    /* Interior pages: site-nav is static (not sticky) — nav bar sits in flow */
+    /* Interior pages: site-nav is fixed at top — same as homepage */
     .su-interior .site-nav {
-      position: relative !important;
-      top: auto !important;
+      position: fixed !important;
+      top: 0 !important;
     }
 
     header.site-header::before {
@@ -1485,10 +1493,9 @@
         padding-right: 1.25rem !important;
       }
 
-      /* Make site-nav sticky on mobile interior pages — overrides the su-interior
-         position:relative rule so users have persistent nav while reading long pages */
+      /* Keep site-nav fixed on mobile interior pages */
       .su-interior .site-nav {
-        position: sticky !important;
+        position: fixed !important;
         top: 0 !important;
         z-index: 900 !important;
       }
@@ -1537,9 +1544,30 @@
       color: #1C1B18 !important;
     }
 
-    .page-body a,
-    .page-main a {
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]) {
       color: #456A7C !important;
+    }
+
+    /* Enforce white text on all dark-background buttons — even when nested in .page-body/.page-main */
+    .page-body .download-btn, .page-main .download-btn,
+    .page-body .pdf-btn,      .page-main .pdf-btn,
+    .page-body .resource-btn, .page-main .resource-btn,
+    .page-body .btn-primary,  .page-main .btn-primary,
+    .page-body .btn-teal,     .page-main .btn-teal,
+    .page-body .btn-dark,     .page-main .btn-dark,
+    .page-body .generate-btn, .page-main .generate-btn,
+    .page-body .print-btn,    .page-main .print-btn,
+    .page-body .submit-btn,   .page-main .submit-btn,
+    .page-body .handout-box-btn, .page-main .handout-box-btn,
+    .page-body .cta-btn,      .page-main .cta-btn,
+    .page-body .cta-banner-btn, .page-main .cta-banner-btn,
+    .page-body .start-here-btn, .page-main .start-here-btn,
+    .page-body [style*="background:#1E3A4F"], .page-main [style*="background:#1E3A4F"],
+    .page-body [style*="background: #1E3A4F"], .page-main [style*="background: #1E3A4F"],
+    .page-body [style*="background:#9E7E42"], .page-main [style*="background:#9E7E42"],
+    .page-body [style*="background: #9E7E42"], .page-main [style*="background: #9E7E42"] {
+      color: #FFFFFF !important;
     }
 
     .page-body ul li,
@@ -1966,7 +1994,7 @@
     introBar.insertBefore(headline, introBody);
 
     // 2. Trim the body copy to a tighter supporting line
-    introBody.textContent = 'Plain-language, research-sourced guides — free and updated regularly.';
+    introBody.textContent = 'A helpful companion for families navigating a SETD5 Syndrome diagnosis.';
 
     // 3. Three trust-signal badges injected after the body copy
     const trustRow = document.createElement('div');
