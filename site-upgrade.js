@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v124
+ * site-upgrade.js  v125
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -19,7 +19,7 @@
  *
  *   Fonts:
  *   Display / headings — Libre Baskerville (serif)
- *   Body / UI          — Poppins (sans-serif)
+ *   Body / UI          — Outfit (sans-serif)
  *
  *   Zone strategy:
  *   ┌─────────────────────────────┐
@@ -40,7 +40,7 @@
 
   const css = `
 
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
     /* ═══════════════════════════════════════════════════════════════
        CSS VARIABLE REMAPPING
@@ -129,7 +129,7 @@
     /* ── Hero tag pill ── */
     .su-hero-tag {
       display: inline-block;
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -161,7 +161,7 @@
 
     /* ── Hero subheading ── */
     .su-hero-sub {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;        /* smaller than H1, clearly secondary */
       font-weight: 400 !important;
       line-height: 1.7 !important;
@@ -180,7 +180,7 @@
     }
 
     .su-btn-primary {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.01em !important;
@@ -202,7 +202,7 @@
     }
 
     .su-btn-secondary {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
       letter-spacing: 0.01em !important;
@@ -367,7 +367,7 @@
 
     /* ── Nav link typography: applies at all widths ───────────── */
     .nav-menu > a {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 400 !important;
       color: rgba(255,255,255,0.82) !important;
       text-decoration: none !important;
@@ -500,7 +500,7 @@
     }
 
     .su-footer-col h4 {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -522,7 +522,7 @@
     }
 
     .su-footer-brand-tag {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -533,7 +533,7 @@
     }
 
     .su-footer-brand-desc {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 1rem;
       line-height: 1.65;
       color: rgba(255,255,255,0.65);
@@ -552,7 +552,7 @@
     }
 
     .su-footer-col ul li a {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 1rem;
       color: rgba(255,255,255,0.72);
       text-decoration: none;
@@ -578,7 +578,7 @@
     }
 
     #su-footer-bottom p {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.72rem;
       color: rgba(255,255,255,0.42);
       margin: 0;
@@ -591,7 +591,7 @@
     }
 
     #su-footer-bottom-links a {
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.72rem;
       color: rgba(255,255,255,0.42);
       text-decoration: none;
@@ -607,7 +607,7 @@
       padding: 0.85rem 2rem;
       max-width: 1160px;
       margin: 0 auto;
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.73rem;
       color: rgba(255,255,255,0.38);
       line-height: 1.55;
@@ -657,7 +657,7 @@
     }
 
     .intro-body {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
       color: #5A5850 !important;
@@ -702,7 +702,7 @@
       border: 1px solid #D0CCC2 !important;
       border-radius: 100px !important;
       padding: 0.45rem 1rem !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       font-weight: 500 !important;
       color: #1E3A4F !important;
@@ -760,7 +760,7 @@
     }
 
     .guides-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
@@ -800,14 +800,14 @@
     }
 
     .card p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       color: #5A5850 !important;
       line-height: 1.65 !important;
     }
 
     .card-link {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
       color: #9E7E42 !important;
@@ -830,7 +830,7 @@
     .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
       background: #1E3A4F !important;
       color: #FFFFFF !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border: none !important;
       border-radius: 7px !important;
@@ -852,7 +852,7 @@
     .cta-btn, .cta-banner-btn {
       background: #9E7E42 !important;
       color: #FFFFFF !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 600 !important;
       border: none !important;
       border-radius: 7px !important;
@@ -867,7 +867,7 @@
       background: transparent !important;
       color: #1E3A4F !important;
       border: 1.5px solid #1E3A4F !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
@@ -881,7 +881,7 @@
       background: #FFFFFF !important;
       color: #1C1B18 !important;
       border: 1px solid #D0CCC2 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 400 !important;
       border-radius: 6px !important;
     }
@@ -900,7 +900,7 @@
       background: transparent !important;
       color: #456A7C !important;
       border: 1.5px solid #D0CCC2 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
@@ -913,7 +913,7 @@
     .start-here-btn {
       background: #9E7E42 !important;
       color: #FFFFFF !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 6px !important;
     }
@@ -926,7 +926,7 @@
     .contact-cta {
       background: #1E3A4F !important;
       color: #FFFFFF !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
       text-decoration: none !important;
@@ -1057,7 +1057,7 @@
     /* Inline font-family: Inter → Poppins */
     [style*="'Inter'"],
     [style*="\"Inter\""] {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
     }
 
     /* Inline font-family: Lora → DM Sans (promo cards, inline headers) */
@@ -1071,12 +1071,12 @@
        Used on 14+ pages; page CSS sets Inter/muted-grey.
     ═══════════════════════════════════════════════════════════════ */
     .section-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       color: #5A5850 !important;
       letter-spacing: 0.12em !important;
     }
     .section-tag {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       color: #5A5850 !important;
     }
     .section-tag.on-dark {
@@ -1205,7 +1205,7 @@
     }
 
     .featured-badge {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       background: #456A7C !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
@@ -1221,17 +1221,17 @@
     }
 
     .start-here-text strong {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       color: #1E3A4F !important;
     }
 
     .start-here-text p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       color: #1C1B18 !important;
     }
 
     .start-here-btn {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       background: #1E3A4F !important;
       color: #FFFFFF !important;
     }
@@ -1345,7 +1345,7 @@
 
     /* Breadcrumb eyebrow (kept for any page that uses it for non-Home labels) */
     .header-eyebrow {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 500 !important;
       letter-spacing: 0.06em !important;
@@ -1383,7 +1383,7 @@
 
     /* Page subtitle */
     .header-subtitle {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 14px !important;
       color: #5A5850 !important;
       line-height: 1.5 !important;
@@ -1392,7 +1392,7 @@
 
     /* Meta chips */
     .meta-chip {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
       background: #C5CDD6 !important;
@@ -1418,7 +1418,7 @@
     }
 
     .sidebar-hd {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
@@ -1430,7 +1430,7 @@
     }
 
     .sidebar-link {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 400 !important;
       color: #1C1B18 !important;
@@ -1591,7 +1591,7 @@
     .content p, .content li,
     .entry-body p, .entry-body li,
     main p, main li {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 14px !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
@@ -1631,7 +1631,7 @@
     .page-body ol li,
     .page-main ul li,
     .page-main ol li {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 14px !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
@@ -1661,7 +1661,7 @@
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
@@ -1669,7 +1669,7 @@
     }
     .intro-box strong {
       color: #1E3A4F !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
     }
 
     /* ── Broader heading overrides ── */
@@ -1716,7 +1716,7 @@
 
     .page-layout p,
     .page-content p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
@@ -1724,7 +1724,7 @@
 
     .page-intro,
     .about-lead p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       line-height: 1.8 !important;
       color: #1C1B18 !important;
@@ -1769,7 +1769,7 @@
 
     .teal-callout .callout-label {
       color: #9E7E42 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1778,7 +1778,7 @@
 
     .teal-callout p {
       color: #1C1B18 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
     }
 
     .info-callout {
@@ -1792,7 +1792,7 @@
 
     .info-callout .callout-label {
       color: #9E7E42 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1801,7 +1801,7 @@
 
     .info-callout p {
       color: #1C1B18 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
     }
 
     .amber-callout {
@@ -1815,7 +1815,7 @@
 
     .amber-callout .callout-label {
       color: #9E7E42 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.1em !important;
@@ -1844,13 +1844,13 @@
 
     .feature-card li,
     .feature-card p {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       color: #1C1B18 !important;
     }
 
     .section-label {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 600 !important;
       color: #5A5850 !important;
@@ -1871,7 +1871,7 @@
       background: #FFFFFF !important;
       border-color: #D0CCC2 !important;
       color: #5A5850 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
     }
 
     .symptom-pill:hover,
@@ -1883,7 +1883,7 @@
 
     .symptom-search {
       border-color: #D0CCC2 !important;
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
     }
 
     .symptom-search:focus {
@@ -1902,7 +1902,7 @@
     }
 
     .tab-btn {
-      font-family: 'Poppins', system-ui, sans-serif !important;
+      font-family: 'Outfit', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 500 !important;
       color: #5A5850 !important;
@@ -2084,7 +2084,7 @@
       color: '#1C1B18',
       fontSize: '1rem',
       lineHeight: '1.7',
-      fontFamily: "'Poppins', system-ui, sans-serif",
+      fontFamily: "'Outfit', system-ui, sans-serif",
       boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
     });
     const strong = intlNote.querySelector('strong');
