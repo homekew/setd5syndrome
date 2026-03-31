@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v133
+ * site-upgrade.js  v134
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -632,26 +632,26 @@
     ═══════════════════════════════════════════════════════════════ */
 
     html {
-      font-size: 18px !important;
+      font-size: 16px !important;
     }
 
     body {
       background: #F5F4F1 !important;
       color: #1C1B18 !important;
-      font-size: 18px !important;
+      font-size: 16px !important;
     }
 
-    /* Mobile: 16px body, 14px secondary */
+    /* Mobile: 15px body, 13px secondary */
     @media (max-width: 768px) {
-      html { font-size: 16px !important; }
-      body { font-size: 16px !important; }
+      html { font-size: 15px !important; }
+      body { font-size: 15px !important; }
       .page-body p, .page-main p,
       .prose p, .prose li,
       .content p, .content li,
       .entry-body p, .entry-body li,
       .page-body ul li, .page-body ol li,
-      .page-main ul li, .page-main ol li { font-size: 16px !important; }
-      .header-subtitle { font-size: 14px !important; }
+      .page-main ul li, .page-main ol li { font-size: 15px !important; }
+      .header-subtitle { font-size: 13px !important; }
     }
 
     .intro-bar {
@@ -803,13 +803,20 @@
       height: 3px !important;
     }
 
-    .card h2 {
+    /* Higher specificity (0,2,1) ensures card h2 beats .page-main h2 (0,1,1) */
+    .card h2,
+    .page-main .card h2,
+    .page-body .card h2,
+    .page-layout .card h2,
+    .page-content .card h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-size: 1.05rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.3 !important;
       margin-bottom: 0.5rem !important;
+      border-bottom: none !important;
+      padding-bottom: 0 !important;
     }
 
     .card p {
@@ -1181,10 +1188,10 @@
     }
     /* Prose body text */
     .prose {
-      font-size: 18px !important;
+      font-size: 16px !important;
     }
     .prose p, .prose li {
-      font-size: 18px !important;
+      font-size: 16px !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1605,13 +1612,13 @@
     .entry-body p, .entry-body li,
     main p, main li {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 18px !important;
+      font-size: 16px !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
 
     .prose, .content, .entry-body {
-      font-size: 18px !important;
+      font-size: 16px !important;
     }
 
     .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
@@ -1645,7 +1652,7 @@
     .page-main ul li,
     .page-main ol li {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 18px !important;
+      font-size: 16px !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
     }
@@ -1730,7 +1737,7 @@
     .page-layout p,
     .page-content p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-size: 1rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
@@ -1738,7 +1745,7 @@
     .page-intro,
     .about-lead p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-size: 1rem !important;
       line-height: 1.8 !important;
       color: #1C1B18 !important;
     }
