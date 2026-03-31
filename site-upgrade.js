@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v119
+ * site-upgrade.js  v120
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -393,10 +393,13 @@
         justify-content: space-between !important;
       }
 
-      /* Logo: swap to short version on mobile to prevent overflow */
-      .su-logo-long { display: none !important; }
-      .su-logo-short { display: inline !important; }
-      .su-nav-logo { flex-shrink: 1 !important; }
+      /* Logo: full title, left of hamburger, slightly smaller so it fits narrow screens */
+      .su-nav-logo {
+        order: -1 !important;
+        flex-shrink: 1 !important;
+        font-size: 0.875rem !important;
+        margin-right: 0 !important;
+      }
 
       /* Hamburger button: white on indigo */
       .nav-toggle {
