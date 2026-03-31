@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v122
+ * site-upgrade.js  v123
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -258,11 +258,11 @@
       width: 100% !important;
       z-index: 900 !important;
       padding-top: 6px !important;
-      padding-bottom: 6px !important;
+      padding-bottom: 0 !important;
     }
 
     body {
-      padding-top: 62px !important;
+      padding-top: 56px !important;
     }
 
     /* ── Text logo ── */
@@ -292,7 +292,7 @@
     }
 
     /* ── Desktop nav layout ─────────────────────────────────────── */
-    @media (min-width: 640px) {
+    @media (min-width: 900px) {
       .nav-toggle { display: none !important; }
 
       .site-nav .site-nav-inner {
@@ -352,16 +352,16 @@
       }
     }
 
-    /* Shrink link padding at intermediate widths */
-    @media (min-width: 640px) and (max-width: 920px) {
+    /* Shrink link padding at wide-but-constrained widths (hamburger already shown below 900px) */
+    @media (min-width: 900px) and (max-width: 1100px) {
       .nav-menu > a {
         font-size: 14px !important;
-        padding: 0 0.5rem !important;
+        padding: 0 0.6rem !important;
       }
       .nav-menu > a.su-active::after,
       .nav-menu > a[aria-current="page"]::after {
-        left: 0.5rem !important;
-        right: 0.5rem !important;
+        left: 0.6rem !important;
+        right: 0.6rem !important;
       }
     }
 
@@ -392,8 +392,8 @@
       outline-offset: -2px;
     }
 
-    /* ── Mobile nav ────────────────────────────────────────────── */
-    @media (max-width: 639px) {
+    /* ── Hamburger nav: all widths below 900px (desktop + mobile) ── */
+    @media (max-width: 899px) {
       .site-nav .site-nav-inner {
         height: auto !important;
         min-height: 50px !important;
@@ -1216,7 +1216,7 @@
     main p,
     main li {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-size: 1rem !important;
       color: #1C1B18 !important;
     }
 
@@ -1541,7 +1541,7 @@
     .page-body p,
     .page-main p {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-size: 1rem !important;
       line-height: 1.75 !important;
       color: #1C1B18 !important;
     }
@@ -1577,7 +1577,7 @@
     .page-main ul li,
     .page-main ol li {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-size: 1.125rem !important;
+      font-size: 1rem !important;
       line-height: 1.7 !important;
       color: #1C1B18 !important;
     }
