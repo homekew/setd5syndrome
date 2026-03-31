@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v134
+ * site-upgrade.js  v135
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -1581,11 +1581,11 @@
       }
     }
 
-    /* Interior page content typography */
+    /* Interior page content typography — 20px hard cap on headings */
     .page-body h2,
     .page-main h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.5rem !important;
+      font-size: 1.25rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.25 !important;
@@ -1598,7 +1598,7 @@
     .page-body h3,
     .page-main h3 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.2rem !important;
+      font-size: 1.1rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.3 !important;
@@ -1692,13 +1692,13 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
-    /* ── Broader heading overrides ── */
+    /* ── Broader heading overrides — 20px hard cap ── */
     .page-layout h2,
     .page-content h2,
     .page-body h2,
     .page-main h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.5rem !important;
+      font-size: 1.25rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.25 !important;
@@ -1713,7 +1713,7 @@
     .page-body h3,
     .page-main h3 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.2rem !important;
+      font-size: 1.1rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.3 !important;
@@ -1726,7 +1726,7 @@
     .page-body h4,
     .page-main h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 0.975rem !important;
+      font-size: 0.9rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.3 !important;
