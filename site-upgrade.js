@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v136
+ * site-upgrade.js  v137
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -812,7 +812,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #1E3A4F !important;
+      color: #456A7C !important;
       line-height: 1.3 !important;
       margin-bottom: 0.875rem !important;
       border-bottom: none !important;
@@ -1587,7 +1587,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #1E3A4F !important;
+      color: #456A7C !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
@@ -1700,7 +1700,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #1E3A4F !important;
+      color: #456A7C !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
