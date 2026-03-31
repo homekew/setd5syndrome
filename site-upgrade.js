@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v121
+ * site-upgrade.js  v122
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -78,7 +78,7 @@
       color: #1C1B18 !important;
       text-align: left !important;
       padding: 0 !important;
-      border-top: 3px solid #9E7E42 !important;
+      border-top: none !important;
       border-bottom: none !important;
       /* Soft shadow lifts the hero off the page as its own surface */
       box-shadow: 0 6px 40px rgba(30,58,79,0.14) !important;
@@ -249,7 +249,7 @@
     .site-nav {
       background: #1E3A4F !important;
       border-top: none !important;
-      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      border-bottom: 3px solid #9E7E42 !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
       position: fixed !important;
       top: 0 !important;
@@ -257,17 +257,19 @@
       right: 0 !important;
       width: 100% !important;
       z-index: 900 !important;
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
     }
 
     body {
-      padding-top: 50px !important;
+      padding-top: 62px !important;
     }
 
     /* ── Text logo ── */
     .su-nav-logo {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
-      font-weight: 700 !important;
+      font-weight: 600 !important;
       color: #FFFFFF !important;
       text-decoration: none !important;
       white-space: nowrap;
@@ -366,7 +368,7 @@
     /* ── Nav link typography: applies at all widths ───────────── */
     .nav-menu > a {
       font-family: 'Poppins', system-ui, sans-serif !important;
-      font-weight: 500 !important;
+      font-weight: 400 !important;
       color: rgba(255,255,255,0.82) !important;
       text-decoration: none !important;
       transition: color 0.12s ease !important;
@@ -382,7 +384,7 @@
     .nav-menu > a.su-active,
     .nav-menu > a[aria-current="page"] {
       color: #FFFFFF !important;
-      font-weight: 600 !important;
+      font-weight: 500 !important;
     }
 
     .nav-menu > a:focus-visible {
@@ -941,7 +943,7 @@
     ═══════════════════════════════════════════════════════════════ */
     .h-header {
       background: #1E3A4F !important;
-      border-top: 3px solid #9E7E42 !important;
+      border-top: none !important;
     }
     .h-eyebrow {
       color: #9E7E42 !important;
@@ -1228,7 +1230,7 @@
       background: rgba(245,244,241,0.94) !important;
       backdrop-filter: blur(4px) !important;
       -webkit-backdrop-filter: blur(4px) !important;
-      border-top: 3px solid #9E7E42 !important;
+      border-top: none !important;
       border-bottom: 1px solid #D0CCC2 !important;
       box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
       position: relative !important;
