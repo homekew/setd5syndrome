@@ -1,5 +1,5 @@
 /**
- * site-upgrade.js  v135
+ * site-upgrade.js  v136
  * SETD5 Syndrome (.com) — The Counsel design system
  *
  * v92: Full Counsel palette + typography applied site-wide
@@ -810,11 +810,11 @@
     .page-layout .card h2,
     .page-content .card h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.05rem !important;
+      font-size: 1.125rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.3 !important;
-      margin-bottom: 0.5rem !important;
+      margin-bottom: 0.875rem !important;
       border-bottom: none !important;
       padding-bottom: 0 !important;
     }
@@ -1585,7 +1585,7 @@
     .page-body h2,
     .page-main h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.25rem !important;
+      font-size: 1.125rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.25 !important;
@@ -1698,7 +1698,7 @@
     .page-body h2,
     .page-main h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1.25rem !important;
+      font-size: 1.125rem !important;
       font-weight: 600 !important;
       color: #1E3A4F !important;
       line-height: 1.25 !important;
