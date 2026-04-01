@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-      /* ── Counsel Palette tokens (style guide) ── */
+      /* ââ Counsel Palette tokens (style guide) ââ */
       --indigo:       #1E3A4F;
       --indigo-mid:   #456A7C;
       --gold:         #9E7E42;
@@ -256,7 +256,7 @@
   main a { text-decoration: underline; }
   footer a { text-decoration: underline; }
 
-  /* ── SECTION NAV ── */
+  /* ââ SECTION NAV ââ */
   .section-nav {
     background: transparent;
     border-top: 1px solid rgba(255,255,255,0.13); border-bottom: none;
@@ -270,7 +270,7 @@
     padding: 0 16px; flex-wrap: nowrap;
   }
 
-  /* ── FEATURE CARDS ── */
+  /* ââ FEATURE CARDS ââ */
   .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0 28px; }
   .feature-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
   @media (max-width: 700px) { .feature-grid { grid-template-columns: 1fr; } .feature-grid.three-col { grid-template-columns: 1fr; } }
@@ -290,7 +290,7 @@
   }
   .feature-card p { font-size: 14.5px; line-height: 1.6; color: var(--text); margin: 0; }
 
-  /* ── REGISTRY CARD ── */
+  /* ââ REGISTRY CARD ââ */
   .registry-card {
     background: #fff;
     border: 1px solid var(--border);
@@ -362,7 +362,7 @@
   }
   .registry-enroll.enroll-white:hover { background: #f0f0f0; }
 
-  /* ── EMAIL TEMPLATE ── */
+  /* ââ EMAIL TEMPLATE ââ */
   .email-template {
     background: var(--cream);
     border: 1px solid var(--border);
@@ -384,7 +384,7 @@
     padding: 0 3px;
   }
 
-  /* ── FOOTER ── */
+  /* ââ FOOTER ââ */
   footer {
     background: #162544;
     text-align: center;
@@ -419,7 +419,7 @@
   }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -437,14 +437,14 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -473,7 +473,7 @@
   .section-link:hover { color: #fff; text-decoration: none; background: none; }
   .section-link.active { color: #fff; font-weight: 500; border-bottom-color: var(--amber); }
 
-  /* ── PAGE LAYOUT: sidebar + content ── */
+  /* ââ PAGE LAYOUT: sidebar + content ââ */
   .page-layout { display: flex; align-items: flex-start; }
   .page-sidebar {
     width: 200px; flex-shrink: 0;
@@ -533,7 +533,7 @@
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
-  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-sep">âº</span>
   <a href="family-toolkit.html">Family Toolkit</a>
 </nav>
     <h1 class="header-title"><em>Research</em> Registries</h1>
@@ -981,5 +981,6 @@ window.scrollTo(0, 0);
   window.addEventListener('resize', syncPositions);
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 </html>
