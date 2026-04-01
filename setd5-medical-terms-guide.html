@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-      /* ── Counsel Palette tokens (style guide) ── */
+      /* ââ Counsel Palette tokens (style guide) ââ */
       --indigo:       #1E3A4F;
       --indigo-mid:   #456A7C;
       --gold:         #9E7E42;
@@ -67,7 +67,7 @@
   /* Header */
   .site-header{ background: #162544; color:#fff;
     position:sticky;top:0;z-index:920;overflow:hidden}
-  /* ── HEADER COLLAPSE ── */
+  /* ââ HEADER COLLAPSE ââ */
   .header-inner{ transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height:30px; overflow:hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
     font-size: 13px;
@@ -225,7 +225,7 @@
   }
   .term-setd5 strong{ color: #2a7068; font-weight:600; }
   /* Footer */
-    /* ── FOOTER ── */
+    /* ââ FOOTER ââ */
   footer {
     background: #162544;
     text-align: center;
@@ -258,7 +258,7 @@
     margin: 0 auto;
     line-height: 1.55;
   }
-/* ── GOOGLE TRANSLATE WIDGET ── */
+/* ââ GOOGLE TRANSLATE WIDGET ââ */
 
 
   /* Companion reference block */
@@ -287,7 +287,7 @@
   footer a { text-decoration: underline; }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -305,7 +305,7 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
@@ -314,7 +314,7 @@
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -392,7 +392,7 @@
 </nav>
   <div class="search-bar">
     <div class="search-bar-inner">
-      <input class="search-input" id="term-search" type="search" placeholder="Search definitions…" autocomplete="off" spellcheck="false">
+      <input class="search-input" id="term-search" type="search" placeholder="Search definitionsâ¦" autocomplete="off" spellcheck="false">
       <button class="search-clear" id="search-clear" aria-label="Clear search">&#x2715;</button>
     </div>
   </div>
@@ -1472,7 +1472,7 @@
 </script>
 
 <!-- BACK TO TOP -->
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#162544;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">↑</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#162544;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">â</button>
 <script>
   var btt = document.getElementById('back-to-top');
   window.addEventListener('scroll', function() {
@@ -1539,6 +1539,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 
 </html>
