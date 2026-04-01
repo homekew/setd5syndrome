@@ -2195,11 +2195,13 @@
   const introBar  = document.querySelector('.intro-bar');
   const introBody = introBar ? introBar.querySelector('.intro-body') : null;
   if (introBar && introBody) {
-    // 1. Personal headline above the body copy
-    const headline = document.createElement('p');
-    headline.className = 'su-intro-headline';
-    headline.innerHTML = 'Built by a parent, <em>for families like ours.</em>';
-    introBar.insertBefore(headline, introBody);
+    // 1. Personal headline above the body copy (skip if already in source HTML)
+    if (!introBar.querySelector('.su-intro-headline')) {
+      const headline = document.createElement('p');
+      headline.className = 'su-intro-headline';
+      headline.innerHTML = 'Built by a parent, <em>for families like ours.</em>';
+      introBar.insertBefore(headline, introBody);
+    }
 
     // 2. Trim the body copy to a tighter supporting line
     introBody.textContent = 'A helpful companion for families navigating a SETD5 Syndrome diagnosis.';
