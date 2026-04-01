@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if(history.scrollRestoration)history.scrollRestoration="manual";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <title>SETD5 Syndrome Research  |  A Guide for Families</title>
@@ -19,29 +20,29 @@
 <style>
   :root {
       /* ── Counsel Palette tokens (style guide) ── */
-      --indigo:       #1E3A4F;
-      --indigo-mid:   #456A7C;
-      --gold:         #9E7E42;
-      --gold-hover:   #C4A362;
-      --parchment:    #E8E6DF;
-      --parchment-d:  #D0CCC2;
-      --ink-muted:    #5A5850;
+      --indigo:       #9e9170;
+      --indigo-mid:   #a7c4ba;
+      --gold:         #C4952A;
+      --gold-hover:   #D4B84C;
+      --parchment:    #f0ede7;
+      --parchment-d:  #e0dcd5;
+      --ink-muted:    #4a4642;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
     --cream:   #F5F4F1;
-    --cream2:  #E8E6DF;
-    --navy:    #1E3A4F;
-    --linen:     #E8E6DF;
-    --caramel:   #9E7E42;
+    --cream2:  #f0ede7;
+    --navy:    #9e9170;
+    --linen:     #f0ede7;
+    --caramel:   #C4952A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #1E3A4F;
+    --charcoal:  #9e9170;
     --teal:    #C2DED8;
-    --amber:   #9E7E42;
+    --amber:   #C4952A;
     --amber-lt:#F5EDE0;
     --rose:    #F2B199;
     --rose-lt: #FEF0EB;
@@ -51,9 +52,9 @@
     --purple-lt:#ede9f8;
     --blue:    #C2DED8;
     --blue-lt: #E4F0EE;
-    --text:    #1C1B18;
-    --muted:   #5A5850;
-    --border:  #D0CCC2;
+    --text:    #090806;
+    --muted:   #4a4642;
+    --border:  #e0dcd5;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body{
@@ -112,8 +113,17 @@
   .tab-panel.active { display: block; }
 
   /* ── INTRO ── */
-  .intro-bar { color: var(--text); padding: 28px 32px 0; max-width: 860px; margin: 0; border: none; }
-  .intro-bar-inner { font-size: 15.5px; line-height: 1.75; }
+  .intro-bar { color: var(--text); padding: 8px 32px 0; max-width: 860px; margin: 0; border: none; }
+  .intro-bar-inner { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+  .intro-sources-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 11px; padding-bottom: 11px; border-bottom: 1px solid var(--border); }
+  .intro-sources-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-right: 2px; flex-shrink: 0; }
+  .source-chip { font-size: 12px; background: #e8f4f2; color: #2a7068; padding: 3px 10px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
+  .intro-method { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+  .intro-footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+  .intro-updated { font-size: 12px; color: var(--muted); }
+  .intro-suggest { font-size: 12.5px; color: var(--amber); text-decoration: none; font-weight: 500; }
+  .intro-suggest:hover { text-decoration: underline; }
+  .intro-disclaimer { font-size: 12px; color: var(--muted); font-style: italic; }
 
   /* ── SEARCH ── */
   .search-bar-wrap { position: sticky; top: 0; z-index: 99; background: var(--cream); border-bottom: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
@@ -121,7 +131,9 @@
   .search-input {
     flex: 1; max-width: 340px; padding: 7px 12px; font-size: 14px;
     border: 1px solid var(--border); border-radius: 4px;
-    background: #fff; color: var(--text); font-family: 'Poppins', sans-serif;
+    background: #fff !important; color: #090806 !important;
+    -webkit-text-fill-color: #090806;
+    font-family: 'Poppins', sans-serif;
   }
   .search-input::placeholder { color: var(--muted); }
   .search-input:focus { outline: none; border-color: #2a7068; box-shadow: 0 0 0 2px rgba(198,162,126,0.12); }
@@ -190,8 +202,8 @@
   .research-card.foundational   { border-left: 4px solid var(--blue); }
   .research-card.dissertation   { border-left: 4px solid #7a6a9a; }
 
-  .card-header { padding: 18px 22px 0; display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap;
-}
+  .card-header { padding: 18px 22px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+
   .card-badge {
     flex-shrink: 0; font-size: 10px; font-weight: 600; letter-spacing: .09em;
     text-transform: uppercase; padding: 3px 9px; border-radius: 3px; margin-top: 2px;
@@ -247,8 +259,8 @@
   /* ── WATCH CALLOUT ── */
   .watch-callout { background: var(--navy); color: #fff; border-radius: 10px; padding: 24px 28px; margin-bottom: 36px; }
   .watch-callout .watch-label { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #C2DED8; display: block; margin-bottom: 8px; }
-  .watch-callout h3{ font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
-  .watch-callout p { font-size: 13.5px; color: rgba(255,255,255,.78); line-height: 1.65; }
+  .watch-callout h3{ font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; color: #fff; }
+  .watch-callout p { font-size: 13.5px; color: rgba(255,255,255,.78) !important; line-height: 1.65; }
   .watch-callout a { color: #C2DED8; }
 
   /* ── TREATMENT ── */
@@ -576,6 +588,7 @@
   });
 </script>
 <link rel="canonical" href="https://setd5syndrome.live/research.html">
+<script src="site-upgrade.js"></script>
 </head>
 <body>
 
@@ -625,7 +638,21 @@
 
 <!-- INTRO BAR -->
 <div class="intro-bar" id="intro-bar">
-  <p class="intro-bar-inner">Each paper includes a plain-language summary and a note on what it means for families. Coverage is limited to SETD5 Syndrome (haploinsufficiency) and is not exhaustive. All sources are linked. This is not medical advice. This page is reviewed and updated regularly. If you'd like to suggest a study that hasn't been included, <a href="suggest-a-resource.html" style="color: #C6A27E;">let us know</a>. Last updated: March 4, 2026</p>
+  <div class="intro-bar-inner">
+    <div class="intro-sources-row">
+      <span class="intro-sources-label">Sources</span>
+      <span class="source-chip">PubMed</span>
+      <span class="source-chip">Google Scholar</span>
+      <span class="source-chip">ScienceDirect</span>
+      <span class="source-chip">bioRxiv</span>
+      <span class="source-chip">ClinicalTrials.gov</span>
+    </div>
+    <p class="intro-method">Papers are selected for direct relevance to SETD5 Syndrome, specifically the haploinsufficiency form of the condition. This page does not include studies on the SETD5 gene in unrelated contexts (such as cancer research, where SETD5 behaves differently). A small number of broader studies are included where noted, with an explanation of why they are relevant. Papers are not included based on community reports or personal accounts. Each entry is summarized in plain language and linked to the original published source. Coverage is not exhaustive.</p>
+    <div class="intro-footer-row">
+      <span class="intro-disclaimer">This is not a recommendation for screening or treatment. Always bring questions to your care team.</span>
+      <span class="intro-updated">Last updated: April 1, 2026 &nbsp;·&nbsp; <a href="suggest-a-resource.html" class="intro-suggest">Suggest a study</a></span>
+    </div>
+  </div>
 </div>
 <!-- SEARCH BAR -->
 <div class="search-bar-wrap" id="search-bar-wrap">
@@ -656,6 +683,29 @@
   <div class="year-block">
     <div class="year-badge">2026</div>
 
+    <!-- Northrup et al. 2026 – Pain phenotype / Facebook survey -->
+    <div class="research-card peer-reviewed">
+      <div class="card-header">
+        <span class="card-badge">Peer-Reviewed</span>
+        <h3 class="card-title">Expanding the Phenotype of SETD5-Related Disorder  --  Pain Features and Family Survey Data</h3>
+      </div>
+      <div class="card-body">
+        <p class="card-citation">Northrup et al.  ·  <em>Genetics in Medicine Open</em>, 2026  ·  <a href="https://www.sciencedirect.com/science/article/pii/S2949774426003195" target="_blank">Read article</a></p>
+        <p class="card-what"><strong>What was studied:</strong> Researchers at UTHealth Houston surveyed 51 members of the SETD5-related disorder Facebook support group (August–November 2024) to document a broader range of medical features reported by families, and to describe how the online community supports affected families.</p>
+        <ul class="findings-list">
+          <li>Respondents represented individuals from 12 countries; 80% of affected individuals were under 18, with a mean age of diagnosis of 9.2 years.</li>
+          <li>Most common features reported in this study: developmental delay (96%), hypotonia (78%), intellectual disability (75%), gait abnormality (59%), vision problems (51%), constipation (47%), and anxiety (47%).</li>
+          <li>Pain-related features were reported for the first time in the published literature using family data: high pain tolerance (43%), persistent leg pain (31%), and joint pain (27%).</li>
+          <li>Families reported that the Facebook support group was a primary source of information about therapies, school accommodations, and advocacy.</li>
+        </ul>
+        <div class="family-callout">
+          <span class="callout-label">Relevance for families</span>
+          This study is notable for being the first to document pain-related patterns in SETD5 Syndrome using family-reported data. High pain tolerance, persistent leg pain, and joint pain appeared across multiple respondents — features not previously described in the SETD5 Syndrome literature. The researchers identified these as part of a broader picture of the condition.
+        </div>
+      </div>
+      <div class="card-footer"><p class="card-note">Presented at the 2026 ACMG (American College of Medical Genetics and Genomics) Annual Clinical Genetics Meeting. Published in <em>Genetics in Medicine Open</em>, Vol. 4, Supplement 1, 2026. DOI: 10.1016/j.gimo.2026.103809. Open access. This study is based on Nicole Talaba's 2025 master's thesis at the University of Texas MD Anderson Cancer Center; see also the dissertation entry below.</p></div>
+    </div>
+
     <div class="research-card review">
       <div class="card-header">
         <span class="card-badge">Review Article</span>
@@ -681,10 +731,10 @@
     <div class="research-card peer-reviewed">
       <div class="card-header">
         <span class="card-badge">Peer-Reviewed</span>
-        <h3 class="card-title">SETD5 Variants Found in 6 Patients Initially Diagnosed With Noonan Syndrome</h3>
+        <h3 class="card-title">Non-RASopathy Genetic Syndromes Identified as the Molecular Cause of Disease in Patients Previously Diagnosed With Noonan Syndrome</h3>
       </div>
       <div class="card-body">
-        <p class="card-citation">Kim et al.  ·  <em>American Journal of Medical Genetics</em>, 2026 (epub October 2025)  ·  <a href="https://pubmed.ncbi.nlm.nih.gov/41137536/" target="_blank">PubMed</a></p>
+        <p class="card-citation">Kim et al.  ·  <em>American Journal of Medical Genetics Part A</em>, March 2026  ·  Published online October 2025  ·  <a href="https://pubmed.ncbi.nlm.nih.gov/41137536/" target="_blank">PubMed</a></p>
         <p class="card-what"><strong>What was studied:</strong> Researchers re-evaluated a group of patients who had been diagnosed with Noonan syndrome but whose standard genetic testing was negative for RASopathy genes. Using expanded sequencing, they identified the true genetic cause in several patients.</p>
         <ul class="findings-list">
           <li>Six patients with features clinically consistent with Noonan syndrome were found to carry pathogenic SETD5 variants, not RASopathy mutations.</li>
@@ -694,10 +744,31 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          If your child received an initial diagnosis of Noonan syndrome that was later revised to SETD5, this paper documents that this is a recognized pattern. Families with a confirmed SETD5 diagnosis may find SETD5-specific resources and registries more applicable than RASopathy programs.
+          If your child received an initial diagnosis of Noonan syndrome that was later revised to SETD5 Syndrome, this paper documents that this is a recognized pattern. Families with a confirmed SETD5 Syndrome diagnosis may find SETD5 Syndrome-specific resources and registries more applicable than RASopathy programs.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Peer-reviewed  --  published in a clinical genetics journal; findings are based on retrospective reclassification of diagnosed patients.</p></div>
+    </div>
+
+    <!-- Orphanet 2026 – Classification update – March 1 -->
+    <div class="research-card" style="border-left:4px solid var(--amber);">
+      <div class="card-header">
+        <h3 class="card-title">Orphanet Marks SETD5 Entry Obsolete  --  Merged Into Broader Category</h3>
+        <span style="font-size:11px;background:var(--amber-lt);color:var(--amber);padding:2px 8px;border-radius:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;">Database Update</span>
+      </div>
+      <div class="card-body">
+        <p class="card-citation">Orphanet (European Rare Disease Database)  &middot;  March 1, 2026  &middot;  <a href="https://www.orpha.net/en/disease/detail/404440" target="_blank">View entry (ORPHA:404440)</a></p>
+        <p class="card-what"><strong>What changed:</strong> Orphanet's standalone entry for this condition -- previously titled "Intellectual disability-facial dysmorphism syndrome due to SETD5 haploinsufficiency" (ORPHA:404440) -- has been marked obsolete. Orphanet now redirects searches for this condition to the broader category <em>Non-specific syndromic intellectual disability</em>.</p>
+        <ul class="findings-list">
+          <li>This is a database classification decision by Orphanet and does not reflect a change in the medical understanding or diagnostic criteria for SETD5 Syndrome.</li>
+          <li>Other major databases -- including OMIM (MRD23 / entry 615761), ClinVar, and GeneCards -- continue to list SETD5 Syndrome as a distinct genetic condition with its own entry.</li>
+          <li>Families or clinicians searching Orphanet directly for SETD5 will no longer find a standalone entry; results will point to a broader grouping that includes many other unrelated conditions.</li>
+        </ul>
+        <div class="family-callout">
+          <span class="callout-label">Relevance for families</span>
+          This change affects how SETD5 Syndrome is classified in Orphanet, which is a widely used European rare disease registry. It does not change the diagnosis or how other major databases document the condition. If you or your child's care team use Orphanet for documentation, benefit applications, or research, it is worth knowing that the condition is now grouped under a broader category in that specific database.
+        </div>
+      </div>
     </div>
 
     <!-- Heidargholizadeh 2026 – Diaphragmatic hernia -->
@@ -716,11 +787,12 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This is a preliminary genetic association study, not a confirmed causal link. Families of children with SETD5 who also had diaphragmatic hernia at birth may find it useful to mention this paper to their care team. No formal monitoring changes have been established based on this finding. Families whose child has SETD5 and a history of diaphragmatic hernia may find it useful to mention this paper to their care team.
+          This is a preliminary genetic association study, not a confirmed causal link. Families of children with SETD5 Syndrome who also had diaphragmatic hernia at birth may find it useful to mention this paper to their care team. No formal monitoring changes have been established based on this finding.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Candidate gene study  --  identifies SETD5 as a possible contributor; further research is needed to confirm causality.</p></div>
     </div>
+
   </div>
 
   <hr class="section-divider">
@@ -864,7 +936,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This finding identifies a specific shared biological pathway in SETD5, KBG syndrome, and related conditions. Research or drug development targeting this pathway in one condition may have implications for the others. This is a preprint and has not yet completed peer review.
+          This finding identifies a specific shared biological pathway in SETD5 Syndrome, KBG syndrome, and related conditions. Research or drug development targeting this pathway in one condition may have implications for the others. This is a preprint and has not yet completed peer review.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Preprint  --  not yet peer-reviewed. Findings are preliminary pending formal publication and independent review.</p></div>
@@ -910,7 +982,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This peer-reviewed study provides additional published evidence that SETD5 and KBG syndrome are biologically connected. If treatments targeting SETD5 function are developed in the future, they may be relevant across both conditions. No such treatments currently exist, but research into the shared pathway is ongoing. Families of children with KBG syndrome who have SETD5-like features may wish to follow SETD5 research developments.
+          This peer-reviewed study provides additional published evidence that SETD5 and KBG syndrome are biologically connected. If treatments targeting SETD5 function are developed in the future, they may be relevant across both conditions. No such treatments currently exist, but research into the shared pathway is ongoing. Families of children with KBG syndrome who have SETD5 Syndrome-like features may wish to follow SETD5 Syndrome research developments.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Peer-reviewed lab study  --  published in iScience; findings are based on cell and molecular research, not patient data.</p></div>
@@ -954,7 +1026,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This is early-stage data. Families whose child with SETD5 also has kidney or urinary tract anomalies can reference this paper when discussing monitoring with their nephrologist or urologist. No formal screening guidelines for renal anomalies in SETD5 have been established based on this finding.
+          This is early-stage data. Families whose child with SETD5 Syndrome also has kidney or urinary tract anomalies can reference this paper when discussing monitoring with their nephrologist or urologist. No formal screening guidelines for renal anomalies in SETD5 Syndrome have been established based on this finding.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Large cohort gene association study  --  SETD5 is one of many genes identified; findings should be interpreted as a signal requiring further study.</p></div>
@@ -967,7 +1039,7 @@
         <h3 class="card-title">SETD5 Facebook Support Group: Survey of 51 Members Across 12 Countries</h3>
       </div>
       <div class="card-body">
-        <p class="card-citation">TMC Dissertation, 2025  ·  <a href="https://digitalcommons.library.tmc.edu/utgsbs_dissertations/1444/" target="_blank">Full text</a> <span style="font-size:11px;background:#e8f0fe;color:#1a56db;padding:1px 5px;border-radius:3px;font-weight:600;vertical-align:middle;">dissertation</span></p>
+        <p class="card-citation">Nicole Talaba  ·  Master's Thesis, University of Texas MD Anderson Cancer Center, 2025  ·  <a href="https://digitalcommons.library.tmc.edu/utgsbs_dissertations/1444/" target="_blank">Full text</a> <span style="font-size:11px;background:#e8f0fe;color:#1a56db;padding:1px 5px;border-radius:3px;font-weight:600;vertical-align:middle;">dissertation</span> <span style="font-size:11px;color:var(--muted);">· Survey data also published in Northrup et al. 2026 (see above)</span></p>
         <p class="card-what"><strong>What was studied:</strong> A graduate research study surveyed 51 members of the SETD5 Facebook support group from 12 countries to examine how online peer communities affect rare disease families.</p>
         <ul class="findings-list">
           <li>Members reported increased empowerment and access to information following group participation.</li>
@@ -1010,7 +1082,7 @@
   <div class="watch-callout">
     <span class="watch-label">Active Research  --  No Results Published Yet</span>
     <h3>Novarino Lab SETD5 Conditional Knockout Study (SFARI-Funded)</h3>
-    <p>Gaia Novarino's laboratory at IST Austria is conducting a SFARI-funded study using a conditional SETD5 knockout mouse model. This model allows researchers to selectively disable SETD5 in specific brain regions at specific developmental time points. The study is designed to identify which pathophysiological mechanisms are responsible for ASD and intellectual disability in SETD5, and to test whether behavioral and cognitive phenotypes can be reversed when SETD5 function is restored in adulthood. Results have not yet been published. <a href="https://www.sfari.org/funded-project/probing-the-development-and-reversibility-of-autism-related-phenotypes-in-setd5-conditional-knockout-mice/" target="_blank">View SFARI grant summary.</a></p>
+    <p>Gaia Novarino's laboratory at IST Austria is conducting a SFARI-funded study using a conditional SETD5 knockout mouse model. This model allows researchers to selectively disable SETD5 in specific brain regions at specific developmental time points. The study is designed to identify which pathophysiological mechanisms are responsible for ASD and intellectual disability in SETD5 Syndrome, and to test whether behavioral and cognitive phenotypes can be reversed when SETD5 function is restored in adulthood. Results have not yet been published. <a href="https://www.sfari.org/funded-project/probing-the-development-and-reversibility-of-autism-related-phenotypes-in-setd5-conditional-knockout-mice/" target="_blank">View SFARI grant summary.</a></p>
   </div>
 
   <hr class="section-divider">
@@ -1038,7 +1110,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          Zebrafish models are used to rapidly test candidate drugs because they develop quickly and share key genetic pathways with humans. This study contributes to research tools that may be used to screen potential therapeutic compounds in SETD5, a step in early-stage drug discovery.
+          Zebrafish models are used to rapidly test candidate drugs because they develop quickly and share key genetic pathways with humans. This study contributes to research tools that may be used to screen potential therapeutic compounds relevant to SETD5 Syndrome, a step in early-stage drug discovery.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Animal model study  --  zebrafish; confirms and extends earlier findings on SETD5 and social behavior.</p></div>
@@ -1072,7 +1144,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This study adds webbed neck to the documented features associated with SETD5 variants  --  a finding not previously published. It also reinforces that SETD5 belongs to a broader group of epigenetic disorders sharing overlapping features, which may help explain why some children receive an initial diagnosis of a related condition before SETD5 is confirmed.
+          This study adds webbed neck to the documented features associated with SETD5 variants  --  a finding not previously published. It also reinforces that SETD5 Syndrome belongs to a broader group of epigenetic disorders sharing overlapping features, which may help explain why some children receive an initial diagnosis of a related condition before SETD5 Syndrome is confirmed.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Peer-reviewed cohort study  --  214 patients with short stature across multiple epigenetic genes; SETD5 is one of 19 genes identified.</p></div>
@@ -1094,7 +1166,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This is laboratory research conducted in cell cultures, not in people with SETD5. It documents a specific biological mechanism that researchers can now study as a potential therapeutic target. No treatments based on this finding have entered clinical trials.
+          This is laboratory research conducted in cell cultures, not in people with SETD5 Syndrome. It documents a specific biological mechanism that researchers can now study as a potential therapeutic target. No treatments based on this finding have entered clinical trials.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Lab study using human iPSC-derived neural cells  --  not yet tested in people with SETD5.</p></div>
@@ -1115,7 +1187,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          Mouse model findings do not directly translate to humans, but they provide mechanistic evidence supporting the shared pathway identified in the 2025 bioRxiv preprint. SETD5 and KBG research communities may benefit from parallel developments in each condition.
+          Mouse model findings do not directly translate to humans, but they provide mechanistic evidence supporting the shared pathway identified in the 2025 bioRxiv preprint. SETD5 Syndrome and KBG syndrome research communities may benefit from parallel developments in each condition.
         </div>
       </div>
       <div class="card-footer"></div>
@@ -1210,7 +1282,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          Bone fragility was not documented in the SETD5 literature prior to 2021. This paper may be useful when discussing bone health evaluation with a child's medical team, particularly if there have been unexplained fractures, spinal complaints, or no prior bone health assessment.
+          Bone fragility was not documented in the SETD5 Syndrome literature prior to 2021. This paper may be useful when discussing bone health evaluation with a child's medical team, particularly if there have been unexplained fractures, spinal complaints, or no prior bone health assessment.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">First published report of this association  --  confirmed by additional ESPE 2023 conference data.</p></div>
@@ -1309,7 +1381,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          If your child was initially evaluated for KBG syndrome before receiving a SETD5 diagnosis, this paper documents that clinical overlap between the two conditions is recognized in the medical literature. Both conditions may benefit from shared research advances.
+          If your child was initially evaluated for KBG syndrome before receiving a SETD5 Syndrome diagnosis, this paper documents that clinical overlap between the two conditions is recognized in the medical literature. Both conditions may benefit from shared research advances.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Clinical case series  --  three patients; documents phenotypic overlap between SETD5 and KBG syndrome.</p></div>
@@ -1417,7 +1489,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          If your child was diagnosed with a "3p25 deletion" or "3p25.3 microdeletion" rather than a "SETD5 mutation," both diagnoses involve loss of SETD5 function. The clinical features and SETD5 research literature are generally applicable to both groups. Very large deletions may involve additional genes beyond SETD5; a genetic counselor can advise on what applies to your child's specific deletion.
+          If your child was diagnosed with a "3p25 deletion" or "3p25.3 microdeletion" rather than a "SETD5 mutation," both diagnoses involve loss of SETD5 function. The clinical features and SETD5 Syndrome research literature are generally applicable to both groups. Very large deletions may involve additional genes beyond SETD5; a genetic counselor can advise on what applies to your child's specific deletion.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Established the connection between chromosomal 3p25 deletions and isolated SETD5 mutations as clinically equivalent diagnoses.</p></div>
@@ -1465,7 +1537,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This was the first evidence that SETD5 mutations can be inherited rather than arising spontaneously. For families undergoing genetic counseling, this paper is important because it shows the mutation can be passed on  --  and that a parent carrying the variant may have milder or different features than their child.
+          This was the first evidence that SETD5 Syndrome mutations can be inherited rather than arising spontaneously. For families undergoing genetic counseling, this paper is important because it shows the mutation can be passed on  --  and that a parent carrying the variant may have milder or different features than their child.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Case report  --  first documented familial transmission of a SETD5 mutation.</p></div>
@@ -1491,7 +1563,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This case added respiratory/structural findings to the SETD5 phenotype and provided another detailed clinical profile helpful for families comparing features with their own children.
+          This case added respiratory/structural findings to the SETD5 Syndrome phenotype and provided another detailed clinical profile helpful for families comparing features with their own children.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Case report  --  identified through the DDD study; expands phenotype to include structural lung findings.</p></div>
@@ -1512,7 +1584,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This case documents diaphragmatic hernia and severe brain differences in association with SETD5. While most children with SETD5 do not have these features, this report helped establish the wide range of possible presentations.
+          This case documents diaphragmatic hernia and severe brain differences in association with SETD5 Syndrome. While most children with SETD5 Syndrome do not have these features, this report helped establish the wide range of possible presentations.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Case report  --  no abstract available on PubMed; documented severe end of SETD5 phenotypic spectrum.</p></div>
@@ -1580,7 +1652,7 @@
         </ul>
         <div class="family-callout">
           <span class="callout-label">Relevance for families</span>
-          This study provides the molecular explanation for why SETD5 haploinsufficiency affects cognition and behavior. The NCoR pathway has been studied as a potential therapeutic target in SETD5-related research. No clinical treatments based on this pathway have been developed.
+          This study provides the molecular explanation for why SETD5 haploinsufficiency affects cognition and behavior. The NCoR pathway has been studied as a potential therapeutic target in SETD5 Syndrome research. No clinical treatments based on this pathway have been developed.
         </div>
       </div>
       <div class="card-footer"><p class="card-note">Mouse model study  --  published in Nature Neuroscience, one of the highest-impact neuroscience journals. Mechanistic findings have been replicated in subsequent studies.</p></div>
@@ -1736,43 +1808,41 @@
 
   <div class="treatment-grid">
     <div class="treatment-card">
-      <h4>Therapeutic interventions</h4>
+      <h4>Therapeutic approaches reported in published literature</h4>
       <ul>
-        <li>Speech and language therapy</li>
-        <li>Occupational therapy</li>
-        <li>Physical therapy</li>
-        <li>Behavioral or ABA therapy</li>
-        <li>Early intervention services</li>
+        <li>Speech and language therapy <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024)</a></li>
+        <li>Occupational therapy <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024)</a></li>
+        <li>Physical therapy <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024)</a></li>
+        <li>Early intervention services <a href="https://pubmed.ncbi.nlm.nih.gov/40265665/" target="_blank" style="font-size:11px;color:#2a7068;">(Callahan et al. 2025)</a></li>
       </ul>
     </div>
     <div class="treatment-card">
-      <h4>Medical treatments (by symptom)</h4>
+      <h4>Medical approaches documented in published case reports</h4>
       <ul>
-        <li>Anti-epileptic medications (seizures)</li>
-        <li>Growth hormone therapy (one published case)</li>
-        <li>Zoledronic acid (bone fragility)</li>
-        <li>Reflux management (reported in some infants)</li>
-        <li>Cardiac interventions, including surgery (documented in patients with structural heart defects)</li>
+        <li>Anti-epileptic medications <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024 — 14% of cohort)</a></li>
+        <li>Growth hormone therapy <a href="https://www.mdpi.com/2073-4425/16/8/859" target="_blank" style="font-size:11px;color:#2a7068;">(MDPI Genes 2025 — one published case)</a></li>
+        <li>Zoledronic acid for bone fragility <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/cge.14014" target="_blank" style="font-size:11px;color:#2a7068;">(Anderson et al. 2021)</a></li>
+        <li>Cardiac interventions, including surgery <a href="https://pubmed.ncbi.nlm.nih.gov/34050709/" target="_blank" style="font-size:11px;color:#2a7068;">(Cheung et al. 2021)</a></li>
       </ul>
     </div>
     <div class="treatment-card">
       <h4>Under active investigation</h4>
       <ul>
-        <li>Risperidone for social deficits (animal data only)</li>
-        <li>Mitochondrial-support interventions (lab stage)</li>
-        <li>NCoR pathway targeting (early discovery stage)</li>
-        <li>Potential crossover from KBG syndrome research</li>
+        <li>Risperidone for social deficits <a href="https://www.nature.com/articles/s41398-018-0344-y" target="_blank" style="font-size:11px;color:#2a7068;">(Moore et al. 2019 — animal data only)</a></li>
+        <li>Mitochondrial-support interventions <a href="https://link.springer.com/article/10.1186/s13229-023-00550-9" target="_blank" style="font-size:11px;color:#2a7068;">(Zaghi et al. 2023 — lab stage)</a></li>
+        <li>NCoR pathway targeting <a href="https://www.nature.com/articles/s41593-018-0266-2" target="_blank" style="font-size:11px;color:#2a7068;">(Deliu et al. 2018 — early discovery stage)</a></li>
+        <li>Potential crossover from KBG syndrome research <a href="https://pubmed.ncbi.nlm.nih.gov/40520101/" target="_blank" style="font-size:11px;color:#2a7068;">(Sashiyama et al. 2025)</a></li>
       </ul>
     </div>
     <div class="treatment-card">
       <h4>Specialist involvement documented in published literature</h4>
       <ul>
-        <li>Developmental pediatrician</li>
-        <li>Neurologist (seizures, movement disorders)</li>
-        <li>Endocrinologist (growth, bone density)</li>
-        <li>Ophthalmologist (vision)</li>
-        <li>Cardiologist (cardiac evaluation)</li>
-        <li>Psychiatrist or psychologist (behavior)</li>
+        <li>Developmental pediatrician <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024)</a></li>
+        <li>Neurologist — seizures, movement disorders <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024)</a></li>
+        <li>Endocrinologist — growth, bone density <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/cge.14014" target="_blank" style="font-size:11px;color:#2a7068;">(Anderson et al. 2021)</a></li>
+        <li>Ophthalmologist — vision <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024)</a></li>
+        <li>Cardiologist — cardiac evaluation <a href="https://pubmed.ncbi.nlm.nih.gov/34050709/" target="_blank" style="font-size:11px;color:#2a7068;">(Cheung et al. 2021)</a></li>
+        <li>Psychiatrist or psychologist — behavior <a href="https://pubmed.ncbi.nlm.nih.gov/39603091/" target="_blank" style="font-size:11px;color:#2a7068;">(De Falco et al. 2024)</a></li>
       </ul>
     </div>
   </div>
@@ -1784,9 +1854,9 @@
       <div class="monitoring-item">Regular developmental assessments</div>
       <div class="monitoring-item">Bone density (DEXA scan)</div>
       <div class="monitoring-item">Brain MRI (supported by 2025 data)</div>
-      <div class="monitoring-item">Cardiac evaluation at diagnosis</div>
+      <div class="monitoring-item">Cardiac evaluation (documented at diagnosis in published cases)</div>
       <div class="monitoring-item">EEG if seizures are suspected</div>
-      <div class="monitoring-item">Annual vision screening</div>
+      <div class="monitoring-item">Vision screening</div>
       <div class="monitoring-item">Hearing screening</div>
       <div class="monitoring-item">Psychiatric and behavioral assessment</div>
       <div class="monitoring-item">Height and weight monitoring</div>
@@ -1802,14 +1872,14 @@
 <div id="tab-gaps" class="tab-panel">
 <div class="page-body">
   <h2 class="section-title" id="sec-openquestions">What Is Not Yet Known</h2>
-  <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:18px;">The following are documented gaps in the published SETD5 literature as of February 2026.</p>
+  <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:18px;">The following are documented gaps in the published SETD5 literature as of April 2026.</p>
 
   <div class="gaps-list">
     <div class="gap-item"><strong>Whether SETD5 effects are reversible:</strong> The Novarino lab mouse study is actively investigating whether behavioral and cognitive effects can be reversed when SETD5 function is restored in adulthood. No results have been published.</div>
     <div class="gap-item"><strong>Adult outcomes:</strong> Nearly all published research involves children. Only the 2025 Callahan et al. study included adults (up to age 37). Long-term outcomes for education, employment, independence, and aging with SETD5 Syndrome are not documented in the literature.</div>
     <div class="gap-item"><strong>Bone fragility treatment guidelines:</strong> Zoledronic acid produced documented improvement in one patient. No systematic treatment protocol or clinical trial for SETD5-related bone fragility has been conducted.</div>
     <div class="gap-item"><strong>Mitochondrial treatments:</strong> Zaghi et al. (2023) identified mitochondrial dysfunction as a mechanism in SETD5. No clinical trials have tested whether any intervention improves mitochondrial function in SETD5 Syndrome patients.</div>
-    <div class="gap-item"><strong>Formal vision screening guidelines:</strong> The 2023 retinal study supports ophthalmology monitoring in SETD5, but no formal clinical guideline has been established.</div>
+    <div class="gap-item"><strong>Formal vision screening guidelines:</strong> The 2023 retinal study supports ophthalmology monitoring in SETD5 Syndrome, but no formal clinical guideline has been established.</div>
     <div class="gap-item"><strong>Registry and literature size:</strong> Fewer than 75 individuals are described in the published literature. Larger cohorts are needed to generate statistically reliable estimates of symptom frequency and outcomes. Families can help grow the research dataset by enrolling in research registries. See the <a href="research-registries.html" style="color:#2a7068">Research Registries guide</a> for an overview of options currently open to SETD5-related disorder families.</div>
   </div>
 </div><!-- /.page-body (gaps) -->
@@ -1988,4 +2058,4 @@
 </body>
 
 </html>
-<script src="site-upgrade.js"></script>
+

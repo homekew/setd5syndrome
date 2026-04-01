@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if(history.scrollRestoration)history.scrollRestoration="manual";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Family Toolkit | SETD5 Syndrome</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
@@ -16,38 +17,38 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-      /* ── Counsel Palette tokens (style guide) ── */
-      --indigo:       #1E3A4F;
-      --indigo-mid:   #456A7C;
-      --gold:         #9E7E42;
-      --gold-hover:   #C4A362;
-      --parchment:    #E8E6DF;
-      --parchment-d:  #D0CCC2;
-      --ink-muted:    #5A5850;
+      /* ââ Counsel Palette tokens (style guide) ââ */
+      --indigo:       #9e9170;
+      --indigo-mid:   #a7c4ba;
+      --gold:         #C4952A;
+      --gold-hover:   #D4B84C;
+      --parchment:    #f0ede7;
+      --parchment-d:  #e0dcd5;
+      --ink-muted:    #4a4642;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
     --cream:    #F5F4F1;
-    --text:     #1C1B18;
-    --navy:     #1E3A4F;
-    --linen:     #E8E6DF;
-    --caramel:   #9E7E42;
+    --text:     #090806;
+    --navy:     #9e9170;
+    --linen:     #f0ede7;
+    --caramel:   #C4952A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #1E3A4F;
+    --charcoal:  #9e9170;
     --deep:     #AEBFBE;
     --teal:     #C2DED8;
-    --amber:    #9E7E42;
+    --amber:    #C4952A;
     --amber-lt: #F5EDE0;
     --sage:     #C2DED8;
     --sage-lt:  #E4F0EE;
     --purple:   #5a4e8a;
     --purple-lt:#f0eef8;
-    --border:   #D0CCC2;
-    --muted:    #5A5850;
+    --border:   #e0dcd5;
+    --muted:    #4a4642;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,12 +65,12 @@
     flex-direction: column;
   }
 
-  /* ── HEADER ── */
+  /* ââ HEADER ââ */
   .site-header {
     background: #162544;
     color: #fff;
     position:sticky;top:0;z-index:920;overflow:hidden}
-  /* ── HEADER COLLAPSE ── */
+  /* ââ HEADER COLLAPSE ââ */
   .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
@@ -118,13 +119,13 @@
     font-style: normal;
   }
 
-  /* ── MAIN ── */
+  /* ââ MAIN ââ */
   main {
     flex: 1;
     width: 100%;
   }
 
-  /* ── CONTENT BANDS ── */
+  /* ââ CONTENT BANDS ââ */
   .content-band {
     padding: 3rem 2rem;
   }
@@ -142,7 +143,7 @@
     margin: 0;
   }
 
-  /* ── FEATURED CARD ── */
+  /* ââ FEATURED CARD ââ */
   .card.card-featured {
     background: linear-gradient(135deg, #f0faf8 0%, #E8EFEE 100%);
     border-color: var(--teal);
@@ -167,7 +168,7 @@
     margin-bottom: 0.75rem;
   }
 
-  /* ── CTA BANNER ── */
+  /* ââ CTA BANNER ââ */
   .cta-banner {
     background: linear-gradient(135deg, #eef7f5 0%, #e8f4f6 100%);
     border: 1.5px solid var(--teal);
@@ -212,7 +213,7 @@
     background: var(--border);
   }
 
-  /* ── CARDS ── */
+  /* ââ CARDS ââ */
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -344,7 +345,7 @@
     --card-icon-bg: var(--amber-lt);
   }
 
-  /* ── SECTION NAV ── */
+  /* ââ SECTION NAV ââ */
   .section-nav {
     background: transparent;
     border-top: 1px solid rgba(255,255,255,0.13); border-bottom: none;
@@ -365,7 +366,7 @@
   .section-nav-inner::-webkit-scrollbar { display: none; }
   .section-nav.is-slim .section-nav-btn{ padding: 6px 22px; min-height: 32px; }
 
-  /* ── HELPFUL LINKS SECTION ── */
+  /* ââ HELPFUL LINKS SECTION ââ */
   .links-section {
     scroll-margin-top: 2rem;
   }
@@ -441,7 +442,7 @@
     vertical-align: middle;
   }
 
-    /* ── FOOTER ── */
+    /* ââ FOOTER ââ */
   footer {
     background: #162544;
     text-align: center;
@@ -474,7 +475,7 @@
     margin: 0 auto;
     line-height: 1.55;
   }
-/* ── GOOGLE TRANSLATE WIDGET ── */
+/* ââ GOOGLE TRANSLATE WIDGET ââ */
 
 
   /* Ensure all body links are underlined */
@@ -482,7 +483,7 @@
   footer a { text-decoration: underline; }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -500,14 +501,14 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -536,7 +537,7 @@
   .section-nav-btn:hover { color: #fff; text-decoration: none; background: none; }
   .section-nav-btn.active { color: #fff; font-weight: 500; border-bottom-color: var(--amber); }
 
-  /* ── PAGE LAYOUT: sidebar + content ── */
+  /* ââ PAGE LAYOUT: sidebar + content ââ */
   .page-layout { display: flex; align-items: flex-start; }
   .page-sidebar {
     width: 200px; flex-shrink: 0;
@@ -574,6 +575,7 @@
 
 </style>
 <link rel="canonical" href="https://setd5syndrome.live/family-toolkit.html">
+<script src="site-upgrade.js"></script>
 </head>
 <body>
 
@@ -587,7 +589,7 @@
   <a href="index.html">Home</a>
 </nav>
     <h1 class="header-title">Family <em>Toolkit</em></h1>
-    <p class="header-subtitle">Practical tools, guides, and links for families navigating life with SETD5 Syndrome.</p>
+    <p class="header-subtitle">Practical tools, guides, and links for families navigating life with SETD5Â Syndrome.</p>
   </div>
 </header>
 <nav class="site-nav" aria-label="Main navigation">
@@ -880,6 +882,7 @@ window.scrollTo(0, 0);
   }
 })();
 </script>
+
 </body>
 
 </html>

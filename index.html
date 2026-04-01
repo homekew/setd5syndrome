@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if(history.scrollRestoration)history.scrollRestoration="manual";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SETD5 Syndrome Research &amp; Resources</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
@@ -21,36 +22,36 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-      /* ── Counsel Palette tokens (style guide) ── */
-      --indigo:       #1E3A4F;
-      --indigo-mid:   #456A7C;
-      --gold:         #9E7E42;
-      --gold-hover:   #C4A362;
-      --parchment:    #E8E6DF;
-      --parchment-d:  #D0CCC2;
-      --ink-muted:    #5A5850;
+      /* ââ Counsel Palette tokens (style guide) ââ */
+      --indigo:       #9e9170;
+      --indigo-mid:   #a7c4ba;
+      --gold:         #C4952A;
+      --gold-hover:   #D4B84C;
+      --parchment:    #f0ede7;
+      --parchment-d:  #e0dcd5;
+      --ink-muted:    #4a4642;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
     --cream: #F5F4F1;
-    --text: #1C1B18;
+    --text: #090806;
     --deep: #AEBFBE;
-    --navy: #1E3A4F;
-    --linen:     #E8E6DF;
-    --caramel:   #9E7E42;
+    --navy: #9e9170;
+    --linen:     #f0ede7;
+    --caramel:   #C4952A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #1E3A4F;
+    --charcoal:  #9e9170;
     --teal: #C2DED8;
-    --amber: #9E7E42;
+    --amber: #C4952A;
     --amber-lt: #F5EDE0;
     --sage: #C2DED8;
     --sage-lt: #E4F0EE;
-    --border: #D0CCC2;
-    --muted: #5A5850;
+    --border: #e0dcd5;
+    --muted: #4a4642;
     --nav-bg: #EEEBE4;
   }
 
@@ -402,18 +403,18 @@
     .card-grid .card:last-child:nth-child(odd) { max-width: none; margin: 0; }
   }
 
-  /* ── COMPACT STICKY HEADER — disabled on home page ── */
+  /* ââ COMPACT STICKY HEADER â disabled on home page ââ */
   .header-sub {
     transition: opacity 0.2s ease, max-height 0.3s ease;
     max-height: 60px; overflow: hidden;
   }
   /* (no compact collapse on home page) */
 
-  /* ── SITE NAV ── */
+  /* ââ SITE NAV ââ */
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{background:#F7F4EE;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:900;}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -425,7 +426,7 @@
   
   
 
-  /* ── GOOGLE TRANSLATE WIDGET ── */
+  /* ââ GOOGLE TRANSLATE WIDGET ââ */
 
 
   /* FEATURED BADGE */
@@ -458,6 +459,7 @@
 
 
 </style>
+<script src="site-upgrade.js"></script>
 </head>
 <body>
 
@@ -467,10 +469,9 @@
 
 
   <div class="header-hero-inner">
-  <h1><a href="/" style="color:inherit;text-decoration:none;">SETD5 Syndrome<br><em>Research &amp; Resources</em></a></h1>
-  <div class="header-rule"></div>
-  <p class="header-sub">A peer resource for SETD5 Syndrome families</p>
-
+  <span class="su-hero-tag">Rare Genetic Condition &middot; Family Resource</span>
+  <h1 class="su-hero-h1">The <em>SETD5 Syndrome</em> Companion</h1>
+  <p class="su-hero-sub">Plain-language resources for families navigating SETD5 Syndrome &mdash; wherever you are in the journey.</p>
 </div>
 </header>
 
@@ -492,16 +493,16 @@
 
 <!-- Welcome intro band -->
 <div class="intro-bar">
-  <h2 class="intro-heading">You are not navigating this alone.</h2>
-  <p class="intro-body">This site was built by a SETD5 Syndrome parent who wanted plain-language, evidence-based guides written for fellow families. Everything here is free, sourced from published research, and updated regularly.</p>
+  <p class="su-intro-headline">Built by a parent, <em>for families like ours.</em></p>
+  <p class="intro-body">A helpful companion for families navigating a SETD5 Syndrome diagnosis.</p>
   <div class="stats-bar">
-    <div class="stats-bar-item">
-      <span class="stats-bar-num">50+</span>
-      <span class="stats-bar-label">Research papers summarized</span>
-    </div>
     <div class="stats-bar-item">
       <span class="stats-bar-num">6</span>
       <span class="stats-bar-label">Guides &amp; toolkits</span>
+    </div>
+    <div class="stats-bar-item">
+      <span class="stats-bar-num">50+</span>
+      <span class="stats-bar-label">Research papers summarized</span>
     </div>
     <div class="stats-bar-item">
       <span class="stats-bar-num">0</span>
@@ -583,10 +584,10 @@
     <div id="google_translate_element"></div>
   </div>
   <div class="footer-nav">
-    <a href="index.html">Home</a><span class="sep">·</span>
-    <a href="about.html">About</a><span class="sep">·</span>
-    <a href="sources-references.html">Sources &amp; References</a><span class="sep">·</span>
-    <a href="suggest-a-resource.html">Contact</a><span class="sep">·</span>
+    <a href="index.html">Home</a><span class="sep">Â·</span>
+    <a href="about.html">About</a><span class="sep">Â·</span>
+    <a href="sources-references.html">Sources &amp; References</a><span class="sep">Â·</span>
+    <a href="suggest-a-resource.html">Contact</a><span class="sep">Â·</span>
     <a href="terms-of-use.html">Terms of Use</a>
   </div>
   <p class="footer-email"><a href="mailto:info@setd5syndrome.live">info@setd5syndrome.live</a></p>
@@ -620,6 +621,7 @@ function googleTranslateElementInit() {
   }
 })();
 </script>
+
 </body>
 
 </html>

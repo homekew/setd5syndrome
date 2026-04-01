@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if(history.scrollRestoration)history.scrollRestoration="manual";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build Your Medical Appointment Handout | SETD5 Syndrome</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
@@ -18,41 +19,41 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-      /* ── Counsel Palette tokens (style guide) ── */
-      --indigo:       #1E3A4F;
-      --indigo-mid:   #456A7C;
-      --gold:         #9E7E42;
-      --gold-hover:   #C4A362;
-      --parchment:    #E8E6DF;
-      --parchment-d:  #D0CCC2;
-      --ink-muted:    #5A5850;
+      /* ââ Counsel Palette tokens (style guide) ââ */
+      --indigo:       #9e9170;
+      --indigo-mid:   #a7c4ba;
+      --gold:         #C4952A;
+      --gold-hover:   #D4B84C;
+      --parchment:    #f0ede7;
+      --parchment-d:  #e0dcd5;
+      --ink-muted:    #4a4642;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
   --bg:       #F5F4F1;
-  --ink:      #1C1B18;
-  --navy:     #1E3A4F;
-    --linen:     #E8E6DF;
-    --caramel:   #9E7E42;
+  --ink:      #090806;
+  --navy:     #9e9170;
+    --linen:     #f0ede7;
+    --caramel:   #C4952A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #1E3A4F;
+    --charcoal:  #9e9170;
   --deep:     #AEBFBE;
   --teal:     #C2DED8;
   --teal-lt:  #eaf5f3;
-  --amber:    #9E7E42;
+  --amber:    #C4952A;
   --amber-lt: #F5EDE0;
   --sage:     #C2DED8;
   --sage-lt:  #E4F0EE;
-  --border:   #D0CCC2;
-  --muted:    #5A5850;
+  --border:   #e0dcd5;
+  --muted:    #4a4642;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── GOOGLE TRANSLATE WIDGET ── */
+/* ââ GOOGLE TRANSLATE WIDGET ââ */
 body{
   background: #F7F4EE;
   color: var(--ink);
@@ -69,9 +70,9 @@ body{
   }
 
 
-/* ══════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââ
    FORM VIEW
-══════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââ */
 #form-view {
   max-width: 760px;
   margin: 0 auto;
@@ -91,7 +92,7 @@ body{
 .form-title em { color: #2a7068; font-style: italic; }
 .form-subtitle { font-size: 15.5px; color: var(--muted); max-width: 580px; line-height: 1.65; }
 
-/* ── CHECKBOX TOGGLE ── */
+/* ââ CHECKBOX TOGGLE ââ */
 .toggle-field {
   background: #fff;
   border: 1px solid var(--border);
@@ -113,7 +114,7 @@ body{
 .toggle-field-label { font-size: 15.5px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
 .toggle-field-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
-/* ── FORM FIELDS ── */
+/* ââ FORM FIELDS ââ */
 .field-section {
   background: #fff;
   border: 1px solid var(--border);
@@ -139,7 +140,7 @@ body{
 .field-section input[type="text"]:focus { border-color: var(--teal); }
 .field-section input::placeholder { color: #b0aaa3; }
 
-/* ── FEATURE GROUPS ── */
+/* ââ FEATURE GROUPS ââ */
 .feature-group {
   background: #fff;
   border: 1px solid var(--border);
@@ -167,7 +168,7 @@ body{
 .feature-item.checked { background: var(--teal-lt); }
 .feature-item.checked label { color: var(--navy); font-weight: 500; }
 
-/* ── SECTION DIVIDER ── */
+/* ââ SECTION DIVIDER ââ */
 .section-divider {
   font-size: 11px; font-weight: 600; letter-spacing: .14em;
   text-transform: uppercase; color: var(--muted);
@@ -177,7 +178,7 @@ body{
   content: ''; flex: 1; height: 1px; background: var(--border);
 }
 
-/* ── GENERATE BUTTON ── */
+/* ââ GENERATE BUTTON ââ */
 .generate-btn {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--teal); color: #fff;
@@ -188,9 +189,9 @@ body{
 .generate-btn:hover { background: #1f6055; transform: translateY(-1px); }
 .error-msg { display: none; color: #b91c1c; font-size: 14px; margin-top: 10px; }
 
-/* ══════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââ
    HANDOUT VIEW
-══════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââ */
 #handout-view {
   display: none;
   max-width: 760px;
@@ -216,7 +217,7 @@ body{
 .print-btn:hover { background: #1f6055; }
 .handout-hint { font-size: 13px; color: var(--muted); }
 
-/* ── HANDOUT PAPER ── */
+/* ââ HANDOUT PAPER ââ */
 .handout-paper {
   background: #fff; border: 1px solid var(--border);
   border-radius: 10px; overflow: hidden;
@@ -284,7 +285,7 @@ body{
 }
 .h-q-list li:last-child { border-bottom: none; }
 .h-q-list li::before {
-  content: '›'; position: absolute; left: 2px;
+  content: 'âº'; position: absolute; left: 2px;
   color: var(--teal); font-weight: 700; font-size: 14px; line-height: 1.3;
 }
 .h-amber-box {
@@ -306,9 +307,9 @@ body{
 .h-footer-url { font-size: 10px; font-weight: 600; color: var(--navy); letter-spacing: .04em; }
 .h-footer-disc { font-size: 9.5px; color: var(--muted); max-width: 420px; text-align: right; line-height: 1.5; }
 
-/* ══════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââ
    PRINT
-══════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââ */
 @media print {
   body{ background: #F7F4EE; }
   #form-view { display: none !important; }
@@ -328,7 +329,7 @@ body{
 }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -347,7 +348,7 @@ body{
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -382,16 +383,17 @@ body{
     .nav-group-hd{margin-top:0.5rem;margin-bottom:0.2rem;}
   }
 </style>
+<script src="site-upgrade.js"></script>
 </head>
 <body>
 
 
-<!-- ══════════════════════════════════
+<!-- ââââââââââââââââââââââââââââââââââ
      FORM
-══════════════════════════════════ -->
+ââââââââââââââââââââââââââââââââââ -->
 <div id="form-view">
   <div class="form-header">
-    <p class="form-eyebrow"><a href="family-toolkit.html" style="color:var(--teal);text-decoration:none;">← Family Toolkit</a> · Medical Toolkit</p>
+    <p class="form-eyebrow"><a href="family-toolkit.html" style="color:var(--teal);text-decoration:none;">â Family Toolkit</a> Â· Medical Toolkit</p>
     <h1 class="form-title">Build Your <em>Medical Appointment Handout</em></h1>
     <p class="form-subtitle">Fill in your child&#39;s details and print a one-page summary to share with new doctors and specialists.</p>
   </div>
@@ -619,7 +621,7 @@ body{
         <div style="flex:1;">
           <label style="cursor:pointer;">Other: describe below</label>
           <input type="text" id="other-text"
-            placeholder="e.g. Hypothyroidism, urinary tract anomaly…"
+            placeholder="e.g. Hypothyroidism, urinary tract anomalyâ¦"
             style="display:none; margin-top:7px; width:100%; max-width:380px;
               border:1.5px solid var(--border); border-radius:6px;
               padding:8px 12px; font-family: 'Poppins', sans-serif; font-size:14px;
@@ -651,12 +653,12 @@ body{
 </div><!-- /form-view -->
 
 
-<!-- ══════════════════════════════════
+<!-- ââââââââââââââââââââââââââââââââââ
      HANDOUT VIEW
-══════════════════════════════════ -->
+ââââââââââââââââââââââââââââââââââ -->
 <div id="handout-view">
   <div class="handout-actions">
-    <button class="back-btn" onclick="goBack()">← Edit answers</button>
+    <button class="back-btn" onclick="goBack()">â Edit answers</button>
     <button class="print-btn" onclick="window.print()">
       <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7V2h10v5M5 15H3a1 1 0 01-1-1V9a1 1 0 011-1h14a1 1 0 011 1v5a1 1 0 01-1 1h-2M5 12h10v6H5v-6z"/></svg>
       Print / Save as PDF
@@ -668,7 +670,7 @@ body{
 
     <div class="h-header">
       <div>
-        <div class="h-tag">SETD5 Syndrome · Medical Appointment</div>
+        <div class="h-tag">SETD5 Syndrome Â· Medical Appointment</div>
         <div class="h-title" id="h-title-line">Medical Appointment Handout</div>
         <div class="h-child-name" id="h-child-display"></div>
       </div>
@@ -692,7 +694,7 @@ body{
       </div>
       <div class="h-fact">
         <div class="h-fact-label">OMIM / Registry</div>
-        <div class="h-fact-value">#615761 · Simons Searchlight</div>
+        <div class="h-fact-value">#615761 Â· Simons Searchlight</div>
       </div>
     </div>
 
@@ -812,7 +814,7 @@ function generateHandout() {
   // SETD5 intro blurb
   document.getElementById('h-what-is').style.display = newToSETD5 ? 'block' : 'none';
 
-  // Feature list (standard checkboxes only — "other-cb" is excluded from the querySelectorAll)
+  // Feature list (standard checkboxes only â "other-cb" is excluded from the querySelectorAll)
   var ul = document.getElementById('h-feature-list');
   ul.innerHTML = '';
   standardChecked.forEach(function(cb) {
@@ -865,5 +867,6 @@ function goBack() {
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-item')){document.querySelectorAll('.nav-item.open').forEach(function(i){i.classList.remove('open');});}});
 })();
 </script>
+
 </body>
 </html>
