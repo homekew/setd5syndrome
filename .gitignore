@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Development & design mockups — local only, not for deployment
+Dev Files/
+Audits and Styleguide/
+
+# Private files — never deploy
+Private - Not for GitHub/
+
+# Research update working files
+SETD5-update-*.md
+SETD5-update-*.html
+
+# Misc local files
+.test_write
+.fuse_hidden*
+*.bak
+*.bak2
+site-upgrade.js.bak
+site-upgrade.js.bak2
+
+# Large unused images
+std5_thumb.png
+IMG_1238.png
+IMG_1238_clean.png
