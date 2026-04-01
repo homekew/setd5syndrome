@@ -406,7 +406,7 @@
       .su-nav-logo {
         order: -1 !important;
         flex-shrink: 1 !important;
-        font-size: 0.875rem !important;
+        font-size: 1.0625rem !important;
         margin-right: 0 !important;
       }
 

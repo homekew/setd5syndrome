@@ -312,6 +312,8 @@
   @media (max-width: 768px) {
     .page-layout { flex-direction: column; }
     .page-sidebar { display: none; }
+    /* Remove scroll-fade overlay injected by site-upgrade.js — not needed with 3 short tabs */
+    .page-sidebar::after { content: none !important; display: none !important; }
   }
 </style>
 <script src="site-upgrade.js"></script>
