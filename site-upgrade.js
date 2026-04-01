@@ -1299,7 +1299,7 @@
       border-bottom: 1px solid #D0CCC2 !important;
       box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
       position: relative !important;
-      z-index: 1 !important;
+      z-index: 20 !important;
       padding: 1.125rem 0 0.875rem !important;
       clip-path: none !important;
     }
@@ -1937,6 +1937,97 @@
       font-weight: 600 !important;
       border-bottom-color: #9E7E42 !important;
     }
+
+    /* ── Shared section sidebar (injected into pages without their own) ── */
+    .su-page-layout {
+      display: flex !important;
+      align-items: flex-start !important;
+    }
+    .su-page-sidebar {
+      width: 200px !important;
+      flex-shrink: 0 !important;
+      position: sticky !important;
+      top: 56px !important;
+      height: calc(100vh - 56px) !important;
+      overflow-y: auto !important;
+      background: #fff !important;
+      border-right: 1px solid #D0CCC2 !important;
+      padding: 24px 0 !important;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+    .su-page-sidebar::-webkit-scrollbar { display: none; }
+    .su-page-sidebar .sidebar-hd {
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.09em !important;
+      text-transform: uppercase !important;
+      color: #5A5850 !important;
+      padding: 0 20px !important;
+      margin: 10px 0 6px !important;
+    }
+    .su-page-sidebar .sidebar-hd:first-child { margin-top: 0 !important; }
+    .su-page-sidebar .sidebar-link {
+      display: block !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 13.5px !important;
+      font-weight: 400 !important;
+      color: #1C1B18 !important;
+      text-decoration: none !important;
+      padding: 7px 20px !important;
+      border-left: 3px solid transparent !important;
+      line-height: 1.35 !important;
+      transition: background 0.12s, color 0.12s !important;
+    }
+    .su-page-sidebar .sidebar-link:hover {
+      background: #f7f5f0 !important;
+      color: #1E3A4F !important;
+    }
+    .su-page-sidebar .sidebar-link.active {
+      color: #1E3A4F !important;
+      font-weight: 600 !important;
+      border-left-color: #9E7E42 !important;
+      background: #fdf8f2 !important;
+    }
+    .su-page-sidebar .sidebar-divider {
+      border: none !important;
+      border-top: 1px solid #D0CCC2 !important;
+      margin: 10px 0 !important;
+    }
+    .su-page-main {
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+    @media (max-width: 768px) {
+      .su-page-layout { flex-direction: column !important; }
+      .su-page-sidebar {
+        width: 100% !important;
+        height: auto !important;
+        position: static !important;
+        top: auto !important;
+        border-right: none !important;
+        border-bottom: 1px solid #D0CCC2 !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+      }
+      .su-page-sidebar .sidebar-hd { display: none !important; }
+      .su-page-sidebar .sidebar-divider { display: none !important; }
+      .su-page-sidebar .sidebar-link {
+        padding: 10px 16px !important;
+        white-space: nowrap !important;
+        border-left: none !important;
+        border-bottom: 3px solid transparent !important;
+        flex-shrink: 0 !important;
+      }
+      .su-page-sidebar .sidebar-link.active {
+        border-bottom-color: #9E7E42 !important;
+        border-left: none !important;
+        background: none !important;
+      }
+    }
   `;
 
   const styleEl = document.createElement('style');
@@ -1967,13 +2058,36 @@
   const navInner = document.querySelector('.site-nav-inner');
 
   if (navInner) {
-    // Mark active page link
+    // Mark active nav link — direct match OR section membership
     const pathname = window.location.pathname.split('/').pop() || 'index.html';
+
+    // Pages that belong to each top-nav section but don't match its href directly
+    const sectionMap = {
+      'family-toolkit.html': [
+        'setd5-at-a-glance.html','understanding-genetic-report.html',
+        'school-iep-guide.html','qualifying-for-services.html',
+        'disability-discounts-guide.html','transition-to-adulthood.html',
+        'medical-emergency-summary.html','printable-handouts.html',
+        'iep-handout-builder.html','medical-handout-builder.html',
+        'family-stories.html','share-your-story.html',
+        'setd5-global-families-map.html','research-registries.html'
+      ],
+      'understanding-setd5-syndrome.html': [
+        'setd5-symptom-prevalence-chart.html','setd5-acronym-glossary.html'
+      ],
+      'research.html': [],
+      'helpful-links.html': ['suggest-a-resource.html'],
+      'about.html': ['sources-references.html','terms-of-use.html','how-i-built-this.html']
+    };
+
     navInner.querySelectorAll('.nav-menu a').forEach(a => {
       const href = a.getAttribute('href');
-      if (href === pathname || (href && pathname.startsWith(href.replace('.html', '')))) {
+      if (!href) return;
+      const isDirectMatch = (href === pathname);
+      const isSectionMember = sectionMap[href] && sectionMap[href].includes(pathname);
+      if (isDirectMatch || isSectionMember) {
         a.classList.add('su-active');
-        a.setAttribute('aria-current', 'page');
+        a.setAttribute('aria-current', isDirectMatch ? 'page' : 'true');
       }
     });
 
