@@ -707,9 +707,9 @@
       border-radius: 2px !important;
     }
     .su-intro-headline em {
-      font-style: italic !important;
-      color: #9E7E42 !important;
-      font-weight: 600 !important;
+      font-style: normal !important;
+      color: #1E3A4F !important;
+      font-weight: 700 !important;
     }
 
     /* Three trust-signal badges */
@@ -2222,11 +2222,11 @@
   const intlNote = document.querySelector('div[style*="sage-lt"], div[style*="e8f4f2"], div[style*="E4F0EE"], div[style*="eaf5f3"]');
   if (intlNote) {
     Object.assign(intlNote.style, {
-      background: '#FFFFFF',
-      border: '1px solid #D0CCC2',
+      background: '#C8D4DA',
+      border: '1px solid #A8BEC8',
       borderLeft: '3px solid #456A7C',
       borderRadius: '8px',
-      color: '#1C1B18',
+      color: '#1E3A4F',
       fontSize: '1rem',
       lineHeight: '1.7',
       fontFamily: "'DM Sans', system-ui, sans-serif",
