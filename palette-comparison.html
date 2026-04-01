@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palette Comparison — SETD5 Site</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #f0f0f0;
+    color: #222;
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: #222;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Palette container */
+  .palette-group {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .palette-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Swatches */
+  .swatch-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .swatch {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--swatch-bg);
+    text-align: center;
+  }
+  .swatch-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--swatch-text);
+    margin-bottom: 4px;
+  }
+  .swatch-hex {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--swatch-text);
+    font-family: monospace;
+  }
+
+  /* Site preview */
+  .preview {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .hero-section {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .hero-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent-primary);
+    font-weight: 700;
+  }
+  .hero-sub {
+    font-size: 13px;
+    opacity: 0.75;
+  }
+
+  .content-section {
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+  }
+
+  .card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--accent-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  .card-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+  .card-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-decoration: none;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--text-primary);
+    color: white;
+    border: 2px solid var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .callout {
+    background: var(--accent-secondary, rgba(0,0,0,0.05));
+    border-left: 3px solid var(--accent-secondary-border, var(--text-secondary));
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-size: 12px;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+
+  .note-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .palette-group {
+      padding: 1.5rem;
+    }
+    .swatch-row {
+      gap: 0.5rem;
+    }
+    .swatch {
+      min-width: 100px;
+      padding: 0.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Five Palette Options for SETD5 Site</h1>
+<p class="subtitle">Same site components with different color schemes from Huemint</p>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- CURRENT (for reference) -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Current SETD5 Palette</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#9e9170;--swatch-text:#fff;"><div class="swatch-label">Navy</div><div class="swatch-hex">#9e9170</div></div>
+    <div class="swatch" style="--swatch-bg:#F5F4F1;--swatch-text:#333;"><div class="swatch-label">Cream</div><div class="swatch-hex">#F5F4F1</div></div>
+    <div class="swatch" style="--swatch-bg:#e8e6e0;--swatch-text:#333;"><div class="swatch-label">Steel Tint</div><div class="swatch-hex">#e8e6e0</div></div>
+    <div class="swatch" style="--swatch-bg:#C4952A;--swatch-text:#fff;"><div class="swatch-label">Gold</div><div class="swatch-hex">#C4952A</div></div>
+  </div>
+
+  <div class="preview" style="--bg-primary:#9e9170;--bg-secondary:#F5F4F1;--bg-tertiary:#f7f4ee;--text-primary:#9e9170;--text-secondary:#4a4642;--accent-primary:#C4952A;--border-color:#e0dcd5;">
+    <div class="hero-section">
+      <h2 class="hero-title">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 1: 4b291b-dcebf2-b17963-5fadb3 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 1: Rich & Moody</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#4b291b;--swatch-text:#fff;"><div class="swatch-label">Dark Brown</div><div class="swatch-hex">#4b291b</div></div>
+    <div class="swatch" style="--swatch-bg:#dcebf2;--swatch-text:#333;"><div class="swatch-label">Light Blue</div><div class="swatch-hex">#dcebf2</div></div>
+    <div class="swatch" style="--swatch-bg:#b17963;--swatch-text:#fff;"><div class="swatch-label">Terracotta</div><div class="swatch-hex">#b17963</div></div>
+    <div class="swatch" style="--swatch-bg:#5fadb3;--swatch-text:#fff;"><div class="swatch-label">Teal</div><div class="swatch-hex">#5fadb3</div></div>
+  </div>
+  <p class="note-label">Analysis: Warm primary accent with cool secondary. Very sophisticated but less friendly. The light blue background feels cold for a family site.</p>
+
+  <div class="preview" style="--bg-primary:#4b291b;--bg-secondary:#dcebf2;--bg-tertiary:#f0f8fa;--text-primary:#4b291b;--text-secondary:#666;--accent-primary:#b17963;--accent-secondary:#5fadb3;--accent-secondary-border:#5fadb3;--border-color:#c8dce0;">
+    <div class="hero-section" style="background: #4b291b; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="callout">This guide is available in multiple languages.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 2: c8d4da-f5f4f1-1d394e-446a7c-f89a71-5bc894 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 2: Coral + Sage Accents (RECOMMENDED)</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#1d394e;--swatch-text:#fff;"><div class="swatch-label">Navy</div><div class="swatch-hex">#1d394e</div></div>
+    <div class="swatch" style="--swatch-bg:#f5f4f1;--swatch-text:#333;"><div class="swatch-label">Cream</div><div class="swatch-hex">#f5f4f1</div></div>
+    <div class="swatch" style="--swatch-bg:#446a7c;--swatch-text:#fff;"><div class="swatch-label">Steel</div><div class="swatch-hex">#446a7c</div></div>
+    <div class="swatch" style="--swatch-bg:#f89a71;--swatch-text:#fff;"><div class="swatch-label">Coral</div><div class="swatch-hex">#f89a71</div></div>
+    <div class="swatch" style="--swatch-bg:#5bc894;--swatch-text:#fff;"><div class="swatch-label">Sage</div><div class="swatch-hex">#5bc894</div></div>
+    <div class="swatch" style="--swatch-bg:#c8d4da;--swatch-text:#333;"><div class="swatch-label">Steel Tint</div><div class="swatch-hex">#c8d4da</div></div>
+  </div>
+  <p class="note-label">Analysis: Keeps your navy/cream/steel. Replaces honey gold with coral accent. Adds sage as secondary. Warm + cool balance. Perfect two-accent system.</p>
+
+  <div class="preview" style="--bg-primary:#1d394e;--bg-secondary:#f5f4f1;--bg-tertiary:#f7f5f2;--text-primary:#1d394e;--text-secondary:#666;--accent-primary:#f89a71;--accent-secondary:#5bc894;--accent-secondary-border:#5bc894;--border-color:#d0ccc2;">
+    <div class="hero-section" style="background: #1d394e; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="callout">This guide is available in multiple languages.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 3: fefefe-1a253c-236bb1-b85d20 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 3: Clean & Tech-Forward</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#1a253c;--swatch-text:#fff;"><div class="swatch-label">Dark Navy</div><div class="swatch-hex">#1a253c</div></div>
+    <div class="swatch" style="--swatch-bg:#fefefe;--swatch-text:#333;"><div class="swatch-label">White</div><div class="swatch-hex">#fefefe</div></div>
+    <div class="swatch" style="--swatch-bg:#236bb1;--swatch-text:#fff;"><div class="swatch-label">Bright Blue</div><div class="swatch-hex">#236bb1</div></div>
+    <div class="swatch" style="--swatch-bg:#b85d20;--swatch-text:#fff;"><div class="swatch-label">Rust</div><div class="swatch-hex">#b85d20</div></div>
+  </div>
+  <p class="note-label">Analysis: Clean white background. Blue + rust are vibrant but might feel cold/tech rather than warm/family-focused.</p>
+
+  <div class="preview" style="--bg-primary:#1a253c;--bg-secondary:#fefefe;--bg-tertiary:#f5f5f5;--text-primary:#1a253c;--text-secondary:#666;--accent-primary:#b85d20;--accent-secondary:#236bb1;--accent-secondary-border:#236bb1;--border-color:#e0e0e0;">
+    <div class="hero-section" style="background: #1a253c; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="callout" style="background: #f0f0f0;">This guide is available in multiple languages.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 4: 222223-f9b66d-bc954c-6c583a -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 4: Warm & Earthy</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#222223;--swatch-text:#fff;"><div class="swatch-label">Charcoal</div><div class="swatch-hex">#222223</div></div>
+    <div class="swatch" style="--swatch-bg:#f9b66d;--swatch-text:#222;"><div class="swatch-label">Warm Gold</div><div class="swatch-hex">#f9b66d</div></div>
+    <div class="swatch" style="--swatch-bg:#bc954c;--swatch-text:#fff;"><div class="swatch-label">Warm Brown</div><div class="swatch-hex">#bc954c</div></div>
+    <div class="swatch" style="--swatch-bg:#6c583a;--swatch-text:#fff;"><div class="swatch-label">Dark Brown</div><div class="swatch-hex">#6c583a</div></div>
+  </div>
+  <p class="note-label">Analysis: All warm tones. Earthy & sophisticated. Lacks cool accent for balance. Needs a background color (not provided — would need cream or similar).</p>
+
+  <div class="preview" style="--bg-primary:#222223;--bg-secondary:#f5f1e8;--bg-tertiary:#f0e8de;--text-primary:#222;--text-secondary:#666;--accent-primary:#f9b66d;--accent-secondary:#bc954c;--accent-secondary-border:#bc954c;--border-color:#dcc8b0;">
+    <div class="hero-section" style="background: #222223; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 5: 47241f-f2e8d6-c5a061-5cbf91 -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 5: Earthy + Sage Balance</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#47241f;--swatch-text:#fff;"><div class="swatch-label">Dark Brown</div><div class="swatch-hex">#47241f</div></div>
+    <div class="swatch" style="--swatch-bg:#f2e8d6;--swatch-text:#333;"><div class="swatch-label">Warm Cream</div><div class="swatch-hex">#f2e8d6</div></div>
+    <div class="swatch" style="--swatch-bg:#c5a061;--swatch-text:#fff;"><div class="swatch-label">Warm Tan</div><div class="swatch-hex">#c5a061</div></div>
+    <div class="swatch" style="--swatch-bg:#5cbf91;--swatch-text:#fff;"><div class="swatch-label">Sage</div><div class="swatch-hex">#5cbf91</div></div>
+  </div>
+  <p class="note-label">Analysis: Warm brown primary, warm cream background, sage secondary. Feels handmade & nature-inspired. Good warm/cool balance. Very cohesive.</p>
+
+  <div class="preview" style="--bg-primary:#47241f;--bg-secondary:#f2e8d6;--bg-tertiary:#f5eddd;--text-primary:#47241f;--text-secondary:#666;--accent-primary:#c5a061;--accent-secondary:#5cbf91;--accent-secondary-border:#5cbf91;--border-color:#d4c4a8;">
+    <div class="hero-section" style="background: #47241f; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="callout">This guide is available in multiple languages.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 6: 1f2b36-e2e8e3-739e82-e2534a -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 6: Sage + Coral (Cool Tone)</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#1f2b36;--swatch-text:#fff;"><div class="swatch-label">Dark Navy</div><div class="swatch-hex">#1f2b36</div></div>
+    <div class="swatch" style="--swatch-bg:#e2e8e3;--swatch-text:#333;"><div class="swatch-label">Sage Cream</div><div class="swatch-hex">#e2e8e3</div></div>
+    <div class="swatch" style="--swatch-bg:#739e82;--swatch-text:#fff;"><div class="swatch-label">Sage Green</div><div class="swatch-hex">#739e82</div></div>
+    <div class="swatch" style="--swatch-bg:#e2534a;--swatch-text:#fff;"><div class="swatch-label">Coral Red</div><div class="swatch-hex">#e2534a</div></div>
+  </div>
+  <p class="note-label">Analysis: Cool primary palette (navy + sage cream). Coral accent pops warm against cool background. Feels modern, nature-inspired, medical-adjacent but warmer than pure clinical.</p>
+
+  <div class="preview" style="--bg-primary:#1f2b36;--bg-secondary:#e2e8e3;--bg-tertiary:#eceee9;--text-primary:#1f2b36;--text-secondary:#666;--accent-primary:#e2534a;--accent-secondary:#739e82;--accent-secondary-border:#739e82;--border-color:#d4dcd6;">
+    <div class="hero-section" style="background: #1f2b36; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="callout">This guide is available in multiple languages.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 7: 13120e-F5F4F1-1E3A4F-afc3b3-8faca0 (Realtime Colors) -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 6: Sage + Coral (Cool Tone)</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#1f2b36;--swatch-text:#fff;"><div class="swatch-label">Dark Navy</div><div class="swatch-hex">#1f2b36</div></div>
+    <div class="swatch" style="--swatch-bg:#e2e8e3;--swatch-text:#333;"><div class="swatch-label">Sage Cream</div><div class="swatch-hex">#e2e8e3</div></div>
+    <div class="swatch" style="--swatch-bg:#739e82;--swatch-text:#fff;"><div class="swatch-label">Sage Green</div><div class="swatch-hex">#739e82</div></div>
+    <div class="swatch" style="--swatch-bg:#e2534a;--swatch-text:#fff;"><div class="swatch-label">Coral Red</div><div class="swatch-hex">#e2534a</div></div>
+  </div>
+  <p class="note-label">Analysis: Cool primary palette (navy + sage cream). Coral accent pops warm against cool background. Feels modern, nature-inspired, medical-adjacent but warmer than pure clinical.</p>
+
+  <div class="preview" style="--bg-primary:#1f2b36;--bg-secondary:#e2e8e3;--bg-tertiary:#eceee9;--text-primary:#1f2b36;--text-secondary:#666;--accent-primary:#e2534a;--accent-secondary:#739e82;--accent-secondary-border:#739e82;--border-color:#d4dcd6;">
+    <div class="hero-section" style="background: #1f2b36; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="callout">This guide is available in multiple languages.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 7: 13120e-F5F4F1-1E3A4F-afc3b3-8faca0 (Realtime Colors) -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 7: Sage Accents Only (Keep Navy & Cream)</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#9e9170;--swatch-text:#fff;"><div class="swatch-label">Navy (current)</div><div class="swatch-hex">#9e9170</div></div>
+    <div class="swatch" style="--swatch-bg:#F5F4F1;--swatch-text:#333;"><div class="swatch-label">Cream (current)</div><div class="swatch-hex">#F5F4F1</div></div>
+    <div class="swatch" style="--swatch-bg:#13120e;--swatch-text:#fff;"><div class="swatch-label">Dark Charcoal</div><div class="swatch-hex">#13120e</div></div>
+    <div class="swatch" style="--swatch-bg:#afc3b3;--swatch-text:#fff;"><div class="swatch-label">Sage</div><div class="swatch-hex">#afc3b3</div></div>
+    <div class="swatch" style="--swatch-bg:#8faca0;--swatch-text:#fff;"><div class="swatch-label">Muted Sage</div><div class="swatch-hex">#8faca0</div></div>
+  </div>
+  <p class="note-label">Analysis: Keeps your navy & cream completely. Replaces honey gold with soft sage tones. Two-sage secondary system. Feels calm, nature-focused, slightly cool. Minimal change from current but removes all warmth.</p>
+
+  <div class="preview" style="--bg-primary:#9e9170;--bg-secondary:#F5F4F1;--bg-tertiary:#f7f5f2;--text-primary:#13120e;--text-secondary:#666;--accent-primary:#afc3b3;--accent-secondary:#8faca0;--accent-secondary-border:#8faca0;--border-color:#d0ccc2;">
+    <div class="hero-section" style="background: #9e9170; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link">View Guide →</a>
+      </div>
+      <div class="callout">This guide is available in multiple languages.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary">Explore</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 7B: Sage + Gold (Three-Accent System) -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 7B: Sage + Gold Three-Accent (Hybrid)</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#9e9170;--swatch-text:#fff;"><div class="swatch-label">Navy (current)</div><div class="swatch-hex">#9e9170</div></div>
+    <div class="swatch" style="--swatch-bg:#F5F4F1;--swatch-text:#333;"><div class="swatch-label">Cream (current)</div><div class="swatch-hex">#F5F4F1</div></div>
+    <div class="swatch" style="--swatch-bg:#C4952A;--swatch-text:#fff;"><div class="swatch-label">Gold (primary accent)</div><div class="swatch-hex">#C4952A</div></div>
+    <div class="swatch" style="--swatch-bg:#afc3b3;--swatch-text:#fff;"><div class="swatch-label">Sage (secondary)</div><div class="swatch-hex">#afc3b3</div></div>
+    <div class="swatch" style="--swatch-bg:#8faca0;--swatch-text:#fff;"><div class="swatch-label">Muted Sage (tertiary)</div><div class="swatch-hex">#8faca0</div></div>
+  </div>
+  <p class="note-label">Analysis: Keeps navy & cream. Adds gold as primary warm accent + sage tones as secondary. Best of both worlds — warmth from gold, calmness from sage. Requires clear hierarchy to avoid visual clutter.</p>
+
+  <div class="preview" style="--bg-primary:#9e9170;--bg-secondary:#F5F4F1;--bg-tertiary:#f7f5f2;--text-primary:#9e9170;--text-secondary:#666;--accent-primary:#C4952A;--accent-secondary:#afc3b3;--accent-secondary-border:#8faca0;--border-color:#e0dcd5;">
+    <div class="hero-section" style="background: #9e9170; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link" style="color:#C4952A;">View Guide →</a>
+      </div>
+      <div class="callout" style="background:#f0f5f3;border-left-color:#afc3b3;">This guide is available in multiple languages and follows our research methodology.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary" style="color:#C4952A;border-color:#C4952A;">Explore Resources</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- OPTION 7C: Steel + Sage + Gold (Lighter Primary) -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="palette-group">
+  <div class="palette-title">Option 7C: Steel + Sage + Gold (Lighter Primary)</div>
+  <div class="swatch-row">
+    <div class="swatch" style="--swatch-bg:#a7c4ba;--swatch-text:#fff;"><div class="swatch-label">Steel Indigo (primary)</div><div class="swatch-hex">#a7c4ba</div></div>
+    <div class="swatch" style="--swatch-bg:#F5F4F1;--swatch-text:#333;"><div class="swatch-label">Cream (bg)</div><div class="swatch-hex">#F5F4F1</div></div>
+    <div class="swatch" style="--swatch-bg:#C4952A;--swatch-text:#fff;"><div class="swatch-label">Gold (accent)</div><div class="swatch-hex">#C4952A</div></div>
+    <div class="swatch" style="--swatch-bg:#afc3b3;--swatch-text:#fff;"><div class="swatch-label">Sage (secondary)</div><div class="swatch-hex">#afc3b3</div></div>
+    <div class="swatch" style="--swatch-bg:#8faca0;--swatch-text:#fff;"><div class="swatch-label">Muted Sage (tertiary)</div><div class="swatch-hex">#8faca0</div></div>
+  </div>
+  <p class="note-label">Analysis: Lighter, airier than navy. Steel indigo feels more refined and less corporate. Gold + sage still provide warmth and calm. Elegant and open.</p>
+
+  <div class="preview" style="--bg-primary:#a7c4ba;--bg-secondary:#F5F4F1;--bg-tertiary:#f7f5f2;--text-primary:#a7c4ba;--text-secondary:#666;--accent-primary:#C4952A;--accent-secondary:#afc3b3;--accent-secondary-border:#8faca0;--border-color:#e0dcd5;">
+    <div class="hero-section" style="background: #a7c4ba; color: white;">
+      <h2 class="hero-title" style="color:white;">The <em>SETD5 Syndrome</em> Companion</h2>
+      <p class="hero-sub" style="color:rgba(255,255,255,0.75);">Family resources for SETD5 Syndrome diagnosis</p>
+    </div>
+    <div class="content-section">
+      <div class="card">
+        <div class="card-title">Newly Diagnosed</div>
+        <div class="card-text">Guide and resources for families in the first weeks after diagnosis.</div>
+        <a class="card-link" style="color:#C4952A;">View Guide →</a>
+      </div>
+      <div class="callout" style="background:#f0f5f3;border-left-color:#afc3b3;">This guide is available in multiple languages and follows our research methodology.</div>
+      <div class="button-group">
+        <button class="btn-primary">Learn More</button>
+        <button class="btn-secondary" style="color:#C4952A;border-color:#C4952A;">Explore Resources</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realtime Colors Palette Mockup — SETD5 Parent Resource Site</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* CSS Variables for Realtime Colors Palette */
+  :root {
+    --charcoal: #090806;
+    --cream: #F5F4F1;
+    --warm-tan: #9e9170;
+    --sage: #a7c4ba;
+    --purple-grey: #8ea7b3;
+
+    --text-primary: #090806;
+    --text-secondary: #5a5552;
+    --bg-primary: #F5F4F1;
+    --bg-secondary: #FFFBF7;
+    --border-light: #E8E5E0;
+    --accent-primary: #9e9170;
+    --accent-secondary: #a7c4ba;
+    --accent-tertiary: #8ea7b3;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #f0f0f0;
+    color: var(--text-primary);
+    padding: 2rem;
+    line-height: 1.6;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  /* Main Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-light);
+  }
+
+  /* Swatches */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .swatch {
+    text-align: center;
+  }
+
+  .swatch-color {
+    width: 100%;
+    height: 100px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 0.75rem;
+  }
+
+  .swatch-name {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .swatch-hex {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* Preview Sections */
+  .preview-box {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #F9F7F4 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent-secondary);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent-primary);
+    font-weight: 700;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .content-area {
+    padding: 2rem;
+    background: var(--bg-secondary);
+  }
+
+  .card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-top: 3px solid var(--accent-primary);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-badge {
+    display: inline-block;
+    background: var(--accent-tertiary);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .card-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Callout */
+  .callout {
+    background: var(--accent-secondary);
+    border-left: 4px solid var(--accent-primary);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+  }
+
+  .callout-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.5;
+  }
+
+  /* Buttons */
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: 2px solid;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--text-primary);
+    color: white;
+    border-color: var(--text-primary);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-primary);
+  }
+
+  .btn-accent {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+  }
+
+  .btn-accent:hover {
+    opacity: 0.9;
+  }
+
+  /* Stats Bar */
+  .stats-bar {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+    padding: 2rem;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+  }
+
+  /* Navigation */
+  .navbar {
+    background: var(--text-primary);
+    color: white;
+    padding: 1.25rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 6px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-brand {
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: white;
+  }
+
+  /* Analysis Notes */
+  .analysis {
+    background: #F9F7F4;
+    border-left: 3px solid var(--accent-tertiary);
+    padding: 1.5rem;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .analysis-title {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-size: 13px;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+    .button-group {
+      flex-direction: column;
+    }
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1 class="page-title">Realtime Colors Palette</h1>
+    <p class="page-subtitle">SETD5 Parent Resource Site Mockup</p>
+  </div>
+
+  <!-- Color Swatches -->
+  <div class="section">
+    <div class="section-title">Color Palette</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #090806;"></div>
+        <div class="swatch-name">Charcoal</div>
+        <div class="swatch-hex">#090806</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #F5F4F1;"></div>
+        <div class="swatch-name">Cream</div>
+        <div class="swatch-hex">#F5F4F1</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #9e9170;"></div>
+        <div class="swatch-name">Warm Tan</div>
+        <div class="swatch-hex">#9e9170</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #a7c4ba;"></div>
+        <div class="swatch-name">Sage</div>
+        <div class="swatch-hex">#a7c4ba</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #8ea7b3;"></div>
+        <div class="swatch-name">Purple-Grey</div>
+        <div class="swatch-hex">#8ea7b3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="section">
+    <div class="section-title">Navigation</div>
+    <div class="navbar">
+      <div class="nav-brand">SETD5 Syndrome</div>
+      <a href="#" class="nav-link">Understanding</a>
+      <a href="#" class="nav-link">Resources</a>
+      <a href="#" class="nav-link">Research</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="section">
+    <div class="section-title">Hero Section</div>
+    <div class="preview-box">
+      <div class="hero">
+        <div class="hero-tag">Trusted Resource</div>
+        <h1 class="hero-title">SETD5 Syndrome <em>Research & Resources</em></h1>
+        <p class="hero-subtitle">A helpful companion for families navigating a SETD5 Syndrome diagnosis</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="section">
+    <div class="section-title">Stats Section</div>
+    <div class="preview-box">
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Families Supported</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Research Papers Summarized</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Resource Guides</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Section with Cards -->
+  <div class="section">
+    <div class="section-title">Content Cards</div>
+    <div class="preview-box">
+      <div class="content-area">
+        <div class="card">
+          <div class="card-badge">Essential</div>
+          <div class="card-title">Understanding SETD5 Syndrome Basics</div>
+          <p class="card-text">A comprehensive overview of what SETD5 Syndrome is, how it's diagnosed, and what families need to know at the beginning of their journey.</p>
+          <a href="#" class="card-link">Read More →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-badge">Guide</div>
+          <div class="card-title">School IEP Planning Guide</div>
+          <p class="card-text">Step-by-step guidance for working with schools to develop an Individualized Education Plan that supports your child's needs.</p>
+          <a href="#" class="card-link">Get the Guide →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-badge">Research</div>
+          <div class="card-title">Latest Research Findings</div>
+          <p class="card-text">Summaries of peer-reviewed research papers, updated regularly to keep you informed about what scientists are learning about SETD5.</p>
+          <a href="#" class="card-link">Explore Research →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Callout -->
+  <div class="section">
+    <div class="section-title">Callout / Note Style</div>
+    <div class="callout">
+      <div class="callout-title">Built by a Parent, for Families Like Ours</div>
+      <p class="callout-text">This site was created by someone who has walked this path. Every resource here is chosen because it has personally helped in navigating SETD5 Syndrome.</p>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="section">
+    <div class="section-title">Buttons & CTAs</div>
+    <div class="button-group">
+      <button class="btn btn-primary">Primary Action</button>
+      <button class="btn btn-secondary">Secondary Action</button>
+      <button class="btn btn-accent">Accent Action</button>
+    </div>
+  </div>
+
+  <!-- Analysis -->
+  <div class="section">
+    <div class="section-title">Design Analysis</div>
+    <div class="analysis">
+      <div class="analysis-title">Palette Assessment</div>
+      <p><strong>Distinctness from SETD5 Syndrome Foundation:</strong> The Realtime Colors palette is visually distinct from the Foundation's teal + coral + gold combination. Where the Foundation uses bright, energetic tones, this palette is earthy and grounded—charcoal, cream, warm tan, and sage create a completely different visual language that feels more intimate and family-focused rather than institutional.</p>
+
+      <p style="margin-top: 1rem;"><strong>Warmth & Approachability:</strong> The warm tan (#9e9170) and sage (#a7c4ba) together create a naturally warm aesthetic that supports the "built by a parent, for families" positioning. The charcoal feels trustworthy without being cold, and the cream background maintains the approachability you want.</p>
+
+      <p style="margin-top: 1rem;"><strong>Functional Use:</strong> Charcoal for primary text and navigation, cream for backgrounds, warm tan for primary accents (buttons, highlights), sage for secondary callouts and supporting elements, and muted purple-grey for tertiary actions. This creates clear visual hierarchy without overwhelming.</p>
+
+      <p style="margin-top: 1rem;"><strong>Note on Tan Warmth:</strong> The warm tan is slightly more muted than the current Honey Gold. If you want additional visual pop, consider warming it slightly to #a78a5f or #a89566 while maintaining the earthiness.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
