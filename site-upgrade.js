@@ -8,7 +8,7 @@
  *   ┌────────────────────────────────────────────────────┐
  *   │ Midnight Indigo  #1E3A4F   nav, headings, btns     │
  *   │ Steel Indigo     #456A7C   labels, links, chips     │
- *   │ Antique Gold     #9E7E42   accent, active, CTA      │
+ *   │ Antique Gold     #C4952A   accent, active, CTA      │
  *   │ Gold Dark        #7A6535   hover dark accent         │
  *   │ Cream            #F5F4F1   page bg, hero bg          │
  *   │ Parchment        #E8E6DF   cards / surfaces          │
@@ -58,7 +58,7 @@
       --sage:      #456A7C;   /* sage accent            → steel indigo     */
       --sage-lt:   #C8D4DA;   /* sage light bg          → steel tint       */
       --sage-mid:  #456A7C;   /* sage mid border        → steel indigo     */
-      --amber:     #9E7E42;   /* warm amber             → antique gold     */
+      --amber:     #C4952A;   /* warm amber             → antique gold     */
       /* v114 additions: unify remaining old-palette variables */
       --muted:     #5A5850;   /* was #66707A cool grey  → ink-muted warm   */
       --text:      #1C1B18;   /* was #2A2E35 cool dark  → Counsel ink      */
@@ -156,7 +156,7 @@
 
     .su-hero-h1 em {
       font-style: italic !important;
-      color: #9E7E42 !important;
+      color: #C4952A !important;
     }
 
     /* ── Hero subheading ── */
@@ -210,8 +210,8 @@
       align-items: center;
       padding: 0.6875rem 1.375rem;
       background: transparent !important;
-      color: #9E7E42 !important;
-      border: 2px solid #9E7E42 !important;
+      color: #C4952A !important;
+      border: 2px solid #C4952A !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s;
@@ -219,7 +219,7 @@
 
     .su-btn-secondary:hover {
       background: rgba(158,126,66,0.08) !important;
-      color: #9E7E42 !important;
+      color: #C4952A !important;
     }
 
     /* Responsive hero */
@@ -249,7 +249,7 @@
     .site-nav {
       background: #1E3A4F !important;
       border-top: none !important;
-      border-bottom: 3px solid #9E7E42 !important;
+      border-bottom: 3px solid #C4952A !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
       position: fixed !important;
       top: 0 !important;
@@ -347,7 +347,7 @@
         left: 1rem !important;
         right: 1rem !important;
         height: 2px !important;
-        background: #9E7E42 !important;
+        background: #C4952A !important;
         border-radius: 2px !important;
       }
     }
@@ -388,7 +388,7 @@
     }
 
     .nav-menu > a:focus-visible {
-      outline: 2px solid #9E7E42 !important;
+      outline: 2px solid #C4952A !important;
       outline-offset: -2px;
     }
 
@@ -465,9 +465,9 @@
 
       .nav-menu > a.su-active,
       .nav-menu > a[aria-current="page"] {
-        color: #9E7E42 !important;
+        color: #C4952A !important;
         font-weight: 600 !important;
-        border-left-color: #9E7E42 !important;
+        border-left-color: #C4952A !important;
         border-bottom-color: #D0CCC2 !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
@@ -505,7 +505,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #9E7E42;
+      color: #C4952A;
       margin: 0 0 0.875rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -702,7 +702,7 @@
       display: block !important;
       width: 36px !important;
       height: 2px !important;
-      background: #9E7E42 !important;
+      background: #C4952A !important;
       margin: 0 auto 0.75rem !important;
       border-radius: 2px !important;
     }
@@ -740,7 +740,7 @@
     .su-trust-badge svg {
       width: 14px !important;
       height: 14px !important;
-      stroke: #9E7E42 !important;
+      stroke: #C4952A !important;
       flex-shrink: 0 !important;
     }
 
@@ -792,13 +792,13 @@
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       margin-bottom: 1.375rem !important;
     }
 
     /* Cards: white on cream */
     .card {
-      --card-accent: #9E7E42;
+      --card-accent: #C4952A;
       background: #FFFFFF !important;
       border: 1px solid #D0CCC2 !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
@@ -813,7 +813,7 @@
 
     /* Card top accent stripe: gold */
     .card::before {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
       height: 3px !important;
     }
 
@@ -844,13 +844,13 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
-      color: #9E7E42 !important;
-      border: 1.5px solid #9E7E42 !important;
+      color: #C4952A !important;
+      border: 1.5px solid #C4952A !important;
       letter-spacing: 0.01em !important;
     }
 
     .card:hover .card-link {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
       color: #FFFFFF !important;
     }
 
@@ -884,7 +884,7 @@
 
     /* CTA GOLD: high-emphasis calls to action */
     .cta-btn, .cta-banner-btn {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 600 !important;
@@ -945,7 +945,7 @@
 
     /* START-HERE CTA: gold, overrides inline style="background:var(--teal)" */
     .start-here-btn {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
@@ -989,10 +989,10 @@
       border-top: none !important;
     }
     .h-eyebrow {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
     }
     .h-title em {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
     }
     .h-logo {
       color: rgba(255,255,255,0.45) !important;
@@ -1011,14 +1011,14 @@
       color: #1C1B18 !important;
     }
     .h-what-is-label {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
     }
     .h-section-label {
       color: #456A7C !important;
       border-bottom-color: #D0CCC2 !important;
     }
     .h-feature-list li::before {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
     }
     .h-feature-group-title {
       color: #1E3A4F !important;
@@ -1062,7 +1062,7 @@
     /* Old caramel CTA buttons → antique gold */
     [style*="background:#C6A27E"],
     [style*="background: #C6A27E"] {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
     }
 
     /* Old pale-teal callout backgrounds → parchment */
@@ -1132,14 +1132,14 @@
     /* Bullet / arrow accent markers */
     .findings-list li::before,
     .treatment-card ul li::before,
-    .registry .findings-list li::before { color: #9E7E42 !important; }
+    .registry .findings-list li::before { color: #C4952A !important; }
 
     /* Callout labels */
     .callout-label,
-    .review .family-callout .callout-label { color: #9E7E42 !important; }
+    .review .family-callout .callout-label { color: #C4952A !important; }
 
     /* Heading labels in cards */
-    .card-section-label                { color: #9E7E42 !important; }
+    .card-section-label                { color: #C4952A !important; }
 
     /* Focus ring: old teal → steel indigo */
     .search-input:focus {
@@ -1161,7 +1161,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       color: #1E3A4F !important;
     }
-    .overview-box ul li::before        { color: #9E7E42 !important; }
+    .overview-box ul li::before        { color: #C4952A !important; }
 
     /* Watch + monitoring callout headings */
     .watch-callout h3,
@@ -1230,10 +1230,10 @@
 
     /* Feature card bullet dots */
     .feature-card ul li::before,
-    .feature-card.sage-top ul li::before { color: #9E7E42 !important; }
+    .feature-card.sage-top ul li::before { color: #C4952A !important; }
 
     .card-link:focus-visible {
-      outline: 2px solid #9E7E42 !important;
+      outline: 2px solid #C4952A !important;
       outline-offset: 2px !important;
     }
 
@@ -1252,7 +1252,7 @@
     .start-here {
       background: rgba(158,126,66,0.1) !important;
       border-color: rgba(158,126,66,0.3) !important;
-      border-left-color: #9E7E42 !important;
+      border-left-color: #C4952A !important;
       border-left-width: 3px !important;
       box-shadow: none !important;
     }
@@ -1295,7 +1295,7 @@
     }
 
     .su-intro-featured .card-link {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
       color: #FFFFFF !important;
       align-self: center !important;       /* center the CTA to match the centered layout */
     }
@@ -1387,12 +1387,12 @@
       font-weight: 500 !important;
       letter-spacing: 0.06em !important;
       text-transform: uppercase !important;
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       margin-bottom: 0.4rem !important;
     }
 
     .header-eyebrow a {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       text-decoration: none !important;
     }
 
@@ -1415,7 +1415,7 @@
 
     .header-title em {
       font-style: italic !important;
-      color: #9E7E42 !important;
+      color: #C4952A !important;
     }
 
     /* Page subtitle */
@@ -1460,7 +1460,7 @@
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       padding: 0 1.125rem 0.625rem !important;
       border-bottom: 1px solid #D0CCC2 !important;
       margin-bottom: 0.375rem !important;
@@ -1483,16 +1483,16 @@
     }
 
     .sidebar-link:hover {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       background: #F5F4F1 !important;
     }
 
     .sidebar-link.active,
     .sidebar-link[aria-current],
     .sidebar-link[aria-selected="true"] {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       font-weight: 600 !important;
-      border-left-color: #9E7E42 !important;
+      border-left-color: #C4952A !important;
       background: #F7F3E8 !important;
       padding-left: calc(1.125rem - 3px) !important;
     }
@@ -1540,7 +1540,7 @@
       .sidebar-link[aria-selected="true"] {
         border-left: none !important;
         border-left-color: transparent !important;
-        border-bottom: 3px solid #9E7E42 !important;
+        border-bottom: 3px solid #C4952A !important;
         background: transparent !important;
         padding-left: 16px !important;
       }
@@ -1659,8 +1659,8 @@
     .page-body .start-here-btn, .page-main .start-here-btn,
     .page-body [style*="background:#1E3A4F"], .page-main [style*="background:#1E3A4F"],
     .page-body [style*="background: #1E3A4F"], .page-main [style*="background: #1E3A4F"],
-    .page-body [style*="background:#9E7E42"], .page-main [style*="background:#9E7E42"],
-    .page-body [style*="background: #9E7E42"], .page-main [style*="background: #9E7E42"] {
+    .page-body [style*="background:#C4952A"], .page-main [style*="background:#C4952A"],
+    .page-body [style*="background: #C4952A"], .page-main [style*="background: #C4952A"] {
       color: #FFFFFF !important;
     }
 
@@ -1681,7 +1681,7 @@
     .page-main .callout {
       background: #FFFFFF !important;
       border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #9E7E42 !important;
+      border-left: 3px solid #C4952A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
@@ -1694,7 +1694,7 @@
     .intro-box {
       background: #FFFFFF !important;
       border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #9E7E42 !important;
+      border-left: 3px solid #C4952A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
@@ -1798,14 +1798,14 @@
     .teal-callout {
       background: #FFFFFF !important;
       border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #9E7E42 !important;
+      border-left: 3px solid #C4952A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .teal-callout .callout-label {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1821,14 +1821,14 @@
     .info-callout {
       background: #FFFFFF !important;
       border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #9E7E42 !important;
+      border-left: 3px solid #C4952A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .info-callout .callout-label {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1844,14 +1844,14 @@
     .amber-callout {
       background: #FFFFFF !important;
       border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #9E7E42 !important;
+      border-left: 3px solid #C4952A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .amber-callout .callout-label {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1862,15 +1862,15 @@
     .feature-card {
       background: #FFFFFF !important;
       border: 1px solid #D0CCC2 !important;
-      border-top: 3px solid #9E7E42 !important;
+      border-top: 3px solid #C4952A !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 8px rgba(0,0,0,0.05) !important;
     }
 
-    .feature-card.amber-top { border-top-color: #9E7E42 !important; }
-    .feature-card.rose-top  { border-top-color: #9E7E42 !important; }
-    .feature-card.sage-top  { border-top-color: #9E7E42 !important; }
-    .feature-card.blue-top  { border-top-color: #9E7E42 !important; }
+    .feature-card.amber-top { border-top-color: #C4952A !important; }
+    .feature-card.rose-top  { border-top-color: #C4952A !important; }
+    .feature-card.sage-top  { border-top-color: #C4952A !important; }
+    .feature-card.blue-top  { border-top-color: #C4952A !important; }
 
     .feature-card h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
@@ -1896,7 +1896,7 @@
     }
 
     .section-label::before {
-      background: #9E7E42 !important;
+      background: #C4952A !important;
     }
 
     .section-title {
@@ -1913,8 +1913,8 @@
 
     .symptom-pill:hover,
     .symptom-pill.active {
-      background: #9E7E42 !important;
-      border-color: #9E7E42 !important;
+      background: #C4952A !important;
+      border-color: #C4952A !important;
       color: #FFFFFF !important;
     }
 
@@ -1924,7 +1924,7 @@
     }
 
     .symptom-search:focus {
-      border-color: #9E7E42 !important;
+      border-color: #C4952A !important;
     }
 
     .stat-box {
@@ -1947,9 +1947,9 @@
 
     .tab-btn.active,
     .tab-btn[aria-selected="true"] {
-      color: #9E7E42 !important;
+      color: #C4952A !important;
       font-weight: 600 !important;
-      border-bottom-color: #9E7E42 !important;
+      border-bottom-color: #C4952A !important;
     }
 
     /* ── Shared section sidebar (injected into pages without their own) ── */
@@ -2000,7 +2000,7 @@
     .su-page-sidebar .sidebar-link.active {
       color: #1E3A4F !important;
       font-weight: 600 !important;
-      border-left-color: #9E7E42 !important;
+      border-left-color: #C4952A !important;
       background: #fdf8f2 !important;
     }
     .su-page-sidebar .sidebar-divider {
@@ -2037,7 +2037,7 @@
         flex-shrink: 0 !important;
       }
       .su-page-sidebar .sidebar-link.active {
-        border-bottom-color: #9E7E42 !important;
+        border-bottom-color: #C4952A !important;
         border-left: none !important;
         background: none !important;
       }
