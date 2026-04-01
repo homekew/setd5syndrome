@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://setd5syndrome.live/sitemap.xml
+Sitemap: https://setd5syndrome.com/sitemap.xml
