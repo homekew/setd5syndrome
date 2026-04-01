@@ -689,13 +689,27 @@
     .su-intro-headline {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.625rem !important;
-      font-weight: 600 !important;
+      font-weight: 700 !important;
       color: #1E3A4F !important;
       line-height: 1.25 !important;
       letter-spacing: -0.01em !important;
       text-align: center !important;
       max-width: 520px !important;
-      margin: 0 0 0.75rem !important;
+      margin: 0.5rem 0 0.75rem !important;
+    }
+    .su-intro-headline::before {
+      content: '' !important;
+      display: block !important;
+      width: 36px !important;
+      height: 2px !important;
+      background: #9E7E42 !important;
+      margin: 0 auto 0.75rem !important;
+      border-radius: 2px !important;
+    }
+    .su-intro-headline em {
+      font-style: italic !important;
+      color: #9E7E42 !important;
+      font-weight: 600 !important;
     }
 
     /* Three trust-signal badges */
@@ -2184,7 +2198,7 @@
     // 1. Personal headline above the body copy
     const headline = document.createElement('p');
     headline.className = 'su-intro-headline';
-    headline.textContent = 'Built by a parent, for families like ours.';
+    headline.innerHTML = 'Built by a parent, <em>for families like ours.</em>';
     introBar.insertBefore(headline, introBody);
 
     // 2. Trim the body copy to a tighter supporting line
