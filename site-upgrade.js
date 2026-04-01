@@ -155,7 +155,8 @@
     }
 
     .su-hero-h1 em {
-      font-style: italic !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
       color: #C4952A !important;
     }
 
