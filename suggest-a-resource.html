@@ -58,7 +58,7 @@
   /* Header */
   .site-header { background: #162544; color: #fff; position:sticky;top:0;z-index:920;overflow:hidden}
 
-  /* ── HEADER COLLAPSE ── */
+  /* ââ HEADER COLLAPSE ââ */
   .header-inner { transition: padding 0.175s ease; max-width: 860px; margin: 0 auto; padding: 32px 32px 24px;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease;
     font-size: 13px;
@@ -228,14 +228,14 @@
     .form-card { padding: 24px 20px; }
   }
 
-  /* ── GOOGLE TRANSLATE WIDGET ── */
+  /* ââ GOOGLE TRANSLATE WIDGET ââ */
 
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -253,14 +253,14 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -288,7 +288,7 @@
 </nav>
     <h1 class="header-title">Suggest a <em>Resource</em></h1>
     <p class="header-subtitle">Know a helpful resource? Help us keep this site useful for other families.</p>
-    <a href="family-toolkit.html" class="back-link">← Back to Family Toolkit</a>
+    <a href="family-toolkit.html" class="back-link">â Back to Family Toolkit</a>
   </div>
 </header>
 <nav class="site-nav" aria-label="Main navigation">
@@ -339,10 +339,10 @@
 
   <!-- THANK YOU STATE -->
   <div class="thank-you" id="thank-you">
-    <div class="thank-you-icon">✉️</div>
+    <div class="thank-you-icon">âï¸</div>
     <h2>Thank you for the feedback!</h2>
     <p>Your suggestion has been received. We read every submission and appreciate you taking the time to help make this site more useful for families.</p>
-    <a href="family-toolkit.html" class="back-btn">← Back to Family Toolkit</a>
+    <a href="family-toolkit.html" class="back-btn">â Back to Family Toolkit</a>
   </div>
 
 </div>
@@ -365,7 +365,7 @@
   }
   window.scrollTo(0, 0);
 
-  /* ── HEADER COLLAPSE ON SCROLL ── */
+  /* ââ HEADER COLLAPSE ON SCROLL ââ */
   (function() {
     var header = document.querySelector('.site-header');
     var ticking = false;
@@ -452,6 +452,7 @@
   window.addEventListener('resize', syncNavTop);
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 
 </html>
