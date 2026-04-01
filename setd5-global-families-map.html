@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SETD5 Syndrome — Families Around the World</title>
+<title>SETD5 Syndrome â Families Around the World</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -138,7 +138,7 @@
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -208,7 +208,7 @@
 
 <script>
 // Countries with documented SETD5 cases (ISO numeric codes)
-// Sources: published research papers 2014–2025
+// Sources: published research papers 2014â2025
 const activeCodes = new Set([
   840,  // United States
   826,  // United Kingdom
@@ -364,5 +364,6 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(w
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-item')){document.querySelectorAll('.nav-item.open').forEach(function(i){i.classList.remove('open');});}});
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 </html>
