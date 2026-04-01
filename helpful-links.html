@@ -232,6 +232,17 @@
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
 
+  /* INTRO BAR */
+  .intro-bar { color: var(--text); padding: 20px 32px 0; max-width: 860px; margin: 0; border: none; }
+  .intro-bar-inner { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+  .intro-sources-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 11px; padding-bottom: 11px; border-bottom: 1px solid var(--border); }
+  .intro-sources-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-right: 2px; flex-shrink: 0; }
+  .source-chip { font-size: 12px; background: #e8f4f2; color: #2a7068; padding: 3px 10px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
+  .intro-method { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+  .intro-footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+  .intro-updated { font-size: 12px; color: var(--muted); }
+  .intro-suggest { font-size: 12.5px; color: var(--amber); text-decoration: none; font-weight: 500; }
+
 
   /* ââ BREADCRUMB ââ */
   .header-eyebrow {
@@ -342,14 +353,24 @@
 <aside class="page-sidebar" id="page-sidebar">
   <div class="sidebar-hd">On this page</div>
   <a class="sidebar-link active" href="#rare-disease">Rare Disease Support</a>
-  <a class="sidebar-link" href="#community">Community &amp; Links</a>
   <a class="sidebar-link" href="#genetics">SETD5 &amp; Genetics</a>
   <a class="sidebar-link" href="#benefits">US Benefits &amp; Education</a>
 </aside>
 <div class="page-main">
 
-  <div class="intro-box">
-    <strong>Note:</strong> Links were verified as of February 2026. US-specific links are marked with a <span style="display:inline-block;background:var(--amber-lt);color:var(--amber);font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:10px;vertical-align:middle;">US</span> tag.
+  <div class="intro-bar">
+    <div class="intro-bar-inner">
+      <div class="intro-sources-row">
+        <span class="intro-sources-label">Sections</span>
+        <span class="source-chip">Rare Disease Support</span>
+        <span class="source-chip">SETD5 &amp; Genetics</span>
+        <span class="source-chip">US Benefits &amp; Education</span>
+      </div>
+      <p class="intro-method">Links are selected for direct relevance to SETD5 Syndrome families. US-specific resources are marked with a <span style="display:inline-block;background:var(--amber-lt);color:var(--amber);font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:10px;vertical-align:middle;">US</span> tag. Community links and research registries are also listed on their own pages.</p>
+      <div class="intro-footer-row">
+        <span class="intro-updated">Last verified: April 2026 &nbsp;&middot;&nbsp; <a href="suggest-a-resource.html" class="intro-suggest">Suggest a link</a></span>
+      </div>
+    </div>
   </div>
 
   <h2 id="rare-disease" style="scroll-margin-top:70px;">Rare Disease Support</h2>
@@ -373,6 +394,7 @@
         <div class="link-dot" style="background:var(--amber);"></div>
         <div class="link-content">
           <a href="https://simonssearchlight.org" target="_blank" rel="noopener" class="link-name">Simons Searchlight</a>
+          <p class="link-desc" style="margin-bottom:5px;">Also from Simons Searchlight: <a href="https://www.simonssearchlight.org/gene-guide/setd5/" target="_blank" rel="noopener">Free Genetic Counseling</a> for enrolled families &middot; <a href="https://www.simonssearchlight.org/2023/09/11/familyguide_2023/" target="_blank" rel="noopener">Family Navigation Guide (2023)</a></p>
           <p class="link-desc">Simons Searchlight studies genes that cause rare neurodevelopmental disorders, including SETD5 Syndrome. The program is international and families can participate in several languages. Free to join, and families who complete research activities may receive compensation â check their website for current details. For an overview of all research registries open to SETD5 Syndrome families, see the <a href="research-registries.html">Research Registries guide</a>.</p>
         </div>
       </li>
@@ -401,28 +423,7 @@
         <div class="link-dot" style="background:var(--amber);"></div>
         <div class="link-content">
           <a href="https://www.rarechromo.org" target="_blank" rel="noopener" class="link-name">Unique: Rare Chromosome &amp; Gene Disorder Support</a>
-          <p class="link-desc">A UK-based charity supporting families with rare chromosome and single gene disorders worldwide. Produces accessible condition guides and connects families.</p>
-        </div>
-      </li>
-      <li class="link-item">
-        <div class="link-dot" style="background:var(--amber);"></div>
-        <div class="link-content">
-          <a href="https://www.simonssearchlight.org/gene-guide/setd5/" target="_blank" rel="noopener" class="link-name">Simons Searchlight: Free Genetic Counseling</a>
-          <p class="link-desc">Simons Searchlight offers genetic counseling services to enrolled SETD5 families. Verify current offerings and eligibility on their website.</p>
-        </div>
-      </li>
-      <li class="link-item">
-        <div class="link-dot" style="background:var(--amber);"></div>
-        <div class="link-content">
-          <a href="https://www.simonssearchlight.org/2023/09/11/familyguide_2023/" target="_blank" rel="noopener" class="link-name">Simons Searchlight: Family Navigation Guide (2023)</a>
-          <p class="link-desc">A practical guide covering the logistical and emotional aspects of life after a rare genetic diagnosis, including medical care, school systems, and family support.</p>
-        </div>
-      </li>
-      <li class="link-item">
-        <div class="link-dot" style="background:var(--amber);"></div>
-        <div class="link-content">
-          <a href="https://rarechromo.org/media/information/Chromosome%20%203/SETD5%20QFN%202023.pdf" target="_blank" rel="noopener" class="link-name">Unique (RareChromo): SETD5 Family Booklet</a>
-          <p class="link-desc">A plain-language downloadable PDF guide to SETD5 Syndrome. Updated 2023. One of the earliest resources of its kind written specifically for families.</p>
+          <p class="link-desc">A UK-based charity supporting families with rare chromosome and single gene disorders worldwide. Produces accessible condition guides and connects families. Also available: <a href="https://rarechromo.org/media/information/Chromosome%20%203/SETD5%20QFN%202023.pdf" target="_blank" rel="noopener">SETD5 Family Booklet (PDF, 2023)</a> &mdash; a plain-language guide written specifically for SETD5 families.</p>
         </div>
       </li>
       <li class="link-item">
@@ -437,20 +438,6 @@
         <div class="link-content">
           <a href="https://www.rarediseaseday.org" target="_blank" rel="noopener" class="link-name">Rare Disease Awareness Day</a>
           <p class="link-desc">An annual awareness day held on the last day of February. Families, patients, and advocates around the world share their stories to raise awareness and drive change. A meaningful opportunity to participate and help put SETD5 Syndrome on the map.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <h2 id="community" style="scroll-margin-top:70px;">Community &amp; Links</h2>
-  <div class="section">
-    <ul class="link-list">
-      <li class="link-item">
-        <div class="link-dot" style="background:var(--deep);"></div>
-        <div class="link-content">
-          <a href="https://thearc.org" target="_blank" rel="noopener" class="link-name">The Arc</a>
-          <span class="link-tag">US</span>
-          <p class="link-desc">A major advocacy organization for people with intellectual and developmental disabilities with chapters across the United States. See their website to locate a chapter near you.</p>
         </div>
       </li>
     </ul>
@@ -493,6 +480,14 @@
   <h2 id="benefits" style="scroll-margin-top:70px;">US Benefits &amp; Special Education</h2>
   <div class="section">
     <ul class="link-list">
+      <li class="link-item">
+        <div class="link-dot" style="background:var(--deep);"></div>
+        <div class="link-content">
+          <a href="https://thearc.org" target="_blank" rel="noopener" class="link-name">The Arc</a>
+          <span class="link-tag">US</span>
+          <p class="link-desc">A major advocacy organization for people with intellectual and developmental disabilities with chapters across the United States. See their website to locate a chapter near you.</p>
+        </div>
+      </li>
       <li class="link-item">
         <div class="link-dot" style="background:var(--deep);"></div>
         <div class="link-content">
