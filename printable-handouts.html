@@ -13,29 +13,39 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Handout Builders & Downloads | SETD5 Syndrome">
 <meta name="twitter:description" content="Free one-page printable handouts for SETD5 Syndrome families: medical, school, and general.">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:       #F2F1EB;
-    --ink:      #404040;
+      /* ── Counsel Palette tokens (style guide) ── */
+      --indigo:       #1E3A4F;
+      --indigo-mid:   #456A7C;
+      --gold:         #9E7E42;
+      --gold-hover:   #C4A362;
+      --parchment:    #E8E6DF;
+      --parchment-d:  #D0CCC2;
+      --ink-muted:    #5A5850;
+      --font-heading: 'DM Sans', system-ui, sans-serif;
+      --font-body:    'Poppins', system-ui, sans-serif;
+    --bg:       #F5F4F1;
+    --ink:      #1C1B18;
     --navy:     #1E3A4F;
-    --linen:     #EDE9E0;
+    --linen:     #E8E6DF;
     --caramel:   #9E7E42;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
-    --sage-mid:  #456A7C;
+    --sage-mid:  #BAD4CE;
     --charcoal:  #1E3A4F;
     --deep:     #AEBFBE;
-    --teal:     #456A7C;
+    --teal:     #C2DED8;
     --amber:    #9E7E42;
     --amber-lt: #F5EDE0;
-    --sage:     #456A7C;
-    --sage-lt:  #EBF0F4;
-    --border:   #DDD7CC;
-    --muted:    #66707A;
+    --sage:     #C2DED8;
+    --sage-lt:  #E4F0EE;
+    --border:   #D0CCC2;
+    --muted:    #5A5850;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,7 +53,7 @@
   body{
     background: #F7F4EE;
     color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 17px;
     line-height: 1.7;
@@ -56,7 +66,7 @@
   .site-header {
     background: #162544;
     color: #fff;
-    position:sticky;top:0;z-index:920; clip-path:inset(0)}
+    position:sticky;top:0;z-index:920;overflow:hidden}
   .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
@@ -84,11 +94,11 @@
     text-decoration: none;
     transition: color 0.15s;
   }
-  .header-eyebrow a:hover { color: #9FBBC8; }
+  .header-eyebrow a:hover { color: #C2DED8; }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-eyebrow .sep { margin: 0 8px; opacity: 0.35; }
   .header-title{
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: clamp(36px, 5vw, 52px);
     line-height: 1.12;
@@ -115,7 +125,7 @@
   }
 
   /* Section label */
-  .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
   .section-label::after {
     content: '';
     flex: 1;
@@ -144,11 +154,11 @@
     font-weight: 700;
     letter-spacing: .08em;
     text-transform: uppercase;
-    color: #456A7C;
+    color: #2a7068;
     margin-bottom: 5px;
   }
   .handout-box-title {
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--navy);
@@ -165,9 +175,9 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #456A7C;
+    background: #5a9186;
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 13.5px;
     padding: 11px 22px;
@@ -178,7 +188,7 @@
     align-self: center;
     transition: background 0.15s;
   }
-  .handout-box-btn:hover { background: #2a4a60; }
+  .handout-box-btn:hover { background: #1f6055; }
 
   /* ── INTRO NOTE ── */
   .intro-note {
@@ -194,7 +204,7 @@
     background: #162544;
     text-align: center;
     padding: 2rem 1.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   .footer-love {
     font-size: 13px;
@@ -267,12 +277,11 @@ footer a { text-decoration: underline; }
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
   .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:flex-start;}
-  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family: 'Poppins', sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
   .nav-menu>a:hover{color:var(--navy);}
   @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
 </style>
 <link rel="canonical" href="https://setd5syndrome.live/printable-handouts.html">
-<script src="site-upgrade.js?v=120"></script>
 </head>
 <body>
 
@@ -317,7 +326,7 @@ footer a { text-decoration: underline; }
       <div class="handout-box-tag">One-Page Overview</div>
       <div class="handout-box-title">SETD5 Syndrome: At a Glance</div>
       <p class="handout-box-desc">A printable summary of what SETD5 Syndrome is, the features commonly reported, and quick facts about inheritance, prevalence, and resources. A good starting point for anyone new to the diagnosis. Bring to any appointment or share with family members.</p>
-      <p style="margin-top:10px; font-size:13px; color:var(--muted);">Need this in another language? <a href="setd5-at-a-glance.html" style="color:#456A7C; font-weight:600;">View the web version</a> to translate before printing.</p>
+      <p style="margin-top:10px; font-size:13px; color:var(--muted);">Need this in another language? <a href="setd5-at-a-glance.html" style="color:#2a7068; font-weight:600;">View the web version</a> to translate before printing.</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:8px; align-self:center; flex-shrink:0;">
       <a href="setd5-at-a-glance.html" class="handout-box-btn" style="background:var(--teal);">&#127760; Web Version</a>
@@ -329,22 +338,22 @@ footer a { text-decoration: underline; }
 
   <div style="background:#162544; border-radius:10px; padding:22px 24px; margin-bottom:20px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
     <div style="flex:1; min-width:220px;">
-      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9FBBC8; margin-bottom:6px;">Medical Appointment Handout Builder</div>
-      <div style="font-family:'Lora',serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for medical visits</div>
+      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#2a7068; margin-bottom:6px;">Medical Appointment Handout Builder</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for medical visits</div>
       <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin:0; line-height:1.65;">Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout to bring to any medical appointment, whether primary care, specialist, or otherwise.</p>
     </div>
-    <a href="medical-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#C6A27E; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
+    <a href="medical-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#C6A27E; color:#fff; font-family: 'Poppins', sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
   </div>
 
   <div class="section-label">School &amp; IEP Meetings</div>
 
   <div style="background:#162544; border-radius:10px; padding:22px 24px; margin-bottom:20px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
     <div style="flex:1; min-width:220px;">
-      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9FBBC8; margin-bottom:6px;">School Meeting Handout Builder</div>
-      <div style="font-family:'Lora',serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for educational meetings</div>
+      <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#2a7068; margin-bottom:6px;">School Meeting Handout Builder</div>
+      <div style="font-family: 'DM Sans', sans-serif; font-size:1.1rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for educational meetings</div>
       <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin:0; line-height:1.65;">Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout for IEP meetings, evaluations, or introducing your child to a new teacher at the start of the year.</p>
     </div>
-    <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#C6A27E; color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
+    <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#C6A27E; color:#fff; font-family: 'Poppins', sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
   </div>
 
   <div style="background:#e8f4f2; border-left:4px solid var(--teal); border-radius:0 8px 8px 0; padding:16px 20px; margin-top:36px;">
@@ -406,5 +415,6 @@ window.scrollTo(0, 0);
   window.addEventListener('resize', syncNavTop);
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 </html>

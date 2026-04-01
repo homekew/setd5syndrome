@@ -15,30 +15,40 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Build Your Medical Appointment Handout | SETD5 Syndrome">
 <meta name="twitter:description" content="Create a customized one-page medical appointment handout for your child with SETD5 Syndrome.">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:       #F2F1EB;
-  --ink:      #404040;
+      /* ── Counsel Palette tokens (style guide) ── */
+      --indigo:       #1E3A4F;
+      --indigo-mid:   #456A7C;
+      --gold:         #9E7E42;
+      --gold-hover:   #C4A362;
+      --parchment:    #E8E6DF;
+      --parchment-d:  #D0CCC2;
+      --ink-muted:    #5A5850;
+      --font-heading: 'DM Sans', system-ui, sans-serif;
+      --font-body:    'Poppins', system-ui, sans-serif;
+  --bg:       #F5F4F1;
+  --ink:      #1C1B18;
   --navy:     #1E3A4F;
-    --linen:     #EDE9E0;
+    --linen:     #E8E6DF;
     --caramel:   #9E7E42;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
-    --sage-mid:  #456A7C;
+    --sage-mid:  #BAD4CE;
     --charcoal:  #1E3A4F;
   --deep:     #AEBFBE;
-  --teal:     #456A7C;
-  --teal-lt:  #EBF0F4;
+  --teal:     #C2DED8;
+  --teal-lt:  #eaf5f3;
   --amber:    #9E7E42;
   --amber-lt: #F5EDE0;
-  --sage:     #456A7C;
-  --sage-lt:  #EBF0F4;
-  --border:   #DDD7CC;
-  --muted:    #66707A;
+  --sage:     #C2DED8;
+  --sage-lt:  #E4F0EE;
+  --border:   #D0CCC2;
+  --muted:    #5A5850;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -46,7 +56,7 @@
 body{
   background: #F7F4EE;
   color: var(--ink);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 17px;
   line-height: 1.7;
   min-height: 100vh;
@@ -74,11 +84,11 @@ body{
   text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
 }
 .form-title {
-  font-family: 'Lora', serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 600; color: var(--navy); line-height: 1.15; margin-bottom: 12px;
 }
-.form-title em { color: #456A7C; font-style: italic; }
+.form-title em { color: #2a7068; font-style: italic; }
 .form-subtitle { font-size: 15.5px; color: var(--muted); max-width: 580px; line-height: 1.65; }
 
 /* ── CHECKBOX TOGGLE ── */
@@ -123,7 +133,7 @@ body{
 .field-section input[type="text"] {
   max-width: 320px; width: 100%;
   border: 1.5px solid var(--border); border-radius: 7px;
-  padding: 10px 14px; font-family: 'Inter', sans-serif; font-size: 15px;
+  padding: 10px 14px; font-family: 'Poppins', sans-serif; font-size: 15px;
   color: var(--ink); background: var(--bg); outline: none; transition: border-color .15s;
 }
 .field-section input[type="text"]:focus { border-color: var(--teal); }
@@ -171,11 +181,11 @@ body{
 .generate-btn {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--teal); color: #fff;
-  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+  font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600;
   padding: 14px 32px; border-radius: 8px; border: none;
   cursor: pointer; transition: background .15s, transform .15s;
 }
-.generate-btn:hover { background: #2a4a60; transform: translateY(-1px); }
+.generate-btn:hover { background: #1f6055; transform: translateY(-1px); }
 .error-msg { display: none; color: #b91c1c; font-size: 14px; margin-top: 10px; }
 
 /* ══════════════════════════════════
@@ -193,17 +203,17 @@ body{
 .back-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: none; border: 1.5px solid var(--border); border-radius: 7px;
-  padding: 9px 18px; font-family: 'Inter', sans-serif; font-size: 14px;
+  padding: 9px 18px; font-family: 'Poppins', sans-serif; font-size: 14px;
   font-weight: 500; color: var(--muted); cursor: pointer; transition: border-color .15s, color .15s;
 }
 .back-btn:hover { border-color: var(--navy); color: var(--navy); }
 .print-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--teal); color: #fff; border: none; border-radius: 7px;
-  padding: 10px 22px; font-family: 'Inter', sans-serif; font-size: 14px;
+  padding: 10px 22px; font-family: 'Poppins', sans-serif; font-size: 14px;
   font-weight: 600; cursor: pointer; transition: background .15s;
 }
-.print-btn:hover { background: #2a4a60; }
+.print-btn:hover { background: #1f6055; }
 .handout-hint { font-size: 13px; color: var(--muted); }
 
 /* ── HANDOUT PAPER ── */
@@ -217,9 +227,9 @@ body{
   display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.h-tag { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9FBBC8; margin-bottom: 6px; }
-.h-title { font-family: 'Lora', serif; font-size: 1.55rem; font-weight: 600; color: #fff; line-height: 1.15; }
-.h-title em { font-style: italic; color: #9FBBC8; }
+.h-tag { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #2a7068; margin-bottom: 6px; }
+.h-title { font-family: 'DM Sans', sans-serif; font-size: 1.55rem; font-weight: 600; color: #fff; line-height: 1.15; }
+.h-title em { font-style: italic; color: #2a7068; }
 .h-child-name { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.75); margin-top: 6px; }
 .h-amber-line { display: none; }
 
@@ -241,7 +251,7 @@ body{
   font-size: 12px; line-height: 1.6;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.h-what-is strong { color: #9FBBC8; }
+.h-what-is strong { color: #2a7068; }
 .h-what-is em { font-style: italic; }
 
 .h-body{ padding: 18px 28px 22px; }
@@ -254,7 +264,7 @@ body{
   padding-bottom: 4px; border-bottom: 1px solid var(--border);
 }
 .h-section-title {
-  font-family: 'Lora', serif; font-size: .92rem; font-weight: 600;
+  font-family: 'DM Sans', sans-serif; font-size: .92rem; font-weight: 600;
   color: var(--navy); margin-bottom: 8px; margin-top: 4px;
 }
 .h-feature-list { list-style: none; margin: 0; padding: 0; }
@@ -343,10 +353,10 @@ body{
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
   .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:flex-start;}
-  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family: 'Poppins', sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
   .nav-menu>a:hover{color:var(--navy);}
   .nav-item{position:relative;display:flex;align-items:stretch;}
-  .nav-parent{display:flex;align-items:center;gap:0.22rem;padding:0.65rem 0.85rem;font-size:0.86rem;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-parent{display:flex;align-items:center;gap:0.22rem;padding:0.65rem 0.85rem;font-size:0.86rem;font-family: 'Poppins', sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
   .nav-parent:hover,.nav-item.open>.nav-parent{color:var(--teal);}
   .nav-caret{transition:transform 0.2s;flex-shrink:0;}
   .nav-item:hover>.nav-parent .nav-caret,.nav-item.open>.nav-parent .nav-caret{transform:rotate(180deg);}
@@ -372,7 +382,6 @@ body{
     .nav-group-hd{margin-top:0.5rem;margin-bottom:0.2rem;}
   }
 </style>
-<script src="site-upgrade.js?v=120"></script>
 </head>
 <body>
 
@@ -613,7 +622,7 @@ body{
             placeholder="e.g. Hypothyroidism, urinary tract anomaly…"
             style="display:none; margin-top:7px; width:100%; max-width:380px;
               border:1.5px solid var(--border); border-radius:6px;
-              padding:8px 12px; font-family:'Inter',sans-serif; font-size:14px;
+              padding:8px 12px; font-family: 'Poppins', sans-serif; font-size:14px;
               color:var(--ink); background:var(--bg); outline:none;
               transition:border-color .15s;"
             onfocus="this.style.borderColor='var(--teal)'"
@@ -630,7 +639,7 @@ body{
   <div class="field-section">
     <label for="parent-note">Notes for this visit <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;">(optional)</span></label>
     <p class="field-hint">Recent changes, specific concerns, or anything you want the provider to know. Appears at the bottom of the handout.</p>
-    <textarea id="parent-note" style="width:100%;border:1.5px solid var(--border);border-radius:7px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:var(--bg);resize:vertical;min-height:80px;outline:none;transition:border-color .15s;" placeholder="e.g. Maya recently started a new medication. We want to discuss whether her sleep difficulties may be a side effect."></textarea>
+    <textarea id="parent-note" style="width:100%;border:1.5px solid var(--border);border-radius:7px;padding:10px 14px;font-family: 'Poppins', sans-serif;font-size:15px;color:var(--ink);background:var(--bg);resize:vertical;min-height:80px;outline:none;transition:border-color .15s;" placeholder="e.g. Maya recently started a new medication. We want to discuss whether her sleep difficulties may be a side effect."></textarea>
   </div>
 
   <button class="generate-btn" onclick="generateHandout()">
@@ -856,5 +865,6 @@ function goBack() {
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-item')){document.querySelectorAll('.nav-item.open').forEach(function(i){i.classList.remove('open');});}});
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 </html>
