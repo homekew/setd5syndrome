@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-      /* ── Counsel Palette tokens (style guide) ── */
+      /* ââ Counsel Palette tokens (style guide) ââ */
       --indigo:       #1E3A4F;
       --indigo-mid:   #456A7C;
       --gold:         #9E7E42;
@@ -66,10 +66,10 @@ body{
   flex-direction: column;
 }
 
-/* ── GOOGLE TRANSLATE ── */
+/* ââ GOOGLE TRANSLATE ââ */
 
 
-/* ── SITE HEADER ── */
+/* ââ SITE HEADER ââ */
 .site-header {
   background: #162544;
   color: #fff;
@@ -120,7 +120,7 @@ body{
 .site-header.collapsed .header-subtitle{ opacity: 0; max-height: 0; margin: 0; }
 .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
 
-/* ── MAIN ── */
+/* ââ MAIN ââ */
 main {
   flex: 1;
   max-width: 860px;
@@ -137,7 +137,7 @@ main {
   max-width: 680px;
 }
 
-/* ── PRINT BUTTON ── */
+/* ââ PRINT BUTTON ââ */
 .print-bar {
   display: flex;
   align-items: center;
@@ -167,7 +167,7 @@ main {
   color: var(--muted);
 }
 
-/* ── HANDOUT PAPER ── */
+/* ââ HANDOUT PAPER ââ */
 .handout-paper {
   background: #fff;
   border: 1px solid var(--border);
@@ -387,8 +387,8 @@ main {
   white-space: nowrap;
 }
 
-/* ── SITE FOOTER ── */
-  /* ── FOOTER ── */
+/* ââ SITE FOOTER ââ */
+  /* ââ FOOTER ââ */
   footer {
     background: #162544;
     text-align: center;
@@ -421,7 +421,7 @@ main {
     margin: 0 auto;
     line-height: 1.55;
   }
-/* ── RESPONSIVE ── */
+/* ââ RESPONSIVE ââ */
 @media (max-width: 640px) {
   .header-inner { padding: 24px 20px 20px;position:relative;z-index:2}
   main { padding: 2rem 1.25rem 4rem; }
@@ -434,7 +434,7 @@ main {
   .h-feature-grid { grid-template-columns: 1fr; }
 }
 
-/* ── PRINT ── */
+/* ââ PRINT ââ */
 @media print {
   body{ background: #F7F4EE; font-size: 17px; }
   .site-header, .site-footer, .print-bar, .intro-note, .translate-widget { display: none !important; }
@@ -449,7 +449,7 @@ main {
 }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -467,14 +467,14 @@ main {
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -495,7 +495,7 @@ main {
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
-  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-sep">âº</span>
   <a href="family-toolkit.html">Family Toolkit</a>
 </nav>
     <h1 class="header-title">SETD5 Syndrome: <em>At a Glance</em></h1>
@@ -731,5 +731,6 @@ main {
   window.addEventListener('resize', syncNavTop);
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 </html>
