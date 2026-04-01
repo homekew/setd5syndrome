@@ -54,9 +54,9 @@
       --navy:      #1E3A4F;   /* was #162544 dark navy  → midnight indigo  */
       --charcoal:  #1E3A4F;   /* alias used on some pages                  */
       --teal:      #456A7C;   /* was #C2DED8 pale teal  → steel indigo     */
-      --teal-lt:   #C5CDD6;   /* light teal bg          → steel tint       */
+      --teal-lt:   #C8D4DA;   /* light teal bg          → steel tint       */
       --sage:      #456A7C;   /* sage accent            → steel indigo     */
-      --sage-lt:   #C5CDD6;   /* sage light bg          → steel tint       */
+      --sage-lt:   #C8D4DA;   /* sage light bg          → steel tint       */
       --sage-mid:  #456A7C;   /* sage mid border        → steel indigo     */
       --amber:     #9E7E42;   /* warm amber             → antique gold     */
       /* v114 additions: unify remaining old-palette variables */
@@ -1123,7 +1123,7 @@
     ═══════════════════════════════════════════════════════════════ */
     /* Type badges */
     .card-badge                        { color: #456A7C !important; }
-    .peer-reviewed .card-badge         { background: #C5CDD6 !important; }
+    .peer-reviewed .card-badge         { background: #C8D4DA !important; }
     .dissertation .card-badge          { background: #E8E6DF !important; }
 
     /* Citation links */
@@ -1432,7 +1432,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
-      background: #C5CDD6 !important;
+      background: #C8D4DA !important;
       color: #456A7C !important;
       border: 1px solid #456A7C !important;
       border-radius: 4px !important;
@@ -2195,15 +2195,7 @@
   const introBar  = document.querySelector('.intro-bar');
   const introBody = introBar ? introBar.querySelector('.intro-body') : null;
   if (introBar && introBody) {
-    // 1. Personal headline above the body copy (skip if already in source HTML)
-    if (!introBar.querySelector('.su-intro-headline')) {
-      const headline = document.createElement('p');
-      headline.className = 'su-intro-headline';
-      headline.innerHTML = 'Built by a parent, <em>for families like ours.</em>';
-      introBar.insertBefore(headline, introBody);
-    }
-
-    // 2. Trim the body copy to a tighter supporting line
+    // 1. Trim the body copy to a tighter supporting line
     introBody.textContent = 'A helpful companion for families navigating a SETD5 Syndrome diagnosis.';
 
     // 3. Three trust-signal badges injected after the body copy
