@@ -21,7 +21,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-      /* ── Counsel Palette tokens (style guide) ── */
+      /* ââ Counsel Palette tokens (style guide) ââ */
       --indigo:       #1E3A4F;
       --indigo-mid:   #456A7C;
       --gold:         #9E7E42;
@@ -71,7 +71,7 @@
     flex-direction: column;
   }
 
-  /* ── HEADER ── */
+  /* ââ HEADER ââ */
   .site-header {
     background: #162544;
     color: #fff;
@@ -106,7 +106,7 @@
     font-family: 'Poppins', sans-serif;
   }
 
-  /* ── HEADER COLLAPSE ── */
+  /* ââ HEADER COLLAPSE ââ */
   .header-eyebrow { max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle { max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-meta { max-height: 80px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title { transition: font-size 0.175s ease, margin 0.175s ease; }
@@ -147,20 +147,20 @@
   .header-title em { color: #a8cfc8; font-style: italic; }
   .header-subtitle { font-size: 17.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
 
-  /* ── MAIN WRAPPER ── */
+  /* ââ MAIN WRAPPER ââ */
   main {
     flex: 1;
     width: 100%;
   }
 
-  /* ── INNER CONTENT WIDTH ── */
+  /* ââ INNER CONTENT WIDTH ââ */
   .content-inner {
     max-width: 860px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
-  /* ── PAGE LAYOUT: sidebar + content ── */
+  /* ââ PAGE LAYOUT: sidebar + content ââ */
   .page-layout { display: flex; align-items: flex-start; }
   .page-sidebar {
     width: 200px; flex-shrink: 0;
@@ -212,7 +212,7 @@
     margin-bottom: 2rem;
   }
 
-  /* ── SECTION WRAPPERS (alternating backgrounds) ── */
+  /* ââ SECTION WRAPPERS (alternating backgrounds) ââ */
   .section-wrap {
     padding: 56px 0 48px;
     border-bottom: 1px solid var(--border);
@@ -233,19 +233,19 @@
     border-bottom: none;
   }
 
-  /* ── SECTION TAG (small label above h2) ── */
+  /* ââ SECTION TAG (small label above h2) ââ */
   .section-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
 
   .section-tag.on-dark { color: var(--teal-soft); }
 
-  /* ── HEADINGS ── */
+  /* ââ HEADINGS ââ */
   h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(21px, 3.5vw, 29px); font-weight: 600; line-height: 1.25; color: var(--navy); margin-bottom: 0.75rem; }
 
   h2.on-dark { color: #fff; }
 
   h3 { font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 600; color: var(--navy); margin: 28px 0 10px; line-height: 1.3; }
 
-  /* ── SECTION DIVIDER ── */
+  /* ââ SECTION DIVIDER ââ */
   .section-divider {
     display: flex;
     align-items: center;
@@ -286,7 +286,7 @@
   a { color: #2a7068; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* ── KATE STORY SECTION ── */
+  /* ââ KATE STORY SECTION ââ */
   .kate-quote {
     font-family: 'DM Sans', sans-serif;
     font-size: 19px;
@@ -308,7 +308,7 @@
     margin-bottom: 20px;
   }
 
-  /* ── PHOTO ── */
+  /* ââ PHOTO ââ */
   .about-photo-wrap {
     display: flex;
     justify-content: center;
@@ -331,7 +331,7 @@
     margin-top: 10px;
   }
 
-  /* ── PROVIDES LIST ── */
+  /* ââ PROVIDES LIST ââ */
   .about-list {
     list-style: none;
     padding: 0;
@@ -365,7 +365,7 @@
   }
 
   .about-list li::after {
-    content: '✓';
+    content: 'â';
     position: absolute;
     left: 16px;
     top: 50%;
@@ -378,7 +378,7 @@
     text-align: center;
   }
 
-  /* ── WHAT THIS SITE IS NOT — callout ── */
+  /* ââ WHAT THIS SITE IS NOT â callout ââ */
   .not-callout {
     background: var(--amber-lt);
     border: 1px solid #e6c08a;
@@ -406,7 +406,7 @@
     margin-bottom: 0;
   }
 
-  /* ── CONTACT SECTION ── */
+  /* ââ CONTACT SECTION ââ */
   .contact-cta {
     display: inline-block;
     margin-top: 12px;
@@ -423,7 +423,7 @@
 
   .contact-cta:hover { background: #236358; text-decoration: none; }
 
-  /* ── CLOSING CTA SECTION ── */
+  /* ââ CLOSING CTA SECTION ââ */
   .closing-cta-section {
     background: var(--navy);
     padding: 52px 0;
@@ -465,7 +465,7 @@
 
   .cta-link-btn.primary:hover { background: #236358; }
 
-  /* ── FAQ SECTION ── */
+  /* ââ FAQ SECTION ââ */
   .faq-section {
     padding: 56px 0 48px;
     border-bottom: 1px solid var(--border);
@@ -552,7 +552,7 @@
 
   .faq-answer-inner p + p { margin-top: 12px; }
 
-  /* ── FOOTER ── */
+  /* ââ FOOTER ââ */
   footer {
     background: #162544;
     text-align: center;
@@ -585,7 +585,7 @@
     margin: 0 auto;
     line-height: 1.55;
   }
-/* ── GOOGLE TRANSLATE (footer) ── */
+/* ââ GOOGLE TRANSLATE (footer) ââ */
 
   @media (max-width: 600px) {
     .header-inner { padding: 24px 20px 20px;position:relative;z-index:2}
@@ -611,7 +611,7 @@
   .header-eyebrow a { text-decoration: none !important; }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -629,14 +629,14 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -692,7 +692,7 @@
     <p class="page-intro">A diagnosis like SETD5 Syndrome arrives with a lot of questions. Even with a great care team, it can take time to find resources written for families rather than specialists. I built this site as a parent who has sat in that waiting room and pieced things together slowly over time. Everything here is what I've gathered for my own family, offered freely to yours. Below you'll find the full story, what the site includes, and a few important things to keep in mind as you use it.</p>
   </div>
 
-  <!-- ── WHY THIS SITE EXISTS (Kate story — dark, elevated) ── -->
+  <!-- ââ WHY THIS SITE EXISTS (Kate story â dark, elevated) ââ -->
   <div class="section-wrap bg-story" id="why-this-site">
     <div class="content-inner">
       <span class="section-tag on-dark">Our Story</span>
@@ -702,7 +702,7 @@
       <blockquote class="kate-quote">I found myself searching on my own, reading research papers written in technical language, piecing together information from genetics journals and parent forums.</blockquote>
       <p class="on-dark">So I built this site to gather everything I wished I'd had, all in one place. The information is out there, but it's scattered. I wanted to bring it together somewhere accessible.</p>
       <p class="on-dark">Above all, this site is for families like ours. I hope it helps.</p>
-      <p class="closing-note">— Kate</p>
+      <p class="closing-note">â Kate</p>
       <div class="about-photo-wrap">
         <div>
           <img src="IMG_9273.jpg" alt="The beginning of our journey" class="about-photo">
@@ -711,7 +711,7 @@
     </div>
   </div>
 
-  <!-- ── WHAT YOU'LL FIND HERE (alt background) ── -->
+  <!-- ââ WHAT YOU'LL FIND HERE (alt background) ââ -->
   <div class="section-wrap bg-alt" id="what-you-find">
     <div class="content-inner">
       <span class="section-tag">What's Here</span>
@@ -729,7 +729,7 @@
     </div>
   </div>
 
-  <!-- ── WHAT THIS SITE IS NOT (callout style) ── -->
+  <!-- ââ WHAT THIS SITE IS NOT (callout style) ââ -->
   <div class="section-wrap" id="what-this-is-not">
     <div class="content-inner">
       <span class="section-tag">Important to Know</span>
@@ -739,7 +739,7 @@
     </div>
   </div>
 
-  <!-- ── HOW INFORMATION IS COLLECTED (alt background) ── -->
+  <!-- ââ HOW INFORMATION IS COLLECTED (alt background) ââ -->
   <div class="section-wrap bg-alt" id="how-information">
     <div class="content-inner">
       <span class="section-tag">Our Sources</span>
@@ -750,7 +750,7 @@
     </div>
   </div>
 
-  <!-- ── CONTACT ── -->
+  <!-- ââ CONTACT ââ -->
   <div class="section-wrap bg-contact" id="contact">
     <div class="content-inner">
       <span class="section-tag">Get in Touch</span>
@@ -872,5 +872,6 @@ function toggleFaq(id) {
   updateActiveSidebar();
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 </html>
