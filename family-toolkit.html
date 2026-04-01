@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-      /* ── Counsel Palette tokens (style guide) ── */
+      /* ââ Counsel Palette tokens (style guide) ââ */
       --indigo:       #1E3A4F;
       --indigo-mid:   #456A7C;
       --gold:         #9E7E42;
@@ -64,12 +64,12 @@
     flex-direction: column;
   }
 
-  /* ── HEADER ── */
+  /* ââ HEADER ââ */
   .site-header {
     background: #162544;
     color: #fff;
     position:sticky;top:0;z-index:920;overflow:hidden}
-  /* ── HEADER COLLAPSE ── */
+  /* ââ HEADER COLLAPSE ââ */
   .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
@@ -118,13 +118,13 @@
     font-style: normal;
   }
 
-  /* ── MAIN ── */
+  /* ââ MAIN ââ */
   main {
     flex: 1;
     width: 100%;
   }
 
-  /* ── CONTENT BANDS ── */
+  /* ââ CONTENT BANDS ââ */
   .content-band {
     padding: 3rem 2rem;
   }
@@ -142,7 +142,7 @@
     margin: 0;
   }
 
-  /* ── FEATURED CARD ── */
+  /* ââ FEATURED CARD ââ */
   .card.card-featured {
     background: linear-gradient(135deg, #f0faf8 0%, #E8EFEE 100%);
     border-color: var(--teal);
@@ -167,7 +167,7 @@
     margin-bottom: 0.75rem;
   }
 
-  /* ── CTA BANNER ── */
+  /* ââ CTA BANNER ââ */
   .cta-banner {
     background: linear-gradient(135deg, #eef7f5 0%, #e8f4f6 100%);
     border: 1.5px solid var(--teal);
@@ -212,7 +212,7 @@
     background: var(--border);
   }
 
-  /* ── CARDS ── */
+  /* ââ CARDS ââ */
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -286,7 +286,7 @@
     gap: 0.4rem;
   }
   .card-link::after {
-    content: '→';
+    content: 'â';
     transition: transform 0.2s;
   }
   .card:not(.card-coming-soon):hover .card-link::after {
@@ -344,7 +344,7 @@
     --card-icon-bg: var(--amber-lt);
   }
 
-  /* ── SECTION NAV ── */
+  /* ââ SECTION NAV ââ */
   .section-nav {
     background: transparent;
     border-top: 1px solid rgba(255,255,255,0.13); border-bottom: none;
@@ -365,7 +365,7 @@
   .section-nav-inner::-webkit-scrollbar { display: none; }
   .section-nav.is-slim .section-nav-btn{ padding: 6px 22px; min-height: 32px; }
 
-  /* ── HELPFUL LINKS SECTION ── */
+  /* ââ HELPFUL LINKS SECTION ââ */
   .links-section {
     scroll-margin-top: 2rem;
   }
@@ -441,7 +441,7 @@
     vertical-align: middle;
   }
 
-    /* ── FOOTER ── */
+    /* ââ FOOTER ââ */
   footer {
     background: #162544;
     text-align: center;
@@ -474,7 +474,7 @@
     margin: 0 auto;
     line-height: 1.55;
   }
-/* ── GOOGLE TRANSLATE WIDGET ── */
+/* ââ GOOGLE TRANSLATE WIDGET ââ */
 
 
   /* Ensure all body links are underlined */
@@ -482,7 +482,7 @@
   footer a { text-decoration: underline; }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -500,14 +500,14 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -536,7 +536,7 @@
   .section-nav-btn:hover { color: #fff; text-decoration: none; background: none; }
   .section-nav-btn.active { color: #fff; font-weight: 500; border-bottom-color: var(--amber); }
 
-  /* ── PAGE LAYOUT: sidebar + content ── */
+  /* ââ PAGE LAYOUT: sidebar + content ââ */
   .page-layout { display: flex; align-items: flex-start; }
   .page-sidebar {
     width: 200px; flex-shrink: 0;
@@ -587,7 +587,7 @@
   <a href="index.html">Home</a>
 </nav>
     <h1 class="header-title">Family <em>Toolkit</em></h1>
-    <p class="header-subtitle">Practical tools, guides, and links for families navigating life with SETD5 Syndrome.</p>
+    <p class="header-subtitle">Practical tools, guides, and links for families navigating life with SETD5Â Syndrome.</p>
   </div>
 </header>
 <nav class="site-nav" aria-label="Main navigation">
@@ -746,7 +746,7 @@
 
   <div class="cta-banner">
     <p>Have an idea for something that would help families?<br>We'd love to hear it.</p>
-    <a href="suggest-a-resource.html" class="cta-banner-btn">Suggest a Resource →</a>
+    <a href="suggest-a-resource.html" class="cta-banner-btn">Suggest a Resource â</a>
   </div>
 
   </div>
@@ -880,6 +880,7 @@ window.scrollTo(0, 0);
   }
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 
 </html>
