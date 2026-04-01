@@ -59,12 +59,12 @@
   h2 { font-family: 'Lora', serif; font-size: clamp(21px, 3.5vw, 29px); font-weight: 600; line-height: 1.25; color: var(--navy); margin-bottom: 0.75rem; }
 
 
-  /* ── HEADER ── */
+  /* ââ HEADER ââ */
   .site-header {
     background: #162544;
     color: #fff;
     position:sticky;top:0;z-index:920;overflow:hidden}
-  /* ── HEADER COLLAPSE ── */
+  /* ââ HEADER COLLAPSE ââ */
   .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-title{ transition: font-size 0.175s ease, margin 0.175s ease; }
@@ -113,7 +113,7 @@
     font-style: normal;
   }
 
-  /* ── MAIN ── */
+  /* ââ MAIN ââ */
   main {
     flex: 1;
     max-width: 860px;
@@ -122,7 +122,7 @@
     width: 100%;
   }
 
-  /* ── SECTION LABEL ── */
+  /* ââ SECTION LABEL ââ */
   .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
   .section-label::after {
     content: '';
@@ -131,7 +131,7 @@
     background: var(--border);
   }
 
-  /* ── INTRO CALLOUT ── */
+  /* ââ INTRO CALLOUT ââ */
   .intro-callout {
     background: #e8f4f2;
     border-left: 4px solid var(--teal);
@@ -146,7 +146,7 @@
     margin: 0;
   }
 
-  /* ── SECTION TITLE ── */
+  /* ââ SECTION TITLE ââ */
   .section-title{
     font-family: 'Lora', serif;
     font-weight: 600;
@@ -158,7 +158,7 @@
     line-height: 1.25;
   }
 
-  /* ── FEATURE GRID ── */
+  /* ââ FEATURE GRID ââ */
   .feature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -202,7 +202,7 @@
   }
 
   .feature-card ul li::before {
-    content: '·';
+    content: 'Â·';
     position: absolute;
     left: 0;
     font-size: 18px;
@@ -216,7 +216,7 @@
   .feature-card.sage-top ul li::before { color: #2a7068; }
   .feature-card.blue-top ul li::before { color: var(--blue); }
 
-  /* ── PROSE ── */
+  /* ââ PROSE ââ */
   .prose{
     font-size: 16px;
     line-height: 1.75;
@@ -228,7 +228,7 @@
 
   .prose strong { font-weight: 600; }
 
-  /* ── CALLOUTS ── */
+  /* ââ CALLOUTS ââ */
   .teal-callout {
     background: #e8f4f2;
     border-left: 4px solid var(--teal);
@@ -279,7 +279,7 @@
     margin: 0;
   }
 
-  /* ── RESOURCE LIST ── */
+  /* ââ RESOURCE LIST ââ */
   .resource-list {
     list-style: none;
     padding: 0;
@@ -341,7 +341,7 @@
     margin: 0;
   }
 
-  /* ── TIPS LIST ── */
+  /* ââ TIPS LIST ââ */
   .tips-list {
     list-style: none;
     padding: 0;
@@ -363,7 +363,7 @@
   }
 
   .tips-list li::before {
-    content: '✓';
+    content: 'â';
     position: absolute;
     left: 12px;
     top: 10px;
@@ -379,14 +379,14 @@
     font-size: 14px;
   }
 
-  /* ── SECTION DIVIDER ── */
+  /* ââ SECTION DIVIDER ââ */
   .section-divider {
     border: none;
     border-top: 2px solid var(--border);
     margin: 3.5rem 0 3rem;
   }
 
-    /* ── FOOTER ── */
+    /* ââ FOOTER ââ */
   footer {
     background: #162544;
     text-align: center;
@@ -419,7 +419,7 @@
     margin: 0 auto;
     line-height: 1.55;
   }
-/* ── BACK BUTTON ── */
+/* ââ BACK BUTTON ââ */
   .back-link {
     display: inline-block;
     background: #fff;
@@ -444,14 +444,14 @@
     .section-title{ font-size: 1.5rem; }
   }
 
-  /* ── GOOGLE TRANSLATE WIDGET ── */
+  /* ââ GOOGLE TRANSLATE WIDGET ââ */
 
   /* Ensure all body links are underlined */
   main a, .page-body a { text-decoration: underline; }
   footer a { text-decoration: underline; }
 
 
-  /* ── BREADCRUMB ── */
+  /* ââ BREADCRUMB ââ */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -469,14 +469,14 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
+  /* ââ DNA helix: mobile adjustments ââ */
   @media (max-width: 600px) {
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
 
 
-  /* ── Site navigation ─────────────────────────────────── */
+  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -497,7 +497,7 @@
   <div class="header-inner">
     <nav class="header-eyebrow" aria-label="Breadcrumb">
   <a href="index.html">Home</a>
-  <span class="breadcrumb-sep">›</span>
+  <span class="breadcrumb-sep">âº</span>
   <a href="family-toolkit.html">Family Toolkit</a>
 </nav>
     <h1 class="header-title">Medical Emergency <em>Summary</em></h1>
@@ -677,7 +677,7 @@
   <hr class="section-divider">
 
   <p style="text-align: center; margin-top: 2.5rem;">
-    <a href="family-toolkit.html" class="back-link">← Back to Family Toolkit</a>
+    <a href="family-toolkit.html" class="back-link">â Back to Family Toolkit</a>
   </p>
 
 </main>
@@ -749,6 +749,7 @@ window.scrollTo(0, 0);
   window.addEventListener('resize', syncNavTop);
 })();
 </script>
+<script src="site-upgrade.js"></script>
 </body>
 
 </html>
