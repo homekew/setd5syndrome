@@ -2161,8 +2161,8 @@
     const helixSvg = siteHeader.querySelector('svg');
     if (helixSvg) {
       helixSvg.innerHTML = helixSvg.innerHTML
-        .replace(/rgba\(194,222,216,/g, 'rgba(69,106,124,')
-        .replace(/#EFEEEA/gi, '#DDD8D1');
+        .replace(/rgba\(194,222,216,/g, 'rgba(180,215,228,')
+        .replace(/#EFEEEA/gi, '#62929E');
       // Scale up and nudge left; transform-origin anchors from the right
       // so it grows inward (leftward) without clipping the right edge
       helixSvg.style.transformOrigin = 'right center';
