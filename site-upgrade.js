@@ -6,7 +6,7 @@
  *
  *   Design tokens (Realtime Colors):
  *   ┌────────────────────────────────────────────────────┐
- *   │ Warm Tan         #9e9170   nav, headings, btns     │
+ *   │ Warm Tan         #565246   nav, headings, btns     │
  *   │ Charcoal         #090806   body text, headings      │
  *   │ Sage             #a7c4ba   secondary accent         │
  *   │ Purple-Grey      #8ea7b3   tertiary accent          │
@@ -51,7 +51,7 @@
        the new palette without needing individual element overrides.
     ═══════════════════════════════════════════════════════════════ */
     :root {
-      --navy:      #9e9170;   /* warm tan — nav, buttons                   */
+      --navy:      #565246;   /* warm tan — nav, buttons                   */
       --charcoal:  #090806;   /* charcoal — headings, body text            */
       --teal:      #a7c4ba;   /* sage — secondary accent                   */
       --teal-lt:   #e8e6e0;   /* warm light — light backgrounds            */
@@ -147,7 +147,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: clamp(2rem, 4vw, 2.75rem) !important;
       font-weight: 700 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
       margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
@@ -188,9 +188,9 @@
       display: inline-flex;
       align-items: center;
       padding: 0.6875rem 1.375rem;
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;
-      border: 2px solid #9e9170 !important;
+      border: 2px solid #565246 !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s, border-color 0.15s;
@@ -248,7 +248,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-nav {
-      background: #9e9170 !important;
+      background: #565246 !important;
       border-top: none !important;
       border-bottom: 3px solid #C4952A !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
@@ -474,7 +474,7 @@
       }
 
       .nav-menu > a:hover {
-        color: #9e9170 !important;
+        color: #565246 !important;
         background: #F5F4F1 !important;
       }
     }
@@ -485,7 +485,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-footer {
-      background: #9e9170 !important;
+      background: #565246 !important;
       padding: 0 !important;
       text-align: left !important;
       border-top: none !important;
@@ -691,7 +691,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.625rem !important;
       font-weight: 700 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       line-height: 1.25 !important;
       letter-spacing: -0.01em !important;
       text-align: center !important;
@@ -709,7 +709,7 @@
     }
     .su-intro-headline em {
       font-style: normal !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       font-weight: 700 !important;
     }
 
@@ -733,7 +733,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       font-weight: 500 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       line-height: 1 !important;
       white-space: nowrap !important;
     }
@@ -863,7 +863,7 @@
     /* PRIMARY: midnight indigo — utility actions (download, generate, print…) */
     .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
     .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
@@ -900,14 +900,14 @@
     /* SECONDARY OUTLINE: same weight as primary but ghost treatment */
     .btn-secondary {
       background: transparent !important;
-      color: #9e9170 !important;
-      border: 1.5px solid #9e9170 !important;
+      color: #565246 !important;
+      border: 1.5px solid #565246 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
     .btn-secondary:hover {
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;
     }
 
@@ -925,9 +925,9 @@
       border-color: #B8B4AC !important;
     }
     .tpl-btn.active, .flow-btn.active {
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;
-      border-color: #9e9170 !important;
+      border-color: #565246 !important;
     }
 
     /* GHOST / BACK: navigation-style, no fill */
@@ -941,7 +941,7 @@
     }
     .back-btn:hover, .restart-btn:hover {
       border-color: #a7c4ba !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
 
     /* START-HERE CTA: gold, overrides inline style="background:var(--teal)" */
@@ -959,7 +959,7 @@
 
     /* ABOUT PAGE — contact CTA and closing link buttons */
     .contact-cta {
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
@@ -977,7 +977,7 @@
       border-color: transparent !important;
     }
     .cta-link-btn.primary:hover {
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;
     }
 
@@ -986,7 +986,7 @@
        Hard-coded #243147, #2B313C, #C2DED8, #2a7068 → Counsel
     ═══════════════════════════════════════════════════════════════ */
     .h-header {
-      background: #9e9170 !important;
+      background: #565246 !important;
       border-top: none !important;
     }
     .h-eyebrow {
@@ -1022,7 +1022,7 @@
       background: #C4952A !important;
     }
     .h-feature-group-title {
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
     .print-btn:hover {
       background: #7d7460 !important;
@@ -1041,23 +1041,23 @@
     }
 
     /* Exception: teal-colored labels inside dark navy card containers
-       become invisible (#a7c4ba on #9e9170). Override to light accent. */
+       become invisible (#a7c4ba on #565246). Override to light accent. */
     [style*="background:#162544"] [style*="color:#2a7068"],
     [style*="background:#162544"] [style*="color: #2a7068"],
-    [style*="background:#9e9170"] [style*="color:#2a7068"],
-    [style*="background:#9e9170"] [style*="color: #2a7068"] {
+    [style*="background:#565246"] [style*="color:#2a7068"],
+    [style*="background:#565246"] [style*="color: #2a7068"] {
       color: #9FBBC8 !important;
     }
 
     /* Old-navy backgrounds (back-to-top buttons, promo cards, etc.) */
     [style*="background:#162544"],
     [style*="background: #162544"] {
-      background: #9e9170 !important;
+      background: #565246 !important;
     }
     /* Variant found on about.html back-to-top */
     [style*="background:#2a627a"],
     [style*="background: #2a627a"] {
-      background: #9e9170 !important;
+      background: #565246 !important;
     }
 
     /* Old caramel CTA buttons → antique gold */
@@ -1079,14 +1079,14 @@
     [style*="background: #5a9186"],
     [style*="background:#4a6a8a"],
     [style*="background: #4a6a8a"] {
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;  /* restore white text — .page-body a rule overrides inline color:#fff */
     }
 
     /* Old-navy text color used in headings → midnight indigo */
     [style*="color:#162544"],
     [style*="color: #162544"] {
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
 
     /* Inline font-family: Inter → Poppins */
@@ -1154,13 +1154,13 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.15rem !important;
       font-weight: 600 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
 
     /* Overview box h4 headers */
     .overview-box h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
     .overview-box ul li::before        { color: #C4952A !important; }
 
@@ -1168,7 +1168,7 @@
     .watch-callout h3,
     .monitoring-box h3 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1181,7 +1181,7 @@
     }
     /* Search bar: old dark #1e4f63 → midnight indigo */
     .search-bar {
-      background: #9e9170 !important;
+      background: #565246 !important;
       border-top: 1px solid rgba(255,255,255,0.1) !important;
     }
     /* Search input on dark background */
@@ -1260,7 +1260,7 @@
 
     .start-here-text strong {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
 
     .start-here-text p {
@@ -1270,7 +1270,7 @@
 
     .start-here-btn {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      background: #9e9170 !important;
+      background: #565246 !important;
       color: #FFFFFF !important;
     }
 
@@ -1398,7 +1398,7 @@
     }
 
     .header-eyebrow a:hover {
-      color: #9e9170 !important;
+      color: #565246 !important;
       text-decoration: underline !important;
     }
 
@@ -1407,7 +1407,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
       text-shadow: none !important;
@@ -1618,7 +1618,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.1rem !important;
       font-weight: 600 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -1658,8 +1658,8 @@
     .page-body .cta-btn,      .page-main .cta-btn,
     .page-body .cta-banner-btn, .page-main .cta-banner-btn,
     .page-body .start-here-btn, .page-main .start-here-btn,
-    .page-body [style*="background:#9e9170"], .page-main [style*="background:#9e9170"],
-    .page-body [style*="background: #9e9170"], .page-main [style*="background: #9e9170"],
+    .page-body [style*="background:#565246"], .page-main [style*="background:#565246"],
+    .page-body [style*="background: #565246"], .page-main [style*="background: #565246"],
     .page-body [style*="background:#C4952A"], .page-main [style*="background:#C4952A"],
     .page-body [style*="background: #C4952A"], .page-main [style*="background: #C4952A"] {
       color: #FFFFFF !important;
@@ -1706,7 +1706,7 @@
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
     .intro-box strong {
-      color: #9e9170 !important;
+      color: #565246 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
@@ -1733,7 +1733,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.1rem !important;
       font-weight: 600 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -1746,7 +1746,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.9rem !important;
       font-weight: 600 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
       line-height: 1.3 !important;
       margin-top: 1.25rem !important;
       margin-bottom: 0.375rem !important;
@@ -1770,7 +1770,7 @@
 
     /* ── Dark-background sections (about.html bg-story) ── */
     .bg-story {
-      background: #9e9170 !important;
+      background: #565246 !important;
     }
     .bg-story h2,
     .bg-story .section-tag {
@@ -1877,7 +1877,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
 
     .feature-card li,
@@ -1902,7 +1902,7 @@
 
     .section-title {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
 
     .symptom-pill {
@@ -1996,10 +1996,10 @@
     }
     .su-page-sidebar .sidebar-link:hover {
       background: #f7f5f0 !important;
-      color: #9e9170 !important;
+      color: #565246 !important;
     }
     .su-page-sidebar .sidebar-link.active {
-      color: #9e9170 !important;
+      color: #565246 !important;
       font-weight: 600 !important;
       border-left-color: #C4952A !important;
       background: #fdf8f2 !important;
@@ -2227,14 +2227,14 @@
       border: '1px solid #A8BEC8',
       borderLeft: '3px solid #a7c4ba',
       borderRadius: '8px',
-      color: '#9e9170',
+      color: '#565246',
       fontSize: '1rem',
       lineHeight: '1.7',
       fontFamily: "'DM Sans', system-ui, sans-serif",
       boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
     });
     const strong = intlNote.querySelector('strong');
-    if (strong) strong.style.color = '#9e9170';
+    if (strong) strong.style.color = '#565246';
   }
 
 
