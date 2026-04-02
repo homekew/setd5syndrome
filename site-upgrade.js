@@ -1307,9 +1307,9 @@
     ═══════════════════════════════════════════════════════════════ */
 
     header.site-header {
-      background: rgba(245,244,241,0.94) !important;
-      backdrop-filter: blur(4px) !important;
-      -webkit-backdrop-filter: blur(4px) !important;
+      background: #EFEEEA !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
       border-top: none !important;
       border-bottom: 1px solid #DDD8D1 !important;
       box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
@@ -1445,7 +1445,7 @@
 
     /* Sidebar */
     .page-sidebar {
-      background: #FFFFFF !important;
+      background: #EFEEEA !important;
       border: 1px solid #DDD8D1 !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
@@ -1970,7 +1970,7 @@
       top: 56px !important;
       height: calc(100vh - 56px) !important;
       overflow-y: auto !important;
-      background: #fff !important;
+      background: #EFEEEA !important;
       border-right: 1px solid #DDD8D1 !important;
       padding: 24px 0 !important;
       -ms-overflow-style: none !important;
