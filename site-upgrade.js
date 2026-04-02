@@ -157,7 +157,7 @@
     .su-hero-h1 em {
       font-style: normal !important;
       font-weight: 700 !important;
-      color: #565246 !important;
+      color: #7ba697 !important;
     }
 
     /* ── Hero subheading ── */
@@ -709,7 +709,7 @@
     }
     .su-intro-headline em {
       font-style: normal !important;
-      color: #565246 !important;
+      color: #7ba697 !important;
       font-weight: 700 !important;
     }
 
