@@ -258,8 +258,8 @@
     .site-nav {
       background: #2A627A !important;
       border-top: none !important;
-      border-bottom: 1px solid rgba(245,244,241,0.15) !important;
-      box-shadow: 0 2px 16px rgba(42,98,122,0.25) !important;
+      border-bottom: 1px solid rgba(245,244,241,0.08) !important;
+      box-shadow: none !important;
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
