@@ -851,18 +851,7 @@
     }
 
     .card-link {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 0.8rem !important;
-      font-weight: 600 !important;
-      color: #2A627A !important;
-      border: 1.5px solid #2A627A !important;
-      letter-spacing: 0.01em !important;
-      padding: 0.4rem 0.875rem !important;
-    }
-
-    .card:hover .card-link {
-      background: #2A627A !important;
-      color: #FFFFFF !important;
+      display: none !important;
     }
 
     /* ── BUTTON SYSTEM ─────────────────────────────────────────────────────
