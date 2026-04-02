@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v165
+ * site-upgrade.js  v166
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v166: Hedvig Letters Serif for all headings — no italics, weight 400.
  * v165: Hero negative-margin approach — extends hero background behind fixed nav;
  *        eliminates nav/hero gap regardless of nav height measurement timing.
  *        Also: fixed garbled em-dash before "Kate" on about page.
@@ -43,7 +44,16 @@
 
   const css = `
 
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+
+    /* ── Global: headings use Hedvig Letters Serif; em never italicizes ── */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Hedvig Letters Serif', Georgia, serif;
+      font-style: normal;
+    }
+    h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+      font-style: normal !important;
+    }
 
     /* ═══════════════════════════════════════════════════════════════
        CSS VARIABLE REMAPPING
@@ -156,12 +166,13 @@
 
     /* ── Hero H1 ── */
     .su-hero-h1 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Hedvig Letters Serif', Georgia, serif !important;
       font-size: clamp(2rem, 4vw, 2.75rem) !important;
-      font-weight: 700 !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
       color: #F5F4F1 !important;
       line-height: 1.15 !important;
-      letter-spacing: -0.02em !important;
+      letter-spacing: -0.01em !important;
       margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
       max-width: 700px;
     }
@@ -707,9 +718,10 @@
 
     /* Intro section: large personal headline above the body copy */
     .su-intro-headline {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Hedvig Letters Serif', Georgia, serif !important;
       font-size: 1.625rem !important;
-      font-weight: 700 !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
       color: #2F2F2B !important;
       line-height: 1.25 !important;
       letter-spacing: -0.01em !important;
@@ -837,9 +849,10 @@
     .page-body .card h2,
     .page-layout .card h2,
     .page-content .card h2 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Hedvig Letters Serif', Georgia, serif !important;
       font-size: 1.125rem !important;
-      font-weight: 500 !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
       color: #2F2F2B !important;
       line-height: 1.3 !important;
       margin-bottom: 1rem !important;
@@ -1605,9 +1618,10 @@
     /* Interior page content typography — 20px hard cap on headings */
     .page-body h2,
     .page-main h2 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Hedvig Letters Serif', Georgia, serif !important;
       font-size: 1.125rem !important;
-      font-weight: 600 !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
       color: #2A627A !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
@@ -1618,9 +1632,10 @@
 
     .page-body h3,
     .page-main h3 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Hedvig Letters Serif', Georgia, serif !important;
       font-size: 1.1rem !important;
-      font-weight: 600 !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
       color: #2A627A !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
@@ -1723,9 +1738,10 @@
     .page-content h2,
     .page-body h2,
     .page-main h2 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Hedvig Letters Serif', Georgia, serif !important;
       font-size: 1.125rem !important;
-      font-weight: 600 !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
       color: #2A627A !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
@@ -1738,9 +1754,10 @@
     .page-content h3,
     .page-body h3,
     .page-main h3 {
-      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-family: 'Hedvig Letters Serif', Georgia, serif !important;
       font-size: 1.1rem !important;
-      font-weight: 600 !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
       color: #2A627A !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
