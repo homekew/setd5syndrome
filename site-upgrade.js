@@ -733,7 +733,7 @@
       display: flex !important;
       flex-wrap: wrap !important;
       justify-content: center !important;
-      gap: 0.625rem !important;
+      gap: 1.5rem !important;
       margin: 0 0 2.5rem !important;
     }
 
