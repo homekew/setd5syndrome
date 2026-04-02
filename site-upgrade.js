@@ -258,7 +258,7 @@
     .site-nav {
       background: #2A627A !important;
       border-top: none !important;
-      border-bottom: 1px solid rgba(245,244,241,0.08) !important;
+      border-bottom: none !important;
       box-shadow: none !important;
       position: fixed !important;
       top: 0 !important;
@@ -675,8 +675,8 @@
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
-      padding-top: 4.5rem !important;
-      padding-bottom: 4rem !important;
+      padding-top: 5.5rem !important;
+      padding-bottom: 5rem !important;
       padding-left: max(2rem, calc(50% - 580px)) !important;
       padding-right: max(2rem, calc(50% - 580px)) !important;
       border-bottom: 1px solid #DDD8D1 !important;
@@ -711,16 +711,10 @@
       letter-spacing: -0.01em !important;
       text-align: center !important;
       max-width: 520px !important;
-      margin: 0.5rem 0 0.75rem !important;
+      margin: 0.5rem 0 1.75rem !important;
     }
     .su-intro-headline::before {
-      content: '' !important;
-      display: block !important;
-      width: 36px !important;
-      height: 2px !important;
-      background: #2A627A !important;
-      margin: 0 auto 0.75rem !important;
-      border-radius: 2px !important;
+      display: none !important;
     }
     .su-intro-headline em {
       font-style: normal !important;
