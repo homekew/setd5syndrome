@@ -1,7 +1,9 @@
 /**
- * site-upgrade.js  v165
+ * site-upgrade.js  v167
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v167: Fix mobile tab-bar overlay (remove ::after fade, block hover bg on touch);
+ *        fix interior header-title em italic (normal instead of italic).
  * v165: Hero negative-margin approach — extends hero background behind fixed nav;
  *        eliminates nav/hero gap regardless of nav height measurement timing.
  *        Also: fixed garbled em-dash before "Kate" on about page.
@@ -1418,7 +1420,7 @@
     }
 
     .header-title em {
-      font-style: italic !important;
+      font-style: normal !important;
       color: #2A627A !important;
     }
 
@@ -1549,26 +1551,21 @@
         padding-left: 16px !important;
       }
 
+      /* No hover/focus background on touch — prevents sticky overlay after tap */
+      .sidebar-link:hover,
+      .sidebar-link:focus {
+        background: transparent !important;
+      }
+
       /* Sidebar tab labels: larger, easier to tap */
       .sidebar-link {
         font-size: 0.9375rem !important;
         min-height: 44px !important;
       }
 
-      /* Scroll affordance: right-edge fade shows more tabs exist */
-      .page-sidebar {
-        position: relative !important;
-      }
+      /* Scroll affordance: right-edge fade — removed to prevent overlay appearance */
       .page-sidebar::after {
-        content: '' !important;
-        position: absolute !important;
-        right: 0 !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        width: 28px !important;
-        background: linear-gradient(to right, transparent, #F5F4F1) !important;
-        pointer-events: none !important;
-        z-index: 1 !important;
+        display: none !important;
       }
 
       /* Interior page body: reduce side padding on mobile */
