@@ -827,7 +827,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #7d9ead !important;
+      color: #7ba697 !important;
       line-height: 1.3 !important;
       margin-bottom: 1rem !important;
       border-bottom: none !important;
@@ -1137,7 +1137,7 @@
 
     /* Callout labels */
     .callout-label,
-    .review .family-callout .callout-label { color: #565246 !important; }
+    .review .family-callout .callout-label { color: #7ba697 !important; }
 
     /* Heading labels in cards */
     .card-section-label                { color: #565246 !important; }
@@ -1877,7 +1877,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #565246 !important;
+      color: #7ba697 !important;
     }
 
     .feature-card li,
