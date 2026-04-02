@@ -287,9 +287,16 @@
       letter-spacing: -0.01em;
     }
 
+    /* "Companion" — full white */
     .su-nav-logo .su-nav-logo-light {
       font-weight: 400;
-      color: rgba(245,244,241,0.55);
+      color: #F5F4F1;
+    }
+
+    /* "SETD5 Syndrome" — light warm caramel on dark teal nav */
+    .su-nav-logo .su-nav-logo-setd5 {
+      color: #D4AE88;
+      font-weight: 600;
     }
 
     /* Short logo shown on mobile only; long version shown on desktop */
@@ -2129,7 +2136,7 @@
       const logo = document.createElement('a');
       logo.href = '/index.html';
       logo.className = 'su-nav-logo';
-      logo.innerHTML = '<span class="su-logo-long">The SETD5 Syndrome <span class="su-nav-logo-light">Companion</span></span><span class="su-logo-short">SETD5 Syndrome</span>';
+      logo.innerHTML = '<span class="su-logo-long">The <span class="su-nav-logo-setd5">SETD5 Syndrome</span> <span class="su-nav-logo-light">Companion</span></span><span class="su-logo-short">SETD5 Syndrome</span>';
       navInner.insertBefore(logo, navMenu);
     }
   }
