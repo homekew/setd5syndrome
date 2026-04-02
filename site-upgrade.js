@@ -2297,19 +2297,7 @@
     `;
   } // end if (existingFooter)
 
-    // Reveal page — remove anti-flash style injected in <head>
-    const antiFlash = document.getElementById('su-anti-flash');
-    if (antiFlash) antiFlash.remove();
-    document.documentElement.style.visibility = '';
-
   } // end suInitDOM
-
-  // Safety net: reveal after 2s even if suInitDOM errors
-  setTimeout(function () {
-    document.documentElement.style.visibility = '';
-    const af = document.getElementById('su-anti-flash');
-    if (af) af.remove();
-  }, 2000);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', suInitDOM);
