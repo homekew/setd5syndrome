@@ -508,7 +508,7 @@
 
     #su-footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       gap: 3rem;
       max-width: 1160px;
       margin: 0 auto;
@@ -521,7 +521,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #A07D54;
+      color: #FFFFFF;
       margin: 0 0 0.875rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -2276,17 +2276,6 @@
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
           <p class="su-footer-brand-desc">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
-        </div>
-
-        <div class="su-footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="setd5-syndrome-overview.html">SETD5 Syndrome</a></li>
-            <li><a href="family-toolkit.html">Family Toolkit</a></li>
-            <li><a href="setd5-medical-terms-guide.html">Medical Terms</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="helpful-links.html">Community</a></li>
-          </ul>
         </div>
 
         <div class="su-footer-col">
