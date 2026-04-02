@@ -795,7 +795,7 @@
 
     .guides-zone {
       background: #F5F4F1 !important;
-      padding-top: 4rem !important;
+      padding-top: 2rem !important;
       padding-left: max(2rem, calc(50% - 580px)) !important;
       padding-right: max(2rem, calc(50% - 580px)) !important;
     }
