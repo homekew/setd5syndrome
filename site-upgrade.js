@@ -1295,15 +1295,9 @@
     }
 
     .card-link i,
-    .card-link svg {
-      color: inherit !important;
-      stroke: currentColor !important;
-    }
-
+    .card-link svg,
     .su-intro-featured .card-link {
-      background: #2A627A !important;
-      color: #FFFFFF !important;
-      align-self: center !important;       /* center the CTA to match the centered layout */
+      display: none !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
