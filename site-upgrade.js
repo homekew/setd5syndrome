@@ -8,11 +8,11 @@
  *   ┌────────────────────────────────────────────────────┐
  *   │ Warm Tan         #565246   nav, headings, btns     │
  *   │ Charcoal         #383228   body text, headings      │
- *   │ Sage             #7d9ead   secondary accent         │
+ *   │ Sage             #578894   secondary accent         │
  *   │ Purple-Grey      #7ba697   tertiary accent          │
  *   │ Cream            #F5F4F1   page bg, hero bg          │
  *   │ Warm Light       #F5F4F1   cards / surfaces          │
- *   │ Warm Border      #7d9ead   borders                   │
+ *   │ Warm Border      #578894   borders                   │
  *   │ Charcoal-Muted   #383228   secondary / meta text     │
  *   │ Gold             #565246   accent highlights         │
  *   └────────────────────────────────────────────────────┘
@@ -53,16 +53,16 @@
     :root {
       --navy:      #565246;   /* warm tan — nav, buttons                   */
       --charcoal:  #383228;   /* charcoal — headings, body text            */
-      --teal:      #7d9ead;   /* sage — secondary accent                   */
+      --teal:      #578894;   /* sage — secondary accent                   */
       --teal-lt:   #F5F4F1;   /* warm light — light backgrounds            */
-      --sage:      #7d9ead;   /* sage — secondary accent, callouts         */
+      --sage:      #578894;   /* sage — secondary accent, callouts         */
       --sage-lt:   #F5F4F1;   /* warm light — light sage variant           */
-      --sage-mid:  #7d9ead;   /* sage — mid-tone borders                   */
+      --sage-mid:  #578894;   /* sage — mid-tone borders                   */
       --amber:     #565246;   /* gold — accent highlights, em text         */
       /* v139 additions: unify with Realtime Colors palette */
       --muted:     #383228;   /* charcoal-muted — secondary text           */
       --text:      #383228;   /* charcoal — primary text                   */
-      --border:    #7d9ead;   /* warm border — subtle dividers             */
+      --border:    #578894;   /* warm border — subtle dividers             */
       --ink:       #383228;   /* charcoal — primary ink color              */
     }
 
@@ -134,9 +134,9 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #7d9ead;
+      color: #578894;
       background: #F5F4F1;
-      border: 1px solid #7d9ead;
+      border: 1px solid #578894;
       border-radius: 100px;
       padding: 0.3rem 0.875rem;
       margin-bottom: 1.75rem;   /* more air — sets the pill apart as an entry label */
@@ -435,8 +435,8 @@
       .nav-menu.open {
         display: flex !important;
         background: #FFFFFF !important;
-        border-top: 1px solid #7d9ead !important;
-        border-bottom: 1px solid #7d9ead !important;
+        border-top: 1px solid #578894 !important;
+        border-bottom: 1px solid #578894 !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
         margin-left: 0 !important;
         flex-direction: column !important;
@@ -456,7 +456,7 @@
         font-size: 0.9375rem !important;
         font-weight: 400 !important;
         color: #383228 !important;
-        border-bottom: 1px solid #7d9ead !important;
+        border-bottom: 1px solid #578894 !important;
         border-left: 3px solid transparent !important;
       }
 
@@ -469,7 +469,7 @@
         color: #565246 !important;
         font-weight: 600 !important;
         border-left-color: #565246 !important;
-        border-bottom-color: #7d9ead !important;
+        border-bottom-color: #578894 !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
 
@@ -664,7 +664,7 @@
       padding-bottom: 4rem !important;
       padding-left: max(2rem, calc(50% - 580px)) !important;
       padding-right: max(2rem, calc(50% - 580px)) !important;
-      border-bottom: 1px solid #7d9ead !important;
+      border-bottom: 1px solid #578894 !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
@@ -727,7 +727,7 @@
       align-items: center !important;
       gap: 0.4rem !important;
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-radius: 100px !important;
       padding: 0.45rem 1rem !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
@@ -763,7 +763,7 @@
       border-radius: 20px !important;
       padding: 4px 14px !important;
       font-size: 0.625rem !important;
-      background: #7d9ead !important;      /* steel indigo — label register, not heading register */
+      background: #578894 !important;      /* steel indigo — label register, not heading register */
       color: #FFFFFF !important;
       margin-bottom: 0.875rem !important;
     }
@@ -801,7 +801,7 @@
     .card {
       --card-accent: #565246;
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
     }
@@ -878,7 +878,7 @@
       color: #FFFFFF !important;
     }
     .state-go-btn:disabled {
-      background: #7d9ead !important;
+      background: #578894 !important;
       color: #383228 !important;
       cursor: not-allowed !important;
     }
@@ -915,7 +915,7 @@
     .tpl-btn, .flow-btn {
       background: #FFFFFF !important;
       color: #383228 !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 400 !important;
       border-radius: 6px !important;
@@ -933,14 +933,14 @@
     /* GHOST / BACK: navigation-style, no fill */
     .back-btn, .restart-btn {
       background: transparent !important;
-      color: #7d9ead !important;
-      border: 1.5px solid #7d9ead !important;
+      color: #578894 !important;
+      border: 1.5px solid #578894 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
     .back-btn:hover, .restart-btn:hover {
-      border-color: #7d9ead !important;
+      border-color: #578894 !important;
       color: #565246 !important;
     }
 
@@ -972,7 +972,7 @@
       text-decoration: none !important;
     }
     .cta-link-btn.primary {
-      background: #7d9ead !important;
+      background: #578894 !important;
       color: #FFFFFF !important;
       border-color: transparent !important;
     }
@@ -1000,10 +1000,10 @@
     }
     .h-facts-bar {
       background: #F5F4F1 !important;
-      border-bottom: 1px solid #7d9ead !important;
+      border-bottom: 1px solid #578894 !important;
     }
     .h-fact {
-      border-right-color: #7d9ead !important;
+      border-right-color: #578894 !important;
     }
     .h-fact-label {
       color: #383228 !important;
@@ -1015,8 +1015,8 @@
       color: #565246 !important;
     }
     .h-section-label {
-      color: #7d9ead !important;
-      border-bottom-color: #7d9ead !important;
+      color: #578894 !important;
+      border-bottom-color: #578894 !important;
     }
     .h-feature-list li::before {
       background: #565246 !important;
@@ -1037,11 +1037,11 @@
     /* Old-teal link/label color → steel indigo */
     [style*="color:#2a7068"],
     [style*="color: #2a7068"] {
-      color: #7d9ead !important;
+      color: #578894 !important;
     }
 
     /* Exception: teal-colored labels inside dark navy card containers
-       become invisible (#7d9ead on #565246). Override to light accent. */
+       become invisible (#578894 on #565246). Override to light accent. */
     [style*="background:#162544"] [style*="color:#2a7068"],
     [style*="background:#162544"] [style*="color: #2a7068"],
     [style*="background:#565246"] [style*="color:#2a7068"],
@@ -1071,7 +1071,7 @@
     [style*="background:#E4F0EE"],
     [style*="background:#eaf5f3"] {
       background: #F5F4F1 !important;
-      border-left-color: #7d9ead !important;
+      border-left-color: #578894 !important;
     }
 
     /* Old teal-green button (#5a9186) and old muted navy (#4a6a8a) → midnight indigo */
@@ -1123,12 +1123,12 @@
        (These are class-level rules so attribute selectors won't work)
     ═══════════════════════════════════════════════════════════════ */
     /* Type badges */
-    .card-badge                        { color: #7d9ead !important; }
+    .card-badge                        { color: #578894 !important; }
     .peer-reviewed .card-badge         { background: #F5F4F1 !important; }
     .dissertation .card-badge          { background: #F5F4F1 !important; }
 
     /* Citation links */
-    .card-citation a                   { color: #7d9ead !important; }
+    .card-citation a                   { color: #578894 !important; }
 
     /* Bullet / arrow accent markers */
     .findings-list li::before,
@@ -1144,7 +1144,7 @@
 
     /* Focus ring: old teal → steel indigo */
     .search-input:focus {
-      border-color: #7d9ead !important;
+      border-color: #578894 !important;
       box-shadow: 0 0 0 2px rgba(69,106,124,0.18) !important;
     }
 
@@ -1176,7 +1176,7 @@
     ═══════════════════════════════════════════════════════════════ */
     /* Alphabet bar: old teal #5a9186 → steel indigo */
     .alpha-bar {
-      background: #7d9ead !important;
+      background: #578894 !important;
       border-bottom: 1px solid rgba(255,255,255,0.15) !important;
     }
     /* Search bar: old dark #1e4f63 → midnight indigo */
@@ -1197,12 +1197,12 @@
     /* Term label: old teal → steel indigo */
     .teal-callout .callout-label,
     .term-setd5 strong {
-      color: #7d9ead !important;
+      color: #578894 !important;
     }
     /* Tag badges: old teal bg → parchment */
     .tag-testing {
       background: #F5F4F1 !important;
-      color: #7d9ead !important;
+      color: #578894 !important;
     }
     /* Prose body text */
     .prose {
@@ -1217,17 +1217,17 @@
     ═══════════════════════════════════════════════════════════════ */
     /* Active filter pill: old teal → steel indigo */
     .symptom-pill:hover {
-      border-color: #7d9ead !important;
-      color: #7d9ead !important;
+      border-color: #578894 !important;
+      color: #578894 !important;
     }
     .symptom-pill.active {
-      background: #7d9ead !important;
-      border-color: #7d9ead !important;
+      background: #578894 !important;
+      border-color: #578894 !important;
       color: #FFFFFF !important;
     }
 
     /* TOC links */
-    .page-toc ol li a                  { color: #7d9ead !important; }
+    .page-toc ol li a                  { color: #578894 !important; }
 
     /* Feature card bullet dots */
     .feature-card ul li::before,
@@ -1244,7 +1244,7 @@
 
     .featured-badge {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      background: #7d9ead !important;
+      background: #578894 !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
@@ -1286,7 +1286,7 @@
 
     /* Main content links */
     main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
-      color: #7d9ead !important;
+      color: #578894 !important;
     }
 
     .card-link i,
@@ -1311,7 +1311,7 @@
       backdrop-filter: blur(4px) !important;
       -webkit-backdrop-filter: blur(4px) !important;
       border-top: none !important;
-      border-bottom: 1px solid #7d9ead !important;
+      border-bottom: 1px solid #578894 !important;
       box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
       position: relative !important;
       z-index: 20 !important;
@@ -1434,8 +1434,8 @@
       font-size: 0.67rem !important;
       font-weight: 600 !important;
       background: #F5F4F1 !important;
-      color: #7d9ead !important;
-      border: 1px solid #7d9ead !important;
+      color: #578894 !important;
+      border: 1px solid #578894 !important;
       border-radius: 4px !important;
     }
 
@@ -1446,7 +1446,7 @@
     /* Sidebar */
     .page-sidebar {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
       padding: 1.25rem 0 !important;
@@ -1463,7 +1463,7 @@
       text-transform: uppercase !important;
       color: #565246 !important;
       padding: 0 1.125rem 0.625rem !important;
-      border-bottom: 1px solid #7d9ead !important;
+      border-bottom: 1px solid #578894 !important;
       margin-bottom: 0.375rem !important;
     }
 
@@ -1513,7 +1513,7 @@
         top: auto !important;
         border-radius: 0 !important;
         border: none !important;
-        border-bottom: 1px solid #7d9ead !important;
+        border-bottom: 1px solid #578894 !important;
         box-shadow: none !important;
         padding: 0 !important;
         display: flex !important;
@@ -1605,12 +1605,12 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #7d9ead !important;
+      color: #578894 !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #7d9ead !important;
+      border-bottom: 1px solid #578894 !important;
     }
 
     .page-body h3,
@@ -1641,7 +1641,7 @@
 
     .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
     .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]) {
-      color: #7d9ead !important;
+      color: #578894 !important;
     }
 
     /* Enforce white text on all dark-background buttons — even when nested in .page-body/.page-main */
@@ -1681,7 +1681,7 @@
     .page-main .note,
     .page-main .callout {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-left: 3px solid #565246 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
@@ -1694,7 +1694,7 @@
     ═══════════════════════════════════════════════════════════════ */
     .intro-box {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-left: 3px solid #565246 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
@@ -1718,12 +1718,12 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #7d9ead !important;
+      color: #578894 !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #7d9ead !important;
+      border-bottom: 1px solid #578894 !important;
     }
 
     .page-layout h3,
@@ -1798,7 +1798,7 @@
 
     .teal-callout {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-left: 3px solid #565246 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
@@ -1821,7 +1821,7 @@
 
     .info-callout {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-left: 3px solid #565246 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
@@ -1844,7 +1844,7 @@
 
     .amber-callout {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-left: 3px solid #565246 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
@@ -1862,7 +1862,7 @@
 
     .feature-card {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
       border-top: 3px solid #565246 !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 8px rgba(0,0,0,0.05) !important;
@@ -1907,7 +1907,7 @@
 
     .symptom-pill {
       background: #FFFFFF !important;
-      border-color: #7d9ead !important;
+      border-color: #578894 !important;
       color: #383228 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
@@ -1920,7 +1920,7 @@
     }
 
     .symptom-search {
-      border-color: #7d9ead !important;
+      border-color: #578894 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
@@ -1930,13 +1930,13 @@
 
     .stat-box {
       background: #FFFFFF !important;
-      border: 1px solid #7d9ead !important;
+      border: 1px solid #578894 !important;
     }
 
     .tab-nav {
       background: #FFFFFF !important;
-      border-top: 1px solid #7d9ead !important;
-      border-bottom: 1px solid #7d9ead !important;
+      border-top: 1px solid #578894 !important;
+      border-bottom: 1px solid #578894 !important;
     }
 
     .tab-btn {
@@ -1966,7 +1966,7 @@
       height: calc(100vh - 56px) !important;
       overflow-y: auto !important;
       background: #fff !important;
-      border-right: 1px solid #7d9ead !important;
+      border-right: 1px solid #578894 !important;
       padding: 24px 0 !important;
       -ms-overflow-style: none !important;
       scrollbar-width: none !important;
@@ -2006,7 +2006,7 @@
     }
     .su-page-sidebar .sidebar-divider {
       border: none !important;
-      border-top: 1px solid #7d9ead !important;
+      border-top: 1px solid #578894 !important;
       margin: 10px 0 !important;
     }
     .su-page-main {
@@ -2021,7 +2021,7 @@
         position: static !important;
         top: auto !important;
         border-right: none !important;
-        border-bottom: 1px solid #7d9ead !important;
+        border-bottom: 1px solid #578894 !important;
         padding: 0 !important;
         display: flex !important;
         flex-direction: row !important;
@@ -2132,13 +2132,13 @@
   const siteHeader = document.querySelector('header:not(.site-header)');
 
   if (siteHeader) {
-    // Recolor helix SVG from original teal → steel indigo (#7d9ead = rgb 69,106,124)
+    // Recolor helix SVG from original teal → steel indigo (#578894 = rgb 69,106,124)
     // so it reads as a soft blue accent on the cream hero background
     const helixSvg = siteHeader.querySelector('svg');
     if (helixSvg) {
       helixSvg.innerHTML = helixSvg.innerHTML
         .replace(/rgba\(194,222,216,/g, 'rgba(69,106,124,')
-        .replace(/#C2DED8/gi, '#7d9ead');
+        .replace(/#C2DED8/gi, '#578894');
       // Scale up and nudge left; transform-origin anchors from the right
       // so it grows inward (leftward) without clipping the right edge
       helixSvg.style.transformOrigin = 'right center';
@@ -2225,7 +2225,7 @@
     Object.assign(intlNote.style, {
       background: '#F5F4F1',
       border: '1px solid #A8BEC8',
-      borderLeft: '3px solid #7d9ead',
+      borderLeft: '3px solid #578894',
       borderRadius: '8px',
       color: '#565246',
       fontSize: '1rem',
