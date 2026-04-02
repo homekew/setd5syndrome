@@ -88,8 +88,8 @@
       padding: 0 !important;
       border-top: none !important;
       border-bottom: none !important;
-      /* Soft shadow lifts the hero off the page as its own surface */
-      box-shadow: 0 6px 40px rgba(42,98,122,0.10) !important;
+      /* Shadow lifts the hero off the page as its own surface */
+      box-shadow: 0 8px 32px rgba(26,69,88,0.32) !important;
       position: relative;
       z-index: 10;
     }
@@ -256,7 +256,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-nav {
-      background: #2A627A !important;
+      background: #214F64 !important;
       border-top: none !important;
       border-bottom: none !important;
       box-shadow: none !important;
