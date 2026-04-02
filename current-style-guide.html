@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Parent Resource Site — Style Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #F5F4F1;
+    color: #383228;
+    padding: 3rem 2rem;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #383228;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: #4f8f9e;
+    margin-bottom: 3rem;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #4f8f9e;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #4f8f9e;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4f8f9e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .color-swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .color-box {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+
+  .color-info {
+    padding: 1rem;
+    background: white;
+  }
+
+  .color-name {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #383228;
+  }
+
+  .color-hex {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: #4f8f9e;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .color-usage {
+    font-size: 0.8125rem;
+    color: #5a5552;
+    line-height: 1.4;
+  }
+
+  /* Component Examples */
+  .component-section {
+    background: white;
+    border: 1px solid #E8E5E0;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .component-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4f8f9e;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Header/Nav */
+  .nav-example {
+    background: #565246;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-brand {
+    font-weight: 600;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  /* Buttons */
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  .btn-primary {
+    background: #565246;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: #565246;
+    border: 2px solid #565246;
+  }
+
+  .btn-secondary:hover {
+    background: #F5F4F1;
+  }
+
+  /* Cards */
+  .card-example {
+    background: white;
+    border: 1px solid #4f8f9e;
+    border-top: 3px solid #565246;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #4f8f9e;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-text {
+    color: #383228;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .card-link {
+    color: #565246;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Callout */
+  .callout {
+    background: white;
+    border: 1px solid #4f8f9e;
+    border-left: 3px solid #565246;
+    border-radius: 0 6px 6px 0;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .callout-label {
+    font-size: 0.675rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4f8f9e;
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-text {
+    color: #383228;
+    line-height: 1.6;
+  }
+
+  /* Typography */
+  .typography-example {
+    margin-bottom: 1.5rem;
+  }
+
+  .typo-label {
+    font-size: 0.8125rem;
+    color: #4f8f9e;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .typo-sample {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #FFFBF7;
+    border-radius: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #E8E5E0;
+  }
+
+  th {
+    background: #F5F4F1;
+    font-weight: 600;
+    color: #383228;
+  }
+
+  td {
+    color: #383228;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>SETD5 Parent Resource Site</h1>
+  <p class="subtitle">Style Guide & Design System</p>
+
+  <!-- Color Palette -->
+  <h2>Color Palette</h2>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-box" style="background: #383228;">Text</div>
+      <div class="color-info">
+        <div class="color-name">Charcoal</div>
+        <div class="color-hex">#383228</div>
+        <div class="color-usage">Primary body text, headings, main content</div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="color-box" style="background: #F5F4F1; color: #383228; text-shadow: none;">Background</div>
+      <div class="color-info">
+        <div class="color-name">Cream</div>
+        <div class="color-hex">#F5F4F1</div>
+        <div class="color-usage">Page background, light surfaces</div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="color-box" style="background: #565246;">Primary</div>
+      <div class="color-info">
+        <div class="color-name">Warm Brown</div>
+        <div class="color-hex">#565246</div>
+        <div class="color-usage">Navigation, primary buttons, accents</div>
+      </div>
+    </div>
+
+    <div class="color-swatch">
+      <div class="color-box" style="background: #4f8f9e;">Secondary</div>
+      <div class="color-info">
+        <div class="color-name">Vibrant Blue-Grey</div>
+        <div class="color-hex">#4f8f9e</div>
+        <div class="color-usage">Titles, emphasis, callouts, borders</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <h2>Navigation & Header</h2>
+  <div class="component-section">
+    <div class="component-title">Sticky Navigation Bar</div>
+    <div class="nav-example">
+      <div class="nav-brand">SETD5 Syndrome</div>
+      <a href="#" class="nav-link">Understanding</a>
+      <a href="#" class="nav-link">Resources</a>
+      <a href="#" class="nav-link">Research</a>
+    </div>
+    <p style="font-size: 0.875rem; color: #4f8f9e;"><strong>Background:</strong> #565246 (Warm Brown) | <strong>Text:</strong> White</p>
+  </div>
+
+  <!-- Buttons -->
+  <h2>Buttons</h2>
+  <div class="component-section">
+    <div class="component-title">Button Styles</div>
+    <div class="button-group">
+      <button class="btn btn-primary">Primary Button</button>
+      <button class="btn btn-secondary">Secondary Button</button>
+    </div>
+    <p style="font-size: 0.875rem; color: #4f8f9e;"><strong>Primary:</strong> #565246 background, white text | <strong>Secondary:</strong> White background, #565246 border & text</p>
+  </div>
+
+  <!-- Cards -->
+  <h2>Cards</h2>
+  <div class="component-section">
+    <div class="component-title">Research Card</div>
+    <div class="card-example">
+      <div class="card-title">Understanding SETD5 Syndrome</div>
+      <p class="card-text">A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</p>
+      <a href="#" class="card-link">Read More →</a>
+    </div>
+    <p style="font-size: 0.875rem; color: #4f8f9e;"><strong>Title:</strong> #4f8f9e | <strong>Top border:</strong> #565246 | <strong>Border:</strong> #4f8f9e | <strong>Link:</strong> #565246</p>
+  </div>
+
+  <!-- Callouts -->
+  <h2>Callouts & Alerts</h2>
+  <div class="component-section">
+    <div class="component-title">Information Callout</div>
+    <div class="callout">
+      <div class="callout-label">Important Note</div>
+      <p class="callout-text">This is an informational callout used to highlight important information, tips, or notes for the reader.</p>
+    </div>
+    <p style="font-size: 0.875rem; color: #4f8f9e;"><strong>Label:</strong> #4f8f9e | <strong>Border:</strong> #4f8f9e left accent, #565246 left edge | <strong>Text:</strong> #383228</p>
+  </div>
+
+  <!-- Typography -->
+  <h2>Typography</h2>
+
+  <div class="component-section">
+    <h3>Typeface</h3>
+    <p><strong>Primary Font:</strong> DM Sans (sans-serif)</p>
+    <p><strong>Weights Used:</strong> 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)</p>
+
+    <h3 style="margin-top: 2rem;">Heading Styles</h3>
+
+    <div class="typography-example">
+      <div class="typo-label">H1 - Page Title</div>
+      <div class="typo-sample" style="font-size: 2.5rem; font-weight: 700; color: #383228;">Understanding SETD5 Syndrome</div>
+    </div>
+
+    <div class="typography-example">
+      <div class="typo-label">H2 - Section Title</div>
+      <div class="typo-sample" style="font-size: 1.75rem; font-weight: 700; color: #4f8f9e;">Getting Started</div>
+    </div>
+
+    <div class="typography-example">
+      <div class="typo-label">H3 - Subsection</div>
+      <div class="typo-sample" style="font-size: 1.25rem; font-weight: 600; color: #4f8f9e;">What You'll Learn</div>
+    </div>
+
+    <div class="typography-example">
+      <div class="typo-label">Body Text</div>
+      <div class="typo-sample" style="font-size: 1rem; color: #383228;">This is regular body text. Use this for article content, descriptions, and general information. Line height is set to 1.6 for readability.</div>
+    </div>
+  </div>
+
+  <!-- Color Usage Reference -->
+  <h2>Color Usage Reference</h2>
+
+  <div class="component-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Color</th>
+          <th>Hex Code</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary Text</td>
+          <td style="color: #383228; font-weight: 600;">■</td>
+          <td>#383228</td>
+          <td>Body copy, paragraphs, descriptions</td>
+        </tr>
+        <tr>
+          <td>Page Background</td>
+          <td style="color: #F5F4F1; font-weight: 600; text-shadow: 0 0 1px #999;">■</td>
+          <td>#F5F4F1</td>
+          <td>Page background, empty space</td>
+        </tr>
+        <tr>
+          <td>Navigation Bar</td>
+          <td style="color: #565246; font-weight: 600;">■</td>
+          <td>#565246</td>
+          <td>Header, nav background</td>
+        </tr>
+        <tr>
+          <td>Primary Buttons</td>
+          <td style="color: #565246; font-weight: 600;">■</td>
+          <td>#565246</td>
+          <td>CTA buttons, primary actions</td>
+        </tr>
+        <tr>
+          <td>Card Titles</td>
+          <td style="color: #4f8f9e; font-weight: 600;">■</td>
+          <td>#4f8f9e</td>
+          <td>Card headings, section titles</td>
+        </tr>
+        <tr>
+          <td>Card Borders</td>
+          <td style="color: #4f8f9e; font-weight: 600;">■</td>
+          <td>#4f8f9e</td>
+          <td>Card borders, dividers</td>
+        </tr>
+        <tr>
+          <td>Callout Labels</td>
+          <td style="color: #4f8f9e; font-weight: 600;">■</td>
+          <td>#4f8f9e</td>
+          <td>Note/info labels, badges</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Design Principles -->
+  <h2>Design Principles</h2>
+
+  <div class="component-section">
+    <h3>Warm & Approachable</h3>
+    <p>The palette combines warm brown with vibrant blue-grey to create an approachable, family-focused aesthetic that feels distinct from institutional or corporate designs.</p>
+
+    <h3>Clear Hierarchy</h3>
+    <p>Color is used intentionally to guide the eye: charcoal for primary content, blue-grey for emphasis and structure, and warm brown for actions and navigation.</p>
+
+    <h3>Accessibility</h3>
+    <p>All color combinations maintain sufficient contrast for readability. The vibrant blue-grey (#4f8f9e) has strong contrast against both the cream background and charcoal text.</p>
+
+    <h3>Consistency</h3>
+    <p>Every element uses only the five approved colors. This creates a cohesive, unified visual system across all pages.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
