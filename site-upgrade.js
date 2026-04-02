@@ -2276,6 +2276,7 @@
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
           <p class="su-footer-brand-desc">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
+          <p class="su-footer-brand-desc">&copy; 2026 The SETD5 Syndrome Companion</p>
         </div>
 
         <div class="su-footer-col">
@@ -2296,7 +2297,6 @@
       </div>
 
       <div id="su-footer-bottom">
-        <p>&copy; 2026 The SETD5 Syndrome Companion</p>
       </div>
     `;
   } // end if (existingFooter)
