@@ -2087,6 +2087,11 @@
   if (homeNav && homeHero && homeHero.parentNode) {
     homeHero.parentNode.insertBefore(homeNav, homeHero);
   }
+  // Force-remove border that originates from inline page <style> blocks
+  if (homeNav) {
+    homeNav.style.setProperty('border-bottom', 'none', 'important');
+    homeNav.style.setProperty('border-top', 'none', 'important');
+  }
 
   const navInner = document.querySelector('.site-nav-inner');
 
