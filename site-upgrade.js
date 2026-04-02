@@ -1,7 +1,10 @@
 /**
- * site-upgrade.js  v141
+ * site-upgrade.js  v165
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v165: Hero negative-margin approach — extends hero background behind fixed nav;
+ *        eliminates nav/hero gap regardless of nav height measurement timing.
+ *        Also: fixed garbled em-dash before "Kate" on about page.
  * v141: Teal / Warm Caramel palette — #2A627A · #62929E · #A07D54
  *
  *   Design tokens (Realtime Colors):
@@ -85,8 +88,8 @@
       background: #1A4558 !important;
       color: #2F2F2B !important;
       text-align: left !important;
-      padding: 0 !important;
-      margin-top: 0 !important;
+      padding: 64px 0 0 0 !important;
+      margin-top: -64px !important;
       border-top: none !important;
       border-bottom: none !important;
       /* Shadow lifts the hero off the page as its own surface */
