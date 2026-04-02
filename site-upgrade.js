@@ -9,7 +9,7 @@
  *   │ Warm Tan         #565246   nav, headings, btns     │
  *   │ Charcoal         #383228   body text, headings      │
  *   │ Sage             #4f8f9e   secondary accent         │
- *   │ Purple-Grey      #7ba697   tertiary accent          │
+ *   │ Purple-Grey      #4f8f9e   tertiary accent          │
  *   │ Cream            #F5F4F1   page bg, hero bg          │
  *   │ Warm Light       #F5F4F1   cards / surfaces          │
  *   │ Warm Border      #4f8f9e   borders                   │
@@ -157,7 +157,7 @@
     .su-hero-h1 em {
       font-style: normal !important;
       font-weight: 700 !important;
-      color: #7ba697 !important;
+      color: #4f8f9e !important;
     }
 
     /* ── Hero subheading ── */
@@ -709,7 +709,7 @@
     }
     .su-intro-headline em {
       font-style: normal !important;
-      color: #7ba697 !important;
+      color: #4f8f9e !important;
       font-weight: 700 !important;
     }
 
@@ -827,7 +827,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #7ba697 !important;
+      color: #4f8f9e !important;
       line-height: 1.3 !important;
       margin-bottom: 1rem !important;
       border-bottom: none !important;
@@ -1137,7 +1137,7 @@
 
     /* Callout labels */
     .callout-label,
-    .review .family-callout .callout-label { color: #7ba697 !important; }
+    .review .family-callout .callout-label { color: #4f8f9e !important; }
 
     /* Heading labels in cards */
     .card-section-label                { color: #565246 !important; }
@@ -1877,7 +1877,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #7ba697 !important;
+      color: #4f8f9e !important;
     }
 
     .feature-card li,
