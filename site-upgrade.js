@@ -835,7 +835,7 @@
     .page-content .card h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
-      font-weight: 600 !important;
+      font-weight: 500 !important;
       color: #2F2F2B !important;
       line-height: 1.3 !important;
       margin-bottom: 1rem !important;
@@ -1252,8 +1252,8 @@
 
     /* Start-here banners: translucent gold tint */
     .start-here {
-      background: rgba(160,125,84,0.06) !important;
-      border-color: rgba(160,125,84,0.2) !important;
+      background: #EFEEEA !important;
+      border-color: #DDD8D1 !important;
       border-left-color: #2A627A !important;
       border-left-width: 3px !important;
       box-shadow: none !important;
