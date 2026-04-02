@@ -273,7 +273,6 @@
 
     body {
       padding-top: 56px !important;
-      display: block !important;
     }
 
     /* ── Text logo ── */
