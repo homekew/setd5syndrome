@@ -86,6 +86,7 @@
       color: #2F2F2B !important;
       text-align: left !important;
       padding: 0 !important;
+      margin-top: 0 !important;
       border-top: none !important;
       border-bottom: none !important;
       /* Shadow lifts the hero off the page as its own surface */
@@ -176,7 +177,7 @@
       line-height: 1.7 !important;
       letter-spacing: 0.02em !important; /* slightly open — editorial, calm */
       color: rgba(245,244,241,0.75) !important;
-      margin: 0 0 0 !important;          /* hero inner bottom padding handles spacing */
+      margin: 0.75rem 0 0 !important;    /* space above subtext */
       max-width: 520px;
     }
 
@@ -272,6 +273,7 @@
 
     body {
       padding-top: 56px !important;
+      display: block !important;
     }
 
     /* ── Text logo ── */
@@ -2077,6 +2079,12 @@
   if (homeNav) {
     homeNav.style.setProperty('border-bottom', 'none', 'important');
     homeNav.style.setProperty('border-top', 'none', 'important');
+    homeNav.style.setProperty('margin-bottom', '0', 'important');
+  }
+  // Dynamically match body padding-top to actual nav height so there's no gap
+  if (homeNav) {
+    var navH = homeNav.getBoundingClientRect().height;
+    document.body.style.setProperty('padding-top', navH + 'px', 'important');
   }
 
   const navInner = document.querySelector('.site-nav-inner');
