@@ -82,7 +82,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     header:not(.site-header) {
-      background: #F4F3F0 !important;
+      background: #1A4558 !important;
       color: #2F2F2B !important;
       text-align: left !important;
       padding: 0 !important;
@@ -142,9 +142,9 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #A07D54;
-      background: #F4F3F0;
-      border: 1px solid #DDD8D1;
+      color: #D4AE88;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 100px;
       padding: 0.3rem 0.875rem;
       margin-bottom: 1.75rem;   /* more air — sets the pill apart as an entry label */
@@ -155,7 +155,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: clamp(2rem, 4vw, 2.75rem) !important;
       font-weight: 700 !important;
-      color: #2F2F2B !important;
+      color: #F5F4F1 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
       margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
@@ -165,7 +165,7 @@
     .su-hero-h1 em {
       font-style: normal !important;
       font-weight: 700 !important;
-      color: #A07D54 !important;
+      color: #D4AE88 !important;
     }
 
     /* ── Hero subheading ── */
@@ -175,7 +175,7 @@
       font-weight: 400 !important;
       line-height: 1.7 !important;
       letter-spacing: 0.02em !important; /* slightly open — editorial, calm */
-      color: #4A4944 !important;
+      color: rgba(245,244,241,0.75) !important;
       margin: 0 0 0 !important;          /* hero inner bottom padding handles spacing */
       max-width: 520px;
     }
