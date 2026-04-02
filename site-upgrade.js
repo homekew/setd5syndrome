@@ -82,7 +82,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     header:not(.site-header) {
-      background: #E8E7E4 !important;
+      background: #F4F3F0 !important;
       color: #2F2F2B !important;
       text-align: left !important;
       padding: 0 !important;
@@ -143,7 +143,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #A07D54;
-      background: #E8E7E4;
+      background: #F4F3F0;
       border: 1px solid #DDD8D1;
       border-radius: 100px;
       padding: 0.3rem 0.875rem;
@@ -671,7 +671,7 @@
     }
 
     .intro-bar {
-      background: #F4F3F0 !important;
+      background: #F8F7F4 !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
