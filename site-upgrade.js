@@ -2220,10 +2220,11 @@
   const introBar  = document.querySelector('.intro-bar');
   const introBody = introBar ? introBar.querySelector('.intro-body') : null;
   if (introBar && introBody) {
-    // 1. Trim the body copy to a tighter supporting line
-    introBody.textContent = 'A helpful companion for families navigating a SETD5 Syndrome diagnosis.';
+    // Remove the body copy line entirely
+    introBody.remove();
 
-    // 3. Three trust-signal badges injected after the body copy
+    // 3. Three trust-signal badges injected after the headline
+    const introHeadline = introBar.querySelector('.su-intro-headline');
     const trustRow = document.createElement('div');
     trustRow.className = 'su-trust-row';
     trustRow.innerHTML = `
@@ -2239,7 +2240,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
         Updated regularly
       </span>`;
-    introBody.insertAdjacentElement('afterend', trustRow);
+    if (introHeadline) {
+      introHeadline.insertAdjacentElement('afterend', trustRow);
+    } else {
+      introBar.appendChild(trustRow);
+    }
   }
 
 
