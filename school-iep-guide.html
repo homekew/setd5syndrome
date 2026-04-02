@@ -19,40 +19,40 @@
 <style>
   :root {
       /* ── Counsel Palette tokens (style guide) ── */
-      --indigo:       #565246;
-      --indigo-mid:   #4f8f9e;
-      --gold:         #565246;
-      --gold-hover:   #565246;
+      --indigo:       #2F4858;
+      --indigo-mid:   #B56F56;
+      --gold:         #2F4858;
+      --gold-hover:   #2F4858;
       --parchment:    #F5F4F1;
-      --parchment-d:  #4f8f9e;
-      --ink-muted:    #383228;
+      --parchment-d:  #B56F56;
+      --ink-muted:    #222629;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
     --cream:     #F5F4F1;
     --cream2:    #F5F4F1;
-    --navy:      #565246;
+    --navy:      #2F4858;
     --linen:     #F5F4F1;
-    --caramel:   #565246;
+    --caramel:   #2F4858;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #565246;
+    --charcoal:  #2F4858;
     --deep:      #AEBFBE;
-    --teal:      #C2DED8;
-    --amber:     #565246;
+    --teal:      #E8E3DB;
+    --amber:     #2F4858;
     --amber-lt:  #F5EDE0;
     --rose:      #F2B199;
     --rose-lt:   #FEF0EB;
-    --sage:      #C2DED8;
-    --sage-lt:   #E4F0EE;
-    --blue:      #C2DED8;
-    --blue-lt:   #E4F0EE;
-    --text:      #383228;
-    --muted:     #383228;
-    --border:    #4f8f9e;
+    --sage:      #E8E3DB;
+    --sage-lt:   #E8E3DB;
+    --blue:      #E8E3DB;
+    --blue-lt:   #E8E3DB;
+    --text:      #222629;
+    --muted:     #222629;
+    --border:    #D3CCC2;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,7 +69,7 @@
 
 
   /* ── HEADER ── */
-  .site-header { background: #162544; color: #fff; position:sticky;top:0;z-index:920;overflow:hidden}
+  .site-header { background: #2F4858; color: #fff; position:sticky;top:0;z-index:920;overflow:hidden}
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 32px 32px 24px;position:relative;z-index:2}
   .header-eyebrow{
@@ -140,12 +140,12 @@
   .info-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .teal-callout {
-    background: #e8f4f2; border-left: 4px solid var(--teal);
+    background: #E8E3DB; border-left: 4px solid var(--teal);
     border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
   }
   .teal-callout .callout-label {
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
-    text-transform: uppercase; color: #2a7068; display: block; margin-bottom: 6px;
+    text-transform: uppercase; color: #B56F56; display: block; margin-bottom: 6px;
   }
   .teal-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
@@ -165,7 +165,7 @@
   }
   .sage-callout .callout-label {
     font-size: 10px; font-weight: 600; letter-spacing: .11em;
-    text-transform: uppercase; color: #2a7068; display: block; margin-bottom: 6px;
+    text-transform: uppercase; color: #B56F56; display: block; margin-bottom: 6px;
   }
   .sage-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
 
@@ -191,11 +191,11 @@
   }
   .feature-card ul li::before {
     content: '·'; position: absolute; left: 5px;
-    font-size: 20px; line-height: 1; color: #2a7068; top: 2px;
+    font-size: 20px; line-height: 1; color: #B56F56; top: 2px;
   }
   .feature-card.amber-top ul li::before { color: var(--amber); }
   .feature-card.rose-top  ul li::before { color: var(--deep); }
-  .feature-card.sage-top  ul li::before { color: #2a7068; }
+  .feature-card.sage-top  ul li::before { color: #B56F56; }
   .feature-card.blue-top  ul li::before { color: var(--blue); }
 
   /* ── STEPS ── */
@@ -258,7 +258,7 @@
   }
   .term-abbr {
     font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600;
-    color: #2a7068; letter-spacing: .06em; text-transform: uppercase;
+    color: #B56F56; letter-spacing: .06em; text-transform: uppercase;
     margin-left: 8px; vertical-align: middle;
   }
   .term-def { font-size: 15.5px; color: var(--text); line-height: 1.65; }
@@ -292,12 +292,12 @@
   .resource-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
 
   /* ── LINKS ── */
-  a { color: #2a7068; text-decoration: none; }
+  a { color: #B56F56; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
   footer {
-    background: #162544;
+    background: #2F4858;
     text-align: center;
     padding: 2rem 1.5rem;
     font-family: 'Poppins', sans-serif;
@@ -417,8 +417,8 @@
     font-family: 'Poppins', sans-serif; line-height: 1.35;
     transition: background 0.12s, color 0.12s;
   }
-  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
-  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .sidebar-link:hover { background: #F5F4F1; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #F5F4F1; }
   .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
   .page-main { flex: 1; min-width: 0; }
   @media (max-width: 768px) {
@@ -498,7 +498,7 @@
 
 <!-- HEADER -->
 <header class="site-header">
-<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
+<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E8E3DB" stop-opacity="0.07"/><stop offset="100%" stop-color="#E8E3DB" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
 
 
   <div class="header-inner">
@@ -531,13 +531,13 @@
 
 
 <!-- HANDOUT BUILDER BOX -->
-<div style="background:#162544; border-radius:10px; padding:22px 32px; margin:20px auto; max-width:860px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+<div style="background:#2F4858; border-radius:10px; padding:22px 32px; margin:20px auto; max-width:860px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
   <div style="flex:1; min-width:220px;">
-    <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#2a7068; margin-bottom:6px;">School Meeting Handout Builder</div>
+    <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#B56F56; margin-bottom:6px;">School Meeting Handout Builder</div>
     <div style="font-family: 'DM Sans', sans-serif; font-size:1.15rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.3;">Build a handout tailored to your child for educational meetings</div>
     <p style="font-size:13.5px; color:rgba(255,255,255,0.7); margin:0; line-height:1.65;">Rather than a generic PDF, this tool lets you check which features apply to your child and generates a custom one-page handout for IEP meetings, evaluations, or introducing your child to a new teacher at the start of the year.</p>
   </div>
-  <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#C6A27E; color:#fff; font-family: 'Poppins', sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
+  <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#B56F56; color:#fff; font-family: 'Poppins', sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -995,8 +995,8 @@
     <p>IEP services are legal entitlements established by federal and state law. Parents who request services or dispute school decisions are exercising procedural rights under IDEA, not making requests outside the normal process.</p>
   </div>
 
-  <div style="background:#e8f4f2; border-left:4px solid #C2DED8; border-radius:0 8px 8px 0; padding:14px 20px; margin-top:28px;">
-    <p style="font-size:14.5px; margin:0;"><strong>Printable school handout:</strong> A free one-page guide you can download and bring to IEP meetings or share with your child's school team. <a href="printable-handouts.html" style="color: #2a7068;">View printable handouts →</a></p>
+  <div style="background:#E8E3DB; border-left:4px solid #E8E3DB; border-radius:0 8px 8px 0; padding:14px 20px; margin-top:28px;">
+    <p style="font-size:14.5px; margin:0;"><strong>Printable school handout:</strong> A free one-page guide you can download and bring to IEP meetings or share with your child's school team. <a href="printable-handouts.html" style="color: #B56F56;">View printable handouts →</a></p>
   </div>
 
 </div>
@@ -1017,7 +1017,7 @@
 
 </div>
 </div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#162544;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">&#8593;</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#2F4858;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">&#8593;</button>
 
 <script>
 (function(){

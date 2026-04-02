@@ -19,40 +19,40 @@
 <style>
   :root {
       /* ââ Counsel Palette tokens (style guide) ââ */
-      --indigo:       #565246;
-      --indigo-mid:   #4f8f9e;
-      --gold:         #565246;
-      --gold-hover:   #565246;
+      --indigo:       #2F4858;
+      --indigo-mid:   #B56F56;
+      --gold:         #2F4858;
+      --gold-hover:   #2F4858;
       --parchment:    #F5F4F1;
-      --parchment-d:  #4f8f9e;
-      --ink-muted:    #383228;
+      --parchment-d:  #B56F56;
+      --ink-muted:    #222629;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
     --cream:     #F5F4F1;
     --cream2:    #F5F4F1;
-    --navy:      #565246;
+    --navy:      #2F4858;
     --linen:     #F5F4F1;
-    --caramel:   #565246;
+    --caramel:   #2F4858;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #565246;
+    --charcoal:  #2F4858;
     --deep:      #AEBFBE;
-    --teal:      #C2DED8;
-    --amber:     #565246;
+    --teal:      #E8E3DB;
+    --amber:     #2F4858;
     --amber-lt:  #F5EDE0;
     --rose:      #F2B199;
     --rose-lt:   #FEF0EB;
-    --sage:      #C2DED8;
-    --sage-lt:   #E4F0EE;
-    --blue:      #C2DED8;
-    --blue-lt:   #E4F0EE;
-    --text:      #383228;
-    --muted:     #383228;
-    --border:    #4f8f9e;
+    --sage:      #E8E3DB;
+    --sage-lt:   #E8E3DB;
+    --blue:      #E8E3DB;
+    --blue-lt:   #E8E3DB;
+    --text:      #222629;
+    --muted:     #222629;
+    --border:    #D3CCC2;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,7 +69,7 @@
 
 
   /* ââ HEADER ââ */
-  .site-header { background: #162544; color: #fff; position:sticky;top:0;z-index:920;overflow:hidden}
+  .site-header { background: #2F4858; color: #fff; position:sticky;top:0;z-index:920;overflow:hidden}
   /* ââ HEADER COLLAPSE ââ */
   .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }  .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
@@ -156,8 +156,8 @@
     color: var(--muted); cursor: pointer; transition: all 0.15s;
     white-space: nowrap; line-height: 1.3;
   }
-  .symptom-pill:hover { border-color: #2a7068; color: #2a7068; }
-  .symptom-pill.active { background: #2a7068; border-color: #2a7068; color: #fff; }
+  .symptom-pill:hover { border-color: #B56F56; color: #B56F56; }
+  .symptom-pill.active { background: #B56F56; border-color: #B56F56; color: #fff; }
   .feature-card.filter-hidden { display: none !important; }
   .feature-card li.search-hidden { display: none !important; }
 
@@ -241,12 +241,12 @@
   .info-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
   .teal-callout {
-    background: #e8f4f2; border-left: 4px solid var(--teal);
+    background: #E8E3DB; border-left: 4px solid var(--teal);
     border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
   }
   .teal-callout .callout-label {
     font-size: 11px; font-weight: 600; letter-spacing: .11em;
-    text-transform: uppercase; color: #2a7068; display: block; margin-bottom: 6px;
+    text-transform: uppercase; color: #B56F56; display: block; margin-bottom: 6px;
   }
   .teal-callout p{ font-size: 15px; line-height: 1.68; color: var(--text); }
 
@@ -288,11 +288,11 @@
   }
   .feature-card ul li::before {
     content: 'Â·'; position: absolute; left: 5px;
-    font-size: 20px; line-height: 1; color: #2a7068; top: 2px;
+    font-size: 20px; line-height: 1; color: #B56F56; top: 2px;
   }
   .feature-card.amber-top ul li::before { color: var(--amber); }
   .feature-card.rose-top  ul li::before { color: var(--deep); }
-  .feature-card.sage-top  ul li::before { color: #2a7068; }
+  .feature-card.sage-top  ul li::before { color: #B56F56; }
   .feature-card.blue-top  ul li::before { color: var(--blue); }
 
   /* ââ LI NOTE (secondary text within a list item) ââ */
@@ -360,7 +360,7 @@
 
     /* ââ FOOTER ââ */
   footer {
-    background: #162544;
+    background: #2F4858;
     text-align: center;
     padding: 2rem 1.5rem;
     font-family: 'Poppins', sans-serif;
@@ -417,7 +417,7 @@
     flex-direction: column;
   }
   .page-toc ol li { padding: 1px 0; }
-  .page-toc ol li a { color: #2a7068; text-decoration: none; font-size: 13.5px; }
+  .page-toc ol li a { color: #B56F56; text-decoration: none; font-size: 13.5px; }
   .page-toc ol li a:hover { text-decoration: underline; }
 
   /* ââ QUICK SUMMARY ââ */
@@ -430,7 +430,7 @@
   }
   .quick-summary-label {
     font-size: 10px; font-weight: 600; letter-spacing: .12em;
-    text-transform: uppercase; color: #2a7068; margin-bottom: 8px; display: block;
+    text-transform: uppercase; color: #B56F56; margin-bottom: 8px; display: block;
   }
   .quick-summary p { font-size: 15px; line-height: 1.65; margin-bottom: 8px; color: var(--text); }
   .quick-summary ul { list-style: none; padding: 0; margin: 4px 0 8px; }
@@ -440,7 +440,7 @@
   }
   .quick-summary ul li::before {
     content: 'Â·'; position: absolute; left: 5px;
-    font-size: 20px; line-height: 1; color: #2a7068; top: 2px;
+    font-size: 20px; line-height: 1; color: #B56F56; top: 2px;
   }
   .quick-summary .qs-note { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
 
@@ -526,8 +526,8 @@
     font-family: 'Poppins', sans-serif; line-height: 1.35;
     transition: background 0.12s, color 0.12s;
   }
-  .sidebar-link:hover { background: #f7f5f0; color: var(--navy); text-decoration: none; }
-  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #fdf8f2; }
+  .sidebar-link:hover { background: #F5F4F1; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #F5F4F1; }
   .sidebar-divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
   .page-main { flex: 1; min-width: 0; }
   @media (max-width: 768px) {
@@ -577,7 +577,7 @@
 
 <!-- HEADER -->
 <header class="site-header">
-<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
+<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E8E3DB" stop-opacity="0.07"/><stop offset="100%" stop-color="#E8E3DB" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
 
 
   <div class="header-inner">
@@ -622,13 +622,13 @@
 <div id="tab-what" class="tab-panel active">
 <div class="page-body">
 
-  <div style="background:#eaf5f3; border:1.5px solid #AEBFBE; border-radius:10px; padding:16px 20px; margin-bottom:32px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+  <div style="background:#E8E3DB; border:1.5px solid #AEBFBE; border-radius:10px; padding:16px 20px; margin-bottom:32px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
     <div style="flex:1; min-width:min(200px, 100%);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color: #2a7068; margin-bottom:3px;">Printable Resource</div>
-<div style="font-size:15px; font-weight:700; color: #162544; margin-bottom:5px;">SETD5 Syndrome: At a Glance</div>
+      <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color: #B56F56; margin-bottom:3px;">Printable Resource</div>
+<div style="font-size:15px; font-weight:700; color: #2F4858; margin-bottom:5px;">SETD5 Syndrome: At a Glance</div>
       <p style="font-size:13px; color:#374151; margin:0; line-height:1.55;">Key facts, common features, and resources. One page.</p>
     </div>
-    <a href="setd5-general-guide.pdf" download="SETD5-Syndrome-General-Guide.pdf" style="display:inline-flex; align-items:center; gap:7px; background:#5a9186; color:#fff; font-weight:600; font-size:13px; padding:9px 18px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">
+    <a href="setd5-general-guide.pdf" download="SETD5-Syndrome-General-Guide.pdf" style="display:inline-flex; align-items:center; gap:7px; background:#B56F56; color:#fff; font-weight:600; font-size:13px; padding:9px 18px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">
       &#8595; Download PDF
     </a>
   </div>
@@ -638,7 +638,7 @@
 
   <p class="prose">SETD5 Syndrome is a rare genetic neurodevelopmental disorder caused by a change (variant) in the <strong>SETD5 gene</strong> on chromosome 3. This gene regulates how other genes are switched on and off during development. When one copy doesn't function correctly, it can lead to a range of developmental, behavioral, medical, and physical features â though no two individuals are exactly alike.</p>
 
-  <p class="prose">The condition was first identified in published research in 2014 (<a href="sources-references.html" style="color:#2a7068;">see Sources &amp; References</a>), which means it is still relatively new to researchers and clinicians. See the <strong>Symptoms &amp; Features</strong> tab for a full breakdown of common features.</p>
+  <p class="prose">The condition was first identified in published research in 2014 (<a href="sources-references.html" style="color:#B56F56;">see Sources &amp; References</a>), which means it is still relatively new to researchers and clinicians. See the <strong>Symptoms &amp; Features</strong> tab for a full breakdown of common features.</p>
 
   <p class="prose" style="margin-bottom:10px;">You may see it listed under several names in medical records or research papers. All refer to the same condition, and you may encounter any of them in reports, research, or conversations with your care team:</p>
   <ul style="margin: 0 0 12px 20px; display: flex; flex-direction: column; gap: 6px;">
@@ -655,7 +655,7 @@
     <div class="stat-box"><div class="stat-number">75+</div><div class="stat-label">individuals in published literature (as of 2025)</div></div>
     <div class="stat-box"><div class="stat-number">Chr. 3</div><div class="stat-label">gene location (3p25.3)</div></div>
   </div>
-  <p class="prose-note">*As of 2025, published studies have documented 75 or more individuals with SETD5 Syndrome (<a href="sources-references.html" style="color:#2a7068;">see Sources &amp; References</a>). As of early 2026, the SETD5 Syndrome Facebook support group has over 1,100 members worldwide. It's important to note that support group membership does not represent confirmed diagnoses; actual prevalence remains unknown.</p>
+  <p class="prose-note">*As of 2025, published studies have documented 75 or more individuals with SETD5 Syndrome (<a href="sources-references.html" style="color:#B56F56;">see Sources &amp; References</a>). As of early 2026, the SETD5 Syndrome Facebook support group has over 1,100 members worldwide. It's important to note that support group membership does not represent confirmed diagnoses; actual prevalence remains unknown.</p>
 
   <div class="info-callout">
     <span class="callout-label">Disorder, syndrome, or disease?</span>
@@ -789,7 +789,7 @@
 
   <div class="amber-callout">
     <span class="callout-label">Important note</span>
-    <p>This list describes features that have been reported in people with SETD5 Syndrome. <strong style="font-size:1.15em;color: #C6A27E;">It is not a prediction of what your child or you will experience. Every person with SETD5 Syndrome is different, and no single feature shows up in everyone.</strong></p>
+    <p>This list describes features that have been reported in people with SETD5 Syndrome. <strong style="font-size:1.15em;color: #B56F56;">It is not a prediction of what your child or you will experience. Every person with SETD5 Syndrome is different, and no single feature shows up in everyone.</strong></p>
   </div>
 
   <div class="symptom-filter-bar" id="symptom-filter-bar">
@@ -1225,7 +1225,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </div>
 </div>
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#162544;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">&#8593;</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;z-index:999;background:#2F4858;color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(22,37,68,0.25);transition:opacity .2s;">&#8593;</button>
 
 <script>
 (function(){

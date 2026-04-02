@@ -1,20 +1,20 @@
 /**
- * site-upgrade.js  v139
+ * site-upgrade.js  v140
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
- * v139: Realtime Colors palette applied site-wide
+ * v140: Terracotta / Deep Anchor palette — #2F4858 · #B56F56 · #A88A4A
  *
  *   Design tokens (Realtime Colors):
  *   ┌────────────────────────────────────────────────────┐
- *   │ Warm Tan         #565246   nav, headings, btns     │
- *   │ Charcoal         #383228   body text, headings      │
- *   │ Sage             #4f8f9e   secondary accent         │
- *   │ Purple-Grey      #4f8f9e   tertiary accent          │
+ *   │ Warm Tan         #2F4858   nav, headings, btns     │
+ *   │ Charcoal         #222629   body text, headings      │
+ *   │ Sage             #D3CCC2   secondary accent         │
+ *   │ Purple-Grey      #D3CCC2   tertiary accent          │
  *   │ Cream            #F5F4F1   page bg, hero bg          │
  *   │ Warm Light       #F5F4F1   cards / surfaces          │
- *   │ Warm Border      #4f8f9e   borders                   │
- *   │ Charcoal-Muted   #383228   secondary / meta text     │
- *   │ Gold             #565246   accent highlights         │
+ *   │ Warm Border      #D3CCC2   borders                   │
+ *   │ Charcoal-Muted   #62686A   secondary / meta text     │
+ *   │ Gold             #2F4858   accent highlights         │
  *   └────────────────────────────────────────────────────┘
  *
  *   Fonts:
@@ -51,19 +51,26 @@
        the new palette without needing individual element overrides.
     ═══════════════════════════════════════════════════════════════ */
     :root {
-      --navy:      #565246;   /* warm tan — nav, buttons                   */
-      --charcoal:  #383228;   /* charcoal — headings, body text            */
-      --teal:      #4f8f9e;   /* sage — secondary accent                   */
-      --teal-lt:   #F5F4F1;   /* warm light — light backgrounds            */
-      --sage:      #4f8f9e;   /* sage — secondary accent, callouts         */
-      --sage-lt:   #F5F4F1;   /* warm light — light sage variant           */
-      --sage-mid:  #4f8f9e;   /* sage — mid-tone borders                   */
-      --amber:     #565246;   /* gold — accent highlights, em text         */
-      /* v139 additions: unify with Realtime Colors palette */
-      --muted:     #383228;   /* charcoal-muted — secondary text           */
-      --text:      #383228;   /* charcoal — primary text                   */
-      --border:    #4f8f9e;   /* warm border — subtle dividers             */
-      --ink:       #383228;   /* charcoal — primary ink color              */
+      /* v140 — Terracotta + Deep Anchor palette */
+      --deep:      #2F4858;   /* deep anchor — nav text, footer, headings   */
+      --terra:     #B56F56;   /* terracotta — primary accent, buttons, links */
+      --gold:      #A88A4A;   /* warm gold — highlight, secondary CTA        */
+      --ink:       #222629;   /* near-black — main body text                 */
+      --slate:     #62686A;   /* slate — secondary / meta text               */
+      --bg:        #F5F4F1;   /* cream — main page background                */
+      --surface:   #E8E3DB;   /* warm linen — cards, callouts, surfaces      */
+      --border:    #D3CCC2;   /* warm stone — borders, dividers              */
+      /* legacy variable aliases (used by older inline page styles) */
+      --navy:      #2F4858;
+      --charcoal:  #222629;
+      --teal:      #B56F56;
+      --teal-lt:   #F5F4F1;
+      --sage:      #B56F56;
+      --sage-lt:   #F5F4F1;
+      --sage-mid:  #D3CCC2;
+      --amber:     #A88A4A;
+      --muted:     #62686A;
+      --text:      #222629;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -75,13 +82,13 @@
 
     header:not(.site-header) {
       background: #F5F4F1 !important;
-      color: #383228 !important;
+      color: #222629 !important;
       text-align: left !important;
       padding: 0 !important;
       border-top: none !important;
       border-bottom: none !important;
       /* Soft shadow lifts the hero off the page as its own surface */
-      box-shadow: 0 6px 40px rgba(30,58,79,0.14) !important;
+      box-shadow: 0 6px 40px rgba(47,72,88,0.10) !important;
       position: relative;
       z-index: 10;
     }
@@ -134,9 +141,9 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #4f8f9e;
+      color: #B56F56;
       background: #F5F4F1;
-      border: 1px solid #4f8f9e;
+      border: 1px solid #D3CCC2;
       border-radius: 100px;
       padding: 0.3rem 0.875rem;
       margin-bottom: 1.75rem;   /* more air — sets the pill apart as an entry label */
@@ -147,7 +154,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: clamp(2rem, 4vw, 2.75rem) !important;
       font-weight: 700 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
       margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
@@ -157,7 +164,7 @@
     .su-hero-h1 em {
       font-style: normal !important;
       font-weight: 700 !important;
-      color: #4f8f9e !important;
+      color: #B56F56 !important;
     }
 
     /* ── Hero subheading ── */
@@ -167,7 +174,7 @@
       font-weight: 400 !important;
       line-height: 1.7 !important;
       letter-spacing: 0.02em !important; /* slightly open — editorial, calm */
-      color: #383228 !important;
+      color: #62686A !important;
       margin: 0 0 0 !important;          /* hero inner bottom padding handles spacing */
       max-width: 520px;
     }
@@ -188,17 +195,17 @@
       display: inline-flex;
       align-items: center;
       padding: 0.6875rem 1.375rem;
-      background: #565246 !important;
+      background: #B56F56 !important;
       color: #FFFFFF !important;
-      border: 2px solid #565246 !important;
+      border: 2px solid #B56F56 !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s, border-color 0.15s;
     }
 
     .su-btn-primary:hover {
-      background: #565246 !important;
-      border-color: #565246 !important;
+      background: #B56F56 !important;
+      border-color: #B56F56 !important;
       color: #FFFFFF !important;
     }
 
@@ -211,8 +218,8 @@
       align-items: center;
       padding: 0.6875rem 1.375rem;
       background: transparent !important;
-      color: #565246 !important;
-      border: 2px solid #565246 !important;
+      color: #A88A4A !important;
+      border: 2px solid #A88A4A !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s;
@@ -220,7 +227,7 @@
 
     .su-btn-secondary:hover {
       background: rgba(158,126,66,0.08) !important;
-      color: #565246 !important;
+      color: #A88A4A !important;
     }
 
     /* Responsive hero */
@@ -248,10 +255,10 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-nav {
-      background: #565246 !important;
+      background: #F5F4F1 !important;
       border-top: none !important;
-      border-bottom: 3px solid #565246 !important;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
+      border-bottom: 1px solid #D3CCC2 !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
@@ -271,7 +278,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
-      color: #FFFFFF !important;
+      color: #2F4858 !important;
       text-decoration: none !important;
       white-space: nowrap;
       flex-shrink: 0;
@@ -281,14 +288,14 @@
 
     .su-nav-logo .su-nav-logo-light {
       font-weight: 400;
-      color: rgba(255,255,255,0.65);
+      color: rgba(47,72,88,0.55);
     }
 
     /* Short logo shown on mobile only; long version shown on desktop */
     .su-logo-short { display: none; }
 
     .su-nav-logo:hover {
-      color: #FFFFFF !important;
+      color: #2F4858 !important;
       opacity: 0.85;
     }
 
@@ -348,7 +355,7 @@
         left: 1rem !important;
         right: 1rem !important;
         height: 2px !important;
-        background: #565246 !important;
+        background: #B56F56 !important;
         border-radius: 2px !important;
       }
     }
@@ -370,7 +377,7 @@
     .nav-menu > a {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 400 !important;
-      color: rgba(255,255,255,0.82) !important;
+      color: #2F4858 !important;
       text-decoration: none !important;
       transition: color 0.12s ease !important;
       white-space: nowrap;
@@ -378,18 +385,18 @@
     }
 
     .nav-menu > a:hover {
-      color: #FFFFFF !important;
+      color: #B56F56 !important;
       text-decoration: none !important;
     }
 
     .nav-menu > a.su-active,
     .nav-menu > a[aria-current="page"] {
-      color: #FFFFFF !important;
+      color: #B56F56 !important;
       font-weight: 500 !important;
     }
 
     .nav-menu > a:focus-visible {
-      outline: 2px solid #565246 !important;
+      outline: 2px solid #B56F56 !important;
       outline-offset: -2px;
     }
 
@@ -413,8 +420,8 @@
 
       /* Hamburger button: white on indigo */
       .nav-toggle {
-        color: #FFFFFF !important;
-        border-color: rgba(255,255,255,0.3) !important;
+        color: #2F4858 !important;
+        border-color: rgba(47,72,88,0.3) !important;
         min-height: 44px !important;
         min-width: 44px !important;
         display: flex !important;
@@ -424,7 +431,7 @@
 
       /* Hamburger bars: must be white — span background is not inherited from color */
       .nav-toggle span {
-        background: #FFFFFF !important;
+        background: #2F4858 !important;
       }
 
       /* Dropdown panel: hidden by default, shown when .open is toggled by hamburger JS */
@@ -435,8 +442,8 @@
       .nav-menu.open {
         display: flex !important;
         background: #FFFFFF !important;
-        border-top: 1px solid #4f8f9e !important;
-        border-bottom: 1px solid #4f8f9e !important;
+        border-top: 1px solid #D3CCC2 !important;
+        border-bottom: 1px solid #D3CCC2 !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
         margin-left: 0 !important;
         flex-direction: column !important;
@@ -455,8 +462,8 @@
         padding: 0.6rem 1.25rem !important;
         font-size: 0.9375rem !important;
         font-weight: 400 !important;
-        color: #383228 !important;
-        border-bottom: 1px solid #4f8f9e !important;
+        color: #222629 !important;
+        border-bottom: 1px solid #D3CCC2 !important;
         border-left: 3px solid transparent !important;
       }
 
@@ -466,15 +473,15 @@
 
       .nav-menu > a.su-active,
       .nav-menu > a[aria-current="page"] {
-        color: #565246 !important;
+        color: #B56F56 !important;
         font-weight: 600 !important;
-        border-left-color: #565246 !important;
-        border-bottom-color: #4f8f9e !important;
+        border-left-color: #B56F56 !important;
+        border-bottom-color: #D3CCC2 !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
 
       .nav-menu > a:hover {
-        color: #565246 !important;
+        color: #B56F56 !important;
         background: #F5F4F1 !important;
       }
     }
@@ -485,7 +492,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-footer {
-      background: #565246 !important;
+      background: #2F4858 !important;
       padding: 0 !important;
       text-align: left !important;
       border-top: none !important;
@@ -506,7 +513,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #565246;
+      color: #A88A4A;
       margin: 0 0 0.875rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.12);
@@ -561,7 +568,7 @@
     }
 
     .su-footer-col ul li a:hover {
-      color: #FFFFFF;
+      color: #A88A4A;
     }
 
     #su-footer-translate {
@@ -600,7 +607,7 @@
     }
 
     #su-footer-bottom-links a:hover {
-      color: rgba(255,255,255,0.85);
+      color: #A88A4A;
     }
 
     #su-footer-disclaimer {
@@ -638,7 +645,7 @@
 
     body {
       background: #F5F4F1 !important;
-      color: #383228 !important;
+      color: #222629 !important;
       font-size: 16px !important;
     }
 
@@ -664,7 +671,7 @@
       padding-bottom: 4rem !important;
       padding-left: max(2rem, calc(50% - 580px)) !important;
       padding-right: max(2rem, calc(50% - 580px)) !important;
-      border-bottom: 1px solid #4f8f9e !important;
+      border-bottom: 1px solid #D3CCC2 !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
@@ -674,7 +681,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
-      color: #383228 !important;
+      color: #222629 !important;
       text-align: center !important;
       width: 100% !important;
       max-width: 480px !important;
@@ -691,7 +698,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.625rem !important;
       font-weight: 700 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       line-height: 1.25 !important;
       letter-spacing: -0.01em !important;
       text-align: center !important;
@@ -703,13 +710,13 @@
       display: block !important;
       width: 36px !important;
       height: 2px !important;
-      background: #565246 !important;
+      background: #2F4858 !important;
       margin: 0 auto 0.75rem !important;
       border-radius: 2px !important;
     }
     .su-intro-headline em {
       font-style: normal !important;
-      color: #4f8f9e !important;
+      color: #B56F56 !important;
       font-weight: 700 !important;
     }
 
@@ -727,13 +734,13 @@
       align-items: center !important;
       gap: 0.4rem !important;
       background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
+      border: 1px solid #D3CCC2 !important;
       border-radius: 100px !important;
       padding: 0.45rem 1rem !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       font-weight: 500 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       line-height: 1 !important;
       white-space: nowrap !important;
     }
@@ -741,7 +748,7 @@
     .su-trust-badge svg {
       width: 14px !important;
       height: 14px !important;
-      stroke: #565246 !important;
+      stroke: #2F4858 !important;
       flex-shrink: 0 !important;
     }
 
@@ -763,7 +770,7 @@
       border-radius: 20px !important;
       padding: 4px 14px !important;
       font-size: 0.625rem !important;
-      background: #4f8f9e !important;      /* steel indigo — label register, not heading register */
+      background: #D3CCC2 !important;      /* steel indigo — label register, not heading register */
       color: #FFFFFF !important;
       margin-bottom: 0.875rem !important;
     }
@@ -793,15 +800,15 @@
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #565246 !important;
+      color: #B56F56 !important;
       margin-bottom: 1.375rem !important;
     }
 
     /* Cards: white on cream */
     .card {
-      --card-accent: #565246;
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
+      --card-accent: #2F4858;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
     }
@@ -809,12 +816,12 @@
     .card:hover {
       transform: translateY(-2px) !important;
       box-shadow: 0 6px 24px rgba(0,0,0,0.1) !important;
-      border-color: #B8B4AC !important;
+      border-color: #D3CCC2 !important;
     }
 
     /* Card top accent stripe: gold */
     .card::before {
-      background: #565246 !important;
+      background: #2F4858 !important;
       height: 3px !important;
     }
 
@@ -827,7 +834,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #4f8f9e !important;
+      color: #2F4858 !important;
       line-height: 1.3 !important;
       margin-bottom: 1rem !important;
       border-bottom: none !important;
@@ -837,7 +844,7 @@
     .card p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
-      color: #383228 !important;
+      color: #222629 !important;
       line-height: 1.65 !important;
     }
 
@@ -845,25 +852,25 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
-      color: #565246 !important;
-      border: 1.5px solid #565246 !important;
+      color: #B56F56 !important;
+      border: 1.5px solid #B56F56 !important;
       letter-spacing: 0.01em !important;
     }
 
     .card:hover .card-link {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
     }
 
     /* ── BUTTON SYSTEM ─────────────────────────────────────────────────────
        All backgrounds set with !important to override inline style= attrs
-       (e.g. style="background:#4a6a8a" or style="background:var(--teal)")
+       (e.g. style="background:#2F4858" or style="background:var(--teal)")
     ─────────────────────────────────────────────────────────────────────── */
 
     /* PRIMARY: midnight indigo — utility actions (download, generate, print…) */
     .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
     .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
-      background: #565246 !important;
+      background: #B56F56 !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
@@ -874,18 +881,18 @@
     .btn-primary:hover, .btn-teal:hover, .btn-dark:hover,
     .handout-box-btn:hover, .generate-btn:hover, .print-btn:hover,
     .submit-btn:hover, .state-go-btn:hover:not(:disabled) {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
     }
     .state-go-btn:disabled {
-      background: #4f8f9e !important;
-      color: #383228 !important;
+      background: #E8E3DB !important;
+      color: #62686A !important;
       cursor: not-allowed !important;
     }
 
     /* CTA GOLD: high-emphasis calls to action */
     .cta-btn, .cta-banner-btn {
-      background: #565246 !important;
+      background: #B56F56 !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 600 !important;
@@ -893,73 +900,73 @@
       border-radius: 7px !important;
     }
     .cta-btn:hover, .cta-banner-btn:hover {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
     }
 
     /* SECONDARY OUTLINE: same weight as primary but ghost treatment */
     .btn-secondary {
       background: transparent !important;
-      color: #565246 !important;
-      border: 1.5px solid #565246 !important;
+      color: #2F4858 !important;
+      border: 1.5px solid #B56F56 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
     .btn-secondary:hover {
-      background: #565246 !important;
-      color: #FFFFFF !important;
+      background: #A88A4A !important;
+      color: #F5F4F1 !important;
     }
 
     /* TERTIARY / TEMPLATE CHIPS: low-emphasis selectable options */
     .tpl-btn, .flow-btn {
-      background: #FFFFFF !important;
-      color: #383228 !important;
-      border: 1px solid #4f8f9e !important;
+      background: #E8E3DB !important;
+      color: #222629 !important;
+      border: 1px solid #D3CCC2 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 400 !important;
       border-radius: 6px !important;
     }
     .tpl-btn:hover, .flow-btn:hover {
       background: #F5F4F1 !important;
-      border-color: #B8B4AC !important;
+      border-color: #D3CCC2 !important;
     }
     .tpl-btn.active, .flow-btn.active {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
-      border-color: #565246 !important;
+      border-color: #2F4858 !important;
     }
 
     /* GHOST / BACK: navigation-style, no fill */
     .back-btn, .restart-btn {
       background: transparent !important;
-      color: #4f8f9e !important;
-      border: 1.5px solid #4f8f9e !important;
+      color: #B56F56 !important;
+      border: 1.5px solid #D3CCC2 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
     .back-btn:hover, .restart-btn:hover {
-      border-color: #4f8f9e !important;
-      color: #565246 !important;
+      border-color: #D3CCC2 !important;
+      color: #2F4858 !important;
     }
 
     /* START-HERE CTA: gold, overrides inline style="background:var(--teal)" */
     .start-here-btn {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 6px !important;
     }
     .start-here-btn:hover {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
     }
 
     /* ABOUT PAGE — contact CTA and closing link buttons */
     .contact-cta {
-      background: #565246 !important;
+      background: #B56F56 !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
@@ -967,65 +974,65 @@
       text-decoration: none !important;
     }
     .contact-cta:hover {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
       text-decoration: none !important;
     }
     .cta-link-btn.primary {
-      background: #4f8f9e !important;
+      background: #D3CCC2 !important;
       color: #FFFFFF !important;
       border-color: transparent !important;
     }
     .cta-link-btn.primary:hover {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
        AT A GLANCE HANDOUT — override hard-coded legacy palette
-       Hard-coded #243147, #2B313C, #C2DED8, #2a7068 → Counsel
+       Hard-coded #2F4858, #2F4858, #E8E3DB, #B56F56 → Counsel
     ═══════════════════════════════════════════════════════════════ */
     .h-header {
-      background: #565246 !important;
+      background: #2F4858 !important;
       border-top: none !important;
     }
     .h-eyebrow {
-      color: #565246 !important;
+      color: #B56F56 !important;
     }
     .h-title em {
-      color: #565246 !important;
+      color: #B56F56 !important;
     }
     .h-logo {
       color: rgba(255,255,255,0.45) !important;
     }
     .h-facts-bar {
       background: #F5F4F1 !important;
-      border-bottom: 1px solid #4f8f9e !important;
+      border-bottom: 1px solid #D3CCC2 !important;
     }
     .h-fact {
-      border-right-color: #4f8f9e !important;
+      border-right-color: #D3CCC2 !important;
     }
     .h-fact-label {
-      color: #383228 !important;
+      color: #222629 !important;
     }
     .h-fact-value {
-      color: #383228 !important;
+      color: #222629 !important;
     }
     .h-what-is-label {
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
     .h-section-label {
-      color: #4f8f9e !important;
-      border-bottom-color: #4f8f9e !important;
+      color: #B56F56 !important;
+      border-bottom-color: #D3CCC2 !important;
     }
     .h-feature-list li::before {
-      background: #565246 !important;
+      background: #2F4858 !important;
     }
     .h-feature-group-title {
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
     .print-btn:hover {
-      background: #565246 !important;
+      background: #2F4858 !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1035,35 +1042,35 @@
     ═══════════════════════════════════════════════════════════════ */
 
     /* Old-teal link/label color → steel indigo */
-    [style*="color:#2a7068"],
-    [style*="color: #2a7068"] {
-      color: #4f8f9e !important;
+    [style*="color:#B56F56"],
+    [style*="color: #B56F56"] {
+      color: #B56F56 !important;
     }
 
     /* Exception: teal-colored labels inside dark navy card containers
-       become invisible (#4f8f9e on #565246). Override to light accent. */
-    [style*="background:#162544"] [style*="color:#2a7068"],
-    [style*="background:#162544"] [style*="color: #2a7068"],
-    [style*="background:#565246"] [style*="color:#2a7068"],
-    [style*="background:#565246"] [style*="color: #2a7068"] {
-      color: #9FBBC8 !important;
+       become invisible (#D3CCC2 on #2F4858). Override to light accent. */
+    [style*="background:#2F4858"] [style*="color:#B56F56"],
+    [style*="background:#2F4858"] [style*="color: #B56F56"],
+    [style*="background:#2F4858"] [style*="color:#B56F56"],
+    [style*="background:#2F4858"] [style*="color: #B56F56"] {
+      color: #E8E3DB !important;
     }
 
     /* Old-navy backgrounds (back-to-top buttons, promo cards, etc.) */
-    [style*="background:#162544"],
-    [style*="background: #162544"] {
-      background: #565246 !important;
+    [style*="background:#2F4858"],
+    [style*="background: #2F4858"] {
+      background: #2F4858 !important;
     }
     /* Variant found on about.html back-to-top */
-    [style*="background:#2a627a"],
-    [style*="background: #2a627a"] {
-      background: #565246 !important;
+    [style*="background:#2F4858"],
+    [style*="background: #2F4858"] {
+      background: #2F4858 !important;
     }
 
     /* Old caramel CTA buttons → antique gold */
-    [style*="background:#C6A27E"],
-    [style*="background: #C6A27E"] {
-      background: #565246 !important;
+    [style*="background:#B56F56"],
+    [style*="background: #B56F56"] {
+      background: #2F4858 !important;
     }
 
     /* Old pale-teal callout backgrounds → parchment */
@@ -1071,22 +1078,22 @@
     [style*="background:#E4F0EE"],
     [style*="background:#eaf5f3"] {
       background: #F5F4F1 !important;
-      border-left-color: #4f8f9e !important;
+      border-left-color: #D3CCC2 !important;
     }
 
-    /* Old teal-green button (#5a9186) and old muted navy (#4a6a8a) → midnight indigo */
-    [style*="background:#5a9186"],
-    [style*="background: #5a9186"],
-    [style*="background:#4a6a8a"],
-    [style*="background: #4a6a8a"] {
-      background: #565246 !important;
+    /* Old teal-green button (#B56F56) and old muted navy (#2F4858) → midnight indigo */
+    [style*="background:#B56F56"],
+    [style*="background: #B56F56"],
+    [style*="background:#2F4858"],
+    [style*="background: #2F4858"] {
+      background: #2F4858 !important;
       color: #FFFFFF !important;  /* restore white text — .page-body a rule overrides inline color:#fff */
     }
 
     /* Old-navy text color used in headings → midnight indigo */
-    [style*="color:#162544"],
-    [style*="color: #162544"] {
-      color: #565246 !important;
+    [style*="color:#2F4858"],
+    [style*="color: #2F4858"] {
+      color: #2F4858 !important;
     }
 
     /* Inline font-family: Inter → Poppins */
@@ -1107,45 +1114,45 @@
     ═══════════════════════════════════════════════════════════════ */
     .section-label {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #383228 !important;
+      color: #B56F56 !important;
       letter-spacing: 0.12em !important;
     }
     .section-tag {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #383228 !important;
+      color: #2F4858 !important;
     }
     .section-tag.on-dark {
       color: rgba(255,255,255,0.65) !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
-       RESEARCH PAGE — hard-coded #2a7068 references in page CSS
+       RESEARCH PAGE — hard-coded #B56F56 references in page CSS
        (These are class-level rules so attribute selectors won't work)
     ═══════════════════════════════════════════════════════════════ */
     /* Type badges */
-    .card-badge                        { color: #4f8f9e !important; }
+    .card-badge                        { color: #B56F56 !important; }
     .peer-reviewed .card-badge         { background: #F5F4F1 !important; }
     .dissertation .card-badge          { background: #F5F4F1 !important; }
 
     /* Citation links */
-    .card-citation a                   { color: #4f8f9e !important; }
+    .card-citation a                   { color: #B56F56 !important; }
 
     /* Bullet / arrow accent markers */
     .findings-list li::before,
     .treatment-card ul li::before,
-    .registry .findings-list li::before { color: #565246 !important; }
+    .registry .findings-list li::before { color: #B56F56 !important; }
 
     /* Callout labels */
     .callout-label,
-    .review .family-callout .callout-label { color: #4f8f9e !important; }
+    .review .family-callout .callout-label { color: #B56F56 !important; }
 
     /* Heading labels in cards */
-    .card-section-label                { color: #565246 !important; }
+    .card-section-label                { color: #2F4858 !important; }
 
     /* Focus ring: old teal → steel indigo */
     .search-input:focus {
-      border-color: #4f8f9e !important;
-      box-shadow: 0 0 0 2px rgba(69,106,124,0.18) !important;
+      border-color: #D3CCC2 !important;
+      box-shadow: 0 0 0 2px rgba(181,111,86,0.18) !important;
     }
 
     /* Stat numbers: Lora → DM Sans */
@@ -1154,34 +1161,34 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.15rem !important;
       font-weight: 600 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
 
     /* Overview box h4 headers */
     .overview-box h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
-    .overview-box ul li::before        { color: #565246 !important; }
+    .overview-box ul li::before        { color: #B56F56 !important; }
 
     /* Watch + monitoring callout headings */
     .watch-callout h3,
     .monitoring-box h3 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
        MEDICAL TERMS PAGE — old teal palette → Counsel + sticky offset
     ═══════════════════════════════════════════════════════════════ */
-    /* Alphabet bar: old teal #5a9186 → steel indigo */
+    /* Alphabet bar: old teal #B56F56 → steel indigo */
     .alpha-bar {
-      background: #4f8f9e !important;
+      background: #D3CCC2 !important;
       border-bottom: 1px solid rgba(255,255,255,0.15) !important;
     }
-    /* Search bar: old dark #1e4f63 → midnight indigo */
+    /* Search bar: old dark #2F4858 → midnight indigo */
     .search-bar {
-      background: #565246 !important;
+      background: #2F4858 !important;
       border-top: 1px solid rgba(255,255,255,0.1) !important;
     }
     /* Search input on dark background */
@@ -1197,12 +1204,12 @@
     /* Term label: old teal → steel indigo */
     .teal-callout .callout-label,
     .term-setd5 strong {
-      color: #4f8f9e !important;
+      color: #B56F56 !important;
     }
     /* Tag badges: old teal bg → parchment */
     .tag-testing {
       background: #F5F4F1 !important;
-      color: #4f8f9e !important;
+      color: #B56F56 !important;
     }
     /* Prose body text */
     .prose {
@@ -1217,65 +1224,65 @@
     ═══════════════════════════════════════════════════════════════ */
     /* Active filter pill: old teal → steel indigo */
     .symptom-pill:hover {
-      border-color: #4f8f9e !important;
-      color: #4f8f9e !important;
+      border-color: #D3CCC2 !important;
+      color: #B56F56 !important;
     }
     .symptom-pill.active {
-      background: #4f8f9e !important;
-      border-color: #4f8f9e !important;
+      background: #D3CCC2 !important;
+      border-color: #D3CCC2 !important;
       color: #FFFFFF !important;
     }
 
     /* TOC links */
-    .page-toc ol li a                  { color: #4f8f9e !important; }
+    .page-toc ol li a                  { color: #B56F56 !important; }
 
     /* Feature card bullet dots */
     .feature-card ul li::before,
-    .feature-card.sage-top ul li::before { color: #565246 !important; }
+    .feature-card.sage-top ul li::before { color: #2F4858 !important; }
 
     .card-link:focus-visible {
-      outline: 2px solid #565246 !important;
+      outline: 2px solid #2F4858 !important;
       outline-offset: 2px !important;
     }
 
     .card-featured {
-      background: #FFFFFF !important;
+      background: #E8E3DB !important;
     }
 
     .featured-badge {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      background: #4f8f9e !important;
+      background: #D3CCC2 !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
 
     /* Start-here banners: translucent gold tint */
     .start-here {
-      background: rgba(158,126,66,0.1) !important;
-      border-color: rgba(158,126,66,0.3) !important;
-      border-left-color: #565246 !important;
+      background: rgba(181,111,86,0.06) !important;
+      border-color: rgba(181,111,86,0.2) !important;
+      border-left-color: #2F4858 !important;
       border-left-width: 3px !important;
       box-shadow: none !important;
     }
 
     .start-here-text strong {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
 
     .start-here-text p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #383228 !important;
+      color: #222629 !important;
     }
 
     .start-here-btn {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      background: #565246 !important;
+      background: #B56F56 !important;
       color: #FFFFFF !important;
     }
 
     .start-here-btn:hover {
-      background: #565246 !important;
+      background: #2F4858 !important;
       color: #FFFFFF !important;
     }
 
@@ -1286,7 +1293,11 @@
 
     /* Main content links */
     main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
-      color: #4f8f9e !important;
+      color: #B56F56 !important;
+      text-decoration-color: rgba(181,111,86,0.4) !important;
+    }
+    main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]):hover {
+      color: #2F4858 !important;
     }
 
     .card-link i,
@@ -1296,7 +1307,7 @@
     }
 
     .su-intro-featured .card-link {
-      background: #565246 !important;
+      background: #B56F56 !important;
       color: #FFFFFF !important;
       align-self: center !important;       /* center the CTA to match the centered layout */
     }
@@ -1311,7 +1322,7 @@
       backdrop-filter: blur(4px) !important;
       -webkit-backdrop-filter: blur(4px) !important;
       border-top: none !important;
-      border-bottom: 1px solid #4f8f9e !important;
+      border-bottom: 1px solid #D3CCC2 !important;
       box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
       position: relative !important;
       z-index: 20 !important;
@@ -1388,17 +1399,17 @@
       font-weight: 500 !important;
       letter-spacing: 0.06em !important;
       text-transform: uppercase !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       margin-bottom: 0.4rem !important;
     }
 
     .header-eyebrow a {
-      color: #565246 !important;
+      color: #2F4858 !important;
       text-decoration: none !important;
     }
 
     .header-eyebrow a:hover {
-      color: #565246 !important;
+      color: #2F4858 !important;
       text-decoration: underline !important;
     }
 
@@ -1407,7 +1418,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
       text-shadow: none !important;
@@ -1416,14 +1427,14 @@
 
     .header-title em {
       font-style: italic !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
 
     /* Page subtitle */
     .header-subtitle {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 16px !important;
-      color: #383228 !important;
+      color: #222629 !important;
       line-height: 1.5 !important;
       margin: 0 !important;
     }
@@ -1434,8 +1445,8 @@
       font-size: 0.67rem !important;
       font-weight: 600 !important;
       background: #F5F4F1 !important;
-      color: #4f8f9e !important;
-      border: 1px solid #4f8f9e !important;
+      color: #B56F56 !important;
+      border: 1px solid #D3CCC2 !important;
       border-radius: 4px !important;
     }
 
@@ -1446,7 +1457,7 @@
     /* Sidebar */
     .page-sidebar {
       background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
+      border: 1px solid #D3CCC2 !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
       padding: 1.25rem 0 !important;
@@ -1461,9 +1472,9 @@
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       padding: 0 1.125rem 0.625rem !important;
-      border-bottom: 1px solid #4f8f9e !important;
+      border-bottom: 1px solid #D3CCC2 !important;
       margin-bottom: 0.375rem !important;
     }
 
@@ -1471,7 +1482,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 400 !important;
-      color: #383228 !important;
+      color: #222629 !important;
       background: transparent !important;
       border: none !important;
       border-left: 3px solid transparent !important;
@@ -1484,17 +1495,17 @@
     }
 
     .sidebar-link:hover {
-      color: #565246 !important;
+      color: #2F4858 !important;
       background: #F5F4F1 !important;
     }
 
     .sidebar-link.active,
     .sidebar-link[aria-current],
     .sidebar-link[aria-selected="true"] {
-      color: #565246 !important;
+      color: #2F4858 !important;
       font-weight: 600 !important;
-      border-left-color: #565246 !important;
-      background: #F7F3E8 !important;
+      border-left-color: #2F4858 !important;
+      background: #E8E3DB !important;
       padding-left: calc(1.125rem - 3px) !important;
     }
 
@@ -1513,7 +1524,7 @@
         top: auto !important;
         border-radius: 0 !important;
         border: none !important;
-        border-bottom: 1px solid #4f8f9e !important;
+        border-bottom: 1px solid #D3CCC2 !important;
         box-shadow: none !important;
         padding: 0 !important;
         display: flex !important;
@@ -1541,7 +1552,7 @@
       .sidebar-link[aria-selected="true"] {
         border-left: none !important;
         border-left-color: transparent !important;
-        border-bottom: 3px solid #565246 !important;
+        border-bottom: 3px solid #B56F56 !important;
         background: transparent !important;
         padding-left: 16px !important;
       }
@@ -1605,12 +1616,12 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #4f8f9e !important;
+      color: #2F4858 !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #4f8f9e !important;
+      border-bottom: 1px solid #D3CCC2 !important;
     }
 
     .page-body h3,
@@ -1618,7 +1629,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.1rem !important;
       font-weight: 600 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -1632,7 +1643,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 16px !important;
       line-height: 1.75 !important;
-      color: #383228 !important;
+      color: #222629 !important;
     }
 
     .prose, .content, .entry-body {
@@ -1641,7 +1652,12 @@
 
     .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
     .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]) {
-      color: #4f8f9e !important;
+      color: #B56F56 !important;
+      text-decoration-color: rgba(181,111,86,0.4) !important;
+    }
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]):hover,
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]):hover {
+      color: #2F4858 !important;
     }
 
     /* Enforce white text on all dark-background buttons — even when nested in .page-body/.page-main */
@@ -1658,10 +1674,10 @@
     .page-body .cta-btn,      .page-main .cta-btn,
     .page-body .cta-banner-btn, .page-main .cta-banner-btn,
     .page-body .start-here-btn, .page-main .start-here-btn,
-    .page-body [style*="background:#565246"], .page-main [style*="background:#565246"],
-    .page-body [style*="background: #565246"], .page-main [style*="background: #565246"],
-    .page-body [style*="background:#565246"], .page-main [style*="background:#565246"],
-    .page-body [style*="background: #565246"], .page-main [style*="background: #565246"] {
+    .page-body [style*="background:#2F4858"], .page-main [style*="background:#2F4858"],
+    .page-body [style*="background: #2F4858"], .page-main [style*="background: #2F4858"],
+    .page-body [style*="background:#2F4858"], .page-main [style*="background:#2F4858"],
+    .page-body [style*="background: #2F4858"], .page-main [style*="background: #2F4858"] {
       color: #FFFFFF !important;
     }
 
@@ -1672,7 +1688,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 16px !important;
       line-height: 1.7 !important;
-      color: #383228 !important;
+      color: #222629 !important;
     }
 
     /* Callout / note boxes */
@@ -1680,9 +1696,9 @@
     .page-body .callout,
     .page-main .note,
     .page-main .callout {
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
-      border-left: 3px solid #565246 !important;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
+      border-left: 3px solid #B56F56 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
@@ -1693,20 +1709,20 @@
        INTRO-BOX — interior pages
     ═══════════════════════════════════════════════════════════════ */
     .intro-box {
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
-      border-left: 3px solid #565246 !important;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
+      border-left: 3px solid #B56F56 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
-      color: #383228 !important;
+      color: #222629 !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
     .intro-box strong {
-      color: #565246 !important;
+      color: #2F4858 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
@@ -1718,12 +1734,12 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #4f8f9e !important;
+      color: #2F4858 !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #4f8f9e !important;
+      border-bottom: 1px solid #D3CCC2 !important;
     }
 
     .page-layout h3,
@@ -1733,7 +1749,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.1rem !important;
       font-weight: 600 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -1746,7 +1762,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.9rem !important;
       font-weight: 600 !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
       line-height: 1.3 !important;
       margin-top: 1.25rem !important;
       margin-bottom: 0.375rem !important;
@@ -1757,7 +1773,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
-      color: #383228 !important;
+      color: #222629 !important;
     }
 
     .page-intro,
@@ -1765,12 +1781,12 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.8 !important;
-      color: #383228 !important;
+      color: #222629 !important;
     }
 
     /* ── Dark-background sections (about.html bg-story) ── */
     .bg-story {
-      background: #565246 !important;
+      background: #2F4858 !important;
     }
     .bg-story h2,
     .bg-story .section-tag {
@@ -1797,16 +1813,16 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .teal-callout {
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
-      border-left: 3px solid #565246 !important;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
+      border-left: 3px solid #B56F56 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .teal-callout .callout-label {
-      color: #565246 !important;
+      color: #B56F56 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1815,21 +1831,21 @@
     }
 
     .teal-callout p {
-      color: #383228 !important;
+      color: #222629 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .info-callout {
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
-      border-left: 3px solid #565246 !important;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
+      border-left: 3px solid #B56F56 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .info-callout .callout-label {
-      color: #565246 !important;
+      color: #B56F56 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1838,21 +1854,21 @@
     }
 
     .info-callout p {
-      color: #383228 !important;
+      color: #222629 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .amber-callout {
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
-      border-left: 3px solid #565246 !important;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
+      border-left: 3px solid #B56F56 !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .amber-callout .callout-label {
-      color: #565246 !important;
+      color: #B56F56 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1861,96 +1877,96 @@
     }
 
     .feature-card {
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
-      border-top: 3px solid #565246 !important;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
+      border-top: 3px solid #B56F56 !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 8px rgba(0,0,0,0.05) !important;
     }
 
-    .feature-card.amber-top { border-top-color: #565246 !important; }
-    .feature-card.rose-top  { border-top-color: #565246 !important; }
-    .feature-card.sage-top  { border-top-color: #565246 !important; }
-    .feature-card.blue-top  { border-top-color: #565246 !important; }
+    .feature-card.amber-top { border-top-color: #2F4858 !important; }
+    .feature-card.rose-top  { border-top-color: #2F4858 !important; }
+    .feature-card.sage-top  { border-top-color: #2F4858 !important; }
+    .feature-card.blue-top  { border-top-color: #2F4858 !important; }
 
     .feature-card h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #4f8f9e !important;
+      color: #2F4858 !important;
     }
 
     .feature-card li,
     .feature-card p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
-      color: #383228 !important;
+      color: #222629 !important;
     }
 
     .section-label {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 600 !important;
-      color: #383228 !important;
+      color: #B56F56 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
     }
 
     .section-label::before {
-      background: #565246 !important;
+      background: #2F4858 !important;
     }
 
     .section-title {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #565246 !important;
+      color: #2F4858 !important;
     }
 
     .symptom-pill {
-      background: #FFFFFF !important;
-      border-color: #4f8f9e !important;
-      color: #383228 !important;
+      background: #E8E3DB !important;
+      border-color: #D3CCC2 !important;
+      color: #222629 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .symptom-pill:hover,
     .symptom-pill.active {
-      background: #565246 !important;
-      border-color: #565246 !important;
+      background: #2F4858 !important;
+      border-color: #2F4858 !important;
       color: #FFFFFF !important;
     }
 
     .symptom-search {
-      border-color: #4f8f9e !important;
+      border-color: #D3CCC2 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .symptom-search:focus {
-      border-color: #565246 !important;
+      border-color: #2F4858 !important;
     }
 
     .stat-box {
-      background: #FFFFFF !important;
-      border: 1px solid #4f8f9e !important;
+      background: #E8E3DB !important;
+      border: 1px solid #D3CCC2 !important;
     }
 
     .tab-nav {
-      background: #FFFFFF !important;
-      border-top: 1px solid #4f8f9e !important;
-      border-bottom: 1px solid #4f8f9e !important;
+      background: #E8E3DB !important;
+      border-top: 1px solid #D3CCC2 !important;
+      border-bottom: 1px solid #D3CCC2 !important;
     }
 
     .tab-btn {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 500 !important;
-      color: #383228 !important;
+      color: #222629 !important;
     }
 
     .tab-btn.active,
     .tab-btn[aria-selected="true"] {
-      color: #565246 !important;
+      color: #2F4858 !important;
       font-weight: 600 !important;
-      border-bottom-color: #565246 !important;
+      border-bottom-color: #2F4858 !important;
     }
 
     /* ── Shared section sidebar (injected into pages without their own) ── */
@@ -1966,7 +1982,7 @@
       height: calc(100vh - 56px) !important;
       overflow-y: auto !important;
       background: #fff !important;
-      border-right: 1px solid #4f8f9e !important;
+      border-right: 1px solid #D3CCC2 !important;
       padding: 24px 0 !important;
       -ms-overflow-style: none !important;
       scrollbar-width: none !important;
@@ -1977,7 +1993,7 @@
       font-weight: 700 !important;
       letter-spacing: 0.09em !important;
       text-transform: uppercase !important;
-      color: #383228 !important;
+      color: #222629 !important;
       padding: 0 20px !important;
       margin: 10px 0 6px !important;
     }
@@ -1987,7 +2003,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 13.5px !important;
       font-weight: 400 !important;
-      color: #383228 !important;
+      color: #222629 !important;
       text-decoration: none !important;
       padding: 7px 20px !important;
       border-left: 3px solid transparent !important;
@@ -1995,18 +2011,18 @@
       transition: background 0.12s, color 0.12s !important;
     }
     .su-page-sidebar .sidebar-link:hover {
-      background: #f7f5f0 !important;
-      color: #565246 !important;
+      background: #F5F4F1 !important;
+      color: #2F4858 !important;
     }
     .su-page-sidebar .sidebar-link.active {
-      color: #565246 !important;
+      color: #2F4858 !important;
       font-weight: 600 !important;
-      border-left-color: #565246 !important;
-      background: #fdf8f2 !important;
+      border-left-color: #2F4858 !important;
+      background: #F5F4F1 !important;
     }
     .su-page-sidebar .sidebar-divider {
       border: none !important;
-      border-top: 1px solid #4f8f9e !important;
+      border-top: 1px solid #D3CCC2 !important;
       margin: 10px 0 !important;
     }
     .su-page-main {
@@ -2021,7 +2037,7 @@
         position: static !important;
         top: auto !important;
         border-right: none !important;
-        border-bottom: 1px solid #4f8f9e !important;
+        border-bottom: 1px solid #D3CCC2 !important;
         padding: 0 !important;
         display: flex !important;
         flex-direction: row !important;
@@ -2038,7 +2054,7 @@
         flex-shrink: 0 !important;
       }
       .su-page-sidebar .sidebar-link.active {
-        border-bottom-color: #565246 !important;
+        border-bottom-color: #B56F56 !important;
         border-left: none !important;
         background: none !important;
       }
@@ -2132,13 +2148,13 @@
   const siteHeader = document.querySelector('header:not(.site-header)');
 
   if (siteHeader) {
-    // Recolor helix SVG from original teal → steel indigo (#4f8f9e = rgb 69,106,124)
+    // Recolor helix SVG from original teal → steel indigo (#B56F56 = rgb 69,106,124)
     // so it reads as a soft blue accent on the cream hero background
     const helixSvg = siteHeader.querySelector('svg');
     if (helixSvg) {
       helixSvg.innerHTML = helixSvg.innerHTML
         .replace(/rgba\(194,222,216,/g, 'rgba(69,106,124,')
-        .replace(/#C2DED8/gi, '#4f8f9e');
+        .replace(/#E8E3DB/gi, '#D3CCC2');
       // Scale up and nudge left; transform-origin anchors from the right
       // so it grows inward (leftward) without clipping the right edge
       helixSvg.style.transformOrigin = 'right center';
@@ -2224,17 +2240,17 @@
   if (intlNote) {
     Object.assign(intlNote.style, {
       background: '#F5F4F1',
-      border: '1px solid #A8BEC8',
-      borderLeft: '3px solid #4f8f9e',
+      border: '1px solid #D3CCC2',
+      borderLeft: '3px solid #D3CCC2',
       borderRadius: '8px',
-      color: '#565246',
+      color: '#2F4858',
       fontSize: '1rem',
       lineHeight: '1.7',
       fontFamily: "'DM Sans', system-ui, sans-serif",
       boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
     });
     const strong = intlNote.querySelector('strong');
-    if (strong) strong.style.color = '#565246';
+    if (strong) strong.style.color = '#2F4858';
   }
 
 
