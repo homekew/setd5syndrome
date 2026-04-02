@@ -675,7 +675,7 @@
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
-      padding-top: 5.5rem !important;
+      padding-top: 3rem !important;
       padding-bottom: 5rem !important;
       padding-left: max(2rem, calc(50% - 580px)) !important;
       padding-right: max(2rem, calc(50% - 580px)) !important;
@@ -711,7 +711,7 @@
       letter-spacing: -0.01em !important;
       text-align: center !important;
       max-width: 520px !important;
-      margin: 0.5rem 0 1.75rem !important;
+      margin: 0.5rem 0 2.5rem !important;
     }
     .su-intro-headline::before {
       display: none !important;
