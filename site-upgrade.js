@@ -852,11 +852,12 @@
 
     .card-link {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-size: 0.8rem !important;
       font-weight: 600 !important;
       color: #2A627A !important;
       border: 1.5px solid #2A627A !important;
       letter-spacing: 0.01em !important;
+      padding: 0.4rem 0.875rem !important;
     }
 
     .card:hover .card-link {
@@ -958,7 +959,9 @@
       background: #2A627A !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 0.8rem !important;
       font-weight: 500 !important;
+      padding: 0.45rem 1rem !important;
       border-radius: 6px !important;
     }
     .start-here-btn:hover {
@@ -2305,7 +2308,19 @@
     `;
   } // end if (existingFooter)
 
+    // Reveal page — remove anti-flash style injected in <head>
+    const antiFlash = document.getElementById('su-anti-flash');
+    if (antiFlash) antiFlash.remove();
+    document.documentElement.style.visibility = '';
+
   } // end suInitDOM
+
+  // Safety net: reveal after 2s even if suInitDOM errors
+  setTimeout(function () {
+    document.documentElement.style.visibility = '';
+    const af = document.getElementById('su-anti-flash');
+    if (af) af.remove();
+  }, 2000);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', suInitDOM);
