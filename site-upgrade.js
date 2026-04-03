@@ -2032,6 +2032,29 @@
       color: rgba(255,255,255,0.65) !important;
     }
 
+    /* ── Letter-card: story-prose sits on white, so re-darken text ──
+       Higher specificity (.bg-story .story-prose X) beats (.bg-story X)
+       at same !important weight.                                        */
+    .bg-story .story-prose h2 {
+      color: #1E3A47 !important;
+    }
+    .bg-story .story-prose .section-tag {
+      color: #2A627A !important;
+    }
+    .bg-story .story-prose p {
+      color: #2F2F2B !important;
+    }
+    .bg-story .story-prose .kate-quote {
+      color: #2F2F2B !important;
+      border-left-color: #2A627A !important;
+    }
+    .bg-story .story-prose .closing-note {
+      color: #2A627A !important;
+    }
+    .bg-story .story-prose .section-divider::before {
+      background: rgba(42,98,122,0.35) !important;
+    }
+
 
     /* ═══════════════════════════════════════════════════════════════
        OLD-PALETTE ELEMENT OVERRIDES
