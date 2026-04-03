@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v174
+ * site-upgrade.js  v175
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v175: Interior header em accent → #A07D54 (exact site gold).
  * v174: Interior header em accent → #D4AE88 (matches site title gold).
  * v173: Interior header em accent → #0FACBF (sampled from waves image).
  * v172: Interior headers → solid teal (#1A4558) + grain, white title text,
@@ -1456,7 +1457,7 @@
 
     .header-title em {
       font-style: normal !important;
-      color: #D4AE88 !important;
+      color: #A07D54 !important;
     }
 
     /* Page subtitle */
