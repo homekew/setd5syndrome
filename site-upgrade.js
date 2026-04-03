@@ -1,7 +1,13 @@
 /**
- * site-upgrade.js  v187
+ * site-upgrade.js  v188
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v188: Navigation overhaul — 3-tier system.
+ *        Hide .page-sidebar globally. Inject Family Toolkit horizontal subnav
+ *        (.tk-subnav) on all 9 Toolkit sibling pages. On tab-based pages inject
+ *        horizontal .page-tab-strip above .page-layout (mirrors sidebar tab
+ *        buttons). On anchor-link pages inject compact .jump-nav at top of
+ *        .page-main. CSS added for all three components.
  * v187: Cards — show .card-link text with → arrow + teal hover border (obvious CTA).
  *        Trust badges → soft teal fill + no border + cursor:default (not button-like).
  * v186: (combined into v187)
@@ -1675,6 +1681,114 @@
       }
     }
 
+    /* ── Nav overhaul: hide all sidebar panels — replaced by tk-subnav / tab-strip / jump-nav */
+    .page-sidebar { display: none !important; }
+
+    /* ── Family Toolkit horizontal section subnav ── */
+    .tk-subnav {
+      background: #ECEAE6 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+    }
+    .tk-subnav::-webkit-scrollbar { display: none !important; }
+    .tk-subnav-inner {
+      max-width: 860px !important;
+      margin: 0 auto !important;
+      padding: 0 24px !important;
+      display: flex !important;
+      align-items: stretch !important;
+    }
+    .tk-subnav-link {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.55rem 0.75rem !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      color: #4A4944 !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border-bottom: 2px solid transparent !important;
+      transition: color 0.15s, border-color 0.15s !important;
+    }
+    .tk-subnav-link:hover { color: #2A627A !important; text-decoration: none !important; }
+    .tk-subnav-link.active {
+      color: #2A627A !important;
+      font-weight: 600 !important;
+      border-bottom-color: #2A627A !important;
+    }
+
+    /* ── In-page horizontal tab strip (replaces tab-button sidebars) ── */
+    .page-tab-strip {
+      display: flex !important;
+      align-items: stretch !important;
+      max-width: 860px !important;
+      margin: 0 auto !important;
+      padding: 0 2rem !important;
+      overflow-x: auto !important;
+      scrollbar-width: none !important;
+      border-bottom: 1px solid #DDD8D1 !important;
+    }
+    .page-tab-strip::-webkit-scrollbar { display: none !important; }
+    .page-tab-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: none !important;
+      border: none !important;
+      border-bottom: 2px solid transparent !important;
+      padding: 0.65rem 0.85rem !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 400 !important;
+      color: #4A4944 !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      transition: color 0.15s, border-color 0.15s !important;
+      margin-bottom: -1px !important;
+    }
+    .page-tab-btn:hover { color: #2A627A !important; }
+    .page-tab-btn.active {
+      color: #2A627A !important;
+      font-weight: 600 !important;
+      border-bottom-color: #2A627A !important;
+    }
+
+    /* ── In-page jump nav (replaces anchor-link sidebars) ── */
+    .jump-nav {
+      display: flex !important;
+      align-items: baseline !important;
+      flex-wrap: wrap !important;
+      gap: 0.2rem 0.6rem !important;
+      background: #F5F4F1 !important;
+      border: 1px solid #DDD8D1 !important;
+      border-radius: 6px !important;
+      padding: 0.6rem 1rem !important;
+      margin: 1.75rem 2rem 0 !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+    }
+    .jump-nav-label {
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      color: #7A756D !important;
+      margin-right: 0.35rem !important;
+      flex-shrink: 0 !important;
+    }
+    .jump-nav a {
+      font-size: 14px !important;
+      color: #2A627A !important;
+      text-decoration: none !important;
+    }
+    .jump-nav a:hover { text-decoration: underline !important; }
+    .jump-nav a + a::before {
+      content: '·' !important;
+      color: #C4BDB5 !important;
+      margin-right: 0.5rem !important;
+    }
+
     /* Interior page content typography — 20px hard cap on headings */
     .page-body h2,
     .page-main h2 {
@@ -2216,6 +2330,103 @@
       a.textContent = 'Community';
     }
   });
+
+
+  /* ─── 2d. TOOLKIT SUBNAV + IN-PAGE NAV INJECTION ─────────────────────── */
+  (function () {
+    const tkPages = [
+      { href: 'family-toolkit.html',              label: 'Overview' },
+      { href: 'setd5-at-a-glance.html',           label: 'At a Glance' },
+      { href: 'understanding-genetic-report.html', label: 'Genetic Report' },
+      { href: 'school-iep-guide.html',            label: 'School & IEP' },
+      { href: 'qualifying-for-services.html',      label: 'Support Programs' },
+      { href: 'disability-discounts-guide.html',   label: 'Disability Discounts' },
+      { href: 'printable-handouts.html',          label: 'Handouts & Builders' },
+      { href: 'family-stories.html',              label: 'Family Stories' },
+      { href: 'research-registries.html',         label: 'Research Registries' },
+    ];
+    const tkHrefSet = new Set(tkPages.map(p => p.href));
+    const curPage = (window.location.pathname.split('/').pop() || 'index.html');
+
+    // ── A. Inject Family Toolkit horizontal subnav ──
+    if (tkHrefSet.has(curPage)) {
+      const tkNav = document.createElement('nav');
+      tkNav.className = 'tk-subnav';
+      tkNav.setAttribute('aria-label', 'Family Toolkit pages');
+      const inner = document.createElement('div');
+      inner.className = 'tk-subnav-inner';
+      tkPages.forEach(function (p) {
+        const a = document.createElement('a');
+        a.href = p.href;
+        a.className = 'tk-subnav-link';
+        a.textContent = p.label;
+        if (p.href === curPage) {
+          a.classList.add('active');
+          a.setAttribute('aria-current', 'page');
+        }
+        inner.appendChild(a);
+      });
+      tkNav.appendChild(inner);
+      const siteNav = document.querySelector('.site-nav');
+      if (siteNav) siteNav.insertAdjacentElement('afterend', tkNav);
+    }
+
+    // ── B. Inject horizontal tab strip or jump nav from sidebar content ──
+    const sidebar = document.querySelector('.page-sidebar');
+    if (!sidebar) return;
+
+    const sidebarBtns    = Array.from(sidebar.querySelectorAll('button.sidebar-link[data-tab]'));
+    const sidebarAnchors = Array.from(sidebar.querySelectorAll('a.sidebar-link[href^="#"]'));
+    const pageLayout     = document.querySelector('.page-layout');
+    const pageMain       = document.querySelector('.page-main');
+
+    if (sidebarBtns.length >= 2 && pageLayout) {
+      // Tab-based page: inject horizontal tab strip above .page-layout
+      const strip = document.createElement('nav');
+      strip.className = 'page-tab-strip';
+      strip.setAttribute('aria-label', 'Page sections');
+      sidebarBtns.forEach(function (origBtn) {
+        const btn = document.createElement('button');
+        btn.className = 'page-tab-btn' + (origBtn.classList.contains('active') ? ' active' : '');
+        btn.textContent = origBtn.textContent.trim();
+        const tabId  = origBtn.getAttribute('data-tab');
+        const fnCall = origBtn.getAttribute('onclick');
+        btn.setAttribute('data-tab', tabId);
+        btn.addEventListener('click', function () {
+          // Run the original onclick (showTab / showResearchTab etc.)
+          try { eval(fnCall); } catch (e) {}
+          // Sync active state on strip buttons
+          strip.querySelectorAll('.page-tab-btn').forEach(function (b) {
+            b.classList.toggle('active', b === btn);
+          });
+          // Keep hidden sidebar buttons in sync (they drive the actual tab logic)
+          sidebar.querySelectorAll('.sidebar-link').forEach(function (b) {
+            if (b.getAttribute('data-tab') === tabId) b.classList.add('active');
+            else b.classList.remove('active');
+          });
+        });
+        strip.appendChild(btn);
+      });
+      pageLayout.parentNode.insertBefore(strip, pageLayout);
+
+    } else if (sidebarAnchors.length >= 2 && pageMain) {
+      // Anchor-link page: inject compact "On this page" jump nav at top of content
+      const jumpNav = document.createElement('nav');
+      jumpNav.className = 'jump-nav';
+      jumpNav.setAttribute('aria-label', 'On this page');
+      const lbl = document.createElement('span');
+      lbl.className = 'jump-nav-label';
+      lbl.textContent = 'On this page:';
+      jumpNav.appendChild(lbl);
+      sidebarAnchors.forEach(function (orig) {
+        const a = document.createElement('a');
+        a.href = orig.getAttribute('href');
+        a.textContent = orig.textContent.trim();
+        jumpNav.appendChild(a);
+      });
+      pageMain.insertBefore(jumpNav, pageMain.firstChild);
+    }
+  })();
 
 
   /* ─── 3. RESTRUCTURE HOME PAGE HERO ─────────────────────────────────── */
