@@ -1775,6 +1775,7 @@
     .jump-nav {
       display: flex !important;
       align-items: stretch !important;
+      min-height: 44px !important;   /* prevent height-collapse with overflow-x:auto + stretch */
       width: 100% !important;
       padding: 0 32px !important;
       overflow-x: auto !important;
