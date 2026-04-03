@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v182
+ * site-upgrade.js  v183
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v183: Remove max-width:700px from .su-hero-h1 (was forcing title to wrap).
  * v182: Hero H1 "The"/"Companion" → 500, em "SETD5 Syndrome" → 625.
  * v181: Hero H1 em "SETD5 Syndrome" font-weight 700 → 625 (semi-bold, less heavy).
  * v180: Hero H1 "The"/"Companion" → font-weight 400; em "SETD5 Syndrome" stays 700.
@@ -194,7 +195,6 @@
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
       margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
-      max-width: 700px;
     }
 
     .su-hero-h1 em {
