@@ -1,7 +1,10 @@
 /**
- * site-upgrade.js  v185
+ * site-upgrade.js  v187
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v187: Cards — show .card-link text with → arrow + teal hover border (obvious CTA).
+ *        Trust badges → soft teal fill + no border + cursor:default (not button-like).
+ * v186: (combined into v187)
  * v185: Hero H1 margin-bottom 0.4rem → 0.65rem (more breath before subtitle).
  * v184: Fix helix flash — CSS rule now targets .site-header svg (interior pages
  *        all use .site-header; old :not(.site-header) rule never fired).
@@ -777,8 +780,8 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 0.4rem !important;
-      background: #FFFFFF !important;
-      border: 1px solid #DDD8D1 !important;
+      background: rgba(42,98,122,0.09) !important;
+      border: none !important;
       border-radius: 100px !important;
       padding: 0.45rem 1rem !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
@@ -787,6 +790,7 @@
       color: #2A627A !important;
       line-height: 1 !important;
       white-space: nowrap !important;
+      cursor: default !important;
     }
 
     .su-trust-badge svg {
@@ -858,9 +862,9 @@
     }
 
     .card:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.1) !important;
-      border-color: #DDD8D1 !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12) !important;
+      border-color: #2A627A !important;
     }
 
     /* Card top accent stripe: gold */
@@ -893,7 +897,22 @@
     }
 
     .card-link {
-      display: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.3rem !important;
+      margin-top: 1rem !important;
+      color: #2A627A !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.01em !important;
+      text-decoration: none !important;
+    }
+    .card-link::after {
+      content: ' →' !important;
+    }
+    .card:hover .card-link {
+      color: #1A4558 !important;
     }
 
     /* ── BUTTON SYSTEM ─────────────────────────────────────────────────────
@@ -1354,9 +1373,11 @@
     }
 
     .card-link i,
-    .card-link svg,
+    .card-link svg {
+      display: none !important;   /* icons hidden — arrow added via ::after instead */
+    }
     .su-intro-featured .card-link {
-      display: none !important;
+      display: none !important;   /* featured card has its own CTA button */
     }
 
     /* ═══════════════════════════════════════════════════════════════
