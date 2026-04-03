@@ -1,7 +1,10 @@
 /**
- * site-upgrade.js  v167
+ * site-upgrade.js  v168
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v168: Fix watch-callout text (white on dark teal, overriding broad main p rule);
+ *        fix interior header color/overflow (visible text on cream bg);
+ *        add DM Sans font-family override to .site-footer.
  * v167: Fix mobile tab-bar overlay (remove ::after fade, block hover bg on touch);
  *        fix interior header-title em italic (normal instead of italic).
  * v165: Hero negative-margin approach — extends hero background behind fixed nav;
@@ -510,6 +513,8 @@
       padding: 0 !important;
       text-align: left !important;
       border-top: none !important;
+      /* Override any page-level font-family (Poppins etc.) inherited by footer */
+      font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     #su-footer-grid {
@@ -1171,11 +1176,25 @@
     }
     .overview-box ul li::before        { color: #62929E !important; }
 
-    /* Watch + monitoring callout headings */
+    /* Watch + monitoring callout — dark teal background needs light text */
     .watch-callout h3,
     .monitoring-box h3 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #2F2F2B !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Body text and links inside watch-callout must stay light —
+       the broad  main p { color: #2F2F2B }  rule would otherwise make
+       them dark-gray on the dark-teal card background. */
+    main .watch-callout p,
+    .watch-callout p {
+      color: rgba(255,255,255,0.85) !important;
+      line-height: 1.65 !important;
+    }
+
+    main .watch-callout a,
+    .watch-callout a {
+      color: #EFEEEA !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1322,6 +1341,11 @@
       z-index: 20 !important;
       padding: 1.125rem 0 0.875rem !important;
       clip-path: none !important;
+      /* Cancel any page-level color: #fff that would make text invisible
+         on the cream background, and cancel overflow:hidden that some
+         pages set on .site-header */
+      color: #2F2F2B !important;
+      overflow: visible !important;
     }
 
     /* Neutralise the JS-driven collapse: override every .collapsed rule so the
