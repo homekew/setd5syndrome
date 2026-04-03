@@ -1,7 +1,10 @@
 /**
- * site-upgrade.js  v169
+ * site-upgrade.js  v170
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v170: Apply Option B hero background — Textile Geometric Waves image (right-
+ *        anchored) with left-to-right gradient overlay; grain texture preserved
+ *        as second layer on ::before pseudo-element.
  * v169: Fix .contact-cta invisible text — add :not([class*="cta"]) to broad
  *        page-body link-color rule so CTA button text stays white on teal.
  * v168: Fix watch-callout text (white on dark teal, overriding broad main p rule);
@@ -92,7 +95,7 @@
     ═══════════════════════════════════════════════════════════════ */
 
     header:not(.site-header) {
-      background: #1A4558 !important;
+      background: #1A4558 url('hero-bg-waves.jpg') right center / cover no-repeat !important;
       color: #2F2F2B !important;
       text-align: left !important;
       padding: 64px 0 0 0 !important;
@@ -105,13 +108,16 @@
       z-index: 10;
     }
 
-    /* Paper grain texture */
+    /* Option B gradient overlay + paper grain texture */
     header:not(.site-header)::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      background-repeat: repeat;
+      background-image:
+        linear-gradient(to right, #1A4558 0%, #1A4558 42%, rgba(26,69,88,0.88) 58%, rgba(26,69,88,0.40) 78%, rgba(26,69,88,0.10) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-repeat: no-repeat, repeat;
+      background-size: 100% 100%, auto;
       pointer-events: none;
       z-index: 0;
     }
