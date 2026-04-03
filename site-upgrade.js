@@ -1,7 +1,9 @@
 /**
- * site-upgrade.js  v168
+ * site-upgrade.js  v169
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v169: Fix .contact-cta invisible text — add :not([class*="cta"]) to broad
+ *        page-body link-color rule so CTA button text stays white on teal.
  * v168: Fix watch-callout text (white on dark teal, overriding broad main p rule);
  *        fix interior header color/overflow (visible text on cream bg);
  *        add DM Sans font-family override to .site-footer.
@@ -1663,13 +1665,13 @@
       font-size: 16px !important;
     }
 
-    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
-    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]) {
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]),
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]) {
       color: #2A627A !important;
       text-decoration-color: rgba(160,125,84,0.4) !important;
     }
-    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]):hover,
-    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]):hover {
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]):hover,
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]):hover {
       color: #2A627A !important;
     }
 
