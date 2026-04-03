@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v184
+ * site-upgrade.js  v185
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v185: Hero H1 margin-bottom 0.4rem → 0.65rem (more breath before subtitle).
  * v184: Fix helix flash — CSS rule now targets .site-header svg (interior pages
  *        all use .site-header; old :not(.site-header) rule never fired).
  *        Fix alpha bar — restore dark teal bg + explicit white link colors.
@@ -198,7 +199,7 @@
       color: #F5F4F1 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
-      margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
+      margin: 0 0 0.65rem !important;  /* slight breath before subtitle */
     }
 
     .su-hero-h1 em {
