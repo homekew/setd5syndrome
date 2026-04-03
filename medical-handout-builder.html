@@ -285,7 +285,7 @@ body{
 }
 .h-q-list li:last-child { border-bottom: none; }
 .h-q-list li::before {
-  content: 'âº'; position: absolute; left: 2px;
+  content: '›'; position: absolute; left: 2px;
   color: var(--teal); font-weight: 700; font-size: 14px; line-height: 1.3;
 }
 .h-amber-box {
@@ -393,7 +393,7 @@ body{
 ââââââââââââââââââââââââââââââââââ -->
 <div id="form-view">
   <div class="form-header">
-    <p class="form-eyebrow"><a href="family-toolkit.html" style="color:var(--teal);text-decoration:none;">â Family Toolkit</a> Â· Medical Toolkit</p>
+    <p class="form-eyebrow"><a href="family-toolkit.html" style="color:var(--teal);text-decoration:none;">â Family Toolkit</a> · Medical Toolkit</p>
     <h1 class="form-title">Build Your <em>Medical Appointment Handout</em></h1>
     <p class="form-subtitle">Fill in your child&#39;s details and print a one-page summary to share with new doctors and specialists.</p>
   </div>
@@ -621,7 +621,7 @@ body{
         <div style="flex:1;">
           <label style="cursor:pointer;">Other: describe below</label>
           <input type="text" id="other-text"
-            placeholder="e.g. Hypothyroidism, urinary tract anomalyâ¦"
+            placeholder="e.g. Hypothyroidism, urinary tract anomaly…"
             style="display:none; margin-top:7px; width:100%; max-width:380px;
               border:1.5px solid var(--border); border-radius:6px;
               padding:8px 12px; font-family: 'Poppins', sans-serif; font-size:14px;
@@ -670,7 +670,7 @@ body{
 
     <div class="h-header">
       <div>
-        <div class="h-tag">SETD5 Syndrome Â· Medical Appointment</div>
+        <div class="h-tag">SETD5 Syndrome · Medical Appointment</div>
         <div class="h-title" id="h-title-line">Medical Appointment Handout</div>
         <div class="h-child-name" id="h-child-display"></div>
       </div>
@@ -694,7 +694,7 @@ body{
       </div>
       <div class="h-fact">
         <div class="h-fact-label">OMIM / Registry</div>
-        <div class="h-fact-value">#615761 Â· Simons Searchlight</div>
+        <div class="h-fact-value">#615761 · Simons Searchlight</div>
       </div>
     </div>
 
@@ -814,7 +814,7 @@ function generateHandout() {
   // SETD5 intro blurb
   document.getElementById('h-what-is').style.display = newToSETD5 ? 'block' : 'none';
 
-  // Feature list (standard checkboxes only â "other-cb" is excluded from the querySelectorAll)
+  // Feature list (standard checkboxes only — "other-cb" is excluded from the querySelectorAll)
   var ul = document.getElementById('h-feature-list');
   ul.innerHTML = '';
   standardChecked.forEach(function(cb) {
