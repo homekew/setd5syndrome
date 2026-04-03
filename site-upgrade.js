@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v178
+ * site-upgrade.js  v179
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v179: Footer column h4 titles → #A07D54 (matches site title gold).
  * v178: Hide helix SVG in CSS (not just JS) to stop flash-on-load.
  * v177: Increase homepage hero H1 size (clamp 2.25→3.25rem).
  * v176: Fix alpha-bar invisible letters (exclude .alpha-link from broad link
@@ -553,10 +554,10 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #FFFFFF;
+      color: #A07D54;
       margin: 0 0 0.875rem;
       padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(160,125,84,0.25);
     }
 
     .su-footer-brand-name {
