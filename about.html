@@ -315,6 +315,24 @@
     margin: 0 auto;
   }
 
+  /* ── Letter card effect: white page on blue background ── */
+  .bg-story .story-prose {
+    background: #fff;
+    border-radius: 4px;
+    padding: 2.75rem 3rem;
+    box-shadow: 0 6px 36px rgba(0,0,0,0.28);
+  }
+
+  /* Re-darken text that was set white for the dark background */
+  .bg-story .story-prose h2.on-dark          { color: #1E3A47; }
+  .bg-story .story-prose p.on-dark           { color: #2F2F2B; }
+  .bg-story .story-prose .section-tag.on-dark{ color: #2A627A; }
+  .bg-story .story-prose .kate-quote {
+    color: #2F2F2B;
+    border-left-color: #2A627A;
+  }
+  .bg-story .story-prose .closing-note       { color: #2A627A; }
+
   .story-resolution {
     margin-top: 2rem;
   }
