@@ -1,7 +1,11 @@
 /**
- * site-upgrade.js  v188
+ * site-upgrade.js  v189
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v189: Nav refinements — fix tk-subnav alignment (padding 32px, 14px font, larger tap target);
+ *        fix page-tab-strip full-width border (remove max-width, width:100%, padding 32px, cream bg);
+ *        fix jump-nav horizontal margins (0 horizontal, 1.5rem vertical, pipe separator on label);
+ *        add mobile @media overrides for all three nav components.
  * v188: Navigation overhaul — 3-tier system.
  *        Hide .page-sidebar globally. Inject Family Toolkit horizontal subnav
  *        (.tk-subnav) on all 9 Toolkit sibling pages. On tab-based pages inject
@@ -1696,16 +1700,16 @@
     .tk-subnav-inner {
       max-width: 860px !important;
       margin: 0 auto !important;
-      padding: 0 24px !important;
+      padding: 0 32px !important;       /* match site-nav inner */
       display: flex !important;
       align-items: stretch !important;
     }
     .tk-subnav-link {
       display: inline-flex !important;
       align-items: center !important;
-      padding: 0.55rem 0.75rem !important;
+      padding: 0.65rem 0.85rem !important;   /* bigger tap target */
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 13px !important;
+      font-size: 14px !important;            /* up from 13px */
       font-weight: 400 !important;
       color: #4A4944 !important;
       text-decoration: none !important;
@@ -1720,16 +1724,19 @@
       border-bottom-color: #2A627A !important;
     }
 
-    /* ── In-page horizontal tab strip (replaces tab-button sidebars) ── */
+    /* ── In-page horizontal tab strip (replaces tab-button sidebars) ──
+       Full-width element so border-bottom spans the viewport edge-to-edge;
+       content aligned to 860px via padding (mirrors site-nav pattern).      */
     .page-tab-strip {
       display: flex !important;
       align-items: stretch !important;
-      max-width: 860px !important;
-      margin: 0 auto !important;
-      padding: 0 2rem !important;
+      width: 100% !important;            /* full viewport width */
+      padding: 0 32px !important;        /* match site-nav inner */
       overflow-x: auto !important;
       scrollbar-width: none !important;
+      background: #F7F4EE !important;    /* match page bg — seamless with site-nav */
       border-bottom: 1px solid #DDD8D1 !important;
+      box-sizing: border-box !important;
     }
     .page-tab-strip::-webkit-scrollbar { display: none !important; }
     .page-tab-btn {
@@ -1755,38 +1762,53 @@
       border-bottom-color: #2A627A !important;
     }
 
-    /* ── In-page jump nav (replaces anchor-link sidebars) ── */
+    /* ── In-page jump nav (replaces anchor-link sidebars) ──
+       Inline block inside .page-main — uses zero horizontal margin so it
+       aligns with the page content column. Lighter than section subnav.    */
     .jump-nav {
       display: flex !important;
       align-items: baseline !important;
       flex-wrap: wrap !important;
-      gap: 0.2rem 0.6rem !important;
+      gap: 0.25rem 0.5rem !important;
       background: #F5F4F1 !important;
       border: 1px solid #DDD8D1 !important;
       border-radius: 6px !important;
-      padding: 0.6rem 1rem !important;
-      margin: 1.75rem 2rem 0 !important;
+      padding: 0.55rem 1rem !important;
+      margin: 1.5rem 0 1.5rem !important;   /* no horizontal margin; content handles alignment */
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
     .jump-nav-label {
-      font-size: 11px !important;
+      font-size: 10.5px !important;
       font-weight: 700 !important;
       text-transform: uppercase !important;
       letter-spacing: 0.1em !important;
       color: #7A756D !important;
-      margin-right: 0.35rem !important;
+      padding-right: 0.5rem !important;
+      margin-right: 0.1rem !important;
+      border-right: 1px solid #C4BDB5 !important;   /* separator between label and links */
       flex-shrink: 0 !important;
+      line-height: 1.6 !important;
     }
     .jump-nav a {
-      font-size: 14px !important;
+      font-size: 13.5px !important;
       color: #2A627A !important;
       text-decoration: none !important;
+      padding: 0.15rem 0 !important;         /* tiny tap-area bump */
     }
     .jump-nav a:hover { text-decoration: underline !important; }
     .jump-nav a + a::before {
       content: '·' !important;
       color: #C4BDB5 !important;
-      margin-right: 0.5rem !important;
+      margin-right: 0.4rem !important;
+    }
+
+    /* ── Mobile overrides for nav components ── */
+    @media (max-width: 768px) {
+      .tk-subnav-inner { padding: 0 20px !important; }
+      .tk-subnav-link  { padding: 0.6rem 0.7rem !important; font-size: 13.5px !important; }
+      .page-tab-strip  { padding: 0 20px !important; }
+      .page-tab-btn    { font-size: 14px !important; padding: 0.6rem 0.7rem !important; }
+      .jump-nav        { margin: 1.25rem 0 1.25rem !important; }
     }
 
     /* Interior page content typography — 20px hard cap on headings */
