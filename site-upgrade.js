@@ -1,7 +1,11 @@
 /**
- * site-upgrade.js  v190
+ * site-upgrade.js  v191
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v191: Center interior page content — .page-layout now max-width:860px centered
+ *        (sidebar is hidden so content was stretching full-width; this matches
+ *        the homepage's centered layout). jump-nav min-height:44px fix also
+ *        included (Chrome flex height-collapse with overflow-x:auto + stretch).
  * v190: Unified interior nav strips — all three secondary nav components
  *        (tk-subnav, page-tab-strip, jump-nav) now share identical visual
  *        treatment: background #ECEAE6, border-bottom, 14px DM Sans, same
@@ -1539,6 +1543,10 @@
 
     .page-layout {
       background: #F5F4F1 !important;
+      max-width: 860px !important;    /* center content now that sidebar is hidden */
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
     }
 
     /* Sidebar */
