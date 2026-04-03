@@ -1,7 +1,10 @@
 /**
- * site-upgrade.js  v183
+ * site-upgrade.js  v184
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v184: Fix helix flash — CSS rule now targets .site-header svg (interior pages
+ *        all use .site-header; old :not(.site-header) rule never fired).
+ *        Fix alpha bar — restore dark teal bg + explicit white link colors.
  * v183: Remove max-width:700px from .su-hero-h1 (was forcing title to wrap).
  * v182: Hero H1 "The"/"Companion" → 500, em "SETD5 Syndrome" → 625.
  * v181: Hero H1 em "SETD5 Syndrome" font-weight 700 → 625 (semi-bold, less heavy).
@@ -167,8 +170,9 @@
     /* Home page original elements to suppress */
     header:not(.site-header) .header-rule { display: none !important; }
     header:not(.site-header) .header-sub  { display: none !important; }
-    /* Hide helix SVG via CSS to prevent flash-of-helix before JS runs */
-    header:not(.site-header) svg          { display: none !important; }
+    /* Hide helix SVG via CSS to prevent flash-of-helix before JS runs.
+       Interior pages use .site-header, so target that directly. */
+    .site-header svg                       { display: none !important; }
 
     /* ── Hero tag pill ── */
     .su-hero-tag {
@@ -1226,11 +1230,14 @@
     /* ═══════════════════════════════════════════════════════════════
        MEDICAL TERMS PAGE — old teal palette → Counsel + sticky offset
     ═══════════════════════════════════════════════════════════════ */
-    /* Alphabet bar: old teal #2A627A → steel indigo */
+    /* Alphabet bar: keep dark teal so white letters stay readable */
     .alpha-bar {
-      background: #DDD8D1 !important;
-      border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+      background: #2A627A !important;
+      border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
+    .alpha-link                  { color: rgba(255,255,255,0.7)  !important; }
+    .alpha-link.has-entries      { color: rgba(255,255,255,0.88) !important; }
+    .alpha-link.no-entries       { color: rgba(255,255,255,0.25) !important; }
     /* Search bar: old dark #2A627A → midnight indigo */
     .search-bar {
       background: #2A627A !important;
