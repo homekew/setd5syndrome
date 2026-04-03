@@ -602,48 +602,7 @@ window.scrollTo(0, 0);
   }
 })();
 </script>
-<script>
-(function(){
-  var links = document.querySelectorAll('#page-sidebar .sidebar-link');
-  var sections = [];
-  links.forEach(function(l){
-    var id = l.getAttribute('href').replace('#','');
-    var el = document.getElementById(id);
-    if(el) sections.push({el:el, link:l});
-  });
-  function onScroll(){
-    var scrollY = window.scrollY + 120;
-    var active = sections[0];
-    sections.forEach(function(s){
-      if(s.el.offsetTop <= scrollY) active = s;
-    });
-    links.forEach(function(l){ l.classList.remove('active'); });
-    if(active) active.link.classList.add('active');
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-})();
-</script>
-
-<script>
-(function(){
-  var hdr = document.querySelector('.site-header');
-  var nav = document.querySelector('.site-nav');
-  var sidebar = document.querySelector('.page-sidebar');
-  if (!hdr || !nav) return;
-  function syncPositions() {
-    var offset = hdr.offsetHeight + nav.offsetHeight;
-    nav.style.top = hdr.offsetHeight + 'px';
-    if (sidebar) {
-      sidebar.style.top = offset + 'px';
-      sidebar.style.height = 'calc(100vh - ' + offset + 'px)';
-    }
-  }
-  syncPositions();
-  window.addEventListener('scroll', syncPositions, {passive:true});
-  window.addEventListener('resize', syncPositions);
-})();
-</script>
+<!-- nav handled by site-upgrade.js -->
 
 </body>
 
