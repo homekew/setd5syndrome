@@ -1,7 +1,9 @@
 /**
- * site-upgrade.js  v171
+ * site-upgrade.js  v172
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v172: Interior headers → solid teal (#1A4558) + grain, white title text,
+ *        gold em accent, soft white subtitle; matches homepage hero palette.
  * v171: Shift gradient so waves image shows through earlier (solid teal ends
  *        at 28% instead of 42%); hide helix SVG (saved in commented block).
  * v170: Apply Option B hero background — Textile Geometric Waves image (right-
@@ -1341,20 +1343,17 @@
     ═══════════════════════════════════════════════════════════════ */
 
     header.site-header {
-      background: #EFEEEA !important;
+      background: #1A4558 !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       border-top: none !important;
-      border-bottom: 1px solid #DDD8D1 !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
+      border-bottom: none !important;
+      box-shadow: 0 4px 24px rgba(26,69,88,0.22) !important;
       position: relative !important;
       z-index: 20 !important;
       padding: 1.125rem 0 0.875rem !important;
       clip-path: none !important;
-      /* Cancel any page-level color: #fff that would make text invisible
-         on the cream background, and cancel overflow:hidden that some
-         pages set on .site-header */
-      color: #2F2F2B !important;
+      color: #FFFFFF !important;
       overflow: visible !important;
     }
 
@@ -1446,7 +1445,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
-      color: #2F2F2B !important;
+      color: #FFFFFF !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
       text-shadow: none !important;
@@ -1455,14 +1454,14 @@
 
     .header-title em {
       font-style: normal !important;
-      color: #2A627A !important;
+      color: #E8C97A !important;
     }
 
     /* Page subtitle */
     .header-subtitle {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 16px !important;
-      color: #2F2F2B !important;
+      color: rgba(255,255,255,0.82) !important;
       line-height: 1.5 !important;
       margin: 0 !important;
     }
