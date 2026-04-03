@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v176
+ * site-upgrade.js  v177
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v177: Increase homepage hero H1 size (clamp 2.25→3.25rem).
  * v176: Fix alpha-bar invisible letters (exclude .alpha-link from broad link
  *        color rule); match interior header em → #D4AE88 (same as homepage hero).
  * v175: Interior header em accent → #A07D54 (exact site gold).
@@ -179,7 +180,7 @@
     /* ── Hero H1 ── */
     .su-hero-h1 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: clamp(2rem, 4vw, 2.75rem) !important;
+      font-size: clamp(2.25rem, 4.5vw, 3.25rem) !important;
       font-weight: 700 !important;
       color: #F5F4F1 !important;
       line-height: 1.15 !important;
