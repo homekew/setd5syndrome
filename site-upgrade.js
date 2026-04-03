@@ -1,7 +1,14 @@
 /**
- * site-upgrade.js  v189
+ * site-upgrade.js  v190
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v190: Unified interior nav strips — all three secondary nav components
+ *        (tk-subnav, page-tab-strip, jump-nav) now share identical visual
+ *        treatment: background #ECEAE6, border-bottom, 14px DM Sans, same
+ *        padding and underline-active style. jump-nav moved from inside
+ *        .page-main to before .page-layout (matches tab-strip position).
+ *        page-tab-strip font-size unified 15px→14px. Redundant .intro-sources-row
+ *        hidden on pages with jump-nav (su-has-jump-nav class on <html>).
  * v189: Nav refinements — fix tk-subnav alignment (padding 32px, 14px font, larger tap target);
  *        fix page-tab-strip full-width border (remove max-width, width:100%, padding 32px, cream bg);
  *        fix jump-nav horizontal margins (0 horizontal, 1.5rem vertical, pipe separator on label);
@@ -1726,15 +1733,15 @@
 
     /* ── In-page horizontal tab strip (replaces tab-button sidebars) ──
        Full-width element so border-bottom spans the viewport edge-to-edge;
-       content aligned to 860px via padding (mirrors site-nav pattern).      */
+       content aligned via padding (mirrors site-nav pattern).               */
     .page-tab-strip {
       display: flex !important;
       align-items: stretch !important;
-      width: 100% !important;            /* full viewport width */
-      padding: 0 32px !important;        /* match site-nav inner */
+      width: 100% !important;
+      padding: 0 32px !important;
       overflow-x: auto !important;
       scrollbar-width: none !important;
-      background: #F7F4EE !important;    /* match page bg — seamless with site-nav */
+      background: #ECEAE6 !important;    /* unified with tk-subnav */
       border-bottom: 1px solid #DDD8D1 !important;
       box-sizing: border-box !important;
     }
@@ -1747,7 +1754,7 @@
       border-bottom: 2px solid transparent !important;
       padding: 0.65rem 0.85rem !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 15px !important;
+      font-size: 14px !important;        /* unified with tk-subnav-link */
       font-weight: 400 !important;
       color: #4A4944 !important;
       cursor: pointer !important;
@@ -1763,52 +1770,60 @@
     }
 
     /* ── In-page jump nav (replaces anchor-link sidebars) ──
-       Inline block inside .page-main — uses zero horizontal margin so it
-       aligns with the page content column. Lighter than section subnav.    */
+       Full-width strip between header and content — matches tk-subnav /
+       page-tab-strip visually so all interior secondary navs look the same. */
     .jump-nav {
       display: flex !important;
-      align-items: baseline !important;
-      flex-wrap: wrap !important;
-      gap: 0.25rem 0.5rem !important;
-      background: #F5F4F1 !important;
-      border: 1px solid #DDD8D1 !important;
-      border-radius: 6px !important;
-      padding: 0.55rem 1rem !important;
-      margin: 1.5rem 0 1.5rem !important;   /* no horizontal margin; content handles alignment */
+      align-items: stretch !important;
+      width: 100% !important;
+      padding: 0 32px !important;
+      overflow-x: auto !important;
+      scrollbar-width: none !important;
+      background: #ECEAE6 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
+      box-sizing: border-box !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
+    .jump-nav::-webkit-scrollbar { display: none !important; }
     .jump-nav-label {
-      font-size: 10.5px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      font-size: 10px !important;
       font-weight: 700 !important;
       text-transform: uppercase !important;
       letter-spacing: 0.1em !important;
       color: #7A756D !important;
-      padding-right: 0.5rem !important;
-      margin-right: 0.1rem !important;
-      border-right: 1px solid #C4BDB5 !important;   /* separator between label and links */
+      padding: 0.65rem 0.6rem 0.65rem 0 !important;
+      margin-right: 0.25rem !important;
       flex-shrink: 0 !important;
-      line-height: 1.6 !important;
+      white-space: nowrap !important;
     }
     .jump-nav a {
-      font-size: 13.5px !important;
-      color: #2A627A !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.65rem 0.85rem !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      color: #4A4944 !important;
       text-decoration: none !important;
-      padding: 0.15rem 0 !important;         /* tiny tap-area bump */
+      white-space: nowrap !important;
+      border-bottom: 2px solid transparent !important;
+      transition: color 0.15s !important;
+      margin-bottom: -1px !important;
     }
-    .jump-nav a:hover { text-decoration: underline !important; }
-    .jump-nav a + a::before {
-      content: '·' !important;
-      color: #C4BDB5 !important;
-      margin-right: 0.4rem !important;
-    }
+    .jump-nav a:hover { color: #2A627A !important; text-decoration: none !important; }
+
+    /* Hide redundant section-chip rows when jump-nav provides the same info */
+    html.su-has-jump-nav .intro-sources-row { display: none !important; }
 
     /* ── Mobile overrides for nav components ── */
     @media (max-width: 768px) {
       .tk-subnav-inner { padding: 0 20px !important; }
       .tk-subnav-link  { padding: 0.6rem 0.7rem !important; font-size: 13.5px !important; }
       .page-tab-strip  { padding: 0 20px !important; }
-      .page-tab-btn    { font-size: 14px !important; padding: 0.6rem 0.7rem !important; }
-      .jump-nav        { margin: 1.25rem 0 1.25rem !important; }
+      .page-tab-btn    { font-size: 13.5px !important; padding: 0.6rem 0.7rem !important; }
+      .jump-nav        { padding: 0 20px !important; }
+      .jump-nav a      { font-size: 13.5px !important; padding: 0.6rem 0.7rem !important; }
     }
 
     /* Interior page content typography — 20px hard cap on headings */
@@ -2431,14 +2446,15 @@
       });
       pageLayout.parentNode.insertBefore(strip, pageLayout);
 
-    } else if (sidebarAnchors.length >= 2 && pageMain) {
-      // Anchor-link page: inject compact "On this page" jump nav at top of content
+    } else if (sidebarAnchors.length >= 2 && pageLayout) {
+      // Anchor-link page: inject "On this page" strip between header and content
+      // (same position as tab-strip / tk-subnav — visually consistent)
       const jumpNav = document.createElement('nav');
       jumpNav.className = 'jump-nav';
       jumpNav.setAttribute('aria-label', 'On this page');
       const lbl = document.createElement('span');
       lbl.className = 'jump-nav-label';
-      lbl.textContent = 'On this page:';
+      lbl.textContent = 'On this page';
       jumpNav.appendChild(lbl);
       sidebarAnchors.forEach(function (orig) {
         const a = document.createElement('a');
@@ -2446,7 +2462,9 @@
         a.textContent = orig.textContent.trim();
         jumpNav.appendChild(a);
       });
-      pageMain.insertBefore(jumpNav, pageMain.firstChild);
+      pageLayout.parentNode.insertBefore(jumpNav, pageLayout);
+      // Mark page so CSS can hide redundant section-chip rows (e.g. helpful-links)
+      document.documentElement.classList.add('su-has-jump-nav');
     }
   })();
 
