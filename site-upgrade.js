@@ -1,7 +1,9 @@
 /**
- * site-upgrade.js  v179
+ * site-upgrade.js  v180
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v180: Hero H1 "The"/"Companion" → font-weight 400; em "SETD5 Syndrome" stays 700.
+ *        About page "Why This Site Exists": prose max-width 660px, three-beat spacing.
  * v179: Footer column h4 titles → #A07D54 (matches site title gold).
  * v178: Hide helix SVG in CSS (not just JS) to stop flash-on-load.
  * v177: Increase homepage hero H1 size (clamp 2.25→3.25rem).
@@ -185,7 +187,7 @@
     .su-hero-h1 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: clamp(2.25rem, 4.5vw, 3.25rem) !important;
-      font-weight: 700 !important;
+      font-weight: 400 !important;
       color: #F5F4F1 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;

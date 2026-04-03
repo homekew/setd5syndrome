@@ -295,8 +295,8 @@
     color: rgba(255,255,255,0.9);
     border-left: 3px solid var(--teal-soft);
     padding-left: 20px;
-    margin: 28px 0;
-    line-height: 1.7;
+    margin: 2.5rem 0 2rem;
+    line-height: 1.8;
   }
 
   .closing-note {
@@ -305,8 +305,22 @@
     font-size: 26px;
     font-weight: 600;
     color: var(--teal-soft);
-    margin-top: 28px;
+    margin-top: 2.5rem;
     margin-bottom: 20px;
+  }
+
+  /* ── STORY SECTION: prose width constraint + beat spacing ── */
+  .story-prose {
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  .story-resolution {
+    margin-top: 2rem;
+  }
+
+  .about-photo-wrap {
+    margin-top: 2.5rem;
   }
 
   /* ââ PHOTO ââ */
@@ -702,14 +716,18 @@
   <!-- ââ WHY THIS SITE EXISTS (Kate story — dark, elevated) ââ -->
   <div class="section-wrap bg-story" id="why-this-site">
     <div class="content-inner">
-      <span class="section-tag on-dark">Our Story</span>
-      <h2 class="on-dark">Why This Site Exists</h2>
-      <div class="section-divider on-dark"></div>
-      <p class="on-dark">My son was diagnosed with SETD5 Syndrome at age 11, after years of appointments, testing, and waiting. When the diagnosis finally came, it was a relief to finally have a name for what we'd been navigating, but SETD5 Syndrome is rare enough that there wasn't an easy, ready-made roadmap for us.</p>
-      <blockquote class="kate-quote">I found myself searching on my own, reading research papers written in technical language, piecing together information from genetics journals and parent forums. I'm an educator and run a small nonprofit, and making sure people can find and use the resources they need is something I've always cared about.</blockquote>
-      <p class="on-dark">So I built this site to gather everything I wished I'd had, all in one place. The information is out there, but it's scattered. I wanted to bring it together somewhere accessible.</p>
-      <p class="on-dark">Above all, this site is for families like ours. I hope it helps.</p>
-      <p class="closing-note">&mdash; Kate</p>
+      <div class="story-prose">
+        <span class="section-tag on-dark">Our Story</span>
+        <h2 class="on-dark">Why This Site Exists</h2>
+        <div class="section-divider on-dark"></div>
+        <p class="on-dark">My son was diagnosed with SETD5 Syndrome at age 11, after years of appointments, testing, and waiting. When the diagnosis finally came, it was a relief to finally have a name for what we'd been navigating, but SETD5 Syndrome is rare enough that there wasn't an easy, ready-made roadmap for us.</p>
+        <blockquote class="kate-quote">I found myself searching on my own, reading research papers written in technical language, piecing together information from genetics journals and parent forums. I'm an educator and run a small nonprofit, and making sure people can find and use the resources they need is something I've always cared about.</blockquote>
+        <div class="story-resolution">
+          <p class="on-dark">So I built this site to gather everything I wished I'd had, all in one place. The information is out there, but it's scattered. I wanted to bring it together somewhere accessible.</p>
+          <p class="on-dark">Above all, this site is for families like ours. I hope it helps.</p>
+        </div>
+        <p class="closing-note">&mdash; Kate</p>
+      </div>
       <div class="about-photo-wrap">
         <div>
           <img src="IMG_9273.jpg" alt="The beginning of our journey" class="about-photo">
