@@ -1,7 +1,9 @@
 /**
- * site-upgrade.js  v175
+ * site-upgrade.js  v176
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v176: Fix alpha-bar invisible letters (exclude .alpha-link from broad link
+ *        color rule); match interior header em → #D4AE88 (same as homepage hero).
  * v175: Interior header em accent → #A07D54 (exact site gold).
  * v174: Interior header em accent → #D4AE88 (matches site title gold).
  * v173: Interior header em accent → #0FACBF (sampled from waves image).
@@ -1457,7 +1459,7 @@
 
     .header-title em {
       font-style: normal !important;
-      color: #A07D54 !important;
+      color: #D4AE88 !important;
     }
 
     /* Page subtitle */
@@ -1675,13 +1677,13 @@
       font-size: 16px !important;
     }
 
-    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]),
-    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]) {
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]),
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]) {
       color: #2A627A !important;
       text-decoration-color: rgba(160,125,84,0.4) !important;
     }
-    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]):hover,
-    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([download]):hover {
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]):hover,
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]):hover {
       color: #2A627A !important;
     }
 
