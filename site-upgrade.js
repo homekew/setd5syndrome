@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v177
+ * site-upgrade.js  v178
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v178: Hide helix SVG in CSS (not just JS) to stop flash-on-load.
  * v177: Increase homepage hero H1 size (clamp 2.25→3.25rem).
  * v176: Fix alpha-bar invisible letters (exclude .alpha-link from broad link
  *        color rule); match interior header em → #D4AE88 (same as homepage hero).
@@ -160,6 +161,8 @@
     /* Home page original elements to suppress */
     header:not(.site-header) .header-rule { display: none !important; }
     header:not(.site-header) .header-sub  { display: none !important; }
+    /* Hide helix SVG via CSS to prevent flash-of-helix before JS runs */
+    header:not(.site-header) svg          { display: none !important; }
 
     /* ── Hero tag pill ── */
     .su-hero-tag {
