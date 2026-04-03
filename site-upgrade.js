@@ -1,7 +1,8 @@
 /**
- * site-upgrade.js  v172
+ * site-upgrade.js  v173
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v173: Interior header em accent → #0FACBF (sampled from waves image).
  * v172: Interior headers → solid teal (#1A4558) + grain, white title text,
  *        gold em accent, soft white subtitle; matches homepage hero palette.
  * v171: Shift gradient so waves image shows through earlier (solid teal ends
@@ -1454,7 +1455,7 @@
 
     .header-title em {
       font-style: normal !important;
-      color: #E8C97A !important;
+      color: #0FACBF !important;
     }
 
     /* Page subtitle */
