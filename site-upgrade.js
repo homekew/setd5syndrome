@@ -947,22 +947,29 @@
        (e.g. style="background:#2A627A" or style="background:var(--teal)")
     ─────────────────────────────────────────────────────────────────────── */
 
-    /* PRIMARY: midnight indigo — utility actions (download, generate, print…) */
+    /* PRIMARY: midnight indigo — utility actions (download, generate, print…)
+       Layout + color only — font-size / padding left to page CSS so
+       .generate-btn (16px, 14px 32px) and .print-btn (14px, 10px 22px)
+       keep their intentionally larger sizes on handout-builder pages. */
     .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
     .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      padding: 9px 18px !important;
       background: #2A627A !important;
       color: #FFFFFF !important;
       text-decoration: none !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 13px !important;
       font-weight: 600 !important;
       border: none !important;
       border-radius: 7px !important;
       cursor: pointer !important;
+    }
+    /* Generic link-buttons that lack page-level padding/size —
+       these need explicit sizing so they look like proper buttons. */
+    .btn-primary, .btn-teal, .btn-dark, .download-btn, .pdf-btn, .resource-btn {
+      padding: 9px 18px !important;
+      font-size: 13px !important;
     }
     .download-btn:hover, .pdf-btn:hover, .resource-btn:hover,
     .btn-primary:hover, .btn-teal:hover, .btn-dark:hover,
