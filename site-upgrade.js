@@ -1725,7 +1725,7 @@
       .su-interior .site-nav {
         position: fixed !important;
         top: 0 !important;
-        z-index: 900 !important;
+        z-index: 950 !important;
       }
 
       /* Medical terms page search bar: push below sticky site-nav */
