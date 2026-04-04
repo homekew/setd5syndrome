@@ -1,102 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://setd5syndrome.live/</loc>
+    <loc>https://setd5syndrome.com/</loc>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/understanding-setd5-syndrome.html</loc>
+    <loc>https://setd5syndrome.com/understanding-setd5-syndrome.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/setd5-medical-terms-guide.html</loc>
+    <loc>https://setd5syndrome.com/setd5-medical-terms-guide.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/research.html</loc>
+    <loc>https://setd5syndrome.com/research.html</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/family-toolkit.html</loc>
+    <loc>https://setd5syndrome.com/family-toolkit.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/family-stories.html</loc>
+    <loc>https://setd5syndrome.com/family-stories.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/school-iep-guide.html</loc>
+    <loc>https://setd5syndrome.com/school-iep-guide.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/qualifying-for-services.html</loc>
+    <loc>https://setd5syndrome.com/qualifying-for-services.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/setd5-acronym-glossary.html</loc>
+    <loc>https://setd5syndrome.com/setd5-acronym-glossary.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/medical-emergency-summary.html</loc>
+    <loc>https://setd5syndrome.com/medical-emergency-summary.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/setd5-at-a-glance.html</loc>
+    <loc>https://setd5syndrome.com/setd5-at-a-glance.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/understanding-genetic-report.html</loc>
+    <loc>https://setd5syndrome.com/understanding-genetic-report.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/disability-discounts-guide.html</loc>
+    <loc>https://setd5syndrome.com/disability-discounts-guide.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/printable-handouts.html</loc>
+    <loc>https://setd5syndrome.com/printable-handouts.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/helpful-links.html</loc>
+    <loc>https://setd5syndrome.com/helpful-links.html</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/about.html</loc>
+    <loc>https://setd5syndrome.com/research-registries.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://setd5syndrome.com/transition-to-adulthood.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://setd5syndrome.com/medical-handout-builder.html</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://setd5syndrome.com/iep-handout-builder.html</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://setd5syndrome.com/about.html</loc>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/sources-references.html</loc>
+    <loc>https://setd5syndrome.com/sources-references.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/share-your-story.html</loc>
+    <loc>https://setd5syndrome.com/share-your-story.html</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/suggest-a-resource.html</loc>
+    <loc>https://setd5syndrome.com/suggest-a-resource.html</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://setd5syndrome.live/terms-of-use.html</loc>
+    <loc>https://setd5syndrome.com/terms-of-use.html</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
