@@ -159,6 +159,8 @@
       box-shadow: 0 8px 32px rgba(26,69,88,0.32) !important;
       position: relative;
       z-index: 10;
+      opacity: 1 !important;
+      transition: opacity 0.15s ease !important;
     }
 
     /* Option B gradient overlay + paper grain texture */

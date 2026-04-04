@@ -61,7 +61,7 @@
     flex-direction: column;
   }
 
-  /* HEADER */
+  /* HEADER — hidden until site-upgrade.js applies final styles */
   header {
     background: #2A627A;
     color: #fff;
@@ -69,7 +69,9 @@
     padding: 2rem 0 1.5rem;
     position: relative;
     border-bottom: none;
+    opacity: 0;
 }
+  header svg { display: none; }
 
   .header-hero-inner { max-width:860px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
   .site-label, h1, .header-rule, .header-sub { position:relative; z-index:1; }
