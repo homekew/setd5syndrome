@@ -201,39 +201,16 @@
   }
 
     /* ââ FOOTER ââ */
-  footer {
-    background: #2A627A;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    font-family: 'Poppins', sans-serif;
-  }
-  .footer-love {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 0.85rem;
-  }
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.3rem 0.7rem;
-    margin-bottom: 0.85rem;
-    font-size: 14px;
-  }
-  .footer-nav a { color: rgba(255,255,255,0.6); text-decoration: none; }
-  .footer-nav a:hover { color: rgba(255,255,255,0.9); }
-  .footer-nav .sep { color: rgba(255,255,255,0.25); }
-  .footer-email { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 0.6rem; }
-  .footer-email a { color: rgba(255,255,255,0.55); text-decoration: none; }
-  .footer-email a:hover { color: rgba(255,255,255,0.9); }
-  .footer-legal {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.55;
-  }
-footer a { text-decoration: underline; }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   /* ââ GOOGLE TRANSLATE ââ */
 
@@ -245,7 +222,6 @@ footer a { text-decoration: underline; }
     .handout-box { flex-direction: column; }
     .handout-box-btn { width: 100%; justify-content: center; }
   }
-
 
   /* ââ BREADCRUMB ââ */
   .header-eyebrow {
@@ -270,7 +246,6 @@ footer a { text-decoration: underline; }
     .helix-left  { display: none; }
     .helix-right { opacity: 0.06 !important; }
   }
-
 
   /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
@@ -359,6 +334,83 @@ footer a { text-decoration: underline; }
     .tk-page-nav-link { font-size: 13.5px; padding: 0.6rem 0.7rem; }
     .tk-page-nav-back { font-size: 13px; }
   }
+
+  /* ── SITE FOOTER ──────────────────────────────────── */
+  .site-footer {
+    background: #2A627A;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    padding: 3rem max(2rem, calc(50vw - 430px));
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+  }
+  .footer-brand-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+  }
+  .footer-brand-tagline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin: 0 0 1.2rem;
+  }
+  .footer-legal-text {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+    max-width: 400px;
+  }
+  .footer-copyright {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin: 0;
+  }
+  .footer-col-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C6A47E;
+    margin: 0 0 1rem;
+  }
+  .footer-col-label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin-top: 0.6rem;
+  }
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .footer-links a {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: #fff; }
+  .footer-translate { margin-top: 1.5rem; }
+  .footer-translate .goog-te-gadget { font-size: 0 !important; }
+  .footer-translate .goog-te-gadget select { font-size: 13px; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border-radius: 4px; cursor: pointer; }
+  @media (max-width: 600px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
 </style>
 <link rel="canonical" href="https://setd5syndrome.com/printable-handouts.html">
 <script src="site-upgrade.js"></script>
@@ -452,15 +504,26 @@ footer a { text-decoration: underline; }
 
 </main>
 
-<footer class="site-footer">  <div class="footer-nav">
-    <a href="index.html">Home</a><span class="sep">&middot;</span>
-    <a href="about.html">About</a><span class="sep">&middot;</span>
-    <a href="sources-references.html">Sources &amp; References</a><span class="sep">&middot;</span>
-    <a href="suggest-a-resource.html">Contact</a><span class="sep">&middot;</span>
-    <a href="terms-of-use.html">Terms of Use</a>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p class="footer-brand-name">The SETD5 Syndrome Companion</p>
+      <p class="footer-brand-tagline">A peer resource for families and caregivers</p>
+      <p class="footer-legal-text">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
+      <p class="footer-copyright">&copy; 2026 The SETD5 Syndrome Companion</p>
+      <div class="footer-translate"><div id="google_translate_element"></div></div>
+    </div>
+    <div class="footer-right">
+      <p class="footer-col-label">About &amp; Support</p>
+      <ul class="footer-links">
+        <li><a href="about.html">About This Site</a></li>
+        <li><a href="share-your-story.html">Share Your Story</a></li>
+        <li><a href="suggest-a-resource.html">Contact</a></li>
+        <li><a href="sources-references.html">Sources &amp; References</a></li>
+        <li><a href="terms-of-use.html">Terms of Use</a></li>
+      </ul>
+    </div>
   </div>
-  <p class="footer-email"><a href="mailto:info@setd5syndrome.com">info@setd5syndrome.com</a></p>
-  <p class="footer-legal">Content is for informational purposes only and is not medical, legal, or educational advice. Always consult qualified professionals for decisions about your child&#8217;s care, education, or benefits.</p>
 </footer>
 
 <script>
