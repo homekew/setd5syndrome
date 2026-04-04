@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SETD5 Syndrome — Style & Element Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:      #2A627A;
+    --amber:     #A07D54;
+    --text:      #2F2F2B;
+    --muted:     #2F2F2B;
+    --border:    #DDD8D1;
+    --cream:     #F5F4F1;
+    --teal-bg:   #EFEEEA;
+    --page-bg:   #F7F4EE;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── Guide chrome ─────────────────────────────────────────── */
+  .guide-header {
+    background: #214F64;
+    color: #fff;
+    padding: 40px 48px 36px;
+    border-bottom: 3px solid var(--amber);
+  }
+  .guide-header h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .guide-header p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+  }
+  .guide-header .scope-badge {
+    display: inline-block;
+    margin-top: 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.05em;
+  }
+
+  .guide-toc {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 24px;
+    font-size: 13px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .guide-toc a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .guide-toc a:hover { text-decoration: underline; }
+
+  .guide-body {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  .guide-section {
+    padding-top: 56px;
+    border-top: 2px solid var(--border);
+    margin-top: 56px;
+  }
+  .guide-section:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 56px;
+  }
+
+  .guide-section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .guide-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Element row */
+  .element-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 32px;
+  }
+  .element-meta {
+    padding-top: 4px;
+  }
+  .element-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .element-class {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--amber);
+    background: #fff8f0;
+    border: 1px solid #e8d5bc;
+    border-radius: 4px;
+    padding: 2px 7px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .element-notes {
+    font-size: 12px;
+    color: #7A756D;
+    line-height: 1.55;
+  }
+  .element-notes code {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    background: #f0ede8;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #5a4a32;
+  }
+  .element-preview {
+    background: var(--page-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+  }
+  .element-preview.white-bg {
+    background: #fff;
+  }
+
+  /* ── Color palette ────────────────────────────────────────── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .color-swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+  .color-block {
+    height: 60px;
+  }
+  .color-info {
+    background: #fff;
+    padding: 8px 10px;
+  }
+  .color-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .color-hex {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #7A756D;
+  }
+  .color-usage {
+    font-size: 11px;
+    color: #9A958F;
+    margin-top: 2px;
+  }
+
+  /* ── Font specimens ───────────────────────────────────────── */
+  .font-specimen {
+    margin-bottom: 28px;
+  }
+  .font-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .font-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Spacing reference ────────────────────────────────────── */
+  .spacing-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .spacing-block {
+    background: var(--navy);
+    opacity: 0.25;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .spacing-label {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #7A756D;
+    min-width: 40px;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     ACTUAL PAGE ELEMENTS — pulled directly from the site
+  ══════════════════════════════════════════════════════════ */
+
+  /* Section label */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Poppins', sans-serif; font-size: 13px;
+    font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 10px;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 18px; height: 2px; background: #A07D54;
+  }
+
+  /* Section title */
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(21px, 3.5vw, 29px); font-weight: 600;
+    color: var(--navy); margin-bottom: 20px; line-height: 1.25;
+  }
+
+  /* Prose */
+  .prose { font-size: 16px; line-height: 1.78; margin-bottom: 18px; max-width: 68ch; }
+
+  /* Section divider */
+  .section-divider { border: none; border-top: 2px solid var(--border); margin: 44px 0 40px; }
+
+  /* Steps */
+  .steps-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .step-item {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px 20px 70px; position: relative;
+  }
+  .step-number {
+    position: absolute; left: 20px; top: 20px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 17px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-item h4 {
+    font-family: 'DM Sans', sans-serif; font-size: 16px;
+    color: var(--navy); margin-bottom: 6px;
+  }
+  .step-item p { font-size: 15px; line-height: 1.65; color: var(--text); }
+
+  /* Specialist grid */
+  .specialist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+  .specialist-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .specialist-card h5 { font-size: 14.5px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .specialist-card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  /* Teal callout */
+  .teal-callout {
+    background: #EFEEEA; border-left: 4px solid #2A627A;
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-bottom: 28px;
+  }
+  .teal-callout .callout-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: #A07D54; display: block; margin-bottom: 6px;
+  }
+  .teal-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  /* Amber callout */
+  .amber-callout {
+    background: #F5EDE0; border-left: 4px solid #A07D54;
+    border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 28px;
+  }
+  .amber-callout .callout-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .11em;
+    text-transform: uppercase; color: #9E7545; display: block; margin-bottom: 6px;
+  }
+  .amber-callout p { font-size: 15px; line-height: 1.68; color: var(--text); }
+
+  /* Question group label */
+  .question-group-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted);
+    margin: 36px 0 8px; display: block;
+    border-top: 1px solid var(--border); padding-top: 16px;
+  }
+
+  /* Question list */
+  .question-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .question-list li {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px 12px 44px; font-size: 15px; line-height: 1.6;
+    position: relative; color: var(--text);
+  }
+  .question-list li::before {
+    content: '?'; position: absolute; left: 14px; top: 12px;
+    width: 22px; height: 22px; border-radius: 50%; background: #2A627A;
+    color: #fff; font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 22px; text-align: center;
+  }
+
+  /* Feature card */
+  .feature-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; border-top: 3px solid #2A627A;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .feature-card.amber-top { border-top-color: #A07D54; }
+  .feature-card h4 { font-family: 'DM Sans', sans-serif; font-size: 16px; color: var(--navy); margin-bottom: 10px; }
+  .feature-card ul { list-style: none; padding: 0; }
+  .feature-card ul li {
+    font-size: 15.5px; padding: 3px 0 3px 18px;
+    position: relative; color: var(--text); line-height: 1.65;
+  }
+  .feature-card ul li::before {
+    content: '·'; position: absolute; left: 5px;
+    font-size: 20px; line-height: 1; color: #2A627A; top: 2px;
+  }
+
+  /* Page TOC */
+  .page-toc {
+    background: #F5F4F1; border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 2rem; font-size: 14px;
+  }
+  .page-toc-label {
+    font-size: 10px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block;
+  }
+  .page-toc ol { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .page-toc ol li a { color: #A07D54; text-decoration: none; font-size: 13.5px; }
+
+  /* Inline note */
+  .inline-note {
+    font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 18px;
+  }
+
+  /* Button — primary */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--navy); color: #fff;
+    font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+    padding: 12px 24px; border-radius: 7px;
+    text-decoration: none; white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #1e4c5e; }
+
+  /* Collapsible details */
+  details {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    background: #fff;
+    margin-bottom: 10px;
+  }
+  details summary {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary .arrow { font-size: 10px; transition: transform 0.2s; }
+  details[open] summary .arrow { transform: rotate(90deg); }
+  details p { font-size: 14px; line-height: 1.65; color: var(--text); padding-top: 10px; }
+
+  /* Sidebar link (tab nav) */
+  .sidebar-link-demo {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    background: none; width: 100%; text-align: left;
+    font-family: 'Poppins', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+    border-top: none; border-right: none; border-bottom: none;
+    cursor: pointer;
+  }
+  .sidebar-link-demo.active {
+    color: var(--navy); font-weight: 600;
+    border-left-color: #A07D54; background: #F5F4F1;
+  }
+  .sidebar-link-demo:hover { background: #F5F4F1; color: var(--navy); }
+  .sidebar-demo-wrap {
+    width: 200px; background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 0;
+  }
+  .sidebar-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted);
+    padding: 0 20px; margin-bottom: 6px;
+  }
+
+  /* Tab nav button */
+  .tab-btn-demo {
+    display: inline-flex; align-items: center;
+    background: none; border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    color: rgba(255,255,255,0.65);
+    font-family: 'Poppins', sans-serif; font-size: 15.5px; font-weight: 400;
+    padding: 0.65rem 1.1rem;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn-demo.active { color: #fff; font-weight: 500; border-bottom-color: #A07D54; }
+  .tab-nav-demo {
+    background: #2A627A; display: flex; padding: 0 16px;
+    border-radius: 8px;
+  }
+
+  /* Nav bar (page-tab-strip from site-upgrade.js) */
+  .page-tab-strip-demo {
+    background: #ECEAE6; border-bottom: 1px solid #DDD8D1;
+    display: flex; align-items: stretch;
+    padding: 0 32px; border-radius: 8px;
+    overflow: hidden;
+  }
+  .page-tab-btn-demo {
+    display: inline-flex; align-items: center;
+    background: none; border: none; border-bottom: 2px solid transparent;
+    padding: 0.65rem 0.85rem;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400;
+    color: #4A4944; cursor: pointer; white-space: nowrap;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .page-tab-btn-demo:hover { color: #2A627A; }
+  .page-tab-btn-demo.active { color: #2A627A; font-weight: 600; border-bottom-color: #2A627A; }
+  .page-tab-back-demo {
+    display: inline-flex; align-items: center;
+    padding: 0.65rem 1rem 0.65rem 0;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400;
+    color: #7A756D; text-decoration: none; white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    border-right: 1px solid #C8C4BC;
+    margin-right: 0.5rem;
+  }
+
+  /* Inline text styles */
+  .text-link { color: var(--navy); text-decoration: underline; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  /* Stat box */
+  .stat-strip { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stat-box {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 18px 20px; flex: 1; min-width: 110px; text-align: center;
+  }
+  .stat-number { font-family: 'DM Sans', sans-serif; font-size: clamp(18px, 4.5vw, 30px); color: var(--navy); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- ── Guide Header ─────────────────────────────────────────── -->
+<header class="guide-header">
+  <h1>Style &amp; Element Guide</h1>
+  <p>All reusable components and design tokens used across the SETD5 Syndrome Companion site, with exact CSS values and usage notes.</p>
+  <span class="scope-badge">Source page: understanding-setd5-syndrome.html — Next Steps tab</span>
+</header>
+
+<!-- ── Table of Contents ──────────────────────────────────────── -->
+<nav class="guide-toc">
+  <a href="#colors">Colors</a>
+  <a href="#typography">Typography</a>
+  <a href="#navigation">Navigation</a>
+  <a href="#section-headers">Section Headers</a>
+  <a href="#callouts">Callouts</a>
+  <a href="#steps">Steps</a>
+  <a href="#cards">Cards</a>
+  <a href="#questions">Questions</a>
+  <a href="#toc">Table of Contents</a>
+  <a href="#buttons">Buttons &amp; Links</a>
+  <a href="#spacing">Spacing</a>
+</nav>
+
+<div class="guide-body">
+
+  <!-- ── COLORS ──────────────────────────────────────────────── -->
+  <section class="guide-section" id="colors">
+    <h2 class="guide-section-title">Color Palette</h2>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9A958F;margin-bottom:12px;">Primary</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-block" style="background:#2A627A;"></div>
+          <div class="color-info">
+            <div class="color-name">Navy / Teal</div>
+            <div class="color-hex">#2A627A</div>
+            <div class="color-usage">Headings, links, accents, buttons</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#A07D54;"></div>
+          <div class="color-info">
+            <div class="color-name">Amber</div>
+            <div class="color-hex">#A07D54</div>
+            <div class="color-usage">Active state underlines, callout labels, section label bar</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#2F2F2B;"></div>
+          <div class="color-info">
+            <div class="color-name">Ink / Text</div>
+            <div class="color-hex">#2F2F2B</div>
+            <div class="color-usage">Body text, muted labels</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#214F64;"></div>
+          <div class="color-info">
+            <div class="color-name">Deep Navy</div>
+            <div class="color-hex">#214F64</div>
+            <div class="color-usage">Site nav bar, global header</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9A958F;margin-bottom:12px;">Backgrounds</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-block" style="background:#F7F4EE; border-bottom:1px solid #DDD8D1;"></div>
+          <div class="color-info">
+            <div class="color-name">Page Background</div>
+            <div class="color-hex">#F7F4EE</div>
+            <div class="color-usage">Body background</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#F5F4F1; border-bottom:1px solid #DDD8D1;"></div>
+          <div class="color-info">
+            <div class="color-name">Cream</div>
+            <div class="color-hex">#F5F4F1</div>
+            <div class="color-usage">Active sidebar, TOC, symptom filter bar</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#ECEAE6; border-bottom:1px solid #DDD8D1;"></div>
+          <div class="color-info">
+            <div class="color-name">Warm Gray</div>
+            <div class="color-hex">#ECEAE6</div>
+            <div class="color-usage">Interior nav bar (page-tab-strip)</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#EFEEEA; border-bottom:1px solid #DDD8D1;"></div>
+          <div class="color-info">
+            <div class="color-name">Teal Tint</div>
+            <div class="color-hex">#EFEEEA</div>
+            <div class="color-usage">Teal callout background</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#F5EDE0; border-bottom:1px solid #DDD8D1;"></div>
+          <div class="color-info">
+            <div class="color-name">Amber Light</div>
+            <div class="color-hex">#F5EDE0</div>
+            <div class="color-usage">Amber callout background</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#fff; border-bottom:1px solid #DDD8D1;"></div>
+          <div class="color-info">
+            <div class="color-name">White</div>
+            <div class="color-hex">#FFFFFF</div>
+            <div class="color-usage">Cards, sidebar, inputs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9A958F;margin-bottom:12px;">Borders &amp; Strokes</div>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-block" style="background:#DDD8D1;"></div>
+          <div class="color-info">
+            <div class="color-name">Border</div>
+            <div class="color-hex">#DDD8D1</div>
+            <div class="color-usage">All card, input, divider borders</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-block" style="background:#C8C4BC;"></div>
+          <div class="color-info">
+            <div class="color-name">Border Mid</div>
+            <div class="color-hex">#C8C4BC</div>
+            <div class="color-usage">Nav separator line</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── TYPOGRAPHY ──────────────────────────────────────────── -->
+  <section class="guide-section" id="typography">
+    <h2 class="guide-section-title">Typography</h2>
+
+    <div class="font-specimen">
+      <div class="font-label">DM Sans — Headings &amp; UI</div>
+      <div style="font-family:'DM Sans',sans-serif;">
+        <div style="font-size:48px;font-weight:600;color:#2A627A;line-height:1.15;margin-bottom:4px;">Understanding SETD5</div>
+        <div style="font-size:29px;font-weight:600;color:#2A627A;line-height:1.25;margin-bottom:4px;">Section Title — 29px / 600</div>
+        <div style="font-size:21px;font-weight:600;color:#2A627A;line-height:1.25;margin-bottom:4px;">Smaller Section — 21px / 600</div>
+        <div style="font-size:17px;font-weight:600;color:#2A627A;line-height:1.3;margin-bottom:4px;">Step / Card heading — 16–17px / 600</div>
+        <div style="font-size:14px;font-weight:400;color:#4A4944;margin-bottom:4px;">Nav link label — 14px / 400</div>
+        <div style="font-size:13px;font-weight:400;color:#7A756D;">Back link — 13px / 400</div>
+      </div>
+    </div>
+
+    <div class="font-specimen">
+      <div class="font-label">Poppins — Body &amp; Labels</div>
+      <div style="font-family:'Poppins',sans-serif;">
+        <div style="font-size:17px;font-weight:400;color:#2F2F2B;line-height:1.7;margin-bottom:6px;">Body text — 17px / 400 / line-height 1.7. Used for all running body text. <a href="#" class="text-link" style="font-family:inherit;">Links are navy + underline.</a></div>
+        <div style="font-size:16px;font-weight:400;color:#2F2F2B;line-height:1.78;margin-bottom:6px;">.prose — 16px / 400 / line-height 1.78 / max-width 68ch</div>
+        <div style="font-size:15px;font-weight:400;color:#2F2F2B;line-height:1.65;margin-bottom:6px;">Step / card body text — 15px / 400</div>
+        <div style="font-size:14px;font-weight:400;color:#2F2F2B;line-height:1.6;margin-bottom:6px;">Small card text, specialist card — 14px / 400</div>
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2F2F2B;margin-bottom:6px;">Section label — 13px / 600 / uppercase / 0.12em tracking</div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#2F2F2B;margin-bottom:6px;">Question group label — 11px / 600 / uppercase</div>
+        <div style="font-size:13px;font-weight:400;color:#2F2F2B;line-height:1.6;margin-bottom:6px;">Inline note / small text — 13–14px / 400 / color: var(--muted)</div>
+        <div style="font-size:12px;font-weight:400;color:#7A756D;">Footer / meta text — 12–13px / 400</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;margin-top:8px;">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9A958F;margin-bottom:16px;">Inline text modifiers</div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;font-size:15px;color:#2F2F2B;font-family:'Poppins',sans-serif;">
+        <div><strong>Bold / strong</strong> — font-weight: 600</div>
+        <div><em>Italic / em</em> — used for emphasis</div>
+        <div><a href="#" class="text-link">Linked text</a> — color: #2A627A + underline</div>
+        <div><span style="font-family:'Courier New',monospace;font-size:13px;background:#f0ede8;padding:2px 6px;border-radius:3px;color:#5a4a32;">code / class</span> — monospace</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── NAVIGATION ──────────────────────────────────────────── -->
+  <section class="guide-section" id="navigation">
+    <h2 class="guide-section-title">Navigation</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Main site nav (header tab row)</div>
+        <div class="element-class">.tab-nav / .tab-btn</div>
+        <div class="element-notes">Sits inside the teal site header. Active tab has <code>border-bottom: 2px solid #A07D54</code> (amber). Injected by <code>site-upgrade.js</code> styling the existing <code>.site-nav</code>.</div>
+      </div>
+      <div class="element-preview" style="background:#2A627A;padding:0;">
+        <div class="tab-nav-demo">
+          <button class="tab-btn-demo">Overview</button>
+          <button class="tab-btn-demo">Genetics &amp; Variants</button>
+          <button class="tab-btn-demo">Symptoms &amp; Features</button>
+          <button class="tab-btn-demo active">Next Steps</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Interior page nav bar</div>
+        <div class="element-class">.page-tab-strip (site-upgrade.js)</div>
+        <div class="element-notes">Cream bar below the header on all interior pages. Font: DM Sans 14px/400. Active: color #2A627A, font-weight 600, border-bottom 2px solid #2A627A. Back link: color #7A756D, border-right separator.</div>
+      </div>
+      <div class="element-preview" style="padding:0;overflow:hidden;">
+        <div class="page-tab-strip-demo">
+          <a href="#" class="page-tab-back-demo">← Family Toolkit</a>
+          <button class="page-tab-btn-demo active">Overview</button>
+          <button class="page-tab-btn-demo">Genetics &amp; Variants</button>
+          <button class="page-tab-btn-demo">Symptoms</button>
+          <button class="page-tab-btn-demo">Next Steps</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Sidebar / tab navigation</div>
+        <div class="element-class">.page-sidebar / .sidebar-link</div>
+        <div class="element-notes">Hidden on mobile (transforms to a horizontal scroll strip). Active state: <code>border-left: 3px solid #A07D54</code>, background <code>#F5F4F1</code>, font-weight 600.</div>
+      </div>
+      <div class="element-preview white-bg" style="padding:16px;">
+        <div class="sidebar-demo-wrap">
+          <div class="sidebar-hd">On this page</div>
+          <button class="sidebar-link-demo active">Overview</button>
+          <button class="sidebar-link-demo">Genetics &amp; Variants</button>
+          <button class="sidebar-link-demo">Symptoms &amp; Features</button>
+          <button class="sidebar-link-demo">Next Steps</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── SECTION HEADERS ─────────────────────────────────────── -->
+  <section class="guide-section" id="section-headers">
+    <h2 class="guide-section-title">Section Headers</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Section label</div>
+        <div class="element-class">.section-label</div>
+        <div class="element-notes">Always appears immediately above a section title. Poppins 13px / 600 / uppercase / tracking 0.12em. Amber bar via <code>::before</code> pseudo-element (18×2px, color #A07D54).</div>
+      </div>
+      <div class="element-preview">
+        <p class="section-label">Getting started</p>
+        <p class="section-label">Your care team</p>
+        <p class="section-label">Appointments</p>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Section title (H2)</div>
+        <div class="element-class">.section-title</div>
+        <div class="element-notes">DM Sans / clamp(21px–29px) / 600 / color #2A627A. Margin-bottom 20px. <code>scroll-margin-top: 150px</code> to clear sticky header on anchor jump.</div>
+      </div>
+      <div class="element-preview">
+        <h2 class="section-title">What to Do After a Diagnosis</h2>
+        <h2 class="section-title">Specialists Mentioned in SETD5 Syndrome Care</h2>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Section divider</div>
+        <div class="element-class">.section-divider</div>
+        <div class="element-notes"><code>border-top: 2px solid #DDD8D1</code>. Margin: 44px top / 40px bottom. Used to visually separate major sections within a tab.</div>
+      </div>
+      <div class="element-preview">
+        <p style="font-size:13px;color:#9A958F;margin-bottom:8px;">…end of one section</p>
+        <hr class="section-divider" style="margin:16px 0;">
+        <p style="font-size:13px;color:#9A958F;margin-top:8px;">Beginning of next section…</p>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Prose paragraph</div>
+        <div class="element-class">.prose</div>
+        <div class="element-notes">Poppins 16px / 400 / line-height 1.78. Max-width 68ch to keep comfortable reading measure. Margin-bottom 18px.</div>
+      </div>
+      <div class="element-preview">
+        <p class="prose">Receiving a diagnosis can feel overwhelming. It can also feel like a relief — finally having a name for what you or your child has been experiencing. There is no single "right" path forward.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── CALLOUTS ────────────────────────────────────────────── -->
+  <section class="guide-section" id="callouts">
+    <h2 class="guide-section-title">Callout Boxes</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Teal callout</div>
+        <div class="element-class">.teal-callout</div>
+        <div class="element-notes">Background <code>#EFEEEA</code>, left border 4px solid <code>#2A627A</code>. Label: Poppins 11px / 600 / uppercase / color <code>#A07D54</code>. Body: 15px / line-height 1.68. Used for notes and supplementary info.</div>
+      </div>
+      <div class="element-preview">
+        <div class="teal-callout">
+          <span class="callout-label">Note: Moyamoya disease</span>
+          <p>Moyamoya disease has been reported in a very small number of individuals with SETD5 Syndrome. Families may want to discuss this association with their neurologist if unexplained neurological symptoms arise.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Amber callout</div>
+        <div class="element-class">.amber-callout</div>
+        <div class="element-notes">Background <code>#F5EDE0</code>, left border 4px solid <code>#A07D54</code>. Label color: <code>#9E7545</code>. Used for important notices or warnings.</div>
+      </div>
+      <div class="element-preview">
+        <div class="amber-callout">
+          <span class="callout-label">Important note</span>
+          <p>This list describes features reported in people with SETD5 Syndrome. It is not a prediction of what any individual will experience. Every person with SETD5 Syndrome is different.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Collapsible details</div>
+        <div class="element-class">details / summary</div>
+        <div class="element-notes">Used for supplementary content the user can expand. Arrow rotates 90° when open via <code>details[open] summary .arrow</code>. White background, border <code>#DDD8D1</code>.</div>
+      </div>
+      <div class="element-preview white-bg">
+        <details>
+          <summary><span class="arrow">▶</span> Note on Orphanet reclassification (2026)</summary>
+          <p>Orphanet previously had a standalone entry for this condition. On March 1, 2026, Orphanet marked that entry obsolete and merged it into a broader category. This is a database reclassification decision and does not affect the diagnosis.</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Inline note / small disclaimer</div>
+        <div class="element-class">inline style</div>
+        <div class="element-notes">Poppins 14px / color var(--muted) / line-height 1.7. Used for contextual notes before lists or forms.</div>
+      </div>
+      <div class="element-preview">
+        <p class="inline-note">These questions were compiled from published research on SETD5 Syndrome and from conversations within the SETD5 parent support community. They are meant as a starting point for discussions with your child's medical team.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── STEPS ──────────────────────────────────────────────── -->
+  <section class="guide-section" id="steps">
+    <h2 class="guide-section-title">Steps List</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Numbered step item</div>
+        <div class="element-class">.steps-list / .step-item / .step-number</div>
+        <div class="element-notes">White card with <code>border-radius: 10px</code>. Left padding 70px to make room for the number circle. Number circle: 34×34px, <code>background: #2A627A</code>, DM Sans 17px. Heading: DM Sans 16px / navy. Body: Poppins 15px.</div>
+      </div>
+      <div class="element-preview">
+        <div class="steps-list" style="margin-bottom:0;">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <h4>Genetics and genetic counseling</h4>
+            <p>Many families find this to be a helpful early step. A genetic counselor can help explain what the variant means for your specific situation.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <h4>Specialist referrals</h4>
+            <p>Given the range of systems SETD5 Syndrome can affect, care teams sometimes include a <strong>neurologist</strong>, <strong>cardiologist</strong>, and <strong>audiologist</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── CARDS ──────────────────────────────────────────────── -->
+  <section class="guide-section" id="cards">
+    <h2 class="guide-section-title">Cards</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Specialist card</div>
+        <div class="element-class">.specialist-grid / .specialist-card</div>
+        <div class="element-notes">2-column grid (1-col on mobile &lt;560px). White card, border <code>#DDD8D1</code>, <code>border-radius: 8px</code>. Title: Poppins 14.5px / 600 / navy. Body: 14px / muted. Gap between cards: 10px.</div>
+      </div>
+      <div class="element-preview">
+        <div class="specialist-grid" style="margin-bottom:0;">
+          <div class="specialist-card">
+            <h5>Medical Geneticist</h5>
+            <p>Explains the variant, inheritance, and recurrence risk. Often the first specialist after diagnosis.</p>
+          </div>
+          <div class="specialist-card">
+            <h5>Developmental Pediatrician</h5>
+            <p>Oversees overall developmental care and coordinates specialists for children.</p>
+          </div>
+          <div class="specialist-card">
+            <h5>Neurologist</h5>
+            <p>Evaluates and manages seizures, EEG findings, and neurological features.</p>
+          </div>
+          <div class="specialist-card">
+            <h5>Speech-Language Pathologist</h5>
+            <p>Addresses speech, language, communication, and swallowing difficulties.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Feature card</div>
+        <div class="element-class">.feature-card</div>
+        <div class="element-notes">White card, <code>border-radius: 10px</code>, colored top border (3px). Default: <code>#2A627A</code>. Variants: <code>.amber-top</code> (#A07D54). Heading: DM Sans 16px / navy. List bullet: · positioned absolutely, color matches accent.</div>
+      </div>
+      <div class="element-preview">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="feature-card">
+            <h4>Learning &amp; Cognition</h4>
+            <ul>
+              <li>Intellectual disability</li>
+              <li>Global developmental delay</li>
+              <li>Difficulties with reading and writing</li>
+            </ul>
+          </div>
+          <div class="feature-card amber-top">
+            <h4>Behavior &amp; Regulation</h4>
+            <ul>
+              <li>ADHD features</li>
+              <li>Anxiety reported in some</li>
+              <li>Preference for routine</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Stat box</div>
+        <div class="element-class">.stat-strip / .stat-box</div>
+        <div class="element-notes">White card, border, <code>border-radius: 8px</code>, centered text. Number: DM Sans, clamp(18–30px) / navy. Label: Poppins 12px / muted.</div>
+      </div>
+      <div class="element-preview">
+        <div class="stat-strip">
+          <div class="stat-box">
+            <div class="stat-number">2014</div>
+            <div class="stat-label">year first described</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">75+</div>
+            <div class="stat-label">individuals in published literature</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">Chr. 3</div>
+            <div class="stat-label">gene location (3p25.3)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── QUESTIONS ──────────────────────────────────────────── -->
+  <section class="guide-section" id="questions">
+    <h2 class="guide-section-title">Questions List</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Question group label</div>
+        <div class="element-class">.question-group-label</div>
+        <div class="element-notes">Poppins 11px / 600 / uppercase / tracking 0.12em. <code>border-top: 1px solid #DDD8D1</code> with 16px padding-top. Margin-top 36px to create clear grouping.</div>
+      </div>
+      <div class="element-preview">
+        <span class="question-group-label" style="margin-top:0;">Understanding the diagnosis</span>
+        <span class="question-group-label">Referrals &amp; monitoring</span>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Question list item</div>
+        <div class="element-class">.question-list / li</div>
+        <div class="element-notes">White card, <code>border-radius: 8px</code>, left padding 44px. "?" badge: 22×22px circle, <code>background: #2A627A</code>, white bold text. Item text: Poppins 15px / color var(--text). Gap between items: 8px.</div>
+      </div>
+      <div class="element-preview">
+        <ul class="question-list" style="margin-bottom:0;">
+          <li>What type of SETD5 variant does my child have: a point mutation or a deletion?</li>
+          <li>Is this de novo, or could it have been inherited from a parent?</li>
+          <li>What is the recurrence risk for future pregnancies?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── TABLE OF CONTENTS ──────────────────────────────────── -->
+  <section class="guide-section" id="toc">
+    <h2 class="guide-section-title">Table of Contents</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Page TOC card</div>
+        <div class="element-class">.page-toc / .page-toc-label</div>
+        <div class="element-notes">Injected by <code>site-upgrade.js</code> into pages listed in <code>tocPages</code>. Background <code>#F5F4F1</code>, border <code>#DDD8D1</code>, <code>border-radius: 8px</code>. Label: 10px / 600 / uppercase. Links: color <code>#A07D54</code>.</div>
+      </div>
+      <div class="element-preview">
+        <div class="page-toc">
+          <span class="page-toc-label">On this page</span>
+          <ol>
+            <li><a href="#">What to Do After a Diagnosis</a></li>
+            <li><a href="#">Specialists Mentioned in Care</a></li>
+            <li><a href="#">Questions to Ask Your Care Team</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── BUTTONS & LINKS ────────────────────────────────────── -->
+  <section class="guide-section" id="buttons">
+    <h2 class="guide-section-title">Buttons &amp; Links</h2>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Primary button</div>
+        <div class="element-class">.btn-primary</div>
+        <div class="element-notes">Background <code>#2A627A</code>. Poppins 14px / 600 / white. Padding 12px 24px. <code>border-radius: 7px</code>. Hover: darkens to <code>#1e4c5e</code>. Used for key CTAs like "Get Started →" and "Read the Guide".</div>
+      </div>
+      <div class="element-preview white-bg" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+        <a href="#" class="btn-primary" style="text-decoration:none;">Read the Guide</a>
+        <a href="#" class="btn-primary" style="text-decoration:none;">Get Started →</a>
+      </div>
+    </div>
+
+    <div class="element-row">
+      <div class="element-meta">
+        <div class="element-name">Body link</div>
+        <div class="element-class">a (in .page-body)</div>
+        <div class="element-notes">Color <code>#2A627A</code>, always underlined within content areas. External links open in new tab with <code>rel="noopener"</code>.</div>
+      </div>
+      <div class="element-preview">
+        <p class="prose" style="margin-bottom:0;">Other families living with SETD5 Syndrome are one of your most valuable resources. The <a href="#" class="text-link">Family Toolkit</a> includes links to support groups, external research organizations, and more. Visit <a href="#" class="text-link">Simons Searchlight</a> to enroll in their registry.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── SPACING ────────────────────────────────────────────── -->
+  <section class="guide-section" id="spacing">
+    <h2 class="guide-section-title">Spacing &amp; Layout</h2>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:28px;">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9A958F;margin-bottom:20px;">Common spacing values</div>
+
+      <div class="spacing-row">
+        <div class="spacing-label">4px</div>
+        <div class="spacing-block" style="width:4px;height:20px;"></div>
+        <div>Icon gap, meta chip padding</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">8px</div>
+        <div class="spacing-block" style="width:8px;height:20px;"></div>
+        <div>Section label margin-bottom, question-list gap</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">10px</div>
+        <div class="spacing-block" style="width:10px;height:20px;"></div>
+        <div>Specialist card gap, card heading margin-bottom</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">16px</div>
+        <div class="spacing-block" style="width:16px;height:20px;"></div>
+        <div>Steps-list gap, question group padding-top</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">20px</div>
+        <div class="spacing-block" style="width:20px;height:20px;"></div>
+        <div>Section title margin-bottom, feature card padding</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">28px</div>
+        <div class="spacing-block" style="width:28px;height:20px;"></div>
+        <div>Callout / card margin-bottom</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">32px</div>
+        <div class="spacing-block" style="width:32px;height:20px;"></div>
+        <div>Page-body horizontal padding</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">44px</div>
+        <div class="spacing-block" style="width:44px;height:20px;"></div>
+        <div>Section divider top margin</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">48px</div>
+        <div class="spacing-block" style="width:48px;height:20px;"></div>
+        <div>Page-body top padding</div>
+      </div>
+      <div class="spacing-row">
+        <div class="spacing-label">80px</div>
+        <div class="spacing-block" style="width:80px;height:20px;"></div>
+        <div>Page-body bottom padding</div>
+      </div>
+
+      <div style="margin-top:28px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9A958F;margin-bottom:14px;">Max widths</div>
+      <div style="font-size:14px;color:var(--text);display:flex;flex-direction:column;gap:8px;">
+        <div><code style="font-family:'Courier New',monospace;font-size:12px;background:#f0ede8;padding:2px 6px;border-radius:3px;color:#5a4a32;">860px</code> — Page body, header inner, nav inner</div>
+        <div><code style="font-family:'Courier New',monospace;font-size:12px;background:#f0ede8;padding:2px 6px;border-radius:3px;color:#5a4a32;">68ch</code> — Prose paragraph max-width</div>
+        <div><code style="font-family:'Courier New',monospace;font-size:12px;background:#f0ede8;padding:2px 6px;border-radius:3px;color:#5a4a32;">200px</code> — Sidebar width (desktop)</div>
+        <div><code style="font-family:'Courier New',monospace;font-size:12px;background:#f0ede8;padding:2px 6px;border-radius:3px;color:#5a4a32;">480px</code> — Footer legal text max-width</div>
+      </div>
+
+      <div style="margin-top:28px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#9A958F;margin-bottom:14px;">Border radius</div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;">
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:#2A627A;border-radius:4px;margin-bottom:6px;"></div>
+          <div style="font-size:11px;color:#7A756D;">4px<br>Tags</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:#2A627A;border-radius:7px;margin-bottom:6px;"></div>
+          <div style="font-size:11px;color:#7A756D;">7px<br>Buttons</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:#2A627A;border-radius:8px;margin-bottom:6px;"></div>
+          <div style="font-size:11px;color:#7A756D;">8px<br>Cards (sm)</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:#2A627A;border-radius:10px;margin-bottom:6px;"></div>
+          <div style="font-size:11px;color:#7A756D;">10px<br>Cards (lg)</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:#2A627A;border-radius:20px;margin-bottom:6px;"></div>
+          <div style="font-size:11px;color:#7A756D;">20px<br>Pills / chips</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:48px;height:48px;background:#2A627A;border-radius:50%;margin-bottom:6px;"></div>
+          <div style="font-size:11px;color:#7A756D;">50%<br>Circles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /guide-body -->
+</body>
+</html>
