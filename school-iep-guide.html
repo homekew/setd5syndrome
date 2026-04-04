@@ -469,6 +469,7 @@
     color: rgba(255,255,255,0.5);
     white-space: nowrap;
     flex-shrink: 0;
+    margin-left: 1rem;
   }
   .tk-section-link {
     font-family: 'Poppins', sans-serif;
@@ -491,6 +492,22 @@
   }
   .tk-section-link:active {
     border-bottom-color: #FFD166;
+  }
+  .tk-back-link {
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .tk-back-link:hover {
+    color: #fff;
+  }
+  .tk-section-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255,255,255,0.2);
+    margin: 0 8px;
+    flex-shrink: 0;
   }
   @media (max-width: 768px) {
     .tk-section-nav-inner {
@@ -580,23 +597,6 @@
     <p class="header-subtitle">What to know before, during, and after your child&#39;s IEP meeting.</p>
   </div>
 </header>
-<nav class="site-nav" aria-label="Main navigation">
-  <div class="site-nav-inner">
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-menu" id="nav-menu">
-      <a href="understanding-setd5-syndrome.html">SETD5 Syndrome</a>
-      <a href="family-toolkit.html">Family Toolkit</a>
-      <a href="setd5-medical-terms-guide.html">Medical Terms</a>
-      <a href="research.html">Research</a>
-      <a href="helpful-links.html">Community &amp; Links</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
-</nav>
-
-<!-- TAB NAV -->
 
 
 <!-- HANDOUT BUILDER BOX -->
@@ -612,6 +612,8 @@
 <!-- Page section navigation -->
 <nav class="tk-section-nav" aria-label="Page sections">
   <div class="tk-section-nav-inner">
+    <a href="family-toolkit.html" class="tk-section-link tk-back-link">← Family Toolkit</a>
+    <span class="tk-section-divider"></span>
     <span class="tk-section-label">On this page</span>
     <a href="#" onclick="showTab('tab-rights'); return false;" class="tk-section-link">Your Rights</a>
     <a href="#" onclick="showTab('tab-plans'); return false;" class="tk-section-link">IEP vs 504</a>
