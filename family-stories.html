@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>if(history.scrollRestoration)history.scrollRestoration="manual";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Family Stories | SETD5 Syndrome</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
@@ -16,12 +17,22 @@
 <meta name="description" content="Real experiences from families living with SETD5 Syndrome, in their own words.">
 <link rel="canonical" href="https://setd5syndrome.com/family-stories.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream:     #F7F4EE;
+      /* —— Counsel Palette tokens (style guide) —— */
+      --indigo:       #2A627A;
+      --indigo-mid:   #2A627A;
+      --gold:         #2A627A;
+      --gold-hover:   #2A627A;
+      --parchment:    #F5F4F1;
+      --parchment-d:  #2A627A;
+      --ink-muted:    #2F2F2B;
+      --font-heading: 'DM Sans', system-ui, sans-serif;
+      --font-body:    'Poppins', system-ui, sans-serif;
+    --cream:     #F5F4F1;
     --navy:      #2A627A;
-    --linen:     #EDE9E0;
+    --linen:     #F5F4F1;
     --caramel:   #2A627A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
@@ -36,9 +47,9 @@
     --amber-lt:  #F5EDE0;
     --sage:      #EFEEEA;
     --sage-lt:   #EFEEEA;
-    --text:      #2A2E35;
-    --muted:     #66707A;
-    --border:    #DDD7CC;
+    --text:      #2F2F2B;
+    --muted:     #2F2F2B;
+    --border:    #DDD8D1;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,13 +57,16 @@
   body{
     background: #F7F4EE;
     color: var(--text);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    line-height: 1.7;
     font-size: 17px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* ── HEADER ── */
+  /* —— HEADER —— */
   .site-header { background: #2A627A; color: #fff; position:sticky;top:0;z-index:920;overflow:hidden}
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 32px 32px 24px;position:relative;z-index:2}
@@ -62,12 +76,13 @@
   }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-title{
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(36px, 5vw, 52px); font-weight: 600;
     line-height: 1.18; color: #fff; margin-bottom: 16px;
   }
-  .header-title em { font-style: italic; color: #a8cfc8; }  .header-subtitle{ font-size: 17.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
-  /* ── HEADER COLLAPSE ── */
+  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-subtitle{ font-size: 17.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  /* —— HEADER COLLAPSE —— */
   .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
   .header-subtitle{ max-height: 100px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
@@ -78,21 +93,53 @@
   .site-header.collapsed .header-title{ font-size: 20px; margin-bottom: 0; }
 
 
-  /* ── LAYOUT ── */
-  .container {
-    max-width: 860px;
+  /* —— LAYOUT —— */
+  .page-layout {
+    display: flex;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 52px 32px 80px;
+    padding: 0;
+    flex: 1;
+  }
+  .page-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    padding: 32px 0 40px 32px;
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+    font-family: 'Poppins', sans-serif;
+  }
+  .sidebar-hd {
+    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted); padding: 0 20px; margin-bottom: 8px;
+  }
+  .sidebar-link {
+    display: block; font-size: 13.5px; color: var(--text);
+    text-decoration: none; padding: 7px 20px;
+    border-left: 3px solid transparent;
+    background: none; border-top: none; border-right: none; border-bottom: none;
+    width: 100%; text-align: left; cursor: pointer;
+    font-family: 'Poppins', sans-serif; line-height: 1.35;
+    transition: background 0.12s, color 0.12s;
+  }
+  .sidebar-link:hover { background: #F5F4F1; color: var(--navy); text-decoration: none; }
+  .sidebar-link.active { color: var(--navy); font-weight: 600; border-left-color: var(--amber); background: #F5F4F1; }
+  .page-main { flex: 1; min-width: 0; padding: 48px 32px 80px 32px; }
+  @media (max-width: 768px) {
+    .page-layout { flex-direction: column; }
+    .page-sidebar { display: none; }
+    .page-sidebar::after { content: none !important; display: none !important; }
   }
 
-  /* ── CTA BOX ── */
+  /* —— CTA BOX —— */
   .cta-box {
     background: var(--amber-lt);
     border: 1px solid #e8c98a;
     border-left: 4px solid var(--amber);
     border-radius: 0 10px 10px 0;
     padding: 28px 32px;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
     display: flex;
     align-items: flex-start;
     gap: 28px;
@@ -109,7 +156,7 @@
     display: inline-block;
     background: var(--amber);
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: .04em;
@@ -124,8 +171,8 @@
   }
   .cta-btn:hover { background: #b07830; transform: translateY(-1px); }
 
-  /* ── SECTION LABEL ── */
-  .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  /* —— SECTION LABEL —— */
+  .section-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #A07D54; margin-bottom: 10px; }
   .section-label::after {
     content: '';
     flex: 1;
@@ -133,35 +180,7 @@
     background: var(--border);
   }
 
-  /* ── EMPTY STATE ── */
-  .stories-empty {
-    text-align: center;
-    padding: 56px 24px;
-    border: 2px dashed var(--border);
-    border-radius: 12px;
-    color: var(--muted);
-  }
-  .stories-empty p {
-    font-size: 15px;
-    line-height: 1.7;
-    max-width: 420px;
-    margin: 0 auto 24px;
-  }
-  .stories-empty .empty-cta {
-    display: inline-block;
-    background: var(--navy);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 6px;
-    padding: 10px 20px;
-    letter-spacing: .03em;
-    transition: background .2s;
-  }
-  .stories-empty .empty-cta:hover { background: var(--deep); }
-
-  /* ── STORY CARDS ── */
+  /* —— STORY CARDS —— */
   .stories-list {
     display: flex;
     flex-direction: column;
@@ -182,7 +201,7 @@
     padding-bottom: 18px;
     border-bottom: 1px solid var(--border);
     flex-wrap: wrap;
-}
+  }
   .story-avatar {
     width: 44px;
     height: 44px;
@@ -192,14 +211,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 18px;
     color: var(--amber);
     flex-shrink: 0;
   }
   .story-card-meta { flex: 1; }
   .story-submitter-name {
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 17px;
     color: var(--navy);
     font-weight: 500;
@@ -235,16 +254,16 @@
     color: var(--text);
   }
 
-  /* ── LINKS ── */
+  /* —— LINKS —— */
   a { color: #A07D54; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-    /* ── FOOTER ── */
+  /* —— FOOTER —— */
   footer {
     background: #2A627A;
     text-align: center;
     padding: 2rem 1.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   .footer-love {
     font-size: 13px;
@@ -272,14 +291,13 @@
     margin: 0 auto;
     line-height: 1.55;
   }
-/* ── GOOGLE TRANSLATE WIDGET ── */
 
   /* Ensure all body links are underlined */
-  main a, .page-body a, .letter-content a { text-decoration: underline; }
+  main a, .page-body a, .page-main a { text-decoration: underline; }
+  .page-main .cta-btn { text-decoration: none; }
   footer a { text-decoration: underline; }
 
-
-  /* ── BREADCRUMB ── */
+  /* —— BREADCRUMB —— */
   .header-eyebrow {
     display: flex !important;
     align-items: center;
@@ -297,26 +315,25 @@
     margin-bottom: 6px !important;
   }
 
-  /* ── DNA helix: mobile adjustments ── */
-  @media (max-width: 600px) {
-    .helix-left  { display: none; }
-    .helix-right { opacity: 0.06 !important; }
-    .header-inner { padding: 24px 20px 20px; position: relative; z-index: 2; }
-    .stories-intro { padding: 2rem 1.25rem 0; }
-    .story-card { padding: 20px; }
-  }
-
-
-  /* ── Site navigation ─────────────────────────────────── */
+  /* —— SITE NAVIGATION —— */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
   .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:flex-start;}
-  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
+  .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size:15.5px;font-family:'Poppins',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
   .nav-menu>a:hover{color:var(--navy);}
   @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
+
+  /* —— MOBILE —— */
+  @media (max-width: 600px) {
+    .header-inner { padding: 24px 20px 20px; position: relative; z-index: 2; }
+    .page-main { padding: 32px 20px 60px; }
+    .story-card { padding: 20px; }
+    .cta-box { padding: 20px; gap: 16px; }
+  }
 </style>
+<script src="site-upgrade.js"></script>
   <meta property="og:image" content="https://setd5syndrome.com/social-preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -324,7 +341,6 @@
   <meta name="twitter:image" content="https://setd5syndrome.com/social-preview.jpg">
 </head>
 <body>
-
 
 
 
@@ -359,7 +375,10 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="page-layout">
+<aside class="page-sidebar" id="page-sidebar">
+</aside>
+<div class="page-main">
 
   <!-- CTA -->
   <div class="cta-box">
@@ -403,11 +422,8 @@
 
   </div>
 
-  <p style="margin-top:2.5rem;font-size:0.85rem;color:var(--muted);">
-    <a href="family-toolkit.html" style="color:var(--muted);border-bottom-color:rgba(107,107,107,0.3);">← Back to Family Toolkit</a>
-  </p>
-
-</div>
+</div><!-- /page-main -->
+</div><!-- /page-layout -->
 
 <footer class="site-footer">  <div class="footer-nav">
     <a href="index.html">Home</a><span class="sep">&middot;</span>
@@ -427,7 +443,7 @@ if (history.scrollRestoration) {
 }
 window.scrollTo(0, 0);
 
-/* ── HEADER COLLAPSE ON SCROLL ── */
+/* —— HEADER COLLAPSE ON SCROLL —— */
 (function() {
   var header = document.querySelector('.site-header');
   var ticking = false;
