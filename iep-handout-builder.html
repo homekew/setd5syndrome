@@ -66,9 +66,13 @@ body{
   .header-eyebrow{
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
   }
+  .header-eyebrow a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+  .header-eyebrow a:hover { color: #EFEEEA; }
 
 
 /* ══════════════════════════════════
@@ -82,16 +86,18 @@ body{
 .form-header { margin-bottom: 2rem;
 }
 .form-eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px;
 }
+.form-eyebrow a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+.form-eyebrow a:hover { color: #EFEEEA; }
 .form-title {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 600; color: var(--navy); line-height: 1.15; margin-bottom: 12px;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600; color: #fff; line-height: 1.12; margin-bottom: 14px;
 }
-.form-title em { color: #2A627A; font-style: italic; }
-.form-subtitle { font-size: 15.5px; color: var(--muted); max-width: 580px; line-height: 1.65; }
+.form-title em { color: #a8cfc8; font-style: italic; }
+.form-subtitle { font-size: 17.5px; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.5; }
 
 /* ── PURPOSE SELECTOR ── */
 .purpose-selector {

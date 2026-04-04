@@ -1,10 +1,12 @@
 /**
- * site-upgrade.js  v192
+ * site-upgrade.js  v193
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
- * v192: Section nav → contents callout boxes on five Family Toolkit pages
+ * v193: helpful-links gets horizontal jump-nav bar (with ← Family Toolkit)
+ *        instead of the quiet page-toc callout card.
+ * v192: Section nav → contents callout boxes on four Family Toolkit pages
  *        (qualifying-for-services, school-iep-guide, research-registries,
- *        disability-discounts-guide, helpful-links). Horizontal jump-nav /
+ *        disability-discounts-guide). Horizontal jump-nav /
  *        page-tab-strip replaced by a quiet .page-toc card inside page content.
  *        Tab-based pages unlock all tab panels (display:block) so sections are
  *        scrollable; page-toc links are anchor links into those sections.
@@ -2635,7 +2637,6 @@
       'school-iep-guide.html',
       'research-registries.html',
       'disability-discounts-guide.html',
-      'helpful-links.html',
     ]);
 
     if (tocPages.has(curPage) && (sidebarBtns.length >= 2 || sidebarAnchors.length >= 2)) {
