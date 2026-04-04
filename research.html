@@ -118,6 +118,13 @@
   .intro-sources-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-right: 2px; flex-shrink: 0; }
   .source-chip { font-size: 12px; background: #EFEEEA; color: #A07D54; padding: 3px 10px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
   .intro-method { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+  .intro-method-heading { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .intro-method p { margin-bottom: 10px; }
+  .intro-method-label { font-size: 13px; font-weight: 600; color: var(--navy); margin: 12px 0 4px; }
+  .intro-method ul { list-style: none; padding: 0; margin: 0 0 10px; }
+  .intro-method ul li { padding: 2px 0 2px 16px; position: relative; font-size: 14px; line-height: 1.6; }
+  .intro-method ul li::before { content: ''; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
+  .intro-method-note { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 10px; }
   .intro-footer-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
   .intro-updated { font-size: 12px; color: var(--muted); }
   .intro-suggest { font-size: 12.5px; color: var(--amber); text-decoration: none; font-weight: 500; }
@@ -705,7 +712,22 @@
       <span class="source-chip">bioRxiv</span>
       <span class="source-chip">ClinicalTrials.gov</span>
     </div>
-    <p class="intro-method">This page covers research on SETD5 mutations and deletions, the changes associated with SETD5 Syndrome. Studies on the SETD5 gene in unrelated contexts, where it plays a different biological role and not SETD5 Syndrome specifically, aren&#8217;t included here. Each paper is summarized in plain language and linked to the original source. You may notice a few studies that aren&#8217;t specifically about SETD5 Syndrome. These are included when their findings have shown to be useful context for understanding the condition, and that connection is always noted. Nothing here is based on community reports or personal accounts, and this page doesn&#8217;t cover every study that exists.</p>
+    <div class="intro-method">
+      <p class="intro-method-heading">How papers are selected</p>
+      <p>This page focuses on published research relevant to SETD5 Syndrome, specifically the haploinsufficiency form of the condition.</p>
+      <p class="intro-method-label">What&#8217;s included:</p>
+      <ul>
+        <li>Published literature relevant to SETD5 Syndrome</li>
+        <li>A small number of broader studies when they provide useful context</li>
+      </ul>
+      <p class="intro-method-label">What&#8217;s not included:</p>
+      <ul>
+        <li>Community reports or personal accounts</li>
+        <li>Studies on the SETD5 gene in unrelated contexts outside SETD5 Syndrome</li>
+        <li>Medical advice or guidance for diagnosis, treatment, or screening</li>
+      </ul>
+      <p class="intro-method-note">Each paper is summarized in plain language and linked to the original source. Coverage is selective, not exhaustive.</p>
+    </div>
     <div class="intro-footer-row">
       <span class="intro-disclaimer">This is not a recommendation for screening or treatment. Always bring questions to your care team.</span>
       <span class="intro-updated">Last updated: April 1, 2026 &nbsp;·&nbsp; <a href="suggest-a-resource.html" class="intro-suggest">Suggest a study</a></span>
