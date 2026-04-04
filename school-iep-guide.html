@@ -439,87 +439,6 @@
     .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
   }
 
-  /* ââ Page Section Navigation (On this page) ââ */
-  .tk-section-nav {
-    background: #2A627A;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 920;
-  }
-  .tk-section-nav-inner {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 32px;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    height: 48px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .tk-section-nav-inner::-webkit-scrollbar { display: none; }
-  .tk-section-label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-left: 1rem;
-  }
-  .tk-section-link {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    white-space: nowrap;
-    padding: 0 8px;
-    transition: color 0.15s ease;
-    border-bottom: 3px solid transparent;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    cursor: pointer;
-  }
-  .tk-section-link:hover {
-    color: #fff;
-    border-bottom-color: rgba(255,255,255,0.3);
-  }
-  .tk-section-link:active {
-    border-bottom-color: #FFD166;
-  }
-  .tk-back-link {
-    padding: 0 16px;
-    font-size: 13px;
-    font-weight: 500;
-    flex-shrink: 0;
-  }
-  .tk-back-link:hover {
-    color: #fff;
-  }
-  .tk-section-divider {
-    width: 1px;
-    height: 24px;
-    background: rgba(255,255,255,0.2);
-    margin: 0 8px;
-    flex-shrink: 0;
-  }
-  @media (max-width: 768px) {
-    .tk-section-nav-inner {
-      gap: 1rem;
-      padding: 0 16px;
-    }
-    .tk-section-link {
-      font-size: 13px;
-      padding: 0 6px;
-    }
-  }
-
 </style>
 <script>
   // Scroll to top on page load
@@ -597,6 +516,23 @@
     <p class="header-subtitle">What to know before, during, and after your child&#39;s IEP meeting.</p>
   </div>
 </header>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <a href="understanding-setd5-syndrome.html">SETD5 Syndrome</a>
+      <a href="family-toolkit.html">Family Toolkit</a>
+      <a href="setd5-medical-terms-guide.html">Medical Terms</a>
+      <a href="research.html">Research</a>
+      <a href="helpful-links.html">Community &amp; Links</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- TAB NAV -->
 
 
 <!-- HANDOUT BUILDER BOX -->
@@ -609,23 +545,17 @@
   <a href="iep-handout-builder.html" style="display:inline-flex; align-items:center; gap:8px; background:#2A627A; color:#fff; font-family: 'Poppins', sans-serif; font-weight:600; font-size:13.5px; padding:12px 24px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">Get Started →</a>
 </div>
 
-<!-- Page section navigation -->
-<nav class="tk-section-nav" aria-label="Page sections">
-  <div class="tk-section-nav-inner">
-    <a href="family-toolkit.html" class="tk-section-link tk-back-link">← Family Toolkit</a>
-    <span class="tk-section-divider"></span>
-    <span class="tk-section-label">On this page</span>
-    <a href="#" onclick="showTab('tab-rights'); return false;" class="tk-section-link">Your Rights</a>
-    <a href="#" onclick="showTab('tab-plans'); return false;" class="tk-section-link">IEP vs 504</a>
-    <a href="#" onclick="showTab('tab-process'); return false;" class="tk-section-link">The Process</a>
-    <a href="#" onclick="showTab('tab-advocacy'); return false;" class="tk-section-link">Advocacy</a>
-  </div>
-</nav>
-
 <!-- ══════════════════════════════════════════════ -->
 <!-- TAB 1: YOUR RIGHTS -->
 <!-- ══════════════════════════════════════════════ -->
 <div class="page-layout">
+<aside class="page-sidebar">
+  <div class="sidebar-hd">On this page</div>
+    <button class="sidebar-link active" data-tab="tab-rights" onclick="showTab('tab-rights')">Your Rights</button>
+    <button class="sidebar-link" data-tab="tab-plans" onclick="showTab('tab-plans')">IEP vs 504</button>
+    <button class="sidebar-link" data-tab="tab-process" onclick="showTab('tab-process')">The Process</button>
+    <button class="sidebar-link" data-tab="tab-advocacy" onclick="showTab('tab-advocacy')">Advocacy</button>
+</aside>
 <div class="page-main">
 <div id="tab-rights" class="tab-panel active">
 <div class="page-body">
