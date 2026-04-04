@@ -335,7 +335,7 @@
       left: 0 !important;
       right: 0 !important;
       width: 100% !important;
-      z-index: 900 !important;
+      z-index: 950 !important;          /* above .site-header z-index:920 */
       padding-top: 6px !important;
       padding-bottom: 0 !important;
     }
@@ -1750,7 +1750,7 @@
     }
     .tk-subnav::-webkit-scrollbar { display: none !important; }
     .tk-subnav-inner {
-      padding: 0 32px !important;
+      padding: 0 max(32px, calc(50vw - 398px)) !important;
       display: flex !important;
       align-items: stretch !important;
     }
@@ -1790,7 +1790,7 @@
       display: flex !important;
       align-items: stretch !important;
       width: 100% !important;
-      padding: 0 32px !important;
+      padding: 0 max(32px, calc(50vw - 398px)) !important;
       overflow-x: auto !important;
       scrollbar-width: none !important;
       background: #ECEAE6 !important;    /* unified with tk-subnav */
@@ -1846,7 +1846,7 @@
       align-items: stretch !important;
       min-height: 44px !important;   /* prevent height-collapse with overflow-x:auto + stretch */
       width: 100% !important;
-      padding: 0 32px !important;
+      padding: 0 max(32px, calc(50vw - 398px)) !important;
       overflow-x: auto !important;
       scrollbar-width: none !important;
       background: #ECEAE6 !important;
