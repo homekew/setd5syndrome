@@ -2811,7 +2811,7 @@
       // Subheading
       const sub = document.createElement('p');
       sub.className = 'su-hero-sub';
-      sub.textContent = 'Plain-language resources for families navigating SETD5 Syndrome \u2014 wherever you are in the journey.';
+      sub.textContent = 'Plain-language resources for families and caregivers navigating SETD5 Syndrome, wherever you are in the journey.';
       heroInner.appendChild(sub);
 
     }
