@@ -1378,7 +1378,7 @@
     }
 
     .card-featured {
-      background: #FFFFFF !important;
+      background: rgba(98,146,158,0.15) !important;
     }
 
     .featured-badge {
