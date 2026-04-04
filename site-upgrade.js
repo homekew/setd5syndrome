@@ -2799,7 +2799,7 @@
       // Tag pill
       const tag = document.createElement('span');
       tag.className = 'su-hero-tag';
-      tag.textContent = 'Rare Genetic Condition \u00B7 Family Resource';
+      tag.textContent = 'Rare Genetic Condition \u00B7 Peer Resource';
       heroInner.appendChild(tag);
 
       // H1 with gold italic em
