@@ -97,7 +97,7 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .page-header h1 {
-      font-family: 'DM Serif Display', Georgia, serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 2rem;
       font-weight: 400;
       margin-bottom: 0.5rem;
@@ -397,6 +397,14 @@
           </div>
         </div>
         <div class="swatch">
+          <div class="swatch-color" style="background:#3ABFB8;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Bright Teal</span>
+            <span class="swatch-hex">#3ABFB8</span>
+            <span class="swatch-role">Emphasis text (e.g. key callout sentences)</span>
+          </div>
+        </div>
+        <div class="swatch">
           <div class="swatch-color" style="background:#A07D54;"></div>
           <div class="swatch-info">
             <span class="swatch-name">Warm Gold</span>
@@ -515,12 +523,12 @@
       <div class="section-title">Typography</div>
 
       <div class="note" style="margin-bottom:1.5rem;">
-        <strong>Two font families:</strong> DM Sans (all UI, body, labels) and DM Serif Display (hero h1, card titles, intro headline italic).
+        <strong>One font family:</strong> DM Sans — used for all UI, headings, body text, and labels.
       </div>
 
       <div class="type-specimen">
-        <div class="type-label">Hero H1 — DM Serif Display italic for emphasis <span>font-size: clamp(2rem, 4vw, 2.75rem) · color: #F5F4F1 · em: #D4AE88</span></div>
-        <div style="font-family:'DM Serif Display',serif; font-size:2.4rem; line-height:1.15; color:#2F2F2B;">The <em style="font-style:italic;color:#A07D54;">SETD5 Syndrome</em> Companion</div>
+        <div class="type-label">Hero H1 — DM Sans Bold italic for emphasis <span>font-size: clamp(2rem, 4vw, 2.75rem) · color: #F5F4F1 · em: #D4AE88</span></div>
+        <div style="font-family:'DM Sans',sans-serif; font-size:2.4rem; font-weight:700; line-height:1.15; color:#2F2F2B;">The <em style="font-style:italic;color:#A07D54;">SETD5 Syndrome</em> Companion</div>
       </div>
 
       <div class="type-specimen">
@@ -594,7 +602,7 @@
       <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:1.5rem;box-shadow:0 8px 32px rgba(26,69,88,0.25);">
         <div style="background:#1A4558;padding:3.5rem 2.5rem 3rem;position:relative;">
           <div style="display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D4AE88;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:0.28rem 0.8rem;margin-bottom:1.4rem;">Rare Genetic Condition · Family Resource</div>
-          <div style="font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1.15;color:#F5F4F1;margin-bottom:0.75rem;">The <em style="color:#D4AE88;font-style:italic;">SETD5 Syndrome</em> Companion</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:700;line-height:1.15;color:#F5F4F1;margin-bottom:0.75rem;">The <em style="color:#D4AE88;font-style:italic;">SETD5 Syndrome</em> Companion</div>
           <div style="font-size:0.95rem;color:rgba(245,244,241,0.75);max-width:480px;line-height:1.7;">Plain-language resources for families navigating SETD5 Syndrome — wherever you are in the journey.</div>
         </div>
       </div>
@@ -604,7 +612,7 @@
         <tr><td>Background</td><td><code>#1A4558</code></td><td>Richest / darkest teal — creates depth beneath nav</td></tr>
         <tr><td>Drop shadow</td><td><code>0 8px 32px rgba(26,69,88,0.32)</code></td><td>Lifts hero off the light content below</td></tr>
         <tr><td>Tag pill</td><td><code>color: #D4AE88</code>, glass bg</td><td><code>rgba(255,255,255,0.08)</code> bg, <code>rgba(255,255,255,0.15)</code> border</td></tr>
-        <tr><td>H1 "The … Companion"</td><td><code>#F5F4F1</code></td><td>DM Serif Display, clamp(2rem,4vw,2.75rem)</td></tr>
+        <tr><td>H1 "The … Companion"</td><td><code>#F5F4F1</code></td><td>DM Sans 700, clamp(2rem,4vw,2.75rem)</td></tr>
         <tr><td>H1 italic "SETD5 Syndrome"</td><td><code>#D4AE88</code></td><td>Light gold italic</td></tr>
         <tr><td>Subtext</td><td><code>rgba(245,244,241,0.75)</code></td><td>DM Sans 400, 1rem, lh 1.7</td></tr>
         <tr><td>Helix SVG decoration</td><td><code>rgba(180,215,228,…)</code></td><td>Light aqua, positioned right edge</td></tr>

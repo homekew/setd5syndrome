@@ -950,13 +950,19 @@
     /* PRIMARY: midnight indigo — utility actions (download, generate, print…) */
     .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
     .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 9px 18px !important;
       background: #2A627A !important;
       color: #FFFFFF !important;
       text-decoration: none !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-weight: 500 !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
       border: none !important;
       border-radius: 7px !important;
+      cursor: pointer !important;
     }
     .download-btn:hover, .pdf-btn:hover, .resource-btn:hover,
     .btn-primary:hover, .btn-teal:hover, .btn-dark:hover,
