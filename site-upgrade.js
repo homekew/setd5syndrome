@@ -1193,12 +1193,29 @@
 
     /* ═══════════════════════════════════════════════════════════════
        SECTION-LABEL + SECTION-TAG — eyebrow label components
-       Used on 14+ pages; page CSS sets Inter/muted-grey.
+       Normalised to guides-label look: golden text + hairline after,
+       no teal dash before. Used on 14+ pages.
     ═══════════════════════════════════════════════════════════════ */
     .section-label {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       color: #A07D54 !important;
       letter-spacing: 0.12em !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
+    }
+    /* Remove the teal/amber dash that page CSS injects via ::before */
+    .section-label::before {
+      content: none !important;
+      display: none !important;
+    }
+    /* Add the extending hairline to the right (matches .guides-label) */
+    .section-label::after {
+      content: '' !important;
+      flex: 1 !important;
+      height: 1px !important;
+      background: #DDD8D1 !important;
+      display: block !important;
     }
     .section-tag {
       font-family: 'DM Sans', system-ui, sans-serif !important;
@@ -2287,10 +2304,22 @@
       color: #A07D54 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
     }
 
+    /* Suppress ::before dash from page CSS; ensure hairline ::after */
     .section-label::before {
-      background: #2A627A !important;
+      content: none !important;
+      display: none !important;
+    }
+    .section-label::after {
+      content: '' !important;
+      flex: 1 !important;
+      height: 1px !important;
+      background: #DDD8D1 !important;
+      display: block !important;
     }
 
     .section-title {
