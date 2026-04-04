@@ -398,6 +398,10 @@
   main a, .page-body a, .letter-content a { text-decoration: underline; }
   footer a { text-decoration: underline; }
 
+  /* Collapsible details */
+  details summary::-webkit-details-marker { display: none; }
+  details[open] summary span:first-child { display:inline-block; transform: rotate(90deg); }
+
   /* ââ PAGE TOC ââ */
   .page-toc {
     background: var(--cream2);
@@ -627,17 +631,6 @@
 <div id="tab-what" class="tab-panel active">
 <div class="page-body">
 
-  <div style="background:#EFEEEA; border:1.5px solid #AEBFBE; border-radius:10px; padding:16px 20px; margin-bottom:32px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-    <div style="flex:1; min-width:min(200px, 100%);">
-      <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color: #A07D54; margin-bottom:3px;">Printable Resource</div>
-<div style="font-size:15px; font-weight:700; color: #2A627A; margin-bottom:5px;">SETD5 Syndrome: At a Glance</div>
-      <p style="font-size:13px; color:#374151; margin:0; line-height:1.55;">Key facts, common features, and resources. One page.</p>
-    </div>
-    <a href="setd5-general-guide.pdf" download="SETD5-Syndrome-General-Guide.pdf" style="display:inline-flex; align-items:center; gap:7px; background:#2A627A; color:#fff; font-weight:600; font-size:13px; padding:9px 18px; border-radius:7px; text-decoration:none; white-space:nowrap; flex-shrink:0;">
-      &#8595; Download PDF
-    </a>
-  </div>
-
   <p class="section-label">The basics</p>
   <h2 class="section-title" id="sec-what">What is SETD5 Syndrome</h2>
 
@@ -652,7 +645,12 @@
     <li style="font-size:15px; line-height:1.6;"><strong>MRD23</strong></li>
     <li style="font-size:15px; line-height:1.6;"><strong>Intellectual Disability-Facial Dysmorphism Syndrome due to SETD5 Haploinsufficiency</strong></li>
   </ul>
-  <p style="font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 24px;"><strong style="color:var(--text);">Note on Orphanet (2026):</strong> Orphanet, a widely used European rare disease registry, previously had a standalone entry for this condition titled "Intellectual disability-facial dysmorphism syndrome due to SETD5 haploinsufficiency" (ORPHA:404440). On March 1, 2026, Orphanet marked that entry obsolete and merged it into a broader category called "Non-specific syndromic intellectual disability." This is a database reclassification decision and does not affect the diagnosis or how other major databases document the condition. OMIM, ClinVar, and GeneCards continue to list SETD5 Syndrome as a distinct genetic condition with its own entry.</p>
+  <details style="font-size:13.5px;color:var(--muted);line-height:1.65;margin:0 0 24px;border:1px solid var(--border);border-radius:6px;padding:0;">
+    <summary style="cursor:pointer;padding:10px 14px;font-weight:600;color:var(--text);font-size:13.5px;list-style:none;display:flex;align-items:center;gap:6px;">
+      <span style="font-size:10px;transition:transform 0.15s;">&#9654;</span> Note on Orphanet reclassification (2026)
+    </summary>
+    <div style="padding:0 14px 12px;font-size:13.5px;line-height:1.65;color:var(--muted);">Orphanet, a widely used European rare disease registry, previously had a standalone entry for this condition titled "Intellectual disability-facial dysmorphism syndrome due to SETD5 haploinsufficiency" (ORPHA:404440). On March 1, 2026, Orphanet marked that entry obsolete and merged it into a broader category called "Non-specific syndromic intellectual disability." This is a database reclassification decision and does not affect the diagnosis or how other major databases document the condition. OMIM, ClinVar, and GeneCards continue to list SETD5 Syndrome as a distinct genetic condition with its own entry.</div>
+  </details>
 
   <div class="stat-strip">
     <div class="stat-box"><div class="stat-number">unknown*</div><div class="stat-label">estimated cases (as of 2025)</div></div>
@@ -667,6 +665,12 @@
     <p><strong>Syndrome</strong> describes a recognizable pattern of features that tend to appear together — which is why "SETD5 Syndrome" has become the most widely used name among families.</p>
     <p><strong>Disorder</strong> refers to how the condition disrupts typical development and functioning. "Neurodevelopmental disorder" is the clinical category, alongside conditions like autism spectrum disorder.</p>
     <p style="margin-bottom:0;"><strong>Disease</strong> is a broader medical term for any condition with a specific, identifiable cause. SETD5 Syndrome qualifies because it has a known genetic origin. Many families use "syndrome" or "disorder" day-to-day, but you may encounter "disease" in research papers or insurance contexts.</p>
+  </div>
+
+  <!-- Slim resource banner — contextual after the intro, before next section -->
+  <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#F5F4F1; border:1px solid #DDD8D1; border-radius:7px; padding:10px 16px; margin-bottom:24px; font-size:13.5px;">
+    <span style="color:var(--muted); flex:1; min-width:180px; line-height:1.5;">Want a one-page summary? <strong style="color:var(--text);">SETD5 Syndrome: At a Glance</strong> covers the key facts.</span>
+    <a href="setd5-general-guide.pdf" download="SETD5-Syndrome-General-Guide.pdf" class="download-btn" style="text-decoration:none; white-space:nowrap; flex-shrink:0;">&#8595; Download PDF</a>
   </div>
 
   <hr class="section-divider">
