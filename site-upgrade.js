@@ -1,7 +1,13 @@
 /**
- * site-upgrade.js  v191
+ * site-upgrade.js  v192
  * SETD5 Syndrome (.com) — Realtime Colors palette
  *
+ * v192: Section nav → contents callout boxes on five Family Toolkit pages
+ *        (qualifying-for-services, school-iep-guide, research-registries,
+ *        disability-discounts-guide, helpful-links). Horizontal jump-nav /
+ *        page-tab-strip replaced by a quiet .page-toc card inside page content.
+ *        Tab-based pages unlock all tab panels (display:block) so sections are
+ *        scrollable; page-toc links are anchor links into those sections.
  * v191: Center interior page content — .page-layout now max-width:860px centered
  *        (sidebar is hidden so content was stretching full-width; this matches
  *        the homepage's centered layout). jump-nav min-height:44px fix also
@@ -946,6 +952,7 @@
     .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
       background: #2A627A !important;
       color: #FFFFFF !important;
+      text-decoration: none !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border: none !important;
@@ -1713,9 +1720,7 @@
     }
     .tk-subnav::-webkit-scrollbar { display: none !important; }
     .tk-subnav-inner {
-      max-width: 860px !important;
-      margin: 0 auto !important;
-      padding: 0 32px !important;       /* match site-nav inner */
+      padding: 0 32px !important;
       display: flex !important;
       align-items: stretch !important;
     }
@@ -1738,6 +1743,15 @@
       font-weight: 600 !important;
       border-bottom-color: #2A627A !important;
     }
+    /* Back-to-toolkit link: subtle separator after it */
+    .tk-subnav-back {
+      color: #7A756D !important;
+      font-size: 13px !important;
+      padding-right: 1.1rem !important;
+      margin-right: 0.5rem !important;
+      border-right: 1px solid #C8C4BC !important;
+    }
+    .tk-subnav-back:hover { color: #2A627A !important; }
 
     /* ── In-page horizontal tab strip (replaces tab-button sidebars) ──
        Full-width element so border-bottom spans the viewport edge-to-edge;
@@ -1771,6 +1785,23 @@
       margin-bottom: -1px !important;
     }
     .page-tab-btn:hover { color: #2A627A !important; }
+    /* ← Family Toolkit back link in tab strip */
+    .page-tab-back {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.65rem 1rem 0.65rem 0.85rem !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      color: #7A756D !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border-bottom: 2px solid transparent !important;
+      border-right: 1px solid #C8C4BC !important;
+      margin-right: 0.5rem !important;
+      cursor: pointer !important;
+    }
+    .page-tab-back:hover { color: #2A627A !important; text-decoration: none !important; }
     .page-tab-btn.active {
       color: #2A627A !important;
       font-weight: 600 !important;
@@ -1794,6 +1825,21 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
     .jump-nav::-webkit-scrollbar { display: none !important; }
+    /* ← Family Toolkit back link in jump nav */
+    .jump-nav-back {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.65rem 1rem 0.65rem 0.85rem !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      color: #7A756D !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border-right: 1px solid #C8C4BC !important;
+      margin-right: 0.5rem !important;
+    }
+    .jump-nav-back:hover { color: #2A627A !important; text-decoration: none !important; }
     .jump-nav-label {
       display: inline-flex !important;
       align-items: center !important;
@@ -1822,8 +1868,9 @@
     }
     .jump-nav a:hover { color: #2A627A !important; text-decoration: none !important; }
 
-    /* Hide redundant section-chip rows when jump-nav provides the same info */
-    html.su-has-jump-nav .intro-sources-row { display: none !important; }
+    /* Hide redundant section-chip rows when jump-nav or page-toc provides the same info */
+    html.su-has-jump-nav .intro-sources-row  { display: none !important; }
+    html.su-has-page-toc .intro-sources-row  { display: none !important; }
 
     /* ── Mobile overrides for nav components ── */
     @media (max-width: 768px) {
@@ -1833,6 +1880,65 @@
       .page-tab-btn    { font-size: 13.5px !important; padding: 0.6rem 0.7rem !important; }
       .jump-nav        { padding: 0 20px !important; }
       .jump-nav a      { font-size: 13.5px !important; padding: 0.6rem 0.7rem !important; }
+    }
+
+    /* ── Page contents callout box ("On this page") ──
+       Used on five pages instead of a horizontal nav bar — quiet card style,
+       feels instructional rather than tab-like. Inserted at top of page content. */
+    .page-toc {
+      background: #EFEEEA !important;
+      border: 1px solid #DDD8D1 !important;
+      border-left: 3px solid #A07D54 !important;
+      border-radius: 0 6px 6px 0 !important;
+      padding: 1rem 1.25rem !important;
+      margin: 0 0 2rem 0 !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      max-width: 520px !important;
+    }
+    .page-toc-label {
+      display: block !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.12em !important;
+      color: #7A756D !important;
+      margin-bottom: 0.55rem !important;
+    }
+    .page-toc-list {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .page-toc-list li { margin: 0 !important; }
+    .page-toc-list a {
+      display: block !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      color: #2A627A !important;
+      text-decoration: none !important;
+      padding: 0.18rem 0 !important;
+      transition: color 0.15s !important;
+    }
+    .page-toc-list a:hover {
+      color: #A07D54 !important;
+      text-decoration: underline !important;
+    }
+    /* Tab panels unlocked on toc pages — add visible separation between sections */
+    .page-toc-unlocked .tab-panel {
+      display: block !important;
+      scroll-margin-top: 120px !important;
+    }
+    .page-toc-unlocked .tab-panel + .tab-panel {
+      border-top: 2px solid #DDD8D1 !important;
+      padding-top: 2rem !important;
+      margin-top: 0.5rem !important;
+    }
+    /* Ensure section anchors clear the sticky site-nav on page-toc pages */
+    html.su-has-page-toc h2[id],
+    html.su-has-page-toc h3[id] { scroll-margin-top: 80px !important; }
+    @media (max-width: 640px) {
+      .page-toc { padding: 0.85rem 1rem !important; max-width: 100% !important; }
+      .page-toc-list a { font-size: 13.5px !important; }
     }
 
     /* Interior page content typography — 20px hard cap on headings */
@@ -1979,6 +2085,21 @@
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
     }
+
+    /* Re-apply white text for dark-bg callouts — must come AFTER the broad
+       .page-main h3 block above (same !important, later position wins) */
+    .page-main .watch-callout h3,
+    .page-body .watch-callout h3,
+    .page-layout .watch-callout h3,
+    .watch-callout h3 { color: #FFFFFF !important; }
+    .page-main .watch-callout p,
+    .page-body .watch-callout p,
+    .page-layout .watch-callout p,
+    .watch-callout p { color: rgba(255,255,255,0.85) !important; }
+    .page-main .watch-callout a,
+    .page-body .watch-callout a,
+    .page-layout .watch-callout a,
+    .watch-callout a { color: #EFEEEA !important; }
 
     .page-layout h4,
     .page-content h4,
@@ -2136,6 +2257,14 @@
     .feature-card.rose-top  { border-top-color: #2A627A !important; }
     .feature-card.sage-top  { border-top-color: #2A627A !important; }
     .feature-card.blue-top  { border-top-color: #2A627A !important; }
+
+    /* ── Research Registries: normalize section band backgrounds to site palette */
+    .registry-section-teal  { background: #F5F4F1 !important; }
+    .registry-section-amber { background: #F5F4F1 !important; }
+    .registry-section-blue  { background: #F5F4F1 !important; }
+    .registry-section-teal  .registry-facts { background: #ECEAE6 !important; border-color: #DDD8D1 !important; }
+    .registry-section-amber .registry-facts { background: #ECEAE6 !important; border-color: #DDD8D1 !important; }
+    .registry-section-blue  .registry-facts { background: #ECEAE6 !important; border-color: #DDD8D1 !important; }
 
     .feature-card h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
@@ -2412,18 +2541,33 @@
       { href: 'disability-discounts-guide.html',   label: 'Disability Discounts' },
       { href: 'printable-handouts.html',          label: 'Handouts & Builders' },
       { href: 'family-stories.html',              label: 'Family Stories' },
-      { href: 'research-registries.html',         label: 'Research Registries' },
     ];
     const tkHrefSet = new Set(tkPages.map(p => p.href));
     const curPage = (window.location.pathname.split('/').pop() || 'index.html');
 
+    // ── Detect sidebar content first (needed to decide which nav to inject) ──
+    const sidebar        = document.querySelector('.page-sidebar');
+    const sidebarBtns    = sidebar ? Array.from(sidebar.querySelectorAll('button.sidebar-link[data-tab]')) : [];
+    const sidebarAnchors = sidebar ? Array.from(sidebar.querySelectorAll('a.sidebar-link[href^="#"]')) : [];
+    const pageLayout     = document.querySelector('.page-layout');
+    const pageMain       = document.querySelector('.page-main');
+    const hasOwnNav      = sidebarBtns.length >= 2 || sidebarAnchors.length >= 2;
+    const isTkPage       = tkHrefSet.has(curPage) && curPage !== 'family-toolkit.html';
+
     // ── A. Inject Family Toolkit horizontal subnav ──
-    if (tkHrefSet.has(curPage)) {
+    // Only on tk pages that have NO own tab/jump nav (those get ← back link added inline)
+    if (isTkPage && !hasOwnNav) {
       const tkNav = document.createElement('nav');
       tkNav.className = 'tk-subnav';
       tkNav.setAttribute('aria-label', 'Family Toolkit pages');
       const inner = document.createElement('div');
       inner.className = 'tk-subnav-inner';
+      // ← Family Toolkit back link first
+      const backLink = document.createElement('a');
+      backLink.href = 'family-toolkit.html';
+      backLink.className = 'tk-subnav-link tk-subnav-back';
+      backLink.textContent = '\u2190 Family Toolkit';
+      inner.appendChild(backLink);
       tkPages.forEach(function (p) {
         const a = document.createElement('a');
         a.href = p.href;
@@ -2440,20 +2584,78 @@
       if (siteNav) siteNav.insertAdjacentElement('afterend', tkNav);
     }
 
-    // ── B. Inject horizontal tab strip or jump nav from sidebar content ──
-    const sidebar = document.querySelector('.page-sidebar');
+    // ── B. Inject page-toc callout OR horizontal tab strip / jump nav ──
     if (!sidebar) return;
 
-    const sidebarBtns    = Array.from(sidebar.querySelectorAll('button.sidebar-link[data-tab]'));
-    const sidebarAnchors = Array.from(sidebar.querySelectorAll('a.sidebar-link[href^="#"]'));
-    const pageLayout     = document.querySelector('.page-layout');
-    const pageMain       = document.querySelector('.page-main');
+    // Pages that get a quiet contents callout card instead of a horizontal nav bar
+    const tocPages = new Set([
+      'qualifying-for-services.html',
+      'school-iep-guide.html',
+      'research-registries.html',
+      'disability-discounts-guide.html',
+      'helpful-links.html',
+    ]);
 
-    if (sidebarBtns.length >= 2 && pageLayout) {
+    if (tocPages.has(curPage) && (sidebarBtns.length >= 2 || sidebarAnchors.length >= 2)) {
+      // ── Page-toc path ──
+      const tocItems = [];
+
+      if (sidebarBtns.length >= 2) {
+        // Tab-based page: unlock all tab panels so they flow as scrollable sections
+        document.documentElement.classList.add('page-toc-unlocked');
+        sidebarBtns.forEach(function (btn) {
+          const dataTab = btn.getAttribute('data-tab');
+          // Panel id may equal data-tab or may be "tab-" + data-tab — look it up
+          const panel = document.getElementById(dataTab) || document.getElementById('tab-' + dataTab);
+          const panelId = panel ? panel.id : dataTab;
+          tocItems.push({ href: '#' + panelId, label: btn.textContent.trim() });
+        });
+      } else {
+        sidebarAnchors.forEach(function (a) {
+          tocItems.push({ href: a.getAttribute('href'), label: a.textContent.trim() });
+        });
+      }
+
+      // Build the callout element
+      const toc = document.createElement('div');
+      toc.className = 'page-toc';
+      toc.setAttribute('aria-label', 'On this page');
+      const tocLbl = document.createElement('span');
+      tocLbl.className = 'page-toc-label';
+      tocLbl.textContent = 'On this page';
+      toc.appendChild(tocLbl);
+      const ol = document.createElement('ol');
+      ol.className = 'page-toc-list';
+      tocItems.forEach(function (item) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.href;
+        a.textContent = item.label;
+        li.appendChild(a);
+        ol.appendChild(li);
+      });
+      toc.appendChild(ol);
+
+      // Insert at the top of page content
+      // If page-main wraps a <main>, insert inside <main>; otherwise insert in page-main
+      const insertHost = (pageMain && pageMain.querySelector(':scope > main')) || pageMain;
+      if (insertHost) insertHost.insertBefore(toc, insertHost.firstChild);
+      // Mark page so redundant section-chip rows stay hidden
+      document.documentElement.classList.add('su-has-page-toc');
+
+    } else if (sidebarBtns.length >= 2 && pageLayout) {
       // Tab-based page: inject horizontal tab strip above .page-layout
       const strip = document.createElement('nav');
       strip.className = 'page-tab-strip';
       strip.setAttribute('aria-label', 'Page sections');
+      // Prepend ← Family Toolkit back link if this is a tk sub-page
+      if (isTkPage) {
+        const back = document.createElement('a');
+        back.href = 'family-toolkit.html';
+        back.className = 'page-tab-back';
+        back.textContent = '\u2190 Family Toolkit';
+        strip.appendChild(back);
+      }
       sidebarBtns.forEach(function (origBtn) {
         const btn = document.createElement('button');
         btn.className = 'page-tab-btn' + (origBtn.classList.contains('active') ? ' active' : '');
@@ -2479,11 +2681,18 @@
       pageLayout.parentNode.insertBefore(strip, pageLayout);
 
     } else if (sidebarAnchors.length >= 2 && pageLayout) {
-      // Anchor-link page: inject "On this page" strip between header and content
-      // (same position as tab-strip / tk-subnav — visually consistent)
+      // Anchor-link page: inject jump nav strip between header and content
       const jumpNav = document.createElement('nav');
       jumpNav.className = 'jump-nav';
       jumpNav.setAttribute('aria-label', 'On this page');
+      // Prepend ← Family Toolkit back link if this is a tk sub-page
+      if (isTkPage) {
+        const back = document.createElement('a');
+        back.href = 'family-toolkit.html';
+        back.className = 'jump-nav-back';
+        back.textContent = '\u2190 Family Toolkit';
+        jumpNav.appendChild(back);
+      }
       const lbl = document.createElement('span');
       lbl.className = 'jump-nav-label';
       lbl.textContent = 'On this page';

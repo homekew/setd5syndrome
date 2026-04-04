@@ -63,16 +63,19 @@
 
   .header-inner { max-width: 860px; margin: 0 auto; padding: 32px 32px 24px;position:relative;z-index:2}
   .header-eyebrow{
-    font-size: 13px; font-weight: 600; letter-spacing: .14em;
-    text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 22px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px;
   }
+  .header-eyebrow a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+  .header-eyebrow a:hover { color: #EFEEEA; }
   .header-eyebrow a:visited { color: rgba(255,255,255,0.75); text-decoration: none; }
   .header-title{
-    font-family: 'Lora', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: clamp(36px, 5vw, 52px); font-weight: 600;
-    line-height: 1.18; color: #fff; margin-bottom: 16px;
+    line-height: 1.12; color: #fff; margin-bottom: 14px;
   }
-  .header-title em { font-style: italic; color: #a8cfc8; }  .header-subtitle{ font-size: 17.5px; font-weight: 400; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.6; }
+  .header-title em { font-style: italic; color: #a8cfc8; }
+  .header-subtitle{ font-size: 17.5px; font-weight: 400; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.5; }
   /* ── HEADER COLLAPSE ── */
   .header-inner { transition: padding 0.175s ease;position:relative;z-index:2}
   .header-eyebrow{ max-height: 30px; overflow: hidden; transition: opacity 0.175s ease, max-height 0.175s ease, margin 0.175s ease; }
