@@ -445,6 +445,88 @@
     .sidebar-link.active { border-bottom-color: var(--amber); border-left: none; background: none; }
   }
 
+
+  /* ═══ Family Toolkit sub-page nav bar ═══════════════════════════════════ */
+  .tk-page-nav {
+    background: #2A627A;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 930;
+    width: 100%;
+  }
+  .tk-page-nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+  }
+  .tk-page-nav-inner::-webkit-scrollbar { display: none; }
+  .tk-page-nav-back {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 16px 0 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    transition: color 0.15s;
+  }
+  .tk-page-nav-back:hover { color: #fff; }
+  .tk-page-nav-label {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    white-space: nowrap;
+    padding: 0 12px 0 16px;
+    flex-shrink: 0;
+  }
+  .tk-page-nav-link {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+    cursor: pointer;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 13.5px;
+  }
+  .tk-page-nav-link:hover {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.35);
+  }
+  @media (max-width: 768px) {
+    .tk-page-nav-inner { padding: 0 16px; gap: 0; }
+    .tk-page-nav-label { padding: 0 8px 0 12px; font-size: 10px; }
+    .tk-page-nav-link { padding: 0 10px; font-size: 13px; }
+    .tk-page-nav-back { padding: 0 12px 0 0; font-size: 13px; }
+  }
+
 </style>
 <script src="site-upgrade.js"></script>
   <meta property="og:image" content="https://setd5syndrome.com/social-preview.jpg">
@@ -482,6 +564,18 @@
       <a href="helpful-links.html">Community &amp; Links</a>
       <a href="about.html">About</a>
     </div>
+  </div>
+</nav>
+<nav class="tk-page-nav" aria-label="Page navigation">
+  <div class="tk-page-nav-inner">
+    <a href="family-toolkit.html" class="tk-page-nav-back">&#8592; Family Toolkit</a>
+    <span class="tk-page-nav-label">On this page</span>
+    <a href="#sec-early-intervention" class="tk-page-nav-link">Early Intervention</a>
+    <a href="#sec-school-services" class="tk-page-nav-link">School Services</a>
+    <a href="#sec-ssi" class="tk-page-nav-link">SSI</a>
+    <a href="#sec-medicaid" class="tk-page-nav-link">Medicaid</a>
+    <a href="#sec-hcbs" class="tk-page-nav-link">HCBS Waivers</a>
+    <a href="#sec-dac" class="tk-page-nav-link">DAC Benefits</a>
   </div>
 </nav>
 

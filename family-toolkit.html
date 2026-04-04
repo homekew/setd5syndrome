@@ -636,6 +636,88 @@
     .page-sidebar { display: none; }
   }
 
+
+  /* ═══ Family Toolkit sub-page nav bar ═══════════════════════════════════ */
+  .tk-page-nav {
+    background: #2A627A;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 930;
+    width: 100%;
+  }
+  .tk-page-nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+  }
+  .tk-page-nav-inner::-webkit-scrollbar { display: none; }
+  .tk-page-nav-back {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 16px 0 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    transition: color 0.15s;
+  }
+  .tk-page-nav-back:hover { color: #fff; }
+  .tk-page-nav-label {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    white-space: nowrap;
+    padding: 0 12px 0 16px;
+    flex-shrink: 0;
+  }
+  .tk-page-nav-link {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+    cursor: pointer;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 13.5px;
+  }
+  .tk-page-nav-link:hover {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.35);
+  }
+  @media (max-width: 768px) {
+    .tk-page-nav-inner { padding: 0 16px; gap: 0; }
+    .tk-page-nav-label { padding: 0 8px 0 12px; font-size: 10px; }
+    .tk-page-nav-link { padding: 0 10px; font-size: 13px; }
+    .tk-page-nav-back { padding: 0 12px 0 0; font-size: 13px; }
+  }
+
 </style>
 <link rel="canonical" href="https://setd5syndrome.com/family-toolkit.html">
 <script src="site-upgrade.js"></script>
@@ -660,14 +742,29 @@
     <p class="header-subtitle">Practical tools, guides, and links for families navigating life with SETD5 Syndrome.</p>
   </div>
 </header>
-<!-- Page section navigation -->
-<nav class="tk-section-nav" aria-label="Page sections">
-  <div class="tk-section-nav-inner">
-    <span class="tk-section-label">On this page</span>
-    <a href="#community" class="tk-section-link">Community</a>
-    <a href="#handouts" class="tk-section-link">Tools</a>
-    <a href="#guides" class="tk-section-link">Guides</a>
-    <a href="#reference" class="tk-section-link">Reference</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="site-nav-inner">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <a href="understanding-setd5-syndrome.html">SETD5 Syndrome</a>
+      <a href="family-toolkit.html">Family Toolkit</a>
+      <a href="setd5-medical-terms-guide.html">Medical Terms</a>
+      <a href="research.html">Research</a>
+      <a href="helpful-links.html">Community &amp; Links</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+<nav class="tk-page-nav" aria-label="Page navigation">
+  <div class="tk-page-nav-inner">
+    <a href="family-toolkit.html" class="tk-page-nav-back">&#8592; Family Toolkit</a>
+    <span class="tk-page-nav-label">On this page</span>
+    <a href="#community" class="tk-page-nav-link">Community</a>
+    <a href="#handouts" class="tk-page-nav-link">Tools</a>
+    <a href="#guides" class="tk-page-nav-link">Guides</a>
+    <a href="#reference" class="tk-page-nav-link">Reference</a>
   </div>
 </nav>
 

@@ -2597,6 +2597,9 @@
     const pageMain       = document.querySelector('.page-main');
     const hasOwnNav      = sidebarBtns.length >= 2 || sidebarAnchors.length >= 2;
     const isTkPage       = tkHrefSet.has(curPage) && curPage !== 'family-toolkit.html';
+    // If page already has a .tk-page-nav baked into HTML, skip ALL subnav injection
+    const hasTkPageNav   = !!document.querySelector('.tk-page-nav');
+    if (hasTkPageNav) return;
 
     // ── A. Inject Family Toolkit horizontal subnav ──
     // Only on tk pages that have NO own tab/jump nav (those get ← back link added inline)

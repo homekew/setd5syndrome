@@ -519,6 +519,88 @@
   .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size: 15.5px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text);text-decoration:none;white-space:nowrap;transition:color 0.15s;}
   .nav-menu>a:hover{color:var(--navy);}
   @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
+
+  /* ═══ Family Toolkit sub-page nav bar ═══════════════════════════════════ */
+  .tk-page-nav {
+    background: #2A627A;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    position: sticky;
+    top: 0;
+    z-index: 930;
+    width: 100%;
+  }
+  .tk-page-nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+  }
+  .tk-page-nav-inner::-webkit-scrollbar { display: none; }
+  .tk-page-nav-back {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 16px 0 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    transition: color 0.15s;
+  }
+  .tk-page-nav-back:hover { color: #fff; }
+  .tk-page-nav-label {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    white-space: nowrap;
+    padding: 0 12px 0 16px;
+    flex-shrink: 0;
+  }
+  .tk-page-nav-link {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+    cursor: pointer;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 13.5px;
+  }
+  .tk-page-nav-link:hover {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.35);
+  }
+  @media (max-width: 768px) {
+    .tk-page-nav-inner { padding: 0 16px; gap: 0; }
+    .tk-page-nav-label { padding: 0 8px 0 12px; font-size: 10px; }
+    .tk-page-nav-link { padding: 0 10px; font-size: 13px; }
+    .tk-page-nav-back { padding: 0 12px 0 0; font-size: 13px; }
+  }
+
 </style>
 <link rel="canonical" href="https://setd5syndrome.com/understanding-genetic-report.html">
   <meta property="og:image" content="https://setd5syndrome.com/social-preview.jpg">
@@ -558,6 +640,11 @@
       <a href="helpful-links.html">Community &amp; Links</a>
       <a href="about.html">About</a>
     </div>
+  </div>
+</nav>
+<nav class="tk-page-nav" aria-label="Page navigation">
+  <div class="tk-page-nav-inner">
+    <a href="family-toolkit.html" class="tk-page-nav-back">&#8592; Family Toolkit</a>
   </div>
 </nav>
 
