@@ -267,14 +267,15 @@
     font-size: 13.5px;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--card-accent, var(--navy));
+    color: #2e3d3c;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    border: 1.5px solid var(--card-accent, var(--teal));
+    background: #AEBFBE;
+    border: 1.5px solid #AEBFBE;
     padding: 7px 14px;
     border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
     align-self: flex-start;
   }
 
@@ -284,7 +285,8 @@
   }
 
   .card:hover .card-link {
-    background: var(--card-accent, var(--teal));
+    background: #8fa9a8;
+    border-color: #8fa9a8;
     color: #fff;
   }
 
