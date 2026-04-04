@@ -1588,6 +1588,16 @@
       width: 100% !important;
     }
 
+    /* Let footer break out of the narrow page-layout container */
+    .page-layout .site-footer,
+    .page-main .site-footer {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(-50vw + 50%) !important;
+      position: relative !important;
+      box-sizing: border-box !important;
+    }
+
     /* Sidebar */
     .page-sidebar {
       background: #EFEEEA !important;
