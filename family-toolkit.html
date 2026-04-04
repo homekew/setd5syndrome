@@ -518,6 +518,69 @@
   .nav-menu>a:hover{color:var(--navy);}
   @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid var(--border);}}
 
+  /* ââ Page Section Navigation (On this page) ââ */
+  .tk-section-nav {
+    background: #2A627A;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 50px;
+    z-index: 920;
+  }
+  .tk-section-nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 48px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tk-section-nav-inner::-webkit-scrollbar { display: none; }
+  .tk-section-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tk-section-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 8px;
+    transition: color 0.15s ease;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .tk-section-link:hover {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.3);
+  }
+  .tk-section-link:active {
+    border-bottom-color: #FFD166;
+  }
+  @media (max-width: 768px) {
+    .tk-section-nav-inner {
+      gap: 1rem;
+      padding: 0 16px;
+    }
+    .tk-section-link {
+      font-size: 13px;
+      padding: 0 6px;
+    }
+  }
+
   .section-nav-btn {
     display: inline-flex;
     align-items: center;
@@ -597,19 +660,14 @@
     <p class="header-subtitle">Practical tools, guides, and links for families navigating life with SETD5 Syndrome.</p>
   </div>
 </header>
-<nav class="site-nav" aria-label="Main navigation">
-  <div class="site-nav-inner">
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-menu" id="nav-menu">
-      <a href="understanding-setd5-syndrome.html">SETD5 Syndrome</a>
-      <a href="family-toolkit.html">Family Toolkit</a>
-      <a href="setd5-medical-terms-guide.html">Medical Terms</a>
-      <a href="research.html">Research</a>
-      <a href="helpful-links.html">Community &amp; Links</a>
-      <a href="about.html">About</a>
-    </div>
+<!-- Page section navigation -->
+<nav class="tk-section-nav" aria-label="Page sections">
+  <div class="tk-section-nav-inner">
+    <span class="tk-section-label">On this page</span>
+    <a href="#community" class="tk-section-link">Community</a>
+    <a href="#handouts" class="tk-section-link">Tools</a>
+    <a href="#guides" class="tk-section-link">Guides</a>
+    <a href="#reference" class="tk-section-link">Reference</a>
   </div>
 </nav>
 
