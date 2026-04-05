@@ -344,6 +344,12 @@
       padding-bottom: 0 !important;
     }
 
+    /* Push nav below Google Translate banner when active */
+    .translated-ltr .site-nav,
+    .translated-rtl .site-nav {
+      top: 40px !important;
+    }
+
     body {
       padding-top: 56px !important;
     }
