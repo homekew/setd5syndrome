@@ -4,18 +4,10 @@
 <meta charset="UTF-8">
 <script>if(history.scrollRestoration)history.scrollRestoration="manual";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SETD5 Syndrome Research &amp; Resources</title>
+<title>The SETD5 Syndrome Companion</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://setd5syndrome.live/">
-<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
-<meta property="og:title" content="SETD5 Syndrome Research &amp; Resources">
-<meta property="og:description" content="Guides for families living with SETD5 Syndrome: newly diagnosed, published research, medical terms, and disability resources. Created by a parent, for families like ours.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SETD5 Syndrome Research &amp; Resources">
-<meta name="twitter:description" content="Guides for families living with SETD5 Syndrome: newly diagnosed, published research, medical terms, and disability resources.">
 <meta name="description" content="Family resource for SETD5 Syndrome: plain-language research summaries, medical term definitions, family guides, and community stories for parents and caregivers.">
-<link rel="canonical" href="https://setd5syndrome.live/">
+<link rel="canonical" href="https://setd5syndrome.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -23,35 +15,35 @@
 
   :root {
       /* ââ Counsel Palette tokens (style guide) ââ */
-      --indigo:       #1E3A4F;
-      --indigo-mid:   #456A7C;
-      --gold:         #C4952A;
-      --gold-hover:   #D4B84C;
-      --parchment:    #E8E6DF;
-      --parchment-d:  #D0CCC2;
-      --ink-muted:    #5A5850;
+      --indigo:       #2A627A;
+      --indigo-mid:   #2A627A;
+      --gold:         #2A627A;
+      --gold-hover:   #2A627A;
+      --parchment:    #F5F4F1;
+      --parchment-d:  #2A627A;
+      --ink-muted:    #2F2F2B;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
     --cream: #F5F4F1;
-    --text: #1C1B18;
+    --text: #2F2F2B;
     --deep: #AEBFBE;
-    --navy: #1E3A4F;
-    --linen:     #E8E6DF;
-    --caramel:   #C4952A;
+    --navy: #2A627A;
+    --linen:     #F5F4F1;
+    --caramel:   #2A627A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #1E3A4F;
-    --teal: #C2DED8;
-    --amber: #C4952A;
+    --charcoal:  #2A627A;
+    --teal: #EFEEEA;
+    --amber: #2A627A;
     --amber-lt: #F5EDE0;
-    --sage: #C2DED8;
-    --sage-lt: #E4F0EE;
-    --border: #D0CCC2;
-    --muted: #5A5850;
+    --sage: #EFEEEA;
+    --sage-lt: #EFEEEA;
+    --border: #DDD8D1;
+    --muted: #2F2F2B;
     --nav-bg: #EEEBE4;
   }
 
@@ -69,15 +61,17 @@
     flex-direction: column;
   }
 
-  /* HEADER */
+  /* HEADER — hidden until site-upgrade.js applies final styles */
   header {
-    background: #162544;
+    background: #2A627A;
     color: #fff;
     text-align: center;
     padding: 2rem 0 1.5rem;
     position: relative;
     border-bottom: none;
+    opacity: 0;
 }
+  header svg { display: none; }
 
   .header-hero-inner { max-width:860px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
   .site-label, h1, .header-rule, .header-sub { position:relative; z-index:1; }
@@ -140,7 +134,7 @@
   .intro-body { font-size: 16px; line-height: 1.75; color: var(--muted); margin: 0 auto 1.5rem; max-width: 580px; }
 
   /* STATS CARD */
-  .stats-bar { background: #E4F0EE; padding: 22px 2rem; display: flex; justify-content: center; gap: 0; border: 1px solid #c8dece; border-radius: 10px; max-width: 780px; margin: 0 auto; }
+  .stats-bar { background: #EFEEEA; padding: 22px 2rem; display: flex; justify-content: center; gap: 0; border: 1px solid #c8dece; border-radius: 10px; max-width: 780px; margin: 0 auto; }
   .stats-bar-item { text-align: center; padding: 0 2rem; border-right: 1px solid #c8dece; }
   .stats-bar-item:last-child { border-right: none; }
   .stats-bar-num { display: block; font-family: 'DM Sans', sans-serif; font-size: 1.6rem; font-weight: 600; color: var(--navy); line-height: 1; }
@@ -250,7 +244,7 @@
     font-weight: 600;
     font-size: 22px;
     color: var(--navy);
-    margin-bottom: 0.65rem;
+    margin-bottom: 30px;
     line-height: 1.25;
   }
 
@@ -267,14 +261,14 @@
     font-size: 13.5px;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--card-accent, var(--navy));
+    color: #7A9998;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    border: 1.5px solid var(--card-accent, var(--teal));
-    padding: 7px 14px;
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.2s;
     align-self: flex-start;
   }
 
@@ -284,8 +278,7 @@
   }
 
   .card:hover .card-link {
-    background: var(--card-accent, var(--teal));
-    color: #fff;
+    color: #2A627A;
   }
 
   .card:hover .card-link::after {
@@ -301,6 +294,7 @@
   .card-newly-diagnosed {
     --card-accent: var(--amber);
     --card-icon-bg: var(--amber-lt);
+    background: rgba(98,146,158,0.15) !important;
   }
 
   .card-discounts {
@@ -345,55 +339,32 @@
   }
   .start-here-btn {
     white-space: nowrap;
-    background: var(--amber);
-    color: #fff;
+    color: var(--navy);
     text-decoration: none;
     padding: 0.55rem 1.25rem;
     border-radius: 6px;
     font-size: 0.88rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: color 0.2s;
     flex-shrink: 0;
   }
-  .start-here-btn:hover { background: #b87c2e; }
+  .start-here-btn:hover { color: var(--amber); text-decoration: underline; }
   @media (max-width: 520px) {
     .start-here { flex-direction: column; align-items: flex-start; }
   }
 
   /* FOOTER */
-  footer {
-    background: #162544;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    font-family: 'Poppins', sans-serif;
-  }
-  .footer-love {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 0.85rem;
-  }
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.3rem 0.7rem;
-    margin-bottom: 0.85rem;
-    font-size: 14px;
-  }
-  .footer-nav a { color: rgba(255,255,255,0.6); text-decoration: none; }
-  .footer-nav a:hover { color: rgba(255,255,255,0.9); }
-  .footer-nav .sep { color: rgba(255,255,255,0.25); }
-  .footer-email { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 0.6rem; }
-  .footer-email a { color: rgba(255,255,255,0.55); text-decoration: none; }
-  .footer-email a:hover { color: rgba(255,255,255,0.9); }
-  .footer-legal {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.55;
-  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   @media (max-width: 600px) {
     header { padding: 1.5rem 1.5rem 1.25rem;
@@ -403,7 +374,7 @@
     .card-grid .card:last-child:nth-child(odd) { max-width: none; margin: 0; }
   }
 
-  /* ââ COMPACT STICKY HEADER â disabled on home page ââ */
+  /* ââ COMPACT STICKY HEADER — disabled on home page ââ */
   .header-sub {
     transition: opacity 0.2s ease, max-height 0.3s ease;
     max-height: 60px; overflow: hidden;
@@ -428,7 +399,6 @@
 
   /* ââ GOOGLE TRANSLATE WIDGET ââ */
 
-
   /* FEATURED BADGE */
   .featured-badge {
     display: inline-block;
@@ -450,28 +420,138 @@
 
   /* Ensure all body links are underlined */
   main a, .page-body a, .letter-content a { text-decoration: underline; }
-  .footer-translate { margin-bottom: 1rem; display: flex; justify-content: center; }
-  .footer-translate .goog-te-gadget { font-size: 0 !important; }
-  .footer-translate .goog-te-gadget select { font-size: 13px; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border-radius: 4px; cursor: pointer; }
+  
+  
+  
   .hero-btn-primary:hover { background: #c99a72; box-shadow: 0 3px 10px rgba(198,162,126,0.4); }
   .hero-btn-ghost:hover { background: rgba(255,255,255,0.1); color: #fff; }
-  footer a { text-decoration: underline; }
+  
 
 
+  /* ── SITE FOOTER ──────────────────────────────────── */
+  .site-footer {
+    background: #2A627A;
+    font-family: 'DM Sans', sans-serif;
+    padding: 3rem max(2rem, calc(50vw - 430px));
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: start;
+  }
+  .footer-brand-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 5px;
+    letter-spacing: 0;
+  }
+  .footer-brand-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin: 0 0 1.4rem;
+  }
+  .footer-legal-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    margin: 0 0 0.9rem;
+    max-width: 380px;
+  }
+  .footer-copyright {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+  }
+  .footer-col-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #A07D54;
+    margin: 0 0 0.85rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .footer-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: #fff; }
+  .footer-translate { margin-top: 1.5rem; }
+  .footer-translate .goog-te-gadget { font-size: 0 !important; }
+  .footer-translate .goog-te-gadget select { font-size: 13px; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border-radius: 4px; cursor: pointer; }
+  @media (max-width: 640px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+
+  /* ── FOOTER SUBSCRIBE BUTTON ─────────────────────── */
+  .footer-subscribe-btn {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 7px 16px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 5px;
+    color: rgba(255,255,255,0.85);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .footer-subscribe-btn:hover {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+  }
 </style>
 <script src="site-upgrade.js"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://setd5syndrome.com/">
+  <meta property="og:site_name" content="The SETD5 Syndrome Companion">
+  <meta property="og:title" content="The SETD5 Syndrome Companion">
+  <meta property="og:description" content="Plain-language resources for families and caregivers navigating SETD5 Syndrome, wherever you are in the journey.">
+  <meta property="og:image" content="https://setd5syndrome.com/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The SETD5 Syndrome Companion">
+  <meta name="twitter:description" content="Plain-language resources for families and caregivers navigating SETD5 Syndrome, wherever you are in the journey.">
+  <meta name="twitter:image" content="https://setd5syndrome.com/social-preview.jpg">
 </head>
 <body>
 
 
 <header>
-<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C2DED8" stop-opacity="0.07"/><stop offset="100%" stop-color="#C2DED8" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
+<!-- helix-injected --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"><defs><radialGradient id="hx-amb" cx="1055" cy="120" r="130" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#EFEEEA" stop-opacity="0.07"/><stop offset="100%" stop-color="#EFEEEA" stop-opacity="0"/></radialGradient><filter id="hx-soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2"/></filter></defs><rect x="880" y="0" width="320" height="240" fill="url(#hx-amb)"/><path d="M 1055 -15 C 1103 8,1103 42,1055 60 C 1007 78,1007 102,1055 120 C 1103 138,1103 162,1055 180 C 1007 198,1007 222,1055 240" fill="none" stroke="rgba(194,222,216,0.32)" stroke-width="1.8" stroke-linecap="round" filter="url(#hx-soft)"/><path d="M 1055 -15 C 1007 8,1007 42,1055 60 C 1103 78,1103 102,1055 120 C 1007 138,1007 162,1055 180 C 1103 198,1103 222,1055 240" fill="none" stroke="rgba(194,222,216,0.18)" stroke-width="1.4" stroke-linecap="round" filter="url(#hx-soft)"/><g stroke="rgba(194,222,216,0.22)" stroke-width="1" stroke-linecap="round"><line x1="1049" y1="60" x2="1061" y2="60"/><line x1="1049" y1="120" x2="1061" y2="120"/><line x1="1049" y1="180" x2="1061" y2="180"/></g><g stroke="rgba(194,222,216,0.10)" stroke-width="0.8" stroke-linecap="round"><line x1="1012" y1="28" x2="1098" y2="32"/><line x1="1012" y1="90" x2="1098" y2="90"/><line x1="1012" y1="150" x2="1098" y2="150"/><line x1="1012" y1="210" x2="1098" y2="210"/></g><g fill="rgba(194,222,216,0.38)"><circle cx="1055" cy="60" r="2.8"/><circle cx="1055" cy="120" r="2.8"/><circle cx="1055" cy="180" r="2.8"/></g><g fill="rgba(194,222,216,0.18)"><circle cx="1103" cy="30" r="1.8"/><circle cx="1007" cy="30" r="1.8"/><circle cx="1007" cy="90" r="1.8"/><circle cx="1103" cy="90" r="1.8"/><circle cx="1103" cy="150" r="1.8"/><circle cx="1007" cy="150" r="1.8"/><circle cx="1007" cy="210" r="1.8"/><circle cx="1103" cy="210" r="1.8"/></g><path d="M 1140 -15 C 1168 8,1168 42,1140 60 C 1112 78,1112 102,1140 120 C 1168 138,1168 162,1140 180 C 1112 198,1112 222,1140 240" fill="none" stroke="rgba(194,222,216,0.10)" stroke-width="1.2" stroke-linecap="round"/><path d="M 1140 -15 C 1112 8,1112 42,1140 60 C 1168 78,1168 102,1140 120 C 1112 138,1112 162,1140 180 C 1168 198,1168 222,1140 240" fill="none" stroke="rgba(194,222,216,0.07)" stroke-width="1" stroke-linecap="round"/></svg>
 
 
   <div class="header-hero-inner">
-  <span class="su-hero-tag">Rare Genetic Condition &middot; Family Resource</span>
+  <span class="su-hero-tag">Rare Genetic Condition &middot; Peer Resource</span>
   <h1 class="su-hero-h1">The <em>SETD5 Syndrome</em> Companion</h1>
-  <p class="su-hero-sub">Plain-language resources for families navigating SETD5 Syndrome &mdash; wherever you are in the journey.</p>
+  <p class="su-hero-sub">Plain-language resources for families and caregivers navigating SETD5 Syndrome, wherever you are in the journey.</p>
 </div>
 </header>
 
@@ -518,15 +598,15 @@
     <div class="guides-label">Explore the Site</div>
 
     <!-- Featured card -->
-    <a href="understanding-setd5-syndrome.html" class="card card-featured card-newly-diagnosed" style="background:var(--amber-lt);">
+    <a href="understanding-setd5-syndrome.html" class="card card-featured card-newly-diagnosed" style="background:rgba(98,146,158,0.15);">
       <span class="featured-badge">Start Here</span>
       <h2>Understanding SETD5 Syndrome</h2>
       <p>A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</p>
-      <span class="card-link"><i data-lucide="book-open"></i>View Guide</span>
+      <span class="card-link">View Guide</span>
     </a>
 
     <!-- Genetic report callout -->
-    <div class="start-here" style="background:#e8f4f2; border-color:#b8d8cf; border-left-color:var(--teal); margin-bottom:1.5rem;">
+    <div class="start-here" style="background:#EFEEEA; border-color:#b8d8cf; border-left-color:var(--teal); margin-bottom:1.5rem;">
       <div class="start-here-text">
         <strong>Got your genetic report?</strong>
         <p>Walk through a sample report line by line and see what every field means in plain language.</p>
@@ -540,31 +620,31 @@
       <a href="family-toolkit.html" class="card card-discounts">
         <h2>Family Toolkit</h2>
         <p>Printable handouts, personalized appointment guides you can build for your child, family stories, school and education resources, qualifying for services, disability discounts, and more.</p>
-        <span class="card-link"><i data-lucide="folder-open"></i>View Family Toolkit</span>
+        <span class="card-link">View Family Toolkit</span>
       </a>
 
       <a href="setd5-medical-terms-guide.html" class="card card-glossary">
         <h2>Medical Terms Guide</h2>
         <p>A plain-language glossary of medical, genetic, and service-related terms that appear in SETD5-related reports, appointments, and research, alphabetically organized.</p>
-        <span class="card-link"><i data-lucide="file-text"></i>View Medical Terms Guide</span>
+        <span class="card-link">View Medical Terms Guide</span>
       </a>
 
       <a href="research.html" class="card card-research">
-        <h2>SETD5 Syndrome Research</h2>
+        <h2>SETD5 Syndrome</h2>
         <p>Published research on SETD5 Syndrome from 2013 to present, summarized for families and caregivers.</p>
-        <span class="card-link"><i data-lucide="microscope"></i>View Research Guide</span>
+        <span class="card-link">View Research Guide</span>
       </a>
 
       <a href="about.html" class="card card-letters">
         <h2>About This Site</h2>
         <p>This site was built by a SETD5 Syndrome parent, for SETD5 Syndrome families. Here's the story behind it and why it exists.</p>
-        <span class="card-link"><i data-lucide="heart"></i>Read More</span>
+        <span class="card-link">Read More</span>
       </a>
 
       <a href="helpful-links.html" class="card" style="--card-accent: var(--deep);">
         <h2>Community &amp; Links</h2>
         <p>Curated links to SETD5 community groups, research registries, rare disease databases, and clinical resources for families and caregivers.</p>
-        <span class="card-link"><i data-lucide="link"></i>View Community &amp; Links</span>
+        <span class="card-link">View Community &amp; Links</span>
       </a>
 
     </div>
@@ -580,18 +660,26 @@
 </main>
 
 <footer class="site-footer">
-  <div class="footer-translate">
-    <div id="google_translate_element"></div>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p class="footer-brand-name">The SETD5 Syndrome Companion</p>
+      <p class="footer-brand-tagline">A peer resource for families and caregivers</p>
+      <p class="footer-legal-text">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
+      <p class="footer-copyright">&copy; 2026 The SETD5 Syndrome Companion</p>
+      <a href="mailto:info@setd5syndrome.com?subject=Subscribe to Updates" class="footer-subscribe-btn">Subscribe to Updates</a>
+      <div class="footer-translate"><div id="google_translate_element"></div></div>
+    </div>
+    <div class="footer-right">
+      <p class="footer-col-label">About &amp; Support</p>
+      <ul class="footer-links">
+        <li><a href="about.html">About This Site</a></li>
+        <li><a href="share-your-story.html">Share Your Story</a></li>
+        <li><a href="suggest-a-resource.html">Contact</a></li>
+        <li><a href="sources-references.html">Sources &amp; References</a></li>
+        <li><a href="terms-of-use.html">Terms of Use</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-nav">
-    <a href="index.html">Home</a><span class="sep">Â·</span>
-    <a href="about.html">About</a><span class="sep">Â·</span>
-    <a href="sources-references.html">Sources &amp; References</a><span class="sep">Â·</span>
-    <a href="suggest-a-resource.html">Contact</a><span class="sep">Â·</span>
-    <a href="terms-of-use.html">Terms of Use</a>
-  </div>
-  <p class="footer-email"><a href="mailto:info@setd5syndrome.live">info@setd5syndrome.live</a></p>
-  <p class="footer-legal">Content is for informational purposes only and is not medical, legal, or educational advice. Always consult qualified professionals for decisions about your child&#8217;s care, education, or benefits.</p>
 </footer>
 
 

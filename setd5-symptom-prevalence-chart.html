@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SETD5 Syndrome â Symptom Category Prevalence</title>
+<title>SETD5 Syndrome — Symptom Category Prevalence</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -11,14 +11,14 @@
   :root {
     --navy:    #1C2B28;
     --linen:     #EDE9E0;
-    --caramel:   #C6A27E;
+    --caramel:   #2A627A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #162544;
+    --charcoal:  #2A627A;
     --teal:    #5A9E8F;
     --amber:   #C4694A;
     --deep:    #5A9E8F;
@@ -202,17 +202,21 @@
     font-style: italic;
   }
 
-  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
+  /* ── Site navigation ─────────────────────────────────── */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid #DDD7CC;}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
   .nav-toggle span{display:block;width:21px;height:2px;background:#2A2E35;border-radius:2px;transition:transform 0.2s,opacity 0.2s;}
   .nav-menu{display:flex;align-items:stretch;flex:1;justify-content:flex-start;}
   .nav-menu>a{display:flex;align-items:center;padding:0.65rem 0.85rem;font-size:15.5px;font-family:'Inter',sans-serif;font-weight:500;color:#2A2E35;text-decoration:none;white-space:nowrap;transition:color 0.15s;}
-  .nav-menu>a:hover{color:#162544;}
+  .nav-menu>a:hover{color:#2A627A;}
   @media(max-width:768px){.nav-toggle{display:flex;}.site-nav{overflow:visible;}.site-nav-inner{flex-wrap:wrap;}.nav-menu{display:none;flex-direction:column;width:100%;position:absolute;top:100%;left:0;right:0;background:#F7F4EE;border-top:1px solid #DDD7CC;border-bottom:1px solid #DDD7CC;box-shadow:0 4px 12px rgba(0,0,0,0.08);z-index:999;}.nav-menu.open{display:flex;}.nav-menu>a{padding:0.9rem 1.4rem;border-bottom:1px solid #DDD7CC;}}
 </style>
-<script src="site-upgrade.js"></script>
+  <meta property="og:image" content="https://setd5syndrome.com/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://setd5syndrome.com/social-preview.jpg">
 </head>
 <body>
 
@@ -236,7 +240,7 @@
 
   <div class="page-header">
     <h1>SETD5 Syndrome<br>Symptom Category Prevalence</h1>
-    <p class="subtitle">Approximate reported prevalence across symptom categories, based on published research. Slices reflect relative frequency â categories overlap; most individuals have features in multiple areas.</p>
+    <p class="subtitle">Approximate reported prevalence across symptom categories, based on published research. Slices reflect relative frequency — categories overlap; most individuals have features in multiple areas.</p>
   </div>
 
   <div class="chart-card">
@@ -253,7 +257,7 @@
     <div class="hover-strip" id="hoverStrip">
       <span class="hover-strip-default">Hover over a slice or category to see details</span>
     </div>
-    <p class="disclaimer">Prevalence estimates drawn from published SETD5 Syndrome research (2014â2024). Individual experience varies significantly â these figures describe reported rates across studied populations, not predictions for any individual. Categories are not mutually exclusive.</p>
+    <p class="disclaimer">Prevalence estimates drawn from published SETD5 Syndrome research (2014–2024). Individual experience varies significantly — these figures describe reported rates across studied populations, not predictions for any individual. Categories are not mutually exclusive.</p>
   </div>
 
 </div>
@@ -341,6 +345,5 @@ const chart = new Chart(ctx, {
   }
 });
 </script>
-
 </body>
 </html>

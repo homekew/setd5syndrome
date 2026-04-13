@@ -7,10 +7,10 @@
 <title>Build Your School Handout | SETD5 Syndrome</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <meta name="description" content="Create a customized one-page school handout for your child with SETD5 Syndrome, covering communication, sensory needs, behavior strategies, and IEP accommodations.">
-<link rel="canonical" href="https://setd5syndrome.live/iep-handout-builder.html">
+<link rel="canonical" href="https://setd5syndrome.com/iep-handout-builder.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://setd5syndrome.live/iep-handout-builder.html">
-<meta property="og:site_name" content="SETD5 Syndrome Research &amp; Resources">
+<meta property="og:url" content="https://setd5syndrome.com/iep-handout-builder.html">
+<meta property="og:site_name" content="The SETD5 Syndrome Companion">
 <meta property="og:title" content="Build Your School Handout | SETD5 Syndrome">
 <meta property="og:description" content="Create a customized one-page school handout for your child with SETD5 Syndrome.">
 <meta name="twitter:card" content="summary">
@@ -20,36 +20,36 @@
 <style>
 :root {
       /* ── Counsel Palette tokens (style guide) ── */
-      --indigo:       #1E3A4F;
-      --indigo-mid:   #456A7C;
-      --gold:         #C4952A;
-      --gold-hover:   #D4B84C;
-      --parchment:    #E8E6DF;
-      --parchment-d:  #D0CCC2;
-      --ink-muted:    #5A5850;
+      --indigo:       #2A627A;
+      --indigo-mid:   #2A627A;
+      --gold:         #2A627A;
+      --gold-hover:   #2A627A;
+      --parchment:    #F5F4F1;
+      --parchment-d:  #2A627A;
+      --ink-muted:    #2F2F2B;
       --font-heading: 'DM Sans', system-ui, sans-serif;
       --font-body:    'Poppins', system-ui, sans-serif;
   --bg:       #F5F4F1;
-  --ink:      #1C1B18;
-  --navy:     #1E3A4F;
-    --linen:     #E8E6DF;
-    --caramel:   #C4952A;
+  --ink:      #2F2F2B;
+  --navy:     #2A627A;
+    --linen:     #F5F4F1;
+    --caramel:   #2A627A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #1E3A4F;
+    --charcoal:  #2A627A;
   --deep:     #AEBFBE;
-  --teal:     #C2DED8;
-  --teal-lt:  #eaf5f3;
-  --amber:    #C4952A;
+  --teal:     #EFEEEA;
+  --teal-lt:  #EFEEEA;
+  --amber:    #2A627A;
   --amber-lt: #F5EDE0;
-  --sage:     #C2DED8;
-  --sage-lt:  #E4F0EE;
-  --border:   #D0CCC2;
-  --muted:    #5A5850;
+  --sage:     #EFEEEA;
+  --sage-lt:  #EFEEEA;
+  --border:   #DDD8D1;
+  --muted:    #2F2F2B;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -66,9 +66,13 @@ body{
   .header-eyebrow{
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
   }
+  .header-eyebrow a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+  .header-eyebrow a:hover { color: #EFEEEA; }
 
 
 /* ══════════════════════════════════
@@ -82,16 +86,18 @@ body{
 .form-header { margin-bottom: 2rem;
 }
 .form-eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--teal); margin-bottom: 10px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px;
 }
+.form-eyebrow a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+.form-eyebrow a:hover { color: #EFEEEA; }
 .form-title {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 600; color: var(--navy); line-height: 1.15; margin-bottom: 12px;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600; color: #fff; line-height: 1.12; margin-bottom: 14px;
 }
-.form-title em { color: #2a7068; font-style: italic; }
-.form-subtitle { font-size: 15.5px; color: var(--muted); max-width: 580px; line-height: 1.65; }
+.form-title em { color: #a8cfc8; font-style: italic; }
+.form-subtitle { font-size: 17.5px; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.5; }
 
 /* ── PURPOSE SELECTOR ── */
 .purpose-selector {
@@ -180,7 +186,7 @@ body{
   overflow: hidden;
 }
 .feature-group-header {
-  background: linear-gradient(135deg, #243147 0%, #2B313C 100%);
+  background: linear-gradient(135deg, #2A627A 0%, #2A627A 100%);
   color: #fff;
   padding: 11px 20px;
   font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
@@ -280,14 +286,14 @@ body{
   box-shadow: 0 4px 24px rgba(22,37,68,.09);
 }
 .h-header {
-  background: linear-gradient(135deg, #243147 0%, #2B313C 100%);
+  background: linear-gradient(135deg, #2A627A 0%, #2A627A 100%);
   padding: 22px 28px 18px;
   display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.h-tag { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #2a7068; margin-bottom: 6px; }
+.h-tag { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #A07D54; margin-bottom: 6px; }
 .h-title { font-family: 'DM Sans', sans-serif; font-size: 1.55rem; font-weight: 600; color: #fff; line-height: 1.15; }
-.h-title em { font-style: italic; color: #2a7068; }
+.h-title em { font-style: italic; color: #2A627A; }
 .h-child-name { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.75); margin-top: 6px; }
 .h-amber-line { display: none; }
 
@@ -309,7 +315,7 @@ body{
   font-size: 12px; line-height: 1.6;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
-.h-what-is strong { color: #2a7068; }
+.h-what-is strong { color: #A07D54; }
 .h-what-is em { font-style: italic; }
 
 .h-body{ padding: 18px 28px 22px; }
@@ -462,6 +468,11 @@ body{
   }
 </style>
 <script src="site-upgrade.js"></script>
+  <meta property="og:image" content="https://setd5syndrome.com/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://setd5syndrome.com/social-preview.jpg">
 </head>
 <body>
 
@@ -681,7 +692,7 @@ body{
         <div class="h-child-name" id="h-child-display"></div>
       </div>
       <div style="text-align:right;align-self:flex-start;">
-        <div style="font-size:10px;color:rgba(255,255,255,.45);">setd5syndrome.live</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.45);">setd5syndrome.com</div>
       </div>
     </div>
 
@@ -700,7 +711,7 @@ body{
       </div>
       <div class="h-fact">
         <div class="h-fact-label">More Information</div>
-        <div class="h-fact-value">setd5syndrome.live</div>
+        <div class="h-fact-value">setd5syndrome.com</div>
       </div>
     </div>
 
@@ -738,7 +749,7 @@ body{
     </div><!-- /h-body -->
 
     <div class="h-footer">
-      <div class="h-footer-url">setd5syndrome.live</div>
+      <div class="h-footer-url">setd5syndrome.com</div>
       <div class="h-footer-disc">For informational purposes only. Not a substitute for medical or educational advice. Content based on published research and the SETD5 Syndrome family community. Always verify with your care and education team.</div>
     </div>
 

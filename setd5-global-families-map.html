@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SETD5 Syndrome â Families Around the World</title>
+<title>SETD5 Syndrome — Families Around the World</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162544'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='900' fill='%23AEBFBE' text-anchor='middle'%3ES5%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -12,18 +12,18 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy:   #162544;
+    --navy:   #2A627A;
     --linen:     #EDE9E0;
-    --caramel:   #C6A27E;
+    --caramel:   #2A627A;
     --caramel-lt:#F5EDE0;
     --caramel-mid:#E8CCA8;
     --peach:     #F2B199;
     --peach-lt:  #FEF0EB;
     --peach-mid: #F8D3C8;
     --sage-mid:  #BAD4CE;
-    --charcoal:  #162544;
-    --teal:   #C2DED8;
-    --amber:  #C6A27E;
+    --charcoal:  #2A627A;
+    --teal:   #EFEEEA;
+    --amber:  #2A627A;
     --deep:   #AEBFBE;
     --cream:  #F7F4EE;
     --border: #DDD7CC;
@@ -138,7 +138,7 @@
   }
 
 
-  /* ââ Site navigation âââââââââââââââââââââââââââââââââââ */
+  /* ── Site navigation ─────────────────────────────────── */
   .site-nav{position:sticky;top:0;z-index:900;background:#F7F4EE;border-bottom:1px solid var(--border);}
   .site-nav-inner{max-width:860px;margin:0 auto;padding:0 32px;display:flex;align-items:center;}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:0.7rem 0.5rem;margin-left:auto;}
@@ -172,14 +172,96 @@
     .nav-col{min-width:unset;}
     .nav-group-hd{margin-top:0.5rem;margin-bottom:0.2rem;}
   }
+
+  /* ═══ Family Toolkit sub-page nav bar ═══════════════════════════════════ */
+  .tk-page-nav {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    padding: 0 max(32px, calc(50vw - 398px));
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: #ECEAE6;
+    border-bottom: 1px solid #DDD8D1;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 930;
+  }
+  .tk-page-nav::-webkit-scrollbar { display: none; }
+  .tk-page-nav-back {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 1rem 0.65rem 0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #7A756D;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    border-right: 1px solid #C8C4BC;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    transition: color 0.15s;
+  }
+  .tk-page-nav-back:hover { color: #2A627A; text-decoration: none; }
+  .tk-page-nav-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 0.85rem 0.65rem 0.5rem;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #9A958F;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tk-page-nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 0.85rem;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4A4944;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    margin-bottom: -1px;
+    flex-shrink: 0;
+  }
+  .tk-page-nav-link:hover { color: #2A627A; }
+  .tk-page-nav-link.active {
+    color: #2A627A;
+    font-weight: 600;
+    border-bottom-color: #2A627A;
+  }
+  @media (max-width: 768px) {
+    .tk-page-nav { padding: 0 16px; }
+    .tk-page-nav-link { font-size: 13.5px; padding: 0.6rem 0.7rem; }
+    .tk-page-nav-back { font-size: 13px; }
+  }
 </style>
-<script src="site-upgrade.js"></script>
+  <meta property="og:image" content="https://setd5syndrome.com/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://setd5syndrome.com/social-preview.jpg">
 </head>
 <body>
 <div class="page-wrap">
 
   <div class="page-header">
-    <div class="eyebrow">setd5syndrome.live</div>
+    <div class="eyebrow">setd5syndrome.com</div>
     <h1>SETD5 Syndrome Families Around the World</h1>
     <p class="subtitle">SETD5 Syndrome has been identified in families across every populated continent. This map shows countries where cases have been documented in published research or reported by families.</p>
   </div>
@@ -209,7 +291,7 @@
 
 <script>
 // Countries with documented SETD5 cases (ISO numeric codes)
-// Sources: published research papers 2014â2025
+// Sources: published research papers 2014–2025
 const activeCodes = new Set([
   840,  // United States
   826,  // United Kingdom
@@ -365,6 +447,5 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(w
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-item')){document.querySelectorAll('.nav-item.open').forEach(function(i){i.classList.remove('open');});}});
 })();
 </script>
-
 </body>
 </html>

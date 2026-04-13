@@ -1,20 +1,86 @@
 /**
- * site-upgrade.js  v138
- * SETD5 Syndrome (.com) — The Counsel design system
+ * site-upgrade.js  v193
+ * SETD5 Syndrome (.com) — Realtime Colors palette
  *
- * v92: Full Counsel palette + typography applied site-wide
+ * v193: helpful-links gets horizontal jump-nav bar (with ← Family Toolkit)
+ *        instead of the quiet page-toc callout card.
+ * v192: Section nav → contents callout boxes on four Family Toolkit pages
+ *        (qualifying-for-services, school-iep-guide, research-registries,
+ *        disability-discounts-guide). Horizontal jump-nav /
+ *        page-tab-strip replaced by a quiet .page-toc card inside page content.
+ *        Tab-based pages unlock all tab panels (display:block) so sections are
+ *        scrollable; page-toc links are anchor links into those sections.
+ * v191: Center interior page content — .page-layout now max-width:860px centered
+ *        (sidebar is hidden so content was stretching full-width; this matches
+ *        the homepage's centered layout). jump-nav min-height:44px fix also
+ *        included (Chrome flex height-collapse with overflow-x:auto + stretch).
+ * v190: Unified interior nav strips — all three secondary nav components
+ *        (tk-subnav, page-tab-strip, jump-nav) now share identical visual
+ *        treatment: background #ECEAE6, border-bottom, 14px DM Sans, same
+ *        padding and underline-active style. jump-nav moved from inside
+ *        .page-main to before .page-layout (matches tab-strip position).
+ *        page-tab-strip font-size unified 15px→14px. Redundant .intro-sources-row
+ *        hidden on pages with jump-nav (su-has-jump-nav class on <html>).
+ * v189: Nav refinements — fix tk-subnav alignment (padding 32px, 14px font, larger tap target);
+ *        fix page-tab-strip full-width border (remove max-width, width:100%, padding 32px, cream bg);
+ *        fix jump-nav horizontal margins (0 horizontal, 1.5rem vertical, pipe separator on label);
+ *        add mobile @media overrides for all three nav components.
+ * v188: Navigation overhaul — 3-tier system.
+ *        Hide .page-sidebar globally. Inject Family Toolkit horizontal subnav
+ *        (.tk-subnav) on all 9 Toolkit sibling pages. On tab-based pages inject
+ *        horizontal .page-tab-strip above .page-layout (mirrors sidebar tab
+ *        buttons). On anchor-link pages inject compact .jump-nav at top of
+ *        .page-main. CSS added for all three components.
+ * v187: Cards — show .card-link text with → arrow + teal hover border (obvious CTA).
+ *        Trust badges → soft teal fill + no border + cursor:default (not button-like).
+ * v186: (combined into v187)
+ * v185: Hero H1 margin-bottom 0.4rem → 0.65rem (more breath before subtitle).
+ * v184: Fix helix flash — CSS rule now targets .site-header svg (interior pages
+ *        all use .site-header; old :not(.site-header) rule never fired).
+ *        Fix alpha bar — restore dark teal bg + explicit white link colors.
+ * v183: Remove max-width:700px from .su-hero-h1 (was forcing title to wrap).
+ * v182: Hero H1 "The"/"Companion" → 500, em "SETD5 Syndrome" → 625.
+ * v181: Hero H1 em "SETD5 Syndrome" font-weight 700 → 625 (semi-bold, less heavy).
+ * v180: Hero H1 "The"/"Companion" → font-weight 400; em "SETD5 Syndrome" stays 700.
+ *        About page "Why This Site Exists": prose max-width 660px, three-beat spacing.
+ * v179: Footer column h4 titles → #A07D54 (matches site title gold).
+ * v178: Hide helix SVG in CSS (not just JS) to stop flash-on-load.
+ * v177: Increase homepage hero H1 size (clamp 2.25→3.25rem).
+ * v176: Fix alpha-bar invisible letters (exclude .alpha-link from broad link
+ *        color rule); match interior header em → #D4AE88 (same as homepage hero).
+ * v175: Interior header em accent → #A07D54 (exact site gold).
+ * v174: Interior header em accent → #D4AE88 (matches site title gold).
+ * v173: Interior header em accent → #0FACBF (sampled from waves image).
+ * v172: Interior headers → solid teal (#1A4558) + grain, white title text,
+ *        gold em accent, soft white subtitle; matches homepage hero palette.
+ * v171: Shift gradient so waves image shows through earlier (solid teal ends
+ *        at 28% instead of 42%); hide helix SVG (saved in commented block).
+ * v170: Apply Option B hero background — Textile Geometric Waves image (right-
+ *        anchored) with left-to-right gradient overlay; grain texture preserved
+ *        as second layer on ::before pseudo-element.
+ * v169: Fix .contact-cta invisible text — add :not([class*="cta"]) to broad
+ *        page-body link-color rule so CTA button text stays white on teal.
+ * v168: Fix watch-callout text (white on dark teal, overriding broad main p rule);
+ *        fix interior header color/overflow (visible text on cream bg);
+ *        add DM Sans font-family override to .site-footer.
+ * v167: Fix mobile tab-bar overlay (remove ::after fade, block hover bg on touch);
+ *        fix interior header-title em italic (normal instead of italic).
+ * v165: Hero negative-margin approach — extends hero background behind fixed nav;
+ *        eliminates nav/hero gap regardless of nav height measurement timing.
+ *        Also: fixed garbled em-dash before "Kate" on about page.
+ * v141: Teal / Warm Caramel palette — #2A627A · #62929E · #A07D54
  *
- *   Design tokens (The Counsel):
+ *   Design tokens (Realtime Colors):
  *   ┌────────────────────────────────────────────────────┐
- *   │ Midnight Indigo  #1E3A4F   nav, headings, btns     │
- *   │ Steel Indigo     #456A7C   labels, links, chips     │
- *   │ Antique Gold     #C4952A   accent, active, CTA      │
- *   │ Gold Dark        #7A6535   hover dark accent         │
+ *   │ Warm Tan         #2A627A   nav, headings, btns     │
+ *   │ Charcoal         #2F2F2B   body text, headings      │
+ *   │ Sage             #DDD8D1   secondary accent         │
+ *   │ Purple-Grey      #DDD8D1   tertiary accent          │
  *   │ Cream            #F5F4F1   page bg, hero bg          │
- *   │ Parchment        #E8E6DF   cards / surfaces          │
- *   │ Parchment-D      #D0CCC2   borders                   │
- *   │ Ink              #1C1B18   body text                 │
- *   │ Ink-Muted        #5A5850   secondary / meta text     │
+ *   │ Warm Light       #F5F4F1   cards / surfaces          │
+ *   │ Warm Border      #DDD8D1   borders                   │
+ *   │ Charcoal-Muted   #7A756D   secondary / meta text     │
+ *   │ Gold             #2A627A   accent highlights         │
  *   └────────────────────────────────────────────────────┘
  *
  *   Fonts:
@@ -25,11 +91,11 @@
  *   ┌─────────────────────────────┐
  *   │ HERO HEADER  — Cream        │  text logo hero layout
  *   ├─────────────────────────────┤
- *   │ STICKY NAV   — Indigo       │  dark bar, white links
+ *   │ STICKY NAV   — Warm Tan     │  warm bar, white links
  *   ├─────────────────────────────┤
  *   │ CONTENT      — Cream        │  cards float on cream
  *   ├─────────────────────────────┤
- *   │ FOOTER       — Indigo       │  dark bookend
+ *   │ FOOTER       — Warm Tan     │  warm bookend
  *   └─────────────────────────────┘
  */
 
@@ -51,19 +117,27 @@
        the new palette without needing individual element overrides.
     ═══════════════════════════════════════════════════════════════ */
     :root {
-      --navy:      #1E3A4F;   /* was #162544 dark navy  → midnight indigo  */
-      --charcoal:  #1E3A4F;   /* alias used on some pages                  */
-      --teal:      #456A7C;   /* was #C2DED8 pale teal  → steel indigo     */
-      --teal-lt:   #C8D4DA;   /* light teal bg          → steel tint       */
-      --sage:      #456A7C;   /* sage accent            → steel indigo     */
-      --sage-lt:   #C8D4DA;   /* sage light bg          → steel tint       */
-      --sage-mid:  #456A7C;   /* sage mid border        → steel indigo     */
-      --amber:     #C4952A;   /* warm amber             → antique gold     */
-      /* v114 additions: unify remaining old-palette variables */
-      --muted:     #5A5850;   /* was #66707A cool grey  → ink-muted warm   */
-      --text:      #1C1B18;   /* was #2A2E35 cool dark  → Counsel ink      */
-      --border:    #D0CCC2;   /* was #DDD7CC grey       → parchment-D      */
-      --ink:       #1C1B18;   /* handout builder pages used #404040        */
+      /* v141 — Teal + Warm Caramel palette */
+      --primary:   #2A627A;   /* primary teal — nav, footer, buttons, links    */
+      --secondary: #62929E;   /* secondary teal accent — stats, featured       */
+      --soft:      #81A8B1;   /* soft supporting accent — quiet details        */
+      --warm:      #A07D54;   /* warm caramel — labels, tags, eyebrows         */
+      --ink:       #2F2F2B;   /* main body text                                */
+      --meta:      #7A756D;   /* secondary / metadata text                     */
+      --bg:        #F5F4F1;   /* main background                               */
+      --surface:   #EFEEEA;   /* alternate section background                  */
+      --border:    #DDD8D1;   /* borders, dividers                             */
+      /* legacy variable aliases */
+      --navy:      #2A627A;
+      --charcoal:  #2F2F2B;
+      --teal:      #2A627A;
+      --teal-lt:   #F5F4F1;
+      --sage:      #62929E;
+      --sage-lt:   #F5F4F1;
+      --sage-mid:  #DDD8D1;
+      --amber:     #A07D54;
+      --muted:     #7A756D;
+      --text:      #2F2F2B;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -74,25 +148,31 @@
     ═══════════════════════════════════════════════════════════════ */
 
     header:not(.site-header) {
-      background: #F5F4F1 !important;
-      color: #1C1B18 !important;
+      background: #1A4558 url('hero-bg-waves.jpg') right center / cover no-repeat !important;
+      color: #2F2F2B !important;
       text-align: left !important;
-      padding: 0 !important;
+      padding: 64px 0 0 0 !important;
+      margin-top: -64px !important;
       border-top: none !important;
       border-bottom: none !important;
-      /* Soft shadow lifts the hero off the page as its own surface */
-      box-shadow: 0 6px 40px rgba(30,58,79,0.14) !important;
+      /* Shadow lifts the hero off the page as its own surface */
+      box-shadow: 0 8px 32px rgba(26,69,88,0.32) !important;
       position: relative;
       z-index: 10;
+      opacity: 1 !important;
+      transition: opacity 0.15s ease !important;
     }
 
-    /* Paper grain texture */
+    /* Option B gradient overlay + paper grain texture */
     header:not(.site-header)::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      background-repeat: repeat;
+      background-image:
+        linear-gradient(to right, #1A4558 0%, #1A4558 28%, rgba(26,69,88,0.82) 46%, rgba(26,69,88,0.32) 68%, rgba(26,69,88,0.08) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-repeat: no-repeat, repeat;
+      background-size: 100% 100%, auto;
       pointer-events: none;
       z-index: 0;
     }
@@ -125,6 +205,9 @@
     /* Home page original elements to suppress */
     header:not(.site-header) .header-rule { display: none !important; }
     header:not(.site-header) .header-sub  { display: none !important; }
+    /* Hide helix SVG via CSS to prevent flash-of-helix before JS runs.
+       Interior pages use .site-header, so target that directly. */
+    .site-header svg                       { display: none !important; }
 
     /* ── Hero tag pill ── */
     .su-hero-tag {
@@ -134,9 +217,9 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #456A7C;
-      background: #E8E6DF;
-      border: 1px solid #D0CCC2;
+      color: #D4AE88;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 100px;
       padding: 0.3rem 0.875rem;
       margin-bottom: 1.75rem;   /* more air — sets the pill apart as an entry label */
@@ -145,19 +228,18 @@
     /* ── Hero H1 ── */
     .su-hero-h1 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: clamp(2rem, 4vw, 2.75rem) !important;
-      font-weight: 700 !important;
-      color: #1E3A4F !important;
+      font-size: clamp(2.25rem, 4.5vw, 3.25rem) !important;
+      font-weight: 500 !important;
+      color: #F5F4F1 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.02em !important;
-      margin: 0 0 0.4rem !important;  /* tight to subtitle — they form one unit */
-      max-width: 700px;
+      margin: 0 0 0.65rem !important;  /* slight breath before subtitle */
     }
 
     .su-hero-h1 em {
       font-style: normal !important;
-      font-weight: 700 !important;
-      color: #C4952A !important;
+      font-weight: 625 !important;
+      color: #D4AE88 !important;
     }
 
     /* ── Hero subheading ── */
@@ -167,8 +249,8 @@
       font-weight: 400 !important;
       line-height: 1.7 !important;
       letter-spacing: 0.02em !important; /* slightly open — editorial, calm */
-      color: #5A5850 !important;
-      margin: 0 0 0 !important;          /* hero inner bottom padding handles spacing */
+      color: rgba(245,244,241,0.75) !important;
+      margin: 0.75rem 0 0 !important;    /* space above subtext */
       max-width: 520px;
     }
 
@@ -188,17 +270,17 @@
       display: inline-flex;
       align-items: center;
       padding: 0.6875rem 1.375rem;
-      background: #1E3A4F !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
-      border: 2px solid #1E3A4F !important;
+      border: 2px solid #2A627A !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s, border-color 0.15s;
     }
 
     .su-btn-primary:hover {
-      background: #163043 !important;
-      border-color: #163043 !important;
+      background: #2A627A !important;
+      border-color: #A07D54 !important;
       color: #FFFFFF !important;
     }
 
@@ -211,16 +293,16 @@
       align-items: center;
       padding: 0.6875rem 1.375rem;
       background: transparent !important;
-      color: #C4952A !important;
-      border: 2px solid #C4952A !important;
+      color: #2A627A !important;
+      border: 2px solid #2A627A !important;
       border-radius: 6px;
       text-decoration: none !important;
       transition: background 0.15s;
     }
 
     .su-btn-secondary:hover {
-      background: rgba(158,126,66,0.08) !important;
-      color: #C4952A !important;
+      background: #2A627A !important;
+      color: #F5F4F1 !important;
     }
 
     /* Responsive hero */
@@ -244,22 +326,28 @@
 
 
     /* ═══════════════════════════════════════════════════════════════
-       NAV — Sticky midnight indigo bar, white links, gold CTA
+       NAV — Sticky warm tan bar, white links, sage secondary accent
     ═══════════════════════════════════════════════════════════════ */
 
     .site-nav {
-      background: #1E3A4F !important;
+      background: #214F64 !important;
       border-top: none !important;
-      border-bottom: 3px solid #C4952A !important;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
       width: 100% !important;
-      z-index: 900 !important;
+      z-index: 950 !important;          /* above .site-header z-index:920 */
       padding-top: 6px !important;
       padding-bottom: 0 !important;
+    }
+
+    /* Push nav below Google Translate banner when active */
+    .translated-ltr .site-nav,
+    .translated-rtl .site-nav {
+      top: 40px !important;
     }
 
     body {
@@ -271,7 +359,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 600 !important;
-      color: #FFFFFF !important;
+      color: #F5F4F1 !important;
       text-decoration: none !important;
       white-space: nowrap;
       flex-shrink: 0;
@@ -279,16 +367,23 @@
       letter-spacing: -0.01em;
     }
 
+    /* "Companion" — full white */
     .su-nav-logo .su-nav-logo-light {
       font-weight: 400;
-      color: rgba(255,255,255,0.65);
+      color: #F5F4F1;
+    }
+
+    /* "SETD5 Syndrome" — light warm caramel on dark teal nav */
+    .su-nav-logo .su-nav-logo-setd5 {
+      color: #D4AE88;
+      font-weight: 600;
     }
 
     /* Short logo shown on mobile only; long version shown on desktop */
     .su-logo-short { display: none; }
 
     .su-nav-logo:hover {
-      color: #FFFFFF !important;
+      color: #F5F4F1 !important;
       opacity: 0.85;
     }
 
@@ -348,7 +443,7 @@
         left: 1rem !important;
         right: 1rem !important;
         height: 2px !important;
-        background: #C4952A !important;
+        background: #A07D54 !important;
         border-radius: 2px !important;
       }
     }
@@ -370,7 +465,7 @@
     .nav-menu > a {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 400 !important;
-      color: rgba(255,255,255,0.82) !important;
+      color: rgba(245,244,241,0.85) !important;
       text-decoration: none !important;
       transition: color 0.12s ease !important;
       white-space: nowrap;
@@ -389,7 +484,7 @@
     }
 
     .nav-menu > a:focus-visible {
-      outline: 2px solid #C4952A !important;
+      outline: 2px solid #2A627A !important;
       outline-offset: -2px;
     }
 
@@ -411,10 +506,10 @@
         margin-right: 0 !important;
       }
 
-      /* Hamburger button: white on indigo */
+      /* Hamburger button: white on teal */
       .nav-toggle {
-        color: #FFFFFF !important;
-        border-color: rgba(255,255,255,0.3) !important;
+        color: #F5F4F1 !important;
+        border-color: rgba(245,244,241,0.25) !important;
         min-height: 44px !important;
         min-width: 44px !important;
         display: flex !important;
@@ -422,9 +517,9 @@
         justify-content: center !important;
       }
 
-      /* Hamburger bars: must be white — span background is not inherited from color */
+      /* Hamburger bars: white on dark teal nav */
       .nav-toggle span {
-        background: #FFFFFF !important;
+        background: #F5F4F1 !important;
       }
 
       /* Dropdown panel: hidden by default, shown when .open is toggled by hamburger JS */
@@ -435,8 +530,8 @@
       .nav-menu.open {
         display: flex !important;
         background: #FFFFFF !important;
-        border-top: 1px solid #D0CCC2 !important;
-        border-bottom: 1px solid #D0CCC2 !important;
+        border-top: 1px solid #DDD8D1 !important;
+        border-bottom: 1px solid #DDD8D1 !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
         margin-left: 0 !important;
         flex-direction: column !important;
@@ -455,8 +550,8 @@
         padding: 0.6rem 1.25rem !important;
         font-size: 0.9375rem !important;
         font-weight: 400 !important;
-        color: #1C1B18 !important;
-        border-bottom: 1px solid #D0CCC2 !important;
+        color: #2F2F2B !important;
+        border-bottom: 1px solid #DDD8D1 !important;
         border-left: 3px solid transparent !important;
       }
 
@@ -466,15 +561,15 @@
 
       .nav-menu > a.su-active,
       .nav-menu > a[aria-current="page"] {
-        color: #C4952A !important;
+        color: #2A627A !important;
         font-weight: 600 !important;
-        border-left-color: #C4952A !important;
-        border-bottom-color: #D0CCC2 !important;
+        border-left-color: #2A627A !important;
+        border-bottom-color: #DDD8D1 !important;
         padding-left: calc(1.5rem - 3px) !important;
       }
 
       .nav-menu > a:hover {
-        color: #1E3A4F !important;
+        color: #2A627A !important;
         background: #F5F4F1 !important;
       }
     }
@@ -485,15 +580,17 @@
     ═══════════════════════════════════════════════════════════════ */
 
     .site-footer {
-      background: #1E3A4F !important;
+      background: #2A627A !important;
       padding: 0 !important;
       text-align: left !important;
       border-top: none !important;
+      /* Override any page-level font-family (Poppins etc.) inherited by footer */
+      font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     #su-footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       gap: 3rem;
       max-width: 1160px;
       margin: 0 auto;
@@ -506,10 +603,10 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #C4952A;
+      color: #A07D54;
       margin: 0 0 0.875rem;
       padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(160,125,84,0.25);
     }
 
     .su-footer-brand-name {
@@ -561,7 +658,7 @@
     }
 
     .su-footer-col ul li a:hover {
-      color: #FFFFFF;
+      color: #A07D54;
     }
 
     #su-footer-translate {
@@ -600,7 +697,7 @@
     }
 
     #su-footer-bottom-links a:hover {
-      color: rgba(255,255,255,0.85);
+      color: #A07D54;
     }
 
     #su-footer-disclaimer {
@@ -638,7 +735,7 @@
 
     body {
       background: #F5F4F1 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
       font-size: 16px !important;
     }
 
@@ -656,15 +753,15 @@
     }
 
     .intro-bar {
-      background: #E8E6DF !important;
+      background: #F8F7F4 !important;
       text-align: center !important;
       max-width: none !important;
       margin: 0 !important;
-      padding-top: 4.5rem !important;
-      padding-bottom: 4rem !important;
+      padding-top: 3rem !important;
+      padding-bottom: 5rem !important;
       padding-left: max(2rem, calc(50% - 580px)) !important;
       padding-right: max(2rem, calc(50% - 580px)) !important;
-      border-bottom: 1px solid #D0CCC2 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
@@ -674,7 +771,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
-      color: #5A5850 !important;
+      color: #2F2F2B !important;
       text-align: center !important;
       width: 100% !important;
       max-width: 480px !important;
@@ -691,25 +788,19 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.625rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #2F2F2B !important;
       line-height: 1.25 !important;
       letter-spacing: -0.01em !important;
       text-align: center !important;
       max-width: 520px !important;
-      margin: 0.5rem 0 0.75rem !important;
+      margin: 0.5rem 0 2.5rem !important;
     }
     .su-intro-headline::before {
-      content: '' !important;
-      display: block !important;
-      width: 36px !important;
-      height: 2px !important;
-      background: #C4952A !important;
-      margin: 0 auto 0.75rem !important;
-      border-radius: 2px !important;
+      display: none !important;
     }
     .su-intro-headline em {
       font-style: normal !important;
-      color: #1E3A4F !important;
+      color: #A07D54 !important;
       font-weight: 700 !important;
     }
 
@@ -718,7 +809,7 @@
       display: flex !important;
       flex-wrap: wrap !important;
       justify-content: center !important;
-      gap: 0.625rem !important;
+      gap: 1.5rem !important;
       margin: 0 0 2.5rem !important;
     }
 
@@ -726,22 +817,23 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 0.4rem !important;
-      background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
+      background: rgba(42,98,122,0.09) !important;
+      border: none !important;
       border-radius: 100px !important;
       padding: 0.45rem 1rem !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.875rem !important;
       font-weight: 500 !important;
-      color: #1E3A4F !important;
+      color: #2A627A !important;
       line-height: 1 !important;
       white-space: nowrap !important;
+      cursor: default !important;
     }
 
     .su-trust-badge svg {
       width: 14px !important;
       height: 14px !important;
-      stroke: #C4952A !important;
+      stroke: #2A627A !important;
       flex-shrink: 0 !important;
     }
 
@@ -763,7 +855,7 @@
       border-radius: 20px !important;
       padding: 4px 14px !important;
       font-size: 0.625rem !important;
-      background: #456A7C !important;      /* steel indigo — label register, not heading register */
+      background: #DDD8D1 !important;      /* steel indigo — label register, not heading register */
       color: #FFFFFF !important;
       margin-bottom: 0.875rem !important;
     }
@@ -782,7 +874,7 @@
 
     .guides-zone {
       background: #F5F4F1 !important;
-      padding-top: 4rem !important;
+      padding-top: 2rem !important;
       padding-left: max(2rem, calc(50% - 580px)) !important;
       padding-right: max(2rem, calc(50% - 580px)) !important;
     }
@@ -793,28 +885,28 @@
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #C4952A !important;
+      color: #A07D54 !important;
       margin-bottom: 1.375rem !important;
     }
 
     /* Cards: white on cream */
     .card {
-      --card-accent: #C4952A;
+      --card-accent: #2A627A;
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
+      border: 1px solid #DDD8D1 !important;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
     }
 
     .card:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.1) !important;
-      border-color: #B8B4AC !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12) !important;
+      border-color: #2A627A !important;
     }
 
     /* Card top accent stripe: gold */
     .card::before {
-      background: #C4952A !important;
+      background: #2A627A !important;
       height: 3px !important;
     }
 
@@ -826,8 +918,8 @@
     .page-content .card h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
-      font-weight: 600 !important;
-      color: #456A7C !important;
+      font-weight: 500 !important;
+      color: #2F2F2B !important;
       line-height: 1.3 !important;
       margin-bottom: 1rem !important;
       border-bottom: none !important;
@@ -837,55 +929,74 @@
     .card p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
-      color: #5A5850 !important;
+      color: #4A4944 !important;
       line-height: 1.65 !important;
     }
 
     .card-link {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.3rem !important;
+      margin-top: 1rem !important;
+      color: #2A627A !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-size: 1rem !important;
+      font-size: 0.85rem !important;
       font-weight: 600 !important;
-      color: #C4952A !important;
-      border: 1.5px solid #C4952A !important;
       letter-spacing: 0.01em !important;
+      text-decoration: none !important;
     }
-
+    .card-link::after {
+      content: ' →' !important;
+    }
     .card:hover .card-link {
-      background: #C4952A !important;
-      color: #FFFFFF !important;
+      color: #1A4558 !important;
     }
 
     /* ── BUTTON SYSTEM ─────────────────────────────────────────────────────
        All backgrounds set with !important to override inline style= attrs
-       (e.g. style="background:#4a6a8a" or style="background:var(--teal)")
+       (e.g. style="background:#2A627A" or style="background:var(--teal)")
     ─────────────────────────────────────────────────────────────────────── */
 
-    /* PRIMARY: midnight indigo — utility actions (download, generate, print…) */
+    /* PRIMARY: midnight indigo — utility actions (download, generate, print…)
+       Layout + color only — font-size / padding left to page CSS so
+       .generate-btn (16px, 14px 32px) and .print-btn (14px, 10px 22px)
+       keep their intentionally larger sizes on handout-builder pages. */
     .download-btn, .pdf-btn, .resource-btn, .btn-primary, .btn-teal, .btn-dark,
     .handout-box-btn, .generate-btn, .print-btn, .submit-btn, .state-go-btn {
-      background: #1E3A4F !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
+      text-decoration: none !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      font-weight: 500 !important;
+      font-weight: 600 !important;
       border: none !important;
       border-radius: 7px !important;
+      cursor: pointer !important;
+    }
+    /* Generic link-buttons that lack page-level padding/size —
+       these need explicit sizing so they look like proper buttons. */
+    .btn-primary, .btn-teal, .btn-dark, .download-btn, .pdf-btn, .resource-btn {
+      padding: 9px 18px !important;
+      font-size: 13px !important;
     }
     .download-btn:hover, .pdf-btn:hover, .resource-btn:hover,
     .btn-primary:hover, .btn-teal:hover, .btn-dark:hover,
     .handout-box-btn:hover, .generate-btn:hover, .print-btn:hover,
     .submit-btn:hover, .state-go-btn:hover:not(:disabled) {
-      background: #163043 !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
     }
     .state-go-btn:disabled {
-      background: #D0CCC2 !important;
-      color: #5A5850 !important;
+      background: #EFEEEA !important;
+      color: #7A756D !important;
       cursor: not-allowed !important;
     }
 
     /* CTA GOLD: high-emphasis calls to action */
     .cta-btn, .cta-banner-btn {
-      background: #C4952A !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 600 !important;
@@ -893,73 +1004,75 @@
       border-radius: 7px !important;
     }
     .cta-btn:hover, .cta-banner-btn:hover {
-      background: #7A6535 !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
     }
 
     /* SECONDARY OUTLINE: same weight as primary but ghost treatment */
     .btn-secondary {
       background: transparent !important;
-      color: #1E3A4F !important;
-      border: 1.5px solid #1E3A4F !important;
+      color: #2A627A !important;
+      border: 1.5px solid #2A627A !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
     .btn-secondary:hover {
-      background: #1E3A4F !important;
-      color: #FFFFFF !important;
+      background: #2A627A !important;
+      color: #F5F4F1 !important;
     }
 
     /* TERTIARY / TEMPLATE CHIPS: low-emphasis selectable options */
     .tpl-btn, .flow-btn {
-      background: #FFFFFF !important;
-      color: #1C1B18 !important;
-      border: 1px solid #D0CCC2 !important;
+      background: #F5F4F1 !important;
+      color: #2F2F2B !important;
+      border: 1px solid #DDD8D1 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 400 !important;
       border-radius: 6px !important;
     }
     .tpl-btn:hover, .flow-btn:hover {
       background: #F5F4F1 !important;
-      border-color: #B8B4AC !important;
+      border-color: #DDD8D1 !important;
     }
     .tpl-btn.active, .flow-btn.active {
-      background: #1E3A4F !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
-      border-color: #1E3A4F !important;
+      border-color: #2A627A !important;
     }
 
     /* GHOST / BACK: navigation-style, no fill */
     .back-btn, .restart-btn {
       background: transparent !important;
-      color: #456A7C !important;
-      border: 1.5px solid #D0CCC2 !important;
+      color: #2A627A !important;
+      border: 1.5px solid #DDD8D1 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
       border-radius: 7px !important;
     }
     .back-btn:hover, .restart-btn:hover {
-      border-color: #456A7C !important;
-      color: #1E3A4F !important;
+      border-color: #DDD8D1 !important;
+      color: #2A627A !important;
     }
 
     /* START-HERE CTA: gold, overrides inline style="background:var(--teal)" */
     .start-here-btn {
-      background: #C4952A !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 0.8rem !important;
       font-weight: 500 !important;
+      padding: 0.45rem 1rem !important;
       border-radius: 6px !important;
     }
     .start-here-btn:hover {
-      background: #7A6535 !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
     }
 
     /* ABOUT PAGE — contact CTA and closing link buttons */
     .contact-cta {
-      background: #1E3A4F !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-weight: 500 !important;
@@ -967,65 +1080,65 @@
       text-decoration: none !important;
     }
     .contact-cta:hover {
-      background: #163043 !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
       text-decoration: none !important;
     }
     .cta-link-btn.primary {
-      background: #456A7C !important;
+      background: #DDD8D1 !important;
       color: #FFFFFF !important;
       border-color: transparent !important;
     }
     .cta-link-btn.primary:hover {
-      background: #1E3A4F !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
        AT A GLANCE HANDOUT — override hard-coded legacy palette
-       Hard-coded #243147, #2B313C, #C2DED8, #2a7068 → Counsel
+       Hard-coded #2A627A, #2A627A, #EFEEEA, #2A627A → Counsel
     ═══════════════════════════════════════════════════════════════ */
     .h-header {
-      background: #1E3A4F !important;
+      background: #2A627A !important;
       border-top: none !important;
     }
     .h-eyebrow {
-      color: #C4952A !important;
+      color: #A07D54 !important;
     }
     .h-title em {
-      color: #C4952A !important;
+      color: #A07D54 !important;
     }
     .h-logo {
       color: rgba(255,255,255,0.45) !important;
     }
     .h-facts-bar {
-      background: #E8E6DF !important;
-      border-bottom: 1px solid #D0CCC2 !important;
+      background: #F5F4F1 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
     }
     .h-fact {
-      border-right-color: #D0CCC2 !important;
+      border-right-color: #DDD8D1 !important;
     }
     .h-fact-label {
-      color: #5A5850 !important;
+      color: #2F2F2B !important;
     }
     .h-fact-value {
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
     }
     .h-what-is-label {
-      color: #C4952A !important;
+      color: #2A627A !important;
     }
     .h-section-label {
-      color: #456A7C !important;
-      border-bottom-color: #D0CCC2 !important;
+      color: #A07D54 !important;
+      border-bottom-color: #DDD8D1 !important;
     }
     .h-feature-list li::before {
-      background: #C4952A !important;
+      background: #2A627A !important;
     }
     .h-feature-group-title {
-      color: #1E3A4F !important;
+      color: #2A627A !important;
     }
     .print-btn:hover {
-      background: #163043 !important;
+      background: #2A627A !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1035,58 +1148,58 @@
     ═══════════════════════════════════════════════════════════════ */
 
     /* Old-teal link/label color → steel indigo */
-    [style*="color:#2a7068"],
-    [style*="color: #2a7068"] {
-      color: #456A7C !important;
+    [style*="color:#A07D54"],
+    [style*="color: #A07D54"] {
+      color: #A07D54 !important;
     }
 
     /* Exception: teal-colored labels inside dark navy card containers
-       become invisible (#456A7C on #1E3A4F). Override to light accent. */
-    [style*="background:#162544"] [style*="color:#2a7068"],
-    [style*="background:#162544"] [style*="color: #2a7068"],
-    [style*="background:#1E3A4F"] [style*="color:#2a7068"],
-    [style*="background:#1E3A4F"] [style*="color: #2a7068"] {
-      color: #9FBBC8 !important;
+       become invisible (#DDD8D1 on #2A627A). Override to light accent. */
+    [style*="background:#2A627A"] [style*="color:#2A627A"],
+    [style*="background:#2A627A"] [style*="color: #2A627A"],
+    [style*="background:#2A627A"] [style*="color:#2A627A"],
+    [style*="background:#2A627A"] [style*="color: #2A627A"] {
+      color: #EFEEEA !important;
     }
 
     /* Old-navy backgrounds (back-to-top buttons, promo cards, etc.) */
-    [style*="background:#162544"],
-    [style*="background: #162544"] {
-      background: #1E3A4F !important;
+    [style*="background:#2A627A"],
+    [style*="background: #2A627A"] {
+      background: #2A627A !important;
     }
     /* Variant found on about.html back-to-top */
-    [style*="background:#2a627a"],
-    [style*="background: #2a627a"] {
-      background: #1E3A4F !important;
+    [style*="background:#2A627A"],
+    [style*="background: #2A627A"] {
+      background: #2A627A !important;
     }
 
     /* Old caramel CTA buttons → antique gold */
-    [style*="background:#C6A27E"],
-    [style*="background: #C6A27E"] {
-      background: #C4952A !important;
+    [style*="background:#2A627A"],
+    [style*="background: #2A627A"] {
+      background: #2A627A !important;
     }
 
     /* Old pale-teal callout backgrounds → parchment */
     [style*="background:#e8f4f2"],
     [style*="background:#E4F0EE"],
     [style*="background:#eaf5f3"] {
-      background: #E8E6DF !important;
-      border-left-color: #456A7C !important;
+      background: #F5F4F1 !important;
+      border-left-color: #DDD8D1 !important;
     }
 
-    /* Old teal-green button (#5a9186) and old muted navy (#4a6a8a) → midnight indigo */
-    [style*="background:#5a9186"],
-    [style*="background: #5a9186"],
-    [style*="background:#4a6a8a"],
-    [style*="background: #4a6a8a"] {
-      background: #1E3A4F !important;
+    /* Old teal-green button (#2A627A) and old muted navy (#2A627A) → midnight indigo */
+    [style*="background:#2A627A"],
+    [style*="background: #2A627A"],
+    [style*="background:#2A627A"],
+    [style*="background: #2A627A"] {
+      background: #2A627A !important;
       color: #FFFFFF !important;  /* restore white text — .page-body a rule overrides inline color:#fff */
     }
 
     /* Old-navy text color used in headings → midnight indigo */
-    [style*="color:#162544"],
-    [style*="color: #162544"] {
-      color: #1E3A4F !important;
+    [style*="color:#2A627A"],
+    [style*="color: #2A627A"] {
+      color: #2A627A !important;
     }
 
     /* Inline font-family: Inter → Poppins */
@@ -1103,49 +1216,66 @@
 
     /* ═══════════════════════════════════════════════════════════════
        SECTION-LABEL + SECTION-TAG — eyebrow label components
-       Used on 14+ pages; page CSS sets Inter/muted-grey.
+       Normalised to guides-label look: golden text + hairline after,
+       no teal dash before. Used on 14+ pages.
     ═══════════════════════════════════════════════════════════════ */
     .section-label {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #5A5850 !important;
+      color: #A07D54 !important;
       letter-spacing: 0.12em !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
+    }
+    /* Remove the teal/amber dash that page CSS injects via ::before */
+    .section-label::before {
+      content: none !important;
+      display: none !important;
+    }
+    /* Add the extending hairline to the right (matches .guides-label) */
+    .section-label::after {
+      content: '' !important;
+      flex: 1 !important;
+      height: 1px !important;
+      background: #DDD8D1 !important;
+      display: block !important;
     }
     .section-tag {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #5A5850 !important;
+      color: #2A627A !important;
     }
     .section-tag.on-dark {
       color: rgba(255,255,255,0.65) !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
-       RESEARCH PAGE — hard-coded #2a7068 references in page CSS
+       RESEARCH PAGE — hard-coded #2A627A references in page CSS
        (These are class-level rules so attribute selectors won't work)
     ═══════════════════════════════════════════════════════════════ */
     /* Type badges */
-    .card-badge                        { color: #456A7C !important; }
-    .peer-reviewed .card-badge         { background: #C8D4DA !important; }
-    .dissertation .card-badge          { background: #E8E6DF !important; }
+    .card-badge                        { color: #A07D54 !important; }
+    .peer-reviewed .card-badge         { background: #F5F4F1 !important; }
+    .dissertation .card-badge          { background: #F5F4F1 !important; }
 
     /* Citation links */
-    .card-citation a                   { color: #456A7C !important; }
+    .card-citation a                   { color: #A07D54 !important; }
 
     /* Bullet / arrow accent markers */
     .findings-list li::before,
     .treatment-card ul li::before,
-    .registry .findings-list li::before { color: #C4952A !important; }
+    .registry .findings-list li::before { color: #A07D54 !important; }
 
     /* Callout labels */
     .callout-label,
-    .review .family-callout .callout-label { color: #C4952A !important; }
+    .review .family-callout .callout-label { color: #A07D54 !important; }
 
     /* Heading labels in cards */
-    .card-section-label                { color: #C4952A !important; }
+    .card-section-label                { color: #2A627A !important; }
 
     /* Focus ring: old teal → steel indigo */
     .search-input:focus {
-      border-color: #456A7C !important;
-      box-shadow: 0 0 0 2px rgba(69,106,124,0.18) !important;
+      border-color: #DDD8D1 !important;
+      box-shadow: 0 0 0 2px rgba(42,98,122,0.18) !important;
     }
 
     /* Stat numbers: Lora → DM Sans */
@@ -1154,34 +1284,51 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.15rem !important;
       font-weight: 600 !important;
-      color: #1E3A4F !important;
+      color: #62929E !important;
     }
 
     /* Overview box h4 headers */
     .overview-box h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #1E3A4F !important;
+      color: #62929E !important;
     }
-    .overview-box ul li::before        { color: #C4952A !important; }
+    .overview-box ul li::before        { color: #62929E !important; }
 
-    /* Watch + monitoring callout headings */
+    /* Watch + monitoring callout — dark teal background needs light text */
     .watch-callout h3,
     .monitoring-box h3 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #1E3A4F !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Body text and links inside watch-callout must stay light —
+       the broad  main p { color: #2F2F2B }  rule would otherwise make
+       them dark-gray on the dark-teal card background. */
+    main .watch-callout p,
+    .watch-callout p {
+      color: rgba(255,255,255,0.85) !important;
+      line-height: 1.65 !important;
+    }
+
+    main .watch-callout a,
+    .watch-callout a {
+      color: #EFEEEA !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════
        MEDICAL TERMS PAGE — old teal palette → Counsel + sticky offset
     ═══════════════════════════════════════════════════════════════ */
-    /* Alphabet bar: old teal #5a9186 → steel indigo */
+    /* Alphabet bar: keep dark teal so white letters stay readable */
     .alpha-bar {
-      background: #456A7C !important;
-      border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+      background: #2A627A !important;
+      border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
-    /* Search bar: old dark #1e4f63 → midnight indigo */
+    .alpha-link                  { color: rgba(255,255,255,0.7)  !important; }
+    .alpha-link.has-entries      { color: rgba(255,255,255,0.88) !important; }
+    .alpha-link.no-entries       { color: rgba(255,255,255,0.25) !important; }
+    /* Search bar: old dark #2A627A → midnight indigo */
     .search-bar {
-      background: #1E3A4F !important;
+      background: #2A627A !important;
       border-top: 1px solid rgba(255,255,255,0.1) !important;
     }
     /* Search input on dark background */
@@ -1197,12 +1344,12 @@
     /* Term label: old teal → steel indigo */
     .teal-callout .callout-label,
     .term-setd5 strong {
-      color: #456A7C !important;
+      color: #A07D54 !important;
     }
     /* Tag badges: old teal bg → parchment */
     .tag-testing {
-      background: #E8E6DF !important;
-      color: #456A7C !important;
+      background: #F5F4F1 !important;
+      color: #A07D54 !important;
     }
     /* Prose body text */
     .prose {
@@ -1217,65 +1364,65 @@
     ═══════════════════════════════════════════════════════════════ */
     /* Active filter pill: old teal → steel indigo */
     .symptom-pill:hover {
-      border-color: #456A7C !important;
-      color: #456A7C !important;
+      border-color: #DDD8D1 !important;
+      color: #2A627A !important;
     }
     .symptom-pill.active {
-      background: #456A7C !important;
-      border-color: #456A7C !important;
+      background: #DDD8D1 !important;
+      border-color: #DDD8D1 !important;
       color: #FFFFFF !important;
     }
 
     /* TOC links */
-    .page-toc ol li a                  { color: #456A7C !important; }
+    .page-toc ol li a                  { color: #2A627A !important; }
 
     /* Feature card bullet dots */
     .feature-card ul li::before,
-    .feature-card.sage-top ul li::before { color: #C4952A !important; }
+    .feature-card.sage-top ul li::before { color: #2A627A !important; }
 
     .card-link:focus-visible {
-      outline: 2px solid #C4952A !important;
+      outline: 2px solid #2A627A !important;
       outline-offset: 2px !important;
     }
 
     .card-featured {
-      background: #FFFFFF !important;
+      background: rgba(98,146,158,0.15) !important;
     }
 
     .featured-badge {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      background: #456A7C !important;
+      background: #DDD8D1 !important;
       font-size: 0.58rem !important;
       letter-spacing: 0.1em !important;
     }
 
     /* Start-here banners: translucent gold tint */
     .start-here {
-      background: rgba(158,126,66,0.1) !important;
-      border-color: rgba(158,126,66,0.3) !important;
-      border-left-color: #C4952A !important;
+      background: #EFEEEA !important;
+      border-color: #DDD8D1 !important;
+      border-left-color: #2A627A !important;
       border-left-width: 3px !important;
       box-shadow: none !important;
     }
 
     .start-here-text strong {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #1E3A4F !important;
+      color: #2A627A !important;
     }
 
     .start-here-text p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
     }
 
     .start-here-btn {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      background: #1E3A4F !important;
+      background: #A07D54 !important;
       color: #FFFFFF !important;
     }
 
     .start-here-btn:hover {
-      background: #163043 !important;
+      background: #2A627A !important;
       color: #FFFFFF !important;
     }
 
@@ -1286,19 +1433,19 @@
 
     /* Main content links */
     main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]) {
-      color: #456A7C !important;
+      color: #2A627A !important;
+      text-decoration-color: rgba(160,125,84,0.4) !important;
+    }
+    main a:not(.card):not(.card-link):not(.start-here-btn):not([class*="btn"]):not([download]):hover {
+      color: #2A627A !important;
     }
 
     .card-link i,
     .card-link svg {
-      color: inherit !important;
-      stroke: currentColor !important;
+      display: none !important;   /* icons hidden — arrow added via ::after instead */
     }
-
     .su-intro-featured .card-link {
-      background: #C4952A !important;
-      color: #FFFFFF !important;
-      align-self: center !important;       /* center the CTA to match the centered layout */
+      display: none !important;   /* featured card has its own CTA button */
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1307,16 +1454,18 @@
     ═══════════════════════════════════════════════════════════════ */
 
     header.site-header {
-      background: rgba(245,244,241,0.94) !important;
-      backdrop-filter: blur(4px) !important;
-      -webkit-backdrop-filter: blur(4px) !important;
+      background: #1A4558 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
       border-top: none !important;
-      border-bottom: 1px solid #D0CCC2 !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
+      border-bottom: none !important;
+      box-shadow: 0 4px 24px rgba(26,69,88,0.22) !important;
       position: relative !important;
       z-index: 20 !important;
       padding: 1.125rem 0 0.875rem !important;
       clip-path: none !important;
+      color: #FFFFFF !important;
+      overflow: visible !important;
     }
 
     /* Neutralise the JS-driven collapse: override every .collapsed rule so the
@@ -1388,17 +1537,17 @@
       font-weight: 500 !important;
       letter-spacing: 0.06em !important;
       text-transform: uppercase !important;
-      color: #C4952A !important;
+      color: #A07D54 !important;
       margin-bottom: 0.4rem !important;
     }
 
     .header-eyebrow a {
-      color: #C4952A !important;
+      color: #2A627A !important;
       text-decoration: none !important;
     }
 
     .header-eyebrow a:hover {
-      color: #1E3A4F !important;
+      color: #2A627A !important;
       text-decoration: underline !important;
     }
 
@@ -1407,7 +1556,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.65rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #FFFFFF !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
       text-shadow: none !important;
@@ -1415,15 +1564,15 @@
     }
 
     .header-title em {
-      font-style: italic !important;
-      color: #C4952A !important;
+      font-style: normal !important;
+      color: #D4AE88 !important;
     }
 
     /* Page subtitle */
     .header-subtitle {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 16px !important;
-      color: #5A5850 !important;
+      color: rgba(255,255,255,0.82) !important;
       line-height: 1.5 !important;
       margin: 0 !important;
     }
@@ -1433,20 +1582,34 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 600 !important;
-      background: #C8D4DA !important;
-      color: #456A7C !important;
-      border: 1px solid #456A7C !important;
+      background: #F5F4F1 !important;
+      color: #A07D54 !important;
+      border: 1px solid #DDD8D1 !important;
       border-radius: 4px !important;
     }
 
     .page-layout {
       background: #F5F4F1 !important;
+      max-width: 860px !important;    /* center content now that sidebar is hidden */
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+
+    /* Let footer break out of the narrow page-layout container */
+    .page-layout .site-footer,
+    .page-main .site-footer {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(-50vw + 50%) !important;
+      position: relative !important;
+      box-sizing: border-box !important;
     }
 
     /* Sidebar */
     .page-sidebar {
-      background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
+      background: #EFEEEA !important;
+      border: 1px solid #DDD8D1 !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
       padding: 1.25rem 0 !important;
@@ -1461,9 +1624,9 @@
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #C4952A !important;
+      color: #2A627A !important;
       padding: 0 1.125rem 0.625rem !important;
-      border-bottom: 1px solid #D0CCC2 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
       margin-bottom: 0.375rem !important;
     }
 
@@ -1471,7 +1634,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 400 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
       background: transparent !important;
       border: none !important;
       border-left: 3px solid transparent !important;
@@ -1484,17 +1647,17 @@
     }
 
     .sidebar-link:hover {
-      color: #C4952A !important;
+      color: #2A627A !important;
       background: #F5F4F1 !important;
     }
 
     .sidebar-link.active,
     .sidebar-link[aria-current],
     .sidebar-link[aria-selected="true"] {
-      color: #C4952A !important;
+      color: #2A627A !important;
       font-weight: 600 !important;
-      border-left-color: #C4952A !important;
-      background: #F7F3E8 !important;
+      border-left-color: #2A627A !important;
+      background: #F5F4F1 !important;
       padding-left: calc(1.125rem - 3px) !important;
     }
 
@@ -1513,7 +1676,7 @@
         top: auto !important;
         border-radius: 0 !important;
         border: none !important;
-        border-bottom: 1px solid #D0CCC2 !important;
+        border-bottom: 1px solid #DDD8D1 !important;
         box-shadow: none !important;
         padding: 0 !important;
         display: flex !important;
@@ -1541,9 +1704,15 @@
       .sidebar-link[aria-selected="true"] {
         border-left: none !important;
         border-left-color: transparent !important;
-        border-bottom: 3px solid #C4952A !important;
+        border-bottom: 3px solid #2A627A !important;
         background: transparent !important;
         padding-left: 16px !important;
+      }
+
+      /* No hover/focus background on touch — prevents sticky overlay after tap */
+      .sidebar-link:hover,
+      .sidebar-link:focus {
+        background: transparent !important;
       }
 
       /* Sidebar tab labels: larger, easier to tap */
@@ -1552,20 +1721,9 @@
         min-height: 44px !important;
       }
 
-      /* Scroll affordance: right-edge fade shows more tabs exist */
-      .page-sidebar {
-        position: relative !important;
-      }
+      /* Scroll affordance: right-edge fade — removed to prevent overlay appearance */
       .page-sidebar::after {
-        content: '' !important;
-        position: absolute !important;
-        right: 0 !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        width: 28px !important;
-        background: linear-gradient(to right, transparent, #F5F4F1) !important;
-        pointer-events: none !important;
-        z-index: 1 !important;
+        display: none !important;
       }
 
       /* Interior page body: reduce side padding on mobile */
@@ -1585,7 +1743,7 @@
       .su-interior .site-nav {
         position: fixed !important;
         top: 0 !important;
-        z-index: 900 !important;
+        z-index: 950 !important;
       }
 
       /* Medical terms page search bar: push below sticky site-nav */
@@ -1599,18 +1757,252 @@
       }
     }
 
+    /* ── Nav overhaul: hide all sidebar panels — replaced by tk-subnav / tab-strip / jump-nav */
+    .page-sidebar { display: none !important; }
+
+    /* ── Family Toolkit horizontal section subnav ── */
+    .tk-subnav {
+      background: #ECEAE6 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+    }
+    .tk-subnav::-webkit-scrollbar { display: none !important; }
+    .tk-subnav-inner {
+      padding: 0 max(32px, calc(50vw - 398px)) !important;
+      display: flex !important;
+      align-items: stretch !important;
+    }
+    .tk-subnav-link {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.65rem 0.85rem !important;   /* bigger tap target */
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 14px !important;            /* up from 13px */
+      font-weight: 400 !important;
+      color: #4A4944 !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border-bottom: 2px solid transparent !important;
+      transition: color 0.15s, border-color 0.15s !important;
+    }
+    .tk-subnav-link:hover { color: #2A627A !important; text-decoration: none !important; }
+    .tk-subnav-link.active {
+      color: #2A627A !important;
+      font-weight: 600 !important;
+      border-bottom-color: #2A627A !important;
+    }
+    /* Back-to-toolkit link: subtle separator after it */
+    .tk-subnav-back {
+      color: #7A756D !important;
+      font-size: 13px !important;
+      padding-right: 1.1rem !important;
+      margin-right: 0.5rem !important;
+      border-right: 1px solid #C8C4BC !important;
+    }
+    .tk-subnav-back:hover { color: #2A627A !important; }
+
+    /* ── In-page horizontal tab strip (replaces tab-button sidebars) ──
+       Full-width element so border-bottom spans the viewport edge-to-edge;
+       content aligned via padding (mirrors site-nav pattern).               */
+    .page-tab-strip {
+      display: flex !important;
+      align-items: stretch !important;
+      width: 100% !important;
+      padding: 0 max(32px, calc(50vw - 398px)) !important;
+      overflow-x: auto !important;
+      scrollbar-width: none !important;
+      background: #ECEAE6 !important;    /* unified with tk-subnav */
+      border-bottom: 1px solid #DDD8D1 !important;
+      box-sizing: border-box !important;
+    }
+    .page-tab-strip::-webkit-scrollbar { display: none !important; }
+    .page-tab-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: none !important;
+      border: none !important;
+      border-bottom: 2px solid transparent !important;
+      padding: 0.65rem 0.85rem !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 14px !important;        /* unified with tk-subnav-link */
+      font-weight: 400 !important;
+      color: #4A4944 !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      transition: color 0.15s, border-color 0.15s !important;
+      margin-bottom: -1px !important;
+    }
+    .page-tab-btn:hover { color: #2A627A !important; }
+    /* ← Family Toolkit back link in tab strip */
+    .page-tab-back {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.65rem 1rem 0.65rem 0.85rem !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      color: #7A756D !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border-bottom: 2px solid transparent !important;
+      border-right: 1px solid #C8C4BC !important;
+      margin-right: 0.5rem !important;
+      cursor: pointer !important;
+    }
+    .page-tab-back:hover { color: #2A627A !important; text-decoration: none !important; }
+    .page-tab-btn.active {
+      color: #2A627A !important;
+      font-weight: 600 !important;
+      border-bottom-color: #2A627A !important;
+    }
+
+    /* ── In-page jump nav (replaces anchor-link sidebars) ──
+       Full-width strip between header and content — matches tk-subnav /
+       page-tab-strip visually so all interior secondary navs look the same. */
+    .jump-nav {
+      display: flex !important;
+      align-items: stretch !important;
+      min-height: 44px !important;   /* prevent height-collapse with overflow-x:auto + stretch */
+      width: 100% !important;
+      padding: 0 max(32px, calc(50vw - 398px)) !important;
+      overflow-x: auto !important;
+      scrollbar-width: none !important;
+      background: #ECEAE6 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
+      box-sizing: border-box !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+    }
+    .jump-nav::-webkit-scrollbar { display: none !important; }
+    /* ← Family Toolkit back link in jump nav */
+    .jump-nav-back {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.65rem 1rem 0.65rem 0.85rem !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      color: #7A756D !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border-right: 1px solid #C8C4BC !important;
+      margin-right: 0.5rem !important;
+    }
+    .jump-nav-back:hover { color: #2A627A !important; text-decoration: none !important; }
+    .jump-nav-label {
+      display: inline-flex !important;
+      align-items: center !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      color: #7A756D !important;
+      padding: 0.65rem 0.6rem 0.65rem 0 !important;
+      margin-right: 0.25rem !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    .jump-nav a {
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0.65rem 0.85rem !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      color: #4A4944 !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      border-bottom: 2px solid transparent !important;
+      transition: color 0.15s !important;
+      margin-bottom: -1px !important;
+    }
+    .jump-nav a:hover { color: #2A627A !important; text-decoration: none !important; }
+
+    /* Hide redundant section-chip rows when jump-nav or page-toc provides the same info */
+    html.su-has-jump-nav .intro-sources-row  { display: none !important; }
+    html.su-has-page-toc .intro-sources-row  { display: none !important; }
+
+    /* ── Mobile overrides for nav components ── */
+    @media (max-width: 768px) {
+      .tk-subnav-inner { padding: 0 20px !important; }
+      .tk-subnav-link  { padding: 0.6rem 0.7rem !important; font-size: 13.5px !important; }
+      .page-tab-strip  { padding: 0 20px !important; }
+      .page-tab-btn    { font-size: 13.5px !important; padding: 0.6rem 0.7rem !important; }
+      .jump-nav        { padding: 0 20px !important; }
+      .jump-nav a      { font-size: 13.5px !important; padding: 0.6rem 0.7rem !important; }
+    }
+
+    /* ── Page contents callout box ("On this page") ──
+       Used on five pages instead of a horizontal nav bar — quiet card style,
+       feels instructional rather than tab-like. Inserted at top of page content. */
+    .page-toc {
+      background: #EFEEEA !important;
+      border: 1px solid #DDD8D1 !important;
+      border-left: 3px solid #A07D54 !important;
+      border-radius: 0 6px 6px 0 !important;
+      padding: 1rem 1.25rem !important;
+      margin: 0 0 2rem 0 !important;
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      max-width: 520px !important;
+    }
+    .page-toc-label {
+      display: block !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.12em !important;
+      color: #7A756D !important;
+      margin-bottom: 0.55rem !important;
+    }
+    .page-toc-list {
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .page-toc-list li { margin: 0 !important; }
+    .page-toc-list a {
+      display: block !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      color: #2A627A !important;
+      text-decoration: none !important;
+      padding: 0.18rem 0 !important;
+      transition: color 0.15s !important;
+    }
+    .page-toc-list a:hover {
+      color: #A07D54 !important;
+      text-decoration: underline !important;
+    }
+    /* Tab panels unlocked on toc pages — add visible separation between sections */
+    .page-toc-unlocked .tab-panel {
+      display: block !important;
+      scroll-margin-top: 120px !important;
+    }
+    .page-toc-unlocked .tab-panel + .tab-panel {
+      border-top: 2px solid #DDD8D1 !important;
+      padding-top: 2rem !important;
+      margin-top: 0.5rem !important;
+    }
+    /* Ensure section anchors clear the sticky site-nav on page-toc pages */
+    html.su-has-page-toc h2[id],
+    html.su-has-page-toc h3[id] { scroll-margin-top: 80px !important; }
+    @media (max-width: 640px) {
+      .page-toc { padding: 0.85rem 1rem !important; max-width: 100% !important; }
+      .page-toc-list a { font-size: 13.5px !important; }
+    }
+
     /* Interior page content typography — 20px hard cap on headings */
     .page-body h2,
     .page-main h2 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #456A7C !important;
+      color: #2A627A !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #D0CCC2 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
     }
 
     .page-body h3,
@@ -1618,7 +2010,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.1rem !important;
       font-weight: 600 !important;
-      color: #1E3A4F !important;
+      color: #2A627A !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
@@ -1632,16 +2024,21 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 16px !important;
       line-height: 1.75 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
     }
 
     .prose, .content, .entry-body {
       font-size: 16px !important;
     }
 
-    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]),
-    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([download]) {
-      color: #456A7C !important;
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]),
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]) {
+      color: #2A627A !important;
+      text-decoration-color: rgba(160,125,84,0.4) !important;
+    }
+    .page-body a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]):hover,
+    .page-main a:not([class*="btn"]):not([class*="-btn"]):not([class*="button"]):not([class*="cta"]):not([class*="alpha"]):not([download]):hover {
+      color: #2A627A !important;
     }
 
     /* Enforce white text on all dark-background buttons — even when nested in .page-body/.page-main */
@@ -1658,10 +2055,10 @@
     .page-body .cta-btn,      .page-main .cta-btn,
     .page-body .cta-banner-btn, .page-main .cta-banner-btn,
     .page-body .start-here-btn, .page-main .start-here-btn,
-    .page-body [style*="background:#1E3A4F"], .page-main [style*="background:#1E3A4F"],
-    .page-body [style*="background: #1E3A4F"], .page-main [style*="background: #1E3A4F"],
-    .page-body [style*="background:#C4952A"], .page-main [style*="background:#C4952A"],
-    .page-body [style*="background: #C4952A"], .page-main [style*="background: #C4952A"] {
+    .page-body [style*="background:#2A627A"], .page-main [style*="background:#2A627A"],
+    .page-body [style*="background: #2A627A"], .page-main [style*="background: #2A627A"],
+    .page-body [style*="background:#2A627A"], .page-main [style*="background:#2A627A"],
+    .page-body [style*="background: #2A627A"], .page-main [style*="background: #2A627A"] {
       color: #FFFFFF !important;
     }
 
@@ -1672,7 +2069,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 16px !important;
       line-height: 1.7 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
     }
 
     /* Callout / note boxes */
@@ -1681,8 +2078,8 @@
     .page-main .note,
     .page-main .callout {
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #C4952A !important;
+      border: 1px solid #DDD8D1 !important;
+      border-left: 3px solid #2A627A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
@@ -1694,19 +2091,19 @@
     ═══════════════════════════════════════════════════════════════ */
     .intro-box {
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #C4952A !important;
+      border: 1px solid #DDD8D1 !important;
+      border-left: 3px solid #2A627A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.25rem 1.625rem !important;
       margin-bottom: 2rem !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.7 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
     }
     .intro-box strong {
-      color: #1E3A4F !important;
+      color: #2A627A !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
@@ -1718,12 +2115,12 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.125rem !important;
       font-weight: 600 !important;
-      color: #456A7C !important;
+      color: #2A627A !important;
       line-height: 1.25 !important;
       margin-top: 2rem !important;
       margin-bottom: 0.75rem !important;
       padding-bottom: 0.375rem !important;
-      border-bottom: 1px solid #D0CCC2 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
     }
 
     .page-layout h3,
@@ -1733,11 +2130,26 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1.1rem !important;
       font-weight: 600 !important;
-      color: #1E3A4F !important;
+      color: #2A627A !important;
       line-height: 1.3 !important;
       margin-top: 1.5rem !important;
       margin-bottom: 0.5rem !important;
     }
+
+    /* Re-apply white text for dark-bg callouts — must come AFTER the broad
+       .page-main h3 block above (same !important, later position wins) */
+    .page-main .watch-callout h3,
+    .page-body .watch-callout h3,
+    .page-layout .watch-callout h3,
+    .watch-callout h3 { color: #FFFFFF !important; }
+    .page-main .watch-callout p,
+    .page-body .watch-callout p,
+    .page-layout .watch-callout p,
+    .watch-callout p { color: rgba(255,255,255,0.85) !important; }
+    .page-main .watch-callout a,
+    .page-body .watch-callout a,
+    .page-layout .watch-callout a,
+    .watch-callout a { color: #EFEEEA !important; }
 
     .page-layout h4,
     .page-content h4,
@@ -1746,7 +2158,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.9rem !important;
       font-weight: 600 !important;
-      color: #1E3A4F !important;
+      color: #2A627A !important;
       line-height: 1.3 !important;
       margin-top: 1.25rem !important;
       margin-bottom: 0.375rem !important;
@@ -1757,7 +2169,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.75 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
     }
 
     .page-intro,
@@ -1765,12 +2177,12 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       line-height: 1.8 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
     }
 
     /* ── Dark-background sections (about.html bg-story) ── */
     .bg-story {
-      background: #1E3A4F !important;
+      background: #2A627A !important;
     }
     .bg-story h2,
     .bg-story .section-tag {
@@ -1791,6 +2203,29 @@
       color: rgba(255,255,255,0.65) !important;
     }
 
+    /* ── Letter-card: story-prose sits on white, so re-darken text ──
+       Higher specificity (.bg-story .story-prose X) beats (.bg-story X)
+       at same !important weight.                                        */
+    .bg-story .story-prose h2 {
+      color: #1E3A47 !important;
+    }
+    .bg-story .story-prose .section-tag {
+      color: #2A627A !important;
+    }
+    .bg-story .story-prose p {
+      color: #2F2F2B !important;
+    }
+    .bg-story .story-prose .kate-quote {
+      color: #2F2F2B !important;
+      border-left-color: #2A627A !important;
+    }
+    .bg-story .story-prose .closing-note {
+      color: #2A627A !important;
+    }
+    .bg-story .story-prose .section-divider::before {
+      background: rgba(42,98,122,0.35) !important;
+    }
+
 
     /* ═══════════════════════════════════════════════════════════════
        OLD-PALETTE ELEMENT OVERRIDES
@@ -1798,15 +2233,15 @@
 
     .teal-callout {
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #C4952A !important;
+      border: 1px solid #DDD8D1 !important;
+      border-left: 3px solid #2A627A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .teal-callout .callout-label {
-      color: #C4952A !important;
+      color: #A07D54 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1815,21 +2250,21 @@
     }
 
     .teal-callout p {
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .info-callout {
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #C4952A !important;
+      border: 1px solid #DDD8D1 !important;
+      border-left: 3px solid #2A627A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .info-callout .callout-label {
-      color: #C4952A !important;
+      color: #A07D54 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1838,21 +2273,21 @@
     }
 
     .info-callout p {
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .amber-callout {
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
-      border-left: 3px solid #C4952A !important;
+      border: 1px solid #DDD8D1 !important;
+      border-left: 3px solid #2A627A !important;
       border-radius: 0 8px 8px 0 !important;
       padding: 1.125rem 1.375rem !important;
       box-shadow: 0 1px 6px rgba(0,0,0,0.04) !important;
     }
 
     .amber-callout .callout-label {
-      color: #C4952A !important;
+      color: #A07D54 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.67rem !important;
       font-weight: 700 !important;
@@ -1862,95 +2297,115 @@
 
     .feature-card {
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
-      border-top: 3px solid #C4952A !important;
+      border: 1px solid #DDD8D1 !important;
+      border-top: 3px solid #2A627A !important;
       border-radius: 8px !important;
       box-shadow: 0 1px 8px rgba(0,0,0,0.05) !important;
     }
 
-    .feature-card.amber-top { border-top-color: #C4952A !important; }
-    .feature-card.rose-top  { border-top-color: #C4952A !important; }
-    .feature-card.sage-top  { border-top-color: #C4952A !important; }
-    .feature-card.blue-top  { border-top-color: #C4952A !important; }
+    .feature-card.amber-top { border-top-color: #2A627A !important; }
+    .feature-card.rose-top  { border-top-color: #2A627A !important; }
+    .feature-card.sage-top  { border-top-color: #2A627A !important; }
+    .feature-card.blue-top  { border-top-color: #2A627A !important; }
+
+    /* ── Research Registries: normalize section band backgrounds to site palette */
+    .registry-section-teal  { background: #F5F4F1 !important; }
+    .registry-section-amber { background: #F5F4F1 !important; }
+    .registry-section-blue  { background: #F5F4F1 !important; }
+    .registry-section-teal  .registry-facts { background: #ECEAE6 !important; border-color: #DDD8D1 !important; }
+    .registry-section-amber .registry-facts { background: #ECEAE6 !important; border-color: #DDD8D1 !important; }
+    .registry-section-blue  .registry-facts { background: #ECEAE6 !important; border-color: #DDD8D1 !important; }
 
     .feature-card h4 {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 700 !important;
-      color: #1E3A4F !important;
+      color: #62929E !important;
     }
 
     .feature-card li,
     .feature-card p {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
     }
 
     .section-label {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 0.75rem !important;
       font-weight: 600 !important;
-      color: #5A5850 !important;
+      color: #A07D54 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
     }
 
+    /* Suppress ::before dash from page CSS; ensure hairline ::after */
     .section-label::before {
-      background: #C4952A !important;
+      content: none !important;
+      display: none !important;
+    }
+    .section-label::after {
+      content: '' !important;
+      flex: 1 !important;
+      height: 1px !important;
+      background: #DDD8D1 !important;
+      display: block !important;
     }
 
     .section-title {
       font-family: 'DM Sans', system-ui, sans-serif !important;
-      color: #1E3A4F !important;
+      color: #2F2F2B !important;
     }
 
     .symptom-pill {
-      background: #FFFFFF !important;
-      border-color: #D0CCC2 !important;
-      color: #5A5850 !important;
+      background: #EFEEEA !important;
+      border-color: #DDD8D1 !important;
+      color: #2F2F2B !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .symptom-pill:hover,
     .symptom-pill.active {
-      background: #C4952A !important;
-      border-color: #C4952A !important;
+      background: #2A627A !important;
+      border-color: #2A627A !important;
       color: #FFFFFF !important;
     }
 
     .symptom-search {
-      border-color: #D0CCC2 !important;
+      border-color: #DDD8D1 !important;
       font-family: 'DM Sans', system-ui, sans-serif !important;
     }
 
     .symptom-search:focus {
-      border-color: #C4952A !important;
+      border-color: #2A627A !important;
     }
 
     .stat-box {
       background: #FFFFFF !important;
-      border: 1px solid #D0CCC2 !important;
+      border: 1px solid #DDD8D1 !important;
     }
 
     .tab-nav {
       background: #FFFFFF !important;
-      border-top: 1px solid #D0CCC2 !important;
-      border-bottom: 1px solid #D0CCC2 !important;
+      border-top: 1px solid #DDD8D1 !important;
+      border-bottom: 1px solid #DDD8D1 !important;
     }
 
     .tab-btn {
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 1rem !important;
       font-weight: 500 !important;
-      color: #5A5850 !important;
+      color: #2F2F2B !important;
     }
 
     .tab-btn.active,
     .tab-btn[aria-selected="true"] {
-      color: #C4952A !important;
+      color: #2A627A !important;
       font-weight: 600 !important;
-      border-bottom-color: #C4952A !important;
+      border-bottom-color: #2A627A !important;
     }
 
     /* ── Shared section sidebar (injected into pages without their own) ── */
@@ -1965,8 +2420,8 @@
       top: 56px !important;
       height: calc(100vh - 56px) !important;
       overflow-y: auto !important;
-      background: #fff !important;
-      border-right: 1px solid #D0CCC2 !important;
+      background: #EFEEEA !important;
+      border-right: 1px solid #DDD8D1 !important;
       padding: 24px 0 !important;
       -ms-overflow-style: none !important;
       scrollbar-width: none !important;
@@ -1977,7 +2432,7 @@
       font-weight: 700 !important;
       letter-spacing: 0.09em !important;
       text-transform: uppercase !important;
-      color: #5A5850 !important;
+      color: #2F2F2B !important;
       padding: 0 20px !important;
       margin: 10px 0 6px !important;
     }
@@ -1987,7 +2442,7 @@
       font-family: 'DM Sans', system-ui, sans-serif !important;
       font-size: 13.5px !important;
       font-weight: 400 !important;
-      color: #1C1B18 !important;
+      color: #2F2F2B !important;
       text-decoration: none !important;
       padding: 7px 20px !important;
       border-left: 3px solid transparent !important;
@@ -1995,18 +2450,18 @@
       transition: background 0.12s, color 0.12s !important;
     }
     .su-page-sidebar .sidebar-link:hover {
-      background: #f7f5f0 !important;
-      color: #1E3A4F !important;
+      background: #F5F4F1 !important;
+      color: #2A627A !important;
     }
     .su-page-sidebar .sidebar-link.active {
-      color: #1E3A4F !important;
+      color: #2A627A !important;
       font-weight: 600 !important;
-      border-left-color: #C4952A !important;
-      background: #fdf8f2 !important;
+      border-left-color: #2A627A !important;
+      background: #F5F4F1 !important;
     }
     .su-page-sidebar .sidebar-divider {
       border: none !important;
-      border-top: 1px solid #D0CCC2 !important;
+      border-top: 1px solid #DDD8D1 !important;
       margin: 10px 0 !important;
     }
     .su-page-main {
@@ -2021,7 +2476,7 @@
         position: static !important;
         top: auto !important;
         border-right: none !important;
-        border-bottom: 1px solid #D0CCC2 !important;
+        border-bottom: 1px solid #DDD8D1 !important;
         padding: 0 !important;
         display: flex !important;
         flex-direction: row !important;
@@ -2038,7 +2493,7 @@
         flex-shrink: 0 !important;
       }
       .su-page-sidebar .sidebar-link.active {
-        border-bottom-color: #C4952A !important;
+        border-bottom-color: #A07D54 !important;
         border-left: none !important;
         background: none !important;
       }
@@ -2068,6 +2523,17 @@
   const homeHero = document.querySelector('header:not(.site-header)');
   if (homeNav && homeHero && homeHero.parentNode) {
     homeHero.parentNode.insertBefore(homeNav, homeHero);
+  }
+  // Force-remove border that originates from inline page <style> blocks
+  if (homeNav) {
+    homeNav.style.setProperty('border-bottom', 'none', 'important');
+    homeNav.style.setProperty('border-top', 'none', 'important');
+    homeNav.style.setProperty('margin-bottom', '0', 'important');
+  }
+  // Dynamically match body padding-top to actual nav height so there's no gap
+  if (homeNav) {
+    var navH = homeNav.getBoundingClientRect().height;
+    document.body.style.setProperty('padding-top', navH + 'px', 'important');
   }
 
   const navInner = document.querySelector('.site-nav-inner');
@@ -2112,7 +2578,7 @@
       const logo = document.createElement('a');
       logo.href = '/index.html';
       logo.className = 'su-nav-logo';
-      logo.innerHTML = '<span class="su-logo-long">The SETD5 Syndrome <span class="su-nav-logo-light">Companion</span></span><span class="su-logo-short">SETD5 Syndrome</span>';
+      logo.innerHTML = '<span class="su-logo-long">The <span class="su-nav-logo-setd5">SETD5 Syndrome</span> <span class="su-nav-logo-light">Companion</span></span><span class="su-logo-short">SETD5 Syndrome</span>';
       navInner.insertBefore(logo, navMenu);
     }
   }
@@ -2126,19 +2592,204 @@
   });
 
 
+  /* ─── 2d. TOOLKIT SUBNAV + IN-PAGE NAV INJECTION ─────────────────────── */
+  (function () {
+    const tkPages = [
+      { href: 'family-toolkit.html',              label: 'Overview' },
+      { href: 'setd5-at-a-glance.html',           label: 'At a Glance' },
+      { href: 'understanding-genetic-report.html', label: 'Genetic Report' },
+      { href: 'school-iep-guide.html',            label: 'School & IEP' },
+      { href: 'qualifying-for-services.html',      label: 'Support Programs' },
+      { href: 'disability-discounts-guide.html',   label: 'Disability Discounts' },
+      { href: 'printable-handouts.html',          label: 'Handouts & Builders' },
+      { href: 'family-stories.html',              label: 'Family Stories' },
+    ];
+    const tkHrefSet = new Set(tkPages.map(p => p.href));
+    const curPage = (window.location.pathname.split('/').pop() || 'index.html');
+
+    // ── Detect sidebar content first (needed to decide which nav to inject) ──
+    const sidebar        = document.querySelector('.page-sidebar');
+    const sidebarBtns    = sidebar ? Array.from(sidebar.querySelectorAll('button.sidebar-link[data-tab]')) : [];
+    const sidebarAnchors = sidebar ? Array.from(sidebar.querySelectorAll('a.sidebar-link[href^="#"]')) : [];
+    const pageLayout     = document.querySelector('.page-layout');
+    const pageMain       = document.querySelector('.page-main');
+    const hasOwnNav      = sidebarBtns.length >= 2 || sidebarAnchors.length >= 2;
+    const isTkPage       = tkHrefSet.has(curPage) && curPage !== 'family-toolkit.html';
+    // If page already has a .tk-page-nav baked into HTML, skip ALL subnav injection
+    const hasTkPageNav   = !!document.querySelector('.tk-page-nav');
+    if (hasTkPageNav) return;
+
+    // ── A. Inject Family Toolkit horizontal subnav ──
+    // Only on tk pages that have NO own tab/jump nav (those get ← back link added inline)
+    if (isTkPage && !hasOwnNav) {
+      const tkNav = document.createElement('nav');
+      tkNav.className = 'tk-subnav';
+      tkNav.setAttribute('aria-label', 'Family Toolkit pages');
+      const inner = document.createElement('div');
+      inner.className = 'tk-subnav-inner';
+      // ← Family Toolkit back link first
+      const backLink = document.createElement('a');
+      backLink.href = 'family-toolkit.html';
+      backLink.className = 'tk-subnav-link tk-subnav-back';
+      backLink.textContent = '\u2190 Family Toolkit';
+      inner.appendChild(backLink);
+      tkPages.forEach(function (p) {
+        const a = document.createElement('a');
+        a.href = p.href;
+        a.className = 'tk-subnav-link';
+        a.textContent = p.label;
+        if (p.href === curPage) {
+          a.classList.add('active');
+          a.setAttribute('aria-current', 'page');
+        }
+        inner.appendChild(a);
+      });
+      tkNav.appendChild(inner);
+      const siteNav = document.querySelector('.site-nav');
+      if (siteNav) siteNav.insertAdjacentElement('afterend', tkNav);
+    }
+
+    // ── B. Inject page-toc callout OR horizontal tab strip / jump nav ──
+    if (!sidebar) return;
+
+    // Pages that get a quiet contents callout card instead of a horizontal nav bar
+    const tocPages = new Set([
+      'qualifying-for-services.html',
+      'school-iep-guide.html',
+      'research-registries.html',
+      'disability-discounts-guide.html',
+    ]);
+
+    if (tocPages.has(curPage) && (sidebarBtns.length >= 2 || sidebarAnchors.length >= 2)) {
+      // ── Page-toc path ──
+      const tocItems = [];
+
+      if (sidebarBtns.length >= 2) {
+        // Tab-based page: unlock all tab panels so they flow as scrollable sections
+        document.documentElement.classList.add('page-toc-unlocked');
+        sidebarBtns.forEach(function (btn) {
+          const dataTab = btn.getAttribute('data-tab');
+          // Panel id may equal data-tab or may be "tab-" + data-tab — look it up
+          const panel = document.getElementById(dataTab) || document.getElementById('tab-' + dataTab);
+          const panelId = panel ? panel.id : dataTab;
+          tocItems.push({ href: '#' + panelId, label: btn.textContent.trim() });
+        });
+      } else {
+        sidebarAnchors.forEach(function (a) {
+          tocItems.push({ href: a.getAttribute('href'), label: a.textContent.trim() });
+        });
+      }
+
+      // Build the callout element
+      const toc = document.createElement('div');
+      toc.className = 'page-toc';
+      toc.setAttribute('aria-label', 'On this page');
+      const tocLbl = document.createElement('span');
+      tocLbl.className = 'page-toc-label';
+      tocLbl.textContent = 'On this page';
+      toc.appendChild(tocLbl);
+      const ol = document.createElement('ol');
+      ol.className = 'page-toc-list';
+      tocItems.forEach(function (item) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.href;
+        a.textContent = item.label;
+        li.appendChild(a);
+        ol.appendChild(li);
+      });
+      toc.appendChild(ol);
+
+      // Insert at the top of page content
+      // If page-main wraps a <main>, insert inside <main>; otherwise insert in page-main
+      const insertHost = (pageMain && pageMain.querySelector(':scope > main')) || pageMain;
+      if (insertHost) insertHost.insertBefore(toc, insertHost.firstChild);
+      // Mark page so redundant section-chip rows stay hidden
+      document.documentElement.classList.add('su-has-page-toc');
+
+    } else if (sidebarBtns.length >= 2 && pageLayout) {
+      // Tab-based page: inject horizontal tab strip above .page-layout
+      const strip = document.createElement('nav');
+      strip.className = 'page-tab-strip';
+      strip.setAttribute('aria-label', 'Page sections');
+      // Prepend ← Family Toolkit back link if this is a tk sub-page
+      if (isTkPage) {
+        const back = document.createElement('a');
+        back.href = 'family-toolkit.html';
+        back.className = 'page-tab-back';
+        back.textContent = '\u2190 Family Toolkit';
+        strip.appendChild(back);
+      }
+      sidebarBtns.forEach(function (origBtn) {
+        const btn = document.createElement('button');
+        btn.className = 'page-tab-btn' + (origBtn.classList.contains('active') ? ' active' : '');
+        btn.textContent = origBtn.textContent.trim();
+        const tabId  = origBtn.getAttribute('data-tab');
+        const fnCall = origBtn.getAttribute('onclick');
+        btn.setAttribute('data-tab', tabId);
+        btn.addEventListener('click', function () {
+          // Run the original onclick (showTab / showResearchTab etc.)
+          try { eval(fnCall); } catch (e) {}
+          // Sync active state on strip buttons
+          strip.querySelectorAll('.page-tab-btn').forEach(function (b) {
+            b.classList.toggle('active', b === btn);
+          });
+          // Keep hidden sidebar buttons in sync (they drive the actual tab logic)
+          sidebar.querySelectorAll('.sidebar-link').forEach(function (b) {
+            if (b.getAttribute('data-tab') === tabId) b.classList.add('active');
+            else b.classList.remove('active');
+          });
+        });
+        strip.appendChild(btn);
+      });
+      pageLayout.parentNode.insertBefore(strip, pageLayout);
+
+    } else if (sidebarAnchors.length >= 2 && pageLayout) {
+      // Anchor-link page: inject jump nav strip between header and content
+      const jumpNav = document.createElement('nav');
+      jumpNav.className = 'jump-nav';
+      jumpNav.setAttribute('aria-label', 'On this page');
+      // Prepend ← Family Toolkit back link if this is a tk sub-page
+      if (isTkPage) {
+        const back = document.createElement('a');
+        back.href = 'family-toolkit.html';
+        back.className = 'jump-nav-back';
+        back.textContent = '\u2190 Family Toolkit';
+        jumpNav.appendChild(back);
+      }
+      const lbl = document.createElement('span');
+      lbl.className = 'jump-nav-label';
+      lbl.textContent = 'On this page';
+      jumpNav.appendChild(lbl);
+      sidebarAnchors.forEach(function (orig) {
+        const a = document.createElement('a');
+        a.href = orig.getAttribute('href');
+        a.textContent = orig.textContent.trim();
+        jumpNav.appendChild(a);
+      });
+      pageLayout.parentNode.insertBefore(jumpNav, pageLayout);
+      // Mark page so CSS can hide redundant section-chip rows (e.g. helpful-links)
+      document.documentElement.classList.add('su-has-jump-nav');
+    }
+  })();
+
+
   /* ─── 3. RESTRUCTURE HOME PAGE HERO ─────────────────────────────────── */
   // Interior pages use <header class="site-header"> — do not touch those.
   // Home page uses a plain <header> with .header-hero-inner inside.
   const siteHeader = document.querySelector('header:not(.site-header)');
 
   if (siteHeader) {
-    // Recolor helix SVG from original teal → steel indigo (#456A7C = rgb 69,106,124)
+    // HELIX DISABLED — saved for potential future use
+    // To restore: uncomment the block below
+    /*
+    // Recolor helix SVG from original teal → steel indigo (#A07D54 = rgb 69,106,124)
     // so it reads as a soft blue accent on the cream hero background
     const helixSvg = siteHeader.querySelector('svg');
     if (helixSvg) {
       helixSvg.innerHTML = helixSvg.innerHTML
-        .replace(/rgba\(194,222,216,/g, 'rgba(69,106,124,')
-        .replace(/#C2DED8/gi, '#456A7C');
+        .replace(/rgba\(194,222,216,/g, 'rgba(180,215,228,')
+        .replace(/#EFEEEA/gi, '#62929E');
       // Scale up and nudge left; transform-origin anchors from the right
       // so it grows inward (leftward) without clipping the right edge
       helixSvg.style.transformOrigin = 'right center';
@@ -2152,6 +2803,11 @@
       // Lower SVG z-index — wrapper stacking context handles placement
       helixSvg.style.zIndex = '0';
     }
+    */
+
+    // Hide the SVG so it doesn't show beneath the background image
+    const helixSvg = siteHeader.querySelector('svg');
+    if (helixSvg) helixSvg.style.display = 'none';
 
     const heroInner = siteHeader.querySelector('.header-hero-inner');
     if (heroInner) {
@@ -2161,7 +2817,7 @@
       // Tag pill
       const tag = document.createElement('span');
       tag.className = 'su-hero-tag';
-      tag.textContent = 'Rare Genetic Condition \u00B7 Family Resource';
+      tag.textContent = 'Rare Genetic Condition \u00B7 Peer Resource';
       heroInner.appendChild(tag);
 
       // H1 with gold italic em
@@ -2173,7 +2829,7 @@
       // Subheading
       const sub = document.createElement('p');
       sub.className = 'su-hero-sub';
-      sub.textContent = 'Plain-language resources for families navigating SETD5 Syndrome \u2014 wherever you are in the journey.';
+      sub.textContent = 'Plain-language resources for families and caregivers navigating SETD5 Syndrome, wherever you are in the journey.';
       heroInner.appendChild(sub);
 
     }
@@ -2196,10 +2852,11 @@
   const introBar  = document.querySelector('.intro-bar');
   const introBody = introBar ? introBar.querySelector('.intro-body') : null;
   if (introBar && introBody) {
-    // 1. Trim the body copy to a tighter supporting line
-    introBody.textContent = 'A helpful companion for families navigating a SETD5 Syndrome diagnosis.';
+    // Remove the body copy line entirely
+    introBody.remove();
 
-    // 3. Three trust-signal badges injected after the body copy
+    // 3. Three trust-signal badges injected after the headline
+    const introHeadline = introBar.querySelector('.su-intro-headline');
     const trustRow = document.createElement('div');
     trustRow.className = 'su-trust-row';
     trustRow.innerHTML = `
@@ -2215,7 +2872,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
         Updated regularly
       </span>`;
-    introBody.insertAdjacentElement('afterend', trustRow);
+    if (introHeadline) {
+      introHeadline.insertAdjacentElement('afterend', trustRow);
+    } else {
+      introBar.appendChild(trustRow);
+    }
   }
 
 
@@ -2223,18 +2884,18 @@
   const intlNote = document.querySelector('div[style*="sage-lt"], div[style*="e8f4f2"], div[style*="E4F0EE"], div[style*="eaf5f3"]');
   if (intlNote) {
     Object.assign(intlNote.style, {
-      background: '#C8D4DA',
-      border: '1px solid #A8BEC8',
-      borderLeft: '3px solid #456A7C',
+      background: '#F5F4F1',
+      border: '1px solid #DDD8D1',
+      borderLeft: '3px solid #DDD8D1',
       borderRadius: '8px',
-      color: '#1E3A4F',
+      color: '#2A627A',
       fontSize: '1rem',
       lineHeight: '1.7',
       fontFamily: "'DM Sans', system-ui, sans-serif",
       boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
     });
     const strong = intlNote.querySelector('strong');
-    if (strong) strong.style.color = '#1E3A4F';
+    if (strong) strong.style.color = '#2A627A';
   }
 
 
@@ -2252,17 +2913,7 @@
           <span class="su-footer-brand-name">The SETD5 Syndrome Companion</span>
           <span class="su-footer-brand-tag">A peer resource for families and caregivers</span>
           <p class="su-footer-brand-desc">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
-        </div>
-
-        <div class="su-footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="setd5-syndrome-overview.html">SETD5 Syndrome</a></li>
-            <li><a href="family-toolkit.html">Family Toolkit</a></li>
-            <li><a href="setd5-medical-terms-guide.html">Medical Terms</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="helpful-links.html">Community</a></li>
-          </ul>
+          <p class="su-footer-brand-desc">&copy; 2026 The SETD5 Syndrome Companion</p>
         </div>
 
         <div class="su-footer-col">
@@ -2283,7 +2934,6 @@
       </div>
 
       <div id="su-footer-bottom">
-        <p>&copy; 2026 The SETD5 Syndrome Companion</p>
       </div>
     `;
   } // end if (existingFooter)

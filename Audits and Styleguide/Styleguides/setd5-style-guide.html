@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SETD5 Syndrome Companion — Style Guide v157</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #2A627A;
+      --primary-dk: #1A4558;
+      --nav-bg:     #214F64;
+      --secondary:  #62929E;
+      --gold:       #A07D54;
+      --gold-lt:    #D4AE88;
+      --page-bg:    #F5F4F1;
+      --surface:    #EFEEEA;
+      --intro-bg:   #F8F7F4;
+      --hero-bg:    #1A4558;
+      --border:     #DDD8D1;
+      --text:       #2F2F2B;
+      --muted:      #7A756D;
+      --white:      #FFFFFF;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #E8E7E3;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--primary-dk);
+      padding: 2rem 0 3rem;
+      flex-shrink: 0;
+    }
+    .sidebar-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #F5F4F1;
+      padding: 0 1.5rem 1.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+    .sidebar-logo span { color: var(--gold-lt); }
+    .sidebar-version {
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-top: 0.25rem;
+    }
+    .sidebar nav a {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      padding: 0.45rem 1.5rem;
+      transition: color 0.1s, background 0.1s;
+    }
+    .sidebar nav a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .sidebar nav .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding: 1.25rem 1.5rem 0.4rem;
+    }
+
+    /* ── Main ── */
+    .main { background: var(--page-bg); }
+
+    .page-header {
+      background: var(--primary-dk);
+      color: #F5F4F1;
+      padding: 3rem 3rem 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .page-header h1 {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .page-header h1 em { color: var(--gold-lt); font-style: italic; }
+    .page-header p { color: rgba(245,244,241,0.7); font-size: 0.9rem; }
+
+    .section {
+      padding: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Color swatches ── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .swatch-color {
+      height: 80px;
+    }
+    .swatch-info {
+      background: #fff;
+      padding: 0.6rem 0.75rem;
+    }
+    .swatch-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+    }
+    .swatch-hex {
+      font-size: 0.7rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--muted);
+    }
+    .swatch-role {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+      display: block;
+    }
+
+    /* ── Type specimens ── */
+    .type-specimen {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1rem;
+    }
+    .type-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .type-label span { font-family: 'SF Mono', 'Fira Code', monospace; font-weight: 400; }
+
+    /* ── Layer diagram ── */
+    .layers {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      max-width: 700px;
+    }
+    .layer {
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .layer-name { font-size: 0.8rem; font-weight: 600; }
+    .layer-detail { font-size: 0.72rem; font-family: 'SF Mono', 'Fira Code', monospace; }
+
+    /* ── Component examples ── */
+    .comp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .ex-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      width: 240px;
+    }
+    .ex-card-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .ex-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .ex-card p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+    .ex-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.35rem 0.875rem;
+      border-radius: 100px;
+      background: var(--page-bg);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .ex-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 0.55rem 1.25rem;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .ex-btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+
+    .ex-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 0.28rem 0.8rem;
+    }
+
+    .note {
+      background: var(--surface);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 0.875rem 1rem;
+      font-size: 0.82rem;
+      color: var(--text);
+      margin-top: 1rem;
+    }
+    .note strong { color: var(--gold); }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th {
+      text-align: left;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    td:first-child { font-weight: 600; color: var(--text); }
+    td code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.75rem;
+      background: var(--surface);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+    }
+    tr:last-child td { border-bottom: none; }
+
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      The <span>SETD5 Syndrome</span> Companion
+      <span class="sidebar-version">Style Guide · v157 · April 2026</span>
+    </div>
+    <nav>
+      <div class="section-label">Foundation</div>
+      <a href="#palette">Color Palette</a>
+      <a href="#layers">Page Layers</a>
+      <a href="#typography">Typography</a>
+      <div class="section-label">Components</div>
+      <a href="#nav">Navigation</a>
+      <a href="#hero">Hero Header</a>
+      <a href="#intro">Intro Band</a>
+      <a href="#cards">Cards</a>
+      <a href="#buttons">Buttons & Badges</a>
+      <a href="#footer">Footer</a>
+      <div class="section-label">Reference</div>
+      <a href="#tokens">Design Tokens</a>
+      <a href="#changelog">Changelog</a>
+    </nav>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main class="main">
+
+    <div class="page-header">
+      <h1>The <em>SETD5 Syndrome</em> Companion</h1>
+      <p>Style Guide · v157 · April 2026 · Reflects current live production styles</p>
+    </div>
+
+
+    <!-- ══ PALETTE ══ -->
+    <section class="section" id="palette">
+      <div class="section-title">Color Palette</div>
+
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1A4558;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Deep Teal</span>
+            <span class="swatch-hex">#1A4558</span>
+            <span class="swatch-role">Hero header background</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#214F64;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Nav Teal</span>
+            <span class="swatch-hex">#214F64</span>
+            <span class="swatch-role">Navigation bar background</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#2A627A;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Primary Teal</span>
+            <span class="swatch-hex">#2A627A</span>
+            <span class="swatch-role">Buttons, links, footer, accents</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#62929E;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Mid Teal</span>
+            <span class="swatch-hex">#62929E</span>
+            <span class="swatch-role">Secondary accents, borders</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#3ABFB8;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Bright Teal</span>
+            <span class="swatch-hex">#3ABFB8</span>
+            <span class="swatch-role">Emphasis text (e.g. key callout sentences)</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#A07D54;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Warm Gold</span>
+            <span class="swatch-hex">#A07D54</span>
+            <span class="swatch-role">Section labels, italic accents</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#D4AE88;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Light Gold</span>
+            <span class="swatch-hex">#D4AE88</span>
+            <span class="swatch-role">Hero h1 italic, nav logo SETD5 text</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F8F7F4; border:1px solid #DDD8D1;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Intro Cream</span>
+            <span class="swatch-hex">#F8F7F4</span>
+            <span class="swatch-role">Intro band background</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F5F4F1; border:1px solid #DDD8D1;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Page Cream</span>
+            <span class="swatch-hex">#F5F4F1</span>
+            <span class="swatch-role">Main page background</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#EFEEEA; border:1px solid #DDD8D1;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Warm Surface</span>
+            <span class="swatch-hex">#EFEEEA</span>
+            <span class="swatch-role">Alternate section backgrounds, callouts</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFFFF; border:1px solid #DDD8D1;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">White</span>
+            <span class="swatch-hex">#FFFFFF</span>
+            <span class="swatch-role">Cards, trust badges</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#DDD8D1;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Border</span>
+            <span class="swatch-hex">#DDD8D1</span>
+            <span class="swatch-role">All dividers and borders</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#2F2F2B;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Ink</span>
+            <span class="swatch-hex">#2F2F2B</span>
+            <span class="swatch-role">Body text, headings</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#7A756D;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Muted</span>
+            <span class="swatch-hex">#7A756D</span>
+            <span class="swatch-role">Secondary text, eyebrow labels</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ PAGE LAYERS ══ -->
+    <section class="section" id="layers">
+      <div class="section-title">Page Layer System</div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;">The homepage uses a five-layer background system that creates depth from dark to light as the user scrolls down.</p>
+
+      <div class="layers">
+        <div class="layer" style="background:#214F64; color:#F5F4F1;">
+          <span class="layer-name">Navigation Bar</span>
+          <span class="layer-detail" style="color:rgba(245,244,241,0.6);">#214F64</span>
+        </div>
+        <div class="layer" style="background:#1A4558; color:#F5F4F1; border-top:1px solid rgba(255,255,255,0.08);">
+          <span class="layer-name">Hero Header</span>
+          <span class="layer-detail" style="color:rgba(245,244,241,0.6);">#1A4558 · box-shadow: 0 8px 32px rgba(26,69,88,0.32)</span>
+        </div>
+        <div class="layer" style="background:#F8F7F4; border-top:1px solid #DDD8D1;">
+          <span class="layer-name">Intro Band</span>
+          <span class="layer-detail" style="color:var(--muted);">#F8F7F4</span>
+        </div>
+        <div class="layer" style="background:#F5F4F1; border-top:1px solid #DDD8D1;">
+          <span class="layer-name">Page Body</span>
+          <span class="layer-detail" style="color:var(--muted);">#F5F4F1</span>
+        </div>
+        <div class="layer" style="background:#FFFFFF; border:1px solid #DDD8D1; margin:0 1rem 0; border-radius:0;">
+          <span class="layer-name" style="color:var(--text);">Cards (within page body)</span>
+          <span class="layer-detail" style="color:var(--muted);">#FFFFFF</span>
+        </div>
+        <div class="layer" style="background:#2A627A; color:#F5F4F1; border-top:1px solid rgba(255,255,255,0.1);">
+          <span class="layer-name">Footer</span>
+          <span class="layer-detail" style="color:rgba(245,244,241,0.6);">#2A627A</span>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:1.5rem;">
+        <strong>Interior pages</strong> use a simpler system: Nav (#214F64) → Interior hero (#EFEEEA, light text removed) → Page body (#F5F4F1) → Footer (#2A627A).
+      </div>
+    </section>
+
+
+    <!-- ══ TYPOGRAPHY ══ -->
+    <section class="section" id="typography">
+      <div class="section-title">Typography</div>
+
+      <div class="note" style="margin-bottom:1.5rem;">
+        <strong>One font family:</strong> DM Sans — used for all UI, headings, body text, and labels.
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Hero H1 — DM Sans Bold italic for emphasis <span>font-size: clamp(2rem, 4vw, 2.75rem) · color: #F5F4F1 · em: #D4AE88</span></div>
+        <div style="font-family:'DM Sans',sans-serif; font-size:2.4rem; font-weight:700; line-height:1.15; color:#2F2F2B;">The <em style="font-style:italic;color:#A07D54;">SETD5 Syndrome</em> Companion</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Intro Headline — DM Sans Bold <span>font-size: 1.625rem · font-weight: 700 · color: #2F2F2B · em: #A07D54</span></div>
+        <div style="font-family:'DM Sans',sans-serif; font-size:1.625rem; font-weight:700; color:#2F2F2B;">Built by a parent, <em style="font-style:italic;color:#A07D54;">for families like ours.</em></div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Section Label <span>font-size: 0.68rem · font-weight: 700 · letter-spacing: 0.14em · color: #A07D54</span></div>
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#A07D54;">Explore the Site</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Card Eyebrow <span>font-size: 0.62rem · font-weight: 700 · letter-spacing: 0.1em · color: #7A756D</span></div>
+        <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#7A756D;">Start Here</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Card Title <span>font-size: 1rem · font-weight: 700 · color: #2F2F2B</span></div>
+        <div style="font-size:1rem;font-weight:700;color:#2F2F2B;">Understanding SETD5 Syndrome</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Body Copy <span>font-size: 0.875–1rem · font-weight: 400 · color: #2F2F2B · line-height: 1.65</span></div>
+        <div style="font-size:0.9rem;color:#2F2F2B;line-height:1.65;">A practical guide for newly diagnosed families: what SETD5 Syndrome is, what to expect, and where to start.</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-label">Secondary / Meta <span>font-size: 0.78–0.875rem · color: #7A756D</span></div>
+        <div style="font-size:0.8rem;color:#7A756D;">Published research on SETD5 Syndrome, summarized for families and caregivers.</div>
+      </div>
+    </section>
+
+
+    <!-- ══ NAV ══ -->
+    <section class="section" id="nav">
+      <div class="section-title">Navigation Bar</div>
+
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:1.5rem;">
+        <div style="background:#214F64;padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="font-size:0.95rem;font-weight:700;color:#F5F4F1;">
+            The <span style="color:#D4AE88;">SETD5 Syndrome</span> <span style="font-weight:400;">Companion</span>
+          </div>
+          <div style="display:flex;gap:1.5rem;">
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.75);">Understanding SETD5</span>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.75);">Family Toolkit</span>
+            <span style="font-size:0.8rem;color:#FFFFFF;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#A07D54;">Research</span>
+            <span style="font-size:0.8rem;color:rgba(255,255,255,0.75);">Community</span>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <tr><th>Property</th><th>Value</th><th>Notes</th></tr>
+        <tr><td>Background</td><td><code>#214F64</code></td><td>Slightly lighter than hero to create unified dark header zone</td></tr>
+        <tr><td>Height</td><td><code>56px</code></td><td>Fixed, <code>position: fixed; top: 0;</code></td></tr>
+        <tr><td>Logo — "SETD5 Syndrome"</td><td><code>#D4AE88</code></td><td>Warm gold, font-weight 600</td></tr>
+        <tr><td>Logo — "The" / "Companion"</td><td><code>#F5F4F1</code></td><td>Companion is font-weight 400</td></tr>
+        <tr><td>Nav links</td><td><code>rgba(255,255,255,0.75)</code></td><td>White at 75% opacity</td></tr>
+        <tr><td>Active link text</td><td><code>#FFFFFF</code></td><td>Full white</td></tr>
+        <tr><td>Active underline</td><td><code>#A07D54</code></td><td>Gold underline, 3px, offset 4px</td></tr>
+        <tr><td>Border / shadow</td><td>None</td><td>Seamless into hero below</td></tr>
+      </table>
+    </section>
+
+
+    <!-- ══ HERO ══ -->
+    <section class="section" id="hero">
+      <div class="section-title">Hero Header (Homepage)</div>
+
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:1.5rem;box-shadow:0 8px 32px rgba(26,69,88,0.25);">
+        <div style="background:#1A4558;padding:3.5rem 2.5rem 3rem;position:relative;">
+          <div style="display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#D4AE88;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:0.28rem 0.8rem;margin-bottom:1.4rem;">Rare Genetic Condition · Family Resource</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:700;line-height:1.15;color:#F5F4F1;margin-bottom:0.75rem;">The <em style="color:#D4AE88;font-style:italic;">SETD5 Syndrome</em> Companion</div>
+          <div style="font-size:0.95rem;color:rgba(245,244,241,0.75);max-width:480px;line-height:1.7;">Plain-language resources for families navigating SETD5 Syndrome — wherever you are in the journey.</div>
+        </div>
+      </div>
+
+      <table>
+        <tr><th>Property</th><th>Value</th><th>Notes</th></tr>
+        <tr><td>Background</td><td><code>#1A4558</code></td><td>Richest / darkest teal — creates depth beneath nav</td></tr>
+        <tr><td>Drop shadow</td><td><code>0 8px 32px rgba(26,69,88,0.32)</code></td><td>Lifts hero off the light content below</td></tr>
+        <tr><td>Tag pill</td><td><code>color: #D4AE88</code>, glass bg</td><td><code>rgba(255,255,255,0.08)</code> bg, <code>rgba(255,255,255,0.15)</code> border</td></tr>
+        <tr><td>H1 "The … Companion"</td><td><code>#F5F4F1</code></td><td>DM Sans 700, clamp(2rem,4vw,2.75rem)</td></tr>
+        <tr><td>H1 italic "SETD5 Syndrome"</td><td><code>#D4AE88</code></td><td>Light gold italic</td></tr>
+        <tr><td>Subtext</td><td><code>rgba(245,244,241,0.75)</code></td><td>DM Sans 400, 1rem, lh 1.7</td></tr>
+        <tr><td>Helix SVG decoration</td><td><code>rgba(180,215,228,…)</code></td><td>Light aqua, positioned right edge</td></tr>
+        <tr><td>Interior page hero</td><td><code>#EFEEEA</code></td><td>Light surface, dark text — uses <code>header.site-header</code></td></tr>
+      </table>
+    </section>
+
+
+    <!-- ══ INTRO ══ -->
+    <section class="section" id="intro">
+      <div class="section-title">Intro Band</div>
+
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:1.5rem;">
+        <div style="background:#F8F7F4;padding:3rem 2rem;text-align:center;border-bottom:1px solid #DDD8D1;">
+          <div style="font-family:'DM Sans',sans-serif;font-size:1.5rem;font-weight:700;color:#2F2F2B;margin-bottom:1.75rem;">Built by a parent, <em style="font-style:italic;color:#A07D54;">for families like ours.</em></div>
+          <div style="display:flex;justify-content:center;gap:1.5rem;">
+            <span style="font-size:0.75rem;font-weight:500;padding:0.35rem 0.875rem;border-radius:100px;background:#fff;border:1px solid #DDD8D1;color:#2A627A;">✓ Always free</span>
+            <span style="font-size:0.75rem;font-weight:500;padding:0.35rem 0.875rem;border-radius:100px;background:#fff;border:1px solid #DDD8D1;color:#2A627A;">📖 Research-sourced</span>
+            <span style="font-size:0.75rem;font-weight:500;padding:0.35rem 0.875rem;border-radius:100px;background:#fff;border:1px solid #DDD8D1;color:#2A627A;">↻ Updated regularly</span>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <tr><th>Property</th><th>Value</th><th>Notes</th></tr>
+        <tr><td>Background</td><td><code>#F8F7F4</code></td><td>One step lighter than page body</td></tr>
+        <tr><td>Padding</td><td><code>5.5rem top, 5rem bottom</code></td><td>Generous vertical breathing room</td></tr>
+        <tr><td>Headline</td><td><code>#2F2F2B</code></td><td>DM Sans 700, 1.625rem — no decorative dash</td></tr>
+        <tr><td>Italic em</td><td><code>#A07D54</code></td><td>Warm gold italic for "for families like ours."</td></tr>
+        <tr><td>Trust badges</td><td><code>#FFFFFF</code> bg, <code>#2A627A</code> text</td><td>Gap: 1.5rem between badges</td></tr>
+        <tr><td>Border bottom</td><td><code>1px solid #DDD8D1</code></td><td>Separates from page body</td></tr>
+      </table>
+    </section>
+
+
+    <!-- ══ CARDS ══ -->
+    <section class="section" id="cards">
+      <div class="section-title">Cards</div>
+
+      <div class="comp-row" style="margin-bottom:1.5rem;">
+        <div class="ex-card">
+          <div class="ex-card-eyebrow">Start Here</div>
+          <h3>Understanding SETD5 Syndrome</h3>
+          <p>A practical guide for newly diagnosed families.</p>
+        </div>
+        <div class="ex-card">
+          <div class="ex-card-eyebrow">Tools</div>
+          <h3>Family Toolkit</h3>
+          <p>Printable handouts, IEP guides, and resources for families.</p>
+        </div>
+      </div>
+
+      <table>
+        <tr><th>Property</th><th>Value</th><th>Notes</th></tr>
+        <tr><td>Background</td><td><code>#FFFFFF</code></td><td>White cards on cream page body for visual lift</td></tr>
+        <tr><td>Border</td><td><code>1px solid #E8E3DB</code></td><td>Soft warm border</td></tr>
+        <tr><td>Border radius</td><td><code>10px</code></td><td></td></tr>
+        <tr><td>Eyebrow label</td><td><code>#7A756D</code></td><td>0.62rem, 700 weight, 0.1em letter-spacing, uppercase</td></tr>
+        <tr><td>Title</td><td><code>#2F2F2B</code></td><td>DM Sans 700, ~1rem</td></tr>
+        <tr><td>Body copy</td><td><code>#7A756D</code></td><td>0.8rem, lh 1.55</td></tr>
+        <tr><td>Card-link button</td><td>Hidden (<code>display: none</code>)</td><td>Entire card is the link — no button clutter</td></tr>
+        <tr><td>Hover state</td><td>Subtle lift / border color shift</td><td>Interactivity signalled by card-level hover</td></tr>
+      </table>
+    </section>
+
+
+    <!-- ══ BUTTONS ══ -->
+    <section class="section" id="buttons">
+      <div class="section-title">Buttons & Badges</div>
+
+      <div class="comp-row">
+        <a class="ex-btn" href="#">View Guide</a>
+        <a class="ex-btn ex-btn-outline" href="#">Learn More</a>
+        <span class="ex-badge">✓ Always free</span>
+        <span class="ex-tag">Rare Genetic Condition · Family Resource</span>
+      </div>
+
+      <table>
+        <tr><th>Element</th><th>Style</th><th>Notes</th></tr>
+        <tr><td>Primary button</td><td><code>bg #2A627A, color #fff, radius 7px</code></td><td>DM Sans 500, 0.875rem — used for utility actions</td></tr>
+        <tr><td>Outline button</td><td><code>border 1.5px #2A627A, color #2A627A</code></td><td>Secondary actions</td></tr>
+        <tr><td>Trust badge</td><td><code>bg #fff, border #DDD8D1, radius 100px</code></td><td>Color: <code>#2A627A</code> — intro band only</td></tr>
+        <tr><td>Hero tag pill</td><td>Glass bg <code>rgba(255,255,255,0.08)</code></td><td>Color: <code>#D4AE88</code> — hero only</td></tr>
+        <tr><td>Start-here button</td><td><code>bg #2A627A, font-size 0.8rem, padding 0.45rem 1rem</code></td><td>Smaller than standard — used in callout blocks</td></tr>
+      </table>
+    </section>
+
+
+    <!-- ══ FOOTER ══ -->
+    <section class="section" id="footer">
+      <div class="section-title">Footer</div>
+
+      <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:1.5rem;">
+        <div style="background:#2A627A;padding:2rem 2.5rem;display:grid;grid-template-columns:2fr 1fr;gap:3rem;">
+          <div>
+            <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.15rem;">The SETD5 Syndrome Companion</div>
+            <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:rgba(255,255,255,0.45);margin-bottom:0.875rem;">A peer resource for families and caregivers</div>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.72);max-width:260px;line-height:1.65;margin-bottom:0.5rem;">Content is for informational purposes only and does not constitute medical, legal, or educational advice.</p>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.72);">© 2026 The SETD5 Syndrome Companion</p>
+          </div>
+          <div>
+            <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#fff;margin-bottom:0.875rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.12);">About & Support</div>
+            <ul style="list-style:none;font-size:0.875rem;">
+              <li style="margin-bottom:0.45rem;"><a href="#" style="color:rgba(255,255,255,0.82);text-decoration:none;">About This Site</a></li>
+              <li style="margin-bottom:0.45rem;"><a href="#" style="color:rgba(255,255,255,0.82);text-decoration:none;">Share Your Story</a></li>
+              <li style="margin-bottom:0.45rem;"><a href="#" style="color:rgba(255,255,255,0.82);text-decoration:none;">Contact</a></li>
+              <li><a href="#" style="color:rgba(255,255,255,0.82);text-decoration:none;">Terms of Use</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <tr><th>Property</th><th>Value</th><th>Notes</th></tr>
+        <tr><td>Background</td><td><code>#2A627A</code></td><td>Primary teal — creates visual bookend with dark header</td></tr>
+        <tr><td>Grid</td><td><code>2fr 1fr</code></td><td>Brand column wide, About & Support column narrow</td></tr>
+        <tr><td>Column heading</td><td><code>#FFFFFF</code></td><td>"About & Support" — white, 700 weight uppercase</td></tr>
+        <tr><td>Brand name</td><td><code>#FFFFFF</code></td><td>1rem, 700</td></tr>
+        <tr><td>Brand tagline</td><td><code>rgba(255,255,255,0.45)</code></td><td>Uppercase, small</td></tr>
+        <tr><td>Body / copyright</td><td><code>rgba(255,255,255,0.72)</code></td><td>0.875rem</td></tr>
+        <tr><td>Links</td><td><code>rgba(255,255,255,0.82)</code></td><td>Hover: <code>#A07D54</code></td></tr>
+      </table>
+    </section>
+
+
+    <!-- ══ TOKENS ══ -->
+    <section class="section" id="tokens">
+      <div class="section-title">Design Token Reference</div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1.5rem;">CSS variables remapped in site-upgrade.js to override legacy per-page variables.</p>
+
+      <table>
+        <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+        <tr><td><code>--primary</code></td><td><code>#2A627A</code></td><td>Buttons, links, footer</td></tr>
+        <tr><td><code>--bg</code></td><td><code>#F5F4F1</code></td><td>Main page background</td></tr>
+        <tr><td><code>--surface</code></td><td><code>#EFEEEA</code></td><td>Alternate section backgrounds</td></tr>
+        <tr><td><code>--border</code></td><td><code>#DDD8D1</code></td><td>All dividers and borders</td></tr>
+        <tr><td><code>--text</code></td><td><code>#2F2F2B</code></td><td>Body text, headings</td></tr>
+        <tr><td><code>--muted</code></td><td><code>#7A756D</code></td><td>Secondary text</td></tr>
+        <tr><td><code>--gold</code></td><td><code>#A07D54</code></td><td>Section labels, accents</td></tr>
+        <tr><td><code>--navy</code> (legacy)</td><td>→ <code>#2F2F2B</code></td><td>Remapped from old deep navy</td></tr>
+        <tr><td><code>--teal</code> (legacy)</td><td>→ <code>#2A627A</code></td><td>Remapped from old teal</td></tr>
+        <tr><td><code>--amber-lt</code> (legacy)</td><td>→ <code>#EFEEEA</code></td><td>Remapped from old amber light</td></tr>
+      </table>
+    </section>
+
+
+    <!-- ══ CHANGELOG ══ -->
+    <section class="section" id="changelog">
+      <div class="section-title">Version Changelog</div>
+
+      <table>
+        <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
+        <tr><td>v157</td><td>Apr 2026</td><td>Reverted anti-flash (was blanking page). This style guide reflects v157 live state.</td></tr>
+        <tr><td>v156</td><td>Apr 2026</td><td>Card-link buttons hidden — whole card is the clickable link.</td></tr>
+        <tr><td>v155</td><td>Apr 2026</td><td>FOUC fix attempt (reverted v157). Smaller card/start-here buttons.</td></tr>
+        <tr><td>v153</td><td>Apr 2026</td><td>Nav #214F64 (blends with hero). Hero drop-shadow added.</td></tr>
+        <tr><td>v152</td><td>Apr 2026</td><td>Removed intro dash, removed nav/hero border, increased intro spacing.</td></tr>
+        <tr><td>v148</td><td>Apr 2026</td><td>Bold dark hero #1A4558. Light text and gold accents on hero.</td></tr>
+        <tr><td>v147</td><td>Apr 2026</td><td>Removed intro bar body copy — headline stands alone.</td></tr>
+        <tr><td>v143</td><td>Apr 2026</td><td>Footer: About & Support heading white, Explore column removed, 2-col grid.</td></tr>
+        <tr><td>v141</td><td>Apr 2026</td><td>Full palette migration: #2A627A / #62929E / #A07D54. Dark nav restored.</td></tr>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
